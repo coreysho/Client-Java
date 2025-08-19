@@ -13,6 +13,7 @@ public class ViewBox extends Frame {
 		this.field876 = arg2;
 		this.setTitle("Jagex");
 		this.setResizable(false);
+		this.resize(arg3 + 8, arg1 + 28); // macOS needs the size set before the window is shown
 		this.show();
 		if (arg0 != 3) {
 			throw new NullPointerException();

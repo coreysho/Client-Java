@@ -330,12 +330,24 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 		this.field962 = var2;
 		this.field963 = var3;
 		this.field964 = System.currentTimeMillis();
-		if (arg0.isMetaDown()) {
-			this.field961 = 2;
-			this.field958 = 2;
-		} else {
-			this.field961 = 1;
-			this.field958 = 1;
+
+		try {
+			// Java >8 no longer uses "isMetaDown" for right clicks
+			if (arg0.getButton() == MouseEvent.BUTTON3) {
+				this.field961 = 2;
+				this.field958 = 2;
+			} else {
+				this.field961 = 1;
+				this.field958 = 1;
+			}
+		} catch (NoSuchMethodError ex) {
+			if (arg0.isMetaDown()) {
+				this.field961 = 2;
+				this.field958 = 2;
+			} else {
+				this.field961 = 1;
+				this.field958 = 1;
+			}
 		}
 	}
 
