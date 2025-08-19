@@ -1,0 +1,296 @@
+package jagex2.dash3d;
+
+import deob.ObfuscatedName;
+import jagex2.config.SeqType;
+
+public abstract class ClientEntity extends ModelSource {
+
+	@ObfuscatedName("LRUWCBNN.n")
+	public int field1128 = -89;
+
+	@ObfuscatedName("LRUWCBNN.o")
+	public int field1129 = 100;
+
+	@ObfuscatedName("LRUWCBNN.s")
+	public int[] field1133 = new int[10];
+
+	@ObfuscatedName("LRUWCBNN.t")
+	public int[] field1134 = new int[10];
+
+	@ObfuscatedName("LRUWCBNN.u")
+	public int field1135 = -1;
+
+	@ObfuscatedName("LRUWCBNN.x")
+	public boolean[] field1138 = new boolean[10];
+
+	@ObfuscatedName("LRUWCBNN.y")
+	public boolean field1139 = false;
+
+	@ObfuscatedName("LRUWCBNN.A")
+	public int field1141 = 200;
+
+	@ObfuscatedName("LRUWCBNN.B")
+	public int field1142 = -1000;
+
+	@ObfuscatedName("LRUWCBNN.G")
+	public int field1147 = 32;
+
+	@ObfuscatedName("LRUWCBNN.H")
+	public int field1148 = 1;
+
+	@ObfuscatedName("LRUWCBNN.P")
+	public int field1156 = -1;
+
+	@ObfuscatedName("LRUWCBNN.U")
+	public int field1161 = -1;
+
+	@ObfuscatedName("LRUWCBNN.Z")
+	public int field1166 = -1;
+
+	@ObfuscatedName("LRUWCBNN.ab")
+	public int field1167 = -1;
+
+	@ObfuscatedName("LRUWCBNN.bb")
+	public int field1168 = -1;
+
+	@ObfuscatedName("LRUWCBNN.cb")
+	public int field1169 = -1;
+
+	@ObfuscatedName("LRUWCBNN.eb")
+	public int field1171 = -1;
+
+	@ObfuscatedName("LRUWCBNN.jb")
+	public int field1176 = -1;
+
+	@ObfuscatedName("LRUWCBNN.kb")
+	public int[] field1177 = new int[4];
+
+	@ObfuscatedName("LRUWCBNN.lb")
+	public int[] field1178 = new int[4];
+
+	@ObfuscatedName("LRUWCBNN.mb")
+	public int[] field1179 = new int[4];
+
+	@ObfuscatedName("LRUWCBNN.ob")
+	public int field1181 = -1;
+
+	@ObfuscatedName("LRUWCBNN.pb")
+	public int field1182 = -1;
+
+	@ObfuscatedName("LRUWCBNN.p")
+	public int field1130;
+
+	@ObfuscatedName("LRUWCBNN.q")
+	public int field1131;
+
+	@ObfuscatedName("LRUWCBNN.r")
+	public int field1132;
+
+	@ObfuscatedName("LRUWCBNN.v")
+	public int field1136;
+
+	@ObfuscatedName("LRUWCBNN.w")
+	public int field1137;
+
+	@ObfuscatedName("LRUWCBNN.z")
+	public int field1140;
+
+	@ObfuscatedName("LRUWCBNN.C")
+	public int field1143;
+
+	@ObfuscatedName("LRUWCBNN.D")
+	public int field1144;
+
+	@ObfuscatedName("LRUWCBNN.E")
+	public int field1145;
+
+	@ObfuscatedName("LRUWCBNN.F")
+	public int field1146;
+
+	@ObfuscatedName("LRUWCBNN.I")
+	public int field1149;
+
+	@ObfuscatedName("LRUWCBNN.J")
+	public int field1150;
+
+	@ObfuscatedName("LRUWCBNN.K")
+	public int field1151;
+
+	@ObfuscatedName("LRUWCBNN.L")
+	public int field1152;
+
+	@ObfuscatedName("LRUWCBNN.M")
+	public int field1153;
+
+	@ObfuscatedName("LRUWCBNN.N")
+	public int field1154;
+
+	@ObfuscatedName("LRUWCBNN.O")
+	public int field1155;
+
+	@ObfuscatedName("LRUWCBNN.Q")
+	public int field1157;
+
+	@ObfuscatedName("LRUWCBNN.R")
+	public int field1158;
+
+	@ObfuscatedName("LRUWCBNN.S")
+	public int field1159;
+
+	@ObfuscatedName("LRUWCBNN.T")
+	public int field1160;
+
+	@ObfuscatedName("LRUWCBNN.V")
+	public int field1162;
+
+	@ObfuscatedName("LRUWCBNN.W")
+	public int field1163;
+
+	@ObfuscatedName("LRUWCBNN.X")
+	public int field1164;
+
+	@ObfuscatedName("LRUWCBNN.Y")
+	public int field1165;
+
+	@ObfuscatedName("LRUWCBNN.db")
+	public int field1170;
+
+	@ObfuscatedName("LRUWCBNN.fb")
+	public int field1172;
+
+	@ObfuscatedName("LRUWCBNN.gb")
+	public int field1173;
+
+	@ObfuscatedName("LRUWCBNN.hb")
+	public int field1174;
+
+	@ObfuscatedName("LRUWCBNN.ib")
+	public int field1175;
+
+	@ObfuscatedName("LRUWCBNN.nb")
+	public int field1180;
+
+	@ObfuscatedName("LRUWCBNN.m")
+	public String field1127;
+
+	@ObfuscatedName("LRUWCBNN.a(I)V")
+	public final void method350(int arg0) {
+		this.field1180 = 0;
+		this.field1160 = 0;
+		if (arg0 >= 0) {
+			;
+		}
+	}
+
+	@ObfuscatedName("LRUWCBNN.b(I)Z")
+	public boolean method351(int arg0) {
+		if (arg0 != 0) {
+			throw new NullPointerException();
+		}
+		return false;
+	}
+
+	@ObfuscatedName("LRUWCBNN.a(ZII)V")
+	public final void method352(boolean arg0, int arg1, int arg2) {
+		if (arg2 >= 0) {
+			return;
+		}
+		int var4 = this.field1133[0];
+		int var5 = this.field1134[0];
+		if (arg1 == 0) {
+			var4--;
+			var5++;
+		}
+		if (arg1 == 1) {
+			var5++;
+		}
+		if (arg1 == 2) {
+			var4++;
+			var5++;
+		}
+		if (arg1 == 3) {
+			var4--;
+		}
+		if (arg1 == 4) {
+			var4++;
+		}
+		if (arg1 == 5) {
+			var4--;
+			var5--;
+		}
+		if (arg1 == 6) {
+			var5--;
+		}
+		if (arg1 == 7) {
+			var4++;
+			var5--;
+		}
+		if (this.field1171 != -1 && SeqType.field775[this.field1171].field788 == 1) {
+			this.field1171 = -1;
+		}
+		if (this.field1180 < 9) {
+			this.field1180++;
+		}
+		for (int var6 = this.field1180; var6 > 0; var6--) {
+			this.field1133[var6] = this.field1133[var6 - 1];
+			this.field1134[var6] = this.field1134[var6 - 1];
+			this.field1138[var6] = this.field1138[var6 - 1];
+		}
+		this.field1133[0] = var4;
+		this.field1134[0] = var5;
+		this.field1138[0] = arg0;
+	}
+
+	@ObfuscatedName("LRUWCBNN.a(IZII)V")
+	public final void method353(int arg0, boolean arg1, int arg2, int arg3) {
+		for (int var5 = 0; var5 < 4; var5++) {
+			if (this.field1179[var5] <= arg0) {
+				this.field1177[var5] = arg2;
+				this.field1178[var5] = arg3;
+				this.field1179[var5] = arg0 + 70;
+				return;
+			}
+		}
+		if (arg1) {
+			this.field1128 = -52;
+		}
+	}
+
+	@ObfuscatedName("LRUWCBNN.a(IBZI)V")
+	public final void method354(int arg0, byte arg1, boolean arg2, int arg3) {
+		if (this.field1171 != -1 && SeqType.field775[this.field1171].field788 == 1) {
+			this.field1171 = -1;
+		}
+		if (!arg2) {
+			int var5 = arg3 - this.field1133[0];
+			int var6 = arg0 - this.field1134[0];
+			if (var5 >= -8 && var5 <= 8 && var6 >= -8 && var6 <= 8) {
+				if (this.field1180 < 9) {
+					this.field1180++;
+				}
+				for (int var7 = this.field1180; var7 > 0; var7--) {
+					this.field1133[var7] = this.field1133[var7 - 1];
+					this.field1134[var7] = this.field1134[var7 - 1];
+					this.field1138[var7] = this.field1138[var7 - 1];
+				}
+				this.field1133[0] = arg3;
+				this.field1134[0] = arg0;
+				this.field1138[0] = false;
+				return;
+			}
+		}
+		this.field1180 = 0;
+		this.field1160 = 0;
+		this.field1170 = 0;
+		this.field1133[0] = arg3;
+		this.field1134[0] = arg0;
+		if (arg1 == 5) {
+			boolean var8 = false;
+		} else {
+			for (int var9 = 1; var9 > 0; var9++) {
+			}
+		}
+		this.field1157 = this.field1133[0] * 128 + this.field1148 * 64;
+		this.field1158 = this.field1134[0] * 128 + this.field1148 * 64;
+	}
+}
