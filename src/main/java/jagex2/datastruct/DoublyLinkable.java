@@ -4,9 +4,6 @@ import deob.ObfuscatedName;
 
 public class DoublyLinkable extends Linkable {
 
-	@ObfuscatedName("DPPNUUMQ.g")
-	public static int field635;
-
 	@ObfuscatedName("DPPNUUMQ.e")
 	public DoublyLinkable field633;
 

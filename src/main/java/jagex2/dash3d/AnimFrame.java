@@ -5,9 +5,6 @@ import jagex2.io.Packet;
 
 public class AnimFrame {
 
-	@ObfuscatedName("JULFQTYK.a")
-	public static int field927 = 217;
-
 	@ObfuscatedName("JULFQTYK.d")
 	public int field930;
 
@@ -16,9 +13,6 @@ public class AnimFrame {
 
 	@ObfuscatedName("JULFQTYK.e")
 	public AnimBase field931;
-
-	@ObfuscatedName("JULFQTYK.b")
-	public static boolean field928;
 
 	@ObfuscatedName("JULFQTYK.g")
 	public int[] field933;
@@ -48,32 +42,29 @@ public class AnimFrame {
 	}
 
 	@ObfuscatedName("JULFQTYK.a([BZ)V")
-	public static void method262(byte[] arg0, boolean arg1) {
-		Packet var2 = new Packet(true, arg0);
+	public static void method262(byte[] arg0) {
+		Packet var2 = new Packet(arg0);
 		var2.pos = arg0.length - 8;
 		int var3 = var2.g2();
 		int var4 = var2.g2();
 		int var5 = var2.g2();
-		if (!arg1) {
-			return;
-		}
 		int var6 = var2.g2();
 		byte var7 = 0;
-		Packet var8 = new Packet(true, arg0);
+		Packet var8 = new Packet(arg0);
 		var8.pos = var7;
 		int var9 = var3 + 2 + var7;
-		Packet var10 = new Packet(true, arg0);
+		Packet var10 = new Packet(arg0);
 		var10.pos = var9;
 		int var11 = var4 + var9;
-		Packet var12 = new Packet(true, arg0);
+		Packet var12 = new Packet(arg0);
 		var12.pos = var11;
 		int var13 = var5 + var11;
-		Packet var14 = new Packet(true, arg0);
+		Packet var14 = new Packet(arg0);
 		var14.pos = var13;
 		int var15 = var6 + var13;
-		Packet var16 = new Packet(true, arg0);
+		Packet var16 = new Packet(arg0);
 		var16.pos = var15;
-		AnimBase var17 = new AnimBase(var16, 0);
+		AnimBase var17 = new AnimBase(var16);
 		int var18 = var8.g2();
 		int[] var19 = new int[500];
 		int[] var20 = new int[500];
@@ -144,10 +135,7 @@ public class AnimFrame {
 	}
 
 	@ObfuscatedName("JULFQTYK.a(Z)V")
-	public static void method263(boolean arg0) {
-		if (arg0) {
-			field927 = 189;
-		}
+	public static void method263() {
 		field929 = null;
 	}
 
@@ -157,10 +145,7 @@ public class AnimFrame {
 	}
 
 	@ObfuscatedName("JULFQTYK.a(ZI)Z")
-	public static boolean method265(boolean arg0, int arg1) {
-		if (!arg0) {
-			field928 = !field928;
-		}
+	public static boolean method265(int arg1) {
 		return arg1 == -1;
 	}
 }

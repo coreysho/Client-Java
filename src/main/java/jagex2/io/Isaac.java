@@ -22,12 +22,9 @@ public class Isaac {
 	@ObfuscatedName("KRGHNEZN.f")
 	public int field1089;
 
-	public Isaac(int arg0, int[] arg1) {
+	public Isaac(int[] arg1) {
 		for (int var3 = 0; var3 < arg1.length; var3++) {
 			this.field1085[var3] = arg1[var3];
-		}
-		if (arg0 >= 0) {
-			throw new NullPointerException();
 		}
 		this.method331();
 	}

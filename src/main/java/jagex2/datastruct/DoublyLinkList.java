@@ -4,22 +4,15 @@ import deob.ObfuscatedName;
 
 public class DoublyLinkList {
 
-	@ObfuscatedName("CZYJUOKA.a")
-	public boolean field630 = true;
-
 	@ObfuscatedName("CZYJUOKA.b")
 	public DoublyLinkable field631 = new DoublyLinkable();
 
 	@ObfuscatedName("CZYJUOKA.c")
 	public DoublyLinkable field632;
 
-	public DoublyLinkList(boolean arg0) {
+	public DoublyLinkList() {
 		this.field631.field633 = this.field631;
 		this.field631.field634 = this.field631;
-		if (!arg0) {
-			for (int var2 = 1; var2 > 0; var2++) {
-			}
-		}
 	}
 
 	@ObfuscatedName("CZYJUOKA.a(LDPPNUUMQ;)V")
@@ -57,16 +50,13 @@ public class DoublyLinkList {
 	}
 
 	@ObfuscatedName("CZYJUOKA.a(I)LDPPNUUMQ;")
-	public DoublyLinkable method183(int arg0) {
+	public DoublyLinkable method183() {
 		DoublyLinkable var2 = this.field632;
 		if (this.field631 == var2) {
 			this.field632 = null;
 			return null;
 		}
 		this.field632 = var2.field633;
-		if (arg0 < 1 || arg0 > 1) {
-			this.field630 = !this.field630;
-		}
 		return var2;
 	}
 

@@ -13,12 +13,6 @@ import jagex2.jstring.JString;
 
 public class Component {
 
-	@ObfuscatedName("EWIXBTLV.ib")
-	public int field752 = -68;
-
-	@ObfuscatedName("EWIXBTLV.jb")
-	public boolean field753 = true;
-
 	@ObfuscatedName("EWIXBTLV.K")
 	public static int field728 = -1;
 
@@ -26,25 +20,13 @@ public class Component {
 	public static int field737 = -1;
 
 	@ObfuscatedName("EWIXBTLV.cb")
-	public static LruCache field746 = new LruCache(30, -572);
-
-	@ObfuscatedName("EWIXBTLV.nb")
-	public static int field757 = -291;
+	public static LruCache field746 = new LruCache(30);
 
 	@ObfuscatedName("EWIXBTLV.pb")
 	public static int field759 = -1;
 
-	@ObfuscatedName("EWIXBTLV.qb")
-	public static boolean field760 = true;
-
-	@ObfuscatedName("EWIXBTLV.rb")
-	public static int field761 = 373;
-
 	@ObfuscatedName("EWIXBTLV.k")
 	public byte field702;
-
-	@ObfuscatedName("EWIXBTLV.a")
-	public static int field692;
 
 	@ObfuscatedName("EWIXBTLV.f")
 	public int field697;
@@ -196,9 +178,6 @@ public class Component {
 	@ObfuscatedName("EWIXBTLV.L")
 	public boolean field729;
 
-	@ObfuscatedName("EWIXBTLV.V")
-	public static boolean field739;
-
 	@ObfuscatedName("EWIXBTLV.kb")
 	public boolean field754;
 
@@ -254,47 +233,41 @@ public class Component {
 	public int[][] field716;
 
 	@ObfuscatedName("EWIXBTLV.a(ILjava/lang/String;I)LEPQDEJTO;")
-	public static Pix32 method203(int arg0, String arg1, int arg2) {
-		long var3 = (JString.method346(183, arg1) << 8) + (long) arg0;
-		if (arg2 <= 0) {
-			field757 = -317;
-		}
+	public static Pix32 method203(int arg0, String arg1) {
+		long var3 = (JString.method346(arg1) << 8) + (long) arg0;
 		Pix32 var5 = (Pix32) field732.method458(var3);
 		if (var5 != null) {
 			return var5;
 		} else if (field696 == null) {
 			return null;
-		} else {
-			try {
-				Pix32 var6 = new Pix32(field696, arg1, arg0);
-				field732.method459(var6, var3, 5);
-				return var6;
-			} catch (Exception var7) {
-				return null;
-			}
+		}
+		try {
+			Pix32 var6 = new Pix32(field696, arg1, arg0);
+			field732.method459(var6, var3);
+			return var6;
+		} catch (Exception var7) {
+			return null;
 		}
 	}
 
 	@ObfuscatedName("EWIXBTLV.a(I)LEWIXBTLV;")
 	public static Component method204(int arg0) {
 		if (field698[arg0] == null) {
-			Packet var1 = new Packet(true, field764[arg0]);
+			Packet var1 = new Packet(field764[arg0]);
 			int var2 = var1.g2();
-			field698[arg0] = method207(var2, var1, 10896, arg0);
+			field698[arg0] = method207(var2, var1, arg0);
 		}
 		return field698[arg0];
 	}
 
 	@ObfuscatedName("EWIXBTLV.a(III)V")
-	public void method205(int arg0, int arg1, int arg2) {
+	public void method205(int arg0, int arg2) {
 		int var4 = this.field751[arg2];
 		this.field751[arg2] = this.field751[arg0];
 		this.field751[arg0] = var4;
 		int var5 = this.field706[arg2];
 		this.field706[arg2] = this.field706[arg0];
-		if (arg1 < 0) {
-			this.field706[arg0] = var5;
-		}
+		this.field706[arg0] = var5;
 	}
 
 	@ObfuscatedName("EWIXBTLV.a(II)LLZYQDKJV;")
@@ -313,25 +286,25 @@ public class Component {
 			var4 = Model.method359(arg1);
 		}
 		if (arg0 == 2) {
-			var4 = NpcType.method477(arg1).method472(858);
+			var4 = NpcType.method477(arg1).method472();
 		}
 		if (arg0 == 3) {
-			var4 = Client.field463.method572(true);
+			var4 = Client.field463.method572();
 		}
 		if (arg0 == 4) {
-			var4 = var3.method226(this.field752, 50);
+			var4 = var3.method226(50);
 		}
 		if (arg0 == 5) {
 			var4 = null;
 		}
 		if (var4 != null) {
-			field746.method459(var4, (long) ((arg0 << 16) + arg1), 5);
+			field746.method459(var4, (long) ((arg0 << 16) + arg1));
 		}
 		return var4;
 	}
 
 	@ObfuscatedName("EWIXBTLV.a(ILMFMVIYHT;II)LEWIXBTLV;")
-	public static Component method207(int arg0, Packet arg1, int arg2, int arg3) {
+	public static Component method207(int arg0, Packet arg1, int arg3) {
 		Component var4 = new Component();
 		var4.field697 = arg3;
 		var4.field730 = arg0;
@@ -340,9 +313,6 @@ public class Component {
 		var4.field724 = arg1.g2();
 		var4.field723 = arg1.g2();
 		var4.field720 = arg1.g2();
-		if (arg2 != 10896) {
-			field760 = !field760;
-		}
 		var4.field702 = (byte) arg1.g1();
 		var4.field736 = arg1.g1();
 		if (var4.field736 == 0) {
@@ -416,7 +386,7 @@ public class Component {
 					String var16 = arg1.gjstr();
 					if (var16.length() > 0) {
 						int var17 = var16.lastIndexOf(",");
-						var4.field747[var13] = method203(Integer.parseInt(var16.substring(var17 + 1)), var16.substring(0, var17), 373);
+						var4.field747[var13] = method203(Integer.parseInt(var16.substring(var17 + 1)), var16.substring(0, var17));
 					}
 				}
 			}
@@ -455,12 +425,12 @@ public class Component {
 			String var19 = arg1.gjstr();
 			if (var19.length() > 0) {
 				int var20 = var19.lastIndexOf(",");
-				var4.field694 = method203(Integer.parseInt(var19.substring(var20 + 1)), var19.substring(0, var20), 373);
+				var4.field694 = method203(Integer.parseInt(var19.substring(var20 + 1)), var19.substring(0, var20));
 			}
 			String var21 = arg1.gjstr();
 			if (var21.length() > 0) {
 				int var22 = var21.lastIndexOf(",");
-				var4.field727 = method203(Integer.parseInt(var21.substring(var22 + 1)), var21.substring(0, var22), 373);
+				var4.field727 = method203(Integer.parseInt(var21.substring(var22 + 1)), var21.substring(0, var22));
 			}
 		}
 		if (var4.field718 == 6) {
@@ -540,12 +510,12 @@ public class Component {
 	}
 
 	@ObfuscatedName("EWIXBTLV.a(I[LJDPYRDAS;LATJMVOZR;LATJMVOZR;)V")
-	public static void method208(int arg0, PixFont[] arg1, Jagfile arg2, Jagfile arg3) {
-		field732 = new LruCache(50000, -572);
+	public static void method208(PixFont[] arg1, Jagfile arg2, Jagfile arg3) {
+		field732 = new LruCache(50000);
 		field696 = arg3;
 		field705 = arg1;
 		int var4 = -1;
-		Packet var5 = new Packet(true, arg2.method2("data", null));
+		Packet var5 = new Packet(arg2.method2("data", null));
 		int var6 = var5.g2();
 		field698 = new Component[var6];
 		field764 = new byte[var6][];
@@ -556,7 +526,7 @@ public class Component {
 				var7 = var5.g2();
 			}
 			int var8 = var5.pos;
-			Component var9 = method207(var4, var5, 10896, var7);
+			Component var9 = method207(var4, var5, var7);
 			byte[] var10 = field764[var9.field697] = new byte[var5.pos - var8 + 2];
 			for (int var11 = var8; var11 < var5.pos; var11++) {
 				var10[var11 - var8 + 2] = var5.data[var11];
@@ -565,16 +535,10 @@ public class Component {
 			var10[1] = (byte) var4;
 		}
 		field696 = null;
-		if (arg0 >= 0) {
-			field692 = 391;
-		}
 	}
 
 	@ObfuscatedName("EWIXBTLV.a(ZI)V")
-	public static void method209(boolean arg0, int arg1) {
-		if (!arg0) {
-			field739 = !field739;
-		}
+	public static void method209(int arg1) {
 		if (arg1 == -1) {
 			return;
 		}
@@ -586,31 +550,24 @@ public class Component {
 	}
 
 	@ObfuscatedName("EWIXBTLV.a(ILLZYQDKJV;II)V")
-	public static void method210(int arg0, Model arg1, int arg2, int arg3) {
+	public static void method210(int arg0, Model arg1, int arg2) {
 		field746.method460();
-		if (arg3 != 6) {
-			for (int var4 = 1; var4 > 0; var4++) {
-			}
-		}
 		if (arg1 != null && arg0 != 4) {
-			field746.method459(arg1, (long) ((arg0 << 16) + arg2), 5);
+			field746.method459(arg1, (long) ((arg0 << 16) + arg2));
 		}
 	}
 
 	@ObfuscatedName("EWIXBTLV.a(Z)V")
-	public static void method211(boolean arg0) {
+	public static void method211() {
 		field698 = null;
 		field696 = null;
-		if (arg0) {
-			field739 = !field739;
-		}
 		field732 = null;
 		field705 = null;
 		field764 = null;
 	}
 
 	@ObfuscatedName("EWIXBTLV.a(IIIZ)LLZYQDKJV;")
-	public Model method212(int arg0, int arg1, int arg2, boolean arg3) {
+	public Model method212(int arg0, int arg1, boolean arg3) {
 		field762 = 64;
 		field725 = 768;
 		Model var5;
@@ -623,22 +580,18 @@ public class Component {
 			return null;
 		} else if (arg0 == -1 && arg1 == -1 && var5.field1209 == null) {
 			return var5;
-		} else {
-			Model var6 = new Model(false, false, true, var5, AnimFrame.method265(this.field753, arg0) & AnimFrame.method265(this.field753, arg1));
-			if (arg2 != 0) {
-				this.field753 = !this.field753;
-			}
-			if (arg0 != -1 || arg1 != -1) {
-				var6.method366(7);
-			}
-			if (arg0 != -1) {
-				var6.method367(arg0, (byte) 6);
-			}
-			if (arg1 != -1) {
-				var6.method367(arg1, (byte) 6);
-			}
-			var6.method376(field762, field725, -50, -10, -50, true);
-			return var6;
 		}
+		Model var6 = new Model(false, false, true, var5, AnimFrame.method265(arg0) & AnimFrame.method265(arg1));
+		if (arg0 != -1 || arg1 != -1) {
+			var6.method366();
+		}
+		if (arg0 != -1) {
+			var6.method367(arg0);
+		}
+		if (arg1 != -1) {
+			var6.method367(arg1);
+		}
+		var6.method376(field762, field725, -50, -10, -50, true);
+		return var6;
 	}
 }

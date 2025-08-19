@@ -1,24 +1,8 @@
 package jagex2.dash3d;
 
 import deob.ObfuscatedName;
-import jagex2.datastruct.Linkable;
 
 public class CollisionMap {
-
-	@ObfuscatedName("XRENONSA.a")
-	public boolean field1576 = false;
-
-	@ObfuscatedName("XRENONSA.b")
-	public int field1577 = -766;
-
-	@ObfuscatedName("XRENONSA.c")
-	public boolean field1578 = true;
-
-	@ObfuscatedName("XRENONSA.d")
-	public int field1579 = 3;
-
-	@ObfuscatedName("XRENONSA.e")
-	public boolean field1580 = true;
 
 	@ObfuscatedName("XRENONSA.f")
 	public int field1581 = 0;
@@ -35,17 +19,12 @@ public class CollisionMap {
 	@ObfuscatedName("XRENONSA.j")
 	public int[][] field1585;
 
-	public CollisionMap(int arg0, int arg1, int arg2) {
-		if (arg1 != 0) {
-			throw new NullPointerException();
-		}
+	public CollisionMap(int arg0, int arg2) {
 		this.field1582 = 0;
 		this.field1583 = arg2;
 		this.field1584 = arg0;
 		this.field1585 = new int[this.field1583][this.field1584];
 		this.method532();
-		if (Linkable.field1772) {
-		}
 	}
 
 	@ObfuscatedName("XRENONSA.a()V")
@@ -62,11 +41,8 @@ public class CollisionMap {
 	}
 
 	@ObfuscatedName("XRENONSA.a(IIZIII)V")
-	public void method533(int arg0, int arg1, boolean arg2, int arg3, int arg4, int arg5) {
+	public void method533(int arg0, boolean arg2, int arg3, int arg4, int arg5) {
 		int var7 = arg4 - this.field1581;
-		if (arg1 != 37679) {
-			return;
-		}
 		int var8 = arg5 - this.field1582;
 		if (arg3 == 0) {
 			if (arg0 == 0) {
@@ -126,76 +102,70 @@ public class CollisionMap {
 				this.method536(var7 - 1, var8, 8);
 			}
 		}
-		if (!arg2) {
-			return;
-		}
-		if (arg3 == 0) {
-			if (arg0 == 0) {
-				this.method536(var7, var8, 65536);
-				this.method536(var7 - 1, var8, 4096);
+		if (arg2) {
+			if (arg3 == 0) {
+				if (arg0 == 0) {
+					this.method536(var7, var8, 65536);
+					this.method536(var7 - 1, var8, 4096);
+				}
+				if (arg0 == 1) {
+					this.method536(var7, var8, 1024);
+					this.method536(var7, var8 + 1, 16384);
+				}
+				if (arg0 == 2) {
+					this.method536(var7, var8, 4096);
+					this.method536(var7 + 1, var8, 65536);
+				}
+				if (arg0 == 3) {
+					this.method536(var7, var8, 16384);
+					this.method536(var7, var8 - 1, 1024);
+				}
 			}
-			if (arg0 == 1) {
-				this.method536(var7, var8, 1024);
-				this.method536(var7, var8 + 1, 16384);
+			if (arg3 == 1 || arg3 == 3) {
+				if (arg0 == 0) {
+					this.method536(var7, var8, 512);
+					this.method536(var7 - 1, var8 + 1, 8192);
+				}
+				if (arg0 == 1) {
+					this.method536(var7, var8, 2048);
+					this.method536(var7 + 1, var8 + 1, 32768);
+				}
+				if (arg0 == 2) {
+					this.method536(var7, var8, 8192);
+					this.method536(var7 + 1, var8 - 1, 512);
+				}
+				if (arg0 == 3) {
+					this.method536(var7, var8, 32768);
+					this.method536(var7 - 1, var8 - 1, 2048);
+				}
 			}
-			if (arg0 == 2) {
-				this.method536(var7, var8, 4096);
-				this.method536(var7 + 1, var8, 65536);
+			if (arg3 == 2) {
+				if (arg0 == 0) {
+					this.method536(var7, var8, 66560);
+					this.method536(var7 - 1, var8, 4096);
+					this.method536(var7, var8 + 1, 16384);
+				}
+				if (arg0 == 1) {
+					this.method536(var7, var8, 5120);
+					this.method536(var7, var8 + 1, 16384);
+					this.method536(var7 + 1, var8, 65536);
+				}
+				if (arg0 == 2) {
+					this.method536(var7, var8, 20480);
+					this.method536(var7 + 1, var8, 65536);
+					this.method536(var7, var8 - 1, 1024);
+				}
+				if (arg0 == 3) {
+					this.method536(var7, var8, 81920);
+					this.method536(var7, var8 - 1, 1024);
+					this.method536(var7 - 1, var8, 4096);
+				}
 			}
-			if (arg0 == 3) {
-				this.method536(var7, var8, 16384);
-				this.method536(var7, var8 - 1, 1024);
-			}
-		}
-		if (arg3 == 1 || arg3 == 3) {
-			if (arg0 == 0) {
-				this.method536(var7, var8, 512);
-				this.method536(var7 - 1, var8 + 1, 8192);
-			}
-			if (arg0 == 1) {
-				this.method536(var7, var8, 2048);
-				this.method536(var7 + 1, var8 + 1, 32768);
-			}
-			if (arg0 == 2) {
-				this.method536(var7, var8, 8192);
-				this.method536(var7 + 1, var8 - 1, 512);
-			}
-			if (arg0 == 3) {
-				this.method536(var7, var8, 32768);
-				this.method536(var7 - 1, var8 - 1, 2048);
-			}
-		}
-		if (arg3 != 2) {
-			return;
-		}
-		if (arg0 == 0) {
-			this.method536(var7, var8, 66560);
-			this.method536(var7 - 1, var8, 4096);
-			this.method536(var7, var8 + 1, 16384);
-		}
-		if (arg0 == 1) {
-			this.method536(var7, var8, 5120);
-			this.method536(var7, var8 + 1, 16384);
-			this.method536(var7 + 1, var8, 65536);
-		}
-		if (arg0 == 2) {
-			this.method536(var7, var8, 20480);
-			this.method536(var7 + 1, var8, 65536);
-			this.method536(var7, var8 - 1, 1024);
-		}
-		if (arg0 == 3) {
-			this.method536(var7, var8, 81920);
-			this.method536(var7, var8 - 1, 1024);
-			this.method536(var7 - 1, var8, 4096);
-			return;
 		}
 	}
 
 	@ObfuscatedName("XRENONSA.a(IIIIZIB)V")
-	public void method534(int arg0, int arg1, int arg2, int arg3, boolean arg4, int arg5, byte arg6) {
-		if (arg6 != 52) {
-			this.field1577 = -314;
-		}
+	public void method534(int arg0, int arg1, int arg2, int arg3, boolean arg4, int arg5) {
 		int var8 = 256;
 		if (arg4) {
 			var8 += 131072;
@@ -219,12 +189,9 @@ public class CollisionMap {
 	}
 
 	@ObfuscatedName("XRENONSA.a(III)V")
-	public void method535(int arg0, int arg1, int arg2) {
+	public void method535(int arg1, int arg2) {
 		int var4 = arg2 - this.field1581;
 		int var5 = arg1 - this.field1582;
-		if (arg0 < 8 || arg0 > 8) {
-			this.field1579 = 84;
-		}
 		this.field1585[var4][var5] |= 0x200000;
 	}
 
@@ -234,145 +201,136 @@ public class CollisionMap {
 	}
 
 	@ObfuscatedName("XRENONSA.a(IIIIIZ)V")
-	public void method537(int arg0, int arg1, int arg2, int arg3, int arg4, boolean arg5) {
-		if (arg2 != 0) {
-			this.field1578 = !this.field1578;
-		}
+	public void method537(int arg0, int arg1, int arg3, int arg4, boolean arg5) {
 		int var7 = arg1 - this.field1581;
 		int var8 = arg3 - this.field1582;
 		if (arg4 == 0) {
 			if (arg0 == 0) {
-				this.method539(var7, 128, (byte) 17, var8);
-				this.method539(var7 - 1, 8, (byte) 17, var8);
+				this.method539(var7, 128, var8);
+				this.method539(var7 - 1, 8, var8);
 			}
 			if (arg0 == 1) {
-				this.method539(var7, 2, (byte) 17, var8);
-				this.method539(var7, 32, (byte) 17, var8 + 1);
+				this.method539(var7, 2, var8);
+				this.method539(var7, 32, var8 + 1);
 			}
 			if (arg0 == 2) {
-				this.method539(var7, 8, (byte) 17, var8);
-				this.method539(var7 + 1, 128, (byte) 17, var8);
+				this.method539(var7, 8, var8);
+				this.method539(var7 + 1, 128, var8);
 			}
 			if (arg0 == 3) {
-				this.method539(var7, 32, (byte) 17, var8);
-				this.method539(var7, 2, (byte) 17, var8 - 1);
+				this.method539(var7, 32, var8);
+				this.method539(var7, 2, var8 - 1);
 			}
 		}
 		if (arg4 == 1 || arg4 == 3) {
 			if (arg0 == 0) {
-				this.method539(var7, 1, (byte) 17, var8);
-				this.method539(var7 - 1, 16, (byte) 17, var8 + 1);
+				this.method539(var7, 1, var8);
+				this.method539(var7 - 1, 16, var8 + 1);
 			}
 			if (arg0 == 1) {
-				this.method539(var7, 4, (byte) 17, var8);
-				this.method539(var7 + 1, 64, (byte) 17, var8 + 1);
+				this.method539(var7, 4, var8);
+				this.method539(var7 + 1, 64, var8 + 1);
 			}
 			if (arg0 == 2) {
-				this.method539(var7, 16, (byte) 17, var8);
-				this.method539(var7 + 1, 1, (byte) 17, var8 - 1);
+				this.method539(var7, 16, var8);
+				this.method539(var7 + 1, 1, var8 - 1);
 			}
 			if (arg0 == 3) {
-				this.method539(var7, 64, (byte) 17, var8);
-				this.method539(var7 - 1, 4, (byte) 17, var8 - 1);
+				this.method539(var7, 64, var8);
+				this.method539(var7 - 1, 4, var8 - 1);
 			}
 		}
 		if (arg4 == 2) {
 			if (arg0 == 0) {
-				this.method539(var7, 130, (byte) 17, var8);
-				this.method539(var7 - 1, 8, (byte) 17, var8);
-				this.method539(var7, 32, (byte) 17, var8 + 1);
+				this.method539(var7, 130, var8);
+				this.method539(var7 - 1, 8, var8);
+				this.method539(var7, 32, var8 + 1);
 			}
 			if (arg0 == 1) {
-				this.method539(var7, 10, (byte) 17, var8);
-				this.method539(var7, 32, (byte) 17, var8 + 1);
-				this.method539(var7 + 1, 128, (byte) 17, var8);
+				this.method539(var7, 10, var8);
+				this.method539(var7, 32, var8 + 1);
+				this.method539(var7 + 1, 128, var8);
 			}
 			if (arg0 == 2) {
-				this.method539(var7, 40, (byte) 17, var8);
-				this.method539(var7 + 1, 128, (byte) 17, var8);
-				this.method539(var7, 2, (byte) 17, var8 - 1);
+				this.method539(var7, 40, var8);
+				this.method539(var7 + 1, 128, var8);
+				this.method539(var7, 2, var8 - 1);
 			}
 			if (arg0 == 3) {
-				this.method539(var7, 160, (byte) 17, var8);
-				this.method539(var7, 2, (byte) 17, var8 - 1);
-				this.method539(var7 - 1, 8, (byte) 17, var8);
+				this.method539(var7, 160, var8);
+				this.method539(var7, 2, var8 - 1);
+				this.method539(var7 - 1, 8, var8);
 			}
 		}
-		if (!arg5) {
-			return;
-		}
-		if (arg4 == 0) {
-			if (arg0 == 0) {
-				this.method539(var7, 65536, (byte) 17, var8);
-				this.method539(var7 - 1, 4096, (byte) 17, var8);
+		if (arg5) {
+			if (arg4 == 0) {
+				if (arg0 == 0) {
+					this.method539(var7, 65536, var8);
+					this.method539(var7 - 1, 4096, var8);
+				}
+				if (arg0 == 1) {
+					this.method539(var7, 1024, var8);
+					this.method539(var7, 16384, var8 + 1);
+				}
+				if (arg0 == 2) {
+					this.method539(var7, 4096, var8);
+					this.method539(var7 + 1, 65536, var8);
+				}
+				if (arg0 == 3) {
+					this.method539(var7, 16384, var8);
+					this.method539(var7, 1024, var8 - 1);
+				}
 			}
-			if (arg0 == 1) {
-				this.method539(var7, 1024, (byte) 17, var8);
-				this.method539(var7, 16384, (byte) 17, var8 + 1);
+			if (arg4 == 1 || arg4 == 3) {
+				if (arg0 == 0) {
+					this.method539(var7, 512, var8);
+					this.method539(var7 - 1, 8192, var8 + 1);
+				}
+				if (arg0 == 1) {
+					this.method539(var7, 2048, var8);
+					this.method539(var7 + 1, 32768, var8 + 1);
+				}
+				if (arg0 == 2) {
+					this.method539(var7, 8192, var8);
+					this.method539(var7 + 1, 512, var8 - 1);
+				}
+				if (arg0 == 3) {
+					this.method539(var7, 32768, var8);
+					this.method539(var7 - 1, 2048, var8 - 1);
+				}
 			}
-			if (arg0 == 2) {
-				this.method539(var7, 4096, (byte) 17, var8);
-				this.method539(var7 + 1, 65536, (byte) 17, var8);
+			if (arg4 == 2) {
+				if (arg0 == 0) {
+					this.method539(var7, 66560, var8);
+					this.method539(var7 - 1, 4096, var8);
+					this.method539(var7, 16384, var8 + 1);
+				}
+				if (arg0 == 1) {
+					this.method539(var7, 5120, var8);
+					this.method539(var7, 16384, var8 + 1);
+					this.method539(var7 + 1, 65536, var8);
+				}
+				if (arg0 == 2) {
+					this.method539(var7, 20480, var8);
+					this.method539(var7 + 1, 65536, var8);
+					this.method539(var7, 1024, var8 - 1);
+				}
+				if (arg0 == 3) {
+					this.method539(var7, 81920, var8);
+					this.method539(var7, 1024, var8 - 1);
+					this.method539(var7 - 1, 4096, var8);
+				}
 			}
-			if (arg0 == 3) {
-				this.method539(var7, 16384, (byte) 17, var8);
-				this.method539(var7, 1024, (byte) 17, var8 - 1);
-			}
-		}
-		if (arg4 == 1 || arg4 == 3) {
-			if (arg0 == 0) {
-				this.method539(var7, 512, (byte) 17, var8);
-				this.method539(var7 - 1, 8192, (byte) 17, var8 + 1);
-			}
-			if (arg0 == 1) {
-				this.method539(var7, 2048, (byte) 17, var8);
-				this.method539(var7 + 1, 32768, (byte) 17, var8 + 1);
-			}
-			if (arg0 == 2) {
-				this.method539(var7, 8192, (byte) 17, var8);
-				this.method539(var7 + 1, 512, (byte) 17, var8 - 1);
-			}
-			if (arg0 == 3) {
-				this.method539(var7, 32768, (byte) 17, var8);
-				this.method539(var7 - 1, 2048, (byte) 17, var8 - 1);
-			}
-		}
-		if (arg4 != 2) {
-			return;
-		}
-		if (arg0 == 0) {
-			this.method539(var7, 66560, (byte) 17, var8);
-			this.method539(var7 - 1, 4096, (byte) 17, var8);
-			this.method539(var7, 16384, (byte) 17, var8 + 1);
-		}
-		if (arg0 == 1) {
-			this.method539(var7, 5120, (byte) 17, var8);
-			this.method539(var7, 16384, (byte) 17, var8 + 1);
-			this.method539(var7 + 1, 65536, (byte) 17, var8);
-		}
-		if (arg0 == 2) {
-			this.method539(var7, 20480, (byte) 17, var8);
-			this.method539(var7 + 1, 65536, (byte) 17, var8);
-			this.method539(var7, 1024, (byte) 17, var8 - 1);
-		}
-		if (arg0 == 3) {
-			this.method539(var7, 81920, (byte) 17, var8);
-			this.method539(var7, 1024, (byte) 17, var8 - 1);
-			this.method539(var7 - 1, 4096, (byte) 17, var8);
-			return;
 		}
 	}
 
 	@ObfuscatedName("XRENONSA.a(IIIIIZI)V")
-	public void method538(int arg0, int arg1, int arg2, int arg3, int arg4, boolean arg5, int arg6) {
+	public void method538(int arg1, int arg2, int arg3, int arg4, boolean arg5, int arg6) {
 		int var8 = 256;
 		if (arg5) {
 			var8 += 131072;
 		}
 		int var9 = arg2 - this.field1581;
-		if (arg0 != 2) {
-			this.field1578 = !this.field1578;
-		}
 		int var10 = arg1 - this.field1582;
 		if (arg3 == 1 || arg3 == 3) {
 			int var11 = arg6;
@@ -383,7 +341,7 @@ public class CollisionMap {
 			if (var12 >= 0 && var12 < this.field1583) {
 				for (int var13 = var10; var13 < arg4 + var10; var13++) {
 					if (var13 >= 0 && var13 < this.field1584) {
-						this.method539(var12, var8, (byte) 17, var13);
+						this.method539(var12, var8, var13);
 					}
 				}
 			}
@@ -391,31 +349,23 @@ public class CollisionMap {
 	}
 
 	@ObfuscatedName("XRENONSA.a(IIBI)V")
-	public void method539(int arg0, int arg1, byte arg2, int arg3) {
+	public void method539(int arg0, int arg1, int arg3) {
 		this.field1585[arg0][arg3] &= 16777215 - arg1;
-		if (arg2 == 17) {
-			;
-		}
 	}
 
 	@ObfuscatedName("XRENONSA.a(IBI)V")
-	public void method540(int arg0, byte arg1, int arg2) {
-		if (arg1 == -122) {
-			int var4 = arg0 - this.field1581;
-			int var5 = arg2 - this.field1582;
-			this.field1585[var4][var5] &= 0xDFFFFF;
-		}
+	public void method540(int arg0, int arg2) {
+		int var4 = arg0 - this.field1581;
+		int var5 = arg2 - this.field1582;
+		this.field1585[var4][var5] &= 0xDFFFFF;
 	}
 
 	@ObfuscatedName("XRENONSA.a(IIIIIII)Z")
-	public boolean method541(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6) {
+	public boolean method541(int arg0, int arg2, int arg3, int arg4, int arg5, int arg6) {
 		if (arg0 == arg4 && arg2 == arg5) {
 			return true;
 		}
 		int var8 = arg4 - this.field1581;
-		if (arg1 != 0) {
-			this.field1580 = !this.field1580;
-		}
 		int var9 = arg5 - this.field1582;
 		int var10 = arg0 - this.field1581;
 		int var11 = arg2 - this.field1582;
@@ -535,16 +485,13 @@ public class CollisionMap {
 	}
 
 	@ObfuscatedName("XRENONSA.b(IIIIIII)Z")
-	public boolean method542(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6) {
+	public boolean method542(int arg1, int arg2, int arg3, int arg4, int arg5, int arg6) {
 		if (arg2 == arg3 && arg1 == arg6) {
 			return true;
 		}
 		int var8 = arg3 - this.field1581;
 		int var9 = arg1 - this.field1582;
 		int var10 = arg2 - this.field1581;
-		if (arg0 >= 0) {
-			throw new NullPointerException();
-		}
 		int var11 = arg6 - this.field1582;
 		if (arg5 == 6 || arg5 == 7) {
 			if (arg5 == 7) {
@@ -598,12 +545,9 @@ public class CollisionMap {
 	}
 
 	@ObfuscatedName("XRENONSA.a(IIZIIIII)Z")
-	public boolean method543(int arg0, int arg1, boolean arg2, int arg3, int arg4, int arg5, int arg6, int arg7) {
+	public boolean method543(int arg0, int arg1, int arg3, int arg4, int arg5, int arg6, int arg7) {
 		int var9 = arg0 + arg3 - 1;
 		int var10 = arg5 + arg6 - 1;
-		if (!arg2) {
-			this.field1577 = 238;
-		}
 		if (arg1 >= arg3 && arg1 <= var9 && arg7 >= arg6 && arg7 <= var10) {
 			return true;
 		} else if (arg3 - 1 == arg1 && arg7 >= arg6 && arg7 <= var10 && (this.field1585[arg1 - this.field1581][arg7 - this.field1582] & 0x8) == 0 && (arg4 & 0x8) == 0) {

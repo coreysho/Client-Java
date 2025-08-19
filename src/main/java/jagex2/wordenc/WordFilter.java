@@ -69,13 +69,11 @@ public class WordFilter {
 
 	@ObfuscatedName("WXKKTWFB.a(LATJMVOZR;)V")
 	public static final void method494(Jagfile arg0) {
-		Packet var1 = new Packet(true, arg0.method2("fragmentsenc.txt", null));
-		Packet var2 = new Packet(true, arg0.method2("badenc.txt", null));
-		Packet var3 = new Packet(true, arg0.method2("domainenc.txt", null));
-		Packet var4 = new Packet(true, arg0.method2("tldlist.txt", null));
+		Packet var1 = new Packet(arg0.method2("fragmentsenc.txt", null));
+		Packet var2 = new Packet(arg0.method2("badenc.txt", null));
+		Packet var3 = new Packet(arg0.method2("domainenc.txt", null));
+		Packet var4 = new Packet(arg0.method2("tldlist.txt", null));
 		method495(var1, var2, var3, var4);
-		if (Linkable.field1772) {
-		}
 	}
 
 	@ObfuscatedName("WXKKTWFB.a(LMFMVIYHT;LMFMVIYHT;LMFMVIYHT;LMFMVIYHT;)V")

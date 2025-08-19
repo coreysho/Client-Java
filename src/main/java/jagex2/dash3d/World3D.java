@@ -7,33 +7,6 @@ import jagex2.graphics.Pix3D;
 
 public class World3D {
 
-	@ObfuscatedName("KJCMXHNO.b")
-	public int field1002 = -203;
-
-	@ObfuscatedName("KJCMXHNO.c")
-	public boolean field1003 = true;
-
-	@ObfuscatedName("KJCMXHNO.d")
-	public boolean field1004 = false;
-
-	@ObfuscatedName("KJCMXHNO.g")
-	public int field1007 = 2;
-
-	@ObfuscatedName("KJCMXHNO.h")
-	public int field1008 = -766;
-
-	@ObfuscatedName("KJCMXHNO.i")
-	public boolean field1009 = true;
-
-	@ObfuscatedName("KJCMXHNO.j")
-	public boolean field1010 = true;
-
-	@ObfuscatedName("KJCMXHNO.k")
-	public boolean field1011 = false;
-
-	@ObfuscatedName("KJCMXHNO.l")
-	public int field1012 = -68;
-
 	@ObfuscatedName("KJCMXHNO.u")
 	public Sprite[] field1021 = new Sprite[5000];
 
@@ -104,7 +77,7 @@ public class World3D {
 	public static Occlude[] field1053 = new Occlude[500];
 
 	@ObfuscatedName("KJCMXHNO.bb")
-	public static LinkList field1054 = new LinkList(true);
+	public static LinkList field1054 = new LinkList();
 
 	@ObfuscatedName("KJCMXHNO.cb")
 	public static final int[] field1055 = new int[] { 19, 55, 38, 155, 255, 110, 137, 205, 76 };
@@ -132,12 +105,6 @@ public class World3D {
 
 	@ObfuscatedName("KJCMXHNO.pb")
 	public static boolean[][][][] field1068 = new boolean[8][32][51][51];
-
-	@ObfuscatedName("KJCMXHNO.e")
-	public int field1005;
-
-	@ObfuscatedName("KJCMXHNO.f")
-	public static int field1006;
 
 	@ObfuscatedName("KJCMXHNO.s")
 	public int field1019;
@@ -223,53 +190,39 @@ public class World3D {
 	@ObfuscatedName("KJCMXHNO.wb")
 	public static int field1075;
 
-	@ObfuscatedName("KJCMXHNO.a")
-	public static boolean field1001;
-
 	@ObfuscatedName("KJCMXHNO.R")
 	public static boolean field1044;
 
 	@ObfuscatedName("KJCMXHNO.qb")
 	public static boolean[][] field1069;
 
-	public World3D(int[][][] arg0, int arg1, int arg2, int arg3, byte arg4) {
+	public World3D(int[][][] arg0, int arg1, int arg2, int arg3) {
 		this.field1014 = arg2;
 		this.field1015 = arg3;
 		this.field1016 = arg1;
 		this.field1018 = new Square[arg2][arg3][arg1];
 		this.field1022 = new int[arg2][arg3 + 1][arg1 + 1];
 		this.field1017 = arg0;
-		if (arg4 == 5) {
-			boolean var6 = false;
-		} else {
-			this.field1008 = 272;
-		}
-		this.method274((byte) 7);
+		this.method274();
 	}
 
 	@ObfuscatedName("KJCMXHNO.a(Z)V")
-	public static void method273(boolean arg0) {
+	public static void method273() {
 		field1039 = null;
 		field1050 = null;
 		field1051 = null;
 		field1054 = null;
 		field1068 = null;
-		if (!arg0) {
-			field1069 = null;
-		}
+		field1069 = null;
 	}
 
 	@ObfuscatedName("KJCMXHNO.a(B)V")
-	public void method274(byte arg0) {
+	public void method274() {
 		for (int var2 = 0; var2 < this.field1014; var2++) {
 			for (int var8 = 0; var8 < this.field1015; var8++) {
 				for (int var9 = 0; var9 < this.field1016; var9++) {
 					this.field1018[var2][var8][var9] = null;
 				}
-			}
-		}
-		if (arg0 != 7) {
-			for (int var3 = 1; var3 > 0; var3++) {
 			}
 		}
 		for (int var4 = 0; var4 < field1049; var4++) {
@@ -288,10 +241,7 @@ public class World3D {
 	}
 
 	@ObfuscatedName("KJCMXHNO.a(IZ)V")
-	public void method275(int arg0, boolean arg1) {
-		if (!arg1) {
-			this.field1010 = !this.field1010;
-		}
+	public void method275(int arg0) {
 		this.field1019 = arg0;
 		for (int var3 = 0; var3 < this.field1015; var3++) {
 			for (int var4 = 0; var4 < this.field1016; var4++) {
@@ -405,7 +355,7 @@ public class World3D {
 	}
 
 	@ObfuscatedName("KJCMXHNO.a(IILZOXDNIET;LZOXDNIET;ILZOXDNIET;III)V")
-	public void method281(int arg0, int arg1, ModelSource arg2, ModelSource arg3, int arg4, ModelSource arg5, int arg6, int arg7, int arg8) {
+	public void method281(int arg0, int arg1, ModelSource arg2, ModelSource arg3, int arg4, ModelSource arg5, int arg7, int arg8) {
 		GroundObject var10 = new GroundObject();
 		var10.field639 = arg2;
 		var10.field637 = arg8 * 128 + 64;
@@ -414,9 +364,6 @@ public class World3D {
 		var10.field642 = arg4;
 		var10.field640 = arg3;
 		var10.field641 = arg5;
-		if (arg6 < 2 || arg6 > 2) {
-			this.field1009 = !this.field1009;
-		}
 		int var11 = 0;
 		Square var12 = this.field1018[arg1][arg8][arg7];
 		if (var12 != null) {
@@ -437,7 +384,7 @@ public class World3D {
 	}
 
 	@ObfuscatedName("KJCMXHNO.a(IIIILZOXDNIET;IIBILZOXDNIET;I)V")
-	public void method282(int arg0, int arg1, int arg2, int arg3, ModelSource arg4, int arg5, int arg6, byte arg7, int arg8, ModelSource arg9, int arg10) {
+	public void method282(int arg0, int arg2, int arg3, ModelSource arg4, int arg5, int arg6, byte arg7, int arg8, ModelSource arg9, int arg10) {
 		if (arg9 == null && arg4 == null) {
 			return;
 		}
@@ -447,10 +394,6 @@ public class World3D {
 		var12.field1533 = arg5 * 128 + 64;
 		var12.field1534 = arg8 * 128 + 64;
 		var12.field1532 = arg0;
-		if (arg1 != 49878) {
-			for (int var13 = 1; var13 > 0; var13++) {
-			}
-		}
 		var12.field1537 = arg9;
 		var12.field1538 = arg4;
 		var12.field1535 = arg3;
@@ -464,7 +407,7 @@ public class World3D {
 	}
 
 	@ObfuscatedName("KJCMXHNO.a(IIIIBIIIIILZOXDNIET;I)V")
-	public void method283(int arg0, int arg1, int arg2, int arg3, byte arg4, int arg5, int arg6, int arg7, int arg8, int arg9, ModelSource arg10, int arg11) {
+	public void method283(int arg0, int arg1, int arg2, int arg3, byte arg4, int arg5, int arg6, int arg7, int arg8, int arg9, ModelSource arg10) {
 		if (arg10 == null) {
 			return;
 		}
@@ -473,9 +416,6 @@ public class World3D {
 		var13.field1413 = arg4;
 		var13.field1407 = arg5 * 128 + 64 + arg8;
 		var13.field1408 = arg7 * 128 + 64 + arg6;
-		if (arg11 >= 0) {
-			this.field1008 = 308;
-		}
 		var13.field1406 = arg9;
 		var13.field1411 = arg10;
 		var13.field1409 = arg1;
@@ -489,16 +429,13 @@ public class World3D {
 	}
 
 	@ObfuscatedName("KJCMXHNO.a(IIILZOXDNIET;BIIIIII)Z")
-	public boolean method284(int arg0, int arg1, int arg2, ModelSource arg3, byte arg4, int arg5, int arg6, int arg7, int arg8, int arg9, int arg10) {
-		if (arg7 >= 0) {
-			throw new NullPointerException();
-		} else if (arg3 == null) {
+	public boolean method284(int arg0, int arg1, int arg2, ModelSource arg3, byte arg4, int arg5, int arg6, int arg8, int arg9, int arg10) {
+		if (arg3 == null) {
 			return true;
-		} else {
-			int var12 = arg1 * 64 + arg6 * 128;
-			int var13 = arg2 * 128 + arg8 * 64;
-			return this.method287(arg0, arg6, arg2, arg1, arg8, var12, var13, arg9, arg3, arg5, false, arg10, arg4);
 		}
+		int var12 = arg1 * 64 + arg6 * 128;
+		int var13 = arg2 * 128 + arg8 * 64;
+		return this.method287(arg0, arg6, arg2, arg1, arg8, var12, var13, arg9, arg3, arg5, false, arg10, arg4);
 	}
 
 	@ObfuscatedName("KJCMXHNO.a(ILZOXDNIET;IIZIIIII)Z")
@@ -525,9 +462,6 @@ public class World3D {
 			}
 		}
 		int var15 = var11 / 128;
-		if (arg5 != 0) {
-			this.field1012 = 368;
-		}
 		int var16 = var12 / 128;
 		int var17 = var13 / 128;
 		int var18 = var14 / 128;
@@ -535,10 +469,7 @@ public class World3D {
 	}
 
 	@ObfuscatedName("KJCMXHNO.a(IIIILZOXDNIET;IIIIIIII)Z")
-	public boolean method286(int arg0, int arg1, int arg2, int arg3, ModelSource arg4, int arg5, int arg6, int arg7, int arg8, int arg9, int arg10, int arg11, int arg12) {
-		if (arg3 < 7 || arg3 > 7) {
-			this.field1011 = !this.field1011;
-		}
+	public boolean method286(int arg0, int arg1, int arg2, ModelSource arg4, int arg5, int arg6, int arg7, int arg8, int arg9, int arg10, int arg11, int arg12) {
 		return arg4 == null ? true : this.method287(arg11, arg5, arg1, arg10 - arg5 + 1, arg7 - arg1 + 1, arg8, arg6, arg0, arg4, arg9, true, arg12, (byte) 0);
 	}
 
@@ -602,18 +533,17 @@ public class World3D {
 	}
 
 	@ObfuscatedName("KJCMXHNO.a(I)V")
-	public void method288(int arg0) {
-		int var2 = 16 / arg0;
+	public void method288() {
 		for (int var3 = 0; var3 < this.field1020; var3++) {
 			Sprite var4 = this.field1021[var3];
-			this.method289(var4, 0);
+			this.method289(var4);
 			this.field1021[var3] = null;
 		}
 		this.field1020 = 0;
 	}
 
 	@ObfuscatedName("KJCMXHNO.a(LBHOSVTIT;I)V")
-	public void method289(Sprite arg0, int arg1) {
+	public void method289(Sprite arg0) {
 		for (int var3 = arg0.field82; var3 <= arg0.field83; var3++) {
 			for (int var4 = arg0.field84; var4 <= arg0.field85; var4++) {
 				Square var5 = this.field1018[arg0.field76][var3][var4];
@@ -636,9 +566,6 @@ public class World3D {
 				}
 			}
 		}
-		if (arg1 != 0) {
-			this.field1005 = -317;
-		}
 	}
 
 	@ObfuscatedName("KJCMXHNO.a(IIIII)V")
@@ -660,13 +587,10 @@ public class World3D {
 	}
 
 	@ObfuscatedName("KJCMXHNO.a(IIIZ)V")
-	public void method291(int arg0, int arg1, int arg2, boolean arg3) {
+	public void method291(int arg0, int arg1, int arg2) {
 		Square var5 = this.field1018[arg1][arg2][arg0];
 		if (var5 != null) {
 			var5.field1386 = null;
-			if (!arg3) {
-				this.field1002 = -232;
-			}
 		}
 	}
 
@@ -679,10 +603,7 @@ public class World3D {
 	}
 
 	@ObfuscatedName("KJCMXHNO.b(IIII)V")
-	public void method293(int arg0, int arg1, int arg2, int arg3) {
-		if (arg2 >= 0) {
-			return;
-		}
+	public void method293(int arg0, int arg1, int arg3) {
 		Square var5 = this.field1018[arg1][arg3][arg0];
 		if (var5 == null) {
 			return;
@@ -690,23 +611,19 @@ public class World3D {
 		for (int var6 = 0; var6 < var5.field1390; var6++) {
 			Sprite var7 = var5.field1391[var6];
 			if ((var7.field88 >> 29 & 0x3) == 2 && var7.field82 == arg3 && var7.field84 == arg0) {
-				this.method289(var7, 0);
+				this.method289(var7);
 				return;
 			}
 		}
 	}
 
 	@ObfuscatedName("KJCMXHNO.a(IIZI)V")
-	public void method294(int arg0, int arg1, boolean arg2, int arg3) {
+	public void method294(int arg0, int arg1, int arg3) {
 		Square var5 = this.field1018[arg3][arg0][arg1];
 		if (var5 == null) {
 			return;
 		}
 		var5.field1388 = null;
-		if (!arg2) {
-			for (int var6 = 1; var6 > 0; var6++) {
-			}
-		}
 	}
 
 	@ObfuscatedName("KJCMXHNO.a(III)V")
@@ -718,20 +635,15 @@ public class World3D {
 	}
 
 	@ObfuscatedName("KJCMXHNO.c(IIII)LWQXKHZYN;")
-	public Wall method296(int arg0, int arg1, int arg2, int arg3) {
+	public Wall method296(int arg0, int arg2, int arg3) {
 		Square var5 = this.field1018[arg0][arg2][arg3];
-		if (arg1 != 17734) {
-			throw new NullPointerException();
-		}
 		return var5 == null ? null : var5.field1386;
 	}
 
 	@ObfuscatedName("KJCMXHNO.b(IIIZ)LSEMZHDXN;")
-	public Decor method297(int arg0, int arg1, int arg2, boolean arg3) {
+	public Decor method297(int arg0, int arg1, int arg2) {
 		Square var5 = this.field1018[arg0][arg2][arg1];
-		if (arg3) {
-			throw new NullPointerException();
-		} else if (var5 == null) {
+		if (var5 == null) {
 			return null;
 		} else {
 			return var5.field1387;
@@ -739,11 +651,7 @@ public class World3D {
 	}
 
 	@ObfuscatedName("KJCMXHNO.a(IBII)LBHOSVTIT;")
-	public Sprite method298(int arg0, byte arg1, int arg2, int arg3) {
-		if (arg1 != 32) {
-			for (int var5 = 1; var5 > 0; var5++) {
-			}
-		}
+	public Sprite method298(int arg0, int arg2, int arg3) {
 		Square var6 = this.field1018[arg3][arg0][arg2];
 		if (var6 == null) {
 			return null;
@@ -758,10 +666,7 @@ public class World3D {
 	}
 
 	@ObfuscatedName("KJCMXHNO.d(IIII)LMOLUZZPG;")
-	public GroundDecor method299(int arg0, int arg1, int arg2, int arg3) {
-		if (arg2 != 0) {
-			throw new NullPointerException();
-		}
+	public GroundDecor method299(int arg0, int arg1, int arg3) {
 		Square var5 = this.field1018[arg0][arg3][arg1];
 		return var5 == null || var5.field1388 == null ? null : var5.field1388;
 	}
@@ -773,10 +678,7 @@ public class World3D {
 	}
 
 	@ObfuscatedName("KJCMXHNO.b(IBII)I")
-	public int method301(int arg0, byte arg1, int arg2, int arg3) {
-		if (arg1 != 4) {
-			this.field1011 = !this.field1011;
-		}
+	public int method301(int arg0, int arg2, int arg3) {
 		Square var5 = this.field1018[arg2][arg0][arg3];
 		return var5 == null || var5.field1387 == null ? 0 : var5.field1387.field1412;
 	}
@@ -824,7 +726,7 @@ public class World3D {
 	}
 
 	@ObfuscatedName("KJCMXHNO.a(BIII)V")
-	public void method305(byte arg0, int arg1, int arg2, int arg3) {
+	public void method305(int arg1, int arg2, int arg3) {
 		for (int var5 = 0; var5 < this.field1014; var5++) {
 			for (int var7 = 0; var7 < this.field1015; var7++) {
 				for (int var8 = 0; var8 < this.field1016; var8++) {
@@ -836,36 +738,30 @@ public class World3D {
 							if (var10.field1538 != null && var10.field1538.field1708 != null) {
 								this.method307(var8, var5, 0, 1, (Model) var10.field1538, var7, 1);
 								this.method308((Model) var10.field1537, (Model) var10.field1538, 0, 0, 0, false);
-								((Model) var10.field1538).method377(arg1, arg2, 0, arg3);
+								((Model) var10.field1538).method377(arg1, arg2, arg3);
 							}
-							((Model) var10.field1537).method377(arg1, arg2, 0, arg3);
+							((Model) var10.field1537).method377(arg1, arg2, arg3);
 						}
 						for (int var11 = 0; var11 < var9.field1390; var11++) {
 							Sprite var13 = var9.field1391[var11];
 							if (var13 != null && var13.field80 != null && var13.field80.field1708 != null) {
 								this.method307(var8, var5, 0, var13.field83 - var13.field82 + 1, (Model) var13.field80, var7, var13.field85 - var13.field84 + 1);
-								((Model) var13.field80).method377(arg1, arg2, 0, arg3);
+								((Model) var13.field80).method377(arg1, arg2, arg3);
 							}
 						}
 						GroundDecor var12 = var9.field1388;
 						if (var12 != null && var12.field1313.field1708 != null) {
-							this.method306(var7, (Model) var12.field1313, var8, var5, 0);
-							((Model) var12.field1313).method377(arg1, arg2, 0, arg3);
+							this.method306(var7, (Model) var12.field1313, var8, var5);
+							((Model) var12.field1313).method377(arg1, arg2, arg3);
 						}
 					}
 				}
 			}
 		}
-		if (arg0 == 2) {
-			boolean var6 = false;
-		}
 	}
 
 	@ObfuscatedName("KJCMXHNO.a(ILLZYQDKJV;III)V")
-	public void method306(int arg0, Model arg1, int arg2, int arg3, int arg4) {
-		if (arg4 != 0) {
-			return;
-		}
+	public void method306(int arg0, Model arg1, int arg2, int arg3) {
 		if (arg0 < this.field1015) {
 			Square var6 = this.field1018[arg3][arg0 + 1][arg2];
 			if (var6 != null && var6.field1388 != null && var6.field1388.field1313.field1708 != null) {
@@ -884,13 +780,11 @@ public class World3D {
 				this.method308(arg1, (Model) var8.field1388.field1313, 128, 0, 128, true);
 			}
 		}
-		if (arg0 >= this.field1015 || arg2 <= 0) {
-			return;
-		}
-		Square var9 = this.field1018[arg3][arg0 + 1][arg2 - 1];
-		if (var9 != null && var9.field1388 != null && var9.field1388.field1313.field1708 != null) {
-			this.method308(arg1, (Model) var9.field1388.field1313, 128, 0, -128, true);
-			return;
+		if (arg0 < this.field1015 && arg2 > 0) {
+			Square var9 = this.field1018[arg3][arg0 + 1][arg2 - 1];
+			if (var9 != null && var9.field1388 != null && var9.field1388.field1313.field1708 != null) {
+				this.method308(arg1, (Model) var9.field1388.field1313, 128, 0, -128, true);
+			}
 		}
 	}
 
@@ -1055,7 +949,7 @@ public class World3D {
 	}
 
 	@ObfuscatedName("KJCMXHNO.a(II[IIII)V")
-	public static void method310(int arg0, int arg1, int[] arg2, int arg3, int arg4, int arg5) {
+	public static void method310(int arg0, int[] arg2, int arg3, int arg4, int arg5) {
 		field1072 = 0;
 		field1073 = 0;
 		field1074 = arg5;
@@ -1077,7 +971,7 @@ public class World3D {
 						int var21 = var19 * 128;
 						boolean var22 = false;
 						for (int var23 = -arg4; var23 <= arg3; var23 += 128) {
-							if (method311(var21, var20, field1006, arg2[var16] + var23)) {
+							if (method311(var21, var20, arg2[var16] + var23)) {
 								var22 = true;
 								break;
 							}
@@ -1117,18 +1011,12 @@ public class World3D {
 				}
 			}
 		}
-		if (arg1 == 22845) {
-			;
-		}
 	}
 
 	@ObfuscatedName("KJCMXHNO.f(IIII)Z")
-	public static boolean method311(int arg0, int arg1, int arg2, int arg3) {
+	public static boolean method311(int arg0, int arg1, int arg3) {
 		int var4 = field1038 * arg1 + field1037 * arg0 >> 16;
 		int var5 = field1038 * arg0 - field1037 * arg1 >> 16;
-		if (arg2 != 0) {
-			field1001 = !field1001;
-		}
 		int var6 = field1036 * var5 + field1035 * arg3 >> 16;
 		int var7 = field1036 * arg3 - field1035 * var5 >> 16;
 		if (var6 >= 50 && var6 <= 3500) {
@@ -1141,18 +1029,16 @@ public class World3D {
 	}
 
 	@ObfuscatedName("KJCMXHNO.e(III)V")
-	public void method312(int arg0, int arg1, int arg2) {
+	public void method312(int arg1, int arg2) {
 		field1044 = true;
 		field1045 = arg1;
 		field1046 = arg2;
 		field1047 = -1;
-		if (arg0 == 0) {
-			field1048 = -1;
-		}
+		field1048 = -1;
 	}
 
 	@ObfuscatedName("KJCMXHNO.a(IIIIIII)V")
-	public void method313(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6) {
+	public void method313(int arg0, int arg1, int arg3, int arg4, int arg5, int arg6) {
 		if (arg0 < 0) {
 			arg0 = 0;
 		} else if (arg0 >= this.field1015 * 128) {
@@ -1176,9 +1062,6 @@ public class World3D {
 		field1031 = arg4 / 128;
 		field1024 = arg1;
 		field1026 = field1030 - 25;
-		if (arg2 != 0) {
-			return;
-		}
 		if (field1026 < 0) {
 			field1026 = 0;
 		}
@@ -1194,7 +1077,7 @@ public class World3D {
 		if (field1029 > this.field1016) {
 			field1029 = this.field1016;
 		}
-		this.method319(this.field1007);
+		this.method319();
 		field1023 = 0;
 		for (int var8 = this.field1019; var8 < this.field1014; var8++) {
 			Square[][] var33 = this.field1018[var8];
@@ -1833,7 +1716,7 @@ public class World3D {
 				}
 			} else if (field1013) {
 				int var53 = field1062[arg0.field62];
-				Pix3D.method555(var50, var52, var48, var49, var51, var47, this.method317(arg0.field60, var53, 0), this.method317(arg0.field61, var53, 0), this.method317(arg0.field59, var53, 0));
+				Pix3D.method555(var50, var52, var48, var49, var51, var47, this.method317(arg0.field60, var53), this.method317(arg0.field61, var53), this.method317(arg0.field59, var53));
 			} else if (arg0.field63) {
 				Pix3D.method559(var50, var52, var48, var49, var51, var47, arg0.field60, arg0.field61, arg0.field59, var21, var27, var39, var24, var30, var42, var25, var31, var43, arg0.field62);
 			} else {
@@ -1857,10 +1740,9 @@ public class World3D {
 				return;
 			}
 			int var54 = field1062[arg0.field62];
-			Pix3D.method555(var46, var48, var52, var45, var47, var51, this.method317(arg0.field58, var54, 0), this.method317(arg0.field59, var54, 0), this.method317(arg0.field61, var54, 0));
+			Pix3D.method555(var46, var48, var52, var45, var47, var51, this.method317(arg0.field58, var54), this.method317(arg0.field59, var54), this.method317(arg0.field61, var54));
 		} else if (arg0.field58 != 12345678) {
 			Pix3D.method555(var46, var48, var52, var45, var47, var51, arg0.field58, arg0.field59, arg0.field61);
-			return;
 		}
 	}
 
@@ -1916,7 +1798,7 @@ public class World3D {
 					}
 				} else if (field1013) {
 					int var22 = field1062[arg2.field911[var12]];
-					Pix3D.method555(var19, var20, var21, var16, var17, var18, this.method317(arg2.field905[var12], var22, 0), this.method317(arg2.field906[var12], var22, 0), this.method317(arg2.field907[var12], var22, 0));
+					Pix3D.method555(var19, var20, var21, var16, var17, var18, this.method317(arg2.field905[var12], var22), this.method317(arg2.field906[var12], var22), this.method317(arg2.field907[var12], var22));
 				} else if (arg2.field912) {
 					Pix3D.method559(var19, var20, var21, var16, var17, var18, arg2.field905[var12], arg2.field906[var12], arg2.field907[var12], Ground.field919[0], Ground.field919[1], Ground.field919[3], Ground.field920[0], Ground.field920[1], Ground.field920[3], Ground.field921[0], Ground.field921[1], Ground.field921[3], arg2.field911[var12]);
 				} else {
@@ -1927,11 +1809,8 @@ public class World3D {
 	}
 
 	@ObfuscatedName("KJCMXHNO.f(III)I")
-	public int method317(int arg0, int arg1, int arg2) {
+	public int method317(int arg0, int arg1) {
 		int var4 = 127 - arg0;
-		if (arg2 != 0) {
-			return this.field1005;
-		}
 		int var5 = (arg1 & 0x7F) * var4 / 160;
 		if (var5 < 2) {
 			var5 = 2;
@@ -1960,12 +1839,9 @@ public class World3D {
 	}
 
 	@ObfuscatedName("KJCMXHNO.b(I)V")
-	public void method319(int arg0) {
+	public void method319() {
 		int var2 = field1050[field1024];
 		Occlude[] var3 = field1051[field1024];
-		if (arg0 < 2 || arg0 > 2) {
-			this.field1003 = !this.field1003;
-		}
 		field1052 = 0;
 		for (int var4 = 0; var4 < var2; var4++) {
 			Occlude var5 = var3[var4];

@@ -13,9 +13,6 @@ public class Linkable {
 	@ObfuscatedName("ZUOIJLRD.c")
 	public Linkable field1771;
 
-	@ObfuscatedName("ZUOIJLRD.d")
-	public static boolean field1772;
-
 	@ObfuscatedName("ZUOIJLRD.a()V")
 	public void method604() {
 		if (this.field1771 != null) {

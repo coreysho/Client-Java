@@ -5,15 +5,6 @@ import jagex2.datastruct.DoublyLinkable;
 
 public class Pix2D extends DoublyLinkable {
 
-	@ObfuscatedName("LFYNQWSZ.j")
-	public static boolean field1092 = true;
-
-	@ObfuscatedName("LFYNQWSZ.k")
-	public static int field1093 = -291;
-
-	@ObfuscatedName("LFYNQWSZ.h")
-	public static int field1090;
-
 	@ObfuscatedName("LFYNQWSZ.m")
 	public static int field1095;
 
@@ -41,41 +32,29 @@ public class Pix2D extends DoublyLinkable {
 	@ObfuscatedName("LFYNQWSZ.u")
 	public static int field1103;
 
-	@ObfuscatedName("LFYNQWSZ.i")
-	public static boolean field1091;
-
-	@ObfuscatedName("LFYNQWSZ.v")
-	public static boolean field1104;
-
 	@ObfuscatedName("LFYNQWSZ.l")
 	public static int[] field1094;
 
 	@ObfuscatedName("LFYNQWSZ.a(ZII[I)V")
-	public static void method332(boolean arg0, int arg1, int arg2, int[] arg3) {
-		if (!arg0) {
-			field1093 = -394;
-		}
+	public static void method332(int arg1, int arg2, int[] arg3) {
 		field1094 = arg3;
 		field1095 = arg1;
 		field1096 = arg2;
-		method334(0, 0, arg2, arg1, true);
+		method334(0, 0, arg2, arg1);
 	}
 
 	@ObfuscatedName("LFYNQWSZ.a(B)V")
-	public static void method333(byte arg0) {
+	public static void method333() {
 		field1099 = 0;
 		field1097 = 0;
 		field1100 = field1095;
 		field1098 = field1096;
 		field1101 = field1100 - 1;
-		if (arg0 != 82) {
-			field1093 = -258;
-		}
 		field1102 = field1100 / 2;
 	}
 
 	@ObfuscatedName("LFYNQWSZ.a(IIIIZ)V")
-	public static void method334(int arg0, int arg1, int arg2, int arg3, boolean arg4) {
+	public static void method334(int arg0, int arg1, int arg2, int arg3) {
 		if (arg1 < 0) {
 			arg1 = 0;
 		}
@@ -92,26 +71,21 @@ public class Pix2D extends DoublyLinkable {
 		field1097 = arg0;
 		field1100 = arg3;
 		field1098 = arg2;
-		if (arg4) {
-			field1101 = field1100 - 1;
-			field1102 = field1100 / 2;
-			field1103 = field1098 / 2;
-		}
+		field1101 = field1100 - 1;
+		field1102 = field1100 / 2;
+		field1103 = field1098 / 2;
 	}
 
 	@ObfuscatedName("LFYNQWSZ.a(I)V")
-	public static void method335(int arg0) {
+	public static void method335() {
 		int var1 = field1096 * field1095;
-		if (arg0 != 4) {
-			field1091 = !field1091;
-		}
 		for (int var2 = 0; var2 < var1; var2++) {
 			field1094[var2] = 0;
 		}
 	}
 
 	@ObfuscatedName("LFYNQWSZ.a(ZIIIIII)V")
-	public static void method336(boolean arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6) {
+	public static void method336(int arg1, int arg2, int arg3, int arg4, int arg5, int arg6) {
 		if (arg6 < field1099) {
 			arg3 -= field1099 - arg6;
 			arg6 = field1099;
@@ -130,9 +104,6 @@ public class Pix2D extends DoublyLinkable {
 		int var8 = (arg1 >> 16 & 0xFF) * arg5;
 		int var9 = (arg1 >> 8 & 0xFF) * arg5;
 		int var10 = (arg1 & 0xFF) * arg5;
-		if (arg0) {
-			field1091 = !field1091;
-		}
 		int var11 = field1095 - arg3;
 		int var12 = field1095 * arg2 + arg6;
 		for (int var13 = 0; var13 < arg4; var13++) {
@@ -148,7 +119,7 @@ public class Pix2D extends DoublyLinkable {
 	}
 
 	@ObfuscatedName("LFYNQWSZ.a(IIIBII)V")
-	public static void method337(int arg0, int arg1, int arg2, byte arg3, int arg4, int arg5) {
+	public static void method337(int arg0, int arg1, int arg2, int arg4, int arg5) {
 		if (arg5 < field1099) {
 			arg4 -= field1099 - arg5;
 			arg5 = field1099;
@@ -171,37 +142,28 @@ public class Pix2D extends DoublyLinkable {
 			}
 			var7 += var6;
 		}
-		if (arg3 == -24) {
-			;
-		}
 	}
 
 	@ObfuscatedName("LFYNQWSZ.a(IIIIII)V")
-	public static void method338(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5) {
-		method340(arg4, arg3, arg1, arg5, true);
-		method340(arg4, arg3, arg1 + arg2 - 1, arg5, true);
-		if (arg0 != 0) {
-			field1090 = -278;
-		}
+	public static void method338(int arg1, int arg2, int arg3, int arg4, int arg5) {
+		method340(arg4, arg3, arg1, arg5);
+		method340(arg4, arg3, arg1 + arg2 - 1, arg5);
 		method342(arg4, arg3, arg2, false, arg1);
 		method342(arg4 + arg5 - 1, arg3, arg2, false, arg1);
 	}
 
 	@ObfuscatedName("LFYNQWSZ.a(IIIIIIB)V")
-	public static void method339(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, byte arg6) {
-		if (arg6 != -113) {
-			return;
-		}
-		method341(arg4, arg0, arg1, 1388, arg5, arg2);
-		method341(arg3 + arg4 - 1, arg0, arg1, 1388, arg5, arg2);
+	public static void method339(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5) {
+		method341(arg4, arg0, arg1, arg5, arg2);
+		method341(arg3 + arg4 - 1, arg0, arg1, arg5, arg2);
 		if (arg3 >= 3) {
-			method343(0, arg4 + 1, arg0, arg2, arg3 - 2, arg5);
-			method343(0, arg4 + 1, arg0 + arg1 - 1, arg2, arg3 - 2, arg5);
+			method343(arg4 + 1, arg0, arg2, arg3 - 2, arg5);
+			method343(arg4 + 1, arg0 + arg1 - 1, arg2, arg3 - 2, arg5);
 		}
 	}
 
 	@ObfuscatedName("LFYNQWSZ.b(IIIIZ)V")
-	public static void method340(int arg0, int arg1, int arg2, int arg3, boolean arg4) {
+	public static void method340(int arg0, int arg1, int arg2, int arg3) {
 		if (arg2 < field1097 || arg2 >= field1098) {
 			return;
 		}
@@ -213,17 +175,13 @@ public class Pix2D extends DoublyLinkable {
 			arg3 = field1100 - arg0;
 		}
 		int var5 = field1095 * arg2 + arg0;
-		if (!arg4) {
-			for (int var6 = 1; var6 > 0; var6++) {
-			}
-		}
 		for (int var7 = 0; var7 < arg3; var7++) {
 			field1094[var5 + var7] = arg1;
 		}
 	}
 
 	@ObfuscatedName("LFYNQWSZ.b(IIIIII)V")
-	public static void method341(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5) {
+	public static void method341(int arg0, int arg1, int arg2, int arg4, int arg5) {
 		if (arg0 < field1097 || arg0 >= field1098) {
 			return;
 		}
@@ -246,9 +204,6 @@ public class Pix2D extends DoublyLinkable {
 			int var15 = (var9 + var14 >> 8) + (var7 + var12 >> 8 << 16) + (var8 + var13 >> 8 << 8);
 			field1094[var10++] = var15;
 		}
-		if (arg3 != 1388) {
-			field1090 = -36;
-		}
 	}
 
 	@ObfuscatedName("LFYNQWSZ.a(IIIZI)V")
@@ -270,7 +225,7 @@ public class Pix2D extends DoublyLinkable {
 	}
 
 	@ObfuscatedName("LFYNQWSZ.c(IIIIII)V")
-	public static void method343(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5) {
+	public static void method343(int arg1, int arg2, int arg3, int arg4, int arg5) {
 		if (arg2 < field1099 || arg2 >= field1100) {
 			return;
 		}
@@ -285,10 +240,6 @@ public class Pix2D extends DoublyLinkable {
 		int var7 = (arg3 >> 16 & 0xFF) * arg5;
 		int var8 = (arg3 >> 8 & 0xFF) * arg5;
 		int var9 = (arg3 & 0xFF) * arg5;
-		if (arg0 != 0) {
-			for (int var10 = 1; var10 > 0; var10++) {
-			}
-		}
 		int var11 = field1095 * arg1 + arg2;
 		for (int var12 = 0; var12 < arg4; var12++) {
 			int var13 = (field1094[var11] >> 16 & 0xFF) * var6;

@@ -7,18 +7,6 @@ import java.util.Random;
 
 public class PixFont extends Pix2D {
 
-	@ObfuscatedName("JDPYRDAS.w")
-	public boolean field884 = true;
-
-	@ObfuscatedName("JDPYRDAS.x")
-	public boolean field885 = true;
-
-	@ObfuscatedName("JDPYRDAS.y")
-	public int field886 = 3;
-
-	@ObfuscatedName("JDPYRDAS.z")
-	public int field887 = 3;
-
 	@ObfuscatedName("JDPYRDAS.A")
 	public byte[][] field888 = new byte[256][];
 
@@ -46,14 +34,11 @@ public class PixFont extends Pix2D {
 	@ObfuscatedName("JDPYRDAS.G")
 	public int field894;
 
-	public PixFont(boolean arg0, Jagfile arg1, int arg2, String arg3) {
-		Packet var5 = new Packet(true, arg1.method2(arg3 + ".dat", null));
-		Packet var6 = new Packet(true, arg1.method2("index.dat", null));
+	public PixFont(boolean arg0, Jagfile arg1, String arg3) {
+		Packet var5 = new Packet(arg1.method2(arg3 + ".dat", null));
+		Packet var6 = new Packet(arg1.method2("index.dat", null));
 		boolean var7 = true;
 		var6.pos = var5.g2() + 4;
-		while (arg2 >= 0) {
-			this.field884 = !this.field884;
-		}
 		int var8 = var6.g1();
 		if (var8 > 0) {
 			var6.pos += (var8 - 1) * 3;
@@ -107,28 +92,22 @@ public class PixFont extends Pix2D {
 	}
 
 	@ObfuscatedName("JDPYRDAS.a(ZLjava/lang/String;III)V")
-	public void method243(boolean arg0, String arg1, int arg2, int arg3, int arg4) {
-		this.method248(2245, arg3 - this.method247(arg1, (byte) -53), arg2, arg4, arg1);
-		if (arg0) {
-			;
-		}
+	public void method243(String arg1, int arg2, int arg3, int arg4) {
+		this.method248(arg3 - this.method247(arg1), arg2, arg4, arg1);
 	}
 
 	@ObfuscatedName("JDPYRDAS.a(IIIILjava/lang/String;)V")
-	public void method244(int arg0, int arg1, int arg2, int arg3, String arg4) {
-		this.method248(2245, arg0 - this.method247(arg4, (byte) -53) / 2, arg3, arg2, arg4);
-		int var6 = 21 / arg1;
+	public void method244(int arg0, int arg2, int arg3, String arg4) {
+		this.method248(arg0 - this.method247(arg4) / 2, arg3, arg2, arg4);
 	}
 
 	@ObfuscatedName("JDPYRDAS.a(ZIIIILjava/lang/String;)V")
-	public void method245(boolean arg0, int arg1, int arg2, int arg3, int arg4, String arg5) {
-		if (arg1 >= this.field886 && arg1 <= this.field886) {
-			this.method252(arg2, arg4 - this.method246((byte) 35, arg5) / 2, arg3, arg0, arg5, -39629);
-		}
+	public void method245(boolean arg0, int arg2, int arg3, int arg4, String arg5) {
+		this.method252(arg2, arg4 - this.method246(arg5) / 2, arg3, arg0, arg5);
 	}
 
 	@ObfuscatedName("JDPYRDAS.a(BLjava/lang/String;)I")
-	public int method246(byte arg0, String arg1) {
+	public int method246(String arg1) {
 		if (arg1 == null) {
 			return 0;
 		}
@@ -140,23 +119,15 @@ public class PixFont extends Pix2D {
 				var3 += this.field893[arg1.charAt(var4)];
 			}
 		}
-		if (arg0 != 35) {
-			for (int var5 = 1; var5 > 0; var5++) {
-			}
-		}
 		return var3;
 	}
 
 	@ObfuscatedName("JDPYRDAS.a(Ljava/lang/String;B)I")
-	public int method247(String arg0, byte arg1) {
+	public int method247(String arg0) {
 		if (arg0 == null) {
 			return 0;
 		}
 		int var3 = 0;
-		if (arg1 != -53) {
-			for (int var4 = 1; var4 > 0; var4++) {
-			}
-		}
 		for (int var5 = 0; var5 < arg0.length(); var5++) {
 			var3 += this.field893[arg0.charAt(var5)];
 		}
@@ -164,11 +135,7 @@ public class PixFont extends Pix2D {
 	}
 
 	@ObfuscatedName("JDPYRDAS.b(IIIILjava/lang/String;)V")
-	public void method248(int arg0, int arg1, int arg2, int arg3, String arg4) {
-		if (arg0 != 2245) {
-			for (int var6 = 1; var6 > 0; var6++) {
-			}
-		}
+	public void method248(int arg1, int arg2, int arg3, String arg4) {
 		if (arg4 == null) {
 			return;
 		}
@@ -183,16 +150,11 @@ public class PixFont extends Pix2D {
 	}
 
 	@ObfuscatedName("JDPYRDAS.a(IBILjava/lang/String;II)V")
-	public void method249(int arg0, byte arg1, int arg2, String arg3, int arg4, int arg5) {
+	public void method249(int arg0, int arg2, String arg3, int arg4, int arg5) {
 		if (arg3 == null) {
 			return;
 		}
-		int var7 = arg4 - this.method247(arg3, (byte) -53) / 2;
-		if (arg1 == 4) {
-			boolean var8 = false;
-		} else {
-			this.field885 = !this.field885;
-		}
+		int var7 = arg4 - this.method247(arg3) / 2;
 		int var9 = arg0 - this.field894;
 		for (int var10 = 0; var10 < arg3.length(); var10++) {
 			char var11 = arg3.charAt(var10);
@@ -204,15 +166,11 @@ public class PixFont extends Pix2D {
 	}
 
 	@ObfuscatedName("JDPYRDAS.a(IIBLjava/lang/String;II)V")
-	public void method250(int arg0, int arg1, byte arg2, String arg3, int arg4, int arg5) {
+	public void method250(int arg0, int arg1, String arg3, int arg4, int arg5) {
 		if (arg3 == null) {
 			return;
 		}
-		int var7 = arg4 - this.method247(arg3, (byte) -53) / 2;
-		if (arg2 != 1) {
-			for (int var8 = 1; var8 > 0; var8++) {
-			}
-		}
+		int var7 = arg4 - this.method247(arg3) / 2;
 		int var9 = arg0 - this.field894;
 		for (int var10 = 0; var10 < arg3.length(); var10++) {
 			char var11 = arg3.charAt(var10);
@@ -224,19 +182,15 @@ public class PixFont extends Pix2D {
 	}
 
 	@ObfuscatedName("JDPYRDAS.a(ILjava/lang/String;IIIII)V")
-	public void method251(int arg0, String arg1, int arg2, int arg3, int arg4, int arg5, int arg6) {
+	public void method251(String arg1, int arg2, int arg3, int arg4, int arg5, int arg6) {
 		if (arg1 == null) {
 			return;
 		}
 		double var8 = 7.0D - (double) arg5 / 8.0D;
-		while (arg0 >= 0) {
-			for (int var14 = 1; var14 > 0; var14++) {
-			}
-		}
 		if (var8 < 0.0D) {
 			var8 = 0.0D;
 		}
-		int var10 = arg3 - this.method247(arg1, (byte) -53) / 2;
+		int var10 = arg3 - this.method247(arg1) / 2;
 		int var11 = arg4 - this.field894;
 		for (int var12 = 0; var12 < arg1.length(); var12++) {
 			char var13 = arg1.charAt(var12);
@@ -248,11 +202,8 @@ public class PixFont extends Pix2D {
 	}
 
 	@ObfuscatedName("JDPYRDAS.a(IIIZLjava/lang/String;I)V")
-	public void method252(int arg0, int arg1, int arg2, boolean arg3, String arg4, int arg5) {
+	public void method252(int arg0, int arg1, int arg2, boolean arg3, String arg4) {
 		this.field896 = false;
-		if (arg5 != -39629) {
-			return;
-		}
 		int var7 = arg1;
 		if (arg4 == null) {
 			return;
@@ -260,7 +211,7 @@ public class PixFont extends Pix2D {
 		int var8 = arg2 - this.field894;
 		for (int var9 = 0; var9 < arg4.length(); var9++) {
 			if (arg4.charAt(var9) == '@' && var9 + 4 < arg4.length() && arg4.charAt(var9 + 4) == '@') {
-				int var10 = this.method254(this.field887, arg4.substring(var9 + 1, var9 + 4));
+				int var10 = this.method254(arg4.substring(var9 + 1, var9 + 4));
 				if (var10 != -1) {
 					arg0 = var10;
 				}
@@ -277,24 +228,21 @@ public class PixFont extends Pix2D {
 			}
 		}
 		if (this.field896) {
-			Pix2D.method340(var7, 8388608, (int) ((double) this.field894 * 0.7D) + var8, arg1 - var7, true);
+			Pix2D.method340(var7, 8388608, (int) ((double) this.field894 * 0.7D) + var8, arg1 - var7);
 		}
 	}
 
 	@ObfuscatedName("JDPYRDAS.a(ZIIIILjava/lang/String;I)V")
-	public void method253(boolean arg0, int arg1, int arg2, int arg3, int arg4, String arg5, int arg6) {
+	public void method253(boolean arg0, int arg1, int arg2, int arg3, int arg4, String arg5) {
 		if (arg5 == null) {
 			return;
 		}
 		this.field895.setSeed((long) arg1);
 		int var8 = (this.field895.nextInt() & 0x1F) + 192;
 		int var9 = arg4 - this.field894;
-		if (arg6 != 0) {
-			this.field887 = 489;
-		}
 		for (int var10 = 0; var10 < arg5.length(); var10++) {
 			if (arg5.charAt(var10) == '@' && var10 + 4 < arg5.length() && arg5.charAt(var10 + 4) == '@') {
-				int var11 = this.method254(this.field887, arg5.substring(var10 + 1, var10 + 4));
+				int var11 = this.method254(arg5.substring(var10 + 1, var10 + 4));
 				if (var11 != -1) {
 					arg3 = var11;
 				}
@@ -303,9 +251,9 @@ public class PixFont extends Pix2D {
 				char var12 = arg5.charAt(var10);
 				if (var12 != ' ') {
 					if (arg0) {
-						this.method257(this.field891[var12] + arg2 + 1, true, 0, this.field888[var12], this.field892[var12] + var9 + 1, this.field890[var12], this.field889[var12], 192);
+						this.method257(this.field891[var12] + arg2 + 1, 0, this.field888[var12], this.field892[var12] + var9 + 1, this.field890[var12], this.field889[var12], 192);
 					}
-					this.method257(this.field891[var12] + arg2, true, arg3, this.field888[var12], this.field892[var12] + var9, this.field890[var12], this.field889[var12], var8);
+					this.method257(this.field891[var12] + arg2, arg3, this.field888[var12], this.field892[var12] + var9, this.field890[var12], this.field889[var12], var8);
 				}
 				arg2 += this.field893[var12];
 				if ((this.field895.nextInt() & 0x3) == 0) {
@@ -316,11 +264,7 @@ public class PixFont extends Pix2D {
 	}
 
 	@ObfuscatedName("JDPYRDAS.a(ILjava/lang/String;)I")
-	public int method254(int arg0, String arg1) {
-		if (this.field887 != arg0) {
-			for (int var3 = 1; var3 > 0; var3++) {
-			}
-		}
+	public int method254(String arg1) {
 		if (arg1.equals("red")) {
 			return 16711680;
 		} else if (arg1.equals("gre")) {
@@ -442,14 +386,11 @@ public class PixFont extends Pix2D {
 	}
 
 	@ObfuscatedName("JDPYRDAS.a(IZI[BIIII)V")
-	public void method257(int arg0, boolean arg1, int arg2, byte[] arg3, int arg4, int arg5, int arg6, int arg7) {
+	public void method257(int arg0, int arg2, byte[] arg3, int arg4, int arg5, int arg6, int arg7) {
 		int var9 = Pix2D.field1095 * arg4 + arg0;
 		int var10 = Pix2D.field1095 - arg6;
 		int var11 = 0;
 		int var12 = 0;
-		if (!arg1) {
-			return;
-		}
 		if (arg4 < Pix2D.field1097) {
 			int var13 = Pix2D.field1097 - arg4;
 			arg5 -= var13;
@@ -476,15 +417,12 @@ public class PixFont extends Pix2D {
 			var10 += var15;
 		}
 		if (arg6 > 0 && arg5 > 0) {
-			this.method258(var12, var10, var11, var9, arg7, Pix2D.field1094, arg2, 2, arg5, arg6, arg3);
+			this.method258(var12, var10, var11, var9, arg7, Pix2D.field1094, arg2, arg5, arg6, arg3);
 		}
 	}
 
 	@ObfuscatedName("JDPYRDAS.a(IIIII[IIIII[B)V")
-	public void method258(int arg0, int arg1, int arg2, int arg3, int arg4, int[] arg5, int arg6, int arg7, int arg8, int arg9, byte[] arg10) {
-		if (arg7 < 2 || arg7 > 2) {
-			this.field884 = !this.field884;
-		}
+	public void method258(int arg0, int arg1, int arg2, int arg3, int arg4, int[] arg5, int arg6, int arg8, int arg9, byte[] arg10) {
 		int var12 = ((arg6 & 0xFF00FF) * arg4 & 0xFF00FF00) + ((arg6 & 0xFF00) * arg4 & 0xFF0000) >> 8;
 		int var13 = 256 - arg4;
 		for (int var14 = -arg8; var14 < 0; var14++) {

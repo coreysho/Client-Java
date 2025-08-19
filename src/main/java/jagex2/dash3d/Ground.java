@@ -294,7 +294,5 @@ public class Ground {
 		}
 		int var38 = var36 / 14;
 		int var39 = var37 / 14;
-		if (Linkable.field1772) {
-		}
 	}
 }

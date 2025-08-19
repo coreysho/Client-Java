@@ -11,32 +11,17 @@ import jagex2.io.Packet;
 
 public class ObjType {
 
-	@ObfuscatedName("GSCQQEUA.x")
-	public boolean field831 = true;
-
-	@ObfuscatedName("GSCQQEUA.z")
-	public int field833 = -68;
-
 	@ObfuscatedName("GSCQQEUA.L")
 	public int field845 = -1;
 
-	@ObfuscatedName("GSCQQEUA.W")
-	public boolean field856 = true;
-
 	@ObfuscatedName("GSCQQEUA.l")
-	public static LruCache field819 = new LruCache(50, -572);
+	public static LruCache field819 = new LruCache(50);
 
 	@ObfuscatedName("GSCQQEUA.s")
 	public static boolean field826 = true;
 
 	@ObfuscatedName("GSCQQEUA.u")
-	public static LruCache field828 = new LruCache(100, -572);
-
-	@ObfuscatedName("GSCQQEUA.v")
-	public static byte field829 = 6;
-
-	@ObfuscatedName("GSCQQEUA.y")
-	public static boolean field832 = true;
+	public static LruCache field828 = new LruCache(100);
 
 	@ObfuscatedName("GSCQQEUA.e")
 	public byte field812;
@@ -171,12 +156,9 @@ public class ObjType {
 	public String[] field830;
 
 	@ObfuscatedName("GSCQQEUA.a(II)Z")
-	public final boolean method220(int arg0, int arg1) {
+	public final boolean method220(int arg0) {
 		int var3 = this.field816;
 		int var4 = this.field843;
-		if (arg1 != 0) {
-			this.field831 = !this.field831;
-		}
 		if (arg0 == 1) {
 			var3 = this.field857;
 			var4 = this.field844;
@@ -206,9 +188,9 @@ public class ObjType {
 		field855.pos = field824[arg0];
 		var2.field845 = arg0;
 		var2.method232();
-		var2.method227(field829, field855);
+		var2.method227(field855);
 		if (var2.field825 != -1) {
-			var2.method224(0);
+			var2.method224();
 		}
 		if (!field826 && var2.field859) {
 			var2.field811 = "Members Object";
@@ -221,7 +203,7 @@ public class ObjType {
 	}
 
 	@ObfuscatedName("GSCQQEUA.a(BI)LLZYQDKJV;")
-	public final Model method222(byte arg0, int arg1) {
+	public final Model method222(int arg1) {
 		int var3 = this.field835;
 		int var4 = this.field813;
 		int var5 = this.field852;
@@ -234,9 +216,6 @@ public class ObjType {
 			return null;
 		}
 		Model var6 = Model.method359(var3);
-		if (arg0 != -98) {
-			throw new NullPointerException();
-		}
 		if (var4 != -1) {
 			if (var5 == -1) {
 				Model var10 = Model.method359(var4);
@@ -250,10 +229,10 @@ public class ObjType {
 			}
 		}
 		if (arg1 == 0 && this.field860 != 0) {
-			var6.method372(0, 0, false, this.field860);
+			var6.method372(0, 0, this.field860);
 		}
 		if (arg1 == 1 && this.field812 != 0) {
-			var6.method372(0, 0, false, this.field812);
+			var6.method372(0, 0, this.field812);
 		}
 		if (this.field846 != null) {
 			for (int var12 = 0; var12 < this.field846.length; var12++) {
@@ -265,8 +244,8 @@ public class ObjType {
 
 	@ObfuscatedName("GSCQQEUA.a(LATJMVOZR;)V")
 	public static final void method223(Jagfile arg0) {
-		field855 = new Packet(true, arg0.method2("obj.dat", null));
-		Packet var1 = new Packet(true, arg0.method2("obj.idx", null));
+		field855 = new Packet(arg0.method2("obj.dat", null));
+		Packet var1 = new Packet(arg0.method2("obj.idx", null));
 		field817 = var1.g2();
 		field824 = new int[field817];
 		int var2 = 2;
@@ -281,14 +260,10 @@ public class ObjType {
 	}
 
 	@ObfuscatedName("GSCQQEUA.b(I)V")
-	public void method224(int arg0) {
+	public void method224() {
 		ObjType var2 = method221(this.field825);
 		this.field842 = var2.field842;
 		this.field851 = var2.field851;
-		if (arg0 != 0) {
-			for (int var3 = 1; var3 > 0; var3++) {
-			}
-		}
 		this.field841 = var2.field841;
 		this.field838 = var2.field838;
 		this.field821 = var2.field821;
@@ -310,9 +285,7 @@ public class ObjType {
 	}
 
 	@ObfuscatedName("GSCQQEUA.b(II)Z")
-	public final boolean method225(int arg0, int arg1) {
-		while (arg0 >= 0) {
-		}
+	public final boolean method225(int arg1) {
 		int var3 = this.field835;
 		int var4 = this.field813;
 		int var5 = this.field852;
@@ -338,7 +311,7 @@ public class ObjType {
 	}
 
 	@ObfuscatedName("GSCQQEUA.c(II)LLZYQDKJV;")
-	public final Model method226(int arg0, int arg1) {
+	public final Model method226(int arg1) {
 		if (this.field847 != null && arg1 > 1) {
 			int var3 = -1;
 			for (int var4 = 0; var4 < 10; var4++) {
@@ -347,13 +320,10 @@ public class ObjType {
 				}
 			}
 			if (var3 != -1) {
-				return method221(var3).method226(this.field833, 1);
+				return method221(var3).method226(1);
 			}
 		}
 		Model var5 = Model.method359(this.field842);
-		while (arg0 >= 0) {
-			this.field831 = !this.field831;
-		}
 		if (var5 == null) {
 			return null;
 		}
@@ -366,124 +336,116 @@ public class ObjType {
 	}
 
 	@ObfuscatedName("GSCQQEUA.a(BLMFMVIYHT;)V")
-	public final void method227(byte arg0, Packet arg1) {
-		if (arg0 != 6) {
-			this.field831 = !this.field831;
-		}
+	public final void method227(Packet arg1) {
 		while (true) {
-			while (true) {
-				int var3 = arg1.g1();
-				if (var3 == 0) {
-					return;
+			int var3 = arg1.g1();
+			if (var3 == 0) {
+				return;
+			}
+			if (var3 == 1) {
+				this.field842 = arg1.g2();
+			} else if (var3 == 2) {
+				this.field811 = arg1.gjstr();
+			} else if (var3 == 3) {
+				this.field810 = arg1.gjstrraw();
+			} else if (var3 == 4) {
+				this.field851 = arg1.g2();
+			} else if (var3 == 5) {
+				this.field841 = arg1.g2();
+			} else if (var3 == 6) {
+				this.field838 = arg1.g2();
+			} else if (var3 == 7) {
+				this.field809 = arg1.g2();
+				if (this.field809 > 32767) {
+					this.field809 -= 65536;
 				}
-				if (var3 == 1) {
-					this.field842 = arg1.g2();
-				} else if (var3 == 2) {
-					this.field811 = arg1.gjstr();
-				} else if (var3 == 3) {
-					this.field810 = arg1.gjstrraw(621);
-				} else if (var3 == 4) {
-					this.field851 = arg1.g2();
-				} else if (var3 == 5) {
-					this.field841 = arg1.g2();
-				} else if (var3 == 6) {
-					this.field838 = arg1.g2();
-				} else if (var3 == 7) {
-					this.field809 = arg1.g2();
-					if (this.field809 > 32767) {
-						this.field809 -= 65536;
-					}
-				} else if (var3 == 8) {
-					this.field822 = arg1.g2();
-					if (this.field822 > 32767) {
-						this.field822 -= 65536;
-					}
-				} else if (var3 == 10) {
-					this.field854 = arg1.g2();
-				} else if (var3 == 11) {
-					this.field853 = true;
-				} else if (var3 == 12) {
-					this.field827 = arg1.g4();
-				} else if (var3 == 16) {
-					this.field859 = true;
-				} else if (var3 == 23) {
-					this.field835 = arg1.g2();
-					this.field860 = arg1.g1b();
-				} else if (var3 == 24) {
-					this.field813 = arg1.g2();
-				} else if (var3 == 25) {
-					this.field808 = arg1.g2();
-					this.field812 = arg1.g1b();
-				} else if (var3 == 26) {
-					this.field837 = arg1.g2();
-				} else if (var3 >= 30 && var3 < 35) {
-					if (this.field820 == null) {
-						this.field820 = new String[5];
-					}
-					this.field820[var3 - 30] = arg1.gjstr();
-					if (this.field820[var3 - 30].equalsIgnoreCase("hidden")) {
-						this.field820[var3 - 30] = null;
-					}
-				} else if (var3 >= 35 && var3 < 40) {
-					if (this.field830 == null) {
-						this.field830 = new String[5];
-					}
-					this.field830[var3 - 35] = arg1.gjstr();
-				} else if (var3 == 40) {
-					int var4 = arg1.g1();
-					this.field846 = new int[var4];
-					this.field823 = new int[var4];
-					for (int var5 = 0; var5 < var4; var5++) {
-						this.field846[var5] = arg1.g2();
-						this.field823[var5] = arg1.g2();
-					}
-				} else if (var3 == 78) {
-					this.field852 = arg1.g2();
-				} else if (var3 == 79) {
-					this.field849 = arg1.g2();
-				} else if (var3 == 90) {
-					this.field816 = arg1.g2();
-				} else if (var3 == 91) {
-					this.field857 = arg1.g2();
-				} else if (var3 == 92) {
-					this.field843 = arg1.g2();
-				} else if (var3 == 93) {
-					this.field844 = arg1.g2();
-				} else if (var3 == 95) {
-					this.field821 = arg1.g2();
-				} else if (var3 == 97) {
-					this.field815 = arg1.g2();
-				} else if (var3 == 98) {
-					this.field825 = arg1.g2();
-				} else if (var3 >= 100 && var3 < 110) {
-					if (this.field847 == null) {
-						this.field847 = new int[10];
-						this.field858 = new int[10];
-					}
-					this.field847[var3 - 100] = arg1.g2();
-					this.field858[var3 - 100] = arg1.g2();
-				} else if (var3 == 110) {
-					this.field848 = arg1.g2();
-				} else if (var3 == 111) {
-					this.field839 = arg1.g2();
-				} else if (var3 == 112) {
-					this.field850 = arg1.g2();
-				} else if (var3 == 113) {
-					this.field836 = arg1.g1b();
-				} else if (var3 == 114) {
-					this.field840 = arg1.g1b() * 5;
-				} else if (var3 == 115) {
-					this.field814 = arg1.g1();
+			} else if (var3 == 8) {
+				this.field822 = arg1.g2();
+				if (this.field822 > 32767) {
+					this.field822 -= 65536;
 				}
+			} else if (var3 == 10) {
+				this.field854 = arg1.g2();
+			} else if (var3 == 11) {
+				this.field853 = true;
+			} else if (var3 == 12) {
+				this.field827 = arg1.g4();
+			} else if (var3 == 16) {
+				this.field859 = true;
+			} else if (var3 == 23) {
+				this.field835 = arg1.g2();
+				this.field860 = arg1.g1b();
+			} else if (var3 == 24) {
+				this.field813 = arg1.g2();
+			} else if (var3 == 25) {
+				this.field808 = arg1.g2();
+				this.field812 = arg1.g1b();
+			} else if (var3 == 26) {
+				this.field837 = arg1.g2();
+			} else if (var3 >= 30 && var3 < 35) {
+				if (this.field820 == null) {
+					this.field820 = new String[5];
+				}
+				this.field820[var3 - 30] = arg1.gjstr();
+				if (this.field820[var3 - 30].equalsIgnoreCase("hidden")) {
+					this.field820[var3 - 30] = null;
+				}
+			} else if (var3 >= 35 && var3 < 40) {
+				if (this.field830 == null) {
+					this.field830 = new String[5];
+				}
+				this.field830[var3 - 35] = arg1.gjstr();
+			} else if (var3 == 40) {
+				int var4 = arg1.g1();
+				this.field846 = new int[var4];
+				this.field823 = new int[var4];
+				for (int var5 = 0; var5 < var4; var5++) {
+					this.field846[var5] = arg1.g2();
+					this.field823[var5] = arg1.g2();
+				}
+			} else if (var3 == 78) {
+				this.field852 = arg1.g2();
+			} else if (var3 == 79) {
+				this.field849 = arg1.g2();
+			} else if (var3 == 90) {
+				this.field816 = arg1.g2();
+			} else if (var3 == 91) {
+				this.field857 = arg1.g2();
+			} else if (var3 == 92) {
+				this.field843 = arg1.g2();
+			} else if (var3 == 93) {
+				this.field844 = arg1.g2();
+			} else if (var3 == 95) {
+				this.field821 = arg1.g2();
+			} else if (var3 == 97) {
+				this.field815 = arg1.g2();
+			} else if (var3 == 98) {
+				this.field825 = arg1.g2();
+			} else if (var3 >= 100 && var3 < 110) {
+				if (this.field847 == null) {
+					this.field847 = new int[10];
+					this.field858 = new int[10];
+				}
+				this.field847[var3 - 100] = arg1.g2();
+				this.field858[var3 - 100] = arg1.g2();
+			} else if (var3 == 110) {
+				this.field848 = arg1.g2();
+			} else if (var3 == 111) {
+				this.field839 = arg1.g2();
+			} else if (var3 == 112) {
+				this.field850 = arg1.g2();
+			} else if (var3 == 113) {
+				this.field836 = arg1.g1b();
+			} else if (var3 == 114) {
+				this.field840 = arg1.g1b() * 5;
+			} else if (var3 == 115) {
+				this.field814 = arg1.g1();
 			}
 		}
 	}
 
 	@ObfuscatedName("GSCQQEUA.a(ZI)LLZYQDKJV;")
-	public final Model method228(boolean arg0, int arg1) {
-		if (!arg0) {
-			this.field856 = !this.field856;
-		}
+	public final Model method228(int arg1) {
 		int var3 = this.field816;
 		int var4 = this.field843;
 		if (arg1 == 1) {
@@ -529,7 +491,7 @@ public class ObjType {
 			return null;
 		}
 		if (this.field848 != 128 || this.field839 != 128 || this.field850 != 128) {
-			var5.method375(this.field839, this.field850, 9, this.field848);
+			var5.method375(this.field839, this.field850, this.field848);
 		}
 		if (this.field846 != null) {
 			for (int var6 = 0; var6 < this.field846.length; var6++) {
@@ -538,12 +500,12 @@ public class ObjType {
 		}
 		var5.method376(this.field836 + 64, this.field840 + 768, -50, -10, -50, true);
 		var5.field1227 = true;
-		field819.method459(var5, (long) this.field845, 5);
+		field819.method459(var5, (long) this.field845);
 		return var5;
 	}
 
 	@ObfuscatedName("GSCQQEUA.a(BIII)LEPQDEJTO;")
-	public static final Pix32 method230(byte arg0, int arg1, int arg2, int arg3) {
+	public static final Pix32 method230(int arg1, int arg2, int arg3) {
 		if (arg1 == 0) {
 			Pix32 var4 = (Pix32) field828.method458((long) arg3);
 			if (var4 != null && var4.field691 != arg2 && var4.field691 != -1) {
@@ -575,7 +537,7 @@ public class ObjType {
 		}
 		Pix32 var9 = null;
 		if (var5.field825 != -1) {
-			var9 = method230((byte) -33, -1, 10, var5.field815);
+			var9 = method230(-1, 10, var5.field815);
 			if (var9 == null) {
 				return null;
 			}
@@ -592,9 +554,9 @@ public class ObjType {
 		int var19 = Pix2D.field1097;
 		int var20 = Pix2D.field1098;
 		Pix3D.field1592 = false;
-		Pix2D.method332(field832, 32, 32, var10.field685);
-		Pix2D.method337(32, 0, 0, (byte) -24, 32, 0);
-		Pix3D.method545(568);
+		Pix2D.method332(32, 32, var10.field685);
+		Pix2D.method337(32, 0, 0, 32, 0);
+		Pix3D.method545();
 		int var21 = var5.field851;
 		if (arg1 == -1) {
 			var21 = (int) ((double) var21 * 1.5D);
@@ -650,15 +612,15 @@ public class ObjType {
 			int var30 = var9.field691;
 			var9.field690 = 32;
 			var9.field691 = 32;
-			var9.method195(0, 0, -488);
+			var9.method195(0, 0);
 			var9.field690 = var29;
 			var9.field691 = var30;
 		}
 		if (arg1 == 0) {
-			field828.method459(var10, (long) arg3, 5);
+			field828.method459(var10, (long) arg3);
 		}
-		Pix2D.method332(field832, var15, var16, var14);
-		Pix2D.method334(var19, var17, var20, var18, true);
+		Pix2D.method332(var15, var16, var14);
+		Pix2D.method334(var19, var17, var20, var18);
 		Pix3D.field1594 = var11;
 		Pix3D.field1595 = var12;
 		Pix3D.field1600 = var13;
@@ -669,19 +631,12 @@ public class ObjType {
 			var10.field690 = 32;
 		}
 		var10.field691 = arg2;
-		if (arg0 != -33) {
-			throw new NullPointerException();
-		}
 		return var10;
 	}
 
 	@ObfuscatedName("GSCQQEUA.a(Z)V")
-	public static final void method231(boolean arg0) {
+	public static final void method231() {
 		field819 = null;
-		if (arg0) {
-			for (int var1 = 1; var1 > 0; var1++) {
-			}
-		}
 		field828 = null;
 		field824 = null;
 		field818 = null;

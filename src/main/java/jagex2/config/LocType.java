@@ -11,35 +11,20 @@ import jagex2.io.Packet;
 
 public class LocType {
 
-	@ObfuscatedName("YMYTDPVW.k")
-	public int field1622 = -992;
-
 	@ObfuscatedName("YMYTDPVW.p")
 	public int field1627 = -1;
-
-	@ObfuscatedName("YMYTDPVW.q")
-	public boolean field1628 = true;
 
 	@ObfuscatedName("YMYTDPVW.s")
 	public String field1630 = "null";
 
-	@ObfuscatedName("YMYTDPVW.C")
-	public boolean field1640 = true;
-
-	@ObfuscatedName("YMYTDPVW.J")
-	public byte field1647 = -113;
-
 	@ObfuscatedName("YMYTDPVW.e")
-	public static LruCache field1616 = new LruCache(40, -572);
+	public static LruCache field1616 = new LruCache(40);
 
 	@ObfuscatedName("YMYTDPVW.n")
 	public static Model[] field1625 = new Model[4];
 
 	@ObfuscatedName("YMYTDPVW.v")
-	public static LruCache field1633 = new LruCache(500, -572);
-
-	@ObfuscatedName("YMYTDPVW.Q")
-	public static byte field1654 = 6;
+	public static LruCache field1633 = new LruCache(500);
 
 	@ObfuscatedName("YMYTDPVW.A")
 	public byte field1638;
@@ -76,9 +61,6 @@ public class LocType {
 
 	@ObfuscatedName("YMYTDPVW.B")
 	public int field1639;
-
-	@ObfuscatedName("YMYTDPVW.E")
-	public int field1642;
 
 	@ObfuscatedName("YMYTDPVW.K")
 	public int field1648;
@@ -182,15 +164,12 @@ public class LocType {
 		field1621.pos = field1612[arg0];
 		var2.field1627 = arg0;
 		var2.method567();
-		var2.method568(field1654, field1621);
+		var2.method568(field1621);
 		return var2;
 	}
 
 	@ObfuscatedName("YMYTDPVW.b(I)LYMYTDPVW;")
-	public final LocType method562(int arg0) {
-		if (arg0 != 0) {
-			this.field1642 = 445;
-		}
+	public final LocType method562() {
 		int var2 = -1;
 		if (this.field1632 != -1) {
 			VarbitType var3 = VarbitType.field1760[this.field1632];
@@ -206,23 +185,19 @@ public class LocType {
 	}
 
 	@ObfuscatedName("YMYTDPVW.a(LZPGPWCCV;I)V")
-	public final void method563(OnDemand arg0, int arg1) {
+	public final void method563(OnDemand arg0) {
 		if (this.field1617 == null) {
 			return;
 		}
 		for (int var3 = 0; var3 < this.field1617.length; var3++) {
-			arg0.method594(this.field1617[var3] & 0xFFFF, 0, this.field1647);
-		}
-		if (arg1 >= 0) {
-			for (int var4 = 1; var4 > 0; var4++) {
-			}
+			arg0.method594(this.field1617[var3] & 0xFFFF, 0);
 		}
 	}
 
 	@ObfuscatedName("YMYTDPVW.a(LATJMVOZR;)V")
 	public static final void method564(Jagfile arg0) {
-		field1621 = new Packet(true, arg0.method2("loc.dat", null));
-		Packet var1 = new Packet(true, arg0.method2("loc.idx", null));
+		field1621 = new Packet(arg0.method2("loc.dat", null));
+		Packet var1 = new Packet(arg0.method2("loc.idx", null));
 		field1662 = var1.g2();
 		field1612 = new int[field1662];
 		int var2 = 2;
@@ -237,7 +212,7 @@ public class LocType {
 	}
 
 	@ObfuscatedName("YMYTDPVW.a(IIII)LLZYQDKJV;")
-	public final Model method565(int arg0, int arg1, int arg2, int arg3) {
+	public final Model method565(int arg0, int arg1, int arg3) {
 		Model var5 = null;
 		long var6;
 		if (this.field1643 == null) {
@@ -266,9 +241,9 @@ public class LocType {
 						return null;
 					}
 					if (var9) {
-						var5.method374(0);
+						var5.method374();
 					}
-					field1633.method459(var5, (long) var12, 5);
+					field1633.method459(var5, (long) var12);
 				}
 				if (var10 > 1) {
 					field1625[var11] = var5;
@@ -305,9 +280,9 @@ public class LocType {
 					return null;
 				}
 				if (var17) {
-					var5.method374(0);
+					var5.method374();
 				}
-				field1633.method459(var5, (long) var16, 5);
+				field1633.method459(var5, (long) var16);
 			}
 		}
 		boolean var18;
@@ -322,13 +297,10 @@ public class LocType {
 		} else {
 			var19 = true;
 		}
-		Model var20 = new Model(arg0 == 0 && arg1 == -1 && !var18 && !var19, false, this.field1653 == null, var5, AnimFrame.method265(this.field1628, arg1));
-		if (arg2 != 0) {
-			this.field1622 = 487;
-		}
+		Model var20 = new Model(arg0 == 0 && arg1 == -1 && !var18 && !var19, false, this.field1653 == null, var5, AnimFrame.method265(arg1));
 		if (arg1 != -1) {
-			var20.method366(7);
-			var20.method367(arg1, (byte) 6);
+			var20.method366();
+			var20.method367(arg1);
 			var20.field1226 = null;
 			var20.field1225 = null;
 		}
@@ -341,28 +313,25 @@ public class LocType {
 			}
 		}
 		if (var18) {
-			var20.method375(this.field1614, this.field1650, 9, this.field1634);
+			var20.method375(this.field1614, this.field1650, this.field1634);
 		}
 		if (var19) {
-			var20.method372(this.field1615, this.field1620, false, this.field1639);
+			var20.method372(this.field1615, this.field1620, this.field1639);
 		}
 		var20.method376(this.field1638 + 64, this.field1641 * 5 + 768, -50, -10, -50, !this.field1658);
 		if (this.field1648 == 1) {
 			var20.field1222 = var20.field1709;
 		}
-		field1616.method459(var20, var6, 5);
+		field1616.method459(var20, var6);
 		return var20;
 	}
 
 	@ObfuscatedName("YMYTDPVW.c(I)Z")
-	public final boolean method566(int arg0) {
+	public final boolean method566() {
 		if (this.field1617 == null) {
 			return true;
 		}
 		boolean var2 = true;
-		while (arg0 >= 0) {
-			this.field1622 = 347;
-		}
 		for (int var3 = 0; var3 < this.field1617.length; var3++) {
 			var2 &= Model.method360(this.field1617[var3] & 0xFFFF);
 		}
@@ -410,152 +379,32 @@ public class LocType {
 	}
 
 	@ObfuscatedName("YMYTDPVW.a(BLMFMVIYHT;)V")
-	public final void method568(byte arg0, Packet arg1) {
+	public final void method568(Packet arg1) {
 		int var3 = -1;
-		if (arg0 != 6) {
-			throw new NullPointerException();
-		}
 		while (true) {
-			while (true) {
-				int var5;
-				do {
-					while (true) {
-						int var4 = arg1.g1();
-						if (var4 == 0) {
-							if (var3 == -1) {
-								this.field1613 = false;
-								if (this.field1617 != null && (this.field1643 == null || this.field1643[0] == 10)) {
-									this.field1613 = true;
-								}
-								if (this.field1644 != null) {
-									this.field1613 = true;
-								}
-							}
-							if (this.field1645) {
-								this.field1664 = false;
-								this.field1663 = false;
-							}
-							if (this.field1648 == -1) {
-								this.field1648 = this.field1664 ? 1 : 0;
-								return;
-							}
-							return;
-						}
-						if (var4 == 1) {
-							var5 = arg1.g1();
-							break;
-						}
-						if (var4 == 2) {
-							this.field1630 = arg1.gjstr();
-						} else if (var4 == 3) {
-							this.field1637 = arg1.gjstrraw(621);
-						} else if (var4 == 5) {
-							int var7 = arg1.g1();
-							if (var7 > 0) {
-								if (this.field1617 == null || field1626) {
-									this.field1643 = null;
-									this.field1617 = new int[var7];
-									for (int var8 = 0; var8 < var7; var8++) {
-										this.field1617[var8] = arg1.g2();
-									}
-								} else {
-									arg1.pos += var7 * 2;
-								}
-							}
-						} else if (var4 == 14) {
-							this.field1655 = arg1.g1();
-						} else if (var4 == 15) {
-							this.field1629 = arg1.g1();
-						} else if (var4 == 17) {
-							this.field1664 = false;
-						} else if (var4 == 18) {
-							this.field1663 = false;
-						} else if (var4 == 19) {
-							var3 = arg1.g1();
-							if (var3 == 1) {
-								this.field1613 = true;
-							}
-						} else if (var4 == 21) {
-							this.field1623 = true;
-						} else if (var4 == 22) {
-							this.field1658 = true;
-						} else if (var4 == 23) {
-							this.field1651 = true;
-						} else if (var4 == 24) {
-							this.field1657 = arg1.g2();
-							if (this.field1657 == 65535) {
-								this.field1657 = -1;
-							}
-						} else if (var4 == 28) {
-							this.field1656 = arg1.g1();
-						} else if (var4 == 29) {
-							this.field1638 = arg1.g1b();
-						} else if (var4 == 39) {
-							this.field1641 = arg1.g1b();
-						} else if (var4 >= 30 && var4 < 39) {
-							if (this.field1644 == null) {
-								this.field1644 = new String[5];
-							}
-							this.field1644[var4 - 30] = arg1.gjstr();
-							if (this.field1644[var4 - 30].equalsIgnoreCase("hidden")) {
-								this.field1644[var4 - 30] = null;
-							}
-						} else if (var4 == 40) {
-							int var9 = arg1.g1();
-							this.field1653 = new int[var9];
-							this.field1646 = new int[var9];
-							for (int var10 = 0; var10 < var9; var10++) {
-								this.field1653[var10] = arg1.g2();
-								this.field1646[var10] = arg1.g2();
-							}
-						} else if (var4 == 60) {
-							this.field1660 = arg1.g2();
-						} else if (var4 == 62) {
-							this.field1652 = true;
-						} else if (var4 == 64) {
-							this.field1661 = false;
-						} else if (var4 == 65) {
-							this.field1634 = arg1.g2();
-						} else if (var4 == 66) {
-							this.field1614 = arg1.g2();
-						} else if (var4 == 67) {
-							this.field1650 = arg1.g2();
-						} else if (var4 == 68) {
-							this.field1649 = arg1.g2();
-						} else if (var4 == 69) {
-							this.field1618 = arg1.g1();
-						} else if (var4 == 70) {
-							this.field1615 = arg1.g2b();
-						} else if (var4 == 71) {
-							this.field1639 = arg1.g2b();
-						} else if (var4 == 72) {
-							this.field1620 = arg1.g2b();
-						} else if (var4 == 73) {
-							this.field1619 = true;
-						} else if (var4 == 74) {
-							this.field1645 = true;
-						} else if (var4 == 75) {
-							this.field1648 = arg1.g1();
-						} else if (var4 == 77) {
-							this.field1632 = arg1.g2();
-							if (this.field1632 == 65535) {
-								this.field1632 = -1;
-							}
-							this.field1635 = arg1.g2();
-							if (this.field1635 == 65535) {
-								this.field1635 = -1;
-							}
-							int var11 = arg1.g1();
-							this.field1659 = new int[var11 + 1];
-							for (int var12 = 0; var12 <= var11; var12++) {
-								this.field1659[var12] = arg1.g2();
-								if (this.field1659[var12] == 65535) {
-									this.field1659[var12] = -1;
-								}
-							}
-						}
+			int var4 = arg1.g1();
+			if (var4 == 0) {
+				if (var3 == -1) {
+					this.field1613 = false;
+					if (this.field1617 != null && (this.field1643 == null || this.field1643[0] == 10)) {
+						this.field1613 = true;
 					}
-				} while (var5 <= 0);
+					if (this.field1644 != null) {
+						this.field1613 = true;
+					}
+				}
+				if (this.field1645) {
+					this.field1664 = false;
+					this.field1663 = false;
+				}
+				if (this.field1648 == -1) {
+					this.field1648 = this.field1664 ? 1 : 0;
+					return;
+				}
+				return;
+			}
+			if (var4 == 1) {
+				int var5 = arg1.g1();
 				if (this.field1617 == null || field1626) {
 					this.field1643 = new int[var5];
 					this.field1617 = new int[var5];
@@ -567,12 +416,121 @@ public class LocType {
 					arg1.pos += var5 * 3;
 				}
 			}
+			if (var4 == 2) {
+				this.field1630 = arg1.gjstr();
+			} else if (var4 == 3) {
+				this.field1637 = arg1.gjstrraw();
+			} else if (var4 == 5) {
+				int var7 = arg1.g1();
+				if (var7 > 0) {
+					if (this.field1617 == null || field1626) {
+						this.field1643 = null;
+						this.field1617 = new int[var7];
+						for (int var8 = 0; var8 < var7; var8++) {
+							this.field1617[var8] = arg1.g2();
+						}
+					} else {
+						arg1.pos += var7 * 2;
+					}
+				}
+			} else if (var4 == 14) {
+				this.field1655 = arg1.g1();
+			} else if (var4 == 15) {
+				this.field1629 = arg1.g1();
+			} else if (var4 == 17) {
+				this.field1664 = false;
+			} else if (var4 == 18) {
+				this.field1663 = false;
+			} else if (var4 == 19) {
+				var3 = arg1.g1();
+				if (var3 == 1) {
+					this.field1613 = true;
+				}
+			} else if (var4 == 21) {
+				this.field1623 = true;
+			} else if (var4 == 22) {
+				this.field1658 = true;
+			} else if (var4 == 23) {
+				this.field1651 = true;
+			} else if (var4 == 24) {
+				this.field1657 = arg1.g2();
+				if (this.field1657 == 65535) {
+					this.field1657 = -1;
+				}
+			} else if (var4 == 28) {
+				this.field1656 = arg1.g1();
+			} else if (var4 == 29) {
+				this.field1638 = arg1.g1b();
+			} else if (var4 == 39) {
+				this.field1641 = arg1.g1b();
+			} else if (var4 >= 30 && var4 < 39) {
+				if (this.field1644 == null) {
+					this.field1644 = new String[5];
+				}
+				this.field1644[var4 - 30] = arg1.gjstr();
+				if (this.field1644[var4 - 30].equalsIgnoreCase("hidden")) {
+					this.field1644[var4 - 30] = null;
+				}
+			} else if (var4 == 40) {
+				int var9 = arg1.g1();
+				this.field1653 = new int[var9];
+				this.field1646 = new int[var9];
+				for (int var10 = 0; var10 < var9; var10++) {
+					this.field1653[var10] = arg1.g2();
+					this.field1646[var10] = arg1.g2();
+				}
+			} else if (var4 == 60) {
+				this.field1660 = arg1.g2();
+			} else if (var4 == 62) {
+				this.field1652 = true;
+			} else if (var4 == 64) {
+				this.field1661 = false;
+			} else if (var4 == 65) {
+				this.field1634 = arg1.g2();
+			} else if (var4 == 66) {
+				this.field1614 = arg1.g2();
+			} else if (var4 == 67) {
+				this.field1650 = arg1.g2();
+			} else if (var4 == 68) {
+				this.field1649 = arg1.g2();
+			} else if (var4 == 69) {
+				this.field1618 = arg1.g1();
+			} else if (var4 == 70) {
+				this.field1615 = arg1.g2b();
+			} else if (var4 == 71) {
+				this.field1639 = arg1.g2b();
+			} else if (var4 == 72) {
+				this.field1620 = arg1.g2b();
+			} else if (var4 == 73) {
+				this.field1619 = true;
+			} else if (var4 == 74) {
+				this.field1645 = true;
+			} else if (var4 == 75) {
+				this.field1648 = arg1.g1();
+			} else if (var4 == 77) {
+				this.field1632 = arg1.g2();
+				if (this.field1632 == 65535) {
+					this.field1632 = -1;
+				}
+				this.field1635 = arg1.g2();
+				if (this.field1635 == 65535) {
+					this.field1635 = -1;
+				}
+				int var11 = arg1.g1();
+				this.field1659 = new int[var11 + 1];
+				for (int var12 = 0; var12 <= var11; var12++) {
+					this.field1659[var12] = arg1.g2();
+					if (this.field1659[var12] == 65535) {
+						this.field1659[var12] = -1;
+					}
+				}
+			}
 		}
 	}
 
 	@ObfuscatedName("YMYTDPVW.a(IIIIIII)LLZYQDKJV;")
 	public final Model method569(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6) {
-		Model var8 = this.method565(arg1, arg6, 0, arg0);
+		Model var8 = this.method565(arg1, arg6, arg0);
 		if (var8 == null) {
 			return null;
 		}
@@ -589,16 +547,13 @@ public class LocType {
 				int var15 = (var14 - var13) * (var12 + 64) / 128 + var13;
 				var8.field1197[var10] += var15 - var9;
 			}
-			var8.method364(6);
+			var8.method364();
 		}
 		return var8;
 	}
 
 	@ObfuscatedName("YMYTDPVW.a(II)Z")
-	public final boolean method570(int arg0, int arg1) {
-		if (arg0 != 26261) {
-			this.field1640 = !this.field1640;
-		}
+	public final boolean method570(int arg1) {
 		if (this.field1643 != null) {
 			for (int var5 = 0; var5 < this.field1643.length; var5++) {
 				if (this.field1643[var5] == arg1) {
@@ -620,14 +575,10 @@ public class LocType {
 	}
 
 	@ObfuscatedName("YMYTDPVW.a(Z)V")
-	public static final void method571(boolean arg0) {
+	public static final void method571() {
 		field1633 = null;
 		field1616 = null;
 		field1612 = null;
-		if (arg0) {
-			for (int var1 = 1; var1 > 0; var1++) {
-			}
-		}
 		field1636 = null;
 		field1621 = null;
 	}

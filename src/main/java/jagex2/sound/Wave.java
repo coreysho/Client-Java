@@ -50,7 +50,7 @@ public class Wave {
 			return;
 		}
 		field1473 = new byte[441000];
-		field1474 = new Packet(true, field1473);
+		field1474 = new Packet(field1473);
 		Tone.method186();
 		while (true) {
 			int var2 = arg0.g2();
@@ -129,21 +129,21 @@ public class Wave {
 		int var3 = this.method483(arg1);
 		field1474.pos = 0;
 		field1474.p4(1380533830);
-		field1474.ip4(var3 + 36, false);
+		field1474.ip4(var3 + 36);
 		field1474.p4(1463899717);
 		field1474.p4(1718449184);
 		if (arg0 >= 0) {
 			throw new NullPointerException();
 		}
-		field1474.ip4(16, false);
-		field1474.ip2(1, false);
-		field1474.ip2(1, false);
-		field1474.ip4(22050, false);
-		field1474.ip4(22050, false);
-		field1474.ip2(1, false);
-		field1474.ip2(8, false);
+		field1474.ip4(16);
+		field1474.ip2(1);
+		field1474.ip2(1);
+		field1474.ip4(22050);
+		field1474.ip4(22050);
+		field1474.ip2(1);
+		field1474.ip2(8);
 		field1474.p4(1684108385);
-		field1474.ip4(var3, false);
+		field1474.ip4(var3);
 		field1474.pos += var3;
 		return field1474;
 	}

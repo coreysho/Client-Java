@@ -5,9 +5,6 @@ import jagex2.config.SeqType;
 
 public abstract class ClientEntity extends ModelSource {
 
-	@ObfuscatedName("LRUWCBNN.n")
-	public int field1128 = -89;
-
 	@ObfuscatedName("LRUWCBNN.o")
 	public int field1129 = 100;
 
@@ -174,27 +171,18 @@ public abstract class ClientEntity extends ModelSource {
 	public String field1127;
 
 	@ObfuscatedName("LRUWCBNN.a(I)V")
-	public final void method350(int arg0) {
+	public final void method350() {
 		this.field1180 = 0;
 		this.field1160 = 0;
-		if (arg0 >= 0) {
-			;
-		}
 	}
 
 	@ObfuscatedName("LRUWCBNN.b(I)Z")
-	public boolean method351(int arg0) {
-		if (arg0 != 0) {
-			throw new NullPointerException();
-		}
+	public boolean method351() {
 		return false;
 	}
 
 	@ObfuscatedName("LRUWCBNN.a(ZII)V")
-	public final void method352(boolean arg0, int arg1, int arg2) {
-		if (arg2 >= 0) {
-			return;
-		}
+	public final void method352(boolean arg0, int arg1) {
 		int var4 = this.field1133[0];
 		int var5 = this.field1134[0];
 		if (arg1 == 0) {
@@ -242,7 +230,7 @@ public abstract class ClientEntity extends ModelSource {
 	}
 
 	@ObfuscatedName("LRUWCBNN.a(IZII)V")
-	public final void method353(int arg0, boolean arg1, int arg2, int arg3) {
+	public final void method353(int arg0, int arg2, int arg3) {
 		for (int var5 = 0; var5 < 4; var5++) {
 			if (this.field1179[var5] <= arg0) {
 				this.field1177[var5] = arg2;
@@ -251,13 +239,10 @@ public abstract class ClientEntity extends ModelSource {
 				return;
 			}
 		}
-		if (arg1) {
-			this.field1128 = -52;
-		}
 	}
 
 	@ObfuscatedName("LRUWCBNN.a(IBZI)V")
-	public final void method354(int arg0, byte arg1, boolean arg2, int arg3) {
+	public final void method354(int arg0, boolean arg2, int arg3) {
 		if (this.field1171 != -1 && SeqType.field775[this.field1171].field788 == 1) {
 			this.field1171 = -1;
 		}
@@ -284,12 +269,6 @@ public abstract class ClientEntity extends ModelSource {
 		this.field1170 = 0;
 		this.field1133[0] = arg3;
 		this.field1134[0] = arg0;
-		if (arg1 == 5) {
-			boolean var8 = false;
-		} else {
-			for (int var9 = 1; var9 > 0; var9++) {
-			}
-		}
 		this.field1157 = this.field1133[0] * 128 + this.field1148 * 64;
 		this.field1158 = this.field1134[0] * 128 + this.field1148 * 64;
 	}

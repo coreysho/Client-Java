@@ -22,18 +22,6 @@ import java.awt.event.WindowListener;
 
 public class GameShell extends Applet implements Runnable, MouseListener, MouseMotionListener, KeyListener, FocusListener, WindowListener {
 
-	@ObfuscatedName("JWWAIQPI.a")
-	public int field938 = 8;
-
-	@ObfuscatedName("JWWAIQPI.b")
-	public boolean field939 = false;
-
-	@ObfuscatedName("JWWAIQPI.c")
-	public boolean field940 = false;
-
-	@ObfuscatedName("JWWAIQPI.d")
-	public int field941 = 3;
-
 	@ObfuscatedName("JWWAIQPI.g")
 	public int field944 = 20;
 
@@ -131,37 +119,33 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	public Graphics field951;
 
 	@ObfuscatedName("JWWAIQPI.a(III)V")
-	public final void method266(int arg0, int arg1, int arg2) {
+	public final void method266(int arg1, int arg2) {
 		this.field949 = arg2;
 		this.field950 = arg1;
-		this.field954 = new ViewBox(this.field941, this.field950, this, this.field949);
-		if (arg0 < 0) {
-			this.field951 = this.method164(-756).getGraphics();
-			this.field952 = new PixMap(this.field950, (byte) -12, this.method164(-756), this.field949);
-			this.method142(this, 1);
-		}
+		this.field954 = new ViewBox(this.field950, this, this.field949);
+		this.field951 = this.method164().getGraphics();
+		this.field952 = new PixMap(this.field950, this.method164(), this.field949);
+		this.method142(this, 1);
 	}
 
 	@ObfuscatedName("JWWAIQPI.b(III)V")
-	public final void method267(int arg0, int arg1, int arg2) {
+	public final void method267(int arg0, int arg1) {
 		this.field949 = arg0;
-		if (arg2 == 2) {
-			this.field950 = arg1;
-			this.field951 = this.method164(-756).getGraphics();
-			this.field952 = new PixMap(this.field950, (byte) -12, this.method164(-756), this.field949);
-			this.method142(this, 1);
-		}
+		this.field950 = arg1;
+		this.field951 = this.method164().getGraphics();
+		this.field952 = new PixMap(this.field950, this.method164(), this.field949);
+		this.method142(this, 1);
 	}
 
 	public void run() {
-		this.method164(-756).addMouseListener(this);
-		this.method164(-756).addMouseMotionListener(this);
-		this.method164(-756).addKeyListener(this);
-		this.method164(-756).addFocusListener(this);
+		this.method164().addMouseListener(this);
+		this.method164().addMouseMotionListener(this);
+		this.method164().addKeyListener(this);
+		this.method164().addFocusListener(this);
 		if (this.field954 != null) {
 			this.field954.addWindowListener(this);
 		}
-		this.method165(0, true, "Loading...");
+		this.method165(0, "Loading...");
 		this.method86();
 		int var1 = 0;
 		int var2 = 256;
@@ -177,14 +161,14 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 			do {
 				if (this.field943 < 0) {
 					if (this.field943 == -1) {
-						this.method268(this.field939);
+						this.method268();
 					}
 					return;
 				}
 				if (this.field943 > 0) {
 					this.field943--;
 					if (this.field943 == 0) {
-						this.method268(this.field939);
+						this.method268();
 						return;
 					}
 				}
@@ -232,7 +216,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 					this.field967 = this.field963;
 					this.field968 = this.field964;
 					this.field961 = 0;
-					this.method113((byte) -111);
+					this.method113();
 					this.field971 = this.field972;
 					var4 += var2;
 				}
@@ -240,7 +224,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 				if (this.field944 > 0) {
 					this.field947 = var2 * 1000 / (this.field944 * 256);
 				}
-				this.method152(818);
+				this.method152();
 			} while (!this.field948);
 			System.out.println("ntime:" + var11);
 			for (int var14 = 0; var14 < 10; var14++) {
@@ -256,10 +240,10 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	}
 
 	@ObfuscatedName("JWWAIQPI.a(Z)V")
-	public final void method268(boolean arg0) {
+	public final void method268() {
 		this.field943 = -2;
-		this.method40(277);
-		if (arg0 || this.field954 == null) {
+		this.method40();
+		if (this.field954 == null) {
 			return;
 		}
 		try {
@@ -273,10 +257,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	}
 
 	@ObfuscatedName("JWWAIQPI.a(BI)V")
-	public final void method269(byte arg0, int arg1) {
-		if (arg0 != 103) {
-			this.field938 = 388;
-		}
+	public final void method269(int arg1) {
 		this.field944 = 1000 / arg1;
 	}
 
@@ -299,7 +280,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 		} catch (Exception var1) {
 		}
 		if (this.field943 == -1) {
-			this.method268(this.field939);
+			this.method268();
 		}
 	}
 
@@ -308,7 +289,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 			this.field951 = arg0;
 		}
 		this.field955 = true;
-		this.method82((byte) -99);
+		this.method82();
 	}
 
 	public final void paint(Graphics arg0) {
@@ -316,7 +297,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 			this.field951 = arg0;
 		}
 		this.field955 = true;
-		this.method82((byte) -99);
+		this.method82();
 	}
 
 	public final void mousePressed(MouseEvent arg0) {
@@ -448,8 +429,6 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 			this.field970[this.field972] = var3;
 			this.field972 = this.field972 + 1 & 0x7F;
 		}
-		if (Linkable.field1772) {
-		}
 	}
 
 	public final void keyReleased(KeyEvent arg0) {
@@ -495,10 +474,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	}
 
 	@ObfuscatedName("JWWAIQPI.a(I)I")
-	public final int method270(int arg0) {
-		while (arg0 >= 0) {
-			this.field942 = -9;
-		}
+	public final int method270() {
 		int var2 = -1;
 		if (this.field972 != this.field971) {
 			var2 = this.field970[this.field971];
@@ -510,7 +486,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	public final void focusGained(FocusEvent arg0) {
 		this.field956 = true;
 		this.field955 = true;
-		this.method82((byte) -99);
+		this.method82();
 	}
 
 	public final void focusLost(FocusEvent arg0) {
@@ -547,36 +523,23 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	}
 
 	@ObfuscatedName("JWWAIQPI.a(B)V")
-	public void method113(byte arg0) {
-		if (arg0 != -111) {
-			this.field942 = -400;
-		}
+	public void method113() {
 	}
 
 	@ObfuscatedName("JWWAIQPI.b(I)V")
-	public void method40(int arg0) {
-		int var2 = 41 / arg0;
+	public void method40() {
 	}
 
 	@ObfuscatedName("JWWAIQPI.c(I)V")
-	public void method152(int arg0) {
-		if (arg0 > 0) {
-			;
-		}
+	public void method152() {
 	}
 
 	@ObfuscatedName("JWWAIQPI.b(B)V")
-	public void method82(byte arg0) {
-		if (arg0 == -99) {
-			;
-		}
+	public void method82() {
 	}
 
 	@ObfuscatedName("JWWAIQPI.d(I)Ljava/awt/Component;")
-	public Component method164(int arg0) {
-		if (arg0 >= 0) {
-			this.field941 = 329;
-		}
+	public Component method164() {
 		return this.field954 == null ? this : this.field954;
 	}
 
@@ -588,11 +551,11 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	}
 
 	@ObfuscatedName("JWWAIQPI.a(IZLjava/lang/String;)V")
-	public void method165(int arg0, boolean arg1, String arg2) {
+	public void method165(int arg0, String arg2) {
 		while (this.field951 == null) {
-			this.field951 = this.method164(-756).getGraphics();
+			this.field951 = this.method164().getGraphics();
 			try {
-				this.method164(-756).repaint();
+				this.method164().repaint();
 			} catch (Exception var10) {
 			}
 			try {
@@ -601,12 +564,9 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 			}
 		}
 		Font var4 = new Font("Helvetica", 1, 13);
-		FontMetrics var5 = this.method164(-756).getFontMetrics(var4);
-		if (!arg1) {
-			this.field938 = -145;
-		}
+		FontMetrics var5 = this.method164().getFontMetrics(var4);
 		Font var6 = new Font("Helvetica", 0, 13);
-		this.method164(-756).getFontMetrics(var6);
+		this.method164().getFontMetrics(var6);
 		if (this.field955) {
 			this.field951.setColor(Color.black);
 			this.field951.fillRect(0, 0, this.field949, this.field950);

@@ -45,10 +45,10 @@ public class MapSpotAnim extends ModelSource {
 		while (true) {
 			do {
 				do {
-					if (this.field1529 <= this.field1530.field1301.method214(0, this.field1528)) {
+					if (this.field1529 <= this.field1530.field1301.method214(this.field1528)) {
 						return;
 					}
-					this.field1529 -= this.field1530.field1301.method214(0, this.field1528);
+					this.field1529 -= this.field1530.field1301.method214(this.field1528);
 					this.field1528++;
 				} while (this.field1528 < this.field1530.field1301.field776);
 			} while (this.field1528 >= 0 && this.field1528 < this.field1530.field1301.field776);
@@ -72,24 +72,21 @@ public class MapSpotAnim extends ModelSource {
 	}
 
 	@ObfuscatedName("WHUAOHZM.a(B)LLZYQDKJV;")
-	public final Model method239(byte arg0) {
-		if (arg0 != 3) {
-			throw new NullPointerException();
-		}
+	public final Model method239() {
 		Model var2 = this.field1530.method439();
 		if (var2 == null) {
 			return null;
 		}
 		int var3 = this.field1530.field1301.field777[this.field1528];
-		Model var4 = new Model(false, false, true, var2, AnimFrame.method265(this.field1526, var3));
+		Model var4 = new Model(false, false, true, var2, AnimFrame.method265(var3));
 		if (!this.field1527) {
-			var4.method366(7);
-			var4.method367(var3, (byte) 6);
+			var4.method366();
+			var4.method367(var3);
 			var4.field1226 = null;
 			var4.field1225 = null;
 		}
 		if (this.field1530.field1304 != 128 || this.field1530.field1305 != 128) {
-			var4.method375(this.field1530.field1305, this.field1530.field1304, 9, this.field1530.field1304);
+			var4.method375(this.field1530.field1305, this.field1530.field1304, this.field1530.field1304);
 		}
 		if (this.field1530.field1306 != 0) {
 			if (this.field1530.field1306 == 90) {

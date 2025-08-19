@@ -115,8 +115,6 @@ public class Filter {
 		this.field1416[1] = var4 & 0xF;
 		if (var4 == 0) {
 			this.field1419[0] = this.field1419[1] = 0;
-			if (Linkable.field1772) {
-			}
 			return;
 		}
 		this.field1419[0] = arg2.g2();

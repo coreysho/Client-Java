@@ -5,9 +5,6 @@ import jagex2.io.Jagfile;
 
 public class Pix3D extends Pix2D {
 
-	@ObfuscatedName("YIBHWZVJ.w")
-	public static int field1586 = -20714;
-
 	@ObfuscatedName("YIBHWZVJ.z")
 	public static boolean field1589 = true;
 
@@ -47,9 +44,6 @@ public class Pix3D extends Pix2D {
 	@ObfuscatedName("YIBHWZVJ.V")
 	public static int[][] field1611;
 
-	@ObfuscatedName("YIBHWZVJ.x")
-	public static int field1587;
-
 	@ObfuscatedName("YIBHWZVJ.D")
 	public static int field1593;
 
@@ -68,9 +62,6 @@ public class Pix3D extends Pix2D {
 	@ObfuscatedName("YIBHWZVJ.T")
 	public static int field1609;
 
-	@ObfuscatedName("YIBHWZVJ.y")
-	public static boolean field1588;
-
 	@ObfuscatedName("YIBHWZVJ.A")
 	public static boolean field1590;
 
@@ -84,7 +75,7 @@ public class Pix3D extends Pix2D {
 	public static int[][] field1606;
 
 	@ObfuscatedName("YIBHWZVJ.a(Z)V")
-	public static final void method544(boolean arg0) {
+	public static final void method544() {
 		field1596 = null;
 		field1596 = null;
 		field1598 = null;
@@ -94,10 +85,6 @@ public class Pix3D extends Pix2D {
 		field1603 = null;
 		field1604 = null;
 		field1606 = null;
-		if (arg0) {
-			for (int var1 = 1; var1 > 0; var1++) {
-			}
-		}
 		field1607 = null;
 		field1608 = null;
 		field1610 = null;
@@ -105,8 +92,7 @@ public class Pix3D extends Pix2D {
 	}
 
 	@ObfuscatedName("YIBHWZVJ.b(I)V")
-	public static final void method545(int arg0) {
-		int var1 = 19 / arg0;
+	public static final void method545() {
 		field1600 = new int[Pix2D.field1096];
 		for (int var2 = 0; var2 < Pix2D.field1096; var2++) {
 			field1600[var2] = Pix2D.field1095 * var2;
@@ -116,10 +102,7 @@ public class Pix3D extends Pix2D {
 	}
 
 	@ObfuscatedName("YIBHWZVJ.a(III)V")
-	public static final void method546(int arg0, int arg1, int arg2) {
-		if (arg1 != 7) {
-			field1588 = !field1588;
-		}
+	public static final void method546(int arg0, int arg2) {
 		field1600 = new int[arg0];
 		for (int var3 = 0; var3 < arg0; var3++) {
 			field1600[var3] = arg2 * var3;
@@ -129,21 +112,15 @@ public class Pix3D extends Pix2D {
 	}
 
 	@ObfuscatedName("YIBHWZVJ.b(B)V")
-	public static final void method547(byte arg0) {
-		if (arg0 == 71) {
-			field1606 = null;
-			for (int var1 = 0; var1 < 50; var1++) {
-				field1607[var1] = null;
-			}
+	public static final void method547() {
+		field1606 = null;
+		for (int var1 = 0; var1 < 50; var1++) {
+			field1607[var1] = null;
 		}
 	}
 
 	@ObfuscatedName("YIBHWZVJ.a(BI)V")
-	public static final void method548(byte arg0, int arg1) {
-		if (arg0 != 7) {
-			for (int var2 = 1; var2 > 0; var2++) {
-			}
-		}
+	public static final void method548(int arg1) {
 		if (field1606 != null) {
 			return;
 		}
@@ -159,19 +136,15 @@ public class Pix3D extends Pix2D {
 	}
 
 	@ObfuscatedName("YIBHWZVJ.a(LATJMVOZR;I)V")
-	public static final void method549(Jagfile arg0, int arg1) {
-		if (arg1 != -17551) {
-			for (int var2 = 1; var2 > 0; var2++) {
-			}
-		}
+	public static final void method549(Jagfile arg0) {
 		field1601 = 0;
 		for (int var3 = 0; var3 < 50; var3++) {
 			try {
 				field1602[var3] = new Pix8(arg0, String.valueOf(var3), 0);
 				if (field1589 && field1602[var3].field1554 == 128) {
-					field1602[var3].method487(0);
+					field1602[var3].method487();
 				} else {
-					field1602[var3].method488(true);
+					field1602[var3].method488();
 				}
 				field1601++;
 			} catch (Exception var4) {
@@ -180,7 +153,7 @@ public class Pix3D extends Pix2D {
 	}
 
 	@ObfuscatedName("YIBHWZVJ.a(II)I")
-	public static final int method550(int arg0, int arg1) {
+	public static final int method550(int arg0) {
 		if (field1604[arg0] != 0) {
 			return field1604[arg0];
 		}
@@ -193,9 +166,6 @@ public class Pix3D extends Pix2D {
 			var3 += field1611[arg0][var6] >> 8 & 0xFF;
 			var4 += field1611[arg0][var6] & 0xFF;
 		}
-		if (arg1 != 0) {
-			return field1587;
-		}
 		int var7 = var4 / var5 + (var2 / var5 << 16) + (var3 / var5 << 8);
 		int var8 = method554(var7, 1.4D);
 		if (var8 == 0) {
@@ -206,10 +176,7 @@ public class Pix3D extends Pix2D {
 	}
 
 	@ObfuscatedName("YIBHWZVJ.b(II)V")
-	public static final void method551(int arg0, int arg1) {
-		if (arg1 != 9) {
-			field1586 = -48;
-		}
+	public static final void method551(int arg0) {
 		if (field1607[arg0] != null) {
 			field1606[field1605++] = field1607[arg0];
 			field1607[arg0] = null;
@@ -280,7 +247,7 @@ public class Pix3D extends Pix2D {
 	}
 
 	@ObfuscatedName("YIBHWZVJ.a(DB)V")
-	public static final void method553(double arg0, byte arg1) {
+	public static final void method553(double arg0) {
 		double var3 = arg0 + (Math.random() * 0.03D - 0.015D);
 		int var5 = 0;
 		for (int var6 = 0; var6 < 512; var6++) {
@@ -358,11 +325,9 @@ public class Pix3D extends Pix2D {
 				}
 			}
 		}
-		if (arg1 == 6) {
-			boolean var8 = false;
-			for (int var9 = 0; var9 < 50; var9++) {
-				method551(var9, 9);
-			}
+		boolean var8 = false;
+		for (int var9 = 0; var9 < 50; var9++) {
+			method551(var9);
 		}
 	}
 

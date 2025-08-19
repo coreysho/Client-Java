@@ -15,9 +15,6 @@ public class VarbitType {
 	@ObfuscatedName("ZQTIEXZH.k")
 	public boolean field1768 = true;
 
-	@ObfuscatedName("ZQTIEXZH.a")
-	public int field1758;
-
 	@ObfuscatedName("ZQTIEXZH.b")
 	public static int field1759;
 
@@ -40,11 +37,8 @@ public class VarbitType {
 	public static VarbitType[] field1760;
 
 	@ObfuscatedName("ZQTIEXZH.a(LATJMVOZR;I)V")
-	public static void method602(Jagfile arg0, int arg1) {
-		Packet var2 = new Packet(true, arg0.method2("varbit.dat", null));
-		if (arg1 != 36135) {
-			return;
-		}
+	public static void method602(Jagfile arg0) {
+		Packet var2 = new Packet(arg0.method2("varbit.dat", null));
 		field1759 = var2.g2();
 		if (field1760 == null) {
 			field1760 = new VarbitType[field1759];
@@ -53,7 +47,7 @@ public class VarbitType {
 			if (field1760[var3] == null) {
 				field1760[var3] = new VarbitType();
 			}
-			field1760[var3].method603(-954, var3, var2);
+			field1760[var3].method603(var3, var2);
 			if (field1760[var3].field1765) {
 				VarpType.field1507[field1760[var3].field1762].field1519 = true;
 			}
@@ -64,10 +58,7 @@ public class VarbitType {
 	}
 
 	@ObfuscatedName("ZQTIEXZH.a(IILMFMVIYHT;)V")
-	public void method603(int arg0, int arg1, Packet arg2) {
-		if (arg0 >= 0) {
-			this.field1758 = -151;
-		}
+	public void method603(int arg1, Packet arg2) {
 		while (true) {
 			int var4 = arg2.g1();
 			if (var4 == 0) {

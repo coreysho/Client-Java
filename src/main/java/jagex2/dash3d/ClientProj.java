@@ -5,15 +5,6 @@ import jagex2.config.SpotAnimType;
 
 public class ClientProj extends ModelSource {
 
-	@ObfuscatedName("KFJRVZCI.u")
-	public boolean field982 = false;
-
-	@ObfuscatedName("KFJRVZCI.x")
-	public byte field985 = -41;
-
-	@ObfuscatedName("KFJRVZCI.G")
-	public boolean field994 = true;
-
 	@ObfuscatedName("KFJRVZCI.I")
 	public boolean field996 = false;
 
@@ -87,7 +78,7 @@ public class ClientProj extends ModelSource {
 	public int field989;
 
 	@ObfuscatedName("KFJRVZCI.a(IIIII)V")
-	public final void method271(int arg0, int arg1, int arg2, int arg3, int arg4) {
+	public final void method271(int arg0, int arg1, int arg2, int arg3) {
 		if (!this.field996) {
 			double var6 = (double) (arg0 - this.field997);
 			double var8 = (double) (arg1 - this.field998);
@@ -99,9 +90,6 @@ public class ClientProj extends ModelSource {
 		double var12 = (double) (this.field987 + 1 - arg3);
 		this.field990 = ((double) arg0 - this.field976) / var12;
 		this.field991 = ((double) arg1 - this.field977) / var12;
-		if (arg4 != 0) {
-			return;
-		}
 		this.field992 = Math.sqrt(this.field991 * this.field991 + this.field990 * this.field990);
 		if (!this.field996) {
 			this.field993 = -this.field992 * Math.tan((double) this.field979 * 0.02454369D);
@@ -110,13 +98,9 @@ public class ClientProj extends ModelSource {
 	}
 
 	@ObfuscatedName("KFJRVZCI.a(IZ)V")
-	public final void method272(int arg0, boolean arg1) {
+	public final void method272(int arg0) {
 		this.field996 = true;
 		this.field976 += (double) arg0 * this.field990;
-		if (arg1) {
-			for (int var3 = 1; var3 > 0; var3++) {
-			}
-		}
 		this.field977 += (double) arg0 * this.field991;
 		this.field978 += this.field995 * 0.5D * (double) arg0 * (double) arg0 + (double) arg0 * this.field993;
 		this.field993 += (double) arg0 * this.field995;
@@ -126,8 +110,8 @@ public class ClientProj extends ModelSource {
 			return;
 		}
 		this.field989 += arg0;
-		while (this.field989 > this.field974.field1301.method214(0, this.field988)) {
-			this.field989 -= this.field974.field1301.method214(0, this.field988);
+		while (this.field989 > this.field974.field1301.method214(this.field988)) {
+			this.field989 -= this.field974.field1301.method214(this.field988);
 			this.field988++;
 			if (this.field988 >= this.field974.field1301.field776) {
 				this.field988 = 0;
@@ -136,7 +120,7 @@ public class ClientProj extends ModelSource {
 	}
 
 	@ObfuscatedName("KFJRVZCI.a(B)LLZYQDKJV;")
-	public final Model method239(byte arg0) {
+	public final Model method239() {
 		Model var2 = this.field974.method439();
 		if (var2 == null) {
 			return null;
@@ -145,27 +129,22 @@ public class ClientProj extends ModelSource {
 		if (this.field974.field1301 != null) {
 			var3 = this.field974.field1301.field777[this.field988];
 		}
-		Model var4 = new Model(false, false, true, var2, AnimFrame.method265(this.field994, var3));
+		Model var4 = new Model(false, false, true, var2, AnimFrame.method265(var3));
 		if (var3 != -1) {
-			var4.method366(7);
-			var4.method367(var3, (byte) 6);
+			var4.method366();
+			var4.method367(var3);
 			var4.field1226 = null;
 			var4.field1225 = null;
 		}
 		if (this.field974.field1304 != 128 || this.field974.field1305 != 128) {
-			var4.method375(this.field974.field1305, this.field974.field1304, 9, this.field974.field1304);
+			var4.method375(this.field974.field1305, this.field974.field1304, this.field974.field1304);
 		}
-		var4.method371(this.field984, 341);
+		var4.method371(this.field984);
 		var4.method376(this.field974.field1307 + 64, this.field974.field1308 + 850, -30, -50, -30, true);
-		if (arg0 == 3) {
-			boolean var5 = false;
-		} else {
-			this.field982 = !this.field982;
-		}
 		return var4;
 	}
 
-	public ClientProj(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, byte arg8, int arg9, int arg10, int arg11) {
+	public ClientProj(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg9, int arg10, int arg11) {
 		this.field974 = SpotAnimType.field1297[arg4];
 		this.field975 = arg0;
 		this.field997 = arg10;
@@ -173,9 +152,6 @@ public class ClientProj extends ModelSource {
 		this.field999 = arg9;
 		this.field986 = arg11;
 		this.field987 = arg5;
-		if (this.field985 != arg8) {
-			throw new NullPointerException();
-		}
 		this.field979 = arg6;
 		this.field980 = arg2;
 		this.field981 = arg7;

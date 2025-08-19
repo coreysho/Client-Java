@@ -9,9 +9,6 @@ import java.net.Socket;
 
 public class ClientStream implements Runnable {
 
-	@ObfuscatedName("GXWEWMHV.b")
-	public byte field862 = 2;
-
 	@ObfuscatedName("GXWEWMHV.f")
 	public boolean field866 = false;
 
@@ -26,9 +23,6 @@ public class ClientStream implements Runnable {
 
 	@ObfuscatedName("GXWEWMHV.e")
 	public Socket field865;
-
-	@ObfuscatedName("GXWEWMHV.a")
-	public int field861;
 
 	@ObfuscatedName("GXWEWMHV.c")
 	public InputStream field863;
@@ -45,14 +39,9 @@ public class ClientStream implements Runnable {
 	@ObfuscatedName("GXWEWMHV.h")
 	public byte[] field868;
 
-	public ClientStream(byte arg0, Socket arg1, GameShell arg2) throws IOException {
+	public ClientStream(Socket arg1, GameShell arg2) throws IOException {
 		this.field867 = arg2;
 		this.field865 = arg1;
-		if (this.field862 == arg0) {
-			boolean var4 = false;
-		} else {
-			this.field861 = -5;
-		}
 		this.field865.setSoTimeout(30000);
 		this.field865.setTcpNoDelay(true);
 		this.field863 = this.field865.getInputStream();
@@ -108,7 +97,7 @@ public class ClientStream implements Runnable {
 	}
 
 	@ObfuscatedName("GXWEWMHV.a(III[B)V")
-	public void method237(int arg0, int arg1, int arg2, byte[] arg3) throws IOException {
+	public void method237(int arg1, int arg2, byte[] arg3) throws IOException {
 		if (this.field866) {
 			return;
 		}
@@ -132,9 +121,6 @@ public class ClientStream implements Runnable {
 				this.field867.method142(this, 3);
 			}
 			this.notify();
-		}
-		if (arg0 == 0) {
-			;
 		}
 	}
 
@@ -181,14 +167,11 @@ public class ClientStream implements Runnable {
 	}
 
 	@ObfuscatedName("GXWEWMHV.a(Z)V")
-	public void method238(boolean arg0) {
+	public void method238() {
 		System.out.println("dummy:" + this.field866);
 		System.out.println("tcycl:" + this.field869);
 		System.out.println("tnum:" + this.field870);
 		System.out.println("writer:" + this.field871);
-		if (arg0) {
-			return;
-		}
 		System.out.println("ioerror:" + this.field872);
 		try {
 			System.out.println("available:" + this.method235());

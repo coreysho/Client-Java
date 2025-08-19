@@ -4,23 +4,13 @@ import deob.ObfuscatedName;
 
 public class LinkList {
 
-	@ObfuscatedName("BOHLFXVX.a")
-	public int field90 = -48545;
-
 	@ObfuscatedName("BOHLFXVX.c")
 	public Linkable field92 = new Linkable();
-
-	@ObfuscatedName("BOHLFXVX.b")
-	public int field91;
 
 	@ObfuscatedName("BOHLFXVX.d")
 	public Linkable field93;
 
-	public LinkList(boolean arg0) {
-		if (!arg0) {
-			for (int var2 = 1; var2 > 0; var2++) {
-			}
-		}
+	public LinkList() {
 		this.field92.field1770 = this.field92;
 		this.field92.field1771 = this.field92;
 	}
@@ -37,10 +27,7 @@ public class LinkList {
 	}
 
 	@ObfuscatedName("BOHLFXVX.a(BLZUOIJLRD;)V")
-	public void method4(byte arg0, Linkable arg1) {
-		if (arg0 != -57) {
-			this.field91 = -23;
-		}
+	public void method4(Linkable arg1) {
 		if (arg1.field1771 != null) {
 			arg1.method604();
 		}
@@ -74,12 +61,8 @@ public class LinkList {
 	}
 
 	@ObfuscatedName("BOHLFXVX.a(Z)LZUOIJLRD;")
-	public Linkable method7(boolean arg0) {
+	public Linkable method7() {
 		Linkable var2 = this.field92.field1771;
-		if (arg0) {
-			for (int var3 = 1; var3 > 0; var3++) {
-			}
-		}
 		if (this.field92 == var2) {
 			this.field93 = null;
 			return null;
@@ -90,25 +73,20 @@ public class LinkList {
 	}
 
 	@ObfuscatedName("BOHLFXVX.a(I)LZUOIJLRD;")
-	public Linkable method8(int arg0) {
+	public Linkable method8() {
 		Linkable var2 = this.field93;
 		if (this.field92 == var2) {
 			this.field93 = null;
 			return null;
 		}
 		this.field93 = var2.field1770;
-		if (arg0 != 1) {
-			throw new NullPointerException();
-		}
 		return var2;
 	}
 
 	@ObfuscatedName("BOHLFXVX.b(I)LZUOIJLRD;")
-	public Linkable method9(int arg0) {
+	public Linkable method9() {
 		Linkable var2 = this.field93;
-		if (arg0 <= 0) {
-			throw new NullPointerException();
-		} else if (this.field92 == var2) {
+		if (this.field92 == var2) {
 			this.field93 = null;
 			return null;
 		} else {

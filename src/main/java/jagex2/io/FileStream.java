@@ -6,12 +6,6 @@ import java.io.RandomAccessFile;
 
 public class FileStream {
 
-	@ObfuscatedName("KNWRHOKF.b")
-	public boolean field1077 = false;
-
-	@ObfuscatedName("KNWRHOKF.c")
-	public int field1078 = 3;
-
 	@ObfuscatedName("KNWRHOKF.h")
 	public int field1083 = 65000;
 
@@ -27,28 +21,17 @@ public class FileStream {
 	@ObfuscatedName("KNWRHOKF.d")
 	public static byte[] field1079 = new byte[520];
 
-	@ObfuscatedName("KNWRHOKF.a")
-	public int field1076;
-
-	public FileStream(int arg0, int arg1, RandomAccessFile arg2, RandomAccessFile arg3, int arg4) {
+	public FileStream(int arg0, int arg1, RandomAccessFile arg2, RandomAccessFile arg3) {
 		this.field1082 = arg0;
-		if (arg4 < 4 || arg4 > 4) {
-			this.field1078 = 148;
-		}
 		this.field1080 = arg2;
 		this.field1081 = arg3;
 		this.field1083 = arg1;
 	}
 
 	@ObfuscatedName("KNWRHOKF.a(BI)[B")
-	public synchronized byte[] method325(byte arg0, int arg1) {
-		if (arg0 == 6) {
-			boolean var3 = false;
-		} else {
-			this.field1077 = !this.field1077;
-		}
+	public synchronized byte[] method325(int arg1) {
 		try {
-			this.method328(true, arg1 * 6, this.field1081);
+			this.method328(arg1 * 6, this.field1081);
 			int var5;
 			for (int var4 = 0; var4 < 6; var4 += var5) {
 				var5 = this.field1081.read(field1079, var4, 6 - var4);
@@ -68,7 +51,7 @@ public class FileStream {
 					if (var7 == 0) {
 						return null;
 					}
-					this.method328(true, var7 * 520, this.field1080);
+					this.method328(var7 * 520, this.field1080);
 					int var11 = 0;
 					int var12 = var6 - var9;
 					if (var12 > 512) {
@@ -108,27 +91,20 @@ public class FileStream {
 	}
 
 	@ObfuscatedName("KNWRHOKF.a(IZ[BI)Z")
-	public synchronized boolean method326(int arg0, boolean arg1, byte[] arg2, int arg3) {
-		if (!arg1) {
-			for (int var5 = 1; var5 > 0; var5++) {
-			}
-		}
-		boolean var6 = this.method327(arg2, this.field1076, arg3, true, arg0);
+	public synchronized boolean method326(int arg0, byte[] arg2, int arg3) {
+		boolean var6 = this.method327(arg2, arg3, true, arg0);
 		if (!var6) {
-			var6 = this.method327(arg2, this.field1076, arg3, false, arg0);
+			var6 = this.method327(arg2, arg3, false, arg0);
 		}
 		return var6;
 	}
 
 	@ObfuscatedName("KNWRHOKF.a([BIIZI)Z")
-	public synchronized boolean method327(byte[] arg0, int arg1, int arg2, boolean arg3, int arg4) {
-		if (arg1 != 0) {
-			throw new NullPointerException();
-		}
+	public synchronized boolean method327(byte[] arg0, int arg2, boolean arg3, int arg4) {
 		try {
 			int var8;
 			if (arg3) {
-				this.method328(true, arg2 * 6, this.field1081);
+				this.method328(arg2 * 6, this.field1081);
 				int var7;
 				for (int var6 = 0; var6 < 6; var6 += var7) {
 					var7 = this.field1081.read(field1079, var6, 6 - var6);
@@ -152,14 +128,14 @@ public class FileStream {
 			field1079[3] = (byte) (var8 >> 16);
 			field1079[4] = (byte) (var8 >> 8);
 			field1079[5] = (byte) var8;
-			this.method328(true, arg2 * 6, this.field1081);
+			this.method328(arg2 * 6, this.field1081);
 			this.field1081.write(field1079, 0, 6);
 			int var9 = 0;
 			int var10 = 0;
 			while (var9 < arg4) {
 				int var11 = 0;
 				if (arg3) {
-					this.method328(true, var8 * 520, this.field1080);
+					this.method328(var8 * 520, this.field1080);
 					int var12;
 					int var13;
 					for (var12 = 0; var12 < 8; var12 += var13) {
@@ -205,7 +181,7 @@ public class FileStream {
 				field1079[5] = (byte) (var11 >> 8);
 				field1079[6] = (byte) var11;
 				field1079[7] = (byte) this.field1082;
-				this.method328(true, var8 * 520, this.field1080);
+				this.method328(var8 * 520, this.field1080);
 				this.field1080.write(field1079, 0, 8);
 				int var17 = arg4 - var9;
 				if (var17 > 512) {
@@ -223,10 +199,7 @@ public class FileStream {
 	}
 
 	@ObfuscatedName("KNWRHOKF.a(ZILjava/io/RandomAccessFile;)V")
-	public synchronized void method328(boolean arg0, int arg1, RandomAccessFile arg2) throws IOException {
-		if (!arg0) {
-			return;
-		}
+	public synchronized void method328(int arg1, RandomAccessFile arg2) throws IOException {
 		if (arg1 < 0 || arg1 > 62914560) {
 			System.out.println("Badseek - pos:" + arg1 + " len:" + arg2.length());
 			arg1 = 62914560;

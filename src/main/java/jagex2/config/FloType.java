@@ -6,9 +6,6 @@ import jagex2.io.Packet;
 
 public class FloType {
 
-	@ObfuscatedName("FZFOSJCE.c")
-	public boolean field794 = true;
-
 	@ObfuscatedName("FZFOSJCE.h")
 	public int field799 = -1;
 
@@ -17,12 +14,6 @@ public class FloType {
 
 	@ObfuscatedName("FZFOSJCE.j")
 	public boolean field801 = true;
-
-	@ObfuscatedName("FZFOSJCE.a")
-	public static byte field792 = 6;
-
-	@ObfuscatedName("FZFOSJCE.b")
-	public int field793;
 
 	@ObfuscatedName("FZFOSJCE.d")
 	public static int field795;
@@ -55,11 +46,8 @@ public class FloType {
 	public static FloType[] field796;
 
 	@ObfuscatedName("FZFOSJCE.a(LATJMVOZR;I)V")
-	public static void method216(Jagfile arg0, int arg1) {
-		if (arg1 != 36135) {
-			return;
-		}
-		Packet var2 = new Packet(true, arg0.method2("flo.dat", null));
+	public static void method216(Jagfile arg0) {
+		Packet var2 = new Packet(arg0.method2("flo.dat", null));
 		field795 = var2.g2();
 		if (field796 == null) {
 			field796 = new FloType[field795];
@@ -68,18 +56,12 @@ public class FloType {
 			if (field796[var3] == null) {
 				field796[var3] = new FloType();
 			}
-			field796[var3].method217(field792, var2);
+			field796[var3].method217(var2);
 		}
 	}
 
 	@ObfuscatedName("FZFOSJCE.a(BLMFMVIYHT;)V")
-	public void method217(byte arg0, Packet arg1) {
-		if (arg0 == 6) {
-			boolean var3 = false;
-		} else {
-			for (int var4 = 1; var4 > 0; var4++) {
-			}
-		}
+	public void method217(Packet arg1) {
 		while (true) {
 			int var5 = arg1.g1();
 			if (var5 == 0) {
@@ -87,7 +69,7 @@ public class FloType {
 			}
 			if (var5 == 1) {
 				this.field798 = arg1.g3();
-				this.method218(true, this.field798);
+				this.method218(this.field798);
 			} else if (var5 == 2) {
 				this.field799 = arg1.g1();
 			} else if (var5 == 3) {
@@ -102,7 +84,7 @@ public class FloType {
 				int var8 = this.field804;
 				int var9 = this.field805;
 				int var10 = arg1.g3();
-				this.method218(true, var10);
+				this.method218(var10);
 				this.field802 = var6;
 				this.field803 = var7;
 				this.field804 = var8;
@@ -115,7 +97,7 @@ public class FloType {
 	}
 
 	@ObfuscatedName("FZFOSJCE.a(ZI)V")
-	public void method218(boolean arg0, int arg1) {
+	public void method218(int arg1) {
 		if (arg1 == 16711935) {
 			arg1 = 0;
 		}
@@ -158,9 +140,6 @@ public class FloType {
 		this.field802 = (int) (var19 * 256.0D);
 		this.field803 = (int) (var15 * 256.0D);
 		this.field804 = (int) (var17 * 256.0D);
-		if (!arg0) {
-			this.field793 = -244;
-		}
 		if (this.field803 < 0) {
 			this.field803 = 0;
 		} else if (this.field803 > 255) {

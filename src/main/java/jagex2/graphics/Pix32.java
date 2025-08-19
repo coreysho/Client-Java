@@ -11,42 +11,6 @@ import java.awt.image.PixelGrabber;
 
 public class Pix32 extends Pix2D {
 
-	@ObfuscatedName("EPQDEJTO.w")
-	public int field673 = -235;
-
-	@ObfuscatedName("EPQDEJTO.x")
-	public boolean field674 = true;
-
-	@ObfuscatedName("EPQDEJTO.y")
-	public byte field675 = 5;
-
-	@ObfuscatedName("EPQDEJTO.z")
-	public int field676 = -3539;
-
-	@ObfuscatedName("EPQDEJTO.A")
-	public int field677 = -766;
-
-	@ObfuscatedName("EPQDEJTO.B")
-	public int field678 = -766;
-
-	@ObfuscatedName("EPQDEJTO.C")
-	public int field679 = 1;
-
-	@ObfuscatedName("EPQDEJTO.D")
-	public boolean field680 = true;
-
-	@ObfuscatedName("EPQDEJTO.E")
-	public boolean field681 = false;
-
-	@ObfuscatedName("EPQDEJTO.F")
-	public boolean field682 = false;
-
-	@ObfuscatedName("EPQDEJTO.G")
-	public boolean field683 = true;
-
-	@ObfuscatedName("EPQDEJTO.H")
-	public int field684 = 3600;
-
 	@ObfuscatedName("EPQDEJTO.I")
 	public int[] field685;
 
@@ -96,8 +60,8 @@ public class Pix32 extends Pix2D {
 	}
 
 	public Pix32(Jagfile arg0, String arg1, int arg2) {
-		Packet var4 = new Packet(true, arg0.method2(arg1 + ".dat", null));
-		Packet var5 = new Packet(true, arg0.method2("index.dat", null));
+		Packet var4 = new Packet(arg0.method2(arg1 + ".dat", null));
+		Packet var5 = new Packet(arg0.method2("index.dat", null));
 		var5.pos = var4.g2();
 		this.field690 = var5.g2();
 		this.field691 = var5.g2();
@@ -135,14 +99,12 @@ public class Pix32 extends Pix2D {
 	}
 
 	@ObfuscatedName("EPQDEJTO.a(Z)V")
-	public void method190(boolean arg0) {
-		if (!arg0) {
-			Pix2D.method332(this.field683, this.field686, this.field687, this.field685);
-		}
+	public void method190() {
+		Pix2D.method332(this.field686, this.field687, this.field685);
 	}
 
 	@ObfuscatedName("EPQDEJTO.a(IIII)V")
-	public void method191(int arg0, int arg1, int arg2, int arg3) {
+	public void method191(int arg0, int arg1, int arg2) {
 		for (int var5 = 0; var5 < this.field685.length; var5++) {
 			int var6 = this.field685[var5];
 			if (var6 != 0) {
@@ -170,13 +132,10 @@ public class Pix32 extends Pix2D {
 				this.field685[var5] = (var8 << 16) + (var10 << 8) + var12;
 			}
 		}
-		if (this.field673 != arg3) {
-			this.field683 = !this.field683;
-		}
 	}
 
 	@ObfuscatedName("EPQDEJTO.b(I)V")
-	public void method192(int arg0) {
+	public void method192() {
 		int[] var2 = new int[this.field691 * this.field690];
 		for (int var3 = 0; var3 < this.field687; var3++) {
 			for (int var4 = 0; var4 < this.field686; var4++) {
@@ -188,13 +147,10 @@ public class Pix32 extends Pix2D {
 		this.field687 = this.field691;
 		this.field688 = 0;
 		this.field689 = 0;
-		if (arg0 == 1790) {
-			;
-		}
 	}
 
 	@ObfuscatedName("EPQDEJTO.a(III)V")
-	public void method193(int arg0, int arg1, int arg2) {
+	public void method193(int arg0, int arg2) {
 		int var4 = this.field688 + arg2;
 		int var5 = this.field689 + arg0;
 		int var6 = Pix2D.field1095 * var5 + var4;
@@ -229,19 +185,13 @@ public class Pix32 extends Pix2D {
 			var10 += var14;
 		}
 		if (var9 > 0 && var8 > 0) {
-			this.method194(var9, var10, var8, this.field685, var7, var11, var6, (byte) -39, Pix2D.field1094);
-			if (arg1 >= 0) {
-				this.field683 = !this.field683;
-			}
+			this.method194(var9, var10, var8, this.field685, var7, var11, var6, Pix2D.field1094);
 		}
 	}
 
 	@ObfuscatedName("EPQDEJTO.a(III[IIIIB[I)V")
-	public void method194(int arg0, int arg1, int arg2, int[] arg3, int arg4, int arg5, int arg6, byte arg7, int[] arg8) {
+	public void method194(int arg0, int arg1, int arg2, int[] arg3, int arg4, int arg5, int arg6, int[] arg8) {
 		int var10 = -(arg0 >> 2);
-		if (arg7 != -39) {
-			this.field684 = 201;
-		}
 		int var11 = -(arg0 & 0x3);
 		for (int var12 = -arg2; var12 < 0; var12++) {
 			for (int var13 = var10; var13 < 0; var13++) {
@@ -259,11 +209,8 @@ public class Pix32 extends Pix2D {
 	}
 
 	@ObfuscatedName("EPQDEJTO.b(III)V")
-	public void method195(int arg0, int arg1, int arg2) {
+	public void method195(int arg0, int arg1) {
 		int var4 = this.field688 + arg1;
-		if (arg2 >= 0) {
-			return;
-		}
 		int var5 = this.field689 + arg0;
 		int var6 = Pix2D.field1095 * var5 + var4;
 		int var7 = 0;
@@ -346,14 +293,11 @@ public class Pix32 extends Pix2D {
 	}
 
 	@ObfuscatedName("EPQDEJTO.b(IIII)V")
-	public void method197(int arg0, int arg1, int arg2, int arg3) {
+	public void method197(int arg1, int arg2, int arg3) {
 		int var5 = this.field688 + arg1;
 		int var6 = this.field689 + arg2;
 		int var7 = Pix2D.field1095 * var6 + var5;
 		int var8 = 0;
-		if (arg0 != 0) {
-			return;
-		}
 		int var9 = this.field687;
 		int var10 = this.field686;
 		int var11 = Pix2D.field1095 - var10;
@@ -384,12 +328,12 @@ public class Pix32 extends Pix2D {
 			var11 += var15;
 		}
 		if (var10 > 0 && var9 > 0) {
-			this.method198(var10, var12, 0, var11, var8, this.field677, arg3, var7, var9, Pix2D.field1094, this.field685);
+			this.method198(var10, var12, 0, var11, var8, arg3, var7, var9, Pix2D.field1094, this.field685);
 		}
 	}
 
 	@ObfuscatedName("EPQDEJTO.a(IIIIIIIII[I[I)V")
-	public void method198(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, int[] arg9, int[] arg10) {
+	public void method198(int arg0, int arg1, int arg2, int arg3, int arg4, int arg6, int arg7, int arg8, int[] arg9, int[] arg10) {
 		int var12 = 256 - arg6;
 		for (int var13 = -arg8; var13 < 0; var13++) {
 			for (int var14 = -arg0; var14 < 0; var14++) {
@@ -404,14 +348,10 @@ public class Pix32 extends Pix2D {
 			arg7 += arg3;
 			arg4 += arg1;
 		}
-		if (arg5 >= 0) {
-			this.field674 = !this.field674;
-		}
 	}
 
 	@ObfuscatedName("EPQDEJTO.a(IIIII[IIII[II)V")
-	public void method199(int arg0, int arg1, int arg2, int arg3, int arg4, int[] arg5, int arg6, int arg7, int arg8, int[] arg9, int arg10) {
-		int var12 = 36 / arg1;
+	public void method199(int arg0, int arg2, int arg3, int arg4, int[] arg5, int arg6, int arg7, int arg8, int[] arg9, int arg10) {
 		try {
 			int var13 = -arg4 / 2;
 			int var14 = -arg2 / 2;
@@ -441,10 +381,7 @@ public class Pix32 extends Pix2D {
 	}
 
 	@ObfuscatedName("EPQDEJTO.a(IIIIIIIDI)V")
-	public void method200(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, double arg7, int arg8) {
-		if (arg5 != -30658) {
-			return;
-		}
+	public void method200(int arg0, int arg1, int arg2, int arg3, int arg4, int arg6, double arg7, int arg8) {
 		try {
 			int var11 = -arg6 / 2;
 			int var12 = -arg4 / 2;
@@ -478,10 +415,7 @@ public class Pix32 extends Pix2D {
 	}
 
 	@ObfuscatedName("EPQDEJTO.a(LWRRBQEHV;III)V")
-	public void method201(Pix8 arg0, int arg1, int arg2, int arg3) {
-		if (arg2 != -49993) {
-			return;
-		}
+	public void method201(Pix8 arg0, int arg1, int arg3) {
 		int var5 = this.field688 + arg3;
 		int var6 = this.field689 + arg1;
 		int var7 = Pix2D.field1095 * var6 + var5;
@@ -516,16 +450,13 @@ public class Pix32 extends Pix2D {
 			var11 += var15;
 		}
 		if (var10 > 0 && var9 > 0) {
-			this.method202(var7, var11, this.field685, var10, Pix2D.field1094, arg0.field1548, 40303, var9, var8, 0, var12);
+			this.method202(var7, var11, this.field685, var10, Pix2D.field1094, arg0.field1548, var9, var8, 0, var12);
 		}
 	}
 
 	@ObfuscatedName("EPQDEJTO.a(II[II[I[BIIIII)V")
-	public void method202(int arg0, int arg1, int[] arg2, int arg3, int[] arg4, byte[] arg5, int arg6, int arg7, int arg8, int arg9, int arg10) {
+	public void method202(int arg0, int arg1, int[] arg2, int arg3, int[] arg4, byte[] arg5, int arg7, int arg8, int arg9, int arg10) {
 		int var12 = -(arg3 >> 2);
-		if (arg6 != 40303) {
-			this.field682 = !this.field682;
-		}
 		int var13 = -(arg3 & 0x3);
 		for (int var14 = -arg7; var14 < 0; var14++) {
 			for (int var15 = var12; var15 < 0; var15++) {

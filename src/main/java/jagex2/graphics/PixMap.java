@@ -9,12 +9,8 @@ import java.awt.image.DirectColorModel;
 import java.awt.image.ImageConsumer;
 import java.awt.image.ImageObserver;
 import java.awt.image.ImageProducer;
-import java.util.Hashtable;
 
 public class PixMap implements ImageProducer, ImageObserver {
-
-	@ObfuscatedName("ISZGOOMR.a")
-	public boolean field877 = true;
 
 	@ObfuscatedName("ISZGOOMR.c")
 	public int field879;
@@ -34,7 +30,7 @@ public class PixMap implements ImageProducer, ImageObserver {
 	@ObfuscatedName("ISZGOOMR.f")
 	public ImageConsumer field882;
 
-	public PixMap(int arg0, byte arg1, Component arg2, int arg3) {
+	public PixMap(int arg0, Component arg2, int arg3) {
 		this.field879 = arg3;
 		this.field880 = arg0;
 		this.field878 = new int[arg0 * arg3];
@@ -44,29 +40,20 @@ public class PixMap implements ImageProducer, ImageObserver {
 		arg2.prepareImage(this.field883, this);
 		this.method242();
 		arg2.prepareImage(this.field883, this);
-		if (arg1 != -12) {
-			throw new NullPointerException();
-		}
 		this.method242();
 		arg2.prepareImage(this.field883, this);
-		this.method240(false);
+		this.method240();
 	}
 
 	@ObfuscatedName("ISZGOOMR.a(Z)V")
-	public void method240(boolean arg0) {
-		if (arg0) {
-			for (int var2 = 1; var2 > 0; var2++) {
-			}
-		}
-		Pix2D.method332(this.field877, this.field879, this.field880, this.field878);
+	public void method240() {
+		Pix2D.method332(this.field879, this.field880, this.field878);
 	}
 
 	@ObfuscatedName("ISZGOOMR.a(IILjava/awt/Graphics;Z)V")
-	public void method241(int arg0, int arg1, Graphics arg2, boolean arg3) {
-		if (!arg3) {
-			this.method242();
-			arg2.drawImage(this.field883, arg1, arg0, this);
-		}
+	public void method241(int arg0, int arg1, Graphics arg2) {
+		this.method242();
+		arg2.drawImage(this.field883, arg1, arg0, this);
 	}
 
 	public synchronized void addConsumer(ImageConsumer arg0) {

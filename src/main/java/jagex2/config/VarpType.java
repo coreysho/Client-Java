@@ -55,11 +55,8 @@ public class VarpType {
 	public static VarpType[] field1507;
 
 	@ObfuscatedName("WEUDDWZB.a(LATJMVOZR;I)V")
-	public static void method484(Jagfile arg0, int arg1) {
-		Packet var2 = new Packet(true, arg0.method2("varp.dat", null));
-		if (arg1 != 36135) {
-			return;
-		}
+	public static void method484(Jagfile arg0) {
+		Packet var2 = new Packet(arg0.method2("varp.dat", null));
 		field1508 = 0;
 		field1506 = var2.g2();
 		if (field1507 == null) {
@@ -72,7 +69,7 @@ public class VarpType {
 			if (field1507[var3] == null) {
 				field1507[var3] = new VarpType();
 			}
-			field1507[var3].method485(-954, var3, var2);
+			field1507[var3].method485(var3, var2);
 		}
 		if (var2.data.length != var2.pos) {
 			System.out.println("varptype load mismatch");
@@ -80,10 +77,7 @@ public class VarpType {
 	}
 
 	@ObfuscatedName("WEUDDWZB.a(IILMFMVIYHT;)V")
-	public void method485(int arg0, int arg1, Packet arg2) {
-		if (arg0 >= 0) {
-			return;
-		}
+	public void method485(int arg1, Packet arg2) {
 		while (true) {
 			int var4 = arg2.g1();
 			if (var4 == 0) {

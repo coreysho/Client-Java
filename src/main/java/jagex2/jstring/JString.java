@@ -4,18 +4,6 @@ import deob.ObfuscatedName;
 
 public class JString {
 
-	@ObfuscatedName("LJWIWXSK.a")
-	public static int field1105 = 236;
-
-	@ObfuscatedName("LJWIWXSK.b")
-	public static int field1106 = -20714;
-
-	@ObfuscatedName("LJWIWXSK.c")
-	public static int field1107 = 3;
-
-	@ObfuscatedName("LJWIWXSK.d")
-	public static int field1108 = -68;
-
 	@ObfuscatedName("LJWIWXSK.e")
 	public static final char[] field1109 = new char[] { '_', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 
@@ -40,10 +28,7 @@ public class JString {
 	}
 
 	@ObfuscatedName("LJWIWXSK.a(JI)Ljava/lang/String;")
-	public static String method345(long arg0, int arg1) {
-		if (arg1 < 0 || arg1 > 0) {
-			field1105 = -187;
-		}
+	public static String method345(long arg0) {
 		if (arg0 <= 0L || arg0 >= 6582952005840035281L) {
 			return "invalid_name";
 		} else if (arg0 % 37L == 0L) {
@@ -61,10 +46,9 @@ public class JString {
 	}
 
 	@ObfuscatedName("LJWIWXSK.a(ILjava/lang/String;)J")
-	public static long method346(int arg0, String arg1) {
+	public static long method346(String arg1) {
 		String var2 = arg1.toUpperCase();
 		long var3 = 0L;
-		int var5 = 11 / arg0;
 		for (int var6 = 0; var6 < var2.length(); var6++) {
 			long var7 = var3 * 61L + (long) var2.charAt(var6) - 32L;
 			var3 = var7 + (var7 >> 56) & 0xFFFFFFFFFFFFFFL;
@@ -73,20 +57,12 @@ public class JString {
 	}
 
 	@ObfuscatedName("LJWIWXSK.a(II)Ljava/lang/String;")
-	public static String method347(int arg0, int arg1) {
-		if (arg1 >= 0) {
-			throw new NullPointerException();
-		}
+	public static String method347(int arg0) {
 		return (arg0 >> 24 & 0xFF) + "." + (arg0 >> 16 & 0xFF) + "." + (arg0 >> 8 & 0xFF) + "." + (arg0 & 0xFF);
 	}
 
 	@ObfuscatedName("LJWIWXSK.a(Ljava/lang/String;B)Ljava/lang/String;")
-	public static String method348(String arg0, byte arg1) {
-		if (arg1 == 7) {
-			boolean var2 = false;
-		} else {
-			field1108 = 389;
-		}
+	public static String method348(String arg0) {
 		if (arg0.length() <= 0) {
 			return arg0;
 		}
@@ -106,12 +82,8 @@ public class JString {
 	}
 
 	@ObfuscatedName("LJWIWXSK.b(ILjava/lang/String;)Ljava/lang/String;")
-	public static String method349(int arg0, String arg1) {
+	public static String method349(String arg1) {
 		StringBuffer var2 = new StringBuffer();
-		if (arg0 != 2934) {
-			for (int var3 = 1; var3 > 0; var3++) {
-			}
-		}
 		for (int var4 = 0; var4 < arg1.length(); var4++) {
 			var2.append("*");
 		}

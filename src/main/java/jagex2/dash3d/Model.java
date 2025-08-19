@@ -8,24 +8,6 @@ import jagex2.io.Packet;
 
 public class Model extends ModelSource {
 
-	@ObfuscatedName("LZYQDKJV.m")
-	public int field1183 = 932;
-
-	@ObfuscatedName("LZYQDKJV.n")
-	public int field1184 = 426;
-
-	@ObfuscatedName("LZYQDKJV.o")
-	public boolean field1185 = false;
-
-	@ObfuscatedName("LZYQDKJV.p")
-	public boolean field1186 = true;
-
-	@ObfuscatedName("LZYQDKJV.q")
-	public int field1187 = -252;
-
-	@ObfuscatedName("LZYQDKJV.r")
-	public boolean field1188 = false;
-
 	@ObfuscatedName("LZYQDKJV.eb")
 	public boolean field1227 = false;
 
@@ -243,7 +225,7 @@ public class Model extends ModelSource {
 	public int[][] field1226;
 
 	@ObfuscatedName("LZYQDKJV.a(Z)V")
-	public static void method355(boolean arg0) {
+	public static void method355() {
 		field1229 = null;
 		field1231 = null;
 		field1232 = null;
@@ -263,9 +245,7 @@ public class Model extends ModelSource {
 		field1257 = null;
 		field1258 = null;
 		field1259 = null;
-		if (!arg0) {
-			field1260 = null;
-		}
+		field1260 = null;
 	}
 
 	@ObfuscatedName("LZYQDKJV.a(ILQUWTPUDC;)V")
@@ -286,7 +266,7 @@ public class Model extends ModelSource {
 			var3.field1113 = 0;
 			return;
 		}
-		Packet var4 = new Packet(true, arg0);
+		Packet var4 = new Packet(arg0);
 		var4.pos = arg0.length - 18;
 		Metadata var5 = field1229[arg1] = new Metadata();
 		var5.field1110 = arg0;
@@ -352,10 +332,8 @@ public class Model extends ModelSource {
 	}
 
 	@ObfuscatedName("LZYQDKJV.a(II)V")
-	public static void method358(int arg0, int arg1) {
-		if (arg1 == 1) {
-			field1229[arg0] = null;
-		}
+	public static void method358(int arg0) {
+		field1229[arg0] = null;
 	}
 
 	@ObfuscatedName("LZYQDKJV.a(I)LLZYQDKJV;")
@@ -387,9 +365,6 @@ public class Model extends ModelSource {
 	}
 
 	public Model(int arg0) {
-		if (arg0 <= 0) {
-			this.field1187 = -110;
-		}
 	}
 
 	public Model(int arg0, int arg1) {
@@ -425,18 +400,15 @@ public class Model extends ModelSource {
 			this.field1224 = new int[this.field1199];
 		}
 		this.field1209 = new int[this.field1199];
-		Packet var4 = new Packet(true, var3.field1110);
+		Packet var4 = new Packet(var3.field1110);
 		var4.pos = var3.field1114;
-		Packet var5 = new Packet(true, var3.field1110);
+		Packet var5 = new Packet(var3.field1110);
 		var5.pos = var3.field1115;
-		Packet var6 = new Packet(true, var3.field1110);
+		Packet var6 = new Packet(var3.field1110);
 		var6.pos = var3.field1116;
-		if (arg1 >= 0) {
-			this.field1188 = !this.field1188;
-		}
-		Packet var7 = new Packet(true, var3.field1110);
+		Packet var7 = new Packet(var3.field1110);
 		var7.pos = var3.field1117;
-		Packet var8 = new Packet(true, var3.field1110);
+		Packet var8 = new Packet(var3.field1110);
 		var8.pos = var3.field1118;
 		int var9 = 0;
 		int var10 = 0;
@@ -573,9 +545,6 @@ public class Model extends ModelSource {
 		this.field1196 = new int[this.field1195];
 		this.field1197 = new int[this.field1195];
 		this.field1198 = new int[this.field1195];
-		if (arg2 != -89) {
-			throw new NullPointerException();
-		}
 		this.field1223 = new int[this.field1195];
 		this.field1200 = new int[this.field1199];
 		this.field1201 = new int[this.field1199];
@@ -767,7 +736,7 @@ public class Model extends ModelSource {
 				var10 += var12.field1211;
 			}
 		}
-		this.method363(this.field1183);
+		this.method363();
 	}
 
 	public Model(boolean arg0, boolean arg1, boolean arg2, Model arg3, boolean arg4) {
@@ -775,9 +744,6 @@ public class Model extends ModelSource {
 		this.field1195 = arg3.field1195;
 		this.field1199 = arg3.field1199;
 		this.field1211 = arg3.field1211;
-		if (arg1) {
-			this.field1187 = 498;
-		}
 		if (arg0) {
 			this.field1196 = arg3.field1196;
 			this.field1197 = arg3.field1197;
@@ -877,9 +843,6 @@ public class Model extends ModelSource {
 		}
 		this.field1196 = arg3.field1196;
 		this.field1198 = arg3.field1198;
-		if (arg2 != 0) {
-			this.field1185 = !this.field1185;
-		}
 		this.field1209 = arg3.field1209;
 		this.field1208 = arg3.field1208;
 		this.field1207 = arg3.field1207;
@@ -901,7 +864,7 @@ public class Model extends ModelSource {
 	}
 
 	@ObfuscatedName("LZYQDKJV.a(ZLLZYQDKJV;I)V")
-	public void method361(boolean arg0, Model arg1, int arg2) {
+	public void method361(boolean arg0, Model arg1) {
 		this.field1195 = arg1.field1195;
 		this.field1199 = arg1.field1199;
 		this.field1211 = arg1.field1211;
@@ -912,9 +875,6 @@ public class Model extends ModelSource {
 		}
 		this.field1196 = field1191;
 		this.field1197 = field1192;
-		if (arg2 != 1244) {
-			return;
-		}
 		this.field1198 = field1193;
 		for (int var4 = 0; var4 < this.field1195; var4++) {
 			this.field1196[var4] = arg1.field1196[var4];
@@ -980,7 +940,7 @@ public class Model extends ModelSource {
 	}
 
 	@ObfuscatedName("LZYQDKJV.c(I)V")
-	public void method363(int arg0) {
+	public void method363() {
 		super.field1709 = 0;
 		this.field1218 = 0;
 		this.field1219 = 0;
@@ -1001,16 +961,12 @@ public class Model extends ModelSource {
 		}
 		this.field1218 = (int) (Math.sqrt((double) this.field1218) + 0.99D);
 		this.field1221 = (int) (Math.sqrt((double) (super.field1709 * super.field1709 + this.field1218 * this.field1218)) + 0.99D);
-		int var3 = 64 / arg0;
 		this.field1220 = this.field1221 + (int) (Math.sqrt((double) (this.field1219 * this.field1219 + this.field1218 * this.field1218)) + 0.99D);
 	}
 
 	@ObfuscatedName("LZYQDKJV.d(I)V")
-	public void method364(int arg0) {
+	public void method364() {
 		super.field1709 = 0;
-		if (arg0 != 6) {
-			return;
-		}
 		this.field1219 = 0;
 		for (int var2 = 0; var2 < this.field1195; var2++) {
 			int var3 = this.field1197[var2];
@@ -1026,7 +982,7 @@ public class Model extends ModelSource {
 	}
 
 	@ObfuscatedName("LZYQDKJV.e(I)V")
-	public void method365(int arg0) {
+	public void method365() {
 		super.field1709 = 0;
 		this.field1218 = 0;
 		this.field1219 = 0;
@@ -1065,17 +1021,11 @@ public class Model extends ModelSource {
 		this.field1221 = (int) Math.sqrt((double) (super.field1709 * super.field1709 + this.field1218 * this.field1218));
 		this.field1220 = this.field1221 + (int) Math.sqrt((double) (this.field1219 * this.field1219 + this.field1218 * this.field1218));
 		this.field1216 = (var2 << 16) + (var3 & 0xFFFF);
-		if (arg0 <= 0) {
-			this.field1184 = 50;
-		}
 		this.field1217 = (var4 << 16) + (var5 & 0xFFFF);
 	}
 
 	@ObfuscatedName("LZYQDKJV.f(I)V")
-	public void method366(int arg0) {
-		if (arg0 != 7) {
-			return;
-		}
+	public void method366() {
 		int var10002;
 		if (this.field1223 != null) {
 			int[] var2 = new int[256];
@@ -1125,7 +1075,7 @@ public class Model extends ModelSource {
 	}
 
 	@ObfuscatedName("LZYQDKJV.a(IB)V")
-	public void method367(int arg0, byte arg1) {
+	public void method367(int arg0) {
 		if (this.field1225 == null || arg0 == -1) {
 			return;
 		}
@@ -1134,9 +1084,6 @@ public class Model extends ModelSource {
 			return;
 		}
 		AnimBase var4 = var3.field931;
-		if (arg1 != 6) {
-			return;
-		}
 		boolean var5 = false;
 		field1249 = 0;
 		field1250 = 0;
@@ -1148,12 +1095,12 @@ public class Model extends ModelSource {
 	}
 
 	@ObfuscatedName("LZYQDKJV.a(III[I)V")
-	public void method368(int arg0, int arg1, int arg2, int[] arg3) {
+	public void method368(int arg0, int arg2, int[] arg3) {
 		if (arg2 == -1) {
 			return;
 		}
 		if (arg3 == null || arg0 == -1) {
-			this.method367(arg2, (byte) 6);
+			this.method367(arg2);
 			return;
 		}
 		AnimFrame var5 = AnimFrame.method264(arg2);
@@ -1162,14 +1109,11 @@ public class Model extends ModelSource {
 		}
 		AnimFrame var6 = AnimFrame.method264(arg0);
 		if (var6 == null) {
-			this.method367(arg2, (byte) 6);
+			this.method367(arg2);
 			return;
 		}
 		AnimBase var7 = var5.field931;
 		field1249 = 0;
-		if (arg1 != 0) {
-			this.field1188 = !this.field1188;
-		}
 		field1250 = 0;
 		field1251 = 0;
 		byte var8 = 0;
@@ -1336,7 +1280,7 @@ public class Model extends ModelSource {
 	}
 
 	@ObfuscatedName("LZYQDKJV.b(II)V")
-	public void method371(int arg0, int arg1) {
+	public void method371(int arg0) {
 		int var3 = field1257[arg0];
 		int var4 = field1258[arg0];
 		for (int var5 = 0; var5 < this.field1195; var5++) {
@@ -1344,14 +1288,10 @@ public class Model extends ModelSource {
 			this.field1198[var5] = this.field1198[var5] * var4 + this.field1197[var5] * var3 >> 16;
 			this.field1197[var5] = var7;
 		}
-		int var6 = 61 / arg1;
 	}
 
 	@ObfuscatedName("LZYQDKJV.a(IIZI)V")
-	public void method372(int arg0, int arg1, boolean arg2, int arg3) {
-		if (arg2) {
-			this.field1183 = -310;
-		}
+	public void method372(int arg0, int arg1, int arg3) {
 		for (int var5 = 0; var5 < this.field1195; var5++) {
 			this.field1196[var5] += arg0;
 			this.field1197[var5] += arg3;
@@ -1369,11 +1309,7 @@ public class Model extends ModelSource {
 	}
 
 	@ObfuscatedName("LZYQDKJV.g(I)V")
-	public void method374(int arg0) {
-		if (arg0 != 0) {
-			for (int var2 = 1; var2 > 0; var2++) {
-			}
-		}
+	public void method374() {
 		for (int var3 = 0; var3 < this.field1195; var3++) {
 			this.field1198[var3] = -this.field1198[var3];
 		}
@@ -1385,14 +1321,11 @@ public class Model extends ModelSource {
 	}
 
 	@ObfuscatedName("LZYQDKJV.a(IIII)V")
-	public void method375(int arg0, int arg1, int arg2, int arg3) {
+	public void method375(int arg0, int arg1, int arg3) {
 		for (int var5 = 0; var5 < this.field1195; var5++) {
 			this.field1196[var5] = this.field1196[var5] * arg3 / 128;
 			this.field1197[var5] = this.field1197[var5] * arg0 / 128;
 			this.field1198[var5] = this.field1198[var5] * arg1 / 128;
-		}
-		if (arg2 != 9) {
-			this.field1183 = 322;
 		}
 	}
 
@@ -1471,20 +1404,16 @@ public class Model extends ModelSource {
 			this.field1215 = (arg0 << 16) + (var8 & 0xFFFF);
 		}
 		if (arg5) {
-			this.method363(this.field1183);
+			this.method363();
 		} else {
-			this.method365(426);
+			this.method365();
 		}
 	}
 
 	@ObfuscatedName("LZYQDKJV.b(IIII)V")
-	public final void method377(int arg0, int arg1, int arg2, int arg3) {
+	public final void method377(int arg0, int arg1, int arg3) {
 		int var5 = this.field1215 >> 16;
 		int var6 = this.field1215 << 16 >> 16;
-		if (arg2 != 0) {
-			for (int var7 = 1; var7 > 0; var7++) {
-			}
-		}
 		this.method378(var5, var6, arg3, arg0, arg1);
 	}
 

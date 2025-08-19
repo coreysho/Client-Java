@@ -4,12 +4,6 @@ import deob.ObfuscatedName;
 
 public class Jagfile {
 
-	@ObfuscatedName("ATJMVOZR.a")
-	public int field49 = -766;
-
-	@ObfuscatedName("ATJMVOZR.b")
-	public boolean field50 = true;
-
 	@ObfuscatedName("ATJMVOZR.d")
 	public int field52;
 
@@ -31,17 +25,13 @@ public class Jagfile {
 	@ObfuscatedName("ATJMVOZR.h")
 	public int[] field56;
 
-	public Jagfile(byte[] arg0, int arg1) {
-		this.method1(0, arg0);
-		if (arg1 < 3 || arg1 > 3) {
-			for (int var3 = 1; var3 > 0; var3++) {
-			}
-		}
+	public Jagfile(byte[] arg0) {
+		this.method1(arg0);
 	}
 
 	@ObfuscatedName("ATJMVOZR.a(I[B)V")
-	public void method1(int arg0, byte[] arg1) {
-		Packet var3 = new Packet(true, arg1);
+	public void method1(byte[] arg1) {
+		Packet var3 = new Packet(arg1);
 		int var4 = var3.g3();
 		int var5 = var3.g3();
 		if (var4 == var5) {
@@ -51,16 +41,13 @@ public class Jagfile {
 			byte[] var6 = new byte[var4];
 			BZip2.method445(var6, var4, arg1, var5, 6);
 			this.field51 = var6;
-			var3 = new Packet(true, this.field51);
+			var3 = new Packet(this.field51);
 			this.field57 = true;
 		}
 		this.field52 = var3.g2();
 		this.field53 = new int[this.field52];
 		this.field54 = new int[this.field52];
 		this.field55 = new int[this.field52];
-		if (arg0 != 0) {
-			return;
-		}
 		this.field56 = new int[this.field52];
 		int var7 = this.field52 * 10 + var3.pos;
 		for (int var8 = 0; var8 < this.field52; var8++) {

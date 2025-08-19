@@ -13,9 +13,6 @@ public class MouseTracking implements Runnable {
 	@ObfuscatedName("BORSVOPG.c")
 	public Object field96 = new Object();
 
-	@ObfuscatedName("BORSVOPG.e")
-	public int field98 = 8;
-
 	@ObfuscatedName("BORSVOPG.g")
 	public int[] field100 = new int[500];
 
@@ -25,10 +22,7 @@ public class MouseTracking implements Runnable {
 	@ObfuscatedName("BORSVOPG.f")
 	public int field99;
 
-	public MouseTracking(Client arg0, byte arg1) {
-		if (arg1 != -116) {
-			this.field98 = 294;
-		}
+	public MouseTracking(Client arg0) {
 		this.field97 = arg0;
 	}
 

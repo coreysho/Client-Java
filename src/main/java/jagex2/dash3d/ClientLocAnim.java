@@ -8,9 +8,6 @@ import jagex2.config.VarbitType;
 
 public class ClientLocAnim extends ModelSource {
 
-	@ObfuscatedName("NRPYRAWK.m")
-	public boolean field1328 = false;
-
 	@ObfuscatedName("NRPYRAWK.s")
 	public int field1334;
 
@@ -50,21 +47,12 @@ public class ClientLocAnim extends ModelSource {
 	@ObfuscatedName("NRPYRAWK.z")
 	public int[] field1341;
 
-	@ObfuscatedName("NRPYRAWK.r")
-	public int field1333;
-
-	@ObfuscatedName("NRPYRAWK.A")
-	public int field1342;
-
 	@ObfuscatedName("NRPYRAWK.v")
 	public static Client field1337;
 
 	@ObfuscatedName("NRPYRAWK.a(I)LYMYTDPVW;")
-	public final LocType method440(int arg0) {
+	public final LocType method440() {
 		int var2 = -1;
-		if (arg0 != 0) {
-			this.field1342 = 109;
-		}
 		if (this.field1339 != -1) {
 			VarbitType var3 = VarbitType.field1760[this.field1339];
 			int var4 = var3.field1762;
@@ -78,7 +66,7 @@ public class ClientLocAnim extends ModelSource {
 		return var2 < 0 || var2 >= this.field1341.length || this.field1341[var2] == -1 ? null : LocType.method561(this.field1341[var2]);
 	}
 
-	public ClientLocAnim(int arg0, int arg1, int arg2, int arg3, int arg4, byte arg5, int arg6, boolean arg7, int arg8, int arg9) {
+	public ClientLocAnim(int arg0, int arg1, int arg2, int arg3, int arg4, int arg6, boolean arg7, int arg8, int arg9) {
 		this.field1334 = arg6;
 		this.field1335 = arg4;
 		this.field1336 = arg9;
@@ -92,23 +80,17 @@ public class ClientLocAnim extends ModelSource {
 			this.field1343 = Client.field621 - 1;
 			if (arg7 && this.field1338.field780 != -1) {
 				this.field1344 = (int) (Math.random() * (double) this.field1338.field776);
-				this.field1343 -= (int) (Math.random() * (double) this.field1338.method214(0, this.field1344));
+				this.field1343 -= (int) (Math.random() * (double) this.field1338.method214(this.field1344));
 			}
 		}
 		LocType var11 = LocType.method561(this.field1334);
 		this.field1339 = var11.field1632;
 		this.field1340 = var11.field1635;
 		this.field1341 = var11.field1659;
-		if (arg5 != 3) {
-			this.field1333 = -126;
-		}
 	}
 
 	@ObfuscatedName("NRPYRAWK.a(B)LLZYQDKJV;")
-	public final Model method239(byte arg0) {
-		if (arg0 != 3) {
-			this.field1328 = !this.field1328;
-		}
+	public final Model method239() {
 		int var2 = -1;
 		if (this.field1338 != null) {
 			int var3 = Client.field621 - this.field1343;
@@ -118,10 +100,10 @@ public class ClientLocAnim extends ModelSource {
 			label49: {
 				do {
 					do {
-						if (var3 <= this.field1338.method214(0, this.field1344)) {
+						if (var3 <= this.field1338.method214(this.field1344)) {
 							break label49;
 						}
-						var3 -= this.field1338.method214(0, this.field1344);
+						var3 -= this.field1338.method214(this.field1344);
 						this.field1344++;
 					} while (this.field1344 < this.field1338.field776);
 					this.field1344 -= this.field1338.field780;
@@ -137,7 +119,7 @@ public class ClientLocAnim extends ModelSource {
 		if (this.field1341 == null) {
 			var4 = LocType.method561(this.field1334);
 		} else {
-			var4 = this.method440(0);
+			var4 = this.method440();
 		}
 		return var4 == null ? null : var4.method569(this.field1335, this.field1336, this.field1329, this.field1330, this.field1331, this.field1332, var2);
 	}

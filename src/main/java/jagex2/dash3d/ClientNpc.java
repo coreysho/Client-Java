@@ -21,7 +21,7 @@ public class ClientNpc extends ClientEntity {
 			if (super.field1135 >= 0 && super.field1181 != super.field1135) {
 				var3 = SeqType.field775[super.field1135].field777[super.field1136];
 			}
-			return this.field1370.method475(var2, var3, 0, SeqType.field775[super.field1171].field781);
+			return this.field1370.method475(var2, var3, SeqType.field775[super.field1171].field781);
 		}
 		int var4 = -1;
 		if (arg0 != 122) {
@@ -30,14 +30,11 @@ public class ClientNpc extends ClientEntity {
 		if (super.field1135 >= 0) {
 			var4 = SeqType.field775[super.field1135].field777[super.field1136];
 		}
-		return this.field1370.method475(var4, -1, 0, null);
+		return this.field1370.method475(var4, -1, null);
 	}
 
 	@ObfuscatedName("RGHBDSIJ.a(B)LLZYQDKJV;")
-	public final Model method239(byte arg0) {
-		if (arg0 != 3) {
-			throw new NullPointerException();
-		}
+	public final Model method239() {
 		boolean var2 = false;
 		if (this.field1370 == null) {
 			return null;
@@ -52,14 +49,14 @@ public class ClientNpc extends ClientEntity {
 			Model var5 = var4.method439();
 			if (var5 != null) {
 				int var6 = var4.field1301.field777[super.field1162];
-				Model var7 = new Model(false, false, true, var5, AnimFrame.method265(this.field1369, var6));
-				var7.method372(0, 0, false, -super.field1165);
-				var7.method366(7);
-				var7.method367(var6, (byte) 6);
+				Model var7 = new Model(false, false, true, var5, AnimFrame.method265(var6));
+				var7.method372(0, 0, -super.field1165);
+				var7.method366();
+				var7.method367(var6);
 				var7.field1226 = null;
 				var7.field1225 = null;
 				if (var4.field1304 != 128 || var4.field1305 != 128) {
-					var7.method375(var4.field1305, var4.field1304, 9, var4.field1304);
+					var7.method375(var4.field1305, var4.field1304, var4.field1304);
 				}
 				var7.method376(var4.field1307 + 64, var4.field1308 + 850, -30, -50, -30, true);
 				Model[] var8 = new Model[] { var3, var7 };
@@ -73,10 +70,7 @@ public class ClientNpc extends ClientEntity {
 	}
 
 	@ObfuscatedName("RGHBDSIJ.b(I)Z")
-	public final boolean method351(int arg0) {
-		if (arg0 != 0) {
-			throw new NullPointerException();
-		}
+	public final boolean method351() {
 		return this.field1370 != null;
 	}
 }

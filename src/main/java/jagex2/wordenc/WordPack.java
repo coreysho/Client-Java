@@ -12,7 +12,7 @@ public class WordPack {
 	public static char[] field1360 = new char[100];
 
 	@ObfuscatedName("QKAIVGGT.c")
-	public static Packet field1361 = new Packet(true, new byte[100]);
+	public static Packet field1361 = new Packet(new byte[100]);
 
 	@ObfuscatedName("QKAIVGGT.d")
 	public static char[] field1362 = new char[] { ' ', 'e', 't', 'a', 'o', 'i', 'h', 'n', 's', 'r', 'd', 'l', 'u', 'm', 'w', 'c', 'y', 'f', 'g', 'p', 'b', 'v', 'k', 'x', 'j', 'q', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ' ', '!', '?', '.', ',', ':', ';', '(', ')', '-', '&', '*', '\\', '\'', '@', '#', '+', '=', '£', '$', '%', '"', '[', ']' };

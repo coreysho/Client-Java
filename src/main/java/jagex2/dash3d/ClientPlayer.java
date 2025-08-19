@@ -13,9 +13,6 @@ import jagex2.jstring.JString;
 
 public class ClientPlayer extends ClientEntity {
 
-	@ObfuscatedName("ZGNGQRPJ.ub")
-	public boolean field1669 = false;
-
 	@ObfuscatedName("ZGNGQRPJ.vb")
 	public int field1670 = -1;
 
@@ -34,20 +31,11 @@ public class ClientPlayer extends ClientEntity {
 	@ObfuscatedName("ZGNGQRPJ.Hb")
 	public int[] field1682 = new int[5];
 
-	@ObfuscatedName("ZGNGQRPJ.Jb")
-	public boolean field1684 = true;
-
 	@ObfuscatedName("ZGNGQRPJ.Kb")
 	public boolean field1685 = false;
 
-	@ObfuscatedName("ZGNGQRPJ.Ob")
-	public boolean field1689 = false;
-
-	@ObfuscatedName("ZGNGQRPJ.Tb")
-	public int field1694 = 932;
-
 	@ObfuscatedName("ZGNGQRPJ.Ib")
-	public static LruCache field1683 = new LruCache(260, -572);
+	public static LruCache field1683 = new LruCache(260);
 
 	@ObfuscatedName("ZGNGQRPJ.qb")
 	public int field1665;
@@ -104,17 +92,17 @@ public class ClientPlayer extends ClientEntity {
 	public String field1673;
 
 	@ObfuscatedName("ZGNGQRPJ.a(Z)LLZYQDKJV;")
-	public final Model method572(boolean arg0) {
+	public final Model method572() {
 		if (!this.field1680) {
 			return null;
 		} else if (this.field1679 == null) {
 			boolean var2 = false;
 			for (int var3 = 0; var3 < 12; var3++) {
 				int var12 = this.field1674[var3];
-				if (var12 >= 256 && var12 < 512 && !IdkType.field1699[var12 - 256].method579(-10584)) {
+				if (var12 >= 256 && var12 < 512 && !IdkType.field1699[var12 - 256].method579()) {
 					var2 = true;
 				}
-				if (var12 >= 512 && !ObjType.method221(var12 - 512).method220(this.field1677, 0)) {
+				if (var12 >= 512 && !ObjType.method221(var12 - 512).method220(this.field1677)) {
 					var2 = true;
 				}
 			}
@@ -126,22 +114,19 @@ public class ClientPlayer extends ClientEntity {
 			for (int var6 = 0; var6 < 12; var6++) {
 				int var9 = this.field1674[var6];
 				if (var9 >= 256 && var9 < 512) {
-					Model var10 = IdkType.field1699[var9 - 256].method580(this.field1669);
+					Model var10 = IdkType.field1699[var9 - 256].method580();
 					if (var10 != null) {
 						var4[var5++] = var10;
 					}
 				}
 				if (var9 >= 512) {
-					Model var11 = ObjType.method221(var9 - 512).method228(true, this.field1677);
+					Model var11 = ObjType.method221(var9 - 512).method228(this.field1677);
 					if (var11 != null) {
 						var4[var5++] = var11;
 					}
 				}
 			}
 			Model var7 = new Model(var5, var4, (byte) -89);
-			if (!arg0) {
-				throw new NullPointerException();
-			}
 			for (int var8 = 0; var8 < 5; var8++) {
 				if (this.field1682[var8] != 0) {
 					var7.method373(Client.field304[var8][0], Client.field304[var8][this.field1682[var8]]);
@@ -152,12 +137,12 @@ public class ClientPlayer extends ClientEntity {
 			}
 			return var7;
 		} else {
-			return this.field1679.method472(858);
+			return this.field1679.method472();
 		}
 	}
 
 	@ObfuscatedName("ZGNGQRPJ.b(B)LLZYQDKJV;")
-	public final Model method573(byte arg0) {
+	public final Model method573() {
 		if (this.field1679 != null) {
 			int var2 = -1;
 			if (super.field1171 >= 0 && super.field1174 == 0) {
@@ -165,16 +150,13 @@ public class ClientPlayer extends ClientEntity {
 			} else if (super.field1135 >= 0) {
 				var2 = SeqType.field775[super.field1135].field777[super.field1136];
 			}
-			return this.field1679.method475(var2, -1, 0, null);
+			return this.field1679.method475(var2, -1, null);
 		}
 		long var4 = this.field1676;
 		int var6 = -1;
 		int var7 = -1;
 		int var8 = -1;
 		int var9 = -1;
-		if (arg0 != 122) {
-			this.field1689 = !this.field1689;
-		}
 		if (super.field1171 >= 0 && super.field1174 == 0) {
 			SeqType var10 = SeqType.field775[super.field1171];
 			var6 = var10.field777[super.field1172];
@@ -203,10 +185,10 @@ public class ClientPlayer extends ClientEntity {
 				if (var8 >= 0 && var13 == 5) {
 					var14 = var8;
 				}
-				if (var14 >= 256 && var14 < 512 && !IdkType.field1699[var14 - 256].method577(256)) {
+				if (var14 >= 256 && var14 < 512 && !IdkType.field1699[var14 - 256].method577()) {
 					var12 = true;
 				}
-				if (var14 >= 512 && !ObjType.method221(var14 - 512).method225(-861, this.field1677)) {
+				if (var14 >= 512 && !ObjType.method221(var14 - 512).method225(this.field1677)) {
 					var12 = true;
 				}
 			}
@@ -231,13 +213,13 @@ public class ClientPlayer extends ClientEntity {
 					var19 = var8;
 				}
 				if (var19 >= 256 && var19 < 512) {
-					Model var20 = IdkType.field1699[var19 - 256].method578((byte) 2);
+					Model var20 = IdkType.field1699[var19 - 256].method578();
 					if (var20 != null) {
 						var15[var16++] = var20;
 					}
 				}
 				if (var19 >= 512) {
-					Model var21 = ObjType.method221(var19 - 512).method222((byte) -98, this.field1677);
+					Model var21 = ObjType.method221(var19 - 512).method222(this.field1677);
 					if (var21 != null) {
 						var15[var16++] = var21;
 					}
@@ -252,42 +234,38 @@ public class ClientPlayer extends ClientEntity {
 					}
 				}
 			}
-			var11.method366(7);
+			var11.method366();
 			var11.method376(64, 850, -30, -50, -30, true);
-			field1683.method459(var11, var4, 5);
+			field1683.method459(var11, var4);
 			this.field1671 = var4;
 		}
 		if (this.field1685) {
 			return var11;
 		}
 		Model var22 = Model.field1190;
-		var22.method361(AnimFrame.method265(this.field1684, var6) & AnimFrame.method265(this.field1684, var7), var11, 1244);
+		var22.method361(AnimFrame.method265(var6) & AnimFrame.method265(var7), var11);
 		if (var6 != -1 && var7 != -1) {
-			var22.method368(var7, 0, var6, SeqType.field775[super.field1171].field781);
+			var22.method368(var7, var6, SeqType.field775[super.field1171].field781);
 		} else if (var6 != -1) {
-			var22.method367(var6, (byte) 6);
+			var22.method367(var6);
 		}
-		var22.method363(this.field1694);
+		var22.method363();
 		var22.field1226 = null;
 		var22.field1225 = null;
 		return var22;
 	}
 
 	@ObfuscatedName("ZGNGQRPJ.b(I)Z")
-	public final boolean method351(int arg0) {
-		if (arg0 != 0) {
-			for (int var2 = 1; var2 > 0; var2++) {
-			}
-		}
+	public final boolean method351() {
 		return this.field1680;
 	}
 
 	@ObfuscatedName("ZGNGQRPJ.a(B)LLZYQDKJV;")
-	public final Model method239(byte arg0) {
+	public final Model method239() {
 		if (!this.field1680) {
 			return null;
 		}
-		Model var2 = this.method573((byte) 122);
+		Model var2 = this.method573();
 		if (var2 == null) {
 			return null;
 		}
@@ -300,14 +278,14 @@ public class ClientPlayer extends ClientEntity {
 			SpotAnimType var3 = SpotAnimType.field1297[super.field1161];
 			Model var4 = var3.method439();
 			if (var4 != null) {
-				Model var5 = new Model(false, false, true, var4, AnimFrame.method265(this.field1684, super.field1162));
-				var5.method372(0, 0, false, -super.field1165);
-				var5.method366(7);
-				var5.method367(var3.field1301.field777[super.field1162], (byte) 6);
+				Model var5 = new Model(false, false, true, var4, AnimFrame.method265(super.field1162));
+				var5.method372(0, 0, -super.field1165);
+				var5.method366();
+				var5.method367(var3.field1301.field777[super.field1162]);
 				var5.field1226 = null;
 				var5.field1225 = null;
 				if (var3.field1304 != 128 || var3.field1305 != 128) {
-					var5.method375(var3.field1305, var3.field1304, 9, var3.field1304);
+					var5.method375(var3.field1305, var3.field1304, var3.field1304);
 				}
 				var5.method376(var3.field1307 + 64, var3.field1308 + 850, -30, -50, -30, true);
 				Model[] var6 = new Model[] { var2, var5 };
@@ -320,7 +298,7 @@ public class ClientPlayer extends ClientEntity {
 			}
 			if (Client.field621 >= this.field1686 && Client.field621 < this.field1687) {
 				Model var7 = this.field1668;
-				var7.method372(this.field1665 - super.field1157, this.field1667 - super.field1158, false, this.field1666 - this.field1672);
+				var7.method372(this.field1665 - super.field1157, this.field1667 - super.field1158, this.field1666 - this.field1672);
 				if (super.field1131 == 512) {
 					var7.method370(true);
 					var7.method370(true);
@@ -343,20 +321,15 @@ public class ClientPlayer extends ClientEntity {
 					var7.method370(true);
 					var7.method370(true);
 				}
-				var7.method372(super.field1157 - this.field1665, super.field1158 - this.field1667, false, this.field1672 - this.field1666);
+				var7.method372(super.field1157 - this.field1665, super.field1158 - this.field1667, this.field1672 - this.field1666);
 			}
 		}
 		var2.field1227 = true;
-		if (arg0 == 3) {
-			boolean var9 = false;
-		} else {
-			this.field1689 = !this.field1689;
-		}
 		return var2;
 	}
 
 	@ObfuscatedName("ZGNGQRPJ.a(LMFMVIYHT;I)V")
-	public final void method574(Packet arg0, int arg1) {
+	public final void method574(Packet arg0) {
 		arg0.pos = 0;
 		this.field1677 = arg0.g1();
 		this.field1678 = arg0.g1b();
@@ -417,16 +390,13 @@ public class ClientPlayer extends ClientEntity {
 		if (super.field1176 == 65535) {
 			super.field1176 = -1;
 		}
-		this.field1673 = JString.method348(JString.method345(arg0.g8(-149), 0), (byte) 7);
+		this.field1673 = JString.method348(JString.method345(arg0.g8()));
 		this.field1675 = arg0.g1();
 		this.field1681 = arg0.g2();
 		this.field1680 = true;
 		this.field1676 = 0L;
 		int var7 = this.field1674[5];
 		int var8 = this.field1674[9];
-		if (arg1 != 0) {
-			return;
-		}
 		this.field1674[5] = var8;
 		this.field1674[9] = var7;
 		for (int var9 = 0; var9 < 12; var9++) {

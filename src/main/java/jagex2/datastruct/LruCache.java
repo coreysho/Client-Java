@@ -4,14 +4,11 @@ import deob.ObfuscatedName;
 
 public class LruCache {
 
-	@ObfuscatedName("RHNYLZZL.a")
-	public int field1371 = 256;
-
 	@ObfuscatedName("RHNYLZZL.d")
 	public DoublyLinkable field1374 = new DoublyLinkable();
 
 	@ObfuscatedName("RHNYLZZL.h")
-	public DoublyLinkList field1378 = new DoublyLinkList(true);
+	public DoublyLinkList field1378 = new DoublyLinkList();
 
 	@ObfuscatedName("RHNYLZZL.e")
 	public int field1375;
@@ -28,13 +25,10 @@ public class LruCache {
 	@ObfuscatedName("RHNYLZZL.c")
 	public int field1373;
 
-	public LruCache(int arg0, int arg1) {
+	public LruCache(int arg0) {
 		this.field1375 = arg0;
-		if (arg1 >= 0) {
-			this.field1371 = 433;
-		}
 		this.field1376 = arg0;
-		this.field1377 = new HashTable((byte) 0, 1024);
+		this.field1377 = new HashTable(1024);
 	}
 
 	@ObfuscatedName("RHNYLZZL.a(J)LDPPNUUMQ;")
@@ -50,10 +44,7 @@ public class LruCache {
 	}
 
 	@ObfuscatedName("RHNYLZZL.a(LDPPNUUMQ;JI)V")
-	public void method459(DoublyLinkable arg0, long arg1, int arg2) {
-		if (arg2 != 5) {
-			this.field1371 = 150;
-		}
+	public void method459(DoublyLinkable arg0, long arg1) {
 		if (this.field1376 == 0) {
 			DoublyLinkable var5 = this.field1378.method181();
 			var5.method604();
@@ -66,10 +57,8 @@ public class LruCache {
 		} else {
 			this.field1376--;
 		}
-		this.field1377.method260(6, arg0, arg1);
+		this.field1377.method260(arg0, arg1);
 		this.field1378.method180(arg0);
-		if (Linkable.field1772) {
-		}
 	}
 
 	@ObfuscatedName("RHNYLZZL.a()V")
