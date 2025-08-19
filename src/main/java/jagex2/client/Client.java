@@ -1709,6 +1709,16 @@ public class Client extends GameShell {
 				signlink.startpriv(InetAddress.getLocalHost());
 				Client var1 = new Client();
 				var1.method266(field321, 503, 765);
+			} else if (arg0.length == 0) {
+				// 10 0 highmem members 32
+				field219 = 10;
+				field220 = 0;
+				method47(true);
+				field221 = true;
+				signlink.storeid = 32;
+				signlink.startpriv(InetAddress.getLocalHost());
+				Client var1 = new Client();
+				var1.method266(field321, 503, 765);
 			} else {
 				System.out.println("Usage: node-id, port-offset, [lowmem/highmem], [free/members], storeid");
 			}
