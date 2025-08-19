@@ -55,35 +55,35 @@ public class Pix8 extends Pix2D {
 	public Pix8(Jagfile arg0, String arg1, int arg2) {
 		Packet var4 = new Packet(true, arg0.method2(arg1 + ".dat", null));
 		Packet var5 = new Packet(true, arg0.method2("index.dat", null));
-		var5.field1280 = var4.method400();
-		this.field1554 = var5.method400();
-		this.field1555 = var5.method400();
-		int var6 = var5.method398();
+		var5.pos = var4.g2();
+		this.field1554 = var5.g2();
+		this.field1555 = var5.g2();
+		int var6 = var5.g1();
 		this.field1549 = new int[var6];
 		for (int var7 = 0; var7 < var6 - 1; var7++) {
-			this.field1549[var7 + 1] = var5.method402();
+			this.field1549[var7 + 1] = var5.g3();
 		}
 		for (int var8 = 0; var8 < arg2; var8++) {
-			var5.field1280 += 2;
-			var4.field1280 += var5.method400() * var5.method400();
-			var5.field1280++;
+			var5.pos += 2;
+			var4.pos += var5.g2() * var5.g2();
+			var5.pos++;
 		}
-		this.field1552 = var5.method398();
-		this.field1553 = var5.method398();
-		this.field1550 = var5.method400();
-		this.field1551 = var5.method400();
-		int var9 = var5.method398();
+		this.field1552 = var5.g1();
+		this.field1553 = var5.g1();
+		this.field1550 = var5.g2();
+		this.field1551 = var5.g2();
+		int var9 = var5.g1();
 		int var10 = this.field1551 * this.field1550;
 		this.field1548 = new byte[var10];
 		if (var9 == 0) {
 			for (int var11 = 0; var11 < var10; var11++) {
-				this.field1548[var11] = var4.method399();
+				this.field1548[var11] = var4.g1b();
 			}
 		} else {
 			if (var9 == 1) {
 				for (int var12 = 0; var12 < this.field1550; var12++) {
 					for (int var13 = 0; var13 < this.field1551; var13++) {
-						this.field1548[this.field1550 * var13 + var12] = var4.method399();
+						this.field1548[this.field1550 * var13 + var12] = var4.g1b();
 					}
 				}
 			}

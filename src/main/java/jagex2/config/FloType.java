@@ -60,7 +60,7 @@ public class FloType {
 			return;
 		}
 		Packet var2 = new Packet(true, arg0.method2("flo.dat", null));
-		field795 = var2.method400();
+		field795 = var2.g2();
 		if (field796 == null) {
 			field796 = new FloType[field795];
 		}
@@ -81,27 +81,27 @@ public class FloType {
 			}
 		}
 		while (true) {
-			int var5 = arg1.method398();
+			int var5 = arg1.g1();
 			if (var5 == 0) {
 				return;
 			}
 			if (var5 == 1) {
-				this.field798 = arg1.method402();
+				this.field798 = arg1.g3();
 				this.method218(true, this.field798);
 			} else if (var5 == 2) {
-				this.field799 = arg1.method398();
+				this.field799 = arg1.g1();
 			} else if (var5 == 3) {
 				this.field800 = true;
 			} else if (var5 == 5) {
 				this.field801 = false;
 			} else if (var5 == 6) {
-				this.field797 = arg1.method405();
+				this.field797 = arg1.gjstr();
 			} else if (var5 == 7) {
 				int var6 = this.field802;
 				int var7 = this.field803;
 				int var8 = this.field804;
 				int var9 = this.field805;
-				int var10 = arg1.method402();
+				int var10 = arg1.g3();
 				this.method218(true, var10);
 				this.field802 = var6;
 				this.field803 = var7;

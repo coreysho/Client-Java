@@ -50,45 +50,45 @@ public class AnimFrame {
 	@ObfuscatedName("JULFQTYK.a([BZ)V")
 	public static void method262(byte[] arg0, boolean arg1) {
 		Packet var2 = new Packet(true, arg0);
-		var2.field1280 = arg0.length - 8;
-		int var3 = var2.method400();
-		int var4 = var2.method400();
-		int var5 = var2.method400();
+		var2.pos = arg0.length - 8;
+		int var3 = var2.g2();
+		int var4 = var2.g2();
+		int var5 = var2.g2();
 		if (!arg1) {
 			return;
 		}
-		int var6 = var2.method400();
+		int var6 = var2.g2();
 		byte var7 = 0;
 		Packet var8 = new Packet(true, arg0);
-		var8.field1280 = var7;
+		var8.pos = var7;
 		int var9 = var3 + 2 + var7;
 		Packet var10 = new Packet(true, arg0);
-		var10.field1280 = var9;
+		var10.pos = var9;
 		int var11 = var4 + var9;
 		Packet var12 = new Packet(true, arg0);
-		var12.field1280 = var11;
+		var12.pos = var11;
 		int var13 = var5 + var11;
 		Packet var14 = new Packet(true, arg0);
-		var14.field1280 = var13;
+		var14.pos = var13;
 		int var15 = var6 + var13;
 		Packet var16 = new Packet(true, arg0);
-		var16.field1280 = var15;
+		var16.pos = var15;
 		AnimBase var17 = new AnimBase(var16, 0);
-		int var18 = var8.method400();
+		int var18 = var8.g2();
 		int[] var19 = new int[500];
 		int[] var20 = new int[500];
 		int[] var21 = new int[500];
 		int[] var22 = new int[500];
 		for (int var23 = 0; var23 < var18; var23++) {
-			int var24 = var8.method400();
+			int var24 = var8.g2();
 			AnimFrame var25 = field929[var24] = new AnimFrame();
-			var25.field930 = var14.method398();
+			var25.field930 = var14.g1();
 			var25.field931 = var17;
-			int var26 = var8.method398();
+			int var26 = var8.g1();
 			int var27 = -1;
 			int var28 = 0;
 			for (int var29 = 0; var29 < var26; var29++) {
-				int var31 = var10.method398();
+				int var31 = var10.g1();
 				if (var31 > 0) {
 					if (var17.field1501[var29] != 0) {
 						for (int var32 = var29 - 1; var32 > var27; var32--) {
@@ -110,17 +110,17 @@ public class AnimFrame {
 					if ((var31 & 0x1) == 0) {
 						var20[var28] = var33;
 					} else {
-						var20[var28] = var12.method411();
+						var20[var28] = var12.gsmart();
 					}
 					if ((var31 & 0x2) == 0) {
 						var21[var28] = var33;
 					} else {
-						var21[var28] = var12.method411();
+						var21[var28] = var12.gsmart();
 					}
 					if ((var31 & 0x4) == 0) {
 						var22[var28] = var33;
 					} else {
-						var22[var28] = var12.method411();
+						var22[var28] = var12.gsmart();
 					}
 					var27 = var29;
 					var28++;

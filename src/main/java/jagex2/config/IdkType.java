@@ -43,7 +43,7 @@ public class IdkType {
 	@ObfuscatedName("ZGOJZVHR.a(LATJMVOZR;I)V")
 	public static void method575(Jagfile arg0, int arg1) {
 		Packet var2 = new Packet(true, arg0.method2("idk.dat", null));
-		field1698 = var2.method400();
+		field1698 = var2.g2();
 		if (field1699 == null) {
 			field1699 = new IdkType[field1698];
 		}
@@ -66,26 +66,26 @@ public class IdkType {
 		boolean var3 = false;
 		while (true) {
 			while (true) {
-				int var4 = arg1.method398();
+				int var4 = arg1.g1();
 				if (var4 == 0) {
 					return;
 				}
 				if (var4 == 1) {
-					this.field1700 = arg1.method398();
+					this.field1700 = arg1.g1();
 				} else if (var4 == 2) {
-					int var5 = arg1.method398();
+					int var5 = arg1.g1();
 					this.field1701 = new int[var5];
 					for (int var6 = 0; var6 < var5; var6++) {
-						this.field1701[var6] = arg1.method400();
+						this.field1701[var6] = arg1.g2();
 					}
 				} else if (var4 == 3) {
 					this.field1705 = true;
 				} else if (var4 >= 40 && var4 < 50) {
-					this.field1702[var4 - 40] = arg1.method400();
+					this.field1702[var4 - 40] = arg1.g2();
 				} else if (var4 >= 50 && var4 < 60) {
-					this.field1703[var4 - 50] = arg1.method400();
+					this.field1703[var4 - 50] = arg1.g2();
 				} else if (var4 >= 60 && var4 < 70) {
-					this.field1704[var4 - 60] = arg1.method400();
+					this.field1704[var4 - 60] = arg1.g2();
 				} else {
 					System.out.println("Error unrecognised config code: " + var4);
 				}

@@ -88,14 +88,14 @@ public class WordFilter {
 
 	@ObfuscatedName("WXKKTWFB.a(LMFMVIYHT;I)V")
 	public static final void method496(Packet arg0, int arg1) {
-		int var2 = arg0.method403();
+		int var2 = arg0.g4();
 		field1572 = new char[var2][];
 		field1573 = new int[var2];
 		for (int var3 = 0; var3 < var2; var3++) {
-			field1573[var3] = arg0.method398();
-			char[] var4 = new char[arg0.method398()];
+			field1573[var3] = arg0.g1();
+			char[] var4 = new char[arg0.g1()];
 			for (int var5 = 0; var5 < var4.length; var5++) {
-				var4[var5] = (char) arg0.method398();
+				var4[var5] = (char) arg0.g1();
 			}
 			field1572[var3] = var4;
 		}
@@ -107,7 +107,7 @@ public class WordFilter {
 	@ObfuscatedName("WXKKTWFB.a(ZLMFMVIYHT;)V")
 	public static final void method497(boolean arg0, Packet arg1) {
 		if (arg0) {
-			int var2 = arg1.method403();
+			int var2 = arg1.g4();
 			field1569 = new char[var2][];
 			field1570 = new byte[var2][][];
 			method500(34541, arg1, field1569, field1570);
@@ -116,7 +116,7 @@ public class WordFilter {
 
 	@ObfuscatedName("WXKKTWFB.a(ILMFMVIYHT;)V")
 	public static final void method498(int arg0, Packet arg1) {
-		int var2 = arg1.method403();
+		int var2 = arg1.g4();
 		field1571 = new char[var2][];
 		method501(arg1, field1571, -37125);
 		if (arg0 != 20529) {
@@ -127,9 +127,9 @@ public class WordFilter {
 	@ObfuscatedName("WXKKTWFB.b(LMFMVIYHT;I)V")
 	public static final void method499(Packet arg0, int arg1) {
 		if (arg1 == 21901) {
-			field1568 = new int[arg0.method403()];
+			field1568 = new int[arg0.g4()];
 			for (int var2 = 0; var2 < field1568.length; var2++) {
-				field1568[var2] = arg0.method400();
+				field1568[var2] = arg0.g2();
 			}
 		}
 	}
@@ -137,15 +137,15 @@ public class WordFilter {
 	@ObfuscatedName("WXKKTWFB.a(ILMFMVIYHT;[[C[[[B)V")
 	public static final void method500(int arg0, Packet arg1, char[][] arg2, byte[][][] arg3) {
 		for (int var4 = 0; var4 < arg2.length; var4++) {
-			char[] var5 = new char[arg1.method398()];
+			char[] var5 = new char[arg1.g1()];
 			for (int var6 = 0; var6 < var5.length; var6++) {
-				var5[var6] = (char) arg1.method398();
+				var5[var6] = (char) arg1.g1();
 			}
 			arg2[var4] = var5;
-			byte[][] var7 = new byte[arg1.method398()][2];
+			byte[][] var7 = new byte[arg1.g1()][2];
 			for (int var8 = 0; var8 < var7.length; var8++) {
-				var7[var8][0] = (byte) arg1.method398();
-				var7[var8][1] = (byte) arg1.method398();
+				var7[var8][0] = (byte) arg1.g1();
+				var7[var8][1] = (byte) arg1.g1();
 			}
 			if (var7.length > 0) {
 				arg3[var4] = var7;
@@ -162,9 +162,9 @@ public class WordFilter {
 			field1556 = 218;
 		}
 		for (int var3 = 0; var3 < arg1.length; var3++) {
-			char[] var4 = new char[arg0.method398()];
+			char[] var4 = new char[arg0.g1()];
 			for (int var5 = 0; var5 < var4.length; var5++) {
-				var4[var5] = (char) arg0.method398();
+				var4[var5] = (char) arg0.g1();
 			}
 			arg1[var3] = var4;
 		}

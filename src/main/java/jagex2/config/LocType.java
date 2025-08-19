@@ -179,7 +179,7 @@ public class LocType {
 		}
 		field1631 = (field1631 + 1) % 20;
 		LocType var2 = field1636[field1631];
-		field1621.field1280 = field1612[arg0];
+		field1621.pos = field1612[arg0];
 		var2.field1627 = arg0;
 		var2.method567();
 		var2.method568(field1654, field1621);
@@ -223,12 +223,12 @@ public class LocType {
 	public static final void method564(Jagfile arg0) {
 		field1621 = new Packet(true, arg0.method2("loc.dat", null));
 		Packet var1 = new Packet(true, arg0.method2("loc.idx", null));
-		field1662 = var1.method400();
+		field1662 = var1.g2();
 		field1612 = new int[field1662];
 		int var2 = 2;
 		for (int var3 = 0; var3 < field1662; var3++) {
 			field1612[var3] = var2;
-			var2 += var1.method400();
+			var2 += var1.g2();
 		}
 		field1636 = new LocType[20];
 		for (int var4 = 0; var4 < 20; var4++) {
@@ -420,7 +420,7 @@ public class LocType {
 				int var5;
 				do {
 					while (true) {
-						int var4 = arg1.method398();
+						int var4 = arg1.g1();
 						if (var4 == 0) {
 							if (var3 == -1) {
 								this.field1613 = false;
@@ -442,36 +442,36 @@ public class LocType {
 							return;
 						}
 						if (var4 == 1) {
-							var5 = arg1.method398();
+							var5 = arg1.g1();
 							break;
 						}
 						if (var4 == 2) {
-							this.field1630 = arg1.method405();
+							this.field1630 = arg1.gjstr();
 						} else if (var4 == 3) {
-							this.field1637 = arg1.method406(621);
+							this.field1637 = arg1.gjstrraw(621);
 						} else if (var4 == 5) {
-							int var7 = arg1.method398();
+							int var7 = arg1.g1();
 							if (var7 > 0) {
 								if (this.field1617 == null || field1626) {
 									this.field1643 = null;
 									this.field1617 = new int[var7];
 									for (int var8 = 0; var8 < var7; var8++) {
-										this.field1617[var8] = arg1.method400();
+										this.field1617[var8] = arg1.g2();
 									}
 								} else {
-									arg1.field1280 += var7 * 2;
+									arg1.pos += var7 * 2;
 								}
 							}
 						} else if (var4 == 14) {
-							this.field1655 = arg1.method398();
+							this.field1655 = arg1.g1();
 						} else if (var4 == 15) {
-							this.field1629 = arg1.method398();
+							this.field1629 = arg1.g1();
 						} else if (var4 == 17) {
 							this.field1664 = false;
 						} else if (var4 == 18) {
 							this.field1663 = false;
 						} else if (var4 == 19) {
-							var3 = arg1.method398();
+							var3 = arg1.g1();
 							if (var3 == 1) {
 								this.field1613 = true;
 							}
@@ -482,73 +482,73 @@ public class LocType {
 						} else if (var4 == 23) {
 							this.field1651 = true;
 						} else if (var4 == 24) {
-							this.field1657 = arg1.method400();
+							this.field1657 = arg1.g2();
 							if (this.field1657 == 65535) {
 								this.field1657 = -1;
 							}
 						} else if (var4 == 28) {
-							this.field1656 = arg1.method398();
+							this.field1656 = arg1.g1();
 						} else if (var4 == 29) {
-							this.field1638 = arg1.method399();
+							this.field1638 = arg1.g1b();
 						} else if (var4 == 39) {
-							this.field1641 = arg1.method399();
+							this.field1641 = arg1.g1b();
 						} else if (var4 >= 30 && var4 < 39) {
 							if (this.field1644 == null) {
 								this.field1644 = new String[5];
 							}
-							this.field1644[var4 - 30] = arg1.method405();
+							this.field1644[var4 - 30] = arg1.gjstr();
 							if (this.field1644[var4 - 30].equalsIgnoreCase("hidden")) {
 								this.field1644[var4 - 30] = null;
 							}
 						} else if (var4 == 40) {
-							int var9 = arg1.method398();
+							int var9 = arg1.g1();
 							this.field1653 = new int[var9];
 							this.field1646 = new int[var9];
 							for (int var10 = 0; var10 < var9; var10++) {
-								this.field1653[var10] = arg1.method400();
-								this.field1646[var10] = arg1.method400();
+								this.field1653[var10] = arg1.g2();
+								this.field1646[var10] = arg1.g2();
 							}
 						} else if (var4 == 60) {
-							this.field1660 = arg1.method400();
+							this.field1660 = arg1.g2();
 						} else if (var4 == 62) {
 							this.field1652 = true;
 						} else if (var4 == 64) {
 							this.field1661 = false;
 						} else if (var4 == 65) {
-							this.field1634 = arg1.method400();
+							this.field1634 = arg1.g2();
 						} else if (var4 == 66) {
-							this.field1614 = arg1.method400();
+							this.field1614 = arg1.g2();
 						} else if (var4 == 67) {
-							this.field1650 = arg1.method400();
+							this.field1650 = arg1.g2();
 						} else if (var4 == 68) {
-							this.field1649 = arg1.method400();
+							this.field1649 = arg1.g2();
 						} else if (var4 == 69) {
-							this.field1618 = arg1.method398();
+							this.field1618 = arg1.g1();
 						} else if (var4 == 70) {
-							this.field1615 = arg1.method401();
+							this.field1615 = arg1.g2b();
 						} else if (var4 == 71) {
-							this.field1639 = arg1.method401();
+							this.field1639 = arg1.g2b();
 						} else if (var4 == 72) {
-							this.field1620 = arg1.method401();
+							this.field1620 = arg1.g2b();
 						} else if (var4 == 73) {
 							this.field1619 = true;
 						} else if (var4 == 74) {
 							this.field1645 = true;
 						} else if (var4 == 75) {
-							this.field1648 = arg1.method398();
+							this.field1648 = arg1.g1();
 						} else if (var4 == 77) {
-							this.field1632 = arg1.method400();
+							this.field1632 = arg1.g2();
 							if (this.field1632 == 65535) {
 								this.field1632 = -1;
 							}
-							this.field1635 = arg1.method400();
+							this.field1635 = arg1.g2();
 							if (this.field1635 == 65535) {
 								this.field1635 = -1;
 							}
-							int var11 = arg1.method398();
+							int var11 = arg1.g1();
 							this.field1659 = new int[var11 + 1];
 							for (int var12 = 0; var12 <= var11; var12++) {
-								this.field1659[var12] = arg1.method400();
+								this.field1659[var12] = arg1.g2();
 								if (this.field1659[var12] == 65535) {
 									this.field1659[var12] = -1;
 								}
@@ -560,11 +560,11 @@ public class LocType {
 					this.field1643 = new int[var5];
 					this.field1617 = new int[var5];
 					for (int var6 = 0; var6 < var5; var6++) {
-						this.field1617[var6] = arg1.method400();
-						this.field1643[var6] = arg1.method398();
+						this.field1617[var6] = arg1.g2();
+						this.field1643[var6] = arg1.g1();
 					}
 				} else {
-					arg1.field1280 += var5 * 3;
+					arg1.pos += var5 * 3;
 				}
 			}
 		}

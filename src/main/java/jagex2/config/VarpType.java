@@ -61,7 +61,7 @@ public class VarpType {
 			return;
 		}
 		field1508 = 0;
-		field1506 = var2.method400();
+		field1506 = var2.g2();
 		if (field1507 == null) {
 			field1507 = new VarpType[field1506];
 		}
@@ -74,7 +74,7 @@ public class VarpType {
 			}
 			field1507[var3].method485(-954, var3, var2);
 		}
-		if (var2.field1279.length != var2.field1280) {
+		if (var2.data.length != var2.pos) {
 			System.out.println("varptype load mismatch");
 		}
 	}
@@ -85,34 +85,34 @@ public class VarpType {
 			return;
 		}
 		while (true) {
-			int var4 = arg2.method398();
+			int var4 = arg2.g1();
 			if (var4 == 0) {
 				return;
 			}
 			if (var4 == 1) {
-				this.field1511 = arg2.method398();
+				this.field1511 = arg2.g1();
 			} else if (var4 == 2) {
-				this.field1512 = arg2.method398();
+				this.field1512 = arg2.g1();
 			} else if (var4 == 3) {
 				this.field1513 = true;
 				field1509[field1508++] = arg1;
 			} else if (var4 == 4) {
 				this.field1514 = false;
 			} else if (var4 == 5) {
-				this.field1515 = arg2.method400();
+				this.field1515 = arg2.g2();
 			} else if (var4 == 6) {
 				this.field1516 = true;
 			} else if (var4 == 7) {
-				this.field1517 = arg2.method403();
+				this.field1517 = arg2.g4();
 			} else if (var4 == 8) {
 				this.field1518 = 1;
 				this.field1519 = true;
 			} else if (var4 == 10) {
-				this.field1510 = arg2.method405();
+				this.field1510 = arg2.gjstr();
 			} else if (var4 == 11) {
 				this.field1519 = true;
 			} else if (var4 == 12) {
-				this.field1520 = arg2.method403();
+				this.field1520 = arg2.g4();
 			} else if (var4 == 13) {
 				this.field1518 = 2;
 				this.field1519 = true;

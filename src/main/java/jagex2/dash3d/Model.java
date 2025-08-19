@@ -287,21 +287,21 @@ public class Model extends ModelSource {
 			return;
 		}
 		Packet var4 = new Packet(true, arg0);
-		var4.field1280 = arg0.length - 18;
+		var4.pos = arg0.length - 18;
 		Metadata var5 = field1229[arg1] = new Metadata();
 		var5.field1110 = arg0;
-		var5.field1111 = var4.method400();
-		var5.field1112 = var4.method400();
-		var5.field1113 = var4.method398();
-		int var6 = var4.method398();
-		int var7 = var4.method398();
-		int var8 = var4.method398();
-		int var9 = var4.method398();
-		int var10 = var4.method398();
-		int var11 = var4.method400();
-		int var12 = var4.method400();
-		int var13 = var4.method400();
-		int var14 = var4.method400();
+		var5.field1111 = var4.g2();
+		var5.field1112 = var4.g2();
+		var5.field1113 = var4.g1();
+		int var6 = var4.g1();
+		int var7 = var4.g1();
+		int var8 = var4.g1();
+		int var9 = var4.g1();
+		int var10 = var4.g1();
+		int var11 = var4.g2();
+		int var12 = var4.g2();
+		int var13 = var4.g2();
+		int var14 = var4.g2();
 		byte var15 = 0;
 		var5.field1114 = var15;
 		int var16 = var5.field1111 + var15;
@@ -426,34 +426,34 @@ public class Model extends ModelSource {
 		}
 		this.field1209 = new int[this.field1199];
 		Packet var4 = new Packet(true, var3.field1110);
-		var4.field1280 = var3.field1114;
+		var4.pos = var3.field1114;
 		Packet var5 = new Packet(true, var3.field1110);
-		var5.field1280 = var3.field1115;
+		var5.pos = var3.field1115;
 		Packet var6 = new Packet(true, var3.field1110);
-		var6.field1280 = var3.field1116;
+		var6.pos = var3.field1116;
 		if (arg1 >= 0) {
 			this.field1188 = !this.field1188;
 		}
 		Packet var7 = new Packet(true, var3.field1110);
-		var7.field1280 = var3.field1117;
+		var7.pos = var3.field1117;
 		Packet var8 = new Packet(true, var3.field1110);
-		var8.field1280 = var3.field1118;
+		var8.pos = var3.field1118;
 		int var9 = 0;
 		int var10 = 0;
 		int var11 = 0;
 		for (int var12 = 0; var12 < this.field1195; var12++) {
-			int var24 = var4.method398();
+			int var24 = var4.g1();
 			int var25 = 0;
 			if ((var24 & 0x1) != 0) {
-				var25 = var5.method411();
+				var25 = var5.gsmart();
 			}
 			int var26 = 0;
 			if ((var24 & 0x2) != 0) {
-				var26 = var6.method411();
+				var26 = var6.gsmart();
 			}
 			int var27 = 0;
 			if ((var24 & 0x4) != 0) {
-				var27 = var7.method411();
+				var27 = var7.gsmart();
 			}
 			this.field1196[var12] = var9 + var25;
 			this.field1197[var12] = var10 + var26;
@@ -462,41 +462,41 @@ public class Model extends ModelSource {
 			var10 = this.field1197[var12];
 			var11 = this.field1198[var12];
 			if (this.field1223 != null) {
-				this.field1223[var12] = var8.method398();
+				this.field1223[var12] = var8.g1();
 			}
 		}
-		var4.field1280 = var3.field1121;
-		var5.field1280 = var3.field1122;
-		var6.field1280 = var3.field1123;
-		var7.field1280 = var3.field1124;
-		var8.field1280 = var3.field1125;
+		var4.pos = var3.field1121;
+		var5.pos = var3.field1122;
+		var6.pos = var3.field1123;
+		var7.pos = var3.field1124;
+		var8.pos = var3.field1125;
 		for (int var13 = 0; var13 < this.field1199; var13++) {
-			this.field1209[var13] = var4.method400();
+			this.field1209[var13] = var4.g2();
 			if (this.field1206 != null) {
-				this.field1206[var13] = var5.method398();
+				this.field1206[var13] = var5.g1();
 			}
 			if (this.field1207 != null) {
-				this.field1207[var13] = var6.method398();
+				this.field1207[var13] = var6.g1();
 			}
 			if (this.field1208 != null) {
-				this.field1208[var13] = var7.method398();
+				this.field1208[var13] = var7.g1();
 			}
 			if (this.field1224 != null) {
-				this.field1224[var13] = var8.method398();
+				this.field1224[var13] = var8.g1();
 			}
 		}
-		var4.field1280 = var3.field1119;
-		var5.field1280 = var3.field1120;
+		var4.pos = var3.field1119;
+		var5.pos = var3.field1120;
 		int var14 = 0;
 		int var15 = 0;
 		int var16 = 0;
 		int var17 = 0;
 		for (int var18 = 0; var18 < this.field1199; var18++) {
-			int var20 = var5.method398();
+			int var20 = var5.g1();
 			if (var20 == 1) {
-				var14 = var4.method411() + var17;
-				var15 = var4.method411() + var14;
-				var16 = var4.method411() + var15;
+				var14 = var4.gsmart() + var17;
+				var15 = var4.gsmart() + var14;
+				var16 = var4.gsmart() + var15;
 				var17 = var16;
 				this.field1200[var18] = var14;
 				this.field1201[var18] = var15;
@@ -505,7 +505,7 @@ public class Model extends ModelSource {
 			if (var20 == 2) {
 				var14 = var14;
 				var15 = var16;
-				var16 = var4.method411() + var17;
+				var16 = var4.gsmart() + var17;
 				var17 = var16;
 				this.field1200[var18] = var14;
 				this.field1201[var18] = var15;
@@ -514,7 +514,7 @@ public class Model extends ModelSource {
 			if (var20 == 3) {
 				var14 = var16;
 				var15 = var15;
-				var16 = var4.method411() + var17;
+				var16 = var4.gsmart() + var17;
 				var17 = var16;
 				this.field1200[var18] = var14;
 				this.field1201[var18] = var15;
@@ -524,18 +524,18 @@ public class Model extends ModelSource {
 				int var23 = var14;
 				var14 = var15;
 				var15 = var23;
-				var16 = var4.method411() + var17;
+				var16 = var4.gsmart() + var17;
 				var17 = var16;
 				this.field1200[var18] = var14;
 				this.field1201[var18] = var23;
 				this.field1202[var18] = var16;
 			}
 		}
-		var4.field1280 = var3.field1126;
+		var4.pos = var3.field1126;
 		for (int var19 = 0; var19 < this.field1211; var19++) {
-			this.field1212[var19] = var4.method400();
-			this.field1213[var19] = var4.method400();
-			this.field1214[var19] = var4.method400();
+			this.field1212[var19] = var4.g2();
+			this.field1213[var19] = var4.g2();
+			this.field1214[var19] = var4.g2();
 		}
 	}
 

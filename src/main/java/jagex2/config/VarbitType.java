@@ -45,7 +45,7 @@ public class VarbitType {
 		if (arg1 != 36135) {
 			return;
 		}
-		field1759 = var2.method400();
+		field1759 = var2.g2();
 		if (field1760 == null) {
 			field1760 = new VarbitType[field1759];
 		}
@@ -58,7 +58,7 @@ public class VarbitType {
 				VarpType.field1507[field1760[var3].field1762].field1519 = true;
 			}
 		}
-		if (var2.field1279.length != var2.field1280) {
+		if (var2.data.length != var2.pos) {
 			System.out.println("varbit load mismatch");
 		}
 	}
@@ -69,22 +69,22 @@ public class VarbitType {
 			this.field1758 = -151;
 		}
 		while (true) {
-			int var4 = arg2.method398();
+			int var4 = arg2.g1();
 			if (var4 == 0) {
 				return;
 			}
 			if (var4 == 1) {
-				this.field1762 = arg2.method400();
-				this.field1763 = arg2.method398();
-				this.field1764 = arg2.method398();
+				this.field1762 = arg2.g2();
+				this.field1763 = arg2.g1();
+				this.field1764 = arg2.g1();
 			} else if (var4 == 10) {
-				this.field1761 = arg2.method405();
+				this.field1761 = arg2.gjstr();
 			} else if (var4 == 2) {
 				this.field1765 = true;
 			} else if (var4 == 3) {
-				this.field1766 = arg2.method403();
+				this.field1766 = arg2.g4();
 			} else if (var4 == 4) {
-				this.field1767 = arg2.method403();
+				this.field1767 = arg2.g4();
 			} else if (var4 == 5) {
 				this.field1768 = false;
 			} else {

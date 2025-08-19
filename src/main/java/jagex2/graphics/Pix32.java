@@ -98,37 +98,37 @@ public class Pix32 extends Pix2D {
 	public Pix32(Jagfile arg0, String arg1, int arg2) {
 		Packet var4 = new Packet(true, arg0.method2(arg1 + ".dat", null));
 		Packet var5 = new Packet(true, arg0.method2("index.dat", null));
-		var5.field1280 = var4.method400();
-		this.field690 = var5.method400();
-		this.field691 = var5.method400();
-		int var6 = var5.method398();
+		var5.pos = var4.g2();
+		this.field690 = var5.g2();
+		this.field691 = var5.g2();
+		int var6 = var5.g1();
 		int[] var7 = new int[var6];
 		for (int var8 = 0; var8 < var6 - 1; var8++) {
-			var7[var8 + 1] = var5.method402();
+			var7[var8 + 1] = var5.g3();
 			if (var7[var8 + 1] == 0) {
 				var7[var8 + 1] = 1;
 			}
 		}
 		for (int var9 = 0; var9 < arg2; var9++) {
-			var5.field1280 += 2;
-			var4.field1280 += var5.method400() * var5.method400();
-			var5.field1280++;
+			var5.pos += 2;
+			var4.pos += var5.g2() * var5.g2();
+			var5.pos++;
 		}
-		this.field688 = var5.method398();
-		this.field689 = var5.method398();
-		this.field686 = var5.method400();
-		this.field687 = var5.method400();
-		int var10 = var5.method398();
+		this.field688 = var5.g1();
+		this.field689 = var5.g1();
+		this.field686 = var5.g2();
+		this.field687 = var5.g2();
+		int var10 = var5.g1();
 		int var11 = this.field687 * this.field686;
 		this.field685 = new int[var11];
 		if (var10 == 0) {
 			for (int var12 = 0; var12 < var11; var12++) {
-				this.field685[var12] = var7[var4.method398()];
+				this.field685[var12] = var7[var4.g1()];
 			}
 		} else if (var10 == 1) {
 			for (int var13 = 0; var13 < this.field686; var13++) {
 				for (int var14 = 0; var14 < this.field687; var14++) {
-					this.field685[this.field686 * var14 + var13] = var7[var4.method398()];
+					this.field685[this.field686 * var14 + var13] = var7[var4.g1()];
 				}
 			}
 		}

@@ -70,7 +70,7 @@ public class SeqType {
 	@ObfuscatedName("FHWCLIAS.a(LATJMVOZR;I)V")
 	public static void method213(Jagfile arg0, int arg1) {
 		Packet var2 = new Packet(true, arg0.method2("seq.dat", null));
-		field774 = var2.method400();
+		field774 = var2.g2();
 		if (field775 == null) {
 			field775 = new SeqType[field774];
 		}
@@ -112,7 +112,7 @@ public class SeqType {
 		}
 		while (true) {
 			while (true) {
-				int var4 = arg1.method398();
+				int var4 = arg1.g1();
 				if (var4 == 0) {
 					if (this.field776 == 0) {
 						this.field776 = 1;
@@ -141,45 +141,45 @@ public class SeqType {
 					return;
 				}
 				if (var4 == 1) {
-					this.field776 = arg1.method398();
+					this.field776 = arg1.g1();
 					this.field777 = new int[this.field776];
 					this.field778 = new int[this.field776];
 					this.field779 = new int[this.field776];
 					for (int var5 = 0; var5 < this.field776; var5++) {
-						this.field777[var5] = arg1.method400();
-						this.field778[var5] = arg1.method400();
+						this.field777[var5] = arg1.g2();
+						this.field778[var5] = arg1.g2();
 						if (this.field778[var5] == 65535) {
 							this.field778[var5] = -1;
 						}
-						this.field779[var5] = arg1.method400();
+						this.field779[var5] = arg1.g2();
 					}
 				} else if (var4 == 2) {
-					this.field780 = arg1.method400();
+					this.field780 = arg1.g2();
 				} else if (var4 == 3) {
-					int var6 = arg1.method398();
+					int var6 = arg1.g1();
 					this.field781 = new int[var6 + 1];
 					for (int var7 = 0; var7 < var6; var7++) {
-						this.field781[var7] = arg1.method398();
+						this.field781[var7] = arg1.g1();
 					}
 					this.field781[var6] = 9999999;
 				} else if (var4 == 4) {
 					this.field782 = true;
 				} else if (var4 == 5) {
-					this.field783 = arg1.method398();
+					this.field783 = arg1.g1();
 				} else if (var4 == 6) {
-					this.field784 = arg1.method400();
+					this.field784 = arg1.g2();
 				} else if (var4 == 7) {
-					this.field785 = arg1.method400();
+					this.field785 = arg1.g2();
 				} else if (var4 == 8) {
-					this.field786 = arg1.method398();
+					this.field786 = arg1.g1();
 				} else if (var4 == 9) {
-					this.field787 = arg1.method398();
+					this.field787 = arg1.g1();
 				} else if (var4 == 10) {
-					this.field788 = arg1.method398();
+					this.field788 = arg1.g1();
 				} else if (var4 == 11) {
-					this.field789 = arg1.method398();
+					this.field789 = arg1.g1();
 				} else if (var4 == 12) {
-					this.field790 = arg1.method403();
+					this.field790 = arg1.g4();
 				} else {
 					System.out.println("Error unrecognised seq config code: " + var4);
 				}

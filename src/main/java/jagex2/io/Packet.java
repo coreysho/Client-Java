@@ -53,10 +53,10 @@ public class Packet extends DoublyLinkable {
 	public int field1278 = 1;
 
 	@ObfuscatedName("MFMVIYHT.z")
-	public byte[] field1279;
+	public byte[] data;
 
 	@ObfuscatedName("MFMVIYHT.A")
-	public int field1280;
+	public int pos;
 
 	@ObfuscatedName("MFMVIYHT.x")
 	public static boolean field1277 = true;
@@ -104,7 +104,7 @@ public class Packet extends DoublyLinkable {
 	public static boolean field1292;
 
 	@ObfuscatedName("MFMVIYHT.a(BI)LMFMVIYHT;")
-	public static Packet method386(byte arg0, int arg1) {
+	public static Packet alloc(byte arg0, int arg1) {
 		LinkList var2 = field1289;
 		synchronized (field1289) {
 			Packet var3 = null;
@@ -119,7 +119,7 @@ public class Packet extends DoublyLinkable {
 				var3 = (Packet) field1290.method5();
 			}
 			if (var3 != null) {
-				var3.field1280 = 0;
+				var3.pos = 0;
 				Packet var4 = var3;
 				return var4;
 			}
@@ -128,13 +128,13 @@ public class Packet extends DoublyLinkable {
 		if (arg0 != 0) {
 			field1277 = !field1277;
 		}
-		var6.field1280 = 0;
+		var6.pos = 0;
 		if (arg1 == 0) {
-			var6.field1279 = new byte[100];
+			var6.data = new byte[100];
 		} else if (arg1 == 1) {
-			var6.field1279 = new byte[5000];
+			var6.data = new byte[5000];
 		} else {
-			var6.field1279 = new byte[30000];
+			var6.data = new byte[30000];
 		}
 		return var6;
 	}
@@ -146,8 +146,8 @@ public class Packet extends DoublyLinkable {
 	}
 
 	public Packet(boolean arg0, byte[] arg1) {
-		this.field1279 = arg1;
-		this.field1280 = 0;
+		this.data = arg1;
+		this.pos = 0;
 		if (!arg0) {
 			for (int var3 = 1; var3 > 0; var3++) {
 			}
@@ -155,8 +155,8 @@ public class Packet extends DoublyLinkable {
 	}
 
 	@ObfuscatedName("MFMVIYHT.b(BI)V")
-	public void method387(byte arg0, int arg1) {
-		this.field1279[this.field1280++] = (byte) (arg1 + this.field1284.method329());
+	public void p1isaac(byte arg0, int arg1) {
+		this.data[this.pos++] = (byte) (arg1 + this.field1284.method329());
 		if (arg0 != 4) {
 			for (int var3 = 1; var3 > 0; var3++) {
 			}
@@ -164,110 +164,110 @@ public class Packet extends DoublyLinkable {
 	}
 
 	@ObfuscatedName("MFMVIYHT.a(I)V")
-	public void method388(int arg0) {
-		this.field1279[this.field1280++] = (byte) arg0;
+	public void p1(int arg0) {
+		this.data[this.pos++] = (byte) arg0;
 	}
 
 	@ObfuscatedName("MFMVIYHT.b(I)V")
-	public void method389(int arg0) {
-		this.field1279[this.field1280++] = (byte) (arg0 >> 8);
-		this.field1279[this.field1280++] = (byte) arg0;
+	public void p2(int arg0) {
+		this.data[this.pos++] = (byte) (arg0 >> 8);
+		this.data[this.pos++] = (byte) arg0;
 	}
 
 	@ObfuscatedName("MFMVIYHT.a(IZ)V")
-	public void method390(int arg0, boolean arg1) {
-		this.field1279[this.field1280++] = (byte) arg0;
+	public void ip2(int arg0, boolean arg1) {
+		this.data[this.pos++] = (byte) arg0;
 		if (!arg1) {
-			this.field1279[this.field1280++] = (byte) (arg0 >> 8);
+			this.data[this.pos++] = (byte) (arg0 >> 8);
 		}
 	}
 
 	@ObfuscatedName("MFMVIYHT.c(I)V")
-	public void method391(int arg0) {
-		this.field1279[this.field1280++] = (byte) (arg0 >> 16);
-		this.field1279[this.field1280++] = (byte) (arg0 >> 8);
-		this.field1279[this.field1280++] = (byte) arg0;
+	public void p3(int arg0) {
+		this.data[this.pos++] = (byte) (arg0 >> 16);
+		this.data[this.pos++] = (byte) (arg0 >> 8);
+		this.data[this.pos++] = (byte) arg0;
 	}
 
 	@ObfuscatedName("MFMVIYHT.d(I)V")
-	public void method392(int arg0) {
-		this.field1279[this.field1280++] = (byte) (arg0 >> 24);
-		this.field1279[this.field1280++] = (byte) (arg0 >> 16);
-		this.field1279[this.field1280++] = (byte) (arg0 >> 8);
-		this.field1279[this.field1280++] = (byte) arg0;
+	public void p4(int arg0) {
+		this.data[this.pos++] = (byte) (arg0 >> 24);
+		this.data[this.pos++] = (byte) (arg0 >> 16);
+		this.data[this.pos++] = (byte) (arg0 >> 8);
+		this.data[this.pos++] = (byte) arg0;
 	}
 
 	@ObfuscatedName("MFMVIYHT.b(IZ)V")
-	public void method393(int arg0, boolean arg1) {
-		this.field1279[this.field1280++] = (byte) arg0;
-		this.field1279[this.field1280++] = (byte) (arg0 >> 8);
+	public void ip4(int arg0, boolean arg1) {
+		this.data[this.pos++] = (byte) arg0;
+		this.data[this.pos++] = (byte) (arg0 >> 8);
 		if (arg1) {
 			this.field1262 = 306;
 		}
-		this.field1279[this.field1280++] = (byte) (arg0 >> 16);
-		this.field1279[this.field1280++] = (byte) (arg0 >> 24);
+		this.data[this.pos++] = (byte) (arg0 >> 16);
+		this.data[this.pos++] = (byte) (arg0 >> 24);
 	}
 
 	@ObfuscatedName("MFMVIYHT.a(JZ)V")
-	public void method394(long arg0, boolean arg1) {
-		this.field1279[this.field1280++] = (byte) (arg0 >> 56);
-		this.field1279[this.field1280++] = (byte) (arg0 >> 48);
-		this.field1279[this.field1280++] = (byte) (arg0 >> 40);
-		this.field1279[this.field1280++] = (byte) (arg0 >> 32);
-		this.field1279[this.field1280++] = (byte) (arg0 >> 24);
-		this.field1279[this.field1280++] = (byte) (arg0 >> 16);
-		this.field1279[this.field1280++] = (byte) (arg0 >> 8);
-		this.field1279[this.field1280++] = (byte) arg0;
+	public void p8(long arg0, boolean arg1) {
+		this.data[this.pos++] = (byte) (arg0 >> 56);
+		this.data[this.pos++] = (byte) (arg0 >> 48);
+		this.data[this.pos++] = (byte) (arg0 >> 40);
+		this.data[this.pos++] = (byte) (arg0 >> 32);
+		this.data[this.pos++] = (byte) (arg0 >> 24);
+		this.data[this.pos++] = (byte) (arg0 >> 16);
+		this.data[this.pos++] = (byte) (arg0 >> 8);
+		this.data[this.pos++] = (byte) arg0;
 		if (arg1) {
 			;
 		}
 	}
 
 	@ObfuscatedName("MFMVIYHT.a(Ljava/lang/String;)V")
-	public void method395(String arg0) {
-		arg0.getBytes(0, arg0.length(), this.field1279, this.field1280);
-		this.field1280 += arg0.length();
-		this.field1279[this.field1280++] = 10;
+	public void pjstr(String arg0) {
+		arg0.getBytes(0, arg0.length(), this.data, this.pos);
+		this.pos += arg0.length();
+		this.data[this.pos++] = 10;
 	}
 
 	@ObfuscatedName("MFMVIYHT.a([BIII)V")
-	public void method396(byte[] arg0, int arg1, int arg2, int arg3) {
+	public void pdata(byte[] arg0, int arg1, int arg2, int arg3) {
 		if (arg1 != 0) {
 			field1277 = !field1277;
 		}
 		for (int var5 = arg3; var5 < arg2 + arg3; var5++) {
-			this.field1279[this.field1280++] = arg0[var5];
+			this.data[this.pos++] = arg0[var5];
 		}
 	}
 
 	@ObfuscatedName("MFMVIYHT.a(II)V")
-	public void method397(int arg0, int arg1) {
-		this.field1279[this.field1280 - arg0 - 1] = (byte) arg0;
+	public void psize1(int arg0, int arg1) {
+		this.data[this.pos - arg0 - 1] = (byte) arg0;
 		if (arg1 == 0) {
 			;
 		}
 	}
 
 	@ObfuscatedName("MFMVIYHT.c()I")
-	public int method398() {
-		return this.field1279[this.field1280++] & 0xFF;
+	public int g1() {
+		return this.data[this.pos++] & 0xFF;
 	}
 
 	@ObfuscatedName("MFMVIYHT.d()B")
-	public byte method399() {
-		return this.field1279[this.field1280++];
+	public byte g1b() {
+		return this.data[this.pos++];
 	}
 
 	@ObfuscatedName("MFMVIYHT.e()I")
-	public int method400() {
-		this.field1280 += 2;
-		return ((this.field1279[this.field1280 - 2] & 0xFF) << 8) + (this.field1279[this.field1280 - 1] & 0xFF);
+	public int g2() {
+		this.pos += 2;
+		return ((this.data[this.pos - 2] & 0xFF) << 8) + (this.data[this.pos - 1] & 0xFF);
 	}
 
 	@ObfuscatedName("MFMVIYHT.f()I")
-	public int method401() {
-		this.field1280 += 2;
-		int var1 = ((this.field1279[this.field1280 - 2] & 0xFF) << 8) + (this.field1279[this.field1280 - 1] & 0xFF);
+	public int g2b() {
+		this.pos += 2;
+		int var1 = ((this.data[this.pos - 2] & 0xFF) << 8) + (this.data[this.pos - 1] & 0xFF);
 		if (var1 > 32767) {
 			var1 -= 65536;
 		}
@@ -275,70 +275,70 @@ public class Packet extends DoublyLinkable {
 	}
 
 	@ObfuscatedName("MFMVIYHT.g()I")
-	public int method402() {
-		this.field1280 += 3;
-		return (this.field1279[this.field1280 - 1] & 0xFF) + ((this.field1279[this.field1280 - 3] & 0xFF) << 16) + ((this.field1279[this.field1280 - 2] & 0xFF) << 8);
+	public int g3() {
+		this.pos += 3;
+		return (this.data[this.pos - 1] & 0xFF) + ((this.data[this.pos - 3] & 0xFF) << 16) + ((this.data[this.pos - 2] & 0xFF) << 8);
 	}
 
 	@ObfuscatedName("MFMVIYHT.h()I")
-	public int method403() {
-		this.field1280 += 4;
-		return (this.field1279[this.field1280 - 1] & 0xFF) + ((this.field1279[this.field1280 - 2] & 0xFF) << 8) + ((this.field1279[this.field1280 - 4] & 0xFF) << 24) + ((this.field1279[this.field1280 - 3] & 0xFF) << 16);
+	public int g4() {
+		this.pos += 4;
+		return (this.data[this.pos - 1] & 0xFF) + ((this.data[this.pos - 2] & 0xFF) << 8) + ((this.data[this.pos - 4] & 0xFF) << 24) + ((this.data[this.pos - 3] & 0xFF) << 16);
 	}
 
 	@ObfuscatedName("MFMVIYHT.e(I)J")
-	public long method404(int arg0) {
-		long var2 = (long) this.method403() & 0xFFFFFFFFL;
+	public long g8(int arg0) {
+		long var2 = (long) this.g4() & 0xFFFFFFFFL;
 		if (arg0 >= 0) {
 			throw new NullPointerException();
 		}
-		long var4 = (long) this.method403() & 0xFFFFFFFFL;
+		long var4 = (long) this.g4() & 0xFFFFFFFFL;
 		return (var2 << 32) + var4;
 	}
 
 	@ObfuscatedName("MFMVIYHT.i()Ljava/lang/String;")
-	public String method405() {
-		int var1 = this.field1280;
-		while (this.field1279[this.field1280++] != 10) {
+	public String gjstr() {
+		int var1 = this.pos;
+		while (this.data[this.pos++] != 10) {
 		}
-		return new String(this.field1279, var1, this.field1280 - var1 - 1);
+		return new String(this.data, var1, this.pos - var1 - 1);
 	}
 
 	@ObfuscatedName("MFMVIYHT.f(I)[B")
-	public byte[] method406(int arg0) {
-		int var2 = this.field1280;
+	public byte[] gjstrraw(int arg0) {
+		int var2 = this.pos;
 		if (arg0 <= 0) {
 			throw new NullPointerException();
 		}
-		while (this.field1279[this.field1280++] != 10) {
+		while (this.data[this.pos++] != 10) {
 		}
-		byte[] var3 = new byte[this.field1280 - var2 - 1];
-		for (int var4 = var2; var4 < this.field1280 - 1; var4++) {
-			var3[var4 - var2] = this.field1279[var4];
+		byte[] var3 = new byte[this.pos - var2 - 1];
+		for (int var4 = var2; var4 < this.pos - 1; var4++) {
+			var3[var4 - var2] = this.data[var4];
 		}
 		return var3;
 	}
 
 	@ObfuscatedName("MFMVIYHT.a(III[B)V")
-	public void method407(int arg0, int arg1, int arg2, byte[] arg3) {
+	public void gdata(int arg0, int arg1, int arg2, byte[] arg3) {
 		if (arg2 >= 0) {
 			this.field1264 = !this.field1264;
 		}
 		for (int var5 = arg1; var5 < arg0 + arg1; var5++) {
-			arg3[var5] = this.field1279[this.field1280++];
+			arg3[var5] = this.data[this.pos++];
 		}
 	}
 
 	@ObfuscatedName("MFMVIYHT.a(B)V")
-	public void method408(byte arg0) {
-		this.field1281 = this.field1280 * 8;
+	public void accessBits(byte arg0) {
+		this.field1281 = this.pos * 8;
 		if (arg0 == 6) {
 			boolean var2 = false;
 		}
 	}
 
 	@ObfuscatedName("MFMVIYHT.b(II)I")
-	public int method409(int arg0, int arg1) {
+	public int gBit(int arg0, int arg1) {
 		int var3 = this.field1281 >> 3;
 		int var4 = 8 - (this.field1281 & 0x7);
 		int var5 = 0;
@@ -347,58 +347,58 @@ public class Packet extends DoublyLinkable {
 			return this.field1278;
 		}
 		while (arg1 > var4) {
-			var5 += (this.field1279[var3++] & field1283[var4]) << arg1 - var4;
+			var5 += (this.data[var3++] & field1283[var4]) << arg1 - var4;
 			arg1 -= var4;
 			var4 = 8;
 		}
 		int var6;
 		if (arg1 == var4) {
-			var6 = (this.field1279[var3] & field1283[var4]) + var5;
+			var6 = (this.data[var3] & field1283[var4]) + var5;
 		} else {
-			var6 = (this.field1279[var3] >> var4 - arg1 & field1283[arg1]) + var5;
+			var6 = (this.data[var3] >> var4 - arg1 & field1283[arg1]) + var5;
 		}
 		return var6;
 	}
 
 	@ObfuscatedName("MFMVIYHT.g(I)V")
-	public void method410(int arg0) {
+	public void accessBytes(int arg0) {
 		if (this.field1266 != arg0) {
 			this.field1266 = -448;
 		}
-		this.field1280 = (this.field1281 + 7) / 8;
+		this.pos = (this.field1281 + 7) / 8;
 	}
 
 	@ObfuscatedName("MFMVIYHT.j()I")
-	public int method411() {
-		int var1 = this.field1279[this.field1280] & 0xFF;
-		return var1 < 128 ? this.method398() - 64 : this.method400() - 49152;
+	public int gsmart() {
+		int var1 = this.data[this.pos] & 0xFF;
+		return var1 < 128 ? this.g1() - 64 : this.g2() - 49152;
 	}
 
 	@ObfuscatedName("MFMVIYHT.k()I")
-	public int method412() {
-		int var1 = this.field1279[this.field1280] & 0xFF;
-		return var1 < 128 ? this.method398() : this.method400() - 32768;
+	public int gsmarts() {
+		int var1 = this.data[this.pos] & 0xFF;
+		return var1 < 128 ? this.g1() : this.g2() - 32768;
 	}
 
 	@ObfuscatedName("MFMVIYHT.a(ILjava/math/BigInteger;Ljava/math/BigInteger;)V")
-	public void method413(int arg0, BigInteger arg1, BigInteger arg2) {
-		int var4 = this.field1280;
-		this.field1280 = 0;
+	public void rsaenc(int arg0, BigInteger arg1, BigInteger arg2) {
+		int var4 = this.pos;
+		this.pos = 0;
 		byte[] var5 = new byte[var4];
-		this.method407(var4, 0, -21, var5);
+		this.gdata(var4, 0, -21, var5);
 		BigInteger var6 = new BigInteger(var5);
 		BigInteger var7 = var6.modPow(arg2, arg1);
 		byte[] var8 = var7.toByteArray();
 		if (arg0 >= 0 && arg0 <= 0) {
-			this.field1280 = 0;
-			this.method388(var8.length);
-			this.method396(var8, 0, var8.length, 0);
+			this.pos = 0;
+			this.p1(var8.length);
+			this.pdata(var8, 0, var8.length, 0);
 		}
 	}
 
 	@ObfuscatedName("MFMVIYHT.a(ZI)V")
-	public void method414(boolean arg0, int arg1) {
-		this.field1279[this.field1280++] = (byte) (arg1 + 128);
+	public void p1_alt1(boolean arg0, int arg1) {
+		this.data[this.pos++] = (byte) (arg1 + 128);
 		if (arg0) {
 			for (int var3 = 1; var3 > 0; var3++) {
 			}
@@ -406,117 +406,117 @@ public class Packet extends DoublyLinkable {
 	}
 
 	@ObfuscatedName("MFMVIYHT.c(BI)V")
-	public void method415(byte arg0, int arg1) {
+	public void p1_alt2(byte arg0, int arg1) {
 		if (arg0 == 0) {
 			boolean var3 = false;
 		} else {
 			for (int var4 = 1; var4 > 0; var4++) {
 			}
 		}
-		this.field1279[this.field1280++] = (byte) -arg1;
+		this.data[this.pos++] = (byte) -arg1;
 	}
 
 	@ObfuscatedName("MFMVIYHT.c(II)V")
-	public void method416(int arg0, int arg1) {
+	public void p1_alt3(int arg0, int arg1) {
 		if (arg1 == 1) {
-			this.field1279[this.field1280++] = (byte) (128 - arg0);
+			this.data[this.pos++] = (byte) (128 - arg0);
 		}
 	}
 
 	@ObfuscatedName("MFMVIYHT.h(I)I")
-	public int method417(int arg0) {
-		return this.field1271 == arg0 ? this.field1279[this.field1280++] - 128 & 0xFF : this.field1268;
+	public int g1_alt1(int arg0) {
+		return this.field1271 == arg0 ? this.data[this.pos++] - 128 & 0xFF : this.field1268;
 	}
 
 	@ObfuscatedName("MFMVIYHT.i(I)I")
-	public int method418(int arg0) {
-		return arg0 == -34545 ? -this.field1279[this.field1280++] & 0xFF : this.field1262;
+	public int g1_alt2(int arg0) {
+		return arg0 == -34545 ? -this.data[this.pos++] & 0xFF : this.field1262;
 	}
 
 	@ObfuscatedName("MFMVIYHT.j(I)I")
-	public int method419(int arg0) {
+	public int g1_alt3(int arg0) {
 		int var2 = 77 / arg0;
-		return 128 - this.field1279[this.field1280++] & 0xFF;
+		return 128 - this.data[this.pos++] & 0xFF;
 	}
 
 	@ObfuscatedName("MFMVIYHT.k(I)B")
-	public byte method420(int arg0) {
+	public byte g1b_alt1(int arg0) {
 		if (arg0 != 0) {
 			for (int var2 = 1; var2 > 0; var2++) {
 			}
 		}
-		return (byte) (this.field1279[this.field1280++] - 128);
+		return (byte) (this.data[this.pos++] - 128);
 	}
 
 	@ObfuscatedName("MFMVIYHT.l(I)B")
-	public byte method421(int arg0) {
+	public byte g1b_alt2(int arg0) {
 		if (arg0 != 0) {
 			this.field1278 = 54;
 		}
-		return (byte) -this.field1279[this.field1280++];
+		return (byte) -this.data[this.pos++];
 	}
 
 	@ObfuscatedName("MFMVIYHT.m(I)B")
-	public byte method422(int arg0) {
+	public byte g1b_alt3(int arg0) {
 		if (arg0 != 43428) {
 			for (int var2 = 1; var2 > 0; var2++) {
 			}
 		}
-		return (byte) (128 - this.field1279[this.field1280++]);
+		return (byte) (128 - this.data[this.pos++]);
 	}
 
 	@ObfuscatedName("MFMVIYHT.d(II)V")
-	public void method423(int arg0, int arg1) {
-		this.field1279[this.field1280++] = (byte) arg1;
-		this.field1279[this.field1280++] = (byte) (arg1 >> 8);
+	public void p2_alt1(int arg0, int arg1) {
+		this.data[this.pos++] = (byte) arg1;
+		this.data[this.pos++] = (byte) (arg1 >> 8);
 		if (arg0 != 0) {
 			this.field1272 = 403;
 		}
 	}
 
 	@ObfuscatedName("MFMVIYHT.e(II)V")
-	public void method424(int arg0, int arg1) {
-		this.field1279[this.field1280++] = (byte) (arg0 >> 8);
-		this.field1279[this.field1280++] = (byte) (arg0 + 128);
+	public void p2_alt2(int arg0, int arg1) {
+		this.data[this.pos++] = (byte) (arg0 >> 8);
+		this.data[this.pos++] = (byte) (arg0 + 128);
 		if (arg1 == 0) {
 			;
 		}
 	}
 
 	@ObfuscatedName("MFMVIYHT.f(II)V")
-	public void method425(int arg0, int arg1) {
+	public void p2_alt3(int arg0, int arg1) {
 		if (arg0 < 3 || arg0 > 3) {
 			this.field1261 = !this.field1261;
 		}
-		this.field1279[this.field1280++] = (byte) (arg1 + 128);
-		this.field1279[this.field1280++] = (byte) (arg1 >> 8);
+		this.data[this.pos++] = (byte) (arg1 + 128);
+		this.data[this.pos++] = (byte) (arg1 >> 8);
 	}
 
 	@ObfuscatedName("MFMVIYHT.n(I)I")
-	public int method426(int arg0) {
-		this.field1280 += 2;
-		return arg0 >= 0 ? 3 : ((this.field1279[this.field1280 - 1] & 0xFF) << 8) + (this.field1279[this.field1280 - 2] & 0xFF);
+	public int g2_alt1(int arg0) {
+		this.pos += 2;
+		return arg0 >= 0 ? 3 : ((this.data[this.pos - 1] & 0xFF) << 8) + (this.data[this.pos - 2] & 0xFF);
 	}
 
 	@ObfuscatedName("MFMVIYHT.b(B)I")
-	public int method427(byte arg0) {
-		this.field1280 += 2;
-		return arg0 == 9 ? ((this.field1279[this.field1280 - 2] & 0xFF) << 8) + (this.field1279[this.field1280 - 1] - 128 & 0xFF) : this.field1272;
+	public int g2_alt2(byte arg0) {
+		this.pos += 2;
+		return arg0 == 9 ? ((this.data[this.pos - 2] & 0xFF) << 8) + (this.data[this.pos - 1] - 128 & 0xFF) : this.field1272;
 	}
 
 	@ObfuscatedName("MFMVIYHT.o(I)I")
-	public int method428(int arg0) {
-		this.field1280 += 2;
+	public int g2_alt3(int arg0) {
+		this.pos += 2;
 		if (arg0 >= 0) {
 			this.field1272 = 68;
 		}
-		return ((this.field1279[this.field1280 - 1] & 0xFF) << 8) + (this.field1279[this.field1280 - 2] - 128 & 0xFF);
+		return ((this.data[this.pos - 1] & 0xFF) << 8) + (this.data[this.pos - 2] - 128 & 0xFF);
 	}
 
 	@ObfuscatedName("MFMVIYHT.p(I)I")
-	public int method429(int arg0) {
-		this.field1280 += 2;
-		int var2 = ((this.field1279[this.field1280 - 1] & 0xFF) << 8) + (this.field1279[this.field1280 - 2] & 0xFF);
+	public int g2b_alt1(int arg0) {
+		this.pos += 2;
+		int var2 = ((this.data[this.pos - 1] & 0xFF) << 8) + (this.data[this.pos - 2] & 0xFF);
 		while (arg0 >= 0) {
 			for (int var3 = 1; var3 > 0; var3++) {
 			}
@@ -528,12 +528,12 @@ public class Packet extends DoublyLinkable {
 	}
 
 	@ObfuscatedName("MFMVIYHT.c(B)I")
-	public int method430(byte arg0) {
-		this.field1280 += 2;
+	public int g2b_alt2(byte arg0) {
+		this.pos += 2;
 		if (this.field1273 != arg0) {
 			this.field1267 = !this.field1267;
 		}
-		int var2 = ((this.field1279[this.field1280 - 2] & 0xFF) << 8) + (this.field1279[this.field1280 - 1] - 128 & 0xFF);
+		int var2 = ((this.data[this.pos - 2] & 0xFF) << 8) + (this.data[this.pos - 1] - 128 & 0xFF);
 		if (var2 > 32767) {
 			var2 -= 65536;
 		}
@@ -541,55 +541,55 @@ public class Packet extends DoublyLinkable {
 	}
 
 	@ObfuscatedName("MFMVIYHT.q(I)I")
-	public int method431(int arg0) {
-		this.field1280 += 3;
-		return arg0 >= 0 ? 1 : (this.field1279[this.field1280 - 1] & 0xFF) + ((this.field1279[this.field1280 - 2] & 0xFF) << 16) + ((this.field1279[this.field1280 - 3] & 0xFF) << 8);
+	public int g3_alt3(int arg0) {
+		this.pos += 3;
+		return arg0 >= 0 ? 1 : (this.data[this.pos - 1] & 0xFF) + ((this.data[this.pos - 2] & 0xFF) << 16) + ((this.data[this.pos - 3] & 0xFF) << 8);
 	}
 
 	@ObfuscatedName("MFMVIYHT.r(I)I")
-	public int method432(int arg0) {
+	public int g4_alt1(int arg0) {
 		if (arg0 <= 0) {
 			this.field1272 = -453;
 		}
-		this.field1280 += 4;
-		return (this.field1279[this.field1280 - 4] & 0xFF) + ((this.field1279[this.field1280 - 3] & 0xFF) << 8) + ((this.field1279[this.field1280 - 1] & 0xFF) << 24) + ((this.field1279[this.field1280 - 2] & 0xFF) << 16);
+		this.pos += 4;
+		return (this.data[this.pos - 4] & 0xFF) + ((this.data[this.pos - 3] & 0xFF) << 8) + ((this.data[this.pos - 1] & 0xFF) << 24) + ((this.data[this.pos - 2] & 0xFF) << 16);
 	}
 
 	@ObfuscatedName("MFMVIYHT.s(I)I")
-	public int method433(int arg0) {
+	public int g4_alt2(int arg0) {
 		if (arg0 < 3 || arg0 > 3) {
 			this.field1272 = -258;
 		}
-		this.field1280 += 4;
-		return (this.field1279[this.field1280 - 3] & 0xFF) + ((this.field1279[this.field1280 - 4] & 0xFF) << 8) + ((this.field1279[this.field1280 - 2] & 0xFF) << 24) + ((this.field1279[this.field1280 - 1] & 0xFF) << 16);
+		this.pos += 4;
+		return (this.data[this.pos - 3] & 0xFF) + ((this.data[this.pos - 4] & 0xFF) << 8) + ((this.data[this.pos - 2] & 0xFF) << 24) + ((this.data[this.pos - 1] & 0xFF) << 16);
 	}
 
 	@ObfuscatedName("MFMVIYHT.a(Z)I")
-	public int method434(boolean arg0) {
-		this.field1280 += 4;
+	public int g4_alt3(boolean arg0) {
+		this.pos += 4;
 		if (!arg0) {
 			for (int var2 = 1; var2 > 0; var2++) {
 			}
 		}
-		return (this.field1279[this.field1280 - 2] & 0xFF) + ((this.field1279[this.field1280 - 1] & 0xFF) << 8) + ((this.field1279[this.field1280 - 3] & 0xFF) << 24) + ((this.field1279[this.field1280 - 4] & 0xFF) << 16);
+		return (this.data[this.pos - 2] & 0xFF) + ((this.data[this.pos - 1] & 0xFF) << 8) + ((this.data[this.pos - 3] & 0xFF) << 24) + ((this.data[this.pos - 4] & 0xFF) << 16);
 	}
 
 	@ObfuscatedName("MFMVIYHT.a(B[BII)V")
-	public void method435(byte arg0, byte[] arg1, int arg2, int arg3) {
+	public void gdata_alt1(byte arg0, byte[] arg1, int arg2, int arg3) {
 		if (arg0 == -73) {
 			for (int var5 = arg2 + arg3 - 1; var5 >= arg3; var5--) {
-				arg1[var5] = this.field1279[this.field1280++];
+				arg1[var5] = this.data[this.pos++];
 			}
 		}
 	}
 
 	@ObfuscatedName("MFMVIYHT.b([BIII)V")
-	public void method436(byte[] arg0, int arg1, int arg2, int arg3) {
+	public void gdata_alt2(byte[] arg0, int arg1, int arg2, int arg3) {
 		if (arg2 != 0) {
 			this.field1264 = !this.field1264;
 		}
 		for (int var5 = arg3; var5 < arg1 + arg3; var5++) {
-			arg0[var5] = (byte) (this.field1279[this.field1280++] - 128);
+			arg0[var5] = (byte) (this.data[this.pos++] - 128);
 		}
 	}
 

@@ -357,21 +357,21 @@ public class ClientPlayer extends ClientEntity {
 
 	@ObfuscatedName("ZGNGQRPJ.a(LMFMVIYHT;I)V")
 	public final void method574(Packet arg0, int arg1) {
-		arg0.field1280 = 0;
-		this.field1677 = arg0.method398();
-		this.field1678 = arg0.method399();
-		this.field1670 = arg0.method399();
+		arg0.pos = 0;
+		this.field1677 = arg0.g1();
+		this.field1678 = arg0.g1b();
+		this.field1670 = arg0.g1b();
 		this.field1679 = null;
 		this.field1688 = 0;
 		for (int var3 = 0; var3 < 12; var3++) {
-			int var4 = arg0.method398();
+			int var4 = arg0.g1();
 			if (var4 == 0) {
 				this.field1674[var3] = 0;
 			} else {
-				int var5 = arg0.method398();
+				int var5 = arg0.g1();
 				this.field1674[var3] = (var4 << 8) + var5;
 				if (var3 == 0 && this.field1674[0] == 65535) {
-					this.field1679 = NpcType.method477(arg0.method400());
+					this.field1679 = NpcType.method477(arg0.g2());
 					break;
 				}
 				if (this.field1674[var3] >= 512 && this.field1674[var3] - 512 < ObjType.field817) {
@@ -383,43 +383,43 @@ public class ClientPlayer extends ClientEntity {
 			}
 		}
 		for (int var6 = 0; var6 < 5; var6++) {
-			int var11 = arg0.method398();
+			int var11 = arg0.g1();
 			if (var11 < 0 || var11 >= Client.field304[var6].length) {
 				var11 = 0;
 			}
 			this.field1682[var6] = var11;
 		}
-		super.field1181 = arg0.method400();
+		super.field1181 = arg0.g2();
 		if (super.field1181 == 65535) {
 			super.field1181 = -1;
 		}
-		super.field1182 = arg0.method400();
+		super.field1182 = arg0.g2();
 		if (super.field1182 == 65535) {
 			super.field1182 = -1;
 		}
-		super.field1166 = arg0.method400();
+		super.field1166 = arg0.g2();
 		if (super.field1166 == 65535) {
 			super.field1166 = -1;
 		}
-		super.field1167 = arg0.method400();
+		super.field1167 = arg0.g2();
 		if (super.field1167 == 65535) {
 			super.field1167 = -1;
 		}
-		super.field1168 = arg0.method400();
+		super.field1168 = arg0.g2();
 		if (super.field1168 == 65535) {
 			super.field1168 = -1;
 		}
-		super.field1169 = arg0.method400();
+		super.field1169 = arg0.g2();
 		if (super.field1169 == 65535) {
 			super.field1169 = -1;
 		}
-		super.field1176 = arg0.method400();
+		super.field1176 = arg0.g2();
 		if (super.field1176 == 65535) {
 			super.field1176 = -1;
 		}
-		this.field1673 = JString.method348(JString.method345(arg0.method404(-149), 0), (byte) 7);
-		this.field1675 = arg0.method398();
-		this.field1681 = arg0.method400();
+		this.field1673 = JString.method348(JString.method345(arg0.g8(-149), 0), (byte) 7);
+		this.field1675 = arg0.g1();
+		this.field1681 = arg0.g2();
 		this.field1680 = true;
 		this.field1676 = 0L;
 		int var7 = this.field1674[5];

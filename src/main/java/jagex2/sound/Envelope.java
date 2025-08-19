@@ -46,25 +46,25 @@ public class Envelope {
 
 	@ObfuscatedName("PFANSVWX.a(BLMFMVIYHT;)V")
 	public final void method441(byte arg0, Packet arg1) {
-		this.field1351 = arg1.method398();
+		this.field1351 = arg1.g1();
 		if (arg0 != 6) {
 			throw new NullPointerException();
 		}
 		boolean var3 = false;
-		this.field1349 = arg1.method403();
-		this.field1350 = arg1.method403();
+		this.field1349 = arg1.g4();
+		this.field1350 = arg1.g4();
 		this.method442(arg1, 0);
 	}
 
 	@ObfuscatedName("PFANSVWX.a(LMFMVIYHT;I)V")
 	public final void method442(Packet arg0, int arg1) {
-		this.field1346 = arg0.method398();
+		this.field1346 = arg0.g1();
 		this.field1347 = new int[this.field1346];
 		this.field1348 = new int[this.field1346];
 		if (arg1 == 0) {
 			for (int var3 = 0; var3 < this.field1346; var3++) {
-				this.field1347[var3] = arg0.method400();
-				this.field1348[var3] = arg0.method400();
+				this.field1347[var3] = arg0.g2();
+				this.field1348[var3] = arg0.g2();
 			}
 		}
 	}

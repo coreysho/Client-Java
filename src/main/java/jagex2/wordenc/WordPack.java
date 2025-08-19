@@ -22,7 +22,7 @@ public class WordPack {
 		int var3 = 0;
 		int var4 = -1;
 		for (int var5 = 0; var5 < arg2; var5++) {
-			int var9 = arg1.method398();
+			int var9 = arg1.g1();
 			int var10 = var9 >> 4 & 0xF;
 			if (var4 != -1) {
 				field1360[var3++] = field1362[(var4 << 4) + var10 - 195];
@@ -86,31 +86,31 @@ public class WordPack {
 				if (var8 < 13) {
 					var5 = var8;
 				} else {
-					arg2.method388(var8);
+					arg2.p1(var8);
 				}
 			} else if (var8 < 13) {
-				arg2.method388((var5 << 4) + var8);
+				arg2.p1((var5 << 4) + var8);
 				var5 = -1;
 			} else {
-				arg2.method388((var5 << 4) + (var8 >> 4));
+				arg2.p1((var5 << 4) + (var8 >> 4));
 				var5 = var8 & 0xF;
 			}
 		}
 		if (var5 != -1) {
-			arg2.method388(var5 << 4);
+			arg2.p1(var5 << 4);
 		}
 	}
 
 	@ObfuscatedName("QKAIVGGT.a(BLjava/lang/String;)Ljava/lang/String;")
 	public static String method455(byte arg0, String arg1) {
-		field1361.field1280 = 0;
+		field1361.pos = 0;
 		method454(arg1, 569, field1361);
-		int var2 = field1361.field1280;
+		int var2 = field1361.pos;
 		if (arg0 != 0) {
 			for (int var3 = 1; var3 > 0; var3++) {
 			}
 		}
-		field1361.field1280 = 0;
+		field1361.pos = 0;
 		return method453(0, field1361, var2);
 	}
 }

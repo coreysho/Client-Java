@@ -62,7 +62,7 @@ public class SpotAnimType {
 	@ObfuscatedName("MNZYLKNY.a(LATJMVOZR;I)V")
 	public static void method437(Jagfile arg0, int arg1) {
 		Packet var2 = new Packet(true, arg0.method2("spotanim.dat", null));
-		field1296 = var2.method400();
+		field1296 = var2.g2();
 		if (arg1 != 36135) {
 			field1294 = !field1294;
 		}
@@ -87,31 +87,31 @@ public class SpotAnimType {
 		}
 		while (true) {
 			while (true) {
-				int var4 = arg1.method398();
+				int var4 = arg1.g1();
 				if (var4 == 0) {
 					return;
 				}
 				if (var4 == 1) {
-					this.field1299 = arg1.method400();
+					this.field1299 = arg1.g2();
 				} else if (var4 == 2) {
-					this.field1300 = arg1.method400();
+					this.field1300 = arg1.g2();
 					if (SeqType.field775 != null) {
 						this.field1301 = SeqType.field775[this.field1300];
 					}
 				} else if (var4 == 4) {
-					this.field1304 = arg1.method400();
+					this.field1304 = arg1.g2();
 				} else if (var4 == 5) {
-					this.field1305 = arg1.method400();
+					this.field1305 = arg1.g2();
 				} else if (var4 == 6) {
-					this.field1306 = arg1.method400();
+					this.field1306 = arg1.g2();
 				} else if (var4 == 7) {
-					this.field1307 = arg1.method398();
+					this.field1307 = arg1.g1();
 				} else if (var4 == 8) {
-					this.field1308 = arg1.method398();
+					this.field1308 = arg1.g1();
 				} else if (var4 >= 40 && var4 < 50) {
-					this.field1302[var4 - 40] = arg1.method400();
+					this.field1302[var4 - 40] = arg1.g2();
 				} else if (var4 >= 50 && var4 < 60) {
-					this.field1303[var4 - 50] = arg1.method400();
+					this.field1303[var4 - 50] = arg1.g2();
 				} else {
 					System.out.println("Error unrecognised spotanim config code: " + var4);
 				}

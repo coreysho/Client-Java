@@ -147,90 +147,90 @@ public class NpcType {
 		boolean var3 = false;
 		while (true) {
 			while (true) {
-				int var4 = arg1.method398();
+				int var4 = arg1.g1();
 				if (var4 == 0) {
 					return;
 				}
 				if (var4 == 1) {
-					int var5 = arg1.method398();
+					int var5 = arg1.g1();
 					this.field1429 = new int[var5];
 					for (int var6 = 0; var6 < var5; var6++) {
-						this.field1429[var6] = arg1.method400();
+						this.field1429[var6] = arg1.g2();
 					}
 				} else if (var4 == 2) {
-					this.field1455 = arg1.method405();
+					this.field1455 = arg1.gjstr();
 				} else if (var4 == 3) {
-					this.field1463 = arg1.method406(621);
+					this.field1463 = arg1.gjstrraw(621);
 				} else if (var4 == 12) {
-					this.field1445 = arg1.method399();
+					this.field1445 = arg1.g1b();
 				} else if (var4 == 13) {
-					this.field1424 = arg1.method400();
+					this.field1424 = arg1.g2();
 				} else if (var4 == 14) {
-					this.field1448 = arg1.method400();
+					this.field1448 = arg1.g2();
 				} else if (var4 == 17) {
-					this.field1448 = arg1.method400();
-					this.field1446 = arg1.method400();
-					this.field1444 = arg1.method400();
-					this.field1436 = arg1.method400();
+					this.field1448 = arg1.g2();
+					this.field1446 = arg1.g2();
+					this.field1444 = arg1.g2();
+					this.field1436 = arg1.g2();
 				} else if (var4 >= 30 && var4 < 40) {
 					if (this.field1449 == null) {
 						this.field1449 = new String[5];
 					}
-					this.field1449[var4 - 30] = arg1.method405();
+					this.field1449[var4 - 30] = arg1.gjstr();
 					if (this.field1449[var4 - 30].equalsIgnoreCase("hidden")) {
 						this.field1449[var4 - 30] = null;
 					}
 				} else if (var4 == 40) {
-					int var7 = arg1.method398();
+					int var7 = arg1.g1();
 					this.field1437 = new int[var7];
 					this.field1459 = new int[var7];
 					for (int var8 = 0; var8 < var7; var8++) {
-						this.field1437[var8] = arg1.method400();
-						this.field1459[var8] = arg1.method400();
+						this.field1437[var8] = arg1.g2();
+						this.field1459[var8] = arg1.g2();
 					}
 				} else if (var4 == 60) {
-					int var9 = arg1.method398();
+					int var9 = arg1.g1();
 					this.field1428 = new int[var9];
 					for (int var10 = 0; var10 < var9; var10++) {
-						this.field1428[var10] = arg1.method400();
+						this.field1428[var10] = arg1.g2();
 					}
 				} else if (var4 == 90) {
-					this.field1451 = arg1.method400();
+					this.field1451 = arg1.g2();
 				} else if (var4 == 91) {
-					this.field1430 = arg1.method400();
+					this.field1430 = arg1.g2();
 				} else if (var4 == 92) {
-					this.field1440 = arg1.method400();
+					this.field1440 = arg1.g2();
 				} else if (var4 == 93) {
 					this.field1439 = false;
 				} else if (var4 == 95) {
-					this.field1442 = arg1.method400();
+					this.field1442 = arg1.g2();
 				} else if (var4 == 97) {
-					this.field1435 = arg1.method400();
+					this.field1435 = arg1.g2();
 				} else if (var4 == 98) {
-					this.field1433 = arg1.method400();
+					this.field1433 = arg1.g2();
 				} else if (var4 == 99) {
 					this.field1447 = true;
 				} else if (var4 == 100) {
-					this.field1466 = arg1.method399();
+					this.field1466 = arg1.g1b();
 				} else if (var4 == 101) {
-					this.field1461 = arg1.method399() * 5;
+					this.field1461 = arg1.g1b() * 5;
 				} else if (var4 == 102) {
-					this.field1441 = arg1.method400();
+					this.field1441 = arg1.g2();
 				} else if (var4 == 103) {
-					this.field1454 = arg1.method400();
+					this.field1454 = arg1.g2();
 				} else if (var4 == 106) {
-					this.field1457 = arg1.method400();
+					this.field1457 = arg1.g2();
 					if (this.field1457 == 65535) {
 						this.field1457 = -1;
 					}
-					this.field1462 = arg1.method400();
+					this.field1462 = arg1.g2();
 					if (this.field1462 == 65535) {
 						this.field1462 = -1;
 					}
-					int var11 = arg1.method398();
+					int var11 = arg1.g1();
 					this.field1425 = new int[var11 + 1];
 					for (int var12 = 0; var12 <= var11; var12++) {
-						this.field1425[var12] = arg1.method400();
+						this.field1425[var12] = arg1.g2();
 						if (this.field1425[var12] == 65535) {
 							this.field1425[var12] = -1;
 						}
@@ -324,12 +324,12 @@ public class NpcType {
 	public static final void method474(Jagfile arg0) {
 		field1460 = new Packet(true, arg0.method2("npc.dat", null));
 		Packet var1 = new Packet(true, arg0.method2("npc.idx", null));
-		field1452 = var1.method400();
+		field1452 = var1.g2();
 		field1453 = new int[field1452];
 		int var2 = 2;
 		for (int var3 = 0; var3 < field1452; var3++) {
 			field1453[var3] = var2;
-			var2 += var1.method400();
+			var2 += var1.g2();
 		}
 		field1458 = new NpcType[20];
 		for (int var4 = 0; var4 < 20; var4++) {
@@ -422,7 +422,7 @@ public class NpcType {
 		}
 		field1464 = (field1464 + 1) % 20;
 		NpcType var2 = field1458[field1464] = new NpcType();
-		field1460.field1280 = field1453[arg0];
+		field1460.pos = field1453[arg0];
 		var2.field1431 = arg0;
 		var2.method470(field1456, field1460);
 		return var2;

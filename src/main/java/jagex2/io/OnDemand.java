@@ -568,7 +568,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 			this.field1754[var4] = new int[var27];
 			this.field1714[var4] = new byte[var27];
 			for (int var29 = 0; var29 < var27; var29++) {
-				this.field1754[var4][var29] = var28.method400();
+				this.field1754[var4][var29] = var28.g2();
 			}
 		}
 		String[] var5 = new String[] { "model_crc", "anim_crc", "midi_crc", "map_crc" };
@@ -578,7 +578,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 			Packet var24 = new Packet(true, var22);
 			this.field1721[var6] = new int[var23];
 			for (int var25 = 0; var25 < var23; var25++) {
-				this.field1721[var6][var25] = var24.method403();
+				this.field1721[var6][var25] = var24.g4();
 			}
 		}
 		byte[] var7 = arg0.method2("model_index", null);
@@ -599,24 +599,24 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 		this.field1742 = new int[var12];
 		this.field1713 = new int[var12];
 		for (int var13 = 0; var13 < var12; var13++) {
-			this.field1723[var13] = var11.method400();
-			this.field1737[var13] = var11.method400();
-			this.field1742[var13] = var11.method400();
-			this.field1713[var13] = var11.method398();
+			this.field1723[var13] = var11.g2();
+			this.field1737[var13] = var11.g2();
+			this.field1742[var13] = var11.g2();
+			this.field1713[var13] = var11.g1();
 		}
 		byte[] var14 = arg0.method2("anim_index", null);
 		Packet var15 = new Packet(true, var14);
 		int var16 = var14.length / 2;
 		this.field1753 = new int[var16];
 		for (int var17 = 0; var17 < var16; var17++) {
-			this.field1753[var17] = var15.method400();
+			this.field1753[var17] = var15.g2();
 		}
 		byte[] var18 = arg0.method2("midi_index", null);
 		Packet var19 = new Packet(true, var18);
 		int var20 = var18.length;
 		this.field1743 = new int[var20];
 		for (int var21 = 0; var21 < var20; var21++) {
-			this.field1743[var21] = var19.method398();
+			this.field1743[var21] = var19.g1();
 		}
 		this.field1750 = arg1;
 		this.field1716 = true;

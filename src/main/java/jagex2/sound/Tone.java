@@ -298,47 +298,47 @@ public class Tone {
 		this.field646.method441(this.field644, arg1);
 		this.field647 = new Envelope();
 		this.field647.method441(this.field644, arg1);
-		int var3 = arg1.method398();
+		int var3 = arg1.g1();
 		if (var3 != 0) {
-			arg1.field1280--;
+			arg1.pos--;
 			this.field648 = new Envelope();
 			this.field648.method441(this.field644, arg1);
 			this.field649 = new Envelope();
 			this.field649.method441(this.field644, arg1);
 		}
-		int var4 = arg1.method398();
+		int var4 = arg1.g1();
 		if (arg0 != 6) {
 			for (int var5 = 1; var5 > 0; var5++) {
 			}
 		}
 		if (var4 != 0) {
-			arg1.field1280--;
+			arg1.pos--;
 			this.field650 = new Envelope();
 			this.field650.method441(this.field644, arg1);
 			this.field651 = new Envelope();
 			this.field651.method441(this.field644, arg1);
 		}
-		int var6 = arg1.method398();
+		int var6 = arg1.g1();
 		if (var6 != 0) {
-			arg1.field1280--;
+			arg1.pos--;
 			this.field652 = new Envelope();
 			this.field652.method441(this.field644, arg1);
 			this.field653 = new Envelope();
 			this.field653.method441(this.field644, arg1);
 		}
 		for (int var7 = 0; var7 < 10; var7++) {
-			int var8 = arg1.method412();
+			int var8 = arg1.gsmarts();
 			if (var8 == 0) {
 				break;
 			}
 			this.field654[var7] = var8;
-			this.field655[var7] = arg1.method411();
-			this.field656[var7] = arg1.method412();
+			this.field655[var7] = arg1.gsmart();
+			this.field656[var7] = arg1.gsmarts();
 		}
-		this.field657 = arg1.method412();
-		this.field658 = arg1.method412();
-		this.field661 = arg1.method400();
-		this.field662 = arg1.method400();
+		this.field657 = arg1.gsmarts();
+		this.field658 = arg1.gsmarts();
+		this.field661 = arg1.g2();
+		this.field662 = arg1.g2();
 		this.field659 = new Filter();
 		this.field660 = new Envelope();
 		this.field659.method469(-954, this.field660, arg1);

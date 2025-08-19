@@ -727,7 +727,7 @@ public class World {
 		}
 		int var3 = -1;
 		while (true) {
-			int var4 = arg1.method412();
+			int var4 = arg1.gsmarts();
 			if (var4 == 0) {
 				return;
 			}
@@ -735,11 +735,11 @@ public class World {
 			LocType var5 = LocType.method561(var3);
 			var5.method563(arg0, -747);
 			while (true) {
-				int var6 = arg1.method412();
+				int var6 = arg1.gsmarts();
 				if (var6 == 0) {
 					break;
 				}
-				arg1.method398();
+				arg1.g1();
 			}
 		}
 	}
@@ -782,14 +782,14 @@ public class World {
 		}
 		int var13 = -1;
 		while (true) {
-			int var14 = var12.method412();
+			int var14 = var12.gsmarts();
 			if (var14 == 0) {
 				return;
 			}
 			var13 += var14;
 			int var15 = 0;
 			while (true) {
-				int var16 = var12.method412();
+				int var16 = var12.gsmarts();
 				if (var16 == 0) {
 					break;
 				}
@@ -797,7 +797,7 @@ public class World {
 				int var17 = var15 & 0x3F;
 				int var18 = var15 >> 6 & 0x3F;
 				int var19 = var15 >> 12;
-				int var20 = var12.method398();
+				int var20 = var12.g1();
 				int var21 = var20 >> 2;
 				int var22 = var20 & 0x3;
 				if (arg10 == var19 && var18 >= arg7 && var18 < arg7 + 8 && var17 >= arg9 && var17 < arg9 + 8) {
@@ -1221,14 +1221,14 @@ public class World {
 		Packet var7 = new Packet(true, arg5);
 		int var8 = -1;
 		while (true) {
-			int var9 = var7.method412();
+			int var9 = var7.gsmarts();
 			if (var9 == 0) {
 				return;
 			}
 			var8 += var9;
 			int var10 = 0;
 			while (true) {
-				int var11 = var7.method412();
+				int var11 = var7.gsmarts();
 				if (var11 == 0) {
 					break;
 				}
@@ -1236,7 +1236,7 @@ public class World {
 				int var12 = var10 & 0x3F;
 				int var13 = var10 >> 6 & 0x3F;
 				int var14 = var10 >> 12;
-				int var15 = var7.method398();
+				int var15 = var7.g1();
 				int var16 = var15 >> 2;
 				int var17 = var15 & 0x3;
 				int var18 = arg2 + var13;
@@ -1291,7 +1291,7 @@ public class World {
 		}
 		int var6 = -1;
 		label54: while (true) {
-			int var7 = var5.method412();
+			int var7 = var5.gsmarts();
 			if (var7 == 0) {
 				return var4;
 			}
@@ -1300,14 +1300,14 @@ public class World {
 			boolean var9 = false;
 			while (true) {
 				while (!var9) {
-					int var11 = var5.method412();
+					int var11 = var5.gsmarts();
 					if (var11 == 0) {
 						continue label54;
 					}
 					var8 += var11 - 1;
 					int var12 = var8 & 0x3F;
 					int var13 = var8 >> 6 & 0x3F;
-					int var14 = var5.method398() >> 2;
+					int var14 = var5.g1() >> 2;
 					int var15 = arg0 + var13;
 					int var16 = arg1 + var12;
 					if (var15 > 0 && var16 > 0 && var15 < 103 && var16 < 103) {
@@ -1318,11 +1318,11 @@ public class World {
 						}
 					}
 				}
-				int var10 = var5.method412();
+				int var10 = var5.gsmarts();
 				if (var10 == 0) {
 					break;
 				}
-				var5.method398();
+				var5.g1();
 			}
 		}
 	}
@@ -1356,22 +1356,22 @@ public class World {
 		}
 		if (arg5 < 0 || arg5 >= 104 || arg7 < 0 || arg7 >= 104) {
 			while (true) {
-				int var11 = arg3.method398();
+				int var11 = arg3.g1();
 				if (var11 == 0) {
 					return;
 				}
 				if (var11 == 1) {
-					arg3.method398();
+					arg3.g1();
 					return;
 				}
 				if (var11 <= 49) {
-					arg3.method398();
+					arg3.g1();
 				}
 			}
 		}
 		this.field101[arg6][arg5][arg7] = 0;
 		while (true) {
-			int var9 = arg3.method398();
+			int var9 = arg3.g1();
 			if (var9 == 0) {
 				if (arg6 == 0) {
 					this.field112[0][arg5][arg7] = -method32(arg5 + 932731 + arg0, arg7 + 556238 + arg2) * 8;
@@ -1382,7 +1382,7 @@ public class World {
 				}
 			}
 			if (var9 == 1) {
-				int var10 = arg3.method398();
+				int var10 = arg3.g1();
 				if (var10 == 1) {
 					var10 = 0;
 				}
@@ -1394,7 +1394,7 @@ public class World {
 				return;
 			}
 			if (var9 <= 49) {
-				this.field118[arg6][arg5][arg7] = arg3.method399();
+				this.field118[arg6][arg5][arg7] = arg3.g1b();
 				this.field116[arg6][arg5][arg7] = (byte) ((var9 - 2) / 4);
 				this.field105[arg6][arg5][arg7] = (byte) (var9 - 2 + arg4 & 0x3);
 			} else if (var9 <= 81) {

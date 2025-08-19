@@ -106,7 +106,7 @@ public class Filter {
 
 	@ObfuscatedName("SGFGLWZQ.a(ILPFANSVWX;LMFMVIYHT;)V")
 	public final void method469(int arg0, Envelope arg1, Packet arg2) {
-		int var4 = arg2.method398();
+		int var4 = arg2.g1();
 		this.field1416[0] = var4 >> 4;
 		while (arg0 >= 0) {
 			for (int var10 = 1; var10 > 0; var10++) {
@@ -119,13 +119,13 @@ public class Filter {
 			}
 			return;
 		}
-		this.field1419[0] = arg2.method400();
-		this.field1419[1] = arg2.method400();
-		int var5 = arg2.method398();
+		this.field1419[0] = arg2.g2();
+		this.field1419[1] = arg2.g2();
+		int var5 = arg2.g1();
 		for (int var6 = 0; var6 < 2; var6++) {
 			for (int var9 = 0; var9 < this.field1416[var6]; var9++) {
-				this.field1417[var6][0][var9] = arg2.method400();
-				this.field1418[var6][0][var9] = arg2.method400();
+				this.field1417[var6][0][var9] = arg2.g2();
+				this.field1418[var6][0][var9] = arg2.g2();
 			}
 		}
 		for (int var7 = 0; var7 < 2; var7++) {
@@ -134,8 +134,8 @@ public class Filter {
 					this.field1417[var7][1][var8] = this.field1417[var7][0][var8];
 					this.field1418[var7][1][var8] = this.field1418[var7][0][var8];
 				} else {
-					this.field1417[var7][1][var8] = arg2.method400();
-					this.field1418[var7][1][var8] = arg2.method400();
+					this.field1417[var7][1][var8] = arg2.g2();
+					this.field1418[var7][1][var8] = arg2.g2();
 				}
 			}
 		}
