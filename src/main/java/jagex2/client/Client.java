@@ -1609,6 +1609,7 @@ public class Client extends GameShell {
 
 	@ObfuscatedName("client.b(Z)V")
 	public final void method34(boolean arg0) {
+		// CLOSE_MODAL
 		this.field260.p1isaac((byte) 4, 110);
 		if (arg0) {
 			this.field619 = null;
@@ -2223,6 +2224,7 @@ public class Client extends GameShell {
 			if (!field258) {
 				this.field544.field99 = 0;
 			} else if (super.field965 != 0 || this.field544.field99 >= 40) {
+				// EVENT_MOUSE_MOVE
 				this.field260.p1isaac((byte) 4, 171);
 				this.field260.p1(0);
 				int var4 = this.field260.pos;
@@ -2304,6 +2306,7 @@ public class Client extends GameShell {
 				var18 = 1;
 			}
 			int var19 = (int) var13;
+			// EVENT_MOUSE_CLICK
 			this.field260.p1isaac((byte) 4, 19);
 			this.field260.p4((var18 << 19) + (var19 << 20) + var17);
 		}
@@ -2406,6 +2409,7 @@ public class Client extends GameShell {
 						} else {
 							var20.method205(this.field359, -291, this.field408);
 						}
+						// INV_BUTTOND
 						this.field260.p1isaac((byte) 4, 123);
 						this.field260.p2_alt3(3, this.field359);
 						this.field260.p1_alt1(false, var21);
@@ -2476,6 +2480,7 @@ public class Client extends GameShell {
 		if (super.field957 > 4500) {
 			this.field169 = 250;
 			super.field957 -= 500;
+			// IDLE_TIMER
 			this.field260.p1isaac((byte) 4, 202);
 		}
 		this.field414++;
@@ -2538,6 +2543,7 @@ public class Client extends GameShell {
 			this.field166 = this.field484.g1();
 		}
 		if (this.field168 > 50) {
+			// NO_TIMEOUT
 			this.field260.p1isaac((byte) 4, 40);
 		}
 		try {
@@ -2693,6 +2699,7 @@ public class Client extends GameShell {
 								this.method73(var6, 0);
 							}
 							if (this.field517 == 3 && this.field322.length() > 0) {
+								// MESSAGE_PRIVATE
 								this.field260.p1isaac((byte) 4, 227);
 								this.field260.p1(0);
 								int var8 = this.field260.pos;
@@ -2705,6 +2712,7 @@ public class Client extends GameShell {
 								if (this.field183 == 2) {
 									this.field183 = 1;
 									this.field508 = true;
+									// CHAT_SETMODE
 									this.field260.p1isaac((byte) 4, 176);
 									this.field260.p1(this.field302);
 									this.field260.p1(this.field183);
@@ -2736,6 +2744,7 @@ public class Client extends GameShell {
 									var13 = Integer.parseInt(this.field245);
 								} catch (Exception var23) {
 								}
+								// RESUME_P_COUNTDIALOG
 								this.field260.p1isaac((byte) 4, 75);
 								this.field260.p4(var13);
 							}
@@ -2753,6 +2762,7 @@ public class Client extends GameShell {
 						}
 						if (var3 == 13 || var3 == 10) {
 							if (this.field245.length() > 0) {
+								// RESUME_P_NAMEDIALOG
 								this.field260.p1isaac((byte) 4, 206);
 								this.field260.p8(JString.method344(this.field245), true);
 							}
@@ -2807,6 +2817,7 @@ public class Client extends GameShell {
 								}
 							}
 							if (this.field400.startsWith("::")) {
+								// CLIENT_CHEAT
 								this.field260.p1isaac((byte) 4, 56);
 								this.field260.p1(this.field400.length() - 1);
 								this.field260.pjstr(this.field400.substring(2));
@@ -2868,6 +2879,7 @@ public class Client extends GameShell {
 									var21 = 5;
 									this.field400 = this.field400.substring(6);
 								}
+								// MESSAGE_PUBLIC
 								this.field260.p1isaac((byte) 4, 49);
 								this.field260.p1(0);
 								int var22 = this.field260.pos;
@@ -2893,6 +2905,7 @@ public class Client extends GameShell {
 								if (this.field302 == 2) {
 									this.field302 = 3;
 									this.field508 = true;
+									// CHAT_SETMODE
 									this.field260.p1isaac((byte) 4, 176);
 									this.field260.p1(this.field302);
 									this.field260.p1(this.field183);
@@ -2989,6 +3002,7 @@ public class Client extends GameShell {
 			this.field200 = this.field199;
 			this.field199 = this.field166;
 			if (this.field166 == 166) {
+				// IF_SETPOSITION
 				int var4 = this.field484.g2b_alt1(-63);
 				int var5 = this.field484.g2b_alt1(-63);
 				int var6 = this.field484.g2();
@@ -2999,6 +3013,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 186) {
+				// todo (setting model xan/yan/zoom)
 				int var8 = this.field484.g2_alt2((byte) 9);
 				int var9 = this.field484.g2_alt3(-600);
 				int var10 = this.field484.g2_alt2((byte) 9);
@@ -3010,6 +3025,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 216) {
+				// IF_SETMODEL
 				int var12 = this.field484.g2_alt3(-600);
 				int var13 = this.field484.g2_alt3(-600);
 				Component.method204(var13).field765 = 1;
@@ -3018,6 +3034,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 26) {
+				// SYNTH_SOUND
 				int var14 = this.field484.g2();
 				int var15 = this.field484.g1();
 				int var16 = this.field484.g2();
@@ -3038,6 +3055,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 182) {
+				// VARP_SMALL
 				int var17 = this.field484.g2_alt2((byte) 9);
 				byte var18 = this.field484.g1b_alt3(43428);
 				this.field301[var17] = var18;
@@ -3053,6 +3071,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 13) {
+				// RESET_ANIMS
 				for (int var19 = 0; var19 < this.field266.length; var19++) {
 					if (this.field266[var19] != null) {
 						this.field266[var19].field1171 = -1;
@@ -3067,11 +3086,13 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 156) {
+				// MINIMAP_TOGGLE
 				this.field346 = this.field484.g1();
 				this.field166 = -1;
 				return true;
 			}
 			if (this.field166 == 162) {
+				// IF_SETNPCHEAD
 				int var21 = this.field484.g2_alt2((byte) 9);
 				int var22 = this.field484.g2_alt1(-125);
 				Component.method204(var22).field765 = 2;
@@ -3080,6 +3101,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 109) {
+				// IF_OPENCHAT
 				int var23 = this.field484.g2();
 				this.method135((byte) 36, var23);
 				if (this.field385 != -1) {
@@ -3111,6 +3133,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 220) {
+				// MIDI_SONG
 				int var24 = this.field484.g2_alt3(-600);
 				if (var24 == 65535) {
 					var24 = -1;
@@ -3125,6 +3148,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 249) {
+				// MIDI_JINGLE
 				int var25 = this.field484.g2_alt1(-125);
 				int var26 = this.field484.g3_alt3(-737);
 				if (this.field562 && !field222) {
@@ -3137,6 +3161,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 158) {
+				// TUT_OPEN
 				int var27 = this.field484.g2b_alt1(-63);
 				if (this.field487 != var27) {
 					this.method64(field486, this.field487);
@@ -3147,6 +3172,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 218) {
+				// IF_SETCOLOUR
 				int var28 = this.field484.g2();
 				int var29 = this.field484.g2_alt2((byte) 9);
 				int var30 = var29 >> 10 & 0x1F;
@@ -3157,6 +3183,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 157) {
+				// SET_PLAYER_OP
 				int var33 = this.field484.g1_alt2(-34545);
 				String var34 = this.field484.gjstr();
 				int var35 = this.field484.g1();
@@ -3171,6 +3198,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 6) {
+				// P_NAMEDIALOG
 				this.field162 = false;
 				this.field540 = 2;
 				this.field245 = "";
@@ -3179,6 +3207,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 201) {
+				// CHAT_FILTER_SETTINGS
 				this.field302 = this.field484.g1();
 				this.field183 = this.field484.g1();
 				this.field523 = this.field484.g1();
@@ -3188,6 +3217,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 199) {
+				// HINT_ARROW
 				this.field493 = this.field484.g1();
 				if (this.field493 == 1) {
 					this.field522 = this.field484.g2();
@@ -3225,6 +3255,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 167) {
+				// CAM_LOOKAT
 				this.field507 = true;
 				this.field289 = this.field484.g1();
 				this.field290 = this.field484.g1();
@@ -3252,11 +3283,13 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 5) {
+				// LOGOUT
 				this.method148(true);
 				this.field166 = -1;
 				return false;
 			}
 			if (this.field166 == 115) {
+				// VARP_LARGE
 				int var43 = this.field484.g4_alt3(true);
 				int var44 = this.field484.g2_alt1(-125);
 				this.field301[var44] = var43;
@@ -3272,6 +3305,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 29) {
+				// IF_CLOSE
 				if (this.field385 != -1) {
 					this.method64(field486, this.field385);
 					this.field385 = -1;
@@ -3305,6 +3339,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 76) {
+				// LAST_LOGIN_INFO
 				this.field379 = this.field484.g2_alt1(-125);
 				this.field371 = this.field484.g2_alt3(-600);
 				this.field484.g2();
@@ -3321,6 +3356,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 63) {
+				// MESSAGE_GAME
 				String var45 = this.field484.gjstr();
 				if (var45.endsWith(":tradereq:")) {
 					String var46 = var45.substring(0, var45.indexOf(":"));
@@ -3369,6 +3405,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 50) {
+				// IF_OPENOVERLAY
 				int var62 = this.field484.g2b();
 				if (var62 >= 0) {
 					this.method135((byte) 36, var62);
@@ -3381,6 +3418,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 82) {
+				// IF_SETHIDE
 				boolean var63 = this.field484.g1() == 1;
 				int var64 = this.field484.g2();
 				Component.method204(var64).field701 = var63;
@@ -3388,6 +3426,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 174) {
+				// UPDATE_RUNWEIGHT
 				if (this.field581 == 12) {
 					this.field477 = true;
 				}
@@ -3396,16 +3435,19 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 233) {
+				// SET_MULTIWAY
 				this.field615 = this.field484.g1();
 				this.field166 = -1;
 				return true;
 			}
 			if (this.field166 == 61) {
+				// UNSET_MAP_FLAG
 				this.field416 = 0;
 				this.field166 = -1;
 				return true;
 			}
 			if (this.field166 == 128) {
+				// IF_OPENMAIN_SIDE
 				int var65 = this.field484.g2_alt2((byte) 9);
 				int var66 = this.field484.g2_alt3(-600);
 				if (this.field284 != -1) {
@@ -3441,6 +3483,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 67) {
+				// CAM_SHAKE
 				int var67 = this.field484.g1();
 				int var68 = this.field484.g1();
 				int var69 = this.field484.g1();
@@ -3454,6 +3497,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 134) {
+				// UPDATE_INV_PARTIAL
 				this.field477 = true;
 				int var71 = this.field484.g2();
 				Component var72 = Component.method204(var71);
@@ -3473,6 +3517,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 78) {
+				// UPDATE_FRIENDLIST
 				long var76 = this.field484.g8(-149);
 				int var78 = this.field484.g1();
 				String var79 = JString.method348(JString.method345(var76, 0), (byte) 7);
@@ -3522,6 +3567,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 58) {
+				// P_COUNTDIALOG
 				this.field162 = false;
 				this.field540 = 1;
 				this.field245 = "";
@@ -3530,6 +3576,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 252) {
+				// IF_SETTAB_ACTIVE
 				this.field581 = this.field484.g1_alt2(-34545);
 				this.field477 = true;
 				this.field246 = true;
@@ -3537,6 +3584,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 40) {
+				// UPDATE_ZONE_FULL_FOLLOWS
 				this.field286 = this.field484.g1_alt3(this.field532);
 				this.field285 = this.field484.g1_alt2(-34545);
 				for (int var87 = this.field285; var87 < this.field285 + 8; var87++) {
@@ -3556,6 +3604,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 255) {
+				// IF_SETPLAYERHEAD
 				int var90 = this.field484.g2_alt3(-600);
 				Component.method204(var90).field765 = 3;
 				if (field463.field1679 == null) {
@@ -3567,6 +3616,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 135) {
+				// MESSAGE_PRIVATE
 				long var91 = this.field484.g8(-149);
 				int var93 = this.field484.g4();
 				int var94 = this.field484.g1();
@@ -3608,6 +3658,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 183) {
+				// UPDATE_ZONE_PARTIAL_ENCLOSED
 				this.field285 = this.field484.g1();
 				this.field286 = this.field484.g1_alt1(0);
 				while (this.field484.pos < this.field165) {
@@ -3618,6 +3669,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 159) {
+				// IF_OPENMAIN
 				int var101 = this.field484.g2_alt3(-600);
 				this.method135((byte) 36, var101);
 				if (this.field385 != -1) {
@@ -3653,6 +3705,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 246) {
+				// IF_OPENSIDE
 				int var102 = this.field484.g2_alt3(-600);
 				this.method135((byte) 36, var102);
 				if (this.field284 != -1) {
@@ -3688,6 +3741,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 49) {
+				// UPDATE_STAT
 				this.field477 = true;
 				int var103 = this.field484.g1_alt2(-34545);
 				int var104 = this.field484.g1();
@@ -3704,6 +3758,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 206) {
+				// UPDATE_INV_FULL
 				this.field477 = true;
 				int var107 = this.field484.g2();
 				Component var108 = Component.method204(var107);
@@ -3727,11 +3782,13 @@ public class Client extends GameShell {
 				int var113 = this.field185;
 				int var114 = this.field186;
 				if (this.field166 == 222) {
+					// REBUILD_NORMAL
 					var114 = this.field484.g2();
 					var113 = this.field484.g2_alt3(-600);
 					this.field459 = false;
 				}
 				if (this.field166 == 53) {
+					// REBUILD_REGION
 					var113 = this.field484.g2_alt2((byte) 9);
 					this.field484.accessBits((byte) 6);
 					int var115 = 0;
@@ -3940,6 +3997,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 190) {
+				// UPDATE_REBOOT_TIMER
 				this.field353 = this.field484.g2_alt1(-125) * 30;
 				this.field166 = -1;
 				return true;
@@ -3950,6 +4008,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 125) {
+				// UPDATE_RUNENERGY
 				if (this.field581 == 12) {
 					this.field477 = true;
 				}
@@ -3958,6 +4017,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 21) {
+				// IF_SETOBJECT
 				int var163 = this.field484.g2();
 				int var164 = this.field484.g2_alt1(-125);
 				int var165 = this.field484.g2_alt3(-600);
@@ -3976,6 +4036,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 3) {
+				// CAM_MOVETO
 				this.field507 = true;
 				this.field170 = this.field484.g1();
 				this.field171 = this.field484.g1();
@@ -3991,6 +4052,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 2) {
+				// IF_SETANIM
 				int var167 = this.field484.g2_alt3(-600);
 				int var168 = this.field484.g2b_alt2((byte) 17);
 				Component var169 = Component.method204(var167);
@@ -4003,11 +4065,13 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 71) {
+				// NPC_INFO
 				this.method68(this.field484, this.field334, this.field165);
 				this.field166 = -1;
 				return true;
 			}
 			if (this.field166 == 226) {
+				// UPDATE_IGNORELIST
 				this.field151 = this.field165 / 8;
 				for (int var170 = 0; var170 < this.field151; var170++) {
 					this.field369[var170] = this.field484.g8(-149);
@@ -4016,6 +4080,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 10) {
+				// IF_SETTAB
 				int var171 = this.field484.g1_alt3(this.field532);
 				int var172 = this.field484.g2_alt2((byte) 9);
 				if (var172 == 65535) {
@@ -4031,6 +4096,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 219) {
+				// UPDATE_INV_STOP_TRANSMIT
 				int var173 = this.field484.g2_alt1(-125);
 				Component var174 = Component.method204(var173);
 				for (int var175 = 0; var175 < var174.field751.length; var175++) {
@@ -4041,6 +4107,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 238) {
+				// TUT_FLASH
 				this.field509 = this.field484.g1();
 				if (this.field581 == this.field509) {
 					if (this.field509 == 3) {
@@ -4054,6 +4121,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 148) {
+				// CAM_RESET
 				this.field507 = false;
 				for (int var176 = 0; var176 < 5; var176++) {
 					this.field223[var176] = false;
@@ -4062,18 +4130,21 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 126) {
+				// UPDATE_PID
 				this.field364 = this.field484.g1();
 				this.field257 = this.field484.g2_alt1(-125);
 				this.field166 = -1;
 				return true;
 			}
 			if (this.field166 == 75) {
+				// UPDATE_ZONE_PARTIAL_FOLLOWS
 				this.field285 = this.field484.g1_alt2(-34545);
 				this.field286 = this.field484.g1_alt1(0);
 				this.field166 = -1;
 				return true;
 			}
 			if (this.field166 == 253) {
+				// todo: opens fullscreen interface
 				int var177 = this.field484.g2_alt1(-125);
 				int var178 = this.field484.g2_alt2((byte) 9);
 				this.method135((byte) 36, var178);
@@ -4106,12 +4177,14 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 251) {
+				// FRIENDLIST_LOADED
 				this.field156 = this.field484.g1();
 				this.field477 = true;
 				this.field166 = -1;
 				return true;
 			}
 			if (this.field166 == 18) {
+				// todo
 				int var179 = this.field484.g2();
 				int var180 = this.field484.g2_alt2((byte) 9);
 				int var181 = this.field484.g2_alt1(-125);
@@ -4120,12 +4193,14 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 90) {
+				// PLAYER_INFO
 				this.method119(this.field165, 69, this.field484);
 				this.field505 = false;
 				this.field166 = -1;
 				return true;
 			}
 			if (this.field166 == 113) {
+				// RESET_CLIENT_VARCACHE
 				for (int var182 = 0; var182 < this.field335.length; var182++) {
 					if (this.field335[var182] != this.field301[var182]) {
 						this.field335[var182] = this.field301[var182];
@@ -4137,6 +4212,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 232) {
+				// IF_SETTEXT
 				int var183 = this.field484.g2_alt3(-600);
 				String var184 = this.field484.gjstr();
 				Component.method204(var183).field712 = var184;
@@ -4148,6 +4224,7 @@ public class Client extends GameShell {
 				return true;
 			}
 			if (this.field166 == 200) {
+				// IF_SETSCROLLPOS
 				int var185 = this.field484.g2();
 				int var186 = this.field484.g2_alt3(-600);
 				Component var187 = Component.method204(var185);
@@ -4376,14 +4453,17 @@ public class Client extends GameShell {
 			int var35 = this.field419[var41];
 			int var36 = this.field420[var41];
 			if (arg6 == 0) {
+				// MOVE_GAMECLICK
 				this.field260.p1isaac((byte) 4, 28);
 				this.field260.p1(var34 + var34 + 3);
 			}
 			if (arg6 == 1) {
+				// MOVE_MINIMAPCLICK
 				this.field260.p1isaac((byte) 4, 213);
 				this.field260.p1(var34 + var34 + 3 + 14);
 			}
 			if (arg6 == 2) {
+				// MOVE_OPCLICK
 				this.field260.p1isaac((byte) 4, 247);
 				this.field260.p1(var34 + var34 + 3);
 			}
@@ -4538,6 +4618,7 @@ public class Client extends GameShell {
 			this.field302 = (this.field302 + 1) % 4;
 			this.field508 = true;
 			this.field536 = true;
+			// CHAT_SETMODE
 			this.field260.p1isaac((byte) 4, 176);
 			this.field260.p1(this.field302);
 			this.field260.p1(this.field183);
@@ -4547,6 +4628,7 @@ public class Client extends GameShell {
 			this.field183 = (this.field183 + 1) % 3;
 			this.field508 = true;
 			this.field536 = true;
+			// CHAT_SETMODE
 			this.field260.p1isaac((byte) 4, 176);
 			this.field260.p1(this.field302);
 			this.field260.p1(this.field183);
@@ -4556,6 +4638,7 @@ public class Client extends GameShell {
 			this.field523 = (this.field523 + 1) % 3;
 			this.field508 = true;
 			this.field536 = true;
+			// CHAT_SETMODE
 			this.field260.p1isaac((byte) 4, 176);
 			this.field260.p1(this.field302);
 			this.field260.p1(this.field183);
@@ -4574,6 +4657,7 @@ public class Client extends GameShell {
 		field456++;
 		if (field456 > 161) {
 			field456 = 0;
+			// ANTICHEAT_CYCLELOGIC6
 			this.field260.p1isaac((byte) 4, 22);
 			this.field260.p2(38304);
 			return;
@@ -4587,6 +4671,7 @@ public class Client extends GameShell {
 			ClientPlayer var7 = this.field266[var6];
 			int var8 = arg1.g1();
 			if ((var8 & 0x20) != 0) {
+				// BIG
 				var8 += arg1.g1() << 8;
 			}
 			this.method84(2, var6, var7, var8, arg1);
@@ -5104,6 +5189,7 @@ public class Client extends GameShell {
 		field464++;
 		if (field464 > 51) {
 			field464 = 0;
+			// ANTICHEAT_CYCLELOGIC5
 			this.field260.p1isaac((byte) 4, 248);
 		}
 	}
@@ -5194,6 +5280,7 @@ public class Client extends GameShell {
 					this.field563[var5] = this.field563[var5 + 1];
 					this.field426[var5] = this.field426[var5 + 1];
 				}
+				// FRIENDLIST_DEL
 				this.field260.p1isaac((byte) 4, 141);
 				this.field260.p8(arg0, true);
 				break;
@@ -5519,6 +5606,7 @@ public class Client extends GameShell {
 			this.method45(this.field311);
 		}
 		if (var3 == 326) {
+			// IF_PLAYERDESIGN
 			this.field260.p1isaac((byte) 4, 163);
 			this.field260.p1(this.field440 ? 0 : 1);
 			for (int var10 = 0; var10 < 7; var10++) {
@@ -5535,6 +5623,7 @@ public class Client extends GameShell {
 		if (var3 >= 601 && var3 <= 613) {
 			this.method34(false);
 			if (this.field135.length() > 0) {
+				// REPORT_ABUSE
 				this.field260.p1isaac((byte) 4, 184);
 				this.field260.p8(JString.method344(this.field135), true);
 				this.field260.p1(var3 - 601);
@@ -5684,6 +5773,7 @@ public class Client extends GameShell {
 			ClientNpc var7 = this.field428[var6];
 			int var8 = arg0.g1();
 			if ((var8 & 0x1) != 0) {
+				// CHANGETYPE
 				var7.field1370 = NpcType.method477(arg0.g2_alt2((byte) 9));
 				var7.field1148 = var7.field1370.field1445;
 				var7.field1147 = var7.field1370.field1454;
@@ -5694,12 +5784,14 @@ public class Client extends GameShell {
 				var7.field1181 = var7.field1370.field1424;
 			}
 			if ((var8 & 0x40) != 0) {
+				// FACE_ENTITY
 				var7.field1156 = arg0.g2_alt1(-125);
 				if (var7.field1156 == 65535) {
 					var7.field1156 = -1;
 				}
 			}
 			if ((var8 & 0x80) != 0) {
+				// DAMAGE
 				int var9 = arg0.g1_alt1(0);
 				int var10 = arg0.g1_alt1(0);
 				var7.method353(field621, false, var9, var10);
@@ -5708,6 +5800,7 @@ public class Client extends GameShell {
 				var7.field1144 = arg0.g1_alt3(this.field532);
 			}
 			if ((var8 & 0x4) != 0) {
+				// SPOTANIM
 				var7.field1161 = arg0.g2();
 				int var11 = arg0.g4_alt2(3);
 				var7.field1165 = var11 >> 16;
@@ -5722,14 +5815,17 @@ public class Client extends GameShell {
 				}
 			}
 			if ((var8 & 0x20) != 0) {
+				// SAY
 				var7.field1127 = arg0.gjstr();
 				var7.field1129 = 100;
 			}
 			if ((var8 & 0x8) != 0) {
+				// FACE_COORD
 				var7.field1145 = arg0.g2_alt3(-600);
 				var7.field1146 = arg0.g2_alt1(-125);
 			}
 			if ((var8 & 0x2) != 0) {
+				// ANIM
 				int var12 = arg0.g2();
 				if (var12 == 65535) {
 					var12 = -1;
@@ -5756,6 +5852,7 @@ public class Client extends GameShell {
 				}
 			}
 			if ((var8 & 0x10) != 0) {
+				// DAMAGE2
 				int var15 = arg0.g1_alt3(this.field532);
 				int var16 = arg0.g1_alt3(this.field532);
 				var7.method353(field621, false, var15, var16);
@@ -5773,6 +5870,7 @@ public class Client extends GameShell {
 			}
 		}
 		if ((arg3 & 0x8) != 0) {
+			// ANIM
 			int var7 = arg4.g2();
 			if (var7 == 65535) {
 				var7 = -1;
@@ -5799,6 +5897,7 @@ public class Client extends GameShell {
 			}
 		}
 		if ((arg3 & 0x10) != 0) {
+			// SAY
 			arg2.field1127 = arg4.gjstr();
 			if (arg2.field1127.charAt(0) == '~') {
 				arg2.field1127 = arg2.field1127.substring(1);
@@ -5811,6 +5910,7 @@ public class Client extends GameShell {
 			arg2.field1129 = 150;
 		}
 		if ((arg3 & 0x100) != 0) {
+			// EXACTMOVE
 			arg2.field1149 = arg4.g1_alt1(0);
 			arg2.field1151 = arg4.g1_alt2(-34545);
 			arg2.field1150 = arg4.g1_alt3(this.field532);
@@ -5821,16 +5921,19 @@ public class Client extends GameShell {
 			arg2.method350(-56);
 		}
 		if ((arg3 & 0x1) != 0) {
+			// FACE_ENTITY
 			arg2.field1156 = arg4.g2_alt2((byte) 9);
 			if (arg2.field1156 == 65535) {
 				arg2.field1156 = -1;
 			}
 		}
 		if ((arg3 & 0x2) != 0) {
+			// FACE_COORD
 			arg2.field1145 = arg4.g2();
 			arg2.field1146 = arg4.g2();
 		}
 		if ((arg3 & 0x200) != 0) {
+			// SPOTANIM
 			arg2.field1161 = arg4.g2_alt2((byte) 9);
 			int var10 = arg4.g4_alt2(3);
 			arg2.field1165 = var10 >> 16;
@@ -5845,6 +5948,7 @@ public class Client extends GameShell {
 			}
 		}
 		if ((arg3 & 0x4) != 0) {
+			// APPEARANCE
 			int var11 = arg4.g1();
 			byte[] var12 = new byte[var11];
 			Packet var13 = new Packet(true, var12);
@@ -5853,6 +5957,7 @@ public class Client extends GameShell {
 			arg2.method574(var13, 0);
 		}
 		if ((arg3 & 0x400) != 0) {
+			// DAMAGE
 			int var14 = arg4.g1_alt1(0);
 			int var15 = arg4.g1_alt3(this.field532);
 			arg2.method353(field621, false, var14, var15);
@@ -5861,6 +5966,7 @@ public class Client extends GameShell {
 			arg2.field1144 = arg4.g1();
 		}
 		if ((arg3 & 0x40) != 0) {
+			// CHAT
 			int var16 = arg4.g2();
 			int var17 = arg4.g1_alt2(-34545);
 			int var18 = arg4.g1_alt1(0);
@@ -5901,15 +6007,15 @@ public class Client extends GameShell {
 			}
 			arg4.pos = var18 + var19;
 		}
-		if ((arg3 & 0x80) == 0) {
-			return;
+		if ((arg3 & 0x80) != 0) {
+			// DAMAGE2
+			int var27 = arg4.g1_alt3(this.field532);
+			int var28 = arg4.g1_alt2(-34545);
+			arg2.method353(field621, false, var27, var28);
+			arg2.field1142 = field621 + 300;
+			arg2.field1143 = arg4.g1_alt3(this.field532);
+			arg2.field1144 = arg4.g1();
 		}
-		int var27 = arg4.g1_alt3(this.field532);
-		int var28 = arg4.g1_alt2(-34545);
-		arg2.method353(field621, false, var27, var28);
-		arg2.field1142 = field621 + 300;
-		arg2.field1143 = arg4.g1_alt3(this.field532);
-		arg2.field1144 = arg4.g1();
 	}
 
 	@ObfuscatedName("client.n(I)V")
@@ -6993,6 +7099,7 @@ public class Client extends GameShell {
 			field533++;
 			if (field533 > 85) {
 				field533 = 0;
+				// ANTICHEAT_CYCLELOGIC2
 				this.field260.p1isaac((byte) 4, 168);
 			}
 		}
@@ -7085,6 +7192,7 @@ public class Client extends GameShell {
 		if (this.field246) {
 			if (this.field509 != -1 && this.field581 == this.field509) {
 				this.field509 = -1;
+				// TUTORIAL_CLICKSIDE
 				this.field260.p1isaac((byte) 4, 119);
 				this.field260.p1(this.field581);
 			}
@@ -8379,6 +8487,7 @@ public class Client extends GameShell {
 		}
 		this.field369[this.field151++] = arg1;
 		this.field477 = true;
+		// IGNORELIST_ADD
 		this.field260.p1isaac((byte) 4, 217);
 		this.field260.p8(arg1, true);
 	}
@@ -8550,6 +8659,7 @@ public class Client extends GameShell {
 			}
 			World var6 = new World(this.field187, 14290, this.field421, 104, 104);
 			int var7 = this.field134.length;
+			// NO_TIMEOUT
 			this.field260.p1isaac((byte) 4, 40);
 			if (!this.field459) {
 				for (int var8 = 0; var8 < var7; var8++) {
@@ -8568,6 +8678,7 @@ public class Client extends GameShell {
 						var6.method28(var13, var14, 64, -810, 64);
 					}
 				}
+				// NO_TIMEOUT
 				this.field260.p1isaac((byte) 4, 40);
 				for (int var16 = 0; var16 < var7; var16++) {
 					byte[] var17 = this.field528[var16];
@@ -8590,6 +8701,7 @@ public class Client extends GameShell {
 								}
 							}
 						}
+						// NO_TIMEOUT
 						this.field260.p1isaac((byte) 4, 40);
 						int var34 = 0;
 						while (true) {
@@ -8643,12 +8755,14 @@ public class Client extends GameShell {
 					var20++;
 				}
 			}
+			// NO_TIMEOUT
 			this.field260.p1isaac((byte) 4, 40);
 			var6.method15(this.field556, this.field614, this.field460);
 			if (this.field454 != null) {
 				this.field454.method240(false);
 				Pix3D.field1600 = this.field298;
 			}
+			// NO_TIMEOUT
 			this.field260.p1isaac((byte) 4, 40);
 			int var44 = World.field113;
 			if (var44 > this.field387) {
@@ -8672,6 +8786,7 @@ public class Client extends GameShell {
 		}
 		LocType.field1633.method460();
 		if (super.field954 != null) {
+			// todo: notifying the client is in a frame
 			this.field260.p1isaac((byte) 4, 78);
 			this.field260.p4(1057001181);
 		}
@@ -8814,6 +8929,7 @@ public class Client extends GameShell {
 				for (int var5 = var4; var5 < this.field151; var5++) {
 					this.field369[var5] = this.field369[var5 + 1];
 				}
+				// IGNORELIST_DEL
 				this.field260.p1isaac((byte) 4, 160);
 				this.field260.p8(arg1, true);
 				break;
@@ -8982,6 +9098,7 @@ public class Client extends GameShell {
 				this.field563[this.field155] = 0;
 				this.field155++;
 				this.field477 = true;
+				// FRIENDLIST_ADD
 				this.field260.p1isaac((byte) 4, 120);
 				this.field260.p8(arg0, true);
 			}
@@ -9525,6 +9642,7 @@ public class Client extends GameShell {
 		field191++;
 		if (field191 > 112) {
 			field191 = 0;
+			// ANTICHEAT_CYCLELOGIC3
 			this.field260.p1isaac((byte) 4, 197);
 			this.field260.p4(0);
 			return;
@@ -9816,6 +9934,7 @@ public class Client extends GameShell {
 		field378++;
 		if (field378 > 177) {
 			field378 = 0;
+			// ANTICHEAT_CYCLELOGIC4
 			this.field260.p1isaac((byte) 4, 173);
 			this.field260.p3(2657152);
 		}
@@ -9879,6 +9998,7 @@ public class Client extends GameShell {
 			field274++;
 			if (field274 > 1457) {
 				field274 = 0;
+				// ANTICHEAT_CYCLELOGIC1
 				this.field260.p1isaac((byte) 4, 244);
 				this.field260.p1(0);
 				int var4 = this.field260.pos;
@@ -10070,6 +10190,7 @@ public class Client extends GameShell {
 				this.field317 = super.field967;
 				this.field319 = 2;
 				this.field318 = 0;
+				// OPPLAYER1
 				this.field260.p1isaac((byte) 4, 245);
 				this.field260.p2_alt3(3, var6);
 			}
@@ -10077,10 +10198,12 @@ public class Client extends GameShell {
 		if (var5 == 227) {
 			field461++;
 			if (field461 >= 62) {
+				// ANTICHEAT_OPLOGIC2
 				this.field260.p1isaac((byte) 4, 165);
 				this.field260.p1(206);
 				field461 = 0;
 			}
+			// OPHELD4
 			this.field260.p1isaac((byte) 4, 228);
 			this.field260.p2_alt1(0, var3);
 			this.field260.p2_alt2(var6, 0);
@@ -10104,6 +10227,7 @@ public class Client extends GameShell {
 				this.field317 = super.field967;
 				this.field319 = 2;
 				this.field318 = 0;
+				// OPPLAYER5
 				this.field260.p1isaac((byte) 4, 45);
 				this.field260.p2_alt2(var6, 0);
 			}
@@ -10116,6 +10240,7 @@ public class Client extends GameShell {
 				this.field317 = super.field967;
 				this.field319 = 2;
 				this.field318 = 0;
+				// OPNPC2
 				this.field260.p1isaac((byte) 4, 67);
 				this.field260.p2_alt2(var6, 0);
 			}
@@ -10123,10 +10248,12 @@ public class Client extends GameShell {
 		if (var5 == 961) {
 			field435 += var6;
 			if (field435 >= 115) {
+				// ANTICHEAT_OPLOGIC5
 				this.field260.p1isaac((byte) 4, 126);
 				this.field260.p1(125);
 				field435 = 0;
 			}
+			// OPHELD1
 			this.field260.p1isaac((byte) 4, 203);
 			this.field260.p2_alt2(var4, 0);
 			this.field260.p2_alt1(0, var3);
@@ -10143,6 +10270,7 @@ public class Client extends GameShell {
 			}
 		}
 		if (var5 == 467 && this.method102(var4, 0, var3, var6)) {
+			// OPLOCU
 			this.field260.p1isaac((byte) 4, 152);
 			this.field260.p2_alt1(0, var6 >> 14 & 0x7FFF);
 			this.field260.p2_alt1(0, this.field444);
@@ -10152,6 +10280,7 @@ public class Client extends GameShell {
 			this.field260.p2_alt3(3, this.field336 + var3);
 		}
 		if (var5 == 9) {
+			// INV_BUTTON1
 			this.field260.p1isaac((byte) 4, 3);
 			this.field260.p2_alt2(var6, 0);
 			this.field260.p2(var4);
@@ -10175,6 +10304,7 @@ public class Client extends GameShell {
 				this.field317 = super.field967;
 				this.field319 = 2;
 				this.field318 = 0;
+				// OPNPC4
 				this.field260.p1isaac((byte) 4, 42);
 				this.field260.p2_alt1(0, var6);
 			}
@@ -10187,6 +10317,7 @@ public class Client extends GameShell {
 				this.field317 = super.field967;
 				this.field319 = 2;
 				this.field318 = 0;
+				// OPPLAYER4
 				this.field260.p1isaac((byte) 4, 116);
 				this.field260.p2_alt1(0, var6);
 			}
@@ -10219,12 +10350,14 @@ public class Client extends GameShell {
 			this.field317 = super.field967;
 			this.field319 = 2;
 			this.field318 = 0;
+			// OPOBJ4
 			this.field260.p1isaac((byte) 4, 54);
 			this.field260.p2_alt2(var6, 0);
 			this.field260.p2_alt1(0, this.field337 + var4);
 			this.field260.p2(this.field336 + var3);
 		}
 		if (var5 == 399) {
+			// OPHELD2
 			this.field260.p1isaac((byte) 4, 24);
 			this.field260.p2_alt1(0, var4);
 			this.field260.p2_alt1(0, var6);
@@ -10248,6 +10381,7 @@ public class Client extends GameShell {
 				this.field317 = super.field967;
 				this.field319 = 2;
 				this.field318 = 0;
+				// OPNPCU
 				this.field260.p1isaac((byte) 4, 57);
 				this.field260.p2(var6);
 				this.field260.p2_alt1(0, this.field445);
@@ -10256,6 +10390,7 @@ public class Client extends GameShell {
 			}
 		}
 		if (var5 == 890) {
+			// IF_BUTTON
 			this.field260.p1isaac((byte) 4, 79);
 			this.field260.p2(var4);
 			Component var19 = Component.method204(var4);
@@ -10274,6 +10409,7 @@ public class Client extends GameShell {
 				this.field317 = super.field967;
 				this.field319 = 2;
 				this.field318 = 0;
+				// OPPLAYER2
 				this.field260.p1isaac((byte) 4, 233);
 				this.field260.p2_alt2(var6, 0);
 			}
@@ -10286,6 +10422,7 @@ public class Client extends GameShell {
 			}
 		}
 		if (var5 == 903) {
+			// OPHELDU
 			this.field260.p1isaac((byte) 4, 1);
 			this.field260.p2(var6);
 			this.field260.p2_alt1(0, this.field443);
@@ -10305,6 +10442,7 @@ public class Client extends GameShell {
 			}
 		}
 		if (var5 == 361) {
+			// OPHELDT
 			this.field260.p1isaac((byte) 4, 36);
 			this.field260.p2(this.field468);
 			this.field260.p2_alt2(var4, 0);
@@ -10331,15 +10469,18 @@ public class Client extends GameShell {
 				this.field318 = 0;
 				field531 += var6;
 				if (field531 >= 143) {
+					// ANTICHEAT_OPLOGIC3
 					this.field260.p1isaac((byte) 4, 157);
 					this.field260.p4(0);
 					field531 = 0;
 				}
+				// OPNPC3
 				this.field260.p1isaac((byte) 4, 13);
 				this.field260.p2_alt3(3, var6);
 			}
 		}
 		if (var5 == 376 && this.method102(var4, 0, var3, var6)) {
+			// OPLOCT
 			this.field260.p1isaac((byte) 4, 210);
 			this.field260.p2(this.field468);
 			this.field260.p2_alt1(0, var6 >> 14 & 0x7FFF);
@@ -10354,6 +10495,7 @@ public class Client extends GameShell {
 				this.field317 = super.field967;
 				this.field319 = 2;
 				this.field318 = 0;
+				// OPNPC5
 				this.field260.p1isaac((byte) 4, 8);
 				this.field260.p2_alt1(0, var6);
 			}
@@ -10369,6 +10511,7 @@ public class Client extends GameShell {
 				this.field317 = super.field967;
 				this.field319 = 2;
 				this.field318 = 0;
+				// OPPLAYERT
 				this.field260.p1isaac((byte) 4, 31);
 				this.field260.p2(var6);
 				this.field260.p2_alt1(0, this.field468);
@@ -10382,6 +10525,7 @@ public class Client extends GameShell {
 				this.field317 = super.field967;
 				this.field319 = 2;
 				this.field318 = 0;
+				// OPNPCT
 				this.field260.p1isaac((byte) 4, 104);
 				this.field260.p2_alt2(this.field468, 0);
 				this.field260.p2_alt1(0, var6);
@@ -10396,6 +10540,7 @@ public class Client extends GameShell {
 			this.field317 = super.field967;
 			this.field319 = 2;
 			this.field318 = 0;
+			// OPOBJ1
 			this.field260.p1isaac((byte) 4, 77);
 			this.field260.p2_alt2(this.field336 + var3, 0);
 			this.field260.p2(this.field337 + var4);
@@ -10414,10 +10559,12 @@ public class Client extends GameShell {
 				field348++;
 			}
 			if (field348 >= 84) {
+				// ANTICHEAT_OPLOGIC4
 				this.field260.p1isaac((byte) 4, 222);
 				this.field260.p3(11257922);
 				field348 = 0;
 			}
+			// OPOBJ3
 			this.field260.p1isaac((byte) 4, 71);
 			this.field260.p2_alt3(3, var6);
 			this.field260.p2_alt3(3, this.field336 + var3);
@@ -10435,10 +10582,12 @@ public class Client extends GameShell {
 					if (var36 != null && var36.field1673 != null && var36.field1673.equalsIgnoreCase(var33)) {
 						this.method55(false, false, var36.field1134[0], field463.field1134[0], 1, 1, 2, 0, var36.field1133[0], 0, 0, field463.field1133[0]);
 						if (var5 == 544) {
+							// OPPLAYER4
 							this.field260.p1isaac((byte) 4, 116);
 							this.field260.p2_alt1(0, this.field268[var35]);
 						}
 						if (var5 == 695) {
+							// OPPLAYER1
 							this.field260.p1isaac((byte) 4, 245);
 							this.field260.p2_alt3(3, this.field268[var35]);
 						}
@@ -10452,6 +10601,7 @@ public class Client extends GameShell {
 			}
 		}
 		if (var5 == 225) {
+			// INV_BUTTON2
 			this.field260.p1isaac((byte) 4, 177);
 			this.field260.p2_alt2(var3, 0);
 			this.field260.p2_alt1(0, var6);
@@ -10491,6 +10641,7 @@ public class Client extends GameShell {
 			return;
 		}
 		if (var5 == 891) {
+			// OPHELD5
 			this.field260.p1isaac((byte) 4, 4);
 			this.field260.p2_alt1(0, var3);
 			this.field260.p2_alt3(3, var6);
@@ -10507,6 +10658,7 @@ public class Client extends GameShell {
 			}
 		}
 		if (var5 == 894) {
+			// INV_BUTTON5
 			this.field260.p1isaac((byte) 4, 158);
 			this.field260.p2_alt3(3, var3);
 			this.field260.p2_alt3(3, var6);
@@ -10524,6 +10676,7 @@ public class Client extends GameShell {
 		}
 		if (var5 == 1280) {
 			this.method102(var4, 0, var3, var6);
+			// OPLOC5
 			this.field260.p1isaac((byte) 4, 55);
 			this.field260.p2_alt1(0, var6 >> 14 & 0x7FFF);
 			this.field260.p2_alt1(0, this.field337 + var4);
@@ -10531,6 +10684,7 @@ public class Client extends GameShell {
 		}
 		if (var5 == 35) {
 			this.method102(var4, 0, var3, var6);
+			// OPLOC1
 			this.field260.p1isaac((byte) 4, 181);
 			this.field260.p2_alt2(this.field336 + var3, 0);
 			this.field260.p2_alt1(0, this.field337 + var4);
@@ -10538,12 +10692,14 @@ public class Client extends GameShell {
 		}
 		if (var5 == 888) {
 			this.method102(var4, 0, var3, var6);
+			// OPLOC3
 			this.field260.p1isaac((byte) 4, 50);
 			this.field260.p2_alt2(this.field337 + var4, 0);
 			this.field260.p2_alt1(0, var6 >> 14 & 0x7FFF);
 			this.field260.p2_alt3(3, this.field336 + var3);
 		}
 		if (var5 == 324) {
+			// OPHELD3
 			this.field260.p1isaac((byte) 4, 161);
 			this.field260.p2_alt3(3, var3);
 			this.field260.p2_alt3(3, var6);
@@ -10579,6 +10735,7 @@ public class Client extends GameShell {
 				var44 = this.method80(631, var43);
 			}
 			if (var44) {
+				// IF_BUTTON
 				this.field260.p1isaac((byte) 4, 79);
 				this.field260.p2(var4);
 			}
@@ -10595,12 +10752,14 @@ public class Client extends GameShell {
 			this.method67("", (byte) -123, var47, 0);
 		}
 		if (var5 == 575 && !this.field535) {
+			// RESUME_PAUSEBUTTON
 			this.field260.p1isaac((byte) 4, 226);
 			this.field260.p2(var4);
 			this.field535 = true;
 		}
 		if (var5 == 892) {
 			this.method102(var4, 0, var3, var6);
+			// OPLOC4
 			this.field260.p1isaac((byte) 4, 136);
 			this.field260.p2(this.field336 + var3);
 			this.field260.p2_alt1(0, this.field337 + var4);
@@ -10615,6 +10774,7 @@ public class Client extends GameShell {
 			this.field317 = super.field967;
 			this.field319 = 2;
 			this.field318 = 0;
+			// OPOBJ5
 			this.field260.p1isaac((byte) 4, 230);
 			this.field260.p2_alt1(0, var6);
 			this.field260.p2_alt2(this.field336 + var3, 0);
@@ -10628,6 +10788,7 @@ public class Client extends GameShell {
 				this.field317 = super.field967;
 				this.field319 = 2;
 				this.field318 = 0;
+				// OPPLAYERU
 				this.field260.p1isaac((byte) 4, 143);
 				this.field260.p2_alt1(0, this.field445);
 				this.field260.p2_alt3(3, this.field443);
@@ -10644,6 +10805,7 @@ public class Client extends GameShell {
 			this.field317 = super.field967;
 			this.field319 = 2;
 			this.field318 = 0;
+			// OPOBJU
 			this.field260.p1isaac((byte) 4, 211);
 			this.field260.p2_alt3(3, this.field443);
 			this.field260.p2_alt2(this.field445, 0);
@@ -10681,16 +10843,19 @@ public class Client extends GameShell {
 			this.field318 = 0;
 			field396++;
 			if (field396 >= 120) {
+				// ANTICHEAT_OPLOGIC1
 				this.field260.p1isaac((byte) 4, 95);
 				this.field260.p4(0);
 				field396 = 0;
 			}
+			// OPOBJ2
 			this.field260.p1isaac((byte) 4, 100);
 			this.field260.p2(this.field336 + var3);
 			this.field260.p2_alt2(this.field337 + var4, 0);
 			this.field260.p2_alt3(3, var6);
 		}
 		if (var5 == 444) {
+			// INV_BUTTON3
 			this.field260.p1isaac((byte) 4, 91);
 			this.field260.p2_alt1(0, var6);
 			this.field260.p2_alt3(3, var3);
@@ -10722,12 +10887,14 @@ public class Client extends GameShell {
 		}
 		if (var5 == 389) {
 			this.method102(var4, 0, var3, var6);
+			// OPLOC2
 			this.field260.p1isaac((byte) 4, 241);
 			this.field260.p2(var6 >> 14 & 0x7FFF);
 			this.field260.p2(this.field336 + var3);
 			this.field260.p2_alt2(this.field337 + var4, 0);
 		}
 		if (var5 == 564) {
+			// INV_BUTTON4
 			this.field260.p1isaac((byte) 4, 231);
 			this.field260.p2_alt3(3, var4);
 			this.field260.p2_alt1(0, var3);
@@ -10767,6 +10934,7 @@ public class Client extends GameShell {
 			}
 		}
 		if (var5 == 518) {
+			// IF_BUTTON
 			this.field260.p1isaac((byte) 4, 79);
 			this.field260.p2(var4);
 			Component var66 = Component.method204(var4);
@@ -10787,6 +10955,7 @@ public class Client extends GameShell {
 				this.field317 = super.field967;
 				this.field319 = 2;
 				this.field318 = 0;
+				// OPNPC1
 				this.field260.p1isaac((byte) 4, 112);
 				this.field260.p2_alt1(0, var6);
 			}
@@ -10800,6 +10969,7 @@ public class Client extends GameShell {
 			this.field317 = super.field967;
 			this.field319 = 2;
 			this.field318 = 0;
+			// OPOBJT
 			this.field260.p1isaac((byte) 4, 83);
 			this.field260.p2_alt1(0, var6);
 			this.field260.p2(this.field337 + var4);
@@ -10839,6 +11009,7 @@ public class Client extends GameShell {
 				this.field317 = super.field967;
 				this.field319 = 2;
 				this.field318 = 0;
+				// OPPLAYER3
 				this.field260.p1isaac((byte) 4, 194);
 				this.field260.p2_alt1(0, var6);
 			}
@@ -11598,6 +11769,7 @@ public class Client extends GameShell {
 			this.field619 = null;
 		}
 		if (arg2 == 203) {
+			// LOC_MERGE
 			int var4 = arg0.g2();
 			int var5 = arg0.g1();
 			int var6 = var5 >> 2;
@@ -11658,6 +11830,7 @@ public class Client extends GameShell {
 			}
 		}
 		if (arg2 == 106) {
+			// OBJ_REVEAL
 			int var30 = arg0.g1_alt1(0);
 			int var31 = (var30 >> 4 & 0x7) + this.field285;
 			int var32 = (var30 & 0x7) + this.field286;
@@ -11675,6 +11848,7 @@ public class Client extends GameShell {
 				this.method46(var31, var32);
 			}
 		} else if (arg2 == 142) {
+			// LOC_ANIM
 			int var37 = arg0.g2();
 			int var38 = arg0.g1_alt1(0);
 			int var39 = var38 >> 2;
@@ -11723,6 +11897,7 @@ public class Client extends GameShell {
 				}
 			}
 		} else if (arg2 == 107) {
+			// OBJ_ADD
 			int var54 = arg0.g2();
 			int var55 = arg0.g1_alt2(-34545);
 			int var56 = (var55 >> 4 & 0x7) + this.field285;
@@ -11739,6 +11914,7 @@ public class Client extends GameShell {
 				this.method46(var56, var57);
 			}
 		} else if (arg2 == 121) {
+			// OBJ_COUNT
 			int var60 = arg0.g1();
 			int var61 = (var60 >> 4 & 0x7) + this.field285;
 			int var62 = (var60 & 0x7) + this.field286;
@@ -11758,6 +11934,7 @@ public class Client extends GameShell {
 				}
 			}
 		} else if (arg2 == 181) {
+			// MAP_PROJANIM
 			int var68 = arg0.g1();
 			int var69 = (var68 >> 4 & 0x7) + this.field285;
 			int var70 = (var68 & 0x7) + this.field286;
@@ -11782,6 +11959,7 @@ public class Client extends GameShell {
 			}
 		} else {
 			if (arg2 == 41) {
+				// SOUND_AREA
 				int var86 = arg0.g1();
 				int var87 = (var86 >> 4 & 0x7) + this.field285;
 				int var88 = (var86 & 0x7) + this.field286;
@@ -11797,6 +11975,7 @@ public class Client extends GameShell {
 				}
 			}
 			if (arg2 == 59) {
+				// MAP_ANIM
 				int var93 = arg0.g1();
 				int var94 = (var93 >> 4 & 0x7) + this.field285;
 				int var95 = (var93 & 0x7) + this.field286;
@@ -11810,6 +11989,7 @@ public class Client extends GameShell {
 					this.field506.method3(var101);
 				}
 			} else if (arg2 == 152) {
+				// LOC_ADD_CHANGE
 				int var102 = arg0.g1_alt2(-34545);
 				int var103 = var102 >> 2;
 				int var104 = var102 & 0x3;
@@ -11822,6 +12002,7 @@ public class Client extends GameShell {
 					this.method172(true, this.field387, var108, var104, -1, var103, var106, 0, var105, var109);
 				}
 			} else if (arg2 == 208) {
+				// OBJ_DEL
 				int var110 = arg0.g2_alt2((byte) 9);
 				int var111 = arg0.g1_alt1(0);
 				int var112 = (var111 >> 4 & 0x7) + this.field285;
@@ -11842,6 +12023,7 @@ public class Client extends GameShell {
 					}
 				}
 			} else if (arg2 == 88) {
+				// LOC_DEL
 				int var116 = arg0.g1_alt3(this.field532);
 				int var117 = (var116 >> 4 & 0x7) + this.field285;
 				int var118 = (var116 & 0x7) + this.field286;
@@ -12533,6 +12715,7 @@ public class Client extends GameShell {
 			this.field367 = 2;
 			World.field125 = this.field387;
 			this.method116(175);
+			// MAP_BUILD_COMPLETE
 			this.field260.p1isaac((byte) 4, 6);
 			return 0;
 		}
@@ -12990,9 +13173,11 @@ public class Client extends GameShell {
 					}
 				} catch (Exception var7) {
 					if (signlink.reporterror) {
+						// todo: reporting synth error
 						this.field260.p1isaac((byte) 4, 80);
 						this.field260.p2(this.field386[var2] & 0x7FFF);
 					} else {
+						// todo: reporting synth error
 						this.field260.p1isaac((byte) 4, 80);
 						this.field260.p2(-1);
 					}
