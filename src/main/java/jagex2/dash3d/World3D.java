@@ -41,7 +41,7 @@ public class World3D {
 	public int[][][] field1017;
 
 	@ObfuscatedName("KJCMXHNO.m")
-	public static boolean field1013 = true;
+	public static boolean lowMem = true;
 
 	@ObfuscatedName("KJCMXHNO.M")
 	public static Sprite[] field1039 = new Sprite[100];
@@ -59,10 +59,10 @@ public class World3D {
 	public static final int[] field1043 = new int[] { 45, 45, -45, -45 };
 
 	@ObfuscatedName("KJCMXHNO.U")
-	public static int field1047 = -1;
+	public static int clickTileX = -1;
 
 	@ObfuscatedName("KJCMXHNO.V")
-	public static int field1048 = -1;
+	public static int clickTileZ = -1;
 
 	@ObfuscatedName("KJCMXHNO.W")
 	public static int field1049 = 4;
@@ -949,7 +949,7 @@ public class World3D {
 	}
 
 	@ObfuscatedName("KJCMXHNO.a(II[IIII)V")
-	public static void method310(int arg0, int[] arg2, int arg3, int arg4, int arg5) {
+	public static void init(int arg0, int[] arg2, int arg3, int arg4, int arg5) {
 		field1072 = 0;
 		field1073 = 0;
 		field1074 = arg5;
@@ -1033,8 +1033,8 @@ public class World3D {
 		field1044 = true;
 		field1045 = arg1;
 		field1046 = arg2;
-		field1047 = -1;
-		field1048 = -1;
+		clickTileX = -1;
+		clickTileZ = -1;
 	}
 
 	@ObfuscatedName("KJCMXHNO.a(IIIIIII)V")
@@ -1707,14 +1707,14 @@ public class World3D {
 				Pix3D.field1590 = true;
 			}
 			if (field1044 && this.method318(field1045, field1046, var50, var52, var48, var49, var51, var47)) {
-				field1047 = arg6;
-				field1048 = arg7;
+				clickTileX = arg6;
+				clickTileZ = arg7;
 			}
 			if (arg0.field62 == -1) {
 				if (arg0.field60 != 12345678) {
 					Pix3D.method555(var50, var52, var48, var49, var51, var47, arg0.field60, arg0.field61, arg0.field59);
 				}
-			} else if (field1013) {
+			} else if (lowMem) {
 				int var53 = field1062[arg0.field62];
 				Pix3D.method555(var50, var52, var48, var49, var51, var47, this.method317(arg0.field60, var53), this.method317(arg0.field61, var53), this.method317(arg0.field59, var53));
 			} else if (arg0.field63) {
@@ -1731,11 +1731,11 @@ public class World3D {
 			Pix3D.field1590 = true;
 		}
 		if (field1044 && this.method318(field1045, field1046, var46, var48, var52, var45, var47, var51)) {
-			field1047 = arg6;
-			field1048 = arg7;
+			clickTileX = arg6;
+			clickTileZ = arg7;
 		}
 		if (arg0.field62 != -1) {
-			if (!field1013) {
+			if (!lowMem) {
 				Pix3D.method559(var46, var48, var52, var45, var47, var51, arg0.field58, arg0.field59, arg0.field61, var21, var27, var39, var24, var30, var42, var25, var31, var43, arg0.field62);
 				return;
 			}
@@ -1789,14 +1789,14 @@ public class World3D {
 					Pix3D.field1590 = true;
 				}
 				if (field1044 && this.method318(field1045, field1046, var19, var20, var21, var16, var17, var18)) {
-					field1047 = arg5;
-					field1048 = arg4;
+					clickTileX = arg5;
+					clickTileZ = arg4;
 				}
 				if (arg2.field911 == null || arg2.field911[var12] == -1) {
 					if (arg2.field905[var12] != 12345678) {
 						Pix3D.method555(var19, var20, var21, var16, var17, var18, arg2.field905[var12], arg2.field906[var12], arg2.field907[var12]);
 					}
-				} else if (field1013) {
+				} else if (lowMem) {
 					int var22 = field1062[arg2.field911[var12]];
 					Pix3D.method555(var19, var20, var21, var16, var17, var18, this.method317(arg2.field905[var12], var22), this.method317(arg2.field906[var12], var22), this.method317(arg2.field907[var12], var22));
 				} else if (arg2.field912) {

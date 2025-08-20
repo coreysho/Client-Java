@@ -30,7 +30,7 @@ public class Isaac {
 	}
 
 	@ObfuscatedName("KRGHNEZN.a()I")
-	public int method329() {
+	public int nextInt() {
 		if (this.field1084-- == 0) {
 			this.method330();
 			this.field1084 = 255;

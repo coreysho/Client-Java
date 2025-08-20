@@ -37,8 +37,8 @@ public class VarbitType {
 	public static VarbitType[] field1760;
 
 	@ObfuscatedName("ZQTIEXZH.a(LATJMVOZR;I)V")
-	public static void method602(Jagfile arg0) {
-		Packet var2 = new Packet(arg0.method2("varbit.dat", null));
+	public static void unpack(Jagfile arg0) {
+		Packet var2 = new Packet(arg0.read("varbit.dat", null));
 		field1759 = var2.g2();
 		if (field1760 == null) {
 			field1760 = new VarbitType[field1759];

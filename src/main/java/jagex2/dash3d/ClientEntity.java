@@ -6,13 +6,13 @@ import jagex2.config.SeqType;
 public abstract class ClientEntity extends ModelSource {
 
 	@ObfuscatedName("LRUWCBNN.o")
-	public int field1129 = 100;
+	public int chatTimer = 100;
 
 	@ObfuscatedName("LRUWCBNN.s")
-	public int[] field1133 = new int[10];
+	public int[] routeTileX = new int[10];
 
 	@ObfuscatedName("LRUWCBNN.t")
-	public int[] field1134 = new int[10];
+	public int[] routeTileZ = new int[10];
 
 	@ObfuscatedName("LRUWCBNN.u")
 	public int field1135 = -1;
@@ -75,13 +75,13 @@ public abstract class ClientEntity extends ModelSource {
 	public int field1182 = -1;
 
 	@ObfuscatedName("LRUWCBNN.p")
-	public int field1130;
+	public int chatColour;
 
 	@ObfuscatedName("LRUWCBNN.q")
 	public int field1131;
 
 	@ObfuscatedName("LRUWCBNN.r")
-	public int field1132;
+	public int cycle;
 
 	@ObfuscatedName("LRUWCBNN.v")
 	public int field1136;
@@ -90,7 +90,7 @@ public abstract class ClientEntity extends ModelSource {
 	public int field1137;
 
 	@ObfuscatedName("LRUWCBNN.z")
-	public int field1140;
+	public int chatEffect;
 
 	@ObfuscatedName("LRUWCBNN.C")
 	public int field1143;
@@ -168,7 +168,7 @@ public abstract class ClientEntity extends ModelSource {
 	public int field1180;
 
 	@ObfuscatedName("LRUWCBNN.m")
-	public String field1127;
+	public String chatMessage;
 
 	@ObfuscatedName("LRUWCBNN.a(I)V")
 	public void method350() {
@@ -182,9 +182,9 @@ public abstract class ClientEntity extends ModelSource {
 	}
 
 	@ObfuscatedName("LRUWCBNN.a(ZII)V")
-	public void method352(boolean arg0, int arg1) {
-		int var4 = this.field1133[0];
-		int var5 = this.field1134[0];
+	public void step(boolean arg0, int arg1) {
+		int var4 = this.routeTileX[0];
+		int var5 = this.routeTileZ[0];
 		if (arg1 == 0) {
 			var4--;
 			var5++;
@@ -220,12 +220,12 @@ public abstract class ClientEntity extends ModelSource {
 			this.field1180++;
 		}
 		for (int var6 = this.field1180; var6 > 0; var6--) {
-			this.field1133[var6] = this.field1133[var6 - 1];
-			this.field1134[var6] = this.field1134[var6 - 1];
+			this.routeTileX[var6] = this.routeTileX[var6 - 1];
+			this.routeTileZ[var6] = this.routeTileZ[var6 - 1];
 			this.field1138[var6] = this.field1138[var6 - 1];
 		}
-		this.field1133[0] = var4;
-		this.field1134[0] = var5;
+		this.routeTileX[0] = var4;
+		this.routeTileZ[0] = var5;
 		this.field1138[0] = arg0;
 	}
 
@@ -242,24 +242,24 @@ public abstract class ClientEntity extends ModelSource {
 	}
 
 	@ObfuscatedName("LRUWCBNN.a(IBZI)V")
-	public void method354(int arg0, boolean arg2, int arg3) {
+	public void move(int arg0, boolean arg2, int arg3) {
 		if (this.field1171 != -1 && SeqType.field775[this.field1171].field788 == 1) {
 			this.field1171 = -1;
 		}
 		if (!arg2) {
-			int var5 = arg3 - this.field1133[0];
-			int var6 = arg0 - this.field1134[0];
+			int var5 = arg3 - this.routeTileX[0];
+			int var6 = arg0 - this.routeTileZ[0];
 			if (var5 >= -8 && var5 <= 8 && var6 >= -8 && var6 <= 8) {
 				if (this.field1180 < 9) {
 					this.field1180++;
 				}
 				for (int var7 = this.field1180; var7 > 0; var7--) {
-					this.field1133[var7] = this.field1133[var7 - 1];
-					this.field1134[var7] = this.field1134[var7 - 1];
+					this.routeTileX[var7] = this.routeTileX[var7 - 1];
+					this.routeTileZ[var7] = this.routeTileZ[var7 - 1];
 					this.field1138[var7] = this.field1138[var7 - 1];
 				}
-				this.field1133[0] = arg3;
-				this.field1134[0] = arg0;
+				this.routeTileX[0] = arg3;
+				this.routeTileZ[0] = arg0;
 				this.field1138[0] = false;
 				return;
 			}
@@ -267,9 +267,9 @@ public abstract class ClientEntity extends ModelSource {
 		this.field1180 = 0;
 		this.field1160 = 0;
 		this.field1170 = 0;
-		this.field1133[0] = arg3;
-		this.field1134[0] = arg0;
-		this.field1157 = this.field1133[0] * 128 + this.field1148 * 64;
-		this.field1158 = this.field1134[0] * 128 + this.field1148 * 64;
+		this.routeTileX[0] = arg3;
+		this.routeTileZ[0] = arg0;
+		this.field1157 = this.routeTileX[0] * 128 + this.field1148 * 64;
+		this.field1158 = this.routeTileZ[0] * 128 + this.field1148 * 64;
 	}
 }

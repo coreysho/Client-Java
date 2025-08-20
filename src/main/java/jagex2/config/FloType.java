@@ -46,8 +46,8 @@ public class FloType {
 	public static FloType[] field796;
 
 	@ObfuscatedName("FZFOSJCE.a(LATJMVOZR;I)V")
-	public static void method216(Jagfile arg0) {
-		Packet var2 = new Packet(arg0.method2("flo.dat", null));
+	public static void unpack(Jagfile arg0) {
+		Packet var2 = new Packet(arg0.read("flo.dat", null));
 		field795 = var2.g2();
 		if (field796 == null) {
 			field796 = new FloType[field795];

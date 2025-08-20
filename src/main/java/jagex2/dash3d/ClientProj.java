@@ -129,10 +129,10 @@ public class ClientProj extends ModelSource {
 		if (this.field974.field1301 != null) {
 			var3 = this.field974.field1301.field777[this.field988];
 		}
-		Model var4 = new Model(false, false, true, var2, AnimFrame.method265(var3));
+		Model var4 = new Model(false, false, true, var2, AnimFrame.isNull(var3));
 		if (var3 != -1) {
-			var4.method366();
-			var4.method367(var3);
+			var4.createLabelReferences();
+			var4.applyTransform(var3);
 			var4.field1226 = null;
 			var4.field1225 = null;
 		}
@@ -140,7 +140,7 @@ public class ClientProj extends ModelSource {
 			var4.method375(this.field974.field1305, this.field974.field1304, this.field974.field1304);
 		}
 		var4.method371(this.field984);
-		var4.method376(this.field974.field1307 + 64, this.field974.field1308 + 850, -30, -50, -30, true);
+		var4.calculateNormals(this.field974.field1307 + 64, this.field974.field1308 + 850, -30, -50, -30, true);
 		return var4;
 	}
 

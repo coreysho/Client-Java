@@ -45,7 +45,7 @@ public class Wave {
 	}
 
 	@ObfuscatedName("UDNCEGOL.a(LMFMVIYHT;I)V")
-	public static void method478(Packet arg0, int arg1) {
+	public static void unpack(Packet arg0, int arg1) {
 		if (arg1 != 36135) {
 			return;
 		}

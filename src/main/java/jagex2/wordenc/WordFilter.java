@@ -28,11 +28,11 @@ public class WordFilter {
 	public static byte[][][] field1570;
 
 	@ObfuscatedName("WXKKTWFB.a(LATJMVOZR;)V")
-	public static void method494(Jagfile arg0) {
-		Packet var1 = new Packet(arg0.method2("fragmentsenc.txt", null));
-		Packet var2 = new Packet(arg0.method2("badenc.txt", null));
-		Packet var3 = new Packet(arg0.method2("domainenc.txt", null));
-		Packet var4 = new Packet(arg0.method2("tldlist.txt", null));
+	public static void unpack(Jagfile arg0) {
+		Packet var1 = new Packet(arg0.read("fragmentsenc.txt", null));
+		Packet var2 = new Packet(arg0.read("badenc.txt", null));
+		Packet var3 = new Packet(arg0.read("domainenc.txt", null));
+		Packet var4 = new Packet(arg0.read("tldlist.txt", null));
 		method495(var1, var2, var3, var4);
 	}
 
@@ -136,7 +136,7 @@ public class WordFilter {
 	}
 
 	@ObfuscatedName("WXKKTWFB.a(BLjava/lang/String;)Ljava/lang/String;")
-	public static String method504(String arg1) {
+	public static String filter(String arg1) {
 		long var2 = System.currentTimeMillis();
 		char[] var4 = arg1.toCharArray();
 		method502(var4);

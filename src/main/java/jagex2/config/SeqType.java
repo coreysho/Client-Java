@@ -59,8 +59,8 @@ public class SeqType {
 	public static SeqType[] field775;
 
 	@ObfuscatedName("FHWCLIAS.a(LATJMVOZR;I)V")
-	public static void method213(Jagfile arg0) {
-		Packet var2 = new Packet(arg0.method2("seq.dat", null));
+	public static void unpack(Jagfile arg0) {
+		Packet var2 = new Packet(arg0.read("seq.dat", null));
 		field774 = var2.g2();
 		if (field775 == null) {
 			field775 = new SeqType[field774];
@@ -77,9 +77,9 @@ public class SeqType {
 	public int method214(int arg1) {
 		int var3 = this.field779[arg1];
 		if (var3 == 0) {
-			AnimFrame var4 = AnimFrame.method264(this.field777[arg1]);
+			AnimFrame var4 = AnimFrame.get(this.field777[arg1]);
 			if (var4 != null) {
-				var3 = this.field779[arg1] = var4.field930;
+				var3 = this.field779[arg1] = var4.delay;
 			}
 		}
 		if (var3 == 0) {

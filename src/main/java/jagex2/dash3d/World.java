@@ -79,7 +79,7 @@ public class World {
 	public static final int[] field130 = new int[] { 16, 32, 64, 128 };
 
 	@ObfuscatedName("CHEOPWNH.F")
-	public static boolean field132 = true;
+	public static boolean lowMem = true;
 
 	@ObfuscatedName("CHEOPWNH.y")
 	public static int field125;
@@ -438,7 +438,7 @@ public class World {
 							var65 -= this.field110[var69];
 							var66 -= this.field111[var69];
 						}
-						if (var67 >= 1 && var67 < this.field115 - 1 && (!field132 || (this.field101[0][var58][var67] & 0x2) != 0 || (this.field101[var5][var58][var67] & 0x10) == 0 && this.method12(var67, var5, var58) == field125)) {
+						if (var67 >= 1 && var67 < this.field115 - 1 && (!lowMem || (this.field101[0][var58][var67] & 0x2) != 0 || (this.field101[var5][var58][var67] & 0x10) == 0 && this.method12(var67, var5, var58) == field125)) {
 							if (var5 < field113) {
 								field113 = var5;
 							}
@@ -776,7 +776,7 @@ public class World {
 
 	@ObfuscatedName("CHEOPWNH.a(LKJCMXHNO;LXRENONSA;IIIBIII)V")
 	public void method21(World3D arg0, CollisionMap arg1, int arg2, int arg3, int arg4, int arg6, int arg7, int arg8) {
-		if (field132 && (this.field101[0][arg4][arg2] & 0x2) == 0) {
+		if (lowMem && (this.field101[0][arg4][arg2] & 0x2) == 0) {
 			if ((this.field101[arg3][arg4][arg2] & 0x10) != 0) {
 				return;
 			}
@@ -799,7 +799,7 @@ public class World {
 		}
 		byte var17 = (byte) ((arg6 << 6) + arg7);
 		if (arg7 == 22) {
-			if (!field132 || var15.field1613 || var15.field1619) {
+			if (!lowMem || var15.field1613 || var15.field1619) {
 				ModelSource var18;
 				if (var15.field1657 == -1 && var15.field1659 == null) {
 					var18 = var15.method569(22, arg6, var10, var11, var12, var13, -1);
@@ -1248,7 +1248,7 @@ public class World {
 					int var16 = arg1 + var12;
 					if (var15 > 0 && var16 > 0 && var15 < 103 && var16 < 103) {
 						LocType var17 = LocType.method561(var6);
-						if (var14 != 22 || !field132 || var17.field1613 || var17.field1619) {
+						if (var14 != 22 || !lowMem || var17.field1613 || var17.field1619) {
 							var4 &= var17.method566();
 							var9 = true;
 						}

@@ -55,8 +55,8 @@ public class VarpType {
 	public static VarpType[] field1507;
 
 	@ObfuscatedName("WEUDDWZB.a(LATJMVOZR;I)V")
-	public static void method484(Jagfile arg0) {
-		Packet var2 = new Packet(arg0.method2("varp.dat", null));
+	public static void unpack(Jagfile arg0) {
+		Packet var2 = new Packet(arg0.read("varp.dat", null));
 		field1508 = 0;
 		field1506 = var2.g2();
 		if (field1507 == null) {

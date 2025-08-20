@@ -13,7 +13,7 @@ public class ClientObj extends ModelSource {
 
 	@ObfuscatedName("HRIUIFAV.a(B)LLZYQDKJV;")
 	public Model method239() {
-		ObjType var2 = ObjType.method221(this.field873);
+		ObjType var2 = ObjType.get(this.field873);
 		return var2.method229(this.field875);
 	}
 }

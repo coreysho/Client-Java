@@ -48,7 +48,7 @@ public class ClientLocAnim extends ModelSource {
 	public int[] field1341;
 
 	@ObfuscatedName("NRPYRAWK.v")
-	public static Client field1337;
+	public static Client varProvider;
 
 	@ObfuscatedName("NRPYRAWK.a(I)LYMYTDPVW;")
 	public LocType method440() {
@@ -59,9 +59,9 @@ public class ClientLocAnim extends ModelSource {
 			int var5 = var3.field1763;
 			int var6 = var3.field1764;
 			int var7 = Client.field510[var6 - var5];
-			var2 = field1337.field335[var4] >> var5 & var7;
+			var2 = varProvider.field335[var4] >> var5 & var7;
 		} else if (this.field1340 != -1) {
-			var2 = field1337.field335[this.field1340];
+			var2 = varProvider.field335[this.field1340];
 		}
 		return var2 < 0 || var2 >= this.field1341.length || this.field1341[var2] == -1 ? null : LocType.method561(this.field1341[var2]);
 	}
@@ -77,7 +77,7 @@ public class ClientLocAnim extends ModelSource {
 		if (arg0 != -1) {
 			this.field1338 = SeqType.field775[arg0];
 			this.field1344 = 0;
-			this.field1343 = Client.field621 - 1;
+			this.field1343 = Client.loopCycle - 1;
 			if (arg7 && this.field1338.field780 != -1) {
 				this.field1344 = (int) (Math.random() * (double) this.field1338.field776);
 				this.field1343 -= (int) (Math.random() * (double) this.field1338.method214(this.field1344));
@@ -93,7 +93,7 @@ public class ClientLocAnim extends ModelSource {
 	public Model method239() {
 		int var2 = -1;
 		if (this.field1338 != null) {
-			int var3 = Client.field621 - this.field1343;
+			int var3 = Client.loopCycle - this.field1343;
 			if (var3 > 100 && this.field1338.field780 > 0) {
 				var3 = 100;
 			}
@@ -110,7 +110,7 @@ public class ClientLocAnim extends ModelSource {
 				} while (this.field1344 >= 0 && this.field1344 < this.field1338.field776);
 				this.field1338 = null;
 			}
-			this.field1343 = Client.field621 - var3;
+			this.field1343 = Client.loopCycle - var3;
 			if (this.field1338 != null) {
 				var2 = this.field1338.field777[this.field1344];
 			}

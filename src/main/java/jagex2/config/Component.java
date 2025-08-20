@@ -20,28 +20,28 @@ public class Component {
 	public static int field737 = -1;
 
 	@ObfuscatedName("EWIXBTLV.cb")
-	public static LruCache field746 = new LruCache(30);
+	public static LruCache modelCache = new LruCache(30);
 
 	@ObfuscatedName("EWIXBTLV.pb")
 	public static int field759 = -1;
 
 	@ObfuscatedName("EWIXBTLV.k")
-	public byte field702;
+	public byte trans;
 
 	@ObfuscatedName("EWIXBTLV.f")
-	public int field697;
+	public int id;
 
 	@ObfuscatedName("EWIXBTLV.i")
 	public int field700;
 
 	@ObfuscatedName("EWIXBTLV.m")
-	public int field704;
+	public int targetMask;
 
 	@ObfuscatedName("EWIXBTLV.p")
 	public int field707;
 
 	@ObfuscatedName("EWIXBTLV.q")
-	public int field708;
+	public int activeOverColour;
 
 	@ObfuscatedName("EWIXBTLV.r")
 	public int field709;
@@ -56,485 +56,534 @@ public class Component {
 	public int field717;
 
 	@ObfuscatedName("EWIXBTLV.A")
-	public int field718;
+	public int type;
 
 	@ObfuscatedName("EWIXBTLV.C")
-	public int field720;
+	public int height;
 
 	@ObfuscatedName("EWIXBTLV.E")
-	public int field722;
+	public int colour;
 
 	@ObfuscatedName("EWIXBTLV.F")
-	public int field723;
+	public int width;
 
 	@ObfuscatedName("EWIXBTLV.G")
-	public int field724;
+	public int clientCode;
 
 	@ObfuscatedName("EWIXBTLV.H")
-	public static int field725;
+	public static int contrast;
 
 	@ObfuscatedName("EWIXBTLV.I")
-	public int field726;
+	public int marginY;
 
 	@ObfuscatedName("EWIXBTLV.M")
-	public int field730;
+	public int layer;
 
 	@ObfuscatedName("EWIXBTLV.P")
-	public int field733;
+	public int zoom;
 
 	@ObfuscatedName("EWIXBTLV.Q")
-	public int field734;
+	public int xan;
 
 	@ObfuscatedName("EWIXBTLV.R")
-	public int field735;
+	public int yan;
 
 	@ObfuscatedName("EWIXBTLV.S")
-	public int field736;
+	public int overlayer;
 
 	@ObfuscatedName("EWIXBTLV.X")
 	public int field741;
 
 	@ObfuscatedName("EWIXBTLV.Y")
-	public int field742;
+	public int activeColour;
 
 	@ObfuscatedName("EWIXBTLV.Z")
-	public int field743;
+	public int overColour;
 
 	@ObfuscatedName("EWIXBTLV.bb")
-	public int field745;
+	public int marginX;
 
 	@ObfuscatedName("EWIXBTLV.eb")
-	public int field748;
+	public int activeModelType;
 
 	@ObfuscatedName("EWIXBTLV.fb")
-	public int field749;
+	public int activeModel;
 
 	@ObfuscatedName("EWIXBTLV.sb")
-	public static int field762;
+	public static int ambient;
 
 	@ObfuscatedName("EWIXBTLV.vb")
-	public int field765;
+	public int modelType;
 
 	@ObfuscatedName("EWIXBTLV.wb")
-	public int field766;
+	public int model;
 
 	@ObfuscatedName("EWIXBTLV.xb")
-	public int field767;
+	public int scroll;
 
 	@ObfuscatedName("EWIXBTLV.yb")
-	public int field768;
+	public int anim;
 
 	@ObfuscatedName("EWIXBTLV.zb")
-	public int field769;
+	public int activeAnim;
 
 	@ObfuscatedName("EWIXBTLV.Bb")
-	public int field771;
+	public int buttonType;
 
 	@ObfuscatedName("EWIXBTLV.e")
-	public static Jagfile field696;
+	public static Jagfile media;
 
 	@ObfuscatedName("EWIXBTLV.c")
-	public Pix32 field694;
+	public Pix32 graphic;
 
 	@ObfuscatedName("EWIXBTLV.J")
-	public Pix32 field727;
+	public Pix32 activeGraphic;
 
 	@ObfuscatedName("EWIXBTLV.B")
-	public PixFont field719;
+	public PixFont font;
 
 	@ObfuscatedName("EWIXBTLV.O")
-	public static LruCache field732;
+	public static LruCache imageCache;
 
 	@ObfuscatedName("EWIXBTLV.b")
-	public String field693;
+	public String targetText;
 
 	@ObfuscatedName("EWIXBTLV.u")
-	public String field712;
+	public String text;
 
 	@ObfuscatedName("EWIXBTLV.N")
-	public String field731;
+	public String activeText;
 
 	@ObfuscatedName("EWIXBTLV.gb")
-	public String field750;
+	public String option;
 
 	@ObfuscatedName("EWIXBTLV.tb")
-	public String field763;
+	public String targetVerb;
 
 	@ObfuscatedName("EWIXBTLV.h")
-	public boolean field699;
+	public boolean swappable;
 
 	@ObfuscatedName("EWIXBTLV.j")
-	public boolean field701;
+	public boolean hide;
 
 	@ObfuscatedName("EWIXBTLV.t")
-	public boolean field711;
+	public boolean interactable;
 
 	@ObfuscatedName("EWIXBTLV.x")
 	public boolean field715;
 
 	@ObfuscatedName("EWIXBTLV.D")
-	public boolean field721;
+	public boolean fill;
 
 	@ObfuscatedName("EWIXBTLV.L")
-	public boolean field729;
+	public boolean shadowed;
 
 	@ObfuscatedName("EWIXBTLV.kb")
-	public boolean field754;
+	public boolean center;
 
 	@ObfuscatedName("EWIXBTLV.mb")
-	public boolean field756;
+	public boolean draggable;
 
 	@ObfuscatedName("EWIXBTLV.Ab")
-	public boolean field770;
+	public boolean usable;
 
 	@ObfuscatedName("EWIXBTLV.d")
-	public int[] field695;
+	public int[] invSlotOffsetY;
 
 	@ObfuscatedName("EWIXBTLV.l")
-	public int[] field703;
+	public int[] invSlotOffsetX;
 
 	@ObfuscatedName("EWIXBTLV.o")
-	public int[] field706;
+	public int[] invSlotObjCount;
 
 	@ObfuscatedName("EWIXBTLV.w")
-	public int[] field714;
+	public int[] childX;
 
 	@ObfuscatedName("EWIXBTLV.U")
-	public int[] field738;
+	public int[] scriptOperand;
 
 	@ObfuscatedName("EWIXBTLV.W")
-	public int[] field740;
+	public int[] children;
 
 	@ObfuscatedName("EWIXBTLV.hb")
-	public int[] field751;
+	public int[] invSlotObjId;
 
 	@ObfuscatedName("EWIXBTLV.lb")
-	public int[] field755;
+	public int[] scriptComparator;
 
 	@ObfuscatedName("EWIXBTLV.ob")
-	public int[] field758;
+	public int[] childY;
 
 	@ObfuscatedName("EWIXBTLV.db")
-	public Pix32[] field747;
+	public Pix32[] invSlotGraphic;
 
 	@ObfuscatedName("EWIXBTLV.g")
-	public static Component[] field698;
+	public static Component[] types;
 
 	@ObfuscatedName("EWIXBTLV.n")
-	public static PixFont[] field705;
+	public static PixFont[] fonts;
 
 	@ObfuscatedName("EWIXBTLV.ab")
-	public String[] field744;
+	public String[] iop;
 
 	@ObfuscatedName("EWIXBTLV.ub")
-	public static byte[][] field764;
+	public static byte[][] data;
 
 	@ObfuscatedName("EWIXBTLV.y")
-	public int[][] field716;
+	public int[][] scripts;
 
 	@ObfuscatedName("EWIXBTLV.a(ILjava/lang/String;I)LEPQDEJTO;")
-	public static Pix32 method203(int arg0, String arg1) {
-		long var3 = (JString.method346(arg1) << 8) + (long) arg0;
-		Pix32 var5 = (Pix32) field732.method458(var3);
-		if (var5 != null) {
-			return var5;
-		} else if (field696 == null) {
+	public static Pix32 getImage(int index, String name) {
+		long cacheKey = (JString.hashCode(name) << 8) + (long) index;
+		Pix32 cachedImage = (Pix32) imageCache.get(cacheKey);
+		if (cachedImage != null) {
+			return cachedImage;
+		}
+
+		if (media == null) {
 			return null;
 		}
+
 		try {
-			Pix32 var6 = new Pix32(field696, arg1, arg0);
-			field732.method459(var6, var3);
-			return var6;
+			Pix32 image = new Pix32(media, name, index);
+			imageCache.put(image, cacheKey);
+			return image;
 		} catch (Exception var7) {
 			return null;
 		}
 	}
 
 	@ObfuscatedName("EWIXBTLV.a(I)LEWIXBTLV;")
-	public static Component method204(int arg0) {
-		if (field698[arg0] == null) {
-			Packet var1 = new Packet(field764[arg0]);
-			int var2 = var1.g2();
-			field698[arg0] = method207(var2, var1, arg0);
+	public static Component get(int id) {
+		if (types[id] != null) {
+			return types[id];
 		}
-		return field698[arg0];
+
+		Packet buf = new Packet(data[id]);
+		int layer = buf.g2();
+		types[id] = decode(layer, buf, id);
+		return types[id];
 	}
 
 	@ObfuscatedName("EWIXBTLV.a(III)V")
-	public void method205(int arg0, int arg2) {
-		int var4 = this.field751[arg2];
-		this.field751[arg2] = this.field751[arg0];
-		this.field751[arg0] = var4;
-		int var5 = this.field706[arg2];
-		this.field706[arg2] = this.field706[arg0];
-		this.field706[arg0] = var5;
+	public void swapObj(int arg0, int arg2) {
+		int var4 = this.invSlotObjId[arg2];
+		this.invSlotObjId[arg2] = this.invSlotObjId[arg0];
+		this.invSlotObjId[arg0] = var4;
+
+		int var5 = this.invSlotObjCount[arg2];
+		this.invSlotObjCount[arg2] = this.invSlotObjCount[arg0];
+		this.invSlotObjCount[arg0] = var5;
 	}
 
 	@ObfuscatedName("EWIXBTLV.a(II)LLZYQDKJV;")
-	public Model method206(int arg0, int arg1) {
-		ObjType var3 = null;
-		if (arg0 == 4) {
-			var3 = ObjType.method221(arg1);
-			field762 += var3.field836;
-			field725 += var3.field840;
+	public Model loadModel(int type, int id) {
+		ObjType obj = null;
+		if (type == 4) {
+			obj = ObjType.get(id);
+			ambient += obj.ambient;
+			contrast += obj.contrast;
 		}
-		Model var4 = (Model) field746.method458((long) ((arg0 << 16) + arg1));
-		if (var4 != null) {
-			return var4;
+
+		Model model = (Model) modelCache.get((long) ((type << 16) + id));
+		if (model != null) {
+			return model;
 		}
-		if (arg0 == 1) {
-			var4 = Model.method359(arg1);
+
+		if (type == 1) {
+			model = Model.tryGet(id);
+		} else if (type == 2) {
+			model = NpcType.get(id).getHeadModel();
+		} else if (type == 3) {
+			model = Client.localPlayer.getHeadModel();
+		} else if (type == 4) {
+			model = obj.getInvModel(50);
+		} else if (type == 5) {
+			model = null;
 		}
-		if (arg0 == 2) {
-			var4 = NpcType.method477(arg1).method472();
+
+		if (model != null) {
+			modelCache.put(model, (long) ((type << 16) + id));
 		}
-		if (arg0 == 3) {
-			var4 = Client.field463.method572();
-		}
-		if (arg0 == 4) {
-			var4 = var3.method226(50);
-		}
-		if (arg0 == 5) {
-			var4 = null;
-		}
-		if (var4 != null) {
-			field746.method459(var4, (long) ((arg0 << 16) + arg1));
-		}
-		return var4;
+
+		return model;
 	}
 
 	@ObfuscatedName("EWIXBTLV.a(ILMFMVIYHT;II)LEWIXBTLV;")
-	public static Component method207(int arg0, Packet arg1, int arg3) {
-		Component var4 = new Component();
-		var4.field697 = arg3;
-		var4.field730 = arg0;
-		var4.field718 = arg1.g1();
-		var4.field771 = arg1.g1();
-		var4.field724 = arg1.g2();
-		var4.field723 = arg1.g2();
-		var4.field720 = arg1.g2();
-		var4.field702 = (byte) arg1.g1();
-		var4.field736 = arg1.g1();
-		if (var4.field736 == 0) {
-			var4.field736 = -1;
+	public static Component decode(int layer, Packet buf, int id) {
+		Component com = new Component();
+		com.id = id;
+		com.layer = layer;
+
+		com.type = buf.g1();
+		com.buttonType = buf.g1();
+		com.clientCode = buf.g2();
+		com.width = buf.g2();
+		com.height = buf.g2();
+		com.trans = (byte) buf.g1();
+
+		com.overlayer = buf.g1();
+		if (com.overlayer == 0) {
+			com.overlayer = -1;
 		} else {
-			var4.field736 = (var4.field736 - 1 << 8) + arg1.g1();
+			com.overlayer = (com.overlayer - 1 << 8) + buf.g1();
 		}
-		if (var4.field724 == 600) {
-			field728 = arg0;
+
+		if (com.clientCode == 600) {
+			field728 = layer;
+		} else if (com.clientCode == 650) {
+			field737 = layer;
+		} else if (com.clientCode == 655) {
+			field759 = layer;
 		}
-		if (var4.field724 == 650) {
-			field737 = arg0;
-		}
-		if (var4.field724 == 655) {
-			field759 = arg0;
-		}
-		int var5 = arg1.g1();
-		if (var5 > 0) {
-			var4.field755 = new int[var5];
-			var4.field738 = new int[var5];
-			for (int var6 = 0; var6 < var5; var6++) {
-				var4.field755[var6] = arg1.g1();
-				var4.field738[var6] = arg1.g2();
+
+		int comparatorCount = buf.g1();
+		if (comparatorCount > 0) {
+			com.scriptComparator = new int[comparatorCount];
+			com.scriptOperand = new int[comparatorCount];
+
+			for (int i = 0; i < comparatorCount; i++) {
+				com.scriptComparator[i] = buf.g1();
+				com.scriptOperand[i] = buf.g2();
 			}
 		}
-		int var7 = arg1.g1();
-		if (var7 > 0) {
-			var4.field716 = new int[var7][];
-			for (int var8 = 0; var8 < var7; var8++) {
-				int var9 = arg1.g2();
-				var4.field716[var8] = new int[var9];
-				for (int var10 = 0; var10 < var9; var10++) {
-					var4.field716[var8][var10] = arg1.g2();
+
+		int scriptCount = buf.g1();
+		if (scriptCount > 0) {
+			com.scripts = new int[scriptCount][];
+
+			for (int i = 0; i < scriptCount; i++) {
+				int opcodeCount = buf.g2();
+
+				com.scripts[i] = new int[opcodeCount];
+				for (int j = 0; j < opcodeCount; j++) {
+					com.scripts[i][j] = buf.g2();
 				}
 			}
 		}
-		if (var4.field718 == 0) {
-			var4.field767 = arg1.g2();
-			var4.field701 = arg1.g1() == 1;
-			int var11 = arg1.g2();
-			var4.field740 = new int[var11];
-			var4.field714 = new int[var11];
-			var4.field758 = new int[var11];
-			for (int var12 = 0; var12 < var11; var12++) {
-				var4.field740[var12] = arg1.g2();
-				var4.field714[var12] = arg1.g2b();
-				var4.field758[var12] = arg1.g2b();
+
+		if (com.type == 0) {
+			com.scroll = buf.g2();
+			com.hide = buf.g1() == 1;
+
+			int childCount = buf.g2();
+			com.children = new int[childCount];
+			com.childX = new int[childCount];
+			com.childY = new int[childCount];
+
+			for (int i = 0; i < childCount; i++) {
+				com.children[i] = buf.g2();
+				com.childX[i] = buf.g2b();
+				com.childY[i] = buf.g2b();
 			}
 		}
-		if (var4.field718 == 1) {
-			var4.field707 = arg1.g2();
-			var4.field715 = arg1.g1() == 1;
+
+		if (com.type == 1) {
+			com.field707 = buf.g2();
+			com.field715 = buf.g1() == 1;
 		}
-		if (var4.field718 == 2) {
-			var4.field751 = new int[var4.field723 * var4.field720];
-			var4.field706 = new int[var4.field723 * var4.field720];
-			var4.field756 = arg1.g1() == 1;
-			var4.field711 = arg1.g1() == 1;
-			var4.field770 = arg1.g1() == 1;
-			var4.field699 = arg1.g1() == 1;
-			var4.field745 = arg1.g1();
-			var4.field726 = arg1.g1();
-			var4.field703 = new int[20];
-			var4.field695 = new int[20];
-			var4.field747 = new Pix32[20];
-			for (int var13 = 0; var13 < 20; var13++) {
-				int var15 = arg1.g1();
-				if (var15 == 1) {
-					var4.field703[var13] = arg1.g2b();
-					var4.field695[var13] = arg1.g2b();
-					String var16 = arg1.gjstr();
-					if (var16.length() > 0) {
-						int var17 = var16.lastIndexOf(",");
-						var4.field747[var13] = method203(Integer.parseInt(var16.substring(var17 + 1)), var16.substring(0, var17));
+
+		if (com.type == 2) {
+			com.invSlotObjId = new int[com.width * com.height];
+			com.invSlotObjCount = new int[com.width * com.height];
+
+			com.draggable = buf.g1() == 1;
+			com.interactable = buf.g1() == 1;
+			com.usable = buf.g1() == 1;
+			com.swappable = buf.g1() == 1;
+			com.marginX = buf.g1();
+			com.marginY = buf.g1();
+
+			com.invSlotOffsetX = new int[20];
+			com.invSlotOffsetY = new int[20];
+			com.invSlotGraphic = new Pix32[20];
+
+			for (int i = 0; i < 20; i++) {
+				int hasGraphic = buf.g1();
+				if (hasGraphic == 1) {
+					com.invSlotOffsetX[i] = buf.g2b();
+					com.invSlotOffsetY[i] = buf.g2b();
+
+					String graphic = buf.gjstr();
+					if (graphic.length() > 0) {
+						int spriteIndex = graphic.lastIndexOf(",");
+						com.invSlotGraphic[i] = getImage(Integer.parseInt(graphic.substring(spriteIndex + 1)), graphic.substring(0, spriteIndex));
 					}
 				}
 			}
-			var4.field744 = new String[5];
-			for (int var14 = 0; var14 < 5; var14++) {
-				var4.field744[var14] = arg1.gjstr();
-				if (var4.field744[var14].length() == 0) {
-					var4.field744[var14] = null;
+
+			com.iop = new String[5];
+			for (int i = 0; i < 5; i++) {
+				com.iop[i] = buf.gjstr();
+
+				if (com.iop[i].length() == 0) {
+					com.iop[i] = null;
 				}
 			}
 		}
-		if (var4.field718 == 3) {
-			var4.field721 = arg1.g1() == 1;
+
+		if (com.type == 3) {
+			com.fill = buf.g1() == 1;
 		}
-		if (var4.field718 == 4 || var4.field718 == 1) {
-			var4.field754 = arg1.g1() == 1;
-			int var18 = arg1.g1();
-			if (field705 != null) {
-				var4.field719 = field705[var18];
+
+		if (com.type == 4 || com.type == 1) {
+			com.center = buf.g1() == 1;
+			int font = buf.g1();
+			if (fonts != null) {
+				com.font = fonts[font];
 			}
-			var4.field729 = arg1.g1() == 1;
+			com.shadowed = buf.g1() == 1;
 		}
-		if (var4.field718 == 4) {
-			var4.field712 = arg1.gjstr();
-			var4.field731 = arg1.gjstr();
+
+		if (com.type == 4) {
+			com.text = buf.gjstr();
+			com.activeText = buf.gjstr();
 		}
-		if (var4.field718 == 1 || var4.field718 == 3 || var4.field718 == 4) {
-			var4.field722 = arg1.g4();
+
+		if (com.type == 1 || com.type == 3 || com.type == 4) {
+			com.colour = buf.g4();
 		}
-		if (var4.field718 == 3 || var4.field718 == 4) {
-			var4.field742 = arg1.g4();
-			var4.field743 = arg1.g4();
-			var4.field708 = arg1.g4();
+
+		if (com.type == 3 || com.type == 4) {
+			com.activeColour = buf.g4();
+			com.overColour = buf.g4();
+			com.activeOverColour = buf.g4();
 		}
-		if (var4.field718 == 5) {
-			String var19 = arg1.gjstr();
-			if (var19.length() > 0) {
-				int var20 = var19.lastIndexOf(",");
-				var4.field694 = method203(Integer.parseInt(var19.substring(var20 + 1)), var19.substring(0, var20));
+
+		if (com.type == 5) {
+			String graphic = buf.gjstr();
+			if (graphic.length() > 0) {
+				int spriteIndex = graphic.lastIndexOf(",");
+				com.graphic = getImage(Integer.parseInt(graphic.substring(spriteIndex + 1)), graphic.substring(0, spriteIndex));
 			}
-			String var21 = arg1.gjstr();
-			if (var21.length() > 0) {
-				int var22 = var21.lastIndexOf(",");
-				var4.field727 = method203(Integer.parseInt(var21.substring(var22 + 1)), var21.substring(0, var22));
+
+			String activeGraphic = buf.gjstr();
+			if (activeGraphic.length() > 0) {
+				int spriteIndex = activeGraphic.lastIndexOf(",");
+				com.activeGraphic = getImage(Integer.parseInt(activeGraphic.substring(spriteIndex + 1)), activeGraphic.substring(0, spriteIndex));
 			}
 		}
-		if (var4.field718 == 6) {
-			int var23 = arg1.g1();
-			if (var23 != 0) {
-				var4.field765 = 1;
-				var4.field766 = (var23 - 1 << 8) + arg1.g1();
+
+		if (com.type == 6) {
+			int model = buf.g1();
+			if (model != 0) {
+				com.modelType = 1;
+				com.model = (model - 1 << 8) + buf.g1();
 			}
-			int var24 = arg1.g1();
-			if (var24 != 0) {
-				var4.field748 = 1;
-				var4.field749 = (var24 - 1 << 8) + arg1.g1();
+
+			int activeModel = buf.g1();
+			if (activeModel != 0) {
+				com.activeModelType = 1;
+				com.activeModel = (activeModel - 1 << 8) + buf.g1();
 			}
-			int var25 = arg1.g1();
-			if (var25 == 0) {
-				var4.field768 = -1;
+
+			int anim = buf.g1();
+			if (anim == 0) {
+				com.anim = -1;
 			} else {
-				var4.field768 = (var25 - 1 << 8) + arg1.g1();
+				com.anim = (anim - 1 << 8) + buf.g1();
 			}
-			int var26 = arg1.g1();
-			if (var26 == 0) {
-				var4.field769 = -1;
+
+			int activeAnim = buf.g1();
+			if (activeAnim == 0) {
+				com.activeAnim = -1;
 			} else {
-				var4.field769 = (var26 - 1 << 8) + arg1.g1();
+				com.activeAnim = (activeAnim - 1 << 8) + buf.g1();
 			}
-			var4.field733 = arg1.g2();
-			var4.field734 = arg1.g2();
-			var4.field735 = arg1.g2();
+
+			com.zoom = buf.g2();
+			com.xan = buf.g2();
+			com.yan = buf.g2();
 		}
-		if (var4.field718 == 7) {
-			var4.field751 = new int[var4.field723 * var4.field720];
-			var4.field706 = new int[var4.field723 * var4.field720];
-			var4.field754 = arg1.g1() == 1;
-			int var27 = arg1.g1();
-			if (field705 != null) {
-				var4.field719 = field705[var27];
+
+		if (com.type == 7) {
+			com.invSlotObjId = new int[com.width * com.height];
+			com.invSlotObjCount = new int[com.width * com.height];
+
+			com.center = buf.g1() == 1;
+			int font = buf.g1();
+			if (fonts != null) {
+				com.font = fonts[font];
 			}
-			var4.field729 = arg1.g1() == 1;
-			var4.field722 = arg1.g4();
-			var4.field745 = arg1.g2b();
-			var4.field726 = arg1.g2b();
-			var4.field711 = arg1.g1() == 1;
-			var4.field744 = new String[5];
-			for (int var28 = 0; var28 < 5; var28++) {
-				var4.field744[var28] = arg1.gjstr();
-				if (var4.field744[var28].length() == 0) {
-					var4.field744[var28] = null;
-				}
-			}
-		}
-		if (var4.field718 == 8) {
-			var4.field712 = arg1.gjstr();
-		}
-		if (var4.field771 == 2 || var4.field718 == 2) {
-			var4.field763 = arg1.gjstr();
-			var4.field693 = arg1.gjstr();
-			var4.field704 = arg1.g2();
-		}
-		if (var4.field771 == 1 || var4.field771 == 4 || var4.field771 == 5 || var4.field771 == 6) {
-			var4.field750 = arg1.gjstr();
-			if (var4.field750.length() == 0) {
-				if (var4.field771 == 1) {
-					var4.field750 = "Ok";
-				}
-				if (var4.field771 == 4) {
-					var4.field750 = "Select";
-				}
-				if (var4.field771 == 5) {
-					var4.field750 = "Select";
-				}
-				if (var4.field771 == 6) {
-					var4.field750 = "Continue";
+			com.shadowed = buf.g1() == 1;
+			com.colour = buf.g4();
+			com.marginX = buf.g2b();
+			com.marginY = buf.g2b();
+			com.interactable = buf.g1() == 1;
+
+			com.iop = new String[5];
+			for (int i = 0; i < 5; i++) {
+				com.iop[i] = buf.gjstr();
+
+				if (com.iop[i].length() == 0) {
+					com.iop[i] = null;
 				}
 			}
 		}
-		return var4;
+
+		if (com.type == 8) {
+			com.text = buf.gjstr();
+		}
+
+		if (com.buttonType == 2 || com.type == 2) {
+			com.targetVerb = buf.gjstr();
+			com.targetText = buf.gjstr();
+			com.targetMask = buf.g2();
+		}
+
+		if (com.buttonType == 1 || com.buttonType == 4 || com.buttonType == 5 || com.buttonType == 6) {
+			com.option = buf.gjstr();
+
+			if (com.option.length() == 0) {
+				if (com.buttonType == 1) {
+					com.option = "Ok";
+				}
+				if (com.buttonType == 4) {
+					com.option = "Select";
+				}
+				if (com.buttonType == 5) {
+					com.option = "Select";
+				}
+				if (com.buttonType == 6) {
+					com.option = "Continue";
+				}
+			}
+		}
+
+		return com;
 	}
 
 	@ObfuscatedName("EWIXBTLV.a(I[LJDPYRDAS;LATJMVOZR;LATJMVOZR;)V")
-	public static void method208(PixFont[] arg1, Jagfile arg2, Jagfile arg3) {
-		field732 = new LruCache(50000);
-		field696 = arg3;
-		field705 = arg1;
-		int var4 = -1;
-		Packet var5 = new Packet(arg2.method2("data", null));
-		int var6 = var5.g2();
-		field698 = new Component[var6];
-		field764 = new byte[var6][];
-		while (var5.pos < var5.data.length) {
-			int var7 = var5.g2();
-			if (var7 == 65535) {
-				var4 = var5.g2();
-				var7 = var5.g2();
+	public static void unpack(PixFont[] fonts, Jagfile interfaces, Jagfile media) {
+		imageCache = new LruCache(50000);
+
+		Component.media = media;
+		Component.fonts = fonts;
+
+		int layer = -1;
+		Packet buf = new Packet(interfaces.read("data", null));
+		int total = buf.g2();
+		types = new Component[total];
+		data = new byte[total][];
+
+		while (buf.pos < buf.data.length) {
+			int id = buf.g2();
+			if (id == 65535) {
+				layer = buf.g2();
+				id = buf.g2();
 			}
-			int var8 = var5.pos;
-			Component var9 = method207(var4, var5, var7);
-			byte[] var10 = field764[var9.field697] = new byte[var5.pos - var8 + 2];
-			for (int var11 = var8; var11 < var5.pos; var11++) {
-				var10[var11 - var8 + 2] = var5.data[var11];
+
+			int start = buf.pos;
+			Component com = decode(layer, buf, id);
+			byte[] copy = data[com.id] = new byte[buf.pos - start + 2];
+			for (int i = start; i < buf.pos; i++) {
+				copy[i - start + 2] = buf.data[i];
 			}
-			var10[0] = (byte) (var4 >> 8);
-			var10[1] = (byte) var4;
+			copy[0] = (byte) (layer >> 8);
+			copy[1] = (byte) layer;
 		}
-		field696 = null;
+
+		Component.media = null;
 	}
 
 	@ObfuscatedName("EWIXBTLV.a(ZI)V")
@@ -542,56 +591,65 @@ public class Component {
 		if (arg1 == -1) {
 			return;
 		}
-		for (int var2 = 0; var2 < field698.length; var2++) {
-			if (field698[var2] != null && field698[var2].field730 == arg1 && field698[var2].field718 != 2) {
-				field698[var2] = null;
+
+		for (int var2 = 0; var2 < types.length; var2++) {
+			if (types[var2] != null && types[var2].layer == arg1 && types[var2].type != 2) {
+				types[var2] = null;
 			}
 		}
 	}
 
 	@ObfuscatedName("EWIXBTLV.a(ILLZYQDKJV;II)V")
-	public static void method210(int arg0, Model arg1, int arg2) {
-		field746.method460();
-		if (arg1 != null && arg0 != 4) {
-			field746.method459(arg1, (long) ((arg0 << 16) + arg2));
+	public static void cacheModel(int type, Model model, int id) {
+		modelCache.clear();
+
+		if (model != null && type != 4) {
+			modelCache.put(model, (long) ((type << 16) + id));
 		}
 	}
 
 	@ObfuscatedName("EWIXBTLV.a(Z)V")
-	public static void method211() {
-		field698 = null;
-		field696 = null;
-		field732 = null;
-		field705 = null;
-		field764 = null;
+	public static void unload() {
+		types = null;
+		media = null;
+		imageCache = null;
+		fonts = null;
+		data = null;
 	}
 
 	@ObfuscatedName("EWIXBTLV.a(IIIZ)LLZYQDKJV;")
-	public Model method212(int arg0, int arg1, boolean arg3) {
-		field762 = 64;
-		field725 = 768;
-		Model var5;
+	public Model getModel(int primaryTransformId, int secondaryTransformId, boolean arg3) {
+		ambient = 64;
+		contrast = 768;
+
+		Model model;
 		if (arg3) {
-			var5 = this.method206(this.field748, this.field749);
+			model = this.loadModel(this.activeModelType, this.activeModel);
 		} else {
-			var5 = this.method206(this.field765, this.field766);
+			model = this.loadModel(this.modelType, this.model);
 		}
-		if (var5 == null) {
+
+		if (model == null) {
 			return null;
-		} else if (arg0 == -1 && arg1 == -1 && var5.field1209 == null) {
-			return var5;
+		} else if (primaryTransformId == -1 && secondaryTransformId == -1 && model.faceColour == null) {
+			return model;
 		}
-		Model var6 = new Model(false, false, true, var5, AnimFrame.method265(arg0) & AnimFrame.method265(arg1));
-		if (arg0 != -1 || arg1 != -1) {
-			var6.method366();
+
+		model = new Model(false, false, true, model, AnimFrame.isNull(primaryTransformId) & AnimFrame.isNull(secondaryTransformId));
+
+		if (primaryTransformId != -1 || secondaryTransformId != -1) {
+			model.createLabelReferences();
 		}
-		if (arg0 != -1) {
-			var6.method367(arg0);
+
+		if (primaryTransformId != -1) {
+			model.applyTransform(primaryTransformId);
 		}
-		if (arg1 != -1) {
-			var6.method367(arg1);
+
+		if (secondaryTransformId != -1) {
+			model.applyTransform(secondaryTransformId);
 		}
-		var6.method376(field762, field725, -50, -10, -50, true);
-		return var6;
+
+		model.calculateNormals(ambient, contrast, -50, -10, -50, true);
+		return model;
 	}
 }

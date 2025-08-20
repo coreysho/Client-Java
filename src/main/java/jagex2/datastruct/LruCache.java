@@ -32,7 +32,7 @@ public class LruCache {
 	}
 
 	@ObfuscatedName("RHNYLZZL.a(J)LDPPNUUMQ;")
-	public DoublyLinkable method458(long arg0) {
+	public DoublyLinkable get(long arg0) {
 		DoublyLinkable var3 = (DoublyLinkable) this.field1377.method259(arg0);
 		if (var3 == null) {
 			this.field1372++;
@@ -44,7 +44,7 @@ public class LruCache {
 	}
 
 	@ObfuscatedName("RHNYLZZL.a(LDPPNUUMQ;JI)V")
-	public void method459(DoublyLinkable arg0, long arg1) {
+	public void put(DoublyLinkable arg0, long arg1) {
 		if (this.field1376 == 0) {
 			DoublyLinkable var5 = this.field1378.method181();
 			var5.method604();
@@ -62,7 +62,7 @@ public class LruCache {
 	}
 
 	@ObfuscatedName("RHNYLZZL.a()V")
-	public void method460() {
+	public void clear() {
 		while (true) {
 			DoublyLinkable var1 = this.field1378.method181();
 			if (var1 == null) {

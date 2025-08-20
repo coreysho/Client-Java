@@ -11,7 +11,7 @@ public class MouseTracking implements Runnable {
 	public int[] field95 = new int[500];
 
 	@ObfuscatedName("BORSVOPG.c")
-	public Object field96 = new Object();
+	public Object lock = new Object();
 
 	@ObfuscatedName("BORSVOPG.g")
 	public int[] field100 = new int[500];
@@ -28,11 +28,11 @@ public class MouseTracking implements Runnable {
 
 	public void run() {
 		while (this.field94) {
-			Object var1 = this.field96;
-			synchronized (this.field96) {
+			Object var1 = this.lock;
+			synchronized (this.lock) {
 				if (this.field99 < 500) {
-					this.field100[this.field99] = this.field97.field959;
-					this.field95[this.field99] = this.field97.field960;
+					this.field100[this.field99] = this.field97.mouseX;
+					this.field95[this.field99] = this.field97.mouseY;
 					this.field99++;
 				}
 			}

@@ -32,8 +32,8 @@ public class IdkType {
 	public static IdkType[] field1699;
 
 	@ObfuscatedName("ZGOJZVHR.a(LATJMVOZR;I)V")
-	public static void method575(Jagfile arg0) {
-		Packet var2 = new Packet(arg0.method2("idk.dat", null));
+	public static void unpack(Jagfile arg0) {
+		Packet var2 = new Packet(arg0.read("idk.dat", null));
 		field1698 = var2.g2();
 		if (field1699 == null) {
 			field1699 = new IdkType[field1698];
@@ -97,7 +97,7 @@ public class IdkType {
 		}
 		Model[] var2 = new Model[this.field1701.length];
 		for (int var3 = 0; var3 < this.field1701.length; var3++) {
-			var2[var3] = Model.method359(this.field1701[var3]);
+			var2[var3] = Model.tryGet(this.field1701[var3]);
 		}
 		Model var4;
 		if (var2.length == 1) {
@@ -128,7 +128,7 @@ public class IdkType {
 		int var3 = 0;
 		for (int var4 = 0; var4 < 5; var4++) {
 			if (this.field1704[var4] != -1) {
-				var2[var3++] = Model.method359(this.field1704[var4]);
+				var2[var3++] = Model.tryGet(this.field1704[var4]);
 			}
 		}
 		Model var5 = new Model(var3, var2, (byte) -89);

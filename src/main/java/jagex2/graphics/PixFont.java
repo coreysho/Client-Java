@@ -35,8 +35,8 @@ public class PixFont extends Pix2D {
 	public int field894;
 
 	public PixFont(boolean arg0, Jagfile arg1, String arg3) {
-		Packet var5 = new Packet(arg1.method2(arg3 + ".dat", null));
-		Packet var6 = new Packet(arg1.method2("index.dat", null));
+		Packet var5 = new Packet(arg1.read(arg3 + ".dat", null));
+		Packet var6 = new Packet(arg1.read("index.dat", null));
 		boolean var7 = true;
 		var6.pos = var5.g2() + 4;
 		int var8 = var6.g1();
@@ -102,7 +102,7 @@ public class PixFont extends Pix2D {
 	}
 
 	@ObfuscatedName("JDPYRDAS.a(ZIIIILjava/lang/String;)V")
-	public void method245(boolean arg0, int arg2, int arg3, int arg4, String arg5) {
+	public void centreStringTag(boolean arg0, int arg2, int arg3, int arg4, String arg5) {
 		this.method252(arg2, arg4 - this.method246(arg5) / 2, arg3, arg0, arg5);
 	}
 

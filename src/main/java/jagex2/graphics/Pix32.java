@@ -60,8 +60,8 @@ public class Pix32 extends Pix2D {
 	}
 
 	public Pix32(Jagfile arg0, String arg1, int arg2) {
-		Packet var4 = new Packet(arg0.method2(arg1 + ".dat", null));
-		Packet var5 = new Packet(arg0.method2("index.dat", null));
+		Packet var4 = new Packet(arg0.read(arg1 + ".dat", null));
+		Packet var5 = new Packet(arg0.read("index.dat", null));
 		var5.pos = var4.g2();
 		this.field690 = var5.g2();
 		this.field691 = var5.g2();
@@ -104,7 +104,7 @@ public class Pix32 extends Pix2D {
 	}
 
 	@ObfuscatedName("EPQDEJTO.a(IIII)V")
-	public void method191(int arg0, int arg1, int arg2) {
+	public void rgbAdjust(int arg0, int arg1, int arg2) {
 		for (int var5 = 0; var5 < this.field685.length; var5++) {
 			int var6 = this.field685[var5];
 			if (var6 != 0) {
@@ -135,7 +135,7 @@ public class Pix32 extends Pix2D {
 	}
 
 	@ObfuscatedName("EPQDEJTO.b(I)V")
-	public void method192() {
+	public void trim() {
 		int[] var2 = new int[this.field691 * this.field690];
 		for (int var3 = 0; var3 < this.field687; var3++) {
 			for (int var4 = 0; var4 < this.field686; var4++) {
@@ -150,7 +150,7 @@ public class Pix32 extends Pix2D {
 	}
 
 	@ObfuscatedName("EPQDEJTO.a(III)V")
-	public void method193(int arg0, int arg2) {
+	public void quickPlotSprite(int arg0, int arg2) {
 		int var4 = this.field688 + arg2;
 		int var5 = this.field689 + arg0;
 		int var6 = Pix2D.field1095 * var5 + var4;
@@ -450,7 +450,7 @@ public class Pix32 extends Pix2D {
 			var11 += var15;
 		}
 		if (var10 > 0 && var9 > 0) {
-			this.method202(var7, var11, this.field685, var10, Pix2D.field1094, arg0.field1548, var9, var8, 0, var12);
+			this.method202(var7, var11, this.field685, var10, Pix2D.field1094, arg0.pixels, var9, var8, 0, var12);
 		}
 	}
 

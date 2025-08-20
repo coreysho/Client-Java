@@ -78,10 +78,10 @@ public class MapSpotAnim extends ModelSource {
 			return null;
 		}
 		int var3 = this.field1530.field1301.field777[this.field1528];
-		Model var4 = new Model(false, false, true, var2, AnimFrame.method265(var3));
+		Model var4 = new Model(false, false, true, var2, AnimFrame.isNull(var3));
 		if (!this.field1527) {
-			var4.method366();
-			var4.method367(var3);
+			var4.createLabelReferences();
+			var4.applyTransform(var3);
 			var4.field1226 = null;
 			var4.field1225 = null;
 		}
@@ -102,7 +102,7 @@ public class MapSpotAnim extends ModelSource {
 				var4.method370(true);
 			}
 		}
-		var4.method376(this.field1530.field1307 + 64, this.field1530.field1308 + 850, -30, -50, -30, true);
+		var4.calculateNormals(this.field1530.field1307 + 64, this.field1530.field1308 + 850, -30, -50, -30, true);
 		return var4;
 	}
 }

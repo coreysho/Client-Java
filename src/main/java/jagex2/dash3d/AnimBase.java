@@ -6,26 +6,30 @@ import jagex2.io.Packet;
 public class AnimBase {
 
 	@ObfuscatedName("VPIFXIOD.a")
-	public int field1500;
+	public int size;
 
 	@ObfuscatedName("VPIFXIOD.b")
-	public int[] field1501;
+	public int[] types;
 
 	@ObfuscatedName("VPIFXIOD.c")
-	public int[][] field1502;
+	public int[][] labels;
 
-	public AnimBase(Packet arg0) {
-		this.field1500 = arg0.g1();
-		this.field1501 = new int[this.field1500];
-		this.field1502 = new int[this.field1500][];
-		for (int var3 = 0; var3 < this.field1500; var3++) {
-			this.field1501[var3] = arg0.g1();
+	public AnimBase(Packet buf) {
+		this.size = buf.g1();
+
+		this.types = new int[this.size];
+		this.labels = new int[this.size][];
+
+		for (int i = 0; i < this.size; i++) {
+			this.types[i] = buf.g1();
 		}
-		for (int var4 = 0; var4 < this.field1500; var4++) {
-			int var5 = arg0.g1();
-			this.field1502[var4] = new int[var5];
-			for (int var6 = 0; var6 < var5; var6++) {
-				this.field1502[var4][var6] = arg0.g1();
+
+		for (int i = 0; i < this.size; i++) {
+			int count = buf.g1();
+
+			this.labels[i] = new int[count];
+			for (int j = 0; j < count; j++) {
+				this.labels[i][j] = buf.g1();
 			}
 		}
 	}

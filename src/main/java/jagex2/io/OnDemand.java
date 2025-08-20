@@ -61,7 +61,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 	public int[][] field1754 = new int[4][];
 
 	@ObfuscatedName("ZPGPWCCV.b")
-	public int field1711;
+	public int loadedPrefetchFiles;
 
 	@ObfuscatedName("ZPGPWCCV.i")
 	public int field1718;
@@ -76,7 +76,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 	public int field1725;
 
 	@ObfuscatedName("ZPGPWCCV.r")
-	public int field1727;
+	public int totalPrefetchFiles;
 
 	@ObfuscatedName("ZPGPWCCV.u")
 	public int field1730;
@@ -91,7 +91,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 	public int field1752;
 
 	@ObfuscatedName("ZPGPWCCV.U")
-	public int field1756;
+	public int tries;
 
 	@ObfuscatedName("ZPGPWCCV.T")
 	public long field1755;
@@ -193,8 +193,8 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 				for (int var12 = 0; var12 < this.field1739; var12 += this.field1747.read(var10, var11 + var12, this.field1739 - var12)) {
 				}
 				if (this.field1739 + this.field1738 >= var10.length && this.field1749 != null) {
-					if (this.field1750.field524[0] != null) {
-						this.field1750.field524[this.field1749.field1363 + 1].method326(var10.length, var10, this.field1749.field1364);
+					if (this.field1750.fileStreams[0] != null) {
+						this.field1750.fileStreams[this.field1749.field1363 + 1].method326(var10.length, var10, this.field1749.field1364);
 					}
 					if (!this.field1749.field1367 && this.field1749.field1363 == 3) {
 						this.field1749.field1367 = true;
@@ -224,13 +224,13 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 	}
 
 	@ObfuscatedName("ZPGPWCCV.a(II)I")
-	public int method582(int arg0) {
+	public int getModelFlags(int arg0) {
 		return this.field1712[arg0] & 0xFF;
 	}
 
 	@ObfuscatedName("ZPGPWCCV.a(I)V")
 	public void method456(int arg0) {
-		this.method586(0, arg0);
+		this.request(0, arg0);
 	}
 
 	@ObfuscatedName("ZPGPWCCV.b(I)V")
@@ -250,10 +250,10 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 					this.field1751.method3(var3);
 					this.method599(var3);
 					this.field1715 = true;
-					if (this.field1711 < this.field1727) {
-						this.field1711++;
+					if (this.loadedPrefetchFiles < this.totalPrefetchFiles) {
+						this.loadedPrefetchFiles++;
 					}
-					this.field1724 = "Loading extra files - " + this.field1711 * 100 / this.field1727 + "%";
+					this.field1724 = "Loading extra files - " + this.loadedPrefetchFiles * 100 / this.totalPrefetchFiles + "%";
 					this.field1720++;
 					if (this.field1720 == 10) {
 						return;
@@ -277,10 +277,10 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 						this.field1751.method3(var9);
 						this.method599(var9);
 						this.field1715 = true;
-						if (this.field1711 < this.field1727) {
-							this.field1711++;
+						if (this.loadedPrefetchFiles < this.totalPrefetchFiles) {
+							this.loadedPrefetchFiles++;
 						}
-						this.field1724 = "Loading extra files - " + this.field1711 * 100 / this.field1727 + "%";
+						this.field1724 = "Loading extra files - " + this.loadedPrefetchFiles * 100 / this.totalPrefetchFiles + "%";
 						this.field1720++;
 						if (this.field1720 == 10) {
 							return;
@@ -293,11 +293,11 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 	}
 
 	@ObfuscatedName("ZPGPWCCV.a(IIBI)V")
-	public void method584(int arg1, byte arg2, int arg3) {
-		if (this.field1750.field524[0] == null || this.field1754[arg1][arg3] == 0) {
+	public void prefetch(int arg1, byte arg2, int arg3) {
+		if (this.field1750.fileStreams[0] == null || this.field1754[arg1][arg3] == 0) {
 			return;
 		}
-		byte[] var5 = this.field1750.field524[arg1 + 1].method325(arg3);
+		byte[] var5 = this.field1750.fileStreams[arg1 + 1].method325(arg3);
 		if (this.method598(var5, this.field1754[arg1][arg3], this.field1721[arg1][arg3])) {
 			return;
 		}
@@ -305,16 +305,16 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 		if (arg2 > this.field1718) {
 			this.field1718 = arg2;
 		}
-		this.field1727++;
+		this.totalPrefetchFiles++;
 	}
 
 	@ObfuscatedName("ZPGPWCCV.a(IZ)Z")
-	public boolean method585(int arg0) {
+	public boolean shouldPrefetchMidi(int arg0) {
 		return this.field1743[arg0] == 1;
 	}
 
 	@ObfuscatedName("ZPGPWCCV.b(II)V")
-	public void method586(int arg0, int arg1) {
+	public void request(int arg0, int arg1) {
 		if (arg0 < 0 || arg0 > this.field1754.length || arg1 < 0 || arg1 > this.field1754[arg0].length || this.field1754[arg0][arg1] == 0) {
 			return;
 		}
@@ -382,7 +382,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 			while (this.field1716) {
 				this.field1725++;
 				byte var1 = 20;
-				if (this.field1718 == 0 && this.field1750.field524[0] != null) {
+				if (this.field1718 == 0 && this.field1750.fileStreams[0] != null) {
 					var1 = 50;
 				}
 				try {
@@ -439,7 +439,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 					this.field1730 = 0;
 					this.field1724 = "";
 				}
-				if (this.field1750.field433 && this.field1732 != null && this.field1726 != null && (this.field1718 > 0 || this.field1750.field524[0] == null)) {
+				if (this.field1750.ingame && this.field1732 != null && this.field1726 != null && (this.field1718 > 0 || this.field1750.fileStreams[0] == null)) {
 					this.field1752++;
 					if (this.field1752 > 500) {
 						this.field1752 = 0;
@@ -477,7 +477,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 				break;
 			}
 			if (this.field1714[var3.field1363][var3.field1364] != 0) {
-				this.field1711++;
+				this.loadedPrefetchFiles++;
 			}
 			this.field1714[var3.field1363][var3.field1364] = 0;
 			this.field1751.method3(var3);
@@ -488,18 +488,18 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 	}
 
 	@ObfuscatedName("ZPGPWCCV.a(ZB)V")
-	public void method589(boolean arg0) {
+	public void prefetchMaps(boolean arg0) {
 		int var3 = this.field1723.length;
 		for (int var4 = 0; var4 < var3; var4++) {
 			if (arg0 || this.field1713[var4] != 0) {
-				this.method584(3, (byte) 2, this.field1742[var4]);
-				this.method584(3, (byte) 2, this.field1737[var4]);
+				this.prefetch(3, (byte) 2, this.field1742[var4]);
+				this.prefetch(3, (byte) 2, this.field1737[var4]);
 			}
 		}
 	}
 
 	@ObfuscatedName("ZPGPWCCV.b()I")
-	public int method590() {
+	public int remaining() {
 		DoublyLinkList var1 = this.field1746;
 		synchronized (this.field1746) {
 			return this.field1746.method184();
@@ -517,10 +517,10 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 	}
 
 	@ObfuscatedName("ZPGPWCCV.a(LATJMVOZR;Lclient;)V")
-	public void method592(Jagfile arg0, Client arg1) {
+	public void unpack(Jagfile arg0, Client arg1) {
 		String[] var3 = new String[] { "model_version", "anim_version", "midi_version", "map_version" };
 		for (int var4 = 0; var4 < 4; var4++) {
-			byte[] var26 = arg0.method2(var3[var4], null);
+			byte[] var26 = arg0.read(var3[var4], null);
 			int var27 = var26.length / 2;
 			Packet var28 = new Packet(var26);
 			this.field1754[var4] = new int[var27];
@@ -531,7 +531,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 		}
 		String[] var5 = new String[] { "model_crc", "anim_crc", "midi_crc", "map_crc" };
 		for (int var6 = 0; var6 < 4; var6++) {
-			byte[] var22 = arg0.method2(var5[var6], null);
+			byte[] var22 = arg0.read(var5[var6], null);
 			int var23 = var22.length / 4;
 			Packet var24 = new Packet(var22);
 			this.field1721[var6] = new int[var23];
@@ -539,7 +539,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 				this.field1721[var6][var25] = var24.g4();
 			}
 		}
-		byte[] var7 = arg0.method2("model_index", null);
+		byte[] var7 = arg0.read("model_index", null);
 		int var8 = this.field1754[0].length;
 		this.field1712 = new byte[var8];
 		for (int var9 = 0; var9 < var8; var9++) {
@@ -549,7 +549,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 				this.field1712[var9] = 0;
 			}
 		}
-		byte[] var10 = arg0.method2("map_index", null);
+		byte[] var10 = arg0.read("map_index", null);
 		Packet var11 = new Packet(var10);
 		int var12 = var10.length / 7;
 		this.field1723 = new int[var12];
@@ -562,14 +562,14 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 			this.field1742[var13] = var11.g2();
 			this.field1713[var13] = var11.g1();
 		}
-		byte[] var14 = arg0.method2("anim_index", null);
+		byte[] var14 = arg0.read("anim_index", null);
 		Packet var15 = new Packet(var14);
 		int var16 = var14.length / 2;
 		this.field1753 = new int[var16];
 		for (int var17 = 0; var17 < var16; var17++) {
 			this.field1753[var17] = var15.g2();
 		}
-		byte[] var18 = arg0.method2("midi_index", null);
+		byte[] var18 = arg0.read("midi_index", null);
 		Packet var19 = new Packet(var18);
 		int var20 = var18.length;
 		this.field1743 = new int[var20];
@@ -591,7 +591,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 
 	@ObfuscatedName("ZPGPWCCV.a(IIB)V")
 	public void method594(int arg0, int arg1) {
-		if (this.field1750.field524[0] == null || (this.field1754[arg1][arg0] == 0 || (this.field1714[arg1][arg0] == 0 || this.field1718 == 0))) {
+		if (this.field1750.fileStreams[0] == null || (this.field1754[arg1][arg0] == 0 || (this.field1714[arg1][arg0] == 0 || this.field1718 == 0))) {
 			return;
 		}
 		OnDemandRequest var4 = new OnDemandRequest();
@@ -614,8 +614,8 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 		while (var3 != null) {
 			this.field1715 = true;
 			byte[] var5 = null;
-			if (this.field1750.field524[0] != null) {
-				var5 = this.field1750.field524[var3.field1363 + 1].method325(var3.field1364);
+			if (this.field1750.fileStreams[0] != null) {
+				var5 = this.field1750.fileStreams[var3.field1363 + 1].method325(var3.field1364);
 			}
 			if (!this.method598(var5, this.field1754[var3.field1363][var3.field1364], this.field1721[var3.field1363][var3.field1364])) {
 				var5 = null;
@@ -642,7 +642,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 	}
 
 	@ObfuscatedName("ZPGPWCCV.c(II)I")
-	public int method597(int arg0) {
+	public int getFileCount(int arg0) {
 		return this.field1754[arg0].length;
 	}
 
@@ -672,7 +672,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 					return;
 				}
 				this.field1755 = var3;
-				this.field1732 = this.field1750.method52(Client.field220 + 43594);
+				this.field1732 = this.field1750.openSocket(Client.portOffset + 43594);
 				this.field1747 = this.field1732.getInputStream();
 				this.field1726 = this.field1732.getOutputStream();
 				this.field1726.write(15);
@@ -686,34 +686,34 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 			this.field1741[2] = (byte) arg1.field1364;
 			if (arg1.field1367) {
 				this.field1741[3] = 2;
-			} else if (this.field1750.field433) {
+			} else if (this.field1750.ingame) {
 				this.field1741[3] = 0;
 			} else {
 				this.field1741[3] = 1;
 			}
 			this.field1726.write(this.field1741, 0, 4);
 			this.field1752 = 0;
-			this.field1756 = -10000;
-		} catch (IOException var8) {
+			this.tries = -10000;
+		} catch (IOException ignore) {
 			try {
 				this.field1732.close();
-			} catch (Exception var7) {
+			} catch (Exception ignore2) {
 			}
 			this.field1732 = null;
 			this.field1747 = null;
 			this.field1726 = null;
 			this.field1739 = 0;
-			this.field1756++;
+			this.tries++;
 		}
 	}
 
 	@ObfuscatedName("ZPGPWCCV.d(I)I")
-	public int method600() {
+	public int getAnimCount() {
 		return this.field1753.length;
 	}
 
 	@ObfuscatedName("ZPGPWCCV.a(IIII)I")
-	public int method601(int arg1, int arg2, int arg3) {
+	public int getMapFile(int arg1, int arg2, int arg3) {
 		int var5 = (arg1 << 8) + arg2;
 		for (int var6 = 0; var6 < this.field1723.length; var6++) {
 			if (this.field1723[var6] == var5) {

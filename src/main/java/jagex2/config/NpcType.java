@@ -92,7 +92,7 @@ public class NpcType {
 	public static Packet field1460;
 
 	@ObfuscatedName("SLDUQHOR.i")
-	public static Client field1432;
+	public static Client varProvider;
 
 	@ObfuscatedName("SLDUQHOR.N")
 	public byte[] field1463;
@@ -228,10 +228,10 @@ public class NpcType {
 	}
 
 	@ObfuscatedName("SLDUQHOR.a(I)LLZYQDKJV;")
-	public Model method472() {
+	public Model getHeadModel() {
 		if (this.field1425 != null) {
 			NpcType var3 = this.method476();
-			return var3 == null ? null : var3.method472();
+			return var3 == null ? null : var3.getHeadModel();
 		} else if (this.field1428 == null) {
 			return null;
 		}
@@ -246,7 +246,7 @@ public class NpcType {
 		}
 		Model[] var6 = new Model[this.field1428.length];
 		for (int var7 = 0; var7 < this.field1428.length; var7++) {
-			var6[var7] = Model.method359(this.field1428[var7]);
+			var6[var7] = Model.tryGet(this.field1428[var7]);
 		}
 		Model var8;
 		if (var6.length == 1) {
@@ -274,9 +274,9 @@ public class NpcType {
 			int var5 = var3.field1763;
 			int var6 = var3.field1764;
 			int var7 = Client.field510[var6 - var5];
-			var2 = field1432.field335[var4] >> var5 & var7;
+			var2 = varProvider.field335[var4] >> var5 & var7;
 		} else if (this.field1462 != -1) {
-			var2 = field1432.field335[this.field1462];
+			var2 = varProvider.field335[this.field1462];
 		}
 		if (var2 < 0 || var2 >= this.field1425.length || this.field1425[var2] == -1) {
 			return false;
@@ -286,9 +286,9 @@ public class NpcType {
 	}
 
 	@ObfuscatedName("SLDUQHOR.a(LATJMVOZR;)V")
-	public static void method474(Jagfile arg0) {
-		field1460 = new Packet(arg0.method2("npc.dat", null));
-		Packet var1 = new Packet(arg0.method2("npc.idx", null));
+	public static void unpack(Jagfile arg0) {
+		field1460 = new Packet(arg0.read("npc.dat", null));
+		Packet var1 = new Packet(arg0.read("npc.idx", null));
 		field1452 = var1.g2();
 		field1453 = new int[field1452];
 		int var2 = 2;
@@ -308,7 +308,7 @@ public class NpcType {
 			NpcType var5 = this.method476();
 			return var5 == null ? null : var5.method475(arg0, arg1, arg3);
 		}
-		Model var6 = (Model) field1438.method458(this.field1431);
+		Model var6 = (Model) field1438.get(this.field1431);
 		if (var6 == null) {
 			boolean var7 = false;
 			for (int var8 = 0; var8 < this.field1429.length; var8++) {
@@ -321,7 +321,7 @@ public class NpcType {
 			}
 			Model[] var9 = new Model[this.field1429.length];
 			for (int var10 = 0; var10 < this.field1429.length; var10++) {
-				var9[var10] = Model.method359(this.field1429[var10]);
+				var9[var10] = Model.tryGet(this.field1429[var10]);
 			}
 			if (var9.length == 1) {
 				var6 = var9[0];
@@ -333,16 +333,16 @@ public class NpcType {
 					var6.method373(this.field1437[var11], this.field1459[var11]);
 				}
 			}
-			var6.method366();
-			var6.method376(this.field1466 + 64, this.field1461 + 850, -30, -50, -30, true);
-			field1438.method459(var6, this.field1431);
+			var6.createLabelReferences();
+			var6.calculateNormals(this.field1466 + 64, this.field1461 + 850, -30, -50, -30, true);
+			field1438.put(var6, this.field1431);
 		}
 		Model var12 = Model.field1190;
-		var12.method361(AnimFrame.method265(arg0) & AnimFrame.method265(arg1), var6);
+		var12.method361(AnimFrame.isNull(arg0) & AnimFrame.isNull(arg1), var6);
 		if (arg0 != -1 && arg1 != -1) {
 			var12.method368(arg1, arg0, arg3);
 		} else if (arg0 != -1) {
-			var12.method367(arg0);
+			var12.applyTransform(arg0);
 		}
 		if (this.field1435 != 128 || this.field1433 != 128) {
 			var12.method375(this.field1433, this.field1435, this.field1435);
@@ -365,15 +365,15 @@ public class NpcType {
 			int var5 = var3.field1763;
 			int var6 = var3.field1764;
 			int var7 = Client.field510[var6 - var5];
-			var2 = field1432.field335[var4] >> var5 & var7;
+			var2 = varProvider.field335[var4] >> var5 & var7;
 		} else if (this.field1462 != -1) {
-			var2 = field1432.field335[this.field1462];
+			var2 = varProvider.field335[this.field1462];
 		}
-		return var2 < 0 || var2 >= this.field1425.length || this.field1425[var2] == -1 ? null : method477(this.field1425[var2]);
+		return var2 < 0 || var2 >= this.field1425.length || this.field1425[var2] == -1 ? null : get(this.field1425[var2]);
 	}
 
 	@ObfuscatedName("SLDUQHOR.c(I)LSLDUQHOR;")
-	public static final NpcType method477(int arg0) {
+	public static final NpcType get(int arg0) {
 		for (int var1 = 0; var1 < 20; var1++) {
 			if ((long) arg0 == field1458[var1].field1431) {
 				return field1458[var1];

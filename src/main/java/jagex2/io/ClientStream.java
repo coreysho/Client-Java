@@ -77,12 +77,12 @@ public class ClientStream implements Runnable {
 	}
 
 	@ObfuscatedName("GXWEWMHV.c()I")
-	public int method235() throws IOException {
+	public int available() throws IOException {
 		return this.field866 ? 0 : this.field863.available();
 	}
 
 	@ObfuscatedName("GXWEWMHV.a([BII)V")
-	public void method236(byte[] arg0, int arg1, int arg2) throws IOException {
+	public void read(byte[] arg0, int arg1, int arg2) throws IOException {
 		if (this.field866) {
 			return;
 		}
@@ -97,7 +97,7 @@ public class ClientStream implements Runnable {
 	}
 
 	@ObfuscatedName("GXWEWMHV.a(III[B)V")
-	public void method237(int arg1, int arg2, byte[] arg3) throws IOException {
+	public void write(int arg1, int arg2, byte[] arg3) throws IOException {
 		if (this.field866) {
 			return;
 		}
@@ -174,7 +174,7 @@ public class ClientStream implements Runnable {
 		System.out.println("writer:" + this.field871);
 		System.out.println("ioerror:" + this.field872);
 		try {
-			System.out.println("available:" + this.method235());
+			System.out.println("available:" + this.available());
 		} catch (IOException var2) {
 		}
 	}

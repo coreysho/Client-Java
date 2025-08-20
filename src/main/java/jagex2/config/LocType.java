@@ -90,7 +90,7 @@ public class LocType {
 	public static Packet field1621;
 
 	@ObfuscatedName("YMYTDPVW.m")
-	public static Client field1624;
+	public static Client varProvider;
 
 	@ObfuscatedName("YMYTDPVW.b")
 	public boolean field1613;
@@ -102,7 +102,7 @@ public class LocType {
 	public boolean field1623;
 
 	@ObfuscatedName("YMYTDPVW.o")
-	public static boolean field1626;
+	public static boolean lowMem;
 
 	@ObfuscatedName("YMYTDPVW.H")
 	public boolean field1645;
@@ -177,9 +177,9 @@ public class LocType {
 			int var5 = var3.field1763;
 			int var6 = var3.field1764;
 			int var7 = Client.field510[var6 - var5];
-			var2 = field1624.field335[var4] >> var5 & var7;
+			var2 = varProvider.field335[var4] >> var5 & var7;
 		} else if (this.field1635 != -1) {
-			var2 = field1624.field335[this.field1635];
+			var2 = varProvider.field335[this.field1635];
 		}
 		return var2 < 0 || var2 >= this.field1659.length || this.field1659[var2] == -1 ? null : method561(this.field1659[var2]);
 	}
@@ -195,9 +195,9 @@ public class LocType {
 	}
 
 	@ObfuscatedName("YMYTDPVW.a(LATJMVOZR;)V")
-	public static void method564(Jagfile arg0) {
-		field1621 = new Packet(arg0.method2("loc.dat", null));
-		Packet var1 = new Packet(arg0.method2("loc.idx", null));
+	public static void unpack(Jagfile arg0) {
+		field1621 = new Packet(arg0.read("loc.dat", null));
+		Packet var1 = new Packet(arg0.read("loc.idx", null));
 		field1662 = var1.g2();
 		field1612 = new int[field1662];
 		int var2 = 2;
@@ -220,7 +220,7 @@ public class LocType {
 				return null;
 			}
 			var6 = ((long) (arg1 + 1) << 32) + (long) ((this.field1627 << 6) + arg0);
-			Model var8 = (Model) field1616.method458(var6);
+			Model var8 = (Model) field1616.get(var6);
 			if (var8 != null) {
 				return var8;
 			}
@@ -234,16 +234,16 @@ public class LocType {
 				if (var9) {
 					var12 += 65536;
 				}
-				var5 = (Model) field1633.method458((long) var12);
+				var5 = (Model) field1633.get((long) var12);
 				if (var5 == null) {
-					var5 = Model.method359(var12 & 0xFFFF);
+					var5 = Model.tryGet(var12 & 0xFFFF);
 					if (var5 == null) {
 						return null;
 					}
 					if (var9) {
 						var5.method374();
 					}
-					field1633.method459(var5, (long) var12);
+					field1633.put(var5, (long) var12);
 				}
 				if (var10 > 1) {
 					field1625[var11] = var5;
@@ -264,7 +264,7 @@ public class LocType {
 				return null;
 			}
 			var6 = ((long) (arg1 + 1) << 32) + (long) ((this.field1627 << 6) + (var13 << 3) + arg0);
-			Model var15 = (Model) field1616.method458(var6);
+			Model var15 = (Model) field1616.get(var6);
 			if (var15 != null) {
 				return var15;
 			}
@@ -273,16 +273,16 @@ public class LocType {
 			if (var17) {
 				var16 += 65536;
 			}
-			var5 = (Model) field1633.method458((long) var16);
+			var5 = (Model) field1633.get((long) var16);
 			if (var5 == null) {
-				var5 = Model.method359(var16 & 0xFFFF);
+				var5 = Model.tryGet(var16 & 0xFFFF);
 				if (var5 == null) {
 					return null;
 				}
 				if (var17) {
 					var5.method374();
 				}
-				field1633.method459(var5, (long) var16);
+				field1633.put(var5, (long) var16);
 			}
 		}
 		boolean var18;
@@ -297,10 +297,10 @@ public class LocType {
 		} else {
 			var19 = true;
 		}
-		Model var20 = new Model(arg0 == 0 && arg1 == -1 && !var18 && !var19, false, this.field1653 == null, var5, AnimFrame.method265(arg1));
+		Model var20 = new Model(arg0 == 0 && arg1 == -1 && !var18 && !var19, false, this.field1653 == null, var5, AnimFrame.isNull(arg1));
 		if (arg1 != -1) {
-			var20.method366();
-			var20.method367(arg1);
+			var20.createLabelReferences();
+			var20.applyTransform(arg1);
 			var20.field1226 = null;
 			var20.field1225 = null;
 		}
@@ -318,11 +318,11 @@ public class LocType {
 		if (var19) {
 			var20.method372(this.field1615, this.field1620, this.field1639);
 		}
-		var20.method376(this.field1638 + 64, this.field1641 * 5 + 768, -50, -10, -50, !this.field1658);
+		var20.calculateNormals(this.field1638 + 64, this.field1641 * 5 + 768, -50, -10, -50, !this.field1658);
 		if (this.field1648 == 1) {
 			var20.field1222 = var20.field1709;
 		}
-		field1616.method459(var20, var6);
+		field1616.put(var20, var6);
 		return var20;
 	}
 
@@ -405,7 +405,7 @@ public class LocType {
 			}
 			if (var4 == 1) {
 				int var5 = arg1.g1();
-				if (this.field1617 == null || field1626) {
+				if (this.field1617 == null || lowMem) {
 					this.field1643 = new int[var5];
 					this.field1617 = new int[var5];
 					for (int var6 = 0; var6 < var5; var6++) {
@@ -423,7 +423,7 @@ public class LocType {
 			} else if (var4 == 5) {
 				int var7 = arg1.g1();
 				if (var7 > 0) {
-					if (this.field1617 == null || field1626) {
+					if (this.field1617 == null || lowMem) {
 						this.field1643 = null;
 						this.field1617 = new int[var7];
 						for (int var8 = 0; var8 < var7; var8++) {

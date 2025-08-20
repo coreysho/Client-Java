@@ -89,10 +89,10 @@ public class ClientPlayer extends ClientEntity {
 	public NpcType field1679;
 
 	@ObfuscatedName("ZGNGQRPJ.yb")
-	public String field1673;
+	public String name;
 
 	@ObfuscatedName("ZGNGQRPJ.a(Z)LLZYQDKJV;")
-	public Model method572() {
+	public Model getHeadModel() {
 		if (!this.field1680) {
 			return null;
 		} else if (this.field1679 == null) {
@@ -102,7 +102,7 @@ public class ClientPlayer extends ClientEntity {
 				if (var12 >= 256 && var12 < 512 && !IdkType.field1699[var12 - 256].method579()) {
 					var2 = true;
 				}
-				if (var12 >= 512 && !ObjType.method221(var12 - 512).method220(this.field1677)) {
+				if (var12 >= 512 && !ObjType.get(var12 - 512).method220(this.field1677)) {
 					var2 = true;
 				}
 			}
@@ -120,7 +120,7 @@ public class ClientPlayer extends ClientEntity {
 					}
 				}
 				if (var9 >= 512) {
-					Model var11 = ObjType.method221(var9 - 512).method228(this.field1677);
+					Model var11 = ObjType.get(var9 - 512).method228(this.field1677);
 					if (var11 != null) {
 						var4[var5++] = var11;
 					}
@@ -137,7 +137,7 @@ public class ClientPlayer extends ClientEntity {
 			}
 			return var7;
 		} else {
-			return this.field1679.method472();
+			return this.field1679.getHeadModel();
 		}
 	}
 
@@ -174,7 +174,7 @@ public class ClientPlayer extends ClientEntity {
 		} else if (super.field1135 >= 0) {
 			var6 = SeqType.field775[super.field1135].field777[super.field1136];
 		}
-		Model var11 = (Model) field1683.method458(var4);
+		Model var11 = (Model) field1683.get(var4);
 		if (var11 == null) {
 			boolean var12 = false;
 			for (int var13 = 0; var13 < 12; var13++) {
@@ -188,13 +188,13 @@ public class ClientPlayer extends ClientEntity {
 				if (var14 >= 256 && var14 < 512 && !IdkType.field1699[var14 - 256].method577()) {
 					var12 = true;
 				}
-				if (var14 >= 512 && !ObjType.method221(var14 - 512).method225(this.field1677)) {
+				if (var14 >= 512 && !ObjType.get(var14 - 512).method225(this.field1677)) {
 					var12 = true;
 				}
 			}
 			if (var12) {
 				if (this.field1671 != -1L) {
-					var11 = (Model) field1683.method458(this.field1671);
+					var11 = (Model) field1683.get(this.field1671);
 				}
 				if (var11 == null) {
 					return null;
@@ -219,7 +219,7 @@ public class ClientPlayer extends ClientEntity {
 					}
 				}
 				if (var19 >= 512) {
-					Model var21 = ObjType.method221(var19 - 512).method222(this.field1677);
+					Model var21 = ObjType.get(var19 - 512).method222(this.field1677);
 					if (var21 != null) {
 						var15[var16++] = var21;
 					}
@@ -234,20 +234,20 @@ public class ClientPlayer extends ClientEntity {
 					}
 				}
 			}
-			var11.method366();
-			var11.method376(64, 850, -30, -50, -30, true);
-			field1683.method459(var11, var4);
+			var11.createLabelReferences();
+			var11.calculateNormals(64, 850, -30, -50, -30, true);
+			field1683.put(var11, var4);
 			this.field1671 = var4;
 		}
 		if (this.field1685) {
 			return var11;
 		}
 		Model var22 = Model.field1190;
-		var22.method361(AnimFrame.method265(var6) & AnimFrame.method265(var7), var11);
+		var22.method361(AnimFrame.isNull(var6) & AnimFrame.isNull(var7), var11);
 		if (var6 != -1 && var7 != -1) {
 			var22.method368(var7, var6, SeqType.field775[super.field1171].field781);
 		} else if (var6 != -1) {
-			var22.method367(var6);
+			var22.applyTransform(var6);
 		}
 		var22.method363();
 		var22.field1226 = null;
@@ -278,25 +278,25 @@ public class ClientPlayer extends ClientEntity {
 			SpotAnimType var3 = SpotAnimType.field1297[super.field1161];
 			Model var4 = var3.method439();
 			if (var4 != null) {
-				Model var5 = new Model(false, false, true, var4, AnimFrame.method265(super.field1162));
+				Model var5 = new Model(false, false, true, var4, AnimFrame.isNull(super.field1162));
 				var5.method372(0, 0, -super.field1165);
-				var5.method366();
-				var5.method367(var3.field1301.field777[super.field1162]);
+				var5.createLabelReferences();
+				var5.applyTransform(var3.field1301.field777[super.field1162]);
 				var5.field1226 = null;
 				var5.field1225 = null;
 				if (var3.field1304 != 128 || var3.field1305 != 128) {
 					var5.method375(var3.field1305, var3.field1304, var3.field1304);
 				}
-				var5.method376(var3.field1307 + 64, var3.field1308 + 850, -30, -50, -30, true);
+				var5.calculateNormals(var3.field1307 + 64, var3.field1308 + 850, -30, -50, -30, true);
 				Model[] var6 = new Model[] { var2, var5 };
 				var2 = new Model(2, true, 0, var6);
 			}
 		}
 		if (this.field1668 != null) {
-			if (Client.field621 >= this.field1687) {
+			if (Client.loopCycle >= this.field1687) {
 				this.field1668 = null;
 			}
-			if (Client.field621 >= this.field1686 && Client.field621 < this.field1687) {
+			if (Client.loopCycle >= this.field1686 && Client.loopCycle < this.field1687) {
 				Model var7 = this.field1668;
 				var7.method372(this.field1665 - super.field1157, this.field1667 - super.field1158, this.field1666 - this.field1672);
 				if (super.field1131 == 512) {
@@ -344,11 +344,11 @@ public class ClientPlayer extends ClientEntity {
 				int var5 = arg0.g1();
 				this.field1674[var3] = (var4 << 8) + var5;
 				if (var3 == 0 && this.field1674[0] == 65535) {
-					this.field1679 = NpcType.method477(arg0.g2());
+					this.field1679 = NpcType.get(arg0.g2());
 					break;
 				}
 				if (this.field1674[var3] >= 512 && this.field1674[var3] - 512 < ObjType.field817) {
-					int var12 = ObjType.method221(this.field1674[var3] - 512).field814;
+					int var12 = ObjType.get(this.field1674[var3] - 512).field814;
 					if (var12 != 0) {
 						this.field1688 = var12;
 					}
@@ -390,7 +390,7 @@ public class ClientPlayer extends ClientEntity {
 		if (super.field1176 == 65535) {
 			super.field1176 = -1;
 		}
-		this.field1673 = JString.method348(JString.method345(arg0.g8()));
+		this.name = JString.formatDisplayName(JString.fromBase37(arg0.g8()));
 		this.field1675 = arg0.g1();
 		this.field1681 = arg0.g2();
 		this.field1680 = true;

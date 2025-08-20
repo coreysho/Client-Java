@@ -54,7 +54,7 @@ public class WordPack {
 	}
 
 	@ObfuscatedName("QKAIVGGT.a(Ljava/lang/String;ILMFMVIYHT;)V")
-	public static void method454(String arg0, Packet arg2) {
+	public static void pack(String arg0, Packet arg2) {
 		if (arg0.length() > 80) {
 			arg0 = arg0.substring(0, 80);
 		}
@@ -92,9 +92,9 @@ public class WordPack {
 	}
 
 	@ObfuscatedName("QKAIVGGT.a(BLjava/lang/String;)Ljava/lang/String;")
-	public static String method455(String arg1) {
+	public static String toSentenceCase(String arg1) {
 		field1361.pos = 0;
-		method454(arg1, field1361);
+		pack(arg1, field1361);
 		int var2 = field1361.pos;
 		field1361.pos = 0;
 		return method453(field1361, var2);

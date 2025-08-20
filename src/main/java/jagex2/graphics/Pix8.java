@@ -1,7 +1,6 @@
 package jagex2.graphics;
 
 import deob.ObfuscatedName;
-import jagex2.datastruct.Linkable;
 import jagex2.io.Jagfile;
 import jagex2.io.Packet;
 
@@ -23,17 +22,17 @@ public class Pix8 extends Pix2D {
 	public int field1553;
 
 	@ObfuscatedName("WRRBQEHV.F")
-	public int field1550;
+	public int wi;
 
 	@ObfuscatedName("WRRBQEHV.G")
 	public int field1551;
 
 	@ObfuscatedName("WRRBQEHV.D")
-	public byte[] field1548;
+	public byte[] pixels;
 
 	public Pix8(Jagfile arg0, String arg1, int arg2) {
-		Packet var4 = new Packet(arg0.method2(arg1 + ".dat", null));
-		Packet var5 = new Packet(arg0.method2("index.dat", null));
+		Packet var4 = new Packet(arg0.read(arg1 + ".dat", null));
+		Packet var5 = new Packet(arg0.read("index.dat", null));
 		var5.pos = var4.g2();
 		this.field1554 = var5.g2();
 		this.field1555 = var5.g2();
@@ -49,20 +48,20 @@ public class Pix8 extends Pix2D {
 		}
 		this.field1552 = var5.g1();
 		this.field1553 = var5.g1();
-		this.field1550 = var5.g2();
+		this.wi = var5.g2();
 		this.field1551 = var5.g2();
 		int var9 = var5.g1();
-		int var10 = this.field1551 * this.field1550;
-		this.field1548 = new byte[var10];
+		int var10 = this.field1551 * this.wi;
+		this.pixels = new byte[var10];
 		if (var9 == 0) {
 			for (int var11 = 0; var11 < var10; var11++) {
-				this.field1548[var11] = var4.g1b();
+				this.pixels[var11] = var4.g1b();
 			}
 		} else {
 			if (var9 == 1) {
-				for (int var12 = 0; var12 < this.field1550; var12++) {
+				for (int var12 = 0; var12 < this.wi; var12++) {
 					for (int var13 = 0; var13 < this.field1551; var13++) {
-						this.field1548[this.field1550 * var13 + var12] = var4.g1b();
+						this.pixels[this.wi * var13 + var12] = var4.g1b();
 					}
 				}
 			}
@@ -76,12 +75,12 @@ public class Pix8 extends Pix2D {
 		byte[] var2 = new byte[this.field1555 * this.field1554];
 		int var3 = 0;
 		for (int var4 = 0; var4 < this.field1551; var4++) {
-			for (int var5 = 0; var5 < this.field1550; var5++) {
-				var2[(this.field1552 + var5 >> 1) + (this.field1553 + var4 >> 1) * this.field1554] = this.field1548[var3++];
+			for (int var5 = 0; var5 < this.wi; var5++) {
+				var2[(this.field1552 + var5 >> 1) + (this.field1553 + var4 >> 1) * this.field1554] = this.pixels[var3++];
 			}
 		}
-		this.field1548 = var2;
-		this.field1550 = this.field1554;
+		this.pixels = var2;
+		this.wi = this.field1554;
 		this.field1551 = this.field1555;
 		this.field1552 = 0;
 		this.field1553 = 0;
@@ -89,51 +88,51 @@ public class Pix8 extends Pix2D {
 
 	@ObfuscatedName("WRRBQEHV.a(Z)V")
 	public void method488() {
-		if (this.field1554 == this.field1550 && this.field1555 == this.field1551) {
+		if (this.field1554 == this.wi && this.field1555 == this.field1551) {
 			return;
 		}
 		byte[] var2 = new byte[this.field1555 * this.field1554];
 		int var3 = 0;
 		for (int var4 = 0; var4 < this.field1551; var4++) {
-			for (int var5 = 0; var5 < this.field1550; var5++) {
-				var2[(this.field1553 + var4) * this.field1554 + this.field1552 + var5] = this.field1548[var3++];
+			for (int var5 = 0; var5 < this.wi; var5++) {
+				var2[(this.field1553 + var4) * this.field1554 + this.field1552 + var5] = this.pixels[var3++];
 			}
 		}
-		this.field1548 = var2;
-		this.field1550 = this.field1554;
+		this.pixels = var2;
+		this.wi = this.field1554;
 		this.field1551 = this.field1555;
 		this.field1552 = 0;
 		this.field1553 = 0;
 	}
 
 	@ObfuscatedName("WRRBQEHV.c(I)V")
-	public void method489() {
-		byte[] var2 = new byte[this.field1551 * this.field1550];
+	public void hflip() {
+		byte[] var2 = new byte[this.field1551 * this.wi];
 		int var3 = 0;
 		for (int var4 = 0; var4 < this.field1551; var4++) {
-			for (int var5 = this.field1550 - 1; var5 >= 0; var5--) {
-				var2[var3++] = this.field1548[this.field1550 * var4 + var5];
+			for (int var5 = this.wi - 1; var5 >= 0; var5--) {
+				var2[var3++] = this.pixels[this.wi * var4 + var5];
 			}
 		}
-		this.field1548 = var2;
-		this.field1552 = this.field1554 - this.field1550 - this.field1552;
+		this.pixels = var2;
+		this.field1552 = this.field1554 - this.wi - this.field1552;
 	}
 
 	@ObfuscatedName("WRRBQEHV.b(B)V")
-	public void method490() {
-		byte[] var2 = new byte[this.field1551 * this.field1550];
+	public void vflip() {
+		byte[] var2 = new byte[this.field1551 * this.wi];
 		int var3 = 0;
 		for (int var4 = this.field1551 - 1; var4 >= 0; var4--) {
-			for (int var5 = 0; var5 < this.field1550; var5++) {
-				var2[var3++] = this.field1548[this.field1550 * var4 + var5];
+			for (int var5 = 0; var5 < this.wi; var5++) {
+				var2[var3++] = this.pixels[this.wi * var4 + var5];
 			}
 		}
-		this.field1548 = var2;
+		this.pixels = var2;
 		this.field1553 = this.field1555 - this.field1551 - this.field1553;
 	}
 
 	@ObfuscatedName("WRRBQEHV.a(IIII)V")
-	public void method491(int arg0, int arg1, int arg2) {
+	public void rgbAdjust(int arg0, int arg1, int arg2) {
 		for (int var5 = 0; var5 < this.field1549.length; var5++) {
 			int var6 = this.field1549[var5] >> 16 & 0xFF;
 			int var7 = arg2 + var6;
@@ -161,13 +160,13 @@ public class Pix8 extends Pix2D {
 	}
 
 	@ObfuscatedName("WRRBQEHV.a(III)V")
-	public void method492(int arg0, int arg1) {
+	public void plotSprite(int arg0, int arg1) {
 		int var4 = this.field1552 + arg1;
 		int var5 = this.field1553 + arg0;
 		int var6 = Pix2D.field1095 * var5 + var4;
 		int var7 = 0;
 		int var8 = this.field1551;
-		int var9 = this.field1550;
+		int var9 = this.wi;
 		int var10 = Pix2D.field1095 - var9;
 		int var11 = 0;
 		if (var5 < Pix2D.field1097) {
@@ -196,7 +195,7 @@ public class Pix8 extends Pix2D {
 			var10 += var14;
 		}
 		if (var9 > 0 && var8 > 0) {
-			this.method493(var7, Pix2D.field1094, this.field1548, var11, this.field1549, var8, var9, var6, var10);
+			this.method493(var7, Pix2D.field1094, this.pixels, var11, this.field1549, var8, var9, var6, var10);
 		}
 	}
 

@@ -32,7 +32,7 @@ public class Packet extends DoublyLinkable {
 	public static char[] field1291;
 
 	@ObfuscatedName("MFMVIYHT.B")
-	public int field1281;
+	public int bitPos;
 
 	@ObfuscatedName("MFMVIYHT.F")
 	public static int field1285;
@@ -89,7 +89,7 @@ public class Packet extends DoublyLinkable {
 
 	@ObfuscatedName("MFMVIYHT.b(BI)V")
 	public void p1isaac(int arg1) {
-		this.data[this.pos++] = (byte) (arg1 + this.field1284.method329());
+		this.data[this.pos++] = (byte) (arg1 + this.field1284.nextInt());
 	}
 
 	@ObfuscatedName("MFMVIYHT.a(I)V")
@@ -237,15 +237,15 @@ public class Packet extends DoublyLinkable {
 
 	@ObfuscatedName("MFMVIYHT.a(B)V")
 	public void accessBits() {
-		this.field1281 = this.pos * 8;
+		this.bitPos = this.pos * 8;
 	}
 
 	@ObfuscatedName("MFMVIYHT.b(II)I")
 	public int gBit(int arg1) {
-		int var3 = this.field1281 >> 3;
-		int var4 = 8 - (this.field1281 & 0x7);
+		int var3 = this.bitPos >> 3;
+		int var4 = 8 - (this.bitPos & 0x7);
 		int var5 = 0;
-		this.field1281 += arg1;
+		this.bitPos += arg1;
 		while (arg1 > var4) {
 			var5 += (this.data[var3++] & field1283[var4]) << arg1 - var4;
 			arg1 -= var4;
@@ -262,7 +262,7 @@ public class Packet extends DoublyLinkable {
 
 	@ObfuscatedName("MFMVIYHT.g(I)V")
 	public void accessBytes() {
-		this.pos = (this.field1281 + 7) / 8;
+		this.pos = (this.bitPos + 7) / 8;
 	}
 
 	@ObfuscatedName("MFMVIYHT.j()I")

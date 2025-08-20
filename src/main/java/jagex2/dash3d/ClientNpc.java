@@ -49,16 +49,16 @@ public class ClientNpc extends ClientEntity {
 			Model var5 = var4.method439();
 			if (var5 != null) {
 				int var6 = var4.field1301.field777[super.field1162];
-				Model var7 = new Model(false, false, true, var5, AnimFrame.method265(var6));
+				Model var7 = new Model(false, false, true, var5, AnimFrame.isNull(var6));
 				var7.method372(0, 0, -super.field1165);
-				var7.method366();
-				var7.method367(var6);
+				var7.createLabelReferences();
+				var7.applyTransform(var6);
 				var7.field1226 = null;
 				var7.field1225 = null;
 				if (var4.field1304 != 128 || var4.field1305 != 128) {
 					var7.method375(var4.field1305, var4.field1304, var4.field1304);
 				}
-				var7.method376(var4.field1307 + 64, var4.field1308 + 850, -30, -50, -30, true);
+				var7.calculateNormals(var4.field1307 + 64, var4.field1308 + 850, -30, -50, -30, true);
 				Model[] var8 = new Model[] { var3, var7 };
 				var3 = new Model(2, true, 0, var8);
 			}

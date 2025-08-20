@@ -51,8 +51,8 @@ public class SpotAnimType {
 	public static SpotAnimType[] field1297;
 
 	@ObfuscatedName("MNZYLKNY.a(LATJMVOZR;I)V")
-	public static void method437(Jagfile arg0) {
-		Packet var2 = new Packet(arg0.method2("spotanim.dat", null));
+	public static void unpack(Jagfile arg0) {
+		Packet var2 = new Packet(arg0.read("spotanim.dat", null));
 		field1296 = var2.g2();
 		if (field1297 == null) {
 			field1297 = new SpotAnimType[field1296];
@@ -102,11 +102,11 @@ public class SpotAnimType {
 
 	@ObfuscatedName("MNZYLKNY.a()LLZYQDKJV;")
 	public Model method439() {
-		Model var1 = (Model) field1309.method458((long) this.field1298);
+		Model var1 = (Model) field1309.get((long) this.field1298);
 		if (var1 != null) {
 			return var1;
 		}
-		Model var2 = Model.method359(this.field1299);
+		Model var2 = Model.tryGet(this.field1299);
 		if (var2 == null) {
 			return null;
 		}
@@ -115,7 +115,7 @@ public class SpotAnimType {
 				var2.method373(this.field1302[var3], this.field1303[var3]);
 			}
 		}
-		field1309.method459(var2, (long) this.field1298);
+		field1309.put(var2, (long) this.field1298);
 		return var2;
 	}
 }

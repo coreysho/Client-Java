@@ -60,7 +60,7 @@ public class Jagfile {
 	}
 
 	@ObfuscatedName("ATJMVOZR.a(Ljava/lang/String;[B)[B")
-	public byte[] method2(String arg0, byte[] arg1) {
+	public byte[] read(String arg0, byte[] arg1) {
 		int var3 = 0;
 		String var4 = arg0.toUpperCase();
 		for (int var5 = 0; var5 < var4.length(); var5++) {

@@ -42,16 +42,16 @@ public class PixMap implements ImageProducer, ImageObserver {
 		arg2.prepareImage(this.field883, this);
 		this.method242();
 		arg2.prepareImage(this.field883, this);
-		this.method240();
+		this.bind();
 	}
 
 	@ObfuscatedName("ISZGOOMR.a(Z)V")
-	public void method240() {
+	public void bind() {
 		Pix2D.method332(this.field879, this.field880, this.field878);
 	}
 
 	@ObfuscatedName("ISZGOOMR.a(IILjava/awt/Graphics;Z)V")
-	public void method241(int arg0, int arg1, Graphics arg2) {
+	public void draw(int arg0, int arg1, Graphics arg2) {
 		this.method242();
 		arg2.drawImage(this.field883, arg1, arg0, this);
 	}
