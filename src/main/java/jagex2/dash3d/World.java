@@ -85,7 +85,7 @@ public class World {
 	public static int field125;
 
 	@ObfuscatedName("CHEOPWNH.a(III)I")
-	public static final int method11(int arg0, int arg1, int arg2) {
+	public static int method11(int arg0, int arg1, int arg2) {
 		int var3 = arg0 / arg2;
 		int var4 = arg0 & arg2 - 1;
 		int var5 = arg1 / arg2;
@@ -110,7 +110,7 @@ public class World {
 	}
 
 	@ObfuscatedName("CHEOPWNH.a(IIIILXRENONSA;IIIILKJCMXHNO;[[[I)V")
-	public static final void method13(int arg0, int arg1, int arg2, int arg3, CollisionMap arg4, int arg5, int arg6, int arg8, World3D arg9, int[][][] arg10) {
+	public static void method13(int arg0, int arg1, int arg2, int arg3, CollisionMap arg4, int arg5, int arg6, int arg8, World3D arg9, int[][][] arg10) {
 		int var11 = arg10[arg1][arg6][arg3];
 		int var12 = arg10[arg1][arg6 + 1][arg3];
 		int var13 = arg10[arg1][arg6 + 1][arg3 + 1];
@@ -302,7 +302,7 @@ public class World {
 	}
 
 	@ObfuscatedName("CHEOPWNH.a(IIII)V")
-	public final void method14(int arg1, int arg2, int arg3) {
+	public void method14(int arg1, int arg2, int arg3) {
 		for (int var5 = 0; var5 < 8; var5++) {
 			for (int var8 = 0; var8 < 8; var8++) {
 				this.field112[arg1][arg3 + var5][arg2 + var8] = 0;
@@ -328,7 +328,7 @@ public class World {
 	}
 
 	@ObfuscatedName("CHEOPWNH.a([LXRENONSA;ILKJCMXHNO;)V")
-	public final void method15(CollisionMap[] arg0, World3D arg2) {
+	public void method15(CollisionMap[] arg0, World3D arg2) {
 		for (int var4 = 0; var4 < 4; var4++) {
 			for (int var110 = 0; var110 < 104; var110++) {
 				for (int var111 = 0; var111 < 104; var111++) {
@@ -662,7 +662,7 @@ public class World {
 	}
 
 	@ObfuscatedName("CHEOPWNH.a(IIZ[BIII[LXRENONSA;II)V")
-	public final void method16(int arg0, int arg1, byte[] arg3, int arg4, int arg5, int arg6, CollisionMap[] arg7, int arg8, int arg9) {
+	public void method16(int arg0, int arg1, byte[] arg3, int arg4, int arg5, int arg6, CollisionMap[] arg7, int arg8, int arg9) {
 		for (int var11 = 0; var11 < 8; var11++) {
 			for (int var16 = 0; var16 < 8; var16++) {
 				if (arg6 + var11 > 0 && arg6 + var11 < 103 && arg8 + var16 > 0 && arg8 + var16 < 103) {
@@ -685,7 +685,7 @@ public class World {
 	}
 
 	@ObfuscatedName("CHEOPWNH.a(LZPGPWCCV;LMFMVIYHT;B)V")
-	public static final void method17(OnDemand arg0, Packet arg1) {
+	public static void method17(OnDemand arg0, Packet arg1) {
 		int var3 = -1;
 		while (true) {
 			int var4 = arg1.gsmarts();
@@ -706,7 +706,7 @@ public class World {
 	}
 
 	@ObfuscatedName("CHEOPWNH.a(IBI)Z")
-	public static final boolean method18(int arg0, int arg2) {
+	public static boolean method18(int arg0, int arg2) {
 		LocType var3 = LocType.method561(arg2);
 		if (arg0 == 11) {
 			arg0 = 10;
@@ -718,7 +718,7 @@ public class World {
 	}
 
 	@ObfuscatedName("CHEOPWNH.a(II)I")
-	public static final int method19(int arg0, int arg1) {
+	public static int method19(int arg0, int arg1) {
 		if (arg0 == -1) {
 			return 12345678;
 		}
@@ -732,7 +732,7 @@ public class World {
 	}
 
 	@ObfuscatedName("CHEOPWNH.a(I[LXRENONSA;LKJCMXHNO;Z[BIIIIII)V")
-	public final void method20(int arg0, CollisionMap[] arg1, World3D arg2, byte[] arg4, int arg5, int arg6, int arg7, int arg8, int arg9, int arg10) {
+	public void method20(int arg0, CollisionMap[] arg1, World3D arg2, byte[] arg4, int arg5, int arg6, int arg7, int arg8, int arg9, int arg10) {
 		Packet var12 = new Packet(arg4);
 		int var13 = -1;
 		while (true) {
@@ -775,7 +775,7 @@ public class World {
 	}
 
 	@ObfuscatedName("CHEOPWNH.a(LKJCMXHNO;LXRENONSA;IIIBIII)V")
-	public final void method21(World3D arg0, CollisionMap arg1, int arg2, int arg3, int arg4, int arg6, int arg7, int arg8) {
+	public void method21(World3D arg0, CollisionMap arg1, int arg2, int arg3, int arg4, int arg6, int arg7, int arg8) {
 		if (field132 && (this.field101[0][arg4][arg2] & 0x2) == 0) {
 			if ((this.field101[arg3][arg4][arg2] & 0x10) != 0) {
 				return;
@@ -1079,7 +1079,7 @@ public class World {
 	}
 
 	@ObfuscatedName("CHEOPWNH.a(IZII[BI[LXRENONSA;)V")
-	public final void method22(int arg0, int arg2, int arg3, byte[] arg4, int arg5, CollisionMap[] arg6) {
+	public void method22(int arg0, int arg2, int arg3, byte[] arg4, int arg5, CollisionMap[] arg6) {
 		for (int var8 = 0; var8 < 4; var8++) {
 			for (int var13 = 0; var13 < 64; var13++) {
 				for (int var14 = 0; var14 < 64; var14++) {
@@ -1120,7 +1120,7 @@ public class World {
 	}
 
 	@ObfuscatedName("CHEOPWNH.b(II)I")
-	public static final int method23(int arg0, int arg1) {
+	public static int method23(int arg0, int arg1) {
 		int var2 = arg1 * 57 + arg0;
 		int var3 = var2 << 13 ^ var2;
 		int var4 = (var3 * var3 * 15731 + 789221) * var3 + 1376312589 & Integer.MAX_VALUE;
@@ -1128,13 +1128,13 @@ public class World {
 	}
 
 	@ObfuscatedName("CHEOPWNH.b(IIII)I")
-	public static final int method24(int arg0, int arg1, int arg2, int arg3) {
+	public static int method24(int arg0, int arg1, int arg2, int arg3) {
 		int var4 = 65536 - Pix3D.field1599[arg2 * 1024 / arg3] >> 1;
 		return ((65536 - var4) * arg0 >> 16) + (arg1 * var4 >> 16);
 	}
 
 	@ObfuscatedName("CHEOPWNH.b(III)I")
-	public final int method25(int arg0, int arg1, int arg2) {
+	public int method25(int arg0, int arg1, int arg2) {
 		if (arg2 > 179) {
 			arg1 /= 2;
 		}
@@ -1151,7 +1151,7 @@ public class World {
 	}
 
 	@ObfuscatedName("CHEOPWNH.c(II)I")
-	public static final int method26(int arg0, int arg1) {
+	public static int method26(int arg0, int arg1) {
 		int var2 = method23(arg0 - 1, arg1 - 1) + method23(arg0 + 1, arg1 - 1) + method23(arg0 - 1, arg1 + 1) + method23(arg0 + 1, arg1 + 1);
 		int var3 = method23(arg0 - 1, arg1) + method23(arg0 + 1, arg1) + method23(arg0, arg1 - 1) + method23(arg0, arg1 + 1);
 		int var4 = method23(arg0, arg1);
@@ -1159,7 +1159,7 @@ public class World {
 	}
 
 	@ObfuscatedName("CHEOPWNH.a(I[LXRENONSA;IILKJCMXHNO;[B)V")
-	public final void method27(int arg0, CollisionMap[] arg1, int arg2, World3D arg4, byte[] arg5) {
+	public void method27(int arg0, CollisionMap[] arg1, int arg2, World3D arg4, byte[] arg5) {
 		Packet var7 = new Packet(arg5);
 		int var8 = -1;
 		while (true) {
@@ -1199,7 +1199,7 @@ public class World {
 	}
 
 	@ObfuscatedName("CHEOPWNH.a(IIIII)V")
-	public final void method28(int arg0, int arg1, int arg2, int arg4) {
+	public void method28(int arg0, int arg1, int arg2, int arg4) {
 		for (int var6 = arg1; var6 <= arg1 + arg2; var6++) {
 			for (int var7 = arg0; var7 <= arg0 + arg4; var7++) {
 				if (var7 >= 0 && var7 < this.field114 && var6 >= 0 && var6 < this.field115) {
@@ -1222,7 +1222,7 @@ public class World {
 	}
 
 	@ObfuscatedName("CHEOPWNH.a(II[BI)Z")
-	public static final boolean method29(int arg0, int arg1, byte[] arg2) {
+	public static boolean method29(int arg0, int arg1, byte[] arg2) {
 		boolean var4 = true;
 		Packet var5 = new Packet(arg2);
 		int var6 = -1;
@@ -1264,7 +1264,7 @@ public class World {
 	}
 
 	@ObfuscatedName("CHEOPWNH.d(II)I")
-	public final int method30(int arg0, int arg1) {
+	public int method30(int arg0, int arg1) {
 		if (arg0 == -2) {
 			return 12345678;
 		} else if (arg0 == -1) {
@@ -1286,7 +1286,7 @@ public class World {
 	}
 
 	@ObfuscatedName("CHEOPWNH.a(IBILMFMVIYHT;IIII)V")
-	public final void method31(int arg0, int arg2, Packet arg3, int arg4, int arg5, int arg6, int arg7) {
+	public void method31(int arg0, int arg2, Packet arg3, int arg4, int arg5, int arg6, int arg7) {
 		if (arg5 < 0 || arg5 >= 104 || arg7 < 0 || arg7 >= 104) {
 			while (true) {
 				int var11 = arg3.g1();
@@ -1339,7 +1339,7 @@ public class World {
 	}
 
 	@ObfuscatedName("CHEOPWNH.e(II)I")
-	public static final int method32(int arg0, int arg1) {
+	public static int method32(int arg0, int arg1) {
 		int var2 = method11(arg0 + 45365, arg1 + 91923, 4) - 128 + (method11(arg0 + 10294, arg1 + 37821, 2) - 128 >> 1) + (method11(arg0, arg1, 1) - 128 >> 2);
 		int var3 = (int) ((double) var2 * 0.3D) + 35;
 		if (var3 < 10) {

@@ -916,7 +916,7 @@ public class Model extends ModelSource {
 	}
 
 	@ObfuscatedName("LZYQDKJV.a(LLZYQDKJV;I)I")
-	public final int method362(Model arg0, int arg1) {
+	public int method362(Model arg0, int arg1) {
 		int var3 = -1;
 		int var4 = arg0.field1196[arg1];
 		int var5 = arg0.field1197[arg1];
@@ -1330,7 +1330,7 @@ public class Model extends ModelSource {
 	}
 
 	@ObfuscatedName("LZYQDKJV.a(IIIIIZ)V")
-	public final void method376(int arg0, int arg1, int arg2, int arg3, int arg4, boolean arg5) {
+	public void method376(int arg0, int arg1, int arg2, int arg3, int arg4, boolean arg5) {
 		int var7 = (int) Math.sqrt((double) (arg4 * arg4 + arg2 * arg2 + arg3 * arg3));
 		int var8 = arg1 * var7 >> 8;
 		if (this.field1203 == null) {
@@ -1411,14 +1411,14 @@ public class Model extends ModelSource {
 	}
 
 	@ObfuscatedName("LZYQDKJV.b(IIII)V")
-	public final void method377(int arg0, int arg1, int arg3) {
+	public void method377(int arg0, int arg1, int arg3) {
 		int var5 = this.field1215 >> 16;
 		int var6 = this.field1215 << 16 >> 16;
 		this.method378(var5, var6, arg3, arg0, arg1);
 	}
 
 	@ObfuscatedName("LZYQDKJV.a(IIIII)V")
-	public final void method378(int arg0, int arg1, int arg2, int arg3, int arg4) {
+	public void method378(int arg0, int arg1, int arg2, int arg3, int arg4) {
 		for (int var6 = 0; var6 < this.field1199; var6++) {
 			int var8 = this.field1200[var6];
 			int var9 = this.field1201[var6];
@@ -1482,7 +1482,7 @@ public class Model extends ModelSource {
 	}
 
 	@ObfuscatedName("LZYQDKJV.a(IIIIIII)V")
-	public final void method380(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6) {
+	public void method380(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6) {
 		int var8 = Pix3D.field1594;
 		int var9 = Pix3D.field1595;
 		int var10 = field1257[arg0];
@@ -1534,7 +1534,7 @@ public class Model extends ModelSource {
 	}
 
 	@ObfuscatedName("LZYQDKJV.a(IIIIIIIII)V")
-	public final void method381(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8) {
+	public void method381(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8) {
 		int var10 = arg4 * arg7 - arg3 * arg5 >> 16;
 		int var11 = arg1 * arg6 + arg2 * var10 >> 16;
 		int var12 = this.field1218 * arg2 >> 16;
@@ -1646,7 +1646,7 @@ public class Model extends ModelSource {
 	}
 
 	@ObfuscatedName("LZYQDKJV.a(ZZI)V")
-	public final void method382(boolean arg0, boolean arg1, int arg2) {
+	public void method382(boolean arg0, boolean arg1, int arg2) {
 		for (int var4 = 0; var4 < this.field1220; var4++) {
 			field1239[var4] = 0;
 		}
@@ -1809,7 +1809,7 @@ public class Model extends ModelSource {
 	}
 
 	@ObfuscatedName("LZYQDKJV.h(I)V")
-	public final void method383(int arg0) {
+	public void method383(int arg0) {
 		if (field1232[arg0]) {
 			this.method384(arg0);
 			return;
@@ -1849,7 +1849,7 @@ public class Model extends ModelSource {
 	}
 
 	@ObfuscatedName("LZYQDKJV.i(I)V")
-	public final void method384(int arg0) {
+	public void method384(int arg0) {
 		int var2 = Pix3D.field1594;
 		int var3 = Pix3D.field1595;
 		int var4 = 0;
@@ -2004,7 +2004,7 @@ public class Model extends ModelSource {
 	}
 
 	@ObfuscatedName("LZYQDKJV.a(IIIIIIII)Z")
-	public final boolean method385(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7) {
+	public boolean method385(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7) {
 		if (arg1 < arg2 && arg1 < arg3 && arg1 < arg4) {
 			return false;
 		} else if (arg1 > arg2 && arg1 > arg3 && arg1 > arg4) {

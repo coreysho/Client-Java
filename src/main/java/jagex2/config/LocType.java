@@ -169,7 +169,7 @@ public class LocType {
 	}
 
 	@ObfuscatedName("YMYTDPVW.b(I)LYMYTDPVW;")
-	public final LocType method562() {
+	public LocType method562() {
 		int var2 = -1;
 		if (this.field1632 != -1) {
 			VarbitType var3 = VarbitType.field1760[this.field1632];
@@ -185,7 +185,7 @@ public class LocType {
 	}
 
 	@ObfuscatedName("YMYTDPVW.a(LZPGPWCCV;I)V")
-	public final void method563(OnDemand arg0) {
+	public void method563(OnDemand arg0) {
 		if (this.field1617 == null) {
 			return;
 		}
@@ -195,7 +195,7 @@ public class LocType {
 	}
 
 	@ObfuscatedName("YMYTDPVW.a(LATJMVOZR;)V")
-	public static final void method564(Jagfile arg0) {
+	public static void method564(Jagfile arg0) {
 		field1621 = new Packet(arg0.method2("loc.dat", null));
 		Packet var1 = new Packet(arg0.method2("loc.idx", null));
 		field1662 = var1.g2();
@@ -212,7 +212,7 @@ public class LocType {
 	}
 
 	@ObfuscatedName("YMYTDPVW.a(IIII)LLZYQDKJV;")
-	public final Model method565(int arg0, int arg1, int arg3) {
+	public Model method565(int arg0, int arg1, int arg3) {
 		Model var5 = null;
 		long var6;
 		if (this.field1643 == null) {
@@ -327,7 +327,7 @@ public class LocType {
 	}
 
 	@ObfuscatedName("YMYTDPVW.c(I)Z")
-	public final boolean method566() {
+	public boolean method566() {
 		if (this.field1617 == null) {
 			return true;
 		}
@@ -339,7 +339,7 @@ public class LocType {
 	}
 
 	@ObfuscatedName("YMYTDPVW.a()V")
-	public final void method567() {
+	public void method567() {
 		this.field1617 = null;
 		this.field1643 = null;
 		this.field1630 = "null";
@@ -379,7 +379,7 @@ public class LocType {
 	}
 
 	@ObfuscatedName("YMYTDPVW.a(BLMFMVIYHT;)V")
-	public final void method568(Packet arg1) {
+	public void method568(Packet arg1) {
 		int var3 = -1;
 		while (true) {
 			int var4 = arg1.g1();
@@ -529,7 +529,7 @@ public class LocType {
 	}
 
 	@ObfuscatedName("YMYTDPVW.a(IIIIIII)LLZYQDKJV;")
-	public final Model method569(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6) {
+	public Model method569(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6) {
 		Model var8 = this.method565(arg1, arg6, arg0);
 		if (var8 == null) {
 			return null;
@@ -553,7 +553,7 @@ public class LocType {
 	}
 
 	@ObfuscatedName("YMYTDPVW.a(II)Z")
-	public final boolean method570(int arg1) {
+	public boolean method570(int arg1) {
 		if (this.field1643 != null) {
 			for (int var5 = 0; var5 < this.field1643.length; var5++) {
 				if (this.field1643[var5] == arg1) {
@@ -575,7 +575,7 @@ public class LocType {
 	}
 
 	@ObfuscatedName("YMYTDPVW.a(Z)V")
-	public static final void method571() {
+	public static void method571() {
 		field1633 = null;
 		field1616 = null;
 		field1612 = null;

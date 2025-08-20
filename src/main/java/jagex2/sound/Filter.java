@@ -105,7 +105,7 @@ public class Filter {
 	}
 
 	@ObfuscatedName("SGFGLWZQ.a(ILPFANSVWX;LMFMVIYHT;)V")
-	public final void method469(int arg0, Envelope arg1, Packet arg2) {
+	public void method469(int arg0, Envelope arg1, Packet arg2) {
 		int var4 = arg2.g1();
 		this.field1416[0] = var4 >> 4;
 		while (arg0 >= 0) {

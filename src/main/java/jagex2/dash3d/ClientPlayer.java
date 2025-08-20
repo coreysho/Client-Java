@@ -92,7 +92,7 @@ public class ClientPlayer extends ClientEntity {
 	public String field1673;
 
 	@ObfuscatedName("ZGNGQRPJ.a(Z)LLZYQDKJV;")
-	public final Model method572() {
+	public Model method572() {
 		if (!this.field1680) {
 			return null;
 		} else if (this.field1679 == null) {
@@ -142,7 +142,7 @@ public class ClientPlayer extends ClientEntity {
 	}
 
 	@ObfuscatedName("ZGNGQRPJ.b(B)LLZYQDKJV;")
-	public final Model method573() {
+	public Model method573() {
 		if (this.field1679 != null) {
 			int var2 = -1;
 			if (super.field1171 >= 0 && super.field1174 == 0) {
@@ -256,12 +256,12 @@ public class ClientPlayer extends ClientEntity {
 	}
 
 	@ObfuscatedName("ZGNGQRPJ.b(I)Z")
-	public final boolean method351() {
+	public boolean method351() {
 		return this.field1680;
 	}
 
 	@ObfuscatedName("ZGNGQRPJ.a(B)LLZYQDKJV;")
-	public final Model method239() {
+	public Model method239() {
 		if (!this.field1680) {
 			return null;
 		}
@@ -329,7 +329,7 @@ public class ClientPlayer extends ClientEntity {
 	}
 
 	@ObfuscatedName("ZGNGQRPJ.a(LMFMVIYHT;I)V")
-	public final void method574(Packet arg0) {
+	public void method574(Packet arg0) {
 		arg0.pos = 0;
 		this.field1677 = arg0.g1();
 		this.field1678 = arg0.g1b();

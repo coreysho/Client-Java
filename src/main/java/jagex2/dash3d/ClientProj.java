@@ -78,7 +78,7 @@ public class ClientProj extends ModelSource {
 	public int field989;
 
 	@ObfuscatedName("KFJRVZCI.a(IIIII)V")
-	public final void method271(int arg0, int arg1, int arg2, int arg3) {
+	public void method271(int arg0, int arg1, int arg2, int arg3) {
 		if (!this.field996) {
 			double var6 = (double) (arg0 - this.field997);
 			double var8 = (double) (arg1 - this.field998);
@@ -98,7 +98,7 @@ public class ClientProj extends ModelSource {
 	}
 
 	@ObfuscatedName("KFJRVZCI.a(IZ)V")
-	public final void method272(int arg0) {
+	public void method272(int arg0) {
 		this.field996 = true;
 		this.field976 += (double) arg0 * this.field990;
 		this.field977 += (double) arg0 * this.field991;
@@ -120,7 +120,7 @@ public class ClientProj extends ModelSource {
 	}
 
 	@ObfuscatedName("KFJRVZCI.a(B)LLZYQDKJV;")
-	public final Model method239() {
+	public Model method239() {
 		Model var2 = this.field974.method439();
 		if (var2 == null) {
 			return null;

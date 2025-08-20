@@ -122,7 +122,7 @@ public class NpcType {
 	public String[] field1449;
 
 	@ObfuscatedName("SLDUQHOR.a(BLMFMVIYHT;)V")
-	public final void method470(Packet arg1) {
+	public void method470(Packet arg1) {
 		boolean var3 = false;
 		while (true) {
 			int var4 = arg1.g1();
@@ -220,7 +220,7 @@ public class NpcType {
 	}
 
 	@ObfuscatedName("SLDUQHOR.a(Z)V")
-	public static final void method471() {
+	public static void method471() {
 		field1438 = null;
 		field1453 = null;
 		field1458 = null;
@@ -228,7 +228,7 @@ public class NpcType {
 	}
 
 	@ObfuscatedName("SLDUQHOR.a(I)LLZYQDKJV;")
-	public final Model method472() {
+	public Model method472() {
 		if (this.field1425 != null) {
 			NpcType var3 = this.method476();
 			return var3 == null ? null : var3.method472();
@@ -286,7 +286,7 @@ public class NpcType {
 	}
 
 	@ObfuscatedName("SLDUQHOR.a(LATJMVOZR;)V")
-	public static final void method474(Jagfile arg0) {
+	public static void method474(Jagfile arg0) {
 		field1460 = new Packet(arg0.method2("npc.dat", null));
 		Packet var1 = new Packet(arg0.method2("npc.idx", null));
 		field1452 = var1.g2();
@@ -303,7 +303,7 @@ public class NpcType {
 	}
 
 	@ObfuscatedName("SLDUQHOR.a(III[I)LLZYQDKJV;")
-	public final Model method475(int arg0, int arg1, int[] arg3) {
+	public Model method475(int arg0, int arg1, int[] arg3) {
 		if (this.field1425 != null) {
 			NpcType var5 = this.method476();
 			return var5 == null ? null : var5.method475(arg0, arg1, arg3);
@@ -357,7 +357,7 @@ public class NpcType {
 	}
 
 	@ObfuscatedName("SLDUQHOR.b(Z)LSLDUQHOR;")
-	public final NpcType method476() {
+	public NpcType method476() {
 		int var2 = -1;
 		if (this.field1457 != -1) {
 			VarbitType var3 = VarbitType.field1760[this.field1457];

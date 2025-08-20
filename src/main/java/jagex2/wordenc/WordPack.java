@@ -5,9 +5,6 @@ import jagex2.io.Packet;
 
 public class WordPack {
 
-	@ObfuscatedName("QKAIVGGT.a")
-	public static int field1359 = 20411;
-
 	@ObfuscatedName("QKAIVGGT.b")
 	public static char[] field1360 = new char[100];
 
@@ -18,7 +15,7 @@ public class WordPack {
 	public static char[] field1362 = new char[] { ' ', 'e', 't', 'a', 'o', 'i', 'h', 'n', 's', 'r', 'd', 'l', 'u', 'm', 'w', 'c', 'y', 'f', 'g', 'p', 'b', 'v', 'k', 'x', 'j', 'q', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ' ', '!', '?', '.', ',', ':', ';', '(', ')', '-', '&', '*', '\\', '\'', '@', '#', '+', '=', '£', '$', '%', '"', '[', ']' };
 
 	@ObfuscatedName("QKAIVGGT.a(ILMFMVIYHT;I)Ljava/lang/String;")
-	public static String method453(int arg0, Packet arg1, int arg2) {
+	public static String method453(Packet arg1, int arg2) {
 		int var3 = 0;
 		int var4 = -1;
 		for (int var5 = 0; var5 < arg2; var5++) {
@@ -53,22 +50,15 @@ public class WordPack {
 				var6 = true;
 			}
 		}
-		if (arg0 != 0) {
-			field1359 = -409;
-		}
 		return new String(field1360, 0, var3);
 	}
 
 	@ObfuscatedName("QKAIVGGT.a(Ljava/lang/String;ILMFMVIYHT;)V")
-	public static void method454(String arg0, int arg1, Packet arg2) {
+	public static void method454(String arg0, Packet arg2) {
 		if (arg0.length() > 80) {
 			arg0 = arg0.substring(0, 80);
 		}
 		String var3 = arg0.toLowerCase();
-		if (arg1 <= 0) {
-			for (int var4 = 1; var4 > 0; var4++) {
-			}
-		}
 		int var5 = -1;
 		for (int var6 = 0; var6 < var3.length(); var6++) {
 			char var7 = var3.charAt(var6);
@@ -102,15 +92,11 @@ public class WordPack {
 	}
 
 	@ObfuscatedName("QKAIVGGT.a(BLjava/lang/String;)Ljava/lang/String;")
-	public static String method455(byte arg0, String arg1) {
+	public static String method455(String arg1) {
 		field1361.pos = 0;
-		method454(arg1, 569, field1361);
+		method454(arg1, field1361);
 		int var2 = field1361.pos;
-		if (arg0 != 0) {
-			for (int var3 = 1; var3 > 0; var3++) {
-			}
-		}
 		field1361.pos = 0;
-		return method453(0, field1361, var2);
+		return method453(field1361, var2);
 	}
 }

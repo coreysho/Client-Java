@@ -51,7 +51,7 @@ public class ClientLocAnim extends ModelSource {
 	public static Client field1337;
 
 	@ObfuscatedName("NRPYRAWK.a(I)LYMYTDPVW;")
-	public final LocType method440() {
+	public LocType method440() {
 		int var2 = -1;
 		if (this.field1339 != -1) {
 			VarbitType var3 = VarbitType.field1760[this.field1339];
@@ -90,7 +90,7 @@ public class ClientLocAnim extends ModelSource {
 	}
 
 	@ObfuscatedName("NRPYRAWK.a(B)LLZYQDKJV;")
-	public final Model method239() {
+	public Model method239() {
 		int var2 = -1;
 		if (this.field1338 != null) {
 			int var3 = Client.field621 - this.field1343;

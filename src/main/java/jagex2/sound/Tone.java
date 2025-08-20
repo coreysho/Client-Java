@@ -87,7 +87,7 @@ public class Tone {
 	public static int[] field665;
 
 	@ObfuscatedName("DXRZIVAQ.a()V")
-	public static final void method186() {
+	public static void method186() {
 		field664 = new int[32768];
 		for (int var0 = 0; var0 < 32768; var0++) {
 			if (Math.random() > 0.5D) {
@@ -104,7 +104,7 @@ public class Tone {
 	}
 
 	@ObfuscatedName("DXRZIVAQ.a(II)[I")
-	public final int[] method187(int arg0, int arg1) {
+	public int[] method187(int arg0, int arg1) {
 		for (int var3 = 0; var3 < arg0; var3++) {
 			field663[var3] = 0;
 		}
@@ -271,7 +271,7 @@ public class Tone {
 	}
 
 	@ObfuscatedName("DXRZIVAQ.a(IIII)I")
-	public final int method188(int arg0, int arg1, int arg2, int arg3) {
+	public int method188(int arg0, int arg1, int arg2, int arg3) {
 		while (arg0 >= 0) {
 			this.field645 = -409;
 		}
@@ -293,7 +293,7 @@ public class Tone {
 	}
 
 	@ObfuscatedName("DXRZIVAQ.a(BLMFMVIYHT;)V")
-	public final void method189(byte arg0, Packet arg1) {
+	public void method189(byte arg0, Packet arg1) {
 		this.field646 = new Envelope();
 		this.field646.method441(this.field644, arg1);
 		this.field647 = new Envelope();

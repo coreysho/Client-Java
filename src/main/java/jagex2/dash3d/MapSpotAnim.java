@@ -36,7 +36,7 @@ public class MapSpotAnim extends ModelSource {
 	public int field1529;
 
 	@ObfuscatedName("WHUAOHZM.a(BI)V")
-	public final void method486(byte arg0, int arg1) {
+	public void method486(byte arg0, int arg1) {
 		this.field1529 += arg1;
 		if (arg0 != 1) {
 			return;
@@ -72,7 +72,7 @@ public class MapSpotAnim extends ModelSource {
 	}
 
 	@ObfuscatedName("WHUAOHZM.a(B)LLZYQDKJV;")
-	public final Model method239() {
+	public Model method239() {
 		Model var2 = this.field1530.method439();
 		if (var2 == null) {
 			return null;

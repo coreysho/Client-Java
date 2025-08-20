@@ -14,7 +14,7 @@ public class ClientNpc extends ClientEntity {
 	public NpcType field1370;
 
 	@ObfuscatedName("RGHBDSIJ.b(B)LLZYQDKJV;")
-	public final Model method457(byte arg0) {
+	public Model method457(byte arg0) {
 		if (super.field1171 >= 0 && super.field1174 == 0) {
 			int var2 = SeqType.field775[super.field1171].field777[super.field1172];
 			int var3 = -1;
@@ -34,7 +34,7 @@ public class ClientNpc extends ClientEntity {
 	}
 
 	@ObfuscatedName("RGHBDSIJ.a(B)LLZYQDKJV;")
-	public final Model method239() {
+	public Model method239() {
 		boolean var2 = false;
 		if (this.field1370 == null) {
 			return null;
@@ -70,7 +70,7 @@ public class ClientNpc extends ClientEntity {
 	}
 
 	@ObfuscatedName("RGHBDSIJ.b(I)Z")
-	public final boolean method351() {
+	public boolean method351() {
 		return this.field1370 != null;
 	}
 }

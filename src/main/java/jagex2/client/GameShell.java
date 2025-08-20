@@ -119,7 +119,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	public Graphics field951;
 
 	@ObfuscatedName("JWWAIQPI.a(III)V")
-	public final void method266(int arg1, int arg2) {
+	public void method266(int arg1, int arg2) {
 		this.field949 = arg2;
 		this.field950 = arg1;
 		this.field954 = new ViewBox(this.field950, this, this.field949);
@@ -129,7 +129,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	}
 
 	@ObfuscatedName("JWWAIQPI.b(III)V")
-	public final void method267(int arg0, int arg1) {
+	public void method267(int arg0, int arg1) {
 		this.field949 = arg0;
 		this.field950 = arg1;
 		this.field951 = this.method164().getGraphics();
@@ -240,7 +240,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	}
 
 	@ObfuscatedName("JWWAIQPI.a(Z)V")
-	public final void method268() {
+	public void method268() {
 		this.field943 = -2;
 		this.method40();
 		if (this.field954 == null) {
@@ -257,23 +257,23 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	}
 
 	@ObfuscatedName("JWWAIQPI.a(BI)V")
-	public final void method269(int arg1) {
+	public void method269(int arg1) {
 		this.field944 = 1000 / arg1;
 	}
 
-	public final void start() {
+	public void start() {
 		if (this.field943 >= 0) {
 			this.field943 = 0;
 		}
 	}
 
-	public final void stop() {
+	public void stop() {
 		if (this.field943 >= 0) {
 			this.field943 = 4000 / this.field944;
 		}
 	}
 
-	public final void destroy() {
+	public void destroy() {
 		this.field943 = -1;
 		try {
 			Thread.sleep(10000L);
@@ -284,7 +284,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 		}
 	}
 
-	public final void update(Graphics arg0) {
+	public void update(Graphics arg0) {
 		if (this.field951 == null) {
 			this.field951 = arg0;
 		}
@@ -292,7 +292,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 		this.method82();
 	}
 
-	public final void paint(Graphics arg0) {
+	public void paint(Graphics arg0) {
 		if (this.field951 == null) {
 			this.field951 = arg0;
 		}
@@ -300,7 +300,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 		this.method82();
 	}
 
-	public final void mousePressed(MouseEvent arg0) {
+	public void mousePressed(MouseEvent arg0) {
 		int var2 = arg0.getX();
 		int var3 = arg0.getY();
 		if (this.field954 != null) {
@@ -332,24 +332,24 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 		}
 	}
 
-	public final void mouseReleased(MouseEvent arg0) {
+	public void mouseReleased(MouseEvent arg0) {
 		this.field957 = 0;
 		this.field958 = 0;
 	}
 
-	public final void mouseClicked(MouseEvent arg0) {
+	public void mouseClicked(MouseEvent arg0) {
 	}
 
-	public final void mouseEntered(MouseEvent arg0) {
+	public void mouseEntered(MouseEvent arg0) {
 	}
 
-	public final void mouseExited(MouseEvent arg0) {
+	public void mouseExited(MouseEvent arg0) {
 		this.field957 = 0;
 		this.field959 = -1;
 		this.field960 = -1;
 	}
 
-	public final void mouseDragged(MouseEvent arg0) {
+	public void mouseDragged(MouseEvent arg0) {
 		int var2 = arg0.getX();
 		int var3 = arg0.getY();
 		if (this.field954 != null) {
@@ -361,7 +361,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 		this.field960 = var3;
 	}
 
-	public final void mouseMoved(MouseEvent arg0) {
+	public void mouseMoved(MouseEvent arg0) {
 		int var2 = arg0.getX();
 		int var3 = arg0.getY();
 		if (this.field954 != null) {
@@ -373,7 +373,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 		this.field960 = var3;
 	}
 
-	public final void keyPressed(KeyEvent arg0) {
+	public void keyPressed(KeyEvent arg0) {
 		this.field957 = 0;
 		int var2 = arg0.getKeyCode();
 		int var3 = arg0.getKeyChar();
@@ -431,7 +431,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 		}
 	}
 
-	public final void keyReleased(KeyEvent arg0) {
+	public void keyReleased(KeyEvent arg0) {
 		this.field957 = 0;
 		int var2 = arg0.getKeyCode();
 		char var3 = arg0.getKeyChar();
@@ -470,11 +470,11 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 		}
 	}
 
-	public final void keyTyped(KeyEvent arg0) {
+	public void keyTyped(KeyEvent arg0) {
 	}
 
 	@ObfuscatedName("JWWAIQPI.a(I)I")
-	public final int method270() {
+	public int method270() {
 		int var2 = -1;
 		if (this.field972 != this.field971) {
 			var2 = this.field970[this.field971];
@@ -483,39 +483,39 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 		return var2;
 	}
 
-	public final void focusGained(FocusEvent arg0) {
+	public void focusGained(FocusEvent arg0) {
 		this.field956 = true;
 		this.field955 = true;
 		this.method82();
 	}
 
-	public final void focusLost(FocusEvent arg0) {
+	public void focusLost(FocusEvent arg0) {
 		this.field956 = false;
 		for (int var2 = 0; var2 < 128; var2++) {
 			this.field969[var2] = 0;
 		}
 	}
 
-	public final void windowActivated(WindowEvent arg0) {
+	public void windowActivated(WindowEvent arg0) {
 	}
 
-	public final void windowClosed(WindowEvent arg0) {
+	public void windowClosed(WindowEvent arg0) {
 	}
 
-	public final void windowClosing(WindowEvent arg0) {
+	public void windowClosing(WindowEvent arg0) {
 		this.destroy();
 	}
 
-	public final void windowDeactivated(WindowEvent arg0) {
+	public void windowDeactivated(WindowEvent arg0) {
 	}
 
-	public final void windowDeiconified(WindowEvent arg0) {
+	public void windowDeiconified(WindowEvent arg0) {
 	}
 
-	public final void windowIconified(WindowEvent arg0) {
+	public void windowIconified(WindowEvent arg0) {
 	}
 
-	public final void windowOpened(WindowEvent arg0) {
+	public void windowOpened(WindowEvent arg0) {
 	}
 
 	@ObfuscatedName("JWWAIQPI.a()V")

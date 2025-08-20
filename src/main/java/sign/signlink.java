@@ -78,7 +78,7 @@ public class signlink implements Runnable {
 
 	public static boolean waveplay;
 
-	public static final void startpriv(InetAddress arg0) {
+	public static void startpriv(InetAddress arg0) {
 		threadliveid = (int) (Math.random() * 9.9999999E7D);
 		if (active) {
 			try {
@@ -104,7 +104,7 @@ public class signlink implements Runnable {
 		}
 	}
 
-	public final void run() {
+	public void run() {
 		active = true;
 		String var1 = findcachedir();
 		uid = getuid(var1);
@@ -175,7 +175,7 @@ public class signlink implements Runnable {
 		}
 	}
 
-	public static final String findcachedir() {
+	public static String findcachedir() {
 		String[] var0 = new String[] { "c:/windows/", "c:/winnt/", "d:/windows/", "d:/winnt/", "e:/windows/", "e:/winnt/", "f:/windows/", "f:/winnt/", "c:/", "~/", "/tmp/", "", "c:/rscache", "/rscache" };
 		if (storeid < 32 || storeid > 34) {
 			storeid = 32;
@@ -200,7 +200,7 @@ public class signlink implements Runnable {
 		return null;
 	}
 
-	public static final int getuid(String arg0) {
+	public static int getuid(String arg0) {
 		try {
 			File var1 = new File(arg0 + "uid.dat");
 			if (!var1.exists() || var1.length() < 4L) {
@@ -220,7 +220,7 @@ public class signlink implements Runnable {
 		}
 	}
 
-	public static final synchronized Socket opensocket(int arg0) throws IOException {
+	public static synchronized Socket opensocket(int arg0) throws IOException {
 		socketreq = arg0;
 		while (socketreq != 0) {
 			try {
@@ -234,7 +234,7 @@ public class signlink implements Runnable {
 		return socket;
 	}
 
-	public static final synchronized DataInputStream openurl(String arg0) throws IOException {
+	public static synchronized DataInputStream openurl(String arg0) throws IOException {
 		urlreq = arg0;
 		while (urlreq != null) {
 			try {
@@ -248,17 +248,17 @@ public class signlink implements Runnable {
 		return urlstream;
 	}
 
-	public static final synchronized void dnslookup(String arg0) {
+	public static synchronized void dnslookup(String arg0) {
 		dns = arg0;
 		dnsreq = arg0;
 	}
 
-	public static final synchronized void startthread(Runnable arg0, int arg1) {
+	public static synchronized void startthread(Runnable arg0, int arg1) {
 		threadreqpri = arg1;
 		threadreq = arg0;
 	}
 
-	public static final synchronized boolean wavesave(byte[] arg0, int arg1) {
+	public static synchronized boolean wavesave(byte[] arg0, int arg1) {
 		if (arg1 > 2000000) {
 			return false;
 		} else if (savereq == null) {
@@ -273,7 +273,7 @@ public class signlink implements Runnable {
 		}
 	}
 
-	public static final synchronized boolean wavereplay() {
+	public static synchronized boolean wavereplay() {
 		if (savereq == null) {
 			savebuf = null;
 			waveplay = true;
@@ -284,7 +284,7 @@ public class signlink implements Runnable {
 		}
 	}
 
-	public static final synchronized void midisave(byte[] arg0, int arg1) {
+	public static synchronized void midisave(byte[] arg0, int arg1) {
 		if (arg1 > 2000000 || savereq != null) {
 			return;
 		}
@@ -295,7 +295,7 @@ public class signlink implements Runnable {
 		savereq = "jingle" + midipos + ".mid";
 	}
 
-	public static final void reporterror(String arg0) {
+	public static void reporterror(String arg0) {
 		if (!reporterror || !active) {
 			return;
 		}

@@ -133,7 +133,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 	public int[] field1753;
 
 	@ObfuscatedName("ZPGPWCCV.a(Z)V")
-	public final void method581() {
+	public void method581() {
 		try {
 			int var2 = this.field1747.available();
 			if (this.field1739 == 0 && var2 >= 6) {
@@ -224,17 +224,17 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 	}
 
 	@ObfuscatedName("ZPGPWCCV.a(II)I")
-	public final int method582(int arg0) {
+	public int method582(int arg0) {
 		return this.field1712[arg0] & 0xFF;
 	}
 
 	@ObfuscatedName("ZPGPWCCV.a(I)V")
-	public final void method456(int arg0) {
+	public void method456(int arg0) {
 		this.method586(0, arg0);
 	}
 
 	@ObfuscatedName("ZPGPWCCV.b(I)V")
-	public final void method583() {
+	public void method583() {
 		while (this.field1719 == 0) {
 			if (this.field1720 >= 10 || this.field1718 == 0) {
 				return;
@@ -293,7 +293,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 	}
 
 	@ObfuscatedName("ZPGPWCCV.a(IIBI)V")
-	public final void method584(int arg1, byte arg2, int arg3) {
+	public void method584(int arg1, byte arg2, int arg3) {
 		if (this.field1750.field524[0] == null || this.field1754[arg1][arg3] == 0) {
 			return;
 		}
@@ -309,12 +309,12 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 	}
 
 	@ObfuscatedName("ZPGPWCCV.a(IZ)Z")
-	public final boolean method585(int arg0) {
+	public boolean method585(int arg0) {
 		return this.field1743[arg0] == 1;
 	}
 
 	@ObfuscatedName("ZPGPWCCV.b(II)V")
-	public final void method586(int arg0, int arg1) {
+	public void method586(int arg0, int arg1) {
 		if (arg0 < 0 || arg0 > this.field1754.length || arg1 < 0 || arg1 > this.field1754[arg0].length || this.field1754[arg0][arg1] == 0) {
 			return;
 		}
@@ -338,7 +338,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 	}
 
 	@ObfuscatedName("ZPGPWCCV.a()LQSLIGKQQ;")
-	public final OnDemandRequest method587() {
+	public OnDemandRequest method587() {
 		LinkList var1 = this.field1734;
 		OnDemandRequest var2;
 		synchronized (this.field1734) {
@@ -377,7 +377,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 		return var2;
 	}
 
-	public final void run() {
+	public void run() {
 		try {
 			while (this.field1716) {
 				this.field1725++;
@@ -461,7 +461,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 	}
 
 	@ObfuscatedName("ZPGPWCCV.c(I)V")
-	public final void method588() {
+	public void method588() {
 		this.field1719 = 0;
 		this.field1720 = 0;
 		for (OnDemandRequest var2 = (OnDemandRequest) this.field1751.method6(); var2 != null; var2 = (OnDemandRequest) this.field1751.method8()) {
@@ -488,7 +488,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 	}
 
 	@ObfuscatedName("ZPGPWCCV.a(ZB)V")
-	public final void method589(boolean arg0) {
+	public void method589(boolean arg0) {
 		int var3 = this.field1723.length;
 		for (int var4 = 0; var4 < var3; var4++) {
 			if (arg0 || this.field1713[var4] != 0) {
@@ -499,7 +499,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 	}
 
 	@ObfuscatedName("ZPGPWCCV.b()I")
-	public final int method590() {
+	public int method590() {
 		DoublyLinkList var1 = this.field1746;
 		synchronized (this.field1746) {
 			return this.field1746.method184();
@@ -507,7 +507,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 	}
 
 	@ObfuscatedName("ZPGPWCCV.b(IZ)Z")
-	public final boolean method591(int arg0) {
+	public boolean method591(int arg0) {
 		for (int var3 = 0; var3 < this.field1723.length; var3++) {
 			if (this.field1742[var3] == arg0) {
 				return true;
@@ -517,7 +517,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 	}
 
 	@ObfuscatedName("ZPGPWCCV.a(LATJMVOZR;Lclient;)V")
-	public final void method592(Jagfile arg0, Client arg1) {
+	public void method592(Jagfile arg0, Client arg1) {
 		String[] var3 = new String[] { "model_version", "anim_version", "midi_version", "map_version" };
 		for (int var4 = 0; var4 < 4; var4++) {
 			byte[] var26 = arg0.method2(var3[var4], null);
@@ -582,7 +582,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 	}
 
 	@ObfuscatedName("ZPGPWCCV.a(B)V")
-	public final void method593() {
+	public void method593() {
 		LinkList var2 = this.field1735;
 		synchronized (this.field1735) {
 			this.field1735.method10();
@@ -590,7 +590,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 	}
 
 	@ObfuscatedName("ZPGPWCCV.a(IIB)V")
-	public final void method594(int arg0, int arg1) {
+	public void method594(int arg0, int arg1) {
 		if (this.field1750.field524[0] == null || (this.field1754[arg1][arg0] == 0 || (this.field1714[arg1][arg0] == 0 || this.field1718 == 0))) {
 			return;
 		}
@@ -605,7 +605,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 	}
 
 	@ObfuscatedName("ZPGPWCCV.b(Z)V")
-	public final void method595() {
+	public void method595() {
 		LinkList var2 = this.field1717;
 		OnDemandRequest var3;
 		synchronized (this.field1717) {
@@ -637,17 +637,17 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 	}
 
 	@ObfuscatedName("ZPGPWCCV.c()V")
-	public final void method596() {
+	public void method596() {
 		this.field1716 = false;
 	}
 
 	@ObfuscatedName("ZPGPWCCV.c(II)I")
-	public final int method597(int arg0) {
+	public int method597(int arg0) {
 		return this.field1754[arg0].length;
 	}
 
 	@ObfuscatedName("ZPGPWCCV.a([BIII)Z")
-	public final boolean method598(byte[] arg0, int arg2, int arg3) {
+	public boolean method598(byte[] arg0, int arg2, int arg3) {
 		if (arg0 == null || arg0.length < 2) {
 			return false;
 		}
@@ -664,7 +664,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 	}
 
 	@ObfuscatedName("ZPGPWCCV.a(ILQSLIGKQQ;)V")
-	public final void method599(OnDemandRequest arg1) {
+	public void method599(OnDemandRequest arg1) {
 		try {
 			if (this.field1732 == null) {
 				long var3 = System.currentTimeMillis();
@@ -708,12 +708,12 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 	}
 
 	@ObfuscatedName("ZPGPWCCV.d(I)I")
-	public final int method600() {
+	public int method600() {
 		return this.field1753.length;
 	}
 
 	@ObfuscatedName("ZPGPWCCV.a(IIII)I")
-	public final int method601(int arg1, int arg2, int arg3) {
+	public int method601(int arg1, int arg2, int arg3) {
 		int var5 = (arg1 << 8) + arg2;
 		for (int var6 = 0; var6 < this.field1723.length; var6++) {
 			if (this.field1723[var6] == var5) {

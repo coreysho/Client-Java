@@ -171,7 +171,7 @@ public abstract class ClientEntity extends ModelSource {
 	public String field1127;
 
 	@ObfuscatedName("LRUWCBNN.a(I)V")
-	public final void method350() {
+	public void method350() {
 		this.field1180 = 0;
 		this.field1160 = 0;
 	}
@@ -182,7 +182,7 @@ public abstract class ClientEntity extends ModelSource {
 	}
 
 	@ObfuscatedName("LRUWCBNN.a(ZII)V")
-	public final void method352(boolean arg0, int arg1) {
+	public void method352(boolean arg0, int arg1) {
 		int var4 = this.field1133[0];
 		int var5 = this.field1134[0];
 		if (arg1 == 0) {
@@ -230,7 +230,7 @@ public abstract class ClientEntity extends ModelSource {
 	}
 
 	@ObfuscatedName("LRUWCBNN.a(IZII)V")
-	public final void method353(int arg0, int arg2, int arg3) {
+	public void method353(int arg0, int arg2, int arg3) {
 		for (int var5 = 0; var5 < 4; var5++) {
 			if (this.field1179[var5] <= arg0) {
 				this.field1177[var5] = arg2;
@@ -242,7 +242,7 @@ public abstract class ClientEntity extends ModelSource {
 	}
 
 	@ObfuscatedName("LRUWCBNN.a(IBZI)V")
-	public final void method354(int arg0, boolean arg2, int arg3) {
+	public void method354(int arg0, boolean arg2, int arg3) {
 		if (this.field1171 != -1 && SeqType.field775[this.field1171].field788 == 1) {
 			this.field1171 = -1;
 		}

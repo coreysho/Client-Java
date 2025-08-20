@@ -45,7 +45,7 @@ public class Wave {
 	}
 
 	@ObfuscatedName("UDNCEGOL.a(LMFMVIYHT;I)V")
-	public static final void method478(Packet arg0, int arg1) {
+	public static void method478(Packet arg0, int arg1) {
 		if (arg1 != 36135) {
 			return;
 		}
@@ -64,7 +64,7 @@ public class Wave {
 	}
 
 	@ObfuscatedName("UDNCEGOL.a(IBI)LMFMVIYHT;")
-	public static final Packet method479(int arg0, byte arg1, int arg2) {
+	public static Packet method479(int arg0, byte arg1, int arg2) {
 		if (arg1 != 6) {
 			field1470 = !field1470;
 		}
@@ -77,7 +77,7 @@ public class Wave {
 	}
 
 	@ObfuscatedName("UDNCEGOL.a(BLMFMVIYHT;)V")
-	public final void method480(byte arg0, Packet arg1) {
+	public void method480(byte arg0, Packet arg1) {
 		for (int var3 = 0; var3 < 10; var3++) {
 			int var5 = arg1.g1();
 			if (var5 != 0) {
@@ -96,7 +96,7 @@ public class Wave {
 	}
 
 	@ObfuscatedName("UDNCEGOL.a(I)I")
-	public final int method481(int arg0) {
+	public int method481(int arg0) {
 		int var2 = 9999999;
 		for (int var3 = 0; var3 < 10; var3++) {
 			if (this.field1475[var3] != null && this.field1475[var3].field662 / 20 < var2) {
@@ -125,7 +125,7 @@ public class Wave {
 	}
 
 	@ObfuscatedName("UDNCEGOL.a(II)LMFMVIYHT;")
-	public final Packet method482(int arg0, int arg1) {
+	public Packet method482(int arg0, int arg1) {
 		int var3 = this.method483(arg1);
 		field1474.pos = 0;
 		field1474.p4(1380533830);
@@ -149,7 +149,7 @@ public class Wave {
 	}
 
 	@ObfuscatedName("UDNCEGOL.b(I)I")
-	public final int method483(int arg0) {
+	public int method483(int arg0) {
 		int var2 = 0;
 		for (int var3 = 0; var3 < 10; var3++) {
 			if (this.field1475[var3] != null && this.field1475[var3].field662 + this.field1475[var3].field661 > var2) {

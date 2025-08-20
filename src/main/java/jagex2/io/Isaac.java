@@ -30,7 +30,7 @@ public class Isaac {
 	}
 
 	@ObfuscatedName("KRGHNEZN.a()I")
-	public final int method329() {
+	public int method329() {
 		if (this.field1084-- == 0) {
 			this.method330();
 			this.field1084 = 255;
@@ -39,7 +39,7 @@ public class Isaac {
 	}
 
 	@ObfuscatedName("KRGHNEZN.b()V")
-	public final void method330() {
+	public void method330() {
 		this.field1088 += ++this.field1089;
 		for (int var1 = 0; var1 < 256; var1++) {
 			int var2 = this.field1086[var1];
@@ -60,7 +60,7 @@ public class Isaac {
 	}
 
 	@ObfuscatedName("KRGHNEZN.c()V")
-	public final void method331() {
+	public void method331() {
 		int var1 = -1640531527;
 		int var2 = -1640531527;
 		int var3 = -1640531527;

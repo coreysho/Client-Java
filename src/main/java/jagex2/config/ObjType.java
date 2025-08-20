@@ -156,7 +156,7 @@ public class ObjType {
 	public String[] field830;
 
 	@ObfuscatedName("GSCQQEUA.a(II)Z")
-	public final boolean method220(int arg0) {
+	public boolean method220(int arg0) {
 		int var3 = this.field816;
 		int var4 = this.field843;
 		if (arg0 == 1) {
@@ -177,7 +177,7 @@ public class ObjType {
 	}
 
 	@ObfuscatedName("GSCQQEUA.a(I)LGSCQQEUA;")
-	public static final ObjType method221(int arg0) {
+	public static ObjType method221(int arg0) {
 		for (int var1 = 0; var1 < 10; var1++) {
 			if (field818[var1].field845 == arg0) {
 				return field818[var1];
@@ -203,7 +203,7 @@ public class ObjType {
 	}
 
 	@ObfuscatedName("GSCQQEUA.a(BI)LLZYQDKJV;")
-	public final Model method222(int arg1) {
+	public Model method222(int arg1) {
 		int var3 = this.field835;
 		int var4 = this.field813;
 		int var5 = this.field852;
@@ -243,7 +243,7 @@ public class ObjType {
 	}
 
 	@ObfuscatedName("GSCQQEUA.a(LATJMVOZR;)V")
-	public static final void method223(Jagfile arg0) {
+	public static void method223(Jagfile arg0) {
 		field855 = new Packet(arg0.method2("obj.dat", null));
 		Packet var1 = new Packet(arg0.method2("obj.idx", null));
 		field817 = var1.g2();
@@ -285,7 +285,7 @@ public class ObjType {
 	}
 
 	@ObfuscatedName("GSCQQEUA.b(II)Z")
-	public final boolean method225(int arg1) {
+	public boolean method225(int arg1) {
 		int var3 = this.field835;
 		int var4 = this.field813;
 		int var5 = this.field852;
@@ -311,7 +311,7 @@ public class ObjType {
 	}
 
 	@ObfuscatedName("GSCQQEUA.c(II)LLZYQDKJV;")
-	public final Model method226(int arg1) {
+	public Model method226(int arg1) {
 		if (this.field847 != null && arg1 > 1) {
 			int var3 = -1;
 			for (int var4 = 0; var4 < 10; var4++) {
@@ -336,7 +336,7 @@ public class ObjType {
 	}
 
 	@ObfuscatedName("GSCQQEUA.a(BLMFMVIYHT;)V")
-	public final void method227(Packet arg1) {
+	public void method227(Packet arg1) {
 		while (true) {
 			int var3 = arg1.g1();
 			if (var3 == 0) {
@@ -445,7 +445,7 @@ public class ObjType {
 	}
 
 	@ObfuscatedName("GSCQQEUA.a(ZI)LLZYQDKJV;")
-	public final Model method228(int arg1) {
+	public Model method228(int arg1) {
 		int var3 = this.field816;
 		int var4 = this.field843;
 		if (arg1 == 1) {
@@ -470,7 +470,7 @@ public class ObjType {
 	}
 
 	@ObfuscatedName("GSCQQEUA.c(I)LLZYQDKJV;")
-	public final Model method229(int arg0) {
+	public Model method229(int arg0) {
 		if (this.field847 != null && arg0 > 1) {
 			int var2 = -1;
 			for (int var3 = 0; var3 < 10; var3++) {
@@ -505,7 +505,7 @@ public class ObjType {
 	}
 
 	@ObfuscatedName("GSCQQEUA.a(BIII)LEPQDEJTO;")
-	public static final Pix32 method230(int arg1, int arg2, int arg3) {
+	public static Pix32 method230(int arg1, int arg2, int arg3) {
 		if (arg1 == 0) {
 			Pix32 var4 = (Pix32) field828.method458((long) arg3);
 			if (var4 != null && var4.field691 != arg2 && var4.field691 != -1) {
@@ -635,7 +635,7 @@ public class ObjType {
 	}
 
 	@ObfuscatedName("GSCQQEUA.a(Z)V")
-	public static final void method231() {
+	public static void method231() {
 		field819 = null;
 		field828 = null;
 		field824 = null;
@@ -644,7 +644,7 @@ public class ObjType {
 	}
 
 	@ObfuscatedName("GSCQQEUA.a()V")
-	public final void method232() {
+	public void method232() {
 		this.field842 = 0;
 		this.field811 = null;
 		this.field810 = null;

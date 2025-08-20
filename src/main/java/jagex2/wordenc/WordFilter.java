@@ -1,53 +1,13 @@
 package jagex2.wordenc;
 
 import deob.ObfuscatedName;
-import jagex2.datastruct.Linkable;
 import jagex2.io.Jagfile;
 import jagex2.io.Packet;
 
 public class WordFilter {
 
-	@ObfuscatedName("WXKKTWFB.a")
-	public static int field1556 = 3;
-
-	@ObfuscatedName("WXKKTWFB.c")
-	public static int field1558 = -761;
-
-	@ObfuscatedName("WXKKTWFB.f")
-	public static int field1561 = -48545;
-
-	@ObfuscatedName("WXKKTWFB.h")
-	public static byte field1563 = -113;
-
-	@ObfuscatedName("WXKKTWFB.i")
-	public static int field1564 = 3;
-
-	@ObfuscatedName("WXKKTWFB.j")
-	public static int field1565 = -939;
-
-	@ObfuscatedName("WXKKTWFB.l")
-	public static boolean field1567 = true;
-
 	@ObfuscatedName("WXKKTWFB.s")
 	public static final String[] field1574 = new String[] { "cook", "cook's", "cooks", "seeks", "sheet", "woop", "woops", "faq", "noob", "noobs" };
-
-	@ObfuscatedName("WXKKTWFB.b")
-	public static int field1557;
-
-	@ObfuscatedName("WXKKTWFB.g")
-	public static int field1562;
-
-	@ObfuscatedName("WXKKTWFB.d")
-	public static boolean field1559;
-
-	@ObfuscatedName("WXKKTWFB.e")
-	public static boolean field1560;
-
-	@ObfuscatedName("WXKKTWFB.k")
-	public static boolean field1566;
-
-	@ObfuscatedName("WXKKTWFB.t")
-	public static boolean field1575;
 
 	@ObfuscatedName("WXKKTWFB.m")
 	public static int[] field1568;
@@ -68,7 +28,7 @@ public class WordFilter {
 	public static byte[][][] field1570;
 
 	@ObfuscatedName("WXKKTWFB.a(LATJMVOZR;)V")
-	public static final void method494(Jagfile arg0) {
+	public static void method494(Jagfile arg0) {
 		Packet var1 = new Packet(arg0.method2("fragmentsenc.txt", null));
 		Packet var2 = new Packet(arg0.method2("badenc.txt", null));
 		Packet var3 = new Packet(arg0.method2("domainenc.txt", null));
@@ -77,15 +37,15 @@ public class WordFilter {
 	}
 
 	@ObfuscatedName("WXKKTWFB.a(LMFMVIYHT;LMFMVIYHT;LMFMVIYHT;LMFMVIYHT;)V")
-	public static final void method495(Packet arg0, Packet arg1, Packet arg2, Packet arg3) {
-		method497(true, arg1);
-		method498(20529, arg2);
-		method499(arg0, 21901);
-		method496(arg3, -7305);
+	public static void method495(Packet arg0, Packet arg1, Packet arg2, Packet arg3) {
+		method497(arg1);
+		method498(arg2);
+		method499(arg0);
+		method496(arg3);
 	}
 
 	@ObfuscatedName("WXKKTWFB.a(LMFMVIYHT;I)V")
-	public static final void method496(Packet arg0, int arg1) {
+	public static void method496(Packet arg0) {
 		int var2 = arg0.g4();
 		field1572 = new char[var2][];
 		field1573 = new int[var2];
@@ -97,43 +57,33 @@ public class WordFilter {
 			}
 			field1572[var3] = var4;
 		}
-		if (arg1 != -7305) {
-			field1560 = !field1560;
-		}
 	}
 
 	@ObfuscatedName("WXKKTWFB.a(ZLMFMVIYHT;)V")
-	public static final void method497(boolean arg0, Packet arg1) {
-		if (arg0) {
-			int var2 = arg1.g4();
-			field1569 = new char[var2][];
-			field1570 = new byte[var2][][];
-			method500(34541, arg1, field1569, field1570);
-		}
+	public static void method497(Packet arg1) {
+		int var2 = arg1.g4();
+		field1569 = new char[var2][];
+		field1570 = new byte[var2][][];
+		method500(arg1, field1569, field1570);
 	}
 
 	@ObfuscatedName("WXKKTWFB.a(ILMFMVIYHT;)V")
-	public static final void method498(int arg0, Packet arg1) {
+	public static void method498(Packet arg1) {
 		int var2 = arg1.g4();
 		field1571 = new char[var2][];
-		method501(arg1, field1571, -37125);
-		if (arg0 != 20529) {
-			field1557 = 311;
-		}
+		method501(arg1, field1571);
 	}
 
 	@ObfuscatedName("WXKKTWFB.b(LMFMVIYHT;I)V")
-	public static final void method499(Packet arg0, int arg1) {
-		if (arg1 == 21901) {
-			field1568 = new int[arg0.g4()];
-			for (int var2 = 0; var2 < field1568.length; var2++) {
-				field1568[var2] = arg0.g2();
-			}
+	public static void method499(Packet arg0) {
+		field1568 = new int[arg0.g4()];
+		for (int var2 = 0; var2 < field1568.length; var2++) {
+			field1568[var2] = arg0.g2();
 		}
 	}
 
 	@ObfuscatedName("WXKKTWFB.a(ILMFMVIYHT;[[C[[[B)V")
-	public static final void method500(int arg0, Packet arg1, char[][] arg2, byte[][][] arg3) {
+	public static void method500(Packet arg1, char[][] arg2, byte[][][] arg3) {
 		for (int var4 = 0; var4 < arg2.length; var4++) {
 			char[] var5 = new char[arg1.g1()];
 			for (int var6 = 0; var6 < var5.length; var6++) {
@@ -149,16 +99,10 @@ public class WordFilter {
 				arg3[var4] = var7;
 			}
 		}
-		if (arg0 == 34541) {
-			;
-		}
 	}
 
 	@ObfuscatedName("WXKKTWFB.a(LMFMVIYHT;[[CI)V")
-	public static final void method501(Packet arg0, char[][] arg1, int arg2) {
-		if (arg2 != -37125) {
-			field1556 = 218;
-		}
+	public static void method501(Packet arg0, char[][] arg1) {
 		for (int var3 = 0; var3 < arg1.length; var3++) {
 			char[] var4 = new char[arg0.g1()];
 			for (int var5 = 0; var5 < var4.length; var5++) {
@@ -169,10 +113,10 @@ public class WordFilter {
 	}
 
 	@ObfuscatedName("WXKKTWFB.a([CB)V")
-	public static final void method502(char[] arg0, byte arg1) {
+	public static void method502(char[] arg0) {
 		int var2 = 0;
 		for (int var3 = 0; var3 < arg0.length; var3++) {
-			if (method503(arg0[var3], 0)) {
+			if (method503(arg0[var3])) {
 				arg0[var2] = arg0[var3];
 			} else {
 				arg0[var2] = ' ';
@@ -184,33 +128,24 @@ public class WordFilter {
 		for (int var4 = var2; var4 < arg0.length; var4++) {
 			arg0[var4] = ' ';
 		}
-		if (arg1 == 6) {
-			;
-		}
 	}
 
 	@ObfuscatedName("WXKKTWFB.a(CI)Z")
-	public static final boolean method503(char arg0, int arg1) {
-		if (arg1 != 0) {
-			throw new NullPointerException();
-		}
+	public static boolean method503(char arg0) {
 		return arg0 >= ' ' && arg0 <= 127 || arg0 == ' ' || arg0 == '\n' || arg0 == '\t' || arg0 == 163 || arg0 == 8364;
 	}
 
 	@ObfuscatedName("WXKKTWFB.a(BLjava/lang/String;)Ljava/lang/String;")
-	public static final String method504(byte arg0, String arg1) {
+	public static String method504(String arg1) {
 		long var2 = System.currentTimeMillis();
 		char[] var4 = arg1.toCharArray();
-		method502(var4, (byte) 6);
+		method502(var4);
 		String var5 = (new String(var4)).trim();
 		char[] var6 = var5.toLowerCase().toCharArray();
 		String var7 = var5.toLowerCase();
-		method512(var6, 0);
-		method507(var6, field1561);
-		method508(3, var6);
-		if (arg0 != 0) {
-			throw new NullPointerException();
-		}
+		method512(var6);
+		method507(var6);
+		method508(var6);
 		method521(3, var6);
 		for (int var8 = 0; var8 < field1574.length; var8++) {
 			int var11 = -1;
@@ -221,75 +156,63 @@ public class WordFilter {
 				}
 			}
 		}
-		method505(0, var6, var5.toCharArray());
-		method506(1, var6);
+		method505(var6, var5.toCharArray());
+		method506(var6);
 		long var9 = System.currentTimeMillis();
 		return (new String(var6)).trim();
 	}
 
 	@ObfuscatedName("WXKKTWFB.a(I[C[C)V")
-	public static final void method505(int arg0, char[] arg1, char[] arg2) {
+	public static void method505(char[] arg1, char[] arg2) {
 		for (int var3 = 0; var3 < arg2.length; var3++) {
-			if (arg1[var3] != '*' && method529(-217, arg2[var3])) {
+			if (arg1[var3] != '*' && method529(arg2[var3])) {
 				arg1[var3] = arg2[var3];
 			}
-		}
-		if (arg0 != 0) {
-			field1556 = 271;
 		}
 	}
 
 	@ObfuscatedName("WXKKTWFB.a(I[C)V")
-	public static final void method506(int arg0, char[] arg1) {
+	public static void method506(char[] arg1) {
 		boolean var2 = true;
 		for (int var3 = 0; var3 < arg1.length; var3++) {
 			char var4 = arg1[var3];
-			if (!method526(true, var4)) {
+			if (!method526(var4)) {
 				var2 = true;
 			} else if (var2) {
-				if (method528(var4, field1566)) {
+				if (method528(var4)) {
 					var2 = false;
 				}
-			} else if (method529(-217, var4)) {
+			} else if (method529(var4)) {
 				arg1[var3] = (char) (var4 + 'a' - 65);
 			}
-		}
-		if (arg0 == 1) {
-			;
 		}
 	}
 
 	@ObfuscatedName("WXKKTWFB.a([CI)V")
-	public static final void method507(char[] arg0, int arg1) {
+	public static void method507(char[] arg0) {
 		for (int var2 = 0; var2 < 2; var2++) {
 			for (int var3 = field1569.length - 1; var3 >= 0; var3--) {
-				method516(field1570[var3], -939, field1569[var3], arg0);
+				method516(field1570[var3], field1569[var3], arg0);
 			}
-		}
-		if (arg1 != -48545) {
-			field1559 = !field1559;
 		}
 	}
 
 	@ObfuscatedName("WXKKTWFB.b(I[C)V")
-	public static final void method508(int arg0, char[] arg1) {
+	public static void method508(char[] arg1) {
 		char[] var2 = (char[]) arg1.clone();
 		char[] var3 = new char[] { '(', 'a', ')' };
-		method516(null, -939, var3, var2);
-		if (arg0 < 3 || arg0 > 3) {
-			field1556 = 382;
-		}
+		method516(null, var3, var2);
 		char[] var4 = (char[]) arg1.clone();
 		char[] var5 = new char[] { 'd', 'o', 't' };
-		method516(null, -939, var5, var4);
+		method516(null, var5, var4);
 		for (int var6 = field1571.length - 1; var6 >= 0; var6--) {
-			method509(arg1, var4, var2, -65, field1571[var6]);
+			method509(arg1, var4, var2, field1571[var6]);
 		}
 	}
 
 	@ObfuscatedName("WXKKTWFB.a([C[C[CI[C)V")
-	public static final void method509(char[] arg0, char[] arg1, char[] arg2, int arg3, char[] arg4) {
-		if (arg3 >= 0 || arg4.length > arg0.length) {
+	public static void method509(char[] arg0, char[] arg1, char[] arg2, char[] arg4) {
+		if (arg4.length > arg0.length) {
 			return;
 		}
 		boolean var5 = true;
@@ -310,7 +233,7 @@ public class WordFilter {
 						var12 = arg0[var7 + 1];
 					}
 					int var13;
-					if (var8 < arg4.length && (var13 = method518(var11, 0, arg4[var8], var12)) > 0) {
+					if (var8 < arg4.length && (var13 = method518(var11, arg4[var8], var12)) > 0) {
 						var7 += var13;
 						var8++;
 					} else {
@@ -318,13 +241,13 @@ public class WordFilter {
 							break label61;
 						}
 						int var14;
-						if ((var14 = method518(var11, 0, arg4[var8 - 1], var12)) > 0) {
+						if ((var14 = method518(var11, arg4[var8 - 1], var12)) > 0) {
 							var7 += var14;
 							if (var8 == 1) {
 								var9++;
 							}
 						} else {
-							if (var8 >= arg4.length || !method524(var11, false)) {
+							if (var8 >= arg4.length || !method524(var11)) {
 								break label61;
 							}
 							var7++;
@@ -334,8 +257,8 @@ public class WordFilter {
 			}
 			if (var8 >= arg4.length) {
 				boolean var15 = false;
-				int var16 = method510(arg0, arg2, (byte) -72, var6);
-				int var17 = method511(arg1, 0, var7 - 1, arg0);
+				int var16 = method510(arg0, arg2, var6);
+				int var17 = method511(arg1, var7 - 1, arg0);
 				if (var16 > 2 || var17 > 2) {
 					var15 = true;
 				}
@@ -349,26 +272,24 @@ public class WordFilter {
 	}
 
 	@ObfuscatedName("WXKKTWFB.a([C[CBI)I")
-	public static final int method510(char[] arg0, char[] arg1, byte arg2, int arg3) {
+	public static int method510(char[] arg0, char[] arg1, int arg3) {
 		if (arg3 == 0) {
 			return 2;
 		}
-		for (int var4 = arg3 - 1; var4 >= 0 && method524(arg0[var4], false); var4--) {
+		for (int var4 = arg3 - 1; var4 >= 0 && method524(arg0[var4]); var4--) {
 			if (arg0[var4] == '@') {
 				return 3;
 			}
 		}
 		int var5 = 0;
-		for (int var6 = arg3 - 1; var6 >= 0 && method524(arg1[var6], false); var6--) {
+		for (int var6 = arg3 - 1; var6 >= 0 && method524(arg1[var6]); var6--) {
 			if (arg1[var6] == '*') {
 				var5++;
 			}
 		}
-		if (arg2 != -72) {
-			return 3;
-		} else if (var5 >= 3) {
+		if (var5 >= 3) {
 			return 4;
-		} else if (method524(arg0[arg3 - 1], false)) {
+		} else if (method524(arg0[arg3 - 1])) {
 			return 1;
 		} else {
 			return 0;
@@ -376,13 +297,13 @@ public class WordFilter {
 	}
 
 	@ObfuscatedName("WXKKTWFB.a([CII[C)I")
-	public static final int method511(char[] arg0, int arg1, int arg2, char[] arg3) {
+	public static int method511(char[] arg0, int arg2, char[] arg3) {
 		if (arg2 + 1 == arg3.length) {
 			return 2;
 		}
 		int var4 = arg2 + 1;
 		while (true) {
-			if (var4 < arg3.length && method524(arg3[var4], false)) {
+			if (var4 < arg3.length && method524(arg3[var4])) {
 				if (arg3[var4] != '.' && arg3[var4] != ',') {
 					var4++;
 					continue;
@@ -390,10 +311,7 @@ public class WordFilter {
 				return 3;
 			}
 			int var5 = 0;
-			if (arg1 != 0) {
-				return field1561;
-			}
-			for (int var6 = arg2 + 1; var6 < arg3.length && method524(arg0[var6], false); var6++) {
+			for (int var6 = arg2 + 1; var6 < arg3.length && method524(arg0[var6]); var6++) {
 				if (arg0[var6] == '*') {
 					var5++;
 				}
@@ -401,7 +319,7 @@ public class WordFilter {
 			if (var5 >= 3) {
 				return 4;
 			}
-			if (method524(arg3[arg2 + 1], false)) {
+			if (method524(arg3[arg2 + 1])) {
 				return 1;
 			}
 			return 0;
@@ -409,23 +327,20 @@ public class WordFilter {
 	}
 
 	@ObfuscatedName("WXKKTWFB.b([CI)V")
-	public static final void method512(char[] arg0, int arg1) {
+	public static void method512(char[] arg0) {
 		char[] var2 = (char[]) arg0.clone();
 		char[] var3 = new char[] { 'd', 'o', 't' };
-		method516(null, -939, var3, var2);
+		method516(null, var3, var2);
 		char[] var4 = (char[]) arg0.clone();
 		char[] var5 = new char[] { 's', 'l', 'a', 's', 'h' };
-		if (arg1 != 0) {
-			field1560 = !field1560;
-		}
-		method516(null, -939, var5, var4);
+		method516(null, var5, var4);
 		for (int var6 = 0; var6 < field1572.length; var6++) {
-			method513(arg0, (byte) 7, var2, field1573[var6], field1572[var6], var4);
+			method513(arg0, var2, field1573[var6], field1572[var6], var4);
 		}
 	}
 
 	@ObfuscatedName("WXKKTWFB.a([CB[CI[C[C)V")
-	public static final void method513(char[] arg0, byte arg1, char[] arg2, int arg3, char[] arg4, char[] arg5) {
+	public static void method513(char[] arg0, char[] arg2, int arg3, char[] arg4, char[] arg5) {
 		if (arg4.length > arg0.length) {
 			return;
 		}
@@ -447,7 +362,7 @@ public class WordFilter {
 						var14 = arg0[var9 + 1];
 					}
 					int var15;
-					if (var10 < arg4.length && (var15 = method518(var13, 0, arg4[var10], var14)) > 0) {
+					if (var10 < arg4.length && (var15 = method518(var13, arg4[var10], var14)) > 0) {
 						var9 += var15;
 						var10++;
 					} else {
@@ -455,13 +370,13 @@ public class WordFilter {
 							break label128;
 						}
 						int var16;
-						if ((var16 = method518(var13, 0, arg4[var10 - 1], var14)) > 0) {
+						if ((var16 = method518(var13, arg4[var10 - 1], var14)) > 0) {
 							var9 += var16;
 							if (var10 == 1) {
 								var11++;
 							}
 						} else {
-							if (var10 >= arg4.length || !method524(var13, false)) {
+							if (var10 >= arg4.length || !method524(var13)) {
 								break label128;
 							}
 							var9++;
@@ -471,8 +386,8 @@ public class WordFilter {
 			}
 			if (var10 >= arg4.length) {
 				boolean var17 = false;
-				int var18 = method514(arg2, var7, arg0, (byte) -113);
-				int var19 = method515(arg5, var9 - 1, arg0, 3);
+				int var18 = method514(arg2, var7, arg0);
+				int var19 = method515(arg5, var9 - 1, arg0);
 				if (arg3 == 1 && var18 > 0 && var19 > 0) {
 					var17 = true;
 				}
@@ -509,11 +424,11 @@ public class WordFilter {
 						boolean var24 = false;
 						for (int var25 = var20 - 1; var25 >= 0; var25--) {
 							if (var24) {
-								if (method524(arg0[var25], false)) {
+								if (method524(arg0[var25])) {
 									break;
 								}
 								var20 = var25;
-							} else if (!method524(arg0[var25], false)) {
+							} else if (!method524(arg0[var25])) {
 								var24 = true;
 								var20 = var25;
 							}
@@ -537,11 +452,11 @@ public class WordFilter {
 						boolean var28 = false;
 						for (int var29 = var21 + 1; var29 < arg0.length; var29++) {
 							if (var28) {
-								if (method524(arg0[var29], false)) {
+								if (method524(arg0[var29])) {
 									break;
 								}
 								var21 = var29;
-							} else if (!method524(arg0[var29], false)) {
+							} else if (!method524(arg0[var29])) {
 								var28 = true;
 								var21 = var29;
 							}
@@ -553,23 +468,16 @@ public class WordFilter {
 				}
 			}
 		}
-		if (arg1 == 7) {
-			boolean var8 = false;
-		}
 	}
 
 	@ObfuscatedName("WXKKTWFB.a([CI[CB)I")
-	public static final int method514(char[] arg0, int arg1, char[] arg2, byte arg3) {
-		if (field1563 != arg3) {
-			for (int var4 = 1; var4 > 0; var4++) {
-			}
-		}
+	public static int method514(char[] arg0, int arg1, char[] arg2) {
 		if (arg1 == 0) {
 			return 2;
 		}
 		int var5 = arg1 - 1;
 		while (true) {
-			if (var5 >= 0 && method524(arg2[var5], false)) {
+			if (var5 >= 0 && method524(arg2[var5])) {
 				if (arg2[var5] != ',' && arg2[var5] != '.') {
 					var5--;
 					continue;
@@ -577,7 +485,7 @@ public class WordFilter {
 				return 3;
 			}
 			int var6 = 0;
-			for (int var7 = arg1 - 1; var7 >= 0 && method524(arg0[var7], false); var7--) {
+			for (int var7 = arg1 - 1; var7 >= 0 && method524(arg0[var7]); var7--) {
 				if (arg0[var7] == '*') {
 					var6++;
 				}
@@ -585,7 +493,7 @@ public class WordFilter {
 			if (var6 >= 3) {
 				return 4;
 			}
-			if (method524(arg2[arg1 - 1], false)) {
+			if (method524(arg2[arg1 - 1])) {
 				return 1;
 			}
 			return 0;
@@ -593,17 +501,13 @@ public class WordFilter {
 	}
 
 	@ObfuscatedName("WXKKTWFB.a([CI[CI)I")
-	public static final int method515(char[] arg0, int arg1, char[] arg2, int arg3) {
-		if (arg3 < field1564 || arg3 > field1564) {
-			for (int var4 = 1; var4 > 0; var4++) {
-			}
-		}
+	public static int method515(char[] arg0, int arg1, char[] arg2) {
 		if (arg1 + 1 == arg2.length) {
 			return 2;
 		}
 		int var5 = arg1 + 1;
 		while (true) {
-			if (var5 < arg2.length && method524(arg2[var5], false)) {
+			if (var5 < arg2.length && method524(arg2[var5])) {
 				if (arg2[var5] != '\\' && arg2[var5] != '/') {
 					var5++;
 					continue;
@@ -611,7 +515,7 @@ public class WordFilter {
 				return 3;
 			}
 			int var6 = 0;
-			for (int var7 = arg1 + 1; var7 < arg2.length && method524(arg0[var7], false); var7++) {
+			for (int var7 = arg1 + 1; var7 < arg2.length && method524(arg0[var7]); var7++) {
 				if (arg0[var7] == '*') {
 					var6++;
 				}
@@ -619,7 +523,7 @@ public class WordFilter {
 			if (var6 >= 5) {
 				return 4;
 			}
-			if (method524(arg2[arg1 + 1], false)) {
+			if (method524(arg2[arg1 + 1])) {
 				return 1;
 			}
 			return 0;
@@ -627,8 +531,8 @@ public class WordFilter {
 	}
 
 	@ObfuscatedName("WXKKTWFB.a([[BI[C[C)V")
-	public static final void method516(byte[][] arg0, int arg1, char[] arg2, char[] arg3) {
-		if (arg1 >= 0 || arg2.length > arg3.length) {
+	public static void method516(byte[][] arg0, char[] arg2, char[] arg3) {
+		if (arg2.length > arg3.length) {
 			return;
 		}
 		boolean var4 = true;
@@ -653,11 +557,11 @@ public class WordFilter {
 						var15 = arg3[var6 + 1];
 					}
 					int var16;
-					if (var7 < arg2.length && (var16 = method519(arg2[var7], var14, var15, 7)) > 0) {
-						if (var16 == 1 && method527(var14, false)) {
+					if (var7 < arg2.length && (var16 = method519(arg2[var7], var14, var15)) > 0) {
+						if (var16 == 1 && method527(var14)) {
 							var11 = true;
 						}
-						if (var16 == 2 && (method527(var14, false) || method527(var15, false))) {
+						if (var16 == 2 && (method527(var14) || method527(var15))) {
 							var11 = true;
 						}
 						var6 += var16;
@@ -667,19 +571,19 @@ public class WordFilter {
 							break label167;
 						}
 						int var17;
-						if ((var17 = method519(arg2[var7 - 1], var14, var15, 7)) > 0) {
+						if ((var17 = method519(arg2[var7 - 1], var14, var15)) > 0) {
 							var6 += var17;
 							if (var7 == 1) {
 								var9++;
 							}
 						} else {
-							if (var7 >= arg2.length || !method525(2, var14)) {
+							if (var7 >= arg2.length || !method525(var14)) {
 								break label167;
 							}
-							if (method524(var14, false) && var14 != '\'') {
+							if (method524(var14) && var14 != '\'') {
 								var10 = true;
 							}
-							if (method527(var14, false)) {
+							if (method527(var14)) {
 								var12 = true;
 							}
 							var6++;
@@ -696,10 +600,10 @@ public class WordFilter {
 				if (var10) {
 					boolean var23 = false;
 					boolean var24 = false;
-					if (var5 - 1 < 0 || method524(arg3[var5 - 1], false) && arg3[var5 - 1] != '\'') {
+					if (var5 - 1 < 0 || method524(arg3[var5 - 1]) && arg3[var5 - 1] != '\'') {
 						var23 = true;
 					}
-					if (var6 >= arg3.length || method524(arg3[var6], false) && arg3[var6] != '\'') {
+					if (var6 >= arg3.length || method524(arg3[var6]) && arg3[var6] != '\'') {
 						var24 = true;
 					}
 					if (!var23 || !var24) {
@@ -709,20 +613,20 @@ public class WordFilter {
 							var26 = var5;
 						}
 						while (!var25 && var26 < var6) {
-							if (var26 >= 0 && (!method524(arg3[var26], false) || arg3[var26] == '\'')) {
+							if (var26 >= 0 && (!method524(arg3[var26]) || arg3[var26] == '\'')) {
 								char[] var27 = new char[3];
 								int var28;
-								for (var28 = 0; var28 < 3 && var26 + var28 < arg3.length && (!method524(arg3[var26 + var28], false) || arg3[var26 + var28] == '\''); var28++) {
+								for (var28 = 0; var28 < 3 && var26 + var28 < arg3.length && (!method524(arg3[var26 + var28]) || arg3[var26 + var28] == '\''); var28++) {
 									var27[var28] = arg3[var26 + var28];
 								}
 								boolean var29 = true;
 								if (var28 == 0) {
 									var29 = false;
 								}
-								if (var28 < 3 && var26 - 1 >= 0 && (!method524(arg3[var26 - 1], false) || arg3[var26 - 1] == '\'')) {
+								if (var28 < 3 && var26 - 1 >= 0 && (!method524(arg3[var26 - 1]) || arg3[var26 - 1] == '\'')) {
 									var29 = false;
 								}
-								if (var29 && !method530(var27, 463)) {
+								if (var29 && !method530(var27)) {
 									var25 = true;
 								}
 							}
@@ -743,7 +647,7 @@ public class WordFilter {
 					}
 					byte var21 = method520(var19, (byte) 7);
 					byte var22 = method520(var20, (byte) 7);
-					if (arg0 != null && method517(var22, arg0, var21, 4)) {
+					if (arg0 != null && method517(var22, arg0, var21)) {
 						var18 = false;
 					}
 				}
@@ -752,9 +656,9 @@ public class WordFilter {
 					int var31 = 0;
 					int var32 = -1;
 					for (int var33 = var5; var33 < var6; var33++) {
-						if (method527(arg3[var33], false)) {
+						if (method527(arg3[var33])) {
 							var30++;
-						} else if (method526(true, arg3[var33])) {
+						} else if (method526(arg3[var33])) {
 							var31++;
 							var32 = var33;
 						}
@@ -775,11 +679,9 @@ public class WordFilter {
 	}
 
 	@ObfuscatedName("WXKKTWFB.a(B[[BBI)Z")
-	public static final boolean method517(byte arg0, byte[][] arg1, byte arg2, int arg3) {
+	public static boolean method517(byte arg0, byte[][] arg1, byte arg2) {
 		int var4 = 0;
-		if (arg3 < 4 || arg3 > 4) {
-			throw new NullPointerException();
-		} else if (arg1[var4][0] == arg2 && arg1[var4][1] == arg0) {
+		if (arg1[var4][0] == arg2 && arg1[var4][1] == arg0) {
 			return true;
 		} else {
 			int var5 = arg1.length - 1;
@@ -802,10 +704,8 @@ public class WordFilter {
 	}
 
 	@ObfuscatedName("WXKKTWFB.a(CICC)I")
-	public static final int method518(char arg0, int arg1, char arg2, char arg3) {
-		if (arg1 != 0) {
-			return field1561;
-		} else if (arg0 == arg2) {
+	public static int method518(char arg0, char arg2, char arg3) {
+		if (arg0 == arg2) {
 			return 1;
 		} else if (arg2 == 'o' && arg0 == '0') {
 			return 1;
@@ -825,191 +725,186 @@ public class WordFilter {
 	}
 
 	@ObfuscatedName("WXKKTWFB.a(CCCI)I")
-	public static final int method519(char arg0, char arg1, char arg2, int arg3) {
-		if (arg3 != 7) {
-			return field1556;
-		} else if (arg0 == arg1) {
+	public static int method519(char arg0, char arg1, char arg2) {
+		if (arg0 == arg1) {
 			return 1;
-		} else {
-			if (arg0 >= 'a' && arg0 <= 'm') {
-				if (arg0 == 'a') {
-					if (arg1 != '4' && arg1 != '@' && arg1 != '^') {
-						if (arg1 == '/' && arg2 == '\\') {
-							return 2;
-						}
-						return 0;
-					}
-					return 1;
-				}
-				if (arg0 == 'b') {
-					if (arg1 != '6' && arg1 != '8') {
-						if ((arg1 != '1' || arg2 != '3') && (arg1 != 'i' || arg2 != '3')) {
-							return 0;
-						}
+		}
+		if (arg0 >= 'a' && arg0 <= 'm') {
+			if (arg0 == 'a') {
+				if (arg1 != '4' && arg1 != '@' && arg1 != '^') {
+					if (arg1 == '/' && arg2 == '\\') {
 						return 2;
 					}
-					return 1;
-				}
-				if (arg0 == 'c') {
-					if (arg1 != '(' && arg1 != '<' && arg1 != '{' && arg1 != '[') {
-						return 0;
-					}
-					return 1;
-				}
-				if (arg0 == 'd') {
-					if ((arg1 != '[' || arg2 != ')') && (arg1 != 'i' || arg2 != ')')) {
-						return 0;
-					}
-					return 2;
-				}
-				if (arg0 == 'e') {
-					if (arg1 != '3' && arg1 != 8364) {
-						return 0;
-					}
-					return 1;
-				}
-				if (arg0 == 'f') {
-					if (arg1 == 'p' && arg2 == 'h') {
-						return 2;
-					}
-					if (arg1 == 163) {
-						return 1;
-					}
 					return 0;
 				}
-				if (arg0 == 'g') {
-					if (arg1 != '9' && arg1 != '6' && arg1 != 'q') {
-						return 0;
-					}
-					return 1;
-				}
-				if (arg0 == 'h') {
-					if (arg1 == '#') {
-						return 1;
-					}
-					return 0;
-				}
-				if (arg0 == 'i') {
-					if (arg1 != 'y' && arg1 != 'l' && arg1 != 'j' && arg1 != '1' && arg1 != '!' && arg1 != ':' && arg1 != ';' && arg1 != '|') {
-						return 0;
-					}
-					return 1;
-				}
-				if (arg0 == 'j') {
-					return 0;
-				}
-				if (arg0 == 'k') {
-					return 0;
-				}
-				if (arg0 == 'l') {
-					if (arg1 != '1' && arg1 != '|' && arg1 != 'i') {
-						return 0;
-					}
-					return 1;
-				}
-				if (arg0 == 'm') {
-					return 0;
-				}
+				return 1;
 			}
-			if (arg0 >= 'n' && arg0 <= 'z') {
-				if (arg0 == 'n') {
-					return 0;
-				}
-				if (arg0 == 'o') {
-					if (arg1 != '0' && arg1 != '*') {
-						if ((arg1 != '(' || arg2 != ')') && (arg1 != '[' || arg2 != ']') && (arg1 != '{' || arg2 != '}') && (arg1 != '<' || arg2 != '>')) {
-							return 0;
-						}
-						return 2;
-					}
-					return 1;
-				}
-				if (arg0 == 'p') {
-					return 0;
-				}
-				if (arg0 == 'q') {
-					return 0;
-				}
-				if (arg0 == 'r') {
-					return 0;
-				}
-				if (arg0 == 's') {
-					if (arg1 != '5' && arg1 != 'z' && arg1 != '$' && arg1 != '2') {
-						return 0;
-					}
-					return 1;
-				}
-				if (arg0 == 't') {
-					if (arg1 != '7' && arg1 != '+') {
-						return 0;
-					}
-					return 1;
-				}
-				if (arg0 == 'u') {
-					if (arg1 == 'v') {
-						return 1;
-					}
-					if ((arg1 != '\\' || arg2 != '/') && (arg1 != '\\' || arg2 != '|') && (arg1 != '|' || arg2 != '/')) {
+			if (arg0 == 'b') {
+				if (arg1 != '6' && arg1 != '8') {
+					if ((arg1 != '1' || arg2 != '3') && (arg1 != 'i' || arg2 != '3')) {
 						return 0;
 					}
 					return 2;
 				}
-				if (arg0 == 'v') {
-					if ((arg1 != '\\' || arg2 != '/') && (arg1 != '\\' || arg2 != '|') && (arg1 != '|' || arg2 != '/')) {
-						return 0;
-					}
-					return 2;
-				}
-				if (arg0 == 'w') {
-					if (arg1 == 'v' && arg2 == 'v') {
-						return 2;
-					}
-					return 0;
-				}
-				if (arg0 == 'x') {
-					if ((arg1 != ')' || arg2 != '(') && (arg1 != '}' || arg2 != '{') && (arg1 != ']' || arg2 != '[') && (arg1 != '>' || arg2 != '<')) {
-						return 0;
-					}
-					return 2;
-				}
-				if (arg0 == 'y') {
-					return 0;
-				}
-				if (arg0 == 'z') {
-					return 0;
-				}
+				return 1;
 			}
-			if (arg0 >= '0' && arg0 <= '9') {
-				if (arg0 == '0') {
-					if (arg1 == 'o' || arg1 == 'O') {
-						return 1;
-					} else if ((arg1 != '(' || arg2 != ')') && (arg1 != '{' || arg2 != '}') && (arg1 != '[' || arg2 != ']')) {
+			if (arg0 == 'c') {
+				if (arg1 != '(' && arg1 != '<' && arg1 != '{' && arg1 != '[') {
+					return 0;
+				}
+				return 1;
+			}
+			if (arg0 == 'd') {
+				if ((arg1 != '[' || arg2 != ')') && (arg1 != 'i' || arg2 != ')')) {
+					return 0;
+				}
+				return 2;
+			}
+			if (arg0 == 'e') {
+				if (arg1 != '3' && arg1 != 8364) {
+					return 0;
+				}
+				return 1;
+			}
+			if (arg0 == 'f') {
+				if (arg1 == 'p' && arg2 == 'h') {
+					return 2;
+				}
+				if (arg1 == 163) {
+					return 1;
+				}
+				return 0;
+			}
+			if (arg0 == 'g') {
+				if (arg1 != '9' && arg1 != '6' && arg1 != 'q') {
+					return 0;
+				}
+				return 1;
+			}
+			if (arg0 == 'h') {
+				if (arg1 == '#') {
+					return 1;
+				}
+				return 0;
+			}
+			if (arg0 == 'i') {
+				if (arg1 != 'y' && arg1 != 'l' && arg1 != 'j' && arg1 != '1' && arg1 != '!' && arg1 != ':' && arg1 != ';' && arg1 != '|') {
+					return 0;
+				}
+				return 1;
+			}
+			if (arg0 == 'j') {
+				return 0;
+			}
+			if (arg0 == 'k') {
+				return 0;
+			}
+			if (arg0 == 'l') {
+				if (arg1 != '1' && arg1 != '|' && arg1 != 'i') {
+					return 0;
+				}
+				return 1;
+			}
+			if (arg0 == 'm') {
+				return 0;
+			}
+		}
+		if (arg0 >= 'n' && arg0 <= 'z') {
+			if (arg0 == 'n') {
+				return 0;
+			}
+			if (arg0 == 'o') {
+				if (arg1 != '0' && arg1 != '*') {
+					if ((arg1 != '(' || arg2 != ')') && (arg1 != '[' || arg2 != ']') && (arg1 != '{' || arg2 != '}') && (arg1 != '<' || arg2 != '>')) {
 						return 0;
-					} else {
-						return 2;
 					}
-				} else if (arg0 == '1') {
-					return arg1 == 'l' ? 1 : 0;
+					return 2;
+				}
+				return 1;
+			}
+			if (arg0 == 'p') {
+				return 0;
+			}
+			if (arg0 == 'q') {
+				return 0;
+			}
+			if (arg0 == 'r') {
+				return 0;
+			}
+			if (arg0 == 's') {
+				if (arg1 != '5' && arg1 != 'z' && arg1 != '$' && arg1 != '2') {
+					return 0;
+				}
+				return 1;
+			}
+			if (arg0 == 't') {
+				if (arg1 != '7' && arg1 != '+') {
+					return 0;
+				}
+				return 1;
+			}
+			if (arg0 == 'u') {
+				if (arg1 == 'v') {
+					return 1;
+				}
+				if ((arg1 != '\\' || arg2 != '/') && (arg1 != '\\' || arg2 != '|') && (arg1 != '|' || arg2 != '/')) {
+					return 0;
+				}
+				return 2;
+			}
+			if (arg0 == 'v') {
+				if ((arg1 != '\\' || arg2 != '/') && (arg1 != '\\' || arg2 != '|') && (arg1 != '|' || arg2 != '/')) {
+					return 0;
+				}
+				return 2;
+			}
+			if (arg0 == 'w') {
+				if (arg1 == 'v' && arg2 == 'v') {
+					return 2;
+				}
+				return 0;
+			}
+			if (arg0 == 'x') {
+				if ((arg1 != ')' || arg2 != '(') && (arg1 != '}' || arg2 != '{') && (arg1 != ']' || arg2 != '[') && (arg1 != '>' || arg2 != '<')) {
+					return 0;
+				}
+				return 2;
+			}
+			if (arg0 == 'y') {
+				return 0;
+			}
+			if (arg0 == 'z') {
+				return 0;
+			}
+		}
+		if (arg0 >= '0' && arg0 <= '9') {
+			if (arg0 == '0') {
+				if (arg1 == 'o' || arg1 == 'O') {
+					return 1;
+				} else if ((arg1 != '(' || arg2 != ')') && (arg1 != '{' || arg2 != '}') && (arg1 != '[' || arg2 != ']')) {
+					return 0;
 				} else {
-					return 0;
+					return 2;
 				}
-			} else if (arg0 == ',') {
-				return arg1 == '.' ? 1 : 0;
-			} else if (arg0 == '.') {
-				return arg1 == ',' ? 1 : 0;
-			} else if (arg0 == '!') {
-				return arg1 == 'i' ? 1 : 0;
+			} else if (arg0 == '1') {
+				return arg1 == 'l' ? 1 : 0;
 			} else {
 				return 0;
 			}
+		} else if (arg0 == ',') {
+			return arg1 == '.' ? 1 : 0;
+		} else if (arg0 == '.') {
+			return arg1 == ',' ? 1 : 0;
+		} else if (arg0 == '!') {
+			return arg1 == 'i' ? 1 : 0;
+		} else {
+			return 0;
 		}
 	}
 
 	@ObfuscatedName("WXKKTWFB.a(CB)B")
-	public static final byte method520(char arg0, byte arg1) {
-		if (arg1 != 7) {
-			throw new NullPointerException();
-		} else if (arg0 >= 'a' && arg0 <= 'z') {
+	public static byte method520(char arg0, byte arg1) {
+		if (arg0 >= 'a' && arg0 <= 'z') {
 			return (byte) (arg0 - 'a' + 1);
 		} else if (arg0 == '\'') {
 			return 28;
@@ -1021,23 +916,20 @@ public class WordFilter {
 	}
 
 	@ObfuscatedName("WXKKTWFB.c(I[C)V")
-	public static final void method521(int arg0, char[] arg1) {
+	public static void method521(int arg0, char[] arg1) {
 		boolean var2 = false;
 		int var3 = 0;
 		int var4 = 0;
-		if (arg0 < 3 || arg0 > 3) {
-			return;
-		}
 		int var5 = 0;
 		while (true) {
 			do {
 				int var6;
-				if ((var6 = method522(307, var3, arg1)) == -1) {
+				if ((var6 = method522(var3, arg1)) == -1) {
 					return;
 				}
 				boolean var7 = false;
 				for (int var8 = var3; var8 >= 0 && var8 < var6 && !var7; var8++) {
-					if (!method524(arg1[var8], false) && !method525(2, arg1[var8])) {
+					if (!method524(arg1[var8]) && !method525(arg1[var8])) {
 						var7 = true;
 					}
 				}
@@ -1047,7 +939,7 @@ public class WordFilter {
 				if (var4 == 0) {
 					var5 = var6;
 				}
-				var3 = method523(var6, 618, arg1);
+				var3 = method523(var6, arg1);
 				int var9 = 0;
 				for (int var10 = var6; var10 < var3; var10++) {
 					var9 = var9 * 10 + arg1[var10] - 48;
@@ -1066,24 +958,17 @@ public class WordFilter {
 	}
 
 	@ObfuscatedName("WXKKTWFB.a(II[C)I")
-	public static final int method522(int arg0, int arg1, char[] arg2) {
+	public static int method522(int arg1, char[] arg2) {
 		for (int var3 = arg1; var3 < arg2.length && var3 >= 0; var3++) {
 			if (arg2[var3] >= '0' && arg2[var3] <= '9') {
 				return var3;
 			}
 		}
-		if (arg0 <= 0) {
-			field1559 = !field1559;
-		}
 		return -1;
 	}
 
 	@ObfuscatedName("WXKKTWFB.b(II[C)I")
-	public static final int method523(int arg0, int arg1, char[] arg2) {
-		if (arg1 <= 0) {
-			for (int var3 = 1; var3 > 0; var3++) {
-			}
-		}
+	public static int method523(int arg0, char[] arg2) {
 		int var4 = arg0;
 		while (true) {
 			if (var4 < arg2.length && var4 >= 0) {
@@ -1098,18 +983,12 @@ public class WordFilter {
 	}
 
 	@ObfuscatedName("WXKKTWFB.a(CZ)Z")
-	public static final boolean method524(char arg0, boolean arg1) {
-		if (arg1) {
-			throw new NullPointerException();
-		}
-		return !method526(true, arg0) && !method527(arg0, false);
+	public static boolean method524(char arg0) {
+		return !method526(arg0) && !method527(arg0);
 	}
 
 	@ObfuscatedName("WXKKTWFB.a(IC)Z")
-	public static final boolean method525(int arg0, char arg1) {
-		if (arg0 != 2) {
-			field1560 = !field1560;
-		}
+	public static boolean method525(char arg1) {
 		if (arg1 >= 'a' && arg1 <= 'z') {
 			return arg1 == 'v' || arg1 == 'x' || arg1 == 'j' || arg1 == 'q' || arg1 == 'z';
 		} else {
@@ -1118,50 +997,37 @@ public class WordFilter {
 	}
 
 	@ObfuscatedName("WXKKTWFB.a(ZC)Z")
-	public static final boolean method526(boolean arg0, char arg1) {
-		if (!arg0) {
-			field1557 = -367;
-		}
+	public static boolean method526(char arg1) {
 		return arg1 >= 'a' && arg1 <= 'z' || arg1 >= 'A' && arg1 <= 'Z';
 	}
 
 	@ObfuscatedName("WXKKTWFB.b(CZ)Z")
-	public static final boolean method527(char arg0, boolean arg1) {
-		if (arg1) {
-			throw new NullPointerException();
-		}
+	public static boolean method527(char arg0) {
 		return arg0 >= '0' && arg0 <= '9';
 	}
 
 	@ObfuscatedName("WXKKTWFB.c(CZ)Z")
-	public static final boolean method528(char arg0, boolean arg1) {
-		if (arg1) {
-			throw new NullPointerException();
-		}
+	public static boolean method528(char arg0) {
 		return arg0 >= 'a' && arg0 <= 'z';
 	}
 
 	@ObfuscatedName("WXKKTWFB.b(IC)Z")
-	public static final boolean method529(int arg0, char arg1) {
-		if (arg0 >= 0) {
-			field1562 = -483;
-		}
+	public static boolean method529(char arg1) {
 		return arg1 >= 'A' && arg1 <= 'Z';
 	}
 
 	@ObfuscatedName("WXKKTWFB.c([CI)Z")
-	public static final boolean method530(char[] arg0, int arg1) {
+	public static boolean method530(char[] arg0) {
 		boolean var2 = true;
 		for (int var3 = 0; var3 < arg0.length; var3++) {
-			if (!method527(arg0[var3], false) && arg0[var3] != 0) {
+			if (!method527(arg0[var3]) && arg0[var3] != 0) {
 				var2 = false;
 			}
 		}
-		int var4 = 78 / arg1;
 		if (var2) {
 			return true;
 		}
-		int var5 = method531(arg0, (byte) 5);
+		int var5 = method531(arg0);
 		int var6 = 0;
 		int var7 = field1568.length - 1;
 		if (field1568[var6] == var5 || field1568[var7] == var5) {
@@ -1182,14 +1048,11 @@ public class WordFilter {
 	}
 
 	@ObfuscatedName("WXKKTWFB.b([CB)I")
-	public static final int method531(char[] arg0, byte arg1) {
+	public static int method531(char[] arg0) {
 		if (arg0.length > 6) {
 			return 0;
 		}
 		int var2 = 0;
-		if (arg1 != 5) {
-			return 3;
-		}
 		boolean var3 = false;
 		for (int var4 = 0; var4 < arg0.length; var4++) {
 			char var5 = arg0[arg0.length - var4 - 1];
