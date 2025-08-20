@@ -2681,7 +2681,7 @@ public class Client extends GameShell {
 							this.redrawChatback = true;
 						}
 					} else if (this.field284 == -1 && this.field349 == -1) {
-						if (key >= 32 && key <= 122 && this.chatTyped.length() < 80) {
+						if (key >= 32 && (key <= 122 || (this.chatTyped.startsWith("::") && key <= 126)) && this.chatTyped.length() < 80) {
 							this.chatTyped = this.chatTyped + (char) key;
 							this.redrawChatback = true;
 						}
@@ -2715,6 +2715,7 @@ public class Client extends GameShell {
 									}
 								}
 							}
+
 							if (this.chatTyped.startsWith("::")) {
 								// CLIENT_CHEAT
 								this.out.p1isaac(56);
