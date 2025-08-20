@@ -177,13 +177,13 @@ public class Model extends ModelSource {
 	public static int[] field1257 = Pix3D.sinTable;
 
 	@ObfuscatedName("LZYQDKJV.Jb")
-	public static int[] field1258 = Pix3D.field1599;
+	public static int[] field1258 = Pix3D.cosTable;
 
 	@ObfuscatedName("LZYQDKJV.Kb")
-	public static int[] field1259 = Pix3D.field1610;
+	public static int[] field1259 = Pix3D.colourTable;
 
 	@ObfuscatedName("LZYQDKJV.Lb")
-	public static int[] field1260 = Pix3D.field1597;
+	public static int[] field1260 = Pix3D.divTable2;
 
 	@ObfuscatedName("LZYQDKJV.s")
 	public static int field1189;
@@ -1483,8 +1483,8 @@ public class Model extends ModelSource {
 
 	@ObfuscatedName("LZYQDKJV.a(IIIIIII)V")
 	public void method380(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6) {
-		int var8 = Pix3D.field1594;
-		int var9 = Pix3D.field1595;
+		int var8 = Pix3D.centerX;
+		int var9 = Pix3D.centerY;
 		int var10 = field1257[arg0];
 		int var11 = field1258[arg0];
 		int var12 = field1257[arg1];
@@ -1544,22 +1544,22 @@ public class Model extends ModelSource {
 		}
 		int var14 = arg3 * arg7 + arg4 * arg5 >> 16;
 		int var15 = var14 - this.field1218 << 9;
-		if (var15 / var13 >= Pix2D.field1102) {
+		if (var15 / var13 >= Pix2D.centerX2d) {
 			return;
 		}
 		int var16 = this.field1218 + var14 << 9;
-		if (var16 / var13 <= -Pix2D.field1102) {
+		if (var16 / var13 <= -Pix2D.centerX2d) {
 			return;
 		}
 		int var17 = arg2 * arg6 - arg1 * var10 >> 16;
 		int var18 = this.field1218 * arg1 >> 16;
 		int var19 = var17 + var18 << 9;
-		if (var19 / var13 <= -Pix2D.field1103) {
+		if (var19 / var13 <= -Pix2D.centerY2d) {
 			return;
 		}
 		int var20 = (super.field1709 * arg2 >> 16) + var18;
 		int var21 = var17 - var20 << 9;
-		if (var21 / var13 >= Pix2D.field1103) {
+		if (var21 / var13 >= Pix2D.centerY2d) {
 			return;
 		}
 		int var22 = (super.field1709 * arg1 >> 16) + var12;
@@ -1591,8 +1591,8 @@ public class Model extends ModelSource {
 				var29 = var19 / var13;
 				var28 = var21 / var25;
 			}
-			int var30 = field1253 - Pix3D.field1594;
-			int var31 = field1254 - Pix3D.field1595;
+			int var30 = field1253 - Pix3D.centerX;
+			int var31 = field1254 - Pix3D.centerY;
 			if (var30 > var26 && var30 < var27 && var31 > var28 && var31 < var29) {
 				if (this.field1227) {
 					field1256[field1255++] = arg8;
@@ -1601,8 +1601,8 @@ public class Model extends ModelSource {
 				}
 			}
 		}
-		int var32 = Pix3D.field1594;
-		int var33 = Pix3D.field1595;
+		int var32 = Pix3D.centerX;
+		int var33 = Pix3D.centerY;
 		int var34 = 0;
 		int var35 = 0;
 		if (arg0 != 0) {
@@ -1669,7 +1669,7 @@ public class Model extends ModelSource {
 					}
 					if ((field1234[var32] - field1234[var31]) * (var33 - var34) - (field1234[var30] - field1234[var31]) * (var35 - var34) > 0) {
 						field1232[var5] = false;
-						if (var33 >= 0 && var34 >= 0 && var35 >= 0 && var33 <= Pix2D.field1101 && var34 <= Pix2D.field1101 && var35 <= Pix2D.field1101) {
+						if (var33 >= 0 && var34 >= 0 && var35 >= 0 && var33 <= Pix2D.safeWidth && var34 <= Pix2D.safeWidth && var35 <= Pix2D.safeWidth) {
 							field1231[var5] = false;
 						} else {
 							field1231[var5] = true;
@@ -1817,7 +1817,7 @@ public class Model extends ModelSource {
 		int var2 = this.field1200[arg0];
 		int var3 = this.field1201[arg0];
 		int var4 = this.field1202[arg0];
-		Pix3D.field1590 = field1231[arg0];
+		Pix3D.hclip = field1231[arg0];
 		if (this.field1208 == null) {
 			Pix3D.field1593 = 0;
 		} else {
@@ -1830,28 +1830,28 @@ public class Model extends ModelSource {
 			var5 = this.field1206[arg0] & 0x3;
 		}
 		if (var5 == 0) {
-			Pix3D.method555(field1234[var2], field1234[var3], field1234[var4], field1233[var2], field1233[var3], field1233[var4], this.field1203[arg0], this.field1204[arg0], this.field1205[arg0]);
+			Pix3D.gouraudTriangle(field1234[var2], field1234[var3], field1234[var4], field1233[var2], field1233[var3], field1233[var4], this.field1203[arg0], this.field1204[arg0], this.field1205[arg0]);
 		} else if (var5 == 1) {
-			Pix3D.method557(field1234[var2], field1234[var3], field1234[var4], field1233[var2], field1233[var3], field1233[var4], field1259[this.field1203[arg0]]);
+			Pix3D.flatTriangle(field1234[var2], field1234[var3], field1234[var4], field1233[var2], field1233[var3], field1233[var4], field1259[this.field1203[arg0]]);
 		} else if (var5 == 2) {
 			int var6 = this.field1206[arg0] >> 2;
 			int var7 = this.field1212[var6];
 			int var8 = this.field1213[var6];
 			int var9 = this.field1214[var6];
-			Pix3D.method559(field1234[var2], field1234[var3], field1234[var4], field1233[var2], field1233[var3], field1233[var4], this.field1203[arg0], this.field1204[arg0], this.field1205[arg0], field1236[var7], field1236[var8], field1236[var9], field1237[var7], field1237[var8], field1237[var9], field1238[var7], field1238[var8], field1238[var9], this.faceColour[arg0]);
+			Pix3D.textureTriangle(field1234[var2], field1234[var3], field1234[var4], field1233[var2], field1233[var3], field1233[var4], this.field1203[arg0], this.field1204[arg0], this.field1205[arg0], field1236[var7], field1236[var8], field1236[var9], field1237[var7], field1237[var8], field1237[var9], field1238[var7], field1238[var8], field1238[var9], this.faceColour[arg0]);
 		} else if (var5 == 3) {
 			int var10 = this.field1206[arg0] >> 2;
 			int var11 = this.field1212[var10];
 			int var12 = this.field1213[var10];
 			int var13 = this.field1214[var10];
-			Pix3D.method559(field1234[var2], field1234[var3], field1234[var4], field1233[var2], field1233[var3], field1233[var4], this.field1203[arg0], this.field1203[arg0], this.field1203[arg0], field1236[var11], field1236[var12], field1236[var13], field1237[var11], field1237[var12], field1237[var13], field1238[var11], field1238[var12], field1238[var13], this.faceColour[arg0]);
+			Pix3D.textureTriangle(field1234[var2], field1234[var3], field1234[var4], field1233[var2], field1233[var3], field1233[var4], this.field1203[arg0], this.field1203[arg0], this.field1203[arg0], field1236[var11], field1236[var12], field1236[var13], field1237[var11], field1237[var12], field1237[var13], field1238[var11], field1238[var12], field1238[var13], this.faceColour[arg0]);
 		}
 	}
 
 	@ObfuscatedName("LZYQDKJV.i(I)V")
 	public void method384(int arg0) {
-		int var2 = Pix3D.field1594;
-		int var3 = Pix3D.field1595;
+		int var2 = Pix3D.centerX;
+		int var3 = Pix3D.centerY;
 		int var4 = 0;
 		int var5 = this.field1200[arg0];
 		int var6 = this.field1201[arg0];
@@ -1931,10 +1931,10 @@ public class Model extends ModelSource {
 		if ((var26 - var27) * (var31 - var30) - (var28 - var27) * (var29 - var30) <= 0) {
 			return;
 		}
-		Pix3D.field1590 = false;
+		Pix3D.hclip = false;
 		if (var4 == 3) {
-			if (var26 < 0 || var27 < 0 || var28 < 0 || var26 > Pix2D.field1101 || var27 > Pix2D.field1101 || var28 > Pix2D.field1101) {
-				Pix3D.field1590 = true;
+			if (var26 < 0 || var27 < 0 || var28 < 0 || var26 > Pix2D.safeWidth || var27 > Pix2D.safeWidth || var28 > Pix2D.safeWidth) {
+				Pix3D.hclip = true;
 			}
 			int var32;
 			if (this.field1206 == null) {
@@ -1943,28 +1943,28 @@ public class Model extends ModelSource {
 				var32 = this.field1206[arg0] & 0x3;
 			}
 			if (var32 == 0) {
-				Pix3D.method555(var29, var30, var31, var26, var27, var28, field1248[0], field1248[1], field1248[2]);
+				Pix3D.gouraudTriangle(var29, var30, var31, var26, var27, var28, field1248[0], field1248[1], field1248[2]);
 			} else if (var32 == 1) {
-				Pix3D.method557(var29, var30, var31, var26, var27, var28, field1259[this.field1203[arg0]]);
+				Pix3D.flatTriangle(var29, var30, var31, var26, var27, var28, field1259[this.field1203[arg0]]);
 			} else if (var32 == 2) {
 				int var33 = this.field1206[arg0] >> 2;
 				int var34 = this.field1212[var33];
 				int var35 = this.field1213[var33];
 				int var36 = this.field1214[var33];
-				Pix3D.method559(var29, var30, var31, var26, var27, var28, field1248[0], field1248[1], field1248[2], field1236[var34], field1236[var35], field1236[var36], field1237[var34], field1237[var35], field1237[var36], field1238[var34], field1238[var35], field1238[var36], this.faceColour[arg0]);
+				Pix3D.textureTriangle(var29, var30, var31, var26, var27, var28, field1248[0], field1248[1], field1248[2], field1236[var34], field1236[var35], field1236[var36], field1237[var34], field1237[var35], field1237[var36], field1238[var34], field1238[var35], field1238[var36], this.faceColour[arg0]);
 			} else if (var32 == 3) {
 				int var37 = this.field1206[arg0] >> 2;
 				int var38 = this.field1212[var37];
 				int var39 = this.field1213[var37];
 				int var40 = this.field1214[var37];
-				Pix3D.method559(var29, var30, var31, var26, var27, var28, this.field1203[arg0], this.field1203[arg0], this.field1203[arg0], field1236[var38], field1236[var39], field1236[var40], field1237[var38], field1237[var39], field1237[var40], field1238[var38], field1238[var39], field1238[var40], this.faceColour[arg0]);
+				Pix3D.textureTriangle(var29, var30, var31, var26, var27, var28, this.field1203[arg0], this.field1203[arg0], this.field1203[arg0], field1236[var38], field1236[var39], field1236[var40], field1237[var38], field1237[var39], field1237[var40], field1238[var38], field1238[var39], field1238[var40], this.faceColour[arg0]);
 			}
 		}
 		if (var4 != 4) {
 			return;
 		}
-		if (var26 < 0 || var27 < 0 || var28 < 0 || var26 > Pix2D.field1101 || var27 > Pix2D.field1101 || var28 > Pix2D.field1101 || field1246[3] < 0 || field1246[3] > Pix2D.field1101) {
-			Pix3D.field1590 = true;
+		if (var26 < 0 || var27 < 0 || var28 < 0 || var26 > Pix2D.safeWidth || var27 > Pix2D.safeWidth || var28 > Pix2D.safeWidth || field1246[3] < 0 || field1246[3] > Pix2D.safeWidth) {
+			Pix3D.hclip = true;
 		}
 		int var41;
 		if (this.field1206 == null) {
@@ -1973,14 +1973,14 @@ public class Model extends ModelSource {
 			var41 = this.field1206[arg0] & 0x3;
 		}
 		if (var41 == 0) {
-			Pix3D.method555(var29, var30, var31, var26, var27, var28, field1248[0], field1248[1], field1248[2]);
-			Pix3D.method555(var29, var31, field1247[3], var26, var28, field1246[3], field1248[0], field1248[2], field1248[3]);
+			Pix3D.gouraudTriangle(var29, var30, var31, var26, var27, var28, field1248[0], field1248[1], field1248[2]);
+			Pix3D.gouraudTriangle(var29, var31, field1247[3], var26, var28, field1246[3], field1248[0], field1248[2], field1248[3]);
 			return;
 		}
 		if (var41 == 1) {
 			int var42 = field1259[this.field1203[arg0]];
-			Pix3D.method557(var29, var30, var31, var26, var27, var28, var42);
-			Pix3D.method557(var29, var31, field1247[3], var26, var28, field1246[3], var42);
+			Pix3D.flatTriangle(var29, var30, var31, var26, var27, var28, var42);
+			Pix3D.flatTriangle(var29, var31, field1247[3], var26, var28, field1246[3], var42);
 			return;
 		}
 		if (var41 == 2) {
@@ -1988,8 +1988,8 @@ public class Model extends ModelSource {
 			int var44 = this.field1212[var43];
 			int var45 = this.field1213[var43];
 			int var46 = this.field1214[var43];
-			Pix3D.method559(var29, var30, var31, var26, var27, var28, field1248[0], field1248[1], field1248[2], field1236[var44], field1236[var45], field1236[var46], field1237[var44], field1237[var45], field1237[var46], field1238[var44], field1238[var45], field1238[var46], this.faceColour[arg0]);
-			Pix3D.method559(var29, var31, field1247[3], var26, var28, field1246[3], field1248[0], field1248[2], field1248[3], field1236[var44], field1236[var45], field1236[var46], field1237[var44], field1237[var45], field1237[var46], field1238[var44], field1238[var45], field1238[var46], this.faceColour[arg0]);
+			Pix3D.textureTriangle(var29, var30, var31, var26, var27, var28, field1248[0], field1248[1], field1248[2], field1236[var44], field1236[var45], field1236[var46], field1237[var44], field1237[var45], field1237[var46], field1238[var44], field1238[var45], field1238[var46], this.faceColour[arg0]);
+			Pix3D.textureTriangle(var29, var31, field1247[3], var26, var28, field1246[3], field1248[0], field1248[2], field1248[3], field1236[var44], field1236[var45], field1236[var46], field1237[var44], field1237[var45], field1237[var46], field1238[var44], field1238[var45], field1238[var46], this.faceColour[arg0]);
 			return;
 		}
 		if (var41 != 3) {
@@ -1999,8 +1999,8 @@ public class Model extends ModelSource {
 		int var48 = this.field1212[var47];
 		int var49 = this.field1213[var47];
 		int var50 = this.field1214[var47];
-		Pix3D.method559(var29, var30, var31, var26, var27, var28, this.field1203[arg0], this.field1203[arg0], this.field1203[arg0], field1236[var48], field1236[var49], field1236[var50], field1237[var48], field1237[var49], field1237[var50], field1238[var48], field1238[var49], field1238[var50], this.faceColour[arg0]);
-		Pix3D.method559(var29, var31, field1247[3], var26, var28, field1246[3], this.field1203[arg0], this.field1203[arg0], this.field1203[arg0], field1236[var48], field1236[var49], field1236[var50], field1237[var48], field1237[var49], field1237[var50], field1238[var48], field1238[var49], field1238[var50], this.faceColour[arg0]);
+		Pix3D.textureTriangle(var29, var30, var31, var26, var27, var28, this.field1203[arg0], this.field1203[arg0], this.field1203[arg0], field1236[var48], field1236[var49], field1236[var50], field1237[var48], field1237[var49], field1237[var50], field1238[var48], field1238[var49], field1238[var50], this.faceColour[arg0]);
+		Pix3D.textureTriangle(var29, var31, field1247[3], var26, var28, field1246[3], this.field1203[arg0], this.field1203[arg0], this.field1203[arg0], field1236[var48], field1236[var49], field1236[var50], field1237[var48], field1237[var49], field1237[var50], field1238[var48], field1238[var49], field1238[var50], this.faceColour[arg0]);
 	}
 
 	@ObfuscatedName("LZYQDKJV.a(IIIIIIII)Z")

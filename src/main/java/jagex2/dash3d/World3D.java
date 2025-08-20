@@ -1692,19 +1692,19 @@ public class World3D {
 		if (var43 < 50) {
 			return;
 		}
-		int var45 = (var21 << 9) / var25 + Pix3D.field1594;
-		int var46 = (var24 << 9) / var25 + Pix3D.field1595;
-		int var47 = (var27 << 9) / var31 + Pix3D.field1594;
-		int var48 = (var30 << 9) / var31 + Pix3D.field1595;
-		int var49 = (var33 << 9) / var37 + Pix3D.field1594;
-		int var50 = (var36 << 9) / var37 + Pix3D.field1595;
-		int var51 = (var39 << 9) / var43 + Pix3D.field1594;
-		int var52 = (var42 << 9) / var43 + Pix3D.field1595;
+		int var45 = (var21 << 9) / var25 + Pix3D.centerX;
+		int var46 = (var24 << 9) / var25 + Pix3D.centerY;
+		int var47 = (var27 << 9) / var31 + Pix3D.centerX;
+		int var48 = (var30 << 9) / var31 + Pix3D.centerY;
+		int var49 = (var33 << 9) / var37 + Pix3D.centerX;
+		int var50 = (var36 << 9) / var37 + Pix3D.centerY;
+		int var51 = (var39 << 9) / var43 + Pix3D.centerX;
+		int var52 = (var42 << 9) / var43 + Pix3D.centerY;
 		Pix3D.field1593 = 0;
 		if ((var48 - var52) * (var49 - var51) - (var47 - var51) * (var50 - var52) > 0) {
-			Pix3D.field1590 = false;
-			if (var49 < 0 || var51 < 0 || var47 < 0 || var49 > Pix2D.field1101 || var51 > Pix2D.field1101 || var47 > Pix2D.field1101) {
-				Pix3D.field1590 = true;
+			Pix3D.hclip = false;
+			if (var49 < 0 || var51 < 0 || var47 < 0 || var49 > Pix2D.safeWidth || var51 > Pix2D.safeWidth || var47 > Pix2D.safeWidth) {
+				Pix3D.hclip = true;
 			}
 			if (field1044 && this.method318(field1045, field1046, var50, var52, var48, var49, var51, var47)) {
 				clickTileX = arg6;
@@ -1712,23 +1712,23 @@ public class World3D {
 			}
 			if (arg0.field62 == -1) {
 				if (arg0.field60 != 12345678) {
-					Pix3D.method555(var50, var52, var48, var49, var51, var47, arg0.field60, arg0.field61, arg0.field59);
+					Pix3D.gouraudTriangle(var50, var52, var48, var49, var51, var47, arg0.field60, arg0.field61, arg0.field59);
 				}
 			} else if (lowMem) {
 				int var53 = field1062[arg0.field62];
-				Pix3D.method555(var50, var52, var48, var49, var51, var47, this.method317(arg0.field60, var53), this.method317(arg0.field61, var53), this.method317(arg0.field59, var53));
+				Pix3D.gouraudTriangle(var50, var52, var48, var49, var51, var47, this.method317(arg0.field60, var53), this.method317(arg0.field61, var53), this.method317(arg0.field59, var53));
 			} else if (arg0.field63) {
-				Pix3D.method559(var50, var52, var48, var49, var51, var47, arg0.field60, arg0.field61, arg0.field59, var21, var27, var39, var24, var30, var42, var25, var31, var43, arg0.field62);
+				Pix3D.textureTriangle(var50, var52, var48, var49, var51, var47, arg0.field60, arg0.field61, arg0.field59, var21, var27, var39, var24, var30, var42, var25, var31, var43, arg0.field62);
 			} else {
-				Pix3D.method559(var50, var52, var48, var49, var51, var47, arg0.field60, arg0.field61, arg0.field59, var33, var39, var27, var36, var42, var30, var37, var43, var31, arg0.field62);
+				Pix3D.textureTriangle(var50, var52, var48, var49, var51, var47, arg0.field60, arg0.field61, arg0.field59, var33, var39, var27, var36, var42, var30, var37, var43, var31, arg0.field62);
 			}
 		}
 		if ((var45 - var47) * (var52 - var48) - (var46 - var48) * (var51 - var47) <= 0) {
 			return;
 		}
-		Pix3D.field1590 = false;
-		if (var45 < 0 || var47 < 0 || var51 < 0 || var45 > Pix2D.field1101 || var47 > Pix2D.field1101 || var51 > Pix2D.field1101) {
-			Pix3D.field1590 = true;
+		Pix3D.hclip = false;
+		if (var45 < 0 || var47 < 0 || var51 < 0 || var45 > Pix2D.safeWidth || var47 > Pix2D.safeWidth || var51 > Pix2D.safeWidth) {
+			Pix3D.hclip = true;
 		}
 		if (field1044 && this.method318(field1045, field1046, var46, var48, var52, var45, var47, var51)) {
 			clickTileX = arg6;
@@ -1736,13 +1736,13 @@ public class World3D {
 		}
 		if (arg0.field62 != -1) {
 			if (!lowMem) {
-				Pix3D.method559(var46, var48, var52, var45, var47, var51, arg0.field58, arg0.field59, arg0.field61, var21, var27, var39, var24, var30, var42, var25, var31, var43, arg0.field62);
+				Pix3D.textureTriangle(var46, var48, var52, var45, var47, var51, arg0.field58, arg0.field59, arg0.field61, var21, var27, var39, var24, var30, var42, var25, var31, var43, arg0.field62);
 				return;
 			}
 			int var54 = field1062[arg0.field62];
-			Pix3D.method555(var46, var48, var52, var45, var47, var51, this.method317(arg0.field58, var54), this.method317(arg0.field59, var54), this.method317(arg0.field61, var54));
+			Pix3D.gouraudTriangle(var46, var48, var52, var45, var47, var51, this.method317(arg0.field58, var54), this.method317(arg0.field59, var54), this.method317(arg0.field61, var54));
 		} else if (arg0.field58 != 12345678) {
-			Pix3D.method555(var46, var48, var52, var45, var47, var51, arg0.field58, arg0.field59, arg0.field61);
+			Pix3D.gouraudTriangle(var46, var48, var52, var45, var47, var51, arg0.field58, arg0.field59, arg0.field61);
 		}
 	}
 
@@ -1765,8 +1765,8 @@ public class World3D {
 				Ground.field920[var10] = var29;
 				Ground.field921[var10] = var30;
 			}
-			Ground.field917[var10] = (var26 << 9) / var30 + Pix3D.field1594;
-			Ground.field918[var10] = (var29 << 9) / var30 + Pix3D.field1595;
+			Ground.field917[var10] = (var26 << 9) / var30 + Pix3D.centerX;
+			Ground.field918[var10] = (var29 << 9) / var30 + Pix3D.centerY;
 		}
 		Pix3D.field1593 = 0;
 		int var11 = arg2.field908.length;
@@ -1784,9 +1784,9 @@ public class World3D {
 			int var20 = Ground.field918[var14];
 			int var21 = Ground.field918[var15];
 			if ((var16 - var17) * (var21 - var20) - (var18 - var17) * (var19 - var20) > 0) {
-				Pix3D.field1590 = false;
-				if (var16 < 0 || var17 < 0 || var18 < 0 || var16 > Pix2D.field1101 || var17 > Pix2D.field1101 || var18 > Pix2D.field1101) {
-					Pix3D.field1590 = true;
+				Pix3D.hclip = false;
+				if (var16 < 0 || var17 < 0 || var18 < 0 || var16 > Pix2D.safeWidth || var17 > Pix2D.safeWidth || var18 > Pix2D.safeWidth) {
+					Pix3D.hclip = true;
 				}
 				if (field1044 && this.method318(field1045, field1046, var19, var20, var21, var16, var17, var18)) {
 					clickTileX = arg5;
@@ -1794,15 +1794,15 @@ public class World3D {
 				}
 				if (arg2.field911 == null || arg2.field911[var12] == -1) {
 					if (arg2.field905[var12] != 12345678) {
-						Pix3D.method555(var19, var20, var21, var16, var17, var18, arg2.field905[var12], arg2.field906[var12], arg2.field907[var12]);
+						Pix3D.gouraudTriangle(var19, var20, var21, var16, var17, var18, arg2.field905[var12], arg2.field906[var12], arg2.field907[var12]);
 					}
 				} else if (lowMem) {
 					int var22 = field1062[arg2.field911[var12]];
-					Pix3D.method555(var19, var20, var21, var16, var17, var18, this.method317(arg2.field905[var12], var22), this.method317(arg2.field906[var12], var22), this.method317(arg2.field907[var12], var22));
+					Pix3D.gouraudTriangle(var19, var20, var21, var16, var17, var18, this.method317(arg2.field905[var12], var22), this.method317(arg2.field906[var12], var22), this.method317(arg2.field907[var12], var22));
 				} else if (arg2.field912) {
-					Pix3D.method559(var19, var20, var21, var16, var17, var18, arg2.field905[var12], arg2.field906[var12], arg2.field907[var12], Ground.field919[0], Ground.field919[1], Ground.field919[3], Ground.field920[0], Ground.field920[1], Ground.field920[3], Ground.field921[0], Ground.field921[1], Ground.field921[3], arg2.field911[var12]);
+					Pix3D.textureTriangle(var19, var20, var21, var16, var17, var18, arg2.field905[var12], arg2.field906[var12], arg2.field907[var12], Ground.field919[0], Ground.field919[1], Ground.field919[3], Ground.field920[0], Ground.field920[1], Ground.field920[3], Ground.field921[0], Ground.field921[1], Ground.field921[3], arg2.field911[var12]);
 				} else {
-					Pix3D.method559(var19, var20, var21, var16, var17, var18, arg2.field905[var12], arg2.field906[var12], arg2.field907[var12], Ground.field919[var13], Ground.field919[var14], Ground.field919[var15], Ground.field920[var13], Ground.field920[var14], Ground.field920[var15], Ground.field921[var13], Ground.field921[var14], Ground.field921[var15], arg2.field911[var12]);
+					Pix3D.textureTriangle(var19, var20, var21, var16, var17, var18, arg2.field905[var12], arg2.field906[var12], arg2.field907[var12], Ground.field919[var13], Ground.field919[var14], Ground.field919[var15], Ground.field920[var13], Ground.field920[var14], Ground.field920[var15], Ground.field921[var13], Ground.field921[var14], Ground.field921[var15], arg2.field911[var12]);
 				}
 			}
 		}

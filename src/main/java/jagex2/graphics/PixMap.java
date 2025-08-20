@@ -13,64 +13,69 @@ import java.awt.image.ImageProducer;
 public class PixMap implements ImageProducer, ImageObserver {
 
 	@ObfuscatedName("ISZGOOMR.c")
-	public int field879;
+	public int width;
 
 	@ObfuscatedName("ISZGOOMR.d")
-	public int field880;
+	public int height;
 
 	@ObfuscatedName("ISZGOOMR.b")
-	public int[] field878;
+	public int[] data;
 
 	@ObfuscatedName("ISZGOOMR.e")
-	public ColorModel field881;
+	public ColorModel colorModel;
 
 	@ObfuscatedName("ISZGOOMR.g")
-	public Image field883;
+	public Image image;
 
 	@ObfuscatedName("ISZGOOMR.f")
-	public ImageConsumer field882;
+	public ImageConsumer consumer;
 
-	public PixMap(int arg0, Component arg2, int arg3) {
-		this.field879 = arg3;
-		this.field880 = arg0;
-		this.field878 = new int[arg0 * arg3];
-		this.field881 = new DirectColorModel(32, 16711680, 65280, 255);
-		this.field883 = arg2.createImage(this);
-		this.method242();
-		arg2.prepareImage(this.field883, this);
-		this.method242();
-		arg2.prepareImage(this.field883, this);
-		this.method242();
-		arg2.prepareImage(this.field883, this);
+	public PixMap(int height, Component c, int width) {
+		this.width = width;
+		this.height = height;
+		this.data = new int[height * width];
+		this.colorModel = new DirectColorModel(32, 16711680, 65280, 255);
+
+		this.image = c.createImage(this);
+
+		this.setPixels();
+		c.prepareImage(this.image, this);
+
+		this.setPixels();
+		c.prepareImage(this.image, this);
+
+		this.setPixels();
+		c.prepareImage(this.image, this);
+
 		this.bind();
 	}
 
 	@ObfuscatedName("ISZGOOMR.a(Z)V")
 	public void bind() {
-		Pix2D.method332(this.field879, this.field880, this.field878);
+		Pix2D.bind(this.width, this.height, this.data);
 	}
 
 	@ObfuscatedName("ISZGOOMR.a(IILjava/awt/Graphics;Z)V")
-	public void draw(int arg0, int arg1, Graphics arg2) {
-		this.method242();
-		arg2.drawImage(this.field883, arg1, arg0, this);
+	public void draw(int y, int x, Graphics g) {
+		this.setPixels();
+		g.drawImage(this.image, x, y, this);
 	}
 
-	public synchronized void addConsumer(ImageConsumer arg0) {
-		this.field882 = arg0;
-		arg0.setDimensions(this.field879, this.field880);
-		arg0.setProperties(null);
-		arg0.setColorModel(this.field881);
-		arg0.setHints(14);
+	public synchronized void addConsumer(ImageConsumer c) {
+		this.consumer = c;
+		c.setDimensions(this.width, this.height);
+		c.setProperties(null);
+		c.setColorModel(this.colorModel);
+		c.setHints(14);
 	}
 
 	public synchronized boolean isConsumer(ImageConsumer arg0) {
-		return this.field882 == arg0;
+		return this.consumer == arg0;
 	}
 
 	public synchronized void removeConsumer(ImageConsumer arg0) {
-		if (this.field882 == arg0) {
-			this.field882 = null;
+		if (this.consumer == arg0) {
+			this.consumer = null;
 		}
 	}
 
@@ -83,10 +88,10 @@ public class PixMap implements ImageProducer, ImageObserver {
 	}
 
 	@ObfuscatedName("ISZGOOMR.a()V")
-	public synchronized void method242() {
-		if (this.field882 != null) {
-			this.field882.setPixels(0, 0, this.field879, this.field880, this.field881, this.field878, 0, this.field879);
-			this.field882.imageComplete(2);
+	public synchronized void setPixels() {
+		if (this.consumer != null) {
+			this.consumer.setPixels(0, 0, this.width, this.height, this.colorModel, this.data, 0, this.width);
+			this.consumer.imageComplete(2);
 		}
 	}
 

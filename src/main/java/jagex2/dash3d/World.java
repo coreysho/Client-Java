@@ -483,7 +483,7 @@ public class World {
 								}
 								int var88 = 0;
 								if (var80 != -1) {
-									var88 = Pix3D.field1610[method19(var81, 96)];
+									var88 = Pix3D.colourTable[method19(var81, 96)];
 								}
 								if (var71 == 0) {
 									arg2.method279(var5, var58, var67, 0, 0, -1, var72, var73, var74, var75, method19(var80, var76), method19(var80, var77), method19(var80, var78), method19(var80, var79), 0, 0, 0, 0, var88, 0);
@@ -495,15 +495,15 @@ public class World {
 									int var93;
 									int var94;
 									if (var92 >= 0) {
-										var93 = Pix3D.method550(var92);
+										var93 = Pix3D.getTextureAverageRgb(var92);
 										var94 = -1;
 									} else if (var91.field798 == 16711935) {
 										var94 = -2;
 										var92 = -1;
-										var93 = Pix3D.field1610[this.method30(var91.field807, 96)];
+										var93 = Pix3D.colourTable[this.method30(var91.field807, 96)];
 									} else {
 										var94 = this.method25(var91.field802, var91.field803, var91.field804);
-										var93 = Pix3D.field1610[this.method30(var91.field807, 96)];
+										var93 = Pix3D.colourTable[this.method30(var91.field807, 96)];
 									}
 									arg2.method279(var5, var58, var67, var89, var90, var92, var72, var73, var74, var75, method19(var80, var76), method19(var80, var77), method19(var80, var78), method19(var80, var79), this.method30(var94, var76), this.method30(var94, var77), this.method30(var94, var78), this.method30(var94, var79), var88, var93);
 								}
@@ -1129,7 +1129,7 @@ public class World {
 
 	@ObfuscatedName("CHEOPWNH.b(IIII)I")
 	public static int method24(int arg0, int arg1, int arg2, int arg3) {
-		int var4 = 65536 - Pix3D.field1599[arg2 * 1024 / arg3] >> 1;
+		int var4 = 65536 - Pix3D.cosTable[arg2 * 1024 / arg3] >> 1;
 		return ((65536 - var4) * arg0 >> 16) + (arg1 * var4 >> 16);
 	}
 

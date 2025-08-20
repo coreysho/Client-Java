@@ -508,7 +508,7 @@ public class ObjType {
 	public static Pix32 method230(int arg1, int arg2, int arg3) {
 		if (arg1 == 0) {
 			Pix32 var4 = (Pix32) field828.get((long) arg3);
-			if (var4 != null && var4.field691 != arg2 && var4.field691 != -1) {
+			if (var4 != null && var4.ohi != arg2 && var4.ohi != -1) {
 				var4.method604();
 				var4 = null;
 			}
@@ -543,19 +543,19 @@ public class ObjType {
 			}
 		}
 		Pix32 var10 = new Pix32(32, 32);
-		int var11 = Pix3D.field1594;
-		int var12 = Pix3D.field1595;
+		int var11 = Pix3D.centerX;
+		int var12 = Pix3D.centerY;
 		int[] var13 = Pix3D.lineOffset;
-		int[] var14 = Pix2D.field1094;
-		int var15 = Pix2D.field1095;
-		int var16 = Pix2D.field1096;
-		int var17 = Pix2D.field1099;
-		int var18 = Pix2D.field1100;
-		int var19 = Pix2D.field1097;
-		int var20 = Pix2D.field1098;
-		Pix3D.field1592 = false;
-		Pix2D.method332(32, 32, var10.field685);
-		Pix2D.method337(32, 0, 0, 32, 0);
+		int[] var14 = Pix2D.data;
+		int var15 = Pix2D.width2d;
+		int var16 = Pix2D.height2d;
+		int var17 = Pix2D.left;
+		int var18 = Pix2D.right;
+		int var19 = Pix2D.top;
+		int var20 = Pix2D.bottom;
+		Pix3D.jagged = false;
+		Pix2D.bind(32, 32, var10.pixels);
+		Pix2D.fillRect(32, 0, 0, 32, 0);
 		Pix3D.method545();
 		int var21 = var5.field851;
 		if (arg1 == -1) {
@@ -565,19 +565,19 @@ public class ObjType {
 			var21 = (int) ((double) var21 * 1.04D);
 		}
 		int var22 = Pix3D.sinTable[var5.field841] * var21 >> 16;
-		int var23 = Pix3D.field1599[var5.field841] * var21 >> 16;
+		int var23 = Pix3D.cosTable[var5.field841] * var21 >> 16;
 		var8.method380(0, var5.field838, var5.field821, var5.field841, var5.field809, var8.field1709 / 2 + var22 + var5.field822, var5.field822 + var23);
 		for (int var24 = 31; var24 >= 0; var24--) {
 			for (int var31 = 31; var31 >= 0; var31--) {
-				if (var10.field685[var31 * 32 + var24] == 0) {
-					if (var24 > 0 && var10.field685[var31 * 32 + (var24 - 1)] > 1) {
-						var10.field685[var31 * 32 + var24] = 1;
-					} else if (var31 > 0 && var10.field685[(var31 - 1) * 32 + var24] > 1) {
-						var10.field685[var31 * 32 + var24] = 1;
-					} else if (var24 < 31 && var10.field685[var31 * 32 + var24 + 1] > 1) {
-						var10.field685[var31 * 32 + var24] = 1;
-					} else if (var31 < 31 && var10.field685[(var31 + 1) * 32 + var24] > 1) {
-						var10.field685[var31 * 32 + var24] = 1;
+				if (var10.pixels[var31 * 32 + var24] == 0) {
+					if (var24 > 0 && var10.pixels[var31 * 32 + (var24 - 1)] > 1) {
+						var10.pixels[var31 * 32 + var24] = 1;
+					} else if (var31 > 0 && var10.pixels[(var31 - 1) * 32 + var24] > 1) {
+						var10.pixels[var31 * 32 + var24] = 1;
+					} else if (var24 < 31 && var10.pixels[var31 * 32 + var24 + 1] > 1) {
+						var10.pixels[var31 * 32 + var24] = 1;
+					} else if (var31 < 31 && var10.pixels[(var31 + 1) * 32 + var24] > 1) {
+						var10.pixels[var31 * 32 + var24] = 1;
 					}
 				}
 			}
@@ -585,15 +585,15 @@ public class ObjType {
 		if (arg1 > 0) {
 			for (int var25 = 31; var25 >= 0; var25--) {
 				for (int var26 = 31; var26 >= 0; var26--) {
-					if (var10.field685[var26 * 32 + var25] == 0) {
-						if (var25 > 0 && var10.field685[var26 * 32 + (var25 - 1)] == 1) {
-							var10.field685[var26 * 32 + var25] = arg1;
-						} else if (var26 > 0 && var10.field685[(var26 - 1) * 32 + var25] == 1) {
-							var10.field685[var26 * 32 + var25] = arg1;
-						} else if (var25 < 31 && var10.field685[var26 * 32 + var25 + 1] == 1) {
-							var10.field685[var26 * 32 + var25] = arg1;
-						} else if (var26 < 31 && var10.field685[(var26 + 1) * 32 + var25] == 1) {
-							var10.field685[var26 * 32 + var25] = arg1;
+					if (var10.pixels[var26 * 32 + var25] == 0) {
+						if (var25 > 0 && var10.pixels[var26 * 32 + (var25 - 1)] == 1) {
+							var10.pixels[var26 * 32 + var25] = arg1;
+						} else if (var26 > 0 && var10.pixels[(var26 - 1) * 32 + var25] == 1) {
+							var10.pixels[var26 * 32 + var25] = arg1;
+						} else if (var25 < 31 && var10.pixels[var26 * 32 + var25 + 1] == 1) {
+							var10.pixels[var26 * 32 + var25] = arg1;
+						} else if (var26 < 31 && var10.pixels[(var26 + 1) * 32 + var25] == 1) {
+							var10.pixels[var26 * 32 + var25] = arg1;
 						}
 					}
 				}
@@ -601,36 +601,36 @@ public class ObjType {
 		} else if (arg1 == 0) {
 			for (int var27 = 31; var27 >= 0; var27--) {
 				for (int var28 = 31; var28 >= 0; var28--) {
-					if (var10.field685[var28 * 32 + var27] == 0 && var27 > 0 && var28 > 0 && var10.field685[(var28 - 1) * 32 + (var27 - 1)] > 0) {
-						var10.field685[var28 * 32 + var27] = 3153952;
+					if (var10.pixels[var28 * 32 + var27] == 0 && var27 > 0 && var28 > 0 && var10.pixels[(var28 - 1) * 32 + (var27 - 1)] > 0) {
+						var10.pixels[var28 * 32 + var27] = 3153952;
 					}
 				}
 			}
 		}
 		if (var5.field825 != -1) {
-			int var29 = var9.field690;
-			int var30 = var9.field691;
-			var9.field690 = 32;
-			var9.field691 = 32;
-			var9.method195(0, 0);
-			var9.field690 = var29;
-			var9.field691 = var30;
+			int var29 = var9.owi;
+			int var30 = var9.ohi;
+			var9.owi = 32;
+			var9.ohi = 32;
+			var9.plotSprite(0, 0);
+			var9.owi = var29;
+			var9.ohi = var30;
 		}
 		if (arg1 == 0) {
 			field828.put(var10, (long) arg3);
 		}
-		Pix2D.method332(var15, var16, var14);
-		Pix2D.method334(var19, var17, var20, var18);
-		Pix3D.field1594 = var11;
-		Pix3D.field1595 = var12;
+		Pix2D.bind(var15, var16, var14);
+		Pix2D.setClipping(var19, var17, var20, var18);
+		Pix3D.centerX = var11;
+		Pix3D.centerY = var12;
 		Pix3D.lineOffset = var13;
-		Pix3D.field1592 = true;
+		Pix3D.jagged = true;
 		if (var5.field853) {
-			var10.field690 = 33;
+			var10.owi = 33;
 		} else {
-			var10.field690 = 32;
+			var10.owi = 32;
 		}
-		var10.field691 = arg2;
+		var10.ohi = arg2;
 		return var10;
 	}
 
