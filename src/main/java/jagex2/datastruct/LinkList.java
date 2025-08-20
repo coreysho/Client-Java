@@ -18,7 +18,7 @@ public class LinkList {
 	@ObfuscatedName("BOHLFXVX.a(LZUOIJLRD;)V")
 	public void method3(Linkable arg0) {
 		if (arg0.field1771 != null) {
-			arg0.method604();
+			arg0.unlink();
 		}
 		arg0.field1771 = this.field92.field1771;
 		arg0.field1770 = this.field92;
@@ -29,7 +29,7 @@ public class LinkList {
 	@ObfuscatedName("BOHLFXVX.a(BLZUOIJLRD;)V")
 	public void method4(Linkable arg1) {
 		if (arg1.field1771 != null) {
-			arg1.method604();
+			arg1.unlink();
 		}
 		arg1.field1771 = this.field92;
 		arg1.field1770 = this.field92.field1770;
@@ -43,7 +43,7 @@ public class LinkList {
 		if (this.field92 == var1) {
 			return null;
 		} else {
-			var1.method604();
+			var1.unlink();
 			return var1;
 		}
 	}
@@ -105,7 +105,7 @@ public class LinkList {
 			if (this.field92 == var1) {
 				return;
 			}
-			var1.method604();
+			var1.unlink();
 		}
 	}
 }

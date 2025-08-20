@@ -164,7 +164,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 								this.field1734.method3(this.field1749);
 							}
 						} else {
-							this.field1749.method604();
+							this.field1749.unlink();
 						}
 						this.field1749 = null;
 					} else {
@@ -206,7 +206,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 							this.field1734.method3(this.field1749);
 						}
 					} else {
-						this.field1749.method604();
+						this.field1749.unlink();
 					}
 				}
 				this.field1739 = 0;
@@ -578,7 +578,7 @@ public class OnDemand extends OnDemandProvider implements Runnable {
 		}
 		this.field1750 = arg1;
 		this.field1716 = true;
-		this.field1750.method142(this, 2);
+		this.field1750.startThread(this, 2);
 	}
 
 	@ObfuscatedName("ZPGPWCCV.a(B)V")

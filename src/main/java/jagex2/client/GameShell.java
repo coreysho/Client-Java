@@ -124,7 +124,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 		this.field954 = new ViewBox(this.field950, this, this.field949);
 		this.graphics = this.getBaseComponent().getGraphics();
 		this.field952 = new PixMap(this.field950, this.getBaseComponent(), this.field949);
-		this.method142(this, 1);
+		this.startThread(this, 1);
 	}
 
 	@ObfuscatedName("JWWAIQPI.b(III)V")
@@ -133,7 +133,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 		this.field950 = arg1;
 		this.graphics = this.getBaseComponent().getGraphics();
 		this.field952 = new PixMap(this.field950, this.getBaseComponent(), this.field949);
-		this.method142(this, 1);
+		this.startThread(this, 1);
 	}
 
 	public void run() {
@@ -241,7 +241,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	@ObfuscatedName("JWWAIQPI.a(Z)V")
 	public void method268() {
 		this.field943 = -2;
-		this.method40();
+		this.unload();
 		if (this.field954 == null) {
 			return;
 		}
@@ -288,7 +288,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 			this.graphics = arg0;
 		}
 		this.field955 = true;
-		this.method82();
+		this.refresh();
 	}
 
 	public void paint(Graphics arg0) {
@@ -296,7 +296,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 			this.graphics = arg0;
 		}
 		this.field955 = true;
-		this.method82();
+		this.refresh();
 	}
 
 	public void mousePressed(MouseEvent arg0) {
@@ -485,7 +485,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	public void focusGained(FocusEvent arg0) {
 		this.field956 = true;
 		this.field955 = true;
-		this.method82();
+		this.refresh();
 	}
 
 	public void focusLost(FocusEvent arg0) {
@@ -526,7 +526,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	}
 
 	@ObfuscatedName("JWWAIQPI.b(I)V")
-	public void method40() {
+	public void unload() {
 	}
 
 	@ObfuscatedName("JWWAIQPI.c(I)V")
@@ -534,7 +534,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	}
 
 	@ObfuscatedName("JWWAIQPI.b(B)V")
-	public void method82() {
+	public void refresh() {
 	}
 
 	@ObfuscatedName("JWWAIQPI.d(I)Ljava/awt/Component;")
@@ -543,7 +543,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	}
 
 	@ObfuscatedName("JWWAIQPI.a(Ljava/lang/Runnable;I)V")
-	public void method142(Runnable arg0, int arg1) {
+	public void startThread(Runnable arg0, int arg1) {
 		Thread var3 = new Thread(arg0);
 		var3.start();
 		var3.setPriority(arg1);

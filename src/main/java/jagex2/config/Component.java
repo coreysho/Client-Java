@@ -587,7 +587,7 @@ public class Component {
 	}
 
 	@ObfuscatedName("EWIXBTLV.a(ZI)V")
-	public static void method209(int arg1) {
+	public static void unloadCom(int arg1) {
 		if (arg1 == -1) {
 			return;
 		}

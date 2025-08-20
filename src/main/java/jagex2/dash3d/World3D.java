@@ -207,7 +207,7 @@ public class World3D {
 	}
 
 	@ObfuscatedName("KJCMXHNO.a(Z)V")
-	public static void method273() {
+	public static void unload() {
 		field1039 = null;
 		field1050 = null;
 		field1051 = null;
@@ -533,7 +533,7 @@ public class World3D {
 	}
 
 	@ObfuscatedName("KJCMXHNO.a(I)V")
-	public void method288() {
+	public void clearLocChanges() {
 		for (int var3 = 0; var3 < this.field1020; var3++) {
 			Sprite var4 = this.field1021[var3];
 			this.method289(var4);
@@ -959,10 +959,10 @@ public class World3D {
 		boolean[][][][] var6 = new boolean[9][32][53][53];
 		for (int var7 = 128; var7 <= 384; var7 += 32) {
 			for (int var15 = 0; var15 < 2048; var15 += 64) {
-				field1035 = Model.field1257[var7];
-				field1036 = Model.field1258[var7];
-				field1037 = Model.field1257[var15];
-				field1038 = Model.field1258[var15];
+				field1035 = Model.sinTable[var7];
+				field1036 = Model.cosTable[var7];
+				field1037 = Model.sinTable[var15];
+				field1038 = Model.cosTable[var15];
 				int var16 = (var7 - 128) / 32;
 				int var17 = var15 / 64;
 				for (int var18 = -26; var18 <= 26; var18++) {
@@ -1038,7 +1038,7 @@ public class World3D {
 	}
 
 	@ObfuscatedName("KJCMXHNO.a(IIIIIII)V")
-	public void method313(int arg0, int arg1, int arg3, int arg4, int arg5, int arg6) {
+	public void draw(int arg0, int arg1, int arg3, int arg4, int arg5, int arg6) {
 		if (arg0 < 0) {
 			arg0 = 0;
 		} else if (arg0 >= this.field1015 * 128) {
@@ -1050,10 +1050,10 @@ public class World3D {
 			arg4 = this.field1016 * 128 - 1;
 		}
 		field1025++;
-		field1035 = Model.field1257[arg6];
-		field1036 = Model.field1258[arg6];
-		field1037 = Model.field1257[arg5];
-		field1038 = Model.field1258[arg5];
+		field1035 = Model.sinTable[arg6];
+		field1036 = Model.cosTable[arg6];
+		field1037 = Model.sinTable[arg5];
+		field1038 = Model.cosTable[arg5];
 		field1069 = field1068[(arg6 - 128) / 32][arg5 / 64];
 		field1032 = arg0;
 		field1033 = arg3;

@@ -220,7 +220,7 @@ public class NpcType {
 	}
 
 	@ObfuscatedName("SLDUQHOR.a(Z)V")
-	public static void method471() {
+	public static void unload() {
 		field1438 = null;
 		field1453 = null;
 		field1458 = null;

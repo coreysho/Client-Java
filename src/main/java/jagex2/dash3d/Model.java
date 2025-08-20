@@ -174,10 +174,10 @@ public class Model extends ModelSource {
 	public static int[] field1256 = new int[1000];
 
 	@ObfuscatedName("LZYQDKJV.Ib")
-	public static int[] field1257 = Pix3D.sinTable;
+	public static int[] sinTable = Pix3D.sinTable;
 
 	@ObfuscatedName("LZYQDKJV.Jb")
-	public static int[] field1258 = Pix3D.cosTable;
+	public static int[] cosTable = Pix3D.cosTable;
 
 	@ObfuscatedName("LZYQDKJV.Kb")
 	public static int[] field1259 = Pix3D.colourTable;
@@ -201,19 +201,19 @@ public class Model extends ModelSource {
 	public static int field1251;
 
 	@ObfuscatedName("LZYQDKJV.Eb")
-	public static int field1253;
+	public static int mouseX;
 
 	@ObfuscatedName("LZYQDKJV.Fb")
-	public static int field1254;
+	public static int mouseY;
 
 	@ObfuscatedName("LZYQDKJV.Gb")
-	public static int field1255;
+	public static int pickedCount;
 
 	@ObfuscatedName("LZYQDKJV.hb")
 	public static OnDemandProvider field1230;
 
 	@ObfuscatedName("LZYQDKJV.Db")
-	public static boolean field1252;
+	public static boolean checkHover;
 
 	@ObfuscatedName("LZYQDKJV.gb")
 	public static Metadata[] field1229;
@@ -225,7 +225,7 @@ public class Model extends ModelSource {
 	public int[][] field1226;
 
 	@ObfuscatedName("LZYQDKJV.a(Z)V")
-	public static void method355() {
+	public static void unload() {
 		field1229 = null;
 		field1231 = null;
 		field1232 = null;
@@ -242,8 +242,8 @@ public class Model extends ModelSource {
 		field1243 = null;
 		field1244 = null;
 		field1245 = null;
-		field1257 = null;
-		field1258 = null;
+		sinTable = null;
+		cosTable = null;
 		field1259 = null;
 		field1260 = null;
 	}
@@ -1202,22 +1202,22 @@ public class Model extends ModelSource {
 						int var24 = (arg3 & 0xFF) * 8;
 						int var25 = (arg4 & 0xFF) * 8;
 						if (var25 != 0) {
-							int var26 = field1257[var25];
-							int var27 = field1258[var25];
+							int var26 = sinTable[var25];
+							int var27 = cosTable[var25];
 							int var28 = this.field1197[var22] * var26 + this.field1196[var22] * var27 >> 16;
 							this.field1197[var22] = this.field1197[var22] * var27 - this.field1196[var22] * var26 >> 16;
 							this.field1196[var22] = var28;
 						}
 						if (var23 != 0) {
-							int var29 = field1257[var23];
-							int var30 = field1258[var23];
+							int var29 = sinTable[var23];
+							int var30 = cosTable[var23];
 							int var31 = this.field1197[var22] * var30 - this.field1198[var22] * var29 >> 16;
 							this.field1198[var22] = this.field1198[var22] * var30 + this.field1197[var22] * var29 >> 16;
 							this.field1197[var22] = var31;
 						}
 						if (var24 != 0) {
-							int var32 = field1257[var24];
-							int var33 = field1258[var24];
+							int var32 = sinTable[var24];
+							int var33 = cosTable[var24];
 							int var34 = this.field1198[var22] * var32 + this.field1196[var22] * var33 >> 16;
 							this.field1198[var22] = this.field1198[var22] * var33 - this.field1196[var22] * var32 >> 16;
 							this.field1196[var22] = var34;
@@ -1281,8 +1281,8 @@ public class Model extends ModelSource {
 
 	@ObfuscatedName("LZYQDKJV.b(II)V")
 	public void method371(int arg0) {
-		int var3 = field1257[arg0];
-		int var4 = field1258[arg0];
+		int var3 = sinTable[arg0];
+		int var4 = cosTable[arg0];
 		for (int var5 = 0; var5 < this.field1195; var5++) {
 			int var7 = this.field1197[var5] * var4 - this.field1198[var5] * var3 >> 16;
 			this.field1198[var5] = this.field1198[var5] * var4 + this.field1197[var5] * var3 >> 16;
@@ -1485,14 +1485,14 @@ public class Model extends ModelSource {
 	public void method380(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6) {
 		int var8 = Pix3D.centerX;
 		int var9 = Pix3D.centerY;
-		int var10 = field1257[arg0];
-		int var11 = field1258[arg0];
-		int var12 = field1257[arg1];
-		int var13 = field1258[arg1];
-		int var14 = field1257[arg2];
-		int var15 = field1258[arg2];
-		int var16 = field1257[arg3];
-		int var17 = field1258[arg3];
+		int var10 = sinTable[arg0];
+		int var11 = cosTable[arg0];
+		int var12 = sinTable[arg1];
+		int var13 = cosTable[arg1];
+		int var14 = sinTable[arg2];
+		int var15 = cosTable[arg2];
+		int var16 = sinTable[arg3];
+		int var17 = cosTable[arg3];
 		int var18 = arg5 * var16 + arg6 * var17 >> 16;
 		for (int var19 = 0; var19 < this.field1195; var19++) {
 			int var20 = this.field1196[var19];
@@ -1568,7 +1568,7 @@ public class Model extends ModelSource {
 			var23 = true;
 		}
 		boolean var24 = false;
-		if (arg8 > 0 && field1252) {
+		if (arg8 > 0 && checkHover) {
 			int var25 = var11 - var12;
 			if (var25 <= 50) {
 				var25 = 50;
@@ -1591,11 +1591,11 @@ public class Model extends ModelSource {
 				var29 = var19 / var13;
 				var28 = var21 / var25;
 			}
-			int var30 = field1253 - Pix3D.centerX;
-			int var31 = field1254 - Pix3D.centerY;
+			int var30 = mouseX - Pix3D.centerX;
+			int var31 = mouseY - Pix3D.centerY;
 			if (var30 > var26 && var30 < var27 && var31 > var28 && var31 < var29) {
 				if (this.field1227) {
-					field1256[field1255++] = arg8;
+					field1256[pickedCount++] = arg8;
 				} else {
 					var24 = true;
 				}
@@ -1606,8 +1606,8 @@ public class Model extends ModelSource {
 		int var34 = 0;
 		int var35 = 0;
 		if (arg0 != 0) {
-			var34 = field1257[arg0];
-			var35 = field1258[arg0];
+			var34 = sinTable[arg0];
+			var35 = cosTable[arg0];
 		}
 		for (int var36 = 0; var36 < this.field1195; var36++) {
 			int var37 = this.field1196[var36];
@@ -1663,8 +1663,8 @@ public class Model extends ModelSource {
 					int var36 = (field1235[var30] + field1235[var31] + field1235[var32]) / 3 + this.field1221;
 					field1240[var36][field1239[var36]++] = var5;
 				} else {
-					if (arg1 && this.method385(field1253, field1254, field1234[var30], field1234[var31], field1234[var32], var33, var34, var35)) {
-						field1256[field1255++] = arg2;
+					if (arg1 && this.method385(mouseX, mouseY, field1234[var30], field1234[var31], field1234[var32], var33, var34, var35)) {
+						field1256[pickedCount++] = arg2;
 						arg1 = false;
 					}
 					if ((field1234[var32] - field1234[var31]) * (var33 - var34) - (field1234[var30] - field1234[var31]) * (var35 - var34) > 0) {

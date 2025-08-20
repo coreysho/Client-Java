@@ -171,7 +171,7 @@ public abstract class ClientEntity extends ModelSource {
 	public String chatMessage;
 
 	@ObfuscatedName("LRUWCBNN.a(I)V")
-	public void method350() {
+	public void clearRoute() {
 		this.field1180 = 0;
 		this.field1160 = 0;
 	}

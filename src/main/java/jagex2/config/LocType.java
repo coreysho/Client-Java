@@ -575,7 +575,7 @@ public class LocType {
 	}
 
 	@ObfuscatedName("YMYTDPVW.a(Z)V")
-	public static void method571() {
+	public static void unload() {
 		field1633 = null;
 		field1616 = null;
 		field1612 = null;

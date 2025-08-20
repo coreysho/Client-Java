@@ -47,11 +47,11 @@ public class LruCache {
 	public void put(DoublyLinkable arg0, long arg1) {
 		if (this.field1376 == 0) {
 			DoublyLinkable var5 = this.field1378.method181();
-			var5.method604();
+			var5.unlink();
 			var5.method185();
 			if (this.field1374 == var5) {
 				DoublyLinkable var6 = this.field1378.method181();
-				var6.method604();
+				var6.unlink();
 				var6.method185();
 			}
 		} else {
@@ -69,7 +69,7 @@ public class LruCache {
 				this.field1376 = this.field1375;
 				return;
 			}
-			var1.method604();
+			var1.unlink();
 			var1.method185();
 		}
 	}

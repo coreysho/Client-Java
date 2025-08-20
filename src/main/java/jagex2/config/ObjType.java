@@ -509,7 +509,7 @@ public class ObjType {
 		if (arg1 == 0) {
 			Pix32 var4 = (Pix32) field828.get((long) arg3);
 			if (var4 != null && var4.ohi != arg2 && var4.ohi != -1) {
-				var4.method604();
+				var4.unlink();
 				var4 = null;
 			}
 			if (var4 != null) {
@@ -635,7 +635,7 @@ public class ObjType {
 	}
 
 	@ObfuscatedName("GSCQQEUA.a(Z)V")
-	public static void method231() {
+	public static void unload() {
 		field819 = null;
 		field828 = null;
 		field824 = null;

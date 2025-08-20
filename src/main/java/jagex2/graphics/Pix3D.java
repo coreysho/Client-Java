@@ -75,7 +75,7 @@ public class Pix3D extends Pix2D {
 	public static int[][] texelPool;
 
 	@ObfuscatedName("YIBHWZVJ.a(Z)V")
-	public static void method544() {
+	public static void unload() {
 		divTable = null;
 		divTable = null;
 		sinTable = null;
