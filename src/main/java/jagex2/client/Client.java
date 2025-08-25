@@ -11950,13 +11950,7 @@ public class Client extends GameShell {
 
 	@ObfuscatedName("client.d(I)Ljava/awt/Component;")
 	public java.awt.Component getBaseComponent() {
-		if (signlink.mainapp != null) {
-			return signlink.mainapp;
-		} else if (super.field954 == null) {
-			return this;
-		} else {
-			return super.field954;
-		}
+		return this;
 	}
 
 	@ObfuscatedName("client.a(IZLjava/lang/String;)V")

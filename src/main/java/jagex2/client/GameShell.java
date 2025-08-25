@@ -3,9 +3,11 @@ package jagex2.client;
 import deob.ObfuscatedName;
 import jagex2.graphics.Pix32;
 import jagex2.graphics.PixMap;
+
 import java.applet.Applet;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
@@ -119,6 +121,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 
 	@ObfuscatedName("JWWAIQPI.a(III)V")
 	public void initApplication(int arg1, int arg2) {
+		this.setPreferredSize(new Dimension(arg2, arg1));
 		this.field949 = arg2;
 		this.field950 = arg1;
 		this.field954 = new ViewBox(this.field950, this, this.field949);
@@ -129,6 +132,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 
 	@ObfuscatedName("JWWAIQPI.b(III)V")
 	public void method267(int arg0, int arg1) {
+		this.setPreferredSize(new Dimension(arg0, arg1));
 		this.field949 = arg0;
 		this.field950 = arg1;
 		this.graphics = this.getBaseComponent().getGraphics();
@@ -302,10 +306,6 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	public void mousePressed(MouseEvent arg0) {
 		int var2 = arg0.getX();
 		int var3 = arg0.getY();
-		if (this.field954 != null) {
-			var2 -= this.field954.insets.left;
-			var3 -= this.field954.insets.top;
-		}
 		this.idleCycles = 0;
 		this.field962 = var2;
 		this.field963 = var3;
@@ -351,10 +351,6 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	public void mouseDragged(MouseEvent arg0) {
 		int var2 = arg0.getX();
 		int var3 = arg0.getY();
-		if (this.field954 != null) {
-			var2 -= this.field954.insets.left;
-			var3 -= this.field954.insets.top;
-		}
 		this.idleCycles = 0;
 		this.mouseX = var2;
 		this.mouseY = var3;
@@ -363,10 +359,6 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	public void mouseMoved(MouseEvent arg0) {
 		int var2 = arg0.getX();
 		int var3 = arg0.getY();
-		if (this.field954 != null) {
-			var2 -= this.field954.insets.left;
-			var3 -= this.field954.insets.top;
-		}
 		this.idleCycles = 0;
 		this.mouseX = var2;
 		this.mouseY = var3;
@@ -539,7 +531,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 
 	@ObfuscatedName("JWWAIQPI.d(I)Ljava/awt/Component;")
 	public Component getBaseComponent() {
-		return this.field954 == null ? this : this.field954;
+		return this;
 	}
 
 	@ObfuscatedName("JWWAIQPI.a(Ljava/lang/Runnable;I)V")

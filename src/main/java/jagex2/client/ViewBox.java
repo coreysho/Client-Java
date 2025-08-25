@@ -1,9 +1,14 @@
 package jagex2.client;
 
-import deob.ObfuscatedName;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Graphics;
+import java.awt.Insets;
 
-public class ViewBox extends Frame {
+import javax.swing.JFrame;
+
+import deob.ObfuscatedName;
+
+public class ViewBox extends JFrame {
 
 	@ObfuscatedName("IEJCKZCR.a")
 	public GameShell shell;
@@ -15,21 +20,14 @@ public class ViewBox extends Frame {
 		this.setTitle("Jagex");
 		this.setResizable(false);
 
-		// macOS needs a size set before the window is shown
-		this.resize(width + 8, height + 28);
-		this.show();
+		BorderLayout manager = new BorderLayout();
+		this.setLayout(manager);
+
+		this.add(shell, BorderLayout.CENTER);
+		this.pack();
+
+		this.setVisible(true);
 		this.toFront();
-
-		this.insets = this.getInsets();
-		this.resize(width + this.insets.left + this.insets.bottom, height + this.insets.top + this.insets.bottom);
-	}
-
-	public Graphics getGraphics() {
-		Graphics g = super.getGraphics();
-		if (this.insets != null) {
-			g.translate(this.insets.left, this.insets.top);
-		}
-		return g;
 	}
 
 	public void update(Graphics g) {
