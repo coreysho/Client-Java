@@ -7,6 +7,7 @@ import java.awt.Insets;
 import javax.swing.JFrame;
 
 import deob.ObfuscatedName;
+import sign.signlink;
 
 public class ViewBox extends JFrame {
 
@@ -17,7 +18,7 @@ public class ViewBox extends JFrame {
 
 	public ViewBox(int height, GameShell shell, int width) {
 		this.shell = shell;
-		this.setTitle("Jagex");
+		this.setTitle("RS2 user client - release #" + signlink.clientversion);
 		this.setResizable(false);
 
 		BorderLayout manager = new BorderLayout();

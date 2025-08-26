@@ -24,46 +24,43 @@ import java.awt.event.WindowListener;
 public class GameShell extends Applet implements Runnable, MouseListener, MouseMotionListener, KeyListener, FocusListener, WindowListener {
 
 	@ObfuscatedName("JWWAIQPI.g")
-	public int field944 = 20;
+	public int deltime = 20;
 
 	@ObfuscatedName("JWWAIQPI.h")
 	public int mindel = 1;
 
 	@ObfuscatedName("JWWAIQPI.i")
-	public long[] field946 = new long[10];
+	public long[] otim = new long[10];
 
 	@ObfuscatedName("JWWAIQPI.k")
-	public boolean field948 = false;
+	public boolean debug = false;
 
 	@ObfuscatedName("JWWAIQPI.p")
-	public Pix32[] field953 = new Pix32[6];
+	public Pix32[] temp = new Pix32[6];
 
 	@ObfuscatedName("JWWAIQPI.r")
-	public boolean field955 = true;
+	public boolean redrawScreen = true;
 
 	@ObfuscatedName("JWWAIQPI.s")
-	public boolean field956 = true;
+	public boolean hasFocus = true;
 
 	@ObfuscatedName("JWWAIQPI.F")
-	public int[] field969 = new int[128];
+	public int[] actionKey = new int[128];
 
 	@ObfuscatedName("JWWAIQPI.G")
-	public int[] field970 = new int[128];
-
-	@ObfuscatedName("JWWAIQPI.e")
-	public int field942;
+	public int[] keyQueue = new int[128];
 
 	@ObfuscatedName("JWWAIQPI.f")
-	public int field943;
+	public int state;
 
 	@ObfuscatedName("JWWAIQPI.j")
-	public int field947;
+	public int fps;
 
 	@ObfuscatedName("JWWAIQPI.l")
-	public int field949;
+	public int canvasWidth;
 
 	@ObfuscatedName("JWWAIQPI.m")
-	public int field950;
+	public int canvasHeight;
 
 	@ObfuscatedName("JWWAIQPI.t")
 	public int idleCycles;
@@ -78,13 +75,13 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	public int mouseY;
 
 	@ObfuscatedName("JWWAIQPI.x")
-	public int field961;
+	public int nextMouseClickButton;
 
 	@ObfuscatedName("JWWAIQPI.y")
-	public int field962;
+	public int nextMouseClickX;
 
 	@ObfuscatedName("JWWAIQPI.z")
-	public int field963;
+	public int nextMouseClickY;
 
 	@ObfuscatedName("JWWAIQPI.B")
 	public int mouseClickButton;
@@ -96,47 +93,48 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	public int mouseClickY;
 
 	@ObfuscatedName("JWWAIQPI.H")
-	public int field971;
+	public int keyQueueReadPos;
 
 	@ObfuscatedName("JWWAIQPI.I")
-	public int field972;
-
-	@ObfuscatedName("JWWAIQPI.J")
-	public static int field973;
+	public int keyQueueWritePos;
 
 	@ObfuscatedName("JWWAIQPI.A")
-	public long field964;
+	public long nextMouseClickTime;
 
 	@ObfuscatedName("JWWAIQPI.E")
-	public long field968;
+	public long mouseClickTime;
 
 	@ObfuscatedName("JWWAIQPI.q")
-	public ViewBox field954;
+	public ViewBox frame;
 
 	@ObfuscatedName("JWWAIQPI.o")
-	public PixMap field952;
+	public PixMap drawArea;
 
 	@ObfuscatedName("JWWAIQPI.n")
 	public Graphics graphics;
 
 	@ObfuscatedName("JWWAIQPI.a(III)V")
-	public void initApplication(int arg1, int arg2) {
-		this.setPreferredSize(new Dimension(arg2, arg1));
-		this.field949 = arg2;
-		this.field950 = arg1;
-		this.field954 = new ViewBox(this.field950, this, this.field949);
+	public void initApplication(int height, int width) {
+		this.setPreferredSize(new Dimension(width, height));
+
+		this.canvasWidth = width;
+		this.canvasHeight = height;
+		this.frame = new ViewBox(this.canvasHeight, this, this.canvasWidth);
 		this.graphics = this.getBaseComponent().getGraphics();
-		this.field952 = new PixMap(this.field950, this.getBaseComponent(), this.field949);
+		this.drawArea = new PixMap(this.canvasHeight, this.getBaseComponent(), this.canvasWidth);
+
 		this.startThread(this, 1);
 	}
 
 	@ObfuscatedName("JWWAIQPI.b(III)V")
-	public void method267(int arg0, int arg1) {
-		this.setPreferredSize(new Dimension(arg0, arg1));
-		this.field949 = arg0;
-		this.field950 = arg1;
+	public void initApplet(int width, int height) {
+		this.setPreferredSize(new Dimension(width, height));
+
+		this.canvasWidth = width;
+		this.canvasHeight = height;
 		this.graphics = this.getBaseComponent().getGraphics();
-		this.field952 = new PixMap(this.field950, this.getBaseComponent(), this.field949);
+		this.drawArea = new PixMap(this.canvasHeight, this.getBaseComponent(), this.canvasWidth);
+
 		this.startThread(this, 1);
 	}
 
@@ -145,368 +143,387 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 		this.getBaseComponent().addMouseMotionListener(this);
 		this.getBaseComponent().addKeyListener(this);
 		this.getBaseComponent().addFocusListener(this);
-		if (this.field954 != null) {
-			this.field954.addWindowListener(this);
+
+		if (this.frame != null) {
+			this.frame.addWindowListener(this);
 		}
+
 		this.drawProgress(0, "Loading...");
 		this.load();
-		int var1 = 0;
-		int var2 = 256;
-		int var3 = 1;
-		int var4 = 0;
-		int var5 = 0;
-		for (int var6 = 0; var6 < 10; var6++) {
-			this.field946[var6] = System.currentTimeMillis();
+
+		int opos = 0;
+		int ratio = 256;
+		int delta = 1;
+		int count = 0;
+		int intex = 0;
+
+		for (int i = 0; i < 10; i++) {
+			this.otim[i] = System.currentTimeMillis();
 		}
-		long var7 = System.currentTimeMillis();
-		while (true) {
-			long var11;
-			do {
-				if (this.field943 < 0) {
-					if (this.field943 == -1) {
-						this.method268();
-					}
+
+		long ntime = System.currentTimeMillis();
+		while (this.state >= 0) {
+			if (this.state > 0) {
+				this.state--;
+
+				if (this.state == 0) {
+					this.shutdown();
 					return;
 				}
-				if (this.field943 > 0) {
-					this.field943--;
-					if (this.field943 == 0) {
-						this.method268();
-						return;
-					}
-				}
-				int var9 = var2;
-				int var10 = var3;
-				var2 = 300;
-				var3 = 1;
-				var11 = System.currentTimeMillis();
-				if (this.field946[var1] == 0L) {
-					var2 = var9;
-					var3 = var10;
-				} else if (var11 > this.field946[var1]) {
-					var2 = (int) ((long) (this.field944 * 2560) / (var11 - this.field946[var1]));
-				}
-				if (var2 < 25) {
-					var2 = 25;
-				}
-				if (var2 > 256) {
-					var2 = 256;
-					var3 = (int) ((long) this.field944 - (var11 - this.field946[var1]) / 10L);
-				}
-				if (var3 > this.field944) {
-					var3 = this.field944;
-				}
-				this.field946[var1] = var11;
-				var1 = (var1 + 1) % 10;
-				if (var3 > 1) {
-					for (int var13 = 0; var13 < 10; var13++) {
-						if (this.field946[var13] != 0L) {
-							this.field946[var13] += var3;
-						}
-					}
-				}
-				if (var3 < this.mindel) {
-					var3 = this.mindel;
-				}
-				try {
-					Thread.sleep((long) var3);
-				} catch (InterruptedException var16) {
-					var5++;
-				}
-				while (var4 < 256) {
-					this.mouseClickButton = this.field961;
-					this.mouseClickX = this.field962;
-					this.mouseClickY = this.field963;
-					this.field968 = this.field964;
-					this.field961 = 0;
-					this.update();
-					this.field971 = this.field972;
-					var4 += var2;
-				}
-				var4 &= 0xFF;
-				if (this.field944 > 0) {
-					this.field947 = var2 * 1000 / (this.field944 * 256);
-				}
-				this.draw();
-			} while (!this.field948);
-			System.out.println("ntime:" + var11);
-			for (int var14 = 0; var14 < 10; var14++) {
-				int var15 = (var1 - var14 - 1 + 20) % 10;
-				System.out.println("otim" + var15 + ":" + this.field946[var15]);
 			}
-			System.out.println("fps:" + this.field947 + " ratio:" + var2 + " count:" + var4);
-			System.out.println("del:" + var3 + " deltime:" + this.field944 + " mindel:" + this.mindel);
-			System.out.println("intex:" + var5 + " opos:" + var1);
-			this.field948 = false;
-			var5 = 0;
+
+			int lastRatio = ratio;
+			int lastDelta = delta;
+
+			ratio = 300;
+			delta = 1;
+
+			ntime = System.currentTimeMillis();
+
+			if (this.otim[opos] == 0L) {
+				ratio = lastRatio;
+				delta = lastDelta;
+			} else if (ntime > this.otim[opos]) {
+				ratio = (int) ((long) (this.deltime * 2560) / (ntime - this.otim[opos]));
+			}
+
+			if (ratio < 25) {
+				ratio = 25;
+			}
+
+			if (ratio > 256) {
+				ratio = 256;
+				delta = (int) ((long) this.deltime - (ntime - this.otim[opos]) / 10L);
+			}
+
+			if (delta > this.deltime) {
+				delta = this.deltime;
+			}
+
+			this.otim[opos] = ntime;
+			opos = (opos + 1) % 10;
+
+			if (delta > 1) {
+				for (int i = 0; i < 10; i++) {
+					if (this.otim[i] != 0L) {
+						this.otim[i] += delta;
+					}
+				}
+			}
+
+			if (delta < this.mindel) {
+				delta = this.mindel;
+			}
+
+			try {
+				Thread.sleep((long) delta);
+			} catch (InterruptedException ignore) {
+				intex++;
+			}
+
+			while (count < 256) {
+				this.mouseClickButton = this.nextMouseClickButton;
+				this.mouseClickX = this.nextMouseClickX;
+				this.mouseClickY = this.nextMouseClickY;
+				this.mouseClickTime = this.nextMouseClickTime;
+				this.nextMouseClickButton = 0;
+
+				this.update();
+
+				this.keyQueueReadPos = this.keyQueueWritePos;
+				count += ratio;
+			}
+
+			count &= 0xFF;
+
+			if (this.deltime > 0) {
+				this.fps = ratio * 1000 / (this.deltime * 256);
+			}
+
+			this.draw();
+
+			if (this.debug) {
+				System.out.println("ntime:" + ntime);
+				for (int i = 0; i < 10; i++) {
+					int o = (opos - i - 1 + 20) % 10;
+					System.out.println("otim" + o + ":" + this.otim[o]);
+				}
+				System.out.println("fps:" + this.fps + " ratio:" + ratio + " count:" + count);
+				System.out.println("del:" + delta + " deltime:" + this.deltime + " mindel:" + this.mindel);
+				System.out.println("intex:" + intex + " opos:" + opos);
+				this.debug = false;
+				intex = 0;
+			}
+		}
+
+		if (this.state == -1) {
+			this.shutdown();
 		}
 	}
 
 	@ObfuscatedName("JWWAIQPI.a(Z)V")
-	public void method268() {
-		this.field943 = -2;
+	public void shutdown() {
+		this.state = -2;
 		this.unload();
-		if (this.field954 == null) {
+
+		if (this.frame == null) {
 			return;
 		}
+
 		try {
 			Thread.sleep(1000L);
-		} catch (Exception var3) {
+		} catch (Exception ignore) {
 		}
+
 		try {
 			System.exit(0);
-		} catch (Throwable var2) {
+		} catch (Throwable ignore) {
 		}
 	}
 
 	@ObfuscatedName("JWWAIQPI.a(BI)V")
-	public void method269(int arg1) {
-		this.field944 = 1000 / arg1;
+	public void setFramerate(int fps) {
+		this.deltime = 1000 / fps;
 	}
 
 	public void start() {
-		if (this.field943 >= 0) {
-			this.field943 = 0;
+		if (this.state >= 0) {
+			this.state = 0;
 		}
 	}
 
 	public void stop() {
-		if (this.field943 >= 0) {
-			this.field943 = 4000 / this.field944;
+		if (this.state >= 0) {
+			this.state = 4000 / this.deltime;
 		}
 	}
 
 	public void destroy() {
-		this.field943 = -1;
+		this.state = -1;
+
 		try {
 			Thread.sleep(10000L);
-		} catch (Exception var1) {
+		} catch (Exception ignore) {
 		}
-		if (this.field943 == -1) {
-			this.method268();
+
+		if (this.state == -1) {
+			this.shutdown();
 		}
 	}
 
-	public void update(Graphics arg0) {
+	public void update(Graphics g) {
 		if (this.graphics == null) {
-			this.graphics = arg0;
+			this.graphics = g;
 		}
-		this.field955 = true;
+
+		this.redrawScreen = true;
 		this.refresh();
 	}
 
-	public void paint(Graphics arg0) {
+	public void paint(Graphics g) {
 		if (this.graphics == null) {
-			this.graphics = arg0;
+			this.graphics = g;
 		}
-		this.field955 = true;
+
+		this.redrawScreen = true;
 		this.refresh();
 	}
 
-	public void mousePressed(MouseEvent arg0) {
-		int var2 = arg0.getX();
-		int var3 = arg0.getY();
+	public void mousePressed(MouseEvent e) {
+		int x = e.getX();
+		int y = e.getY();
+
 		this.idleCycles = 0;
-		this.field962 = var2;
-		this.field963 = var3;
-		this.field964 = System.currentTimeMillis();
+		this.nextMouseClickX = x;
+		this.nextMouseClickY = y;
+		this.nextMouseClickTime = System.currentTimeMillis();
 
 		try {
 			// Java >8 no longer uses "isMetaDown" for right clicks
-			if (arg0.getButton() == MouseEvent.BUTTON3) {
-				this.field961 = 2;
+			if (e.getButton() == MouseEvent.BUTTON3) {
+				this.nextMouseClickButton = 2;
 				this.mouseButton = 2;
 			} else {
-				this.field961 = 1;
+				this.nextMouseClickButton = 1;
 				this.mouseButton = 1;
 			}
 		} catch (NoSuchMethodError ex) {
-			if (arg0.isMetaDown()) {
-				this.field961 = 2;
+			if (e.isMetaDown()) {
+				this.nextMouseClickButton = 2;
 				this.mouseButton = 2;
 			} else {
-				this.field961 = 1;
+				this.nextMouseClickButton = 1;
 				this.mouseButton = 1;
 			}
 		}
 	}
 
-	public void mouseReleased(MouseEvent arg0) {
+	public void mouseReleased(MouseEvent e) {
 		this.idleCycles = 0;
 		this.mouseButton = 0;
 	}
 
-	public void mouseClicked(MouseEvent arg0) {
+	public void mouseClicked(MouseEvent e) {
 	}
 
-	public void mouseEntered(MouseEvent arg0) {
+	public void mouseEntered(MouseEvent e) {
 	}
 
-	public void mouseExited(MouseEvent arg0) {
+	public void mouseExited(MouseEvent e) {
 		this.idleCycles = 0;
 		this.mouseX = -1;
 		this.mouseY = -1;
 	}
 
-	public void mouseDragged(MouseEvent arg0) {
-		int var2 = arg0.getX();
-		int var3 = arg0.getY();
+	public void mouseDragged(MouseEvent e) {
+		int x = e.getX();
+		int y = e.getY();
+
 		this.idleCycles = 0;
-		this.mouseX = var2;
-		this.mouseY = var3;
+		this.mouseX = x;
+		this.mouseY = y;
 	}
 
-	public void mouseMoved(MouseEvent arg0) {
-		int var2 = arg0.getX();
-		int var3 = arg0.getY();
+	public void mouseMoved(MouseEvent e) {
+		int x = e.getX();
+		int y = e.getY();
+
 		this.idleCycles = 0;
-		this.mouseX = var2;
-		this.mouseY = var3;
+		this.mouseX = x;
+		this.mouseY = y;
 	}
 
-	public void keyPressed(KeyEvent arg0) {
+	public void keyPressed(KeyEvent e) {
 		this.idleCycles = 0;
-		int var2 = arg0.getKeyCode();
-		int var3 = arg0.getKeyChar();
-		if (var3 < 30) {
-			var3 = 0;
+
+		int code = e.getKeyCode();
+		int ch = e.getKeyChar();
+
+		if (ch < 30) {
+			ch = 0;
 		}
-		if (var2 == 37) {
-			var3 = 1;
+
+		if (code == 37) {
+			ch = 1;
+		} else if (code == 39) {
+			ch = 2;
+		} else if (code == 38) {
+			ch = 3;
+		} else if (code == 40) {
+			ch = 4;
+		} else if (code == 17) {
+			ch = 5;
+		} else if (code == 8) {
+			ch = 8;
+		} else if (code == 127) {
+			ch = 8;
+		} else if (code == 9) {
+			ch = 9;
+		} else if (code == 10) {
+			ch = 10;
+		} else if (code >= 112 && code <= 123) {
+			ch = code + 1008 - 112;
+		} else if (code == 36) {
+			ch = 1000;
+		} else if (code == 35) {
+			ch = 1001;
+		} else if (code == 33) {
+			ch = 1002;
+		} else if (code == 34) {
+			ch = 1003;
 		}
-		if (var2 == 39) {
-			var3 = 2;
+
+		if (ch > 0 && ch < 128) {
+			this.actionKey[ch] = 1;
 		}
-		if (var2 == 38) {
-			var3 = 3;
-		}
-		if (var2 == 40) {
-			var3 = 4;
-		}
-		if (var2 == 17) {
-			var3 = 5;
-		}
-		if (var2 == 8) {
-			var3 = 8;
-		}
-		if (var2 == 127) {
-			var3 = 8;
-		}
-		if (var2 == 9) {
-			var3 = 9;
-		}
-		if (var2 == 10) {
-			var3 = 10;
-		}
-		if (var2 >= 112 && var2 <= 123) {
-			var3 = var2 + 1008 - 112;
-		}
-		if (var2 == 36) {
-			var3 = 1000;
-		}
-		if (var2 == 35) {
-			var3 = 1001;
-		}
-		if (var2 == 33) {
-			var3 = 1002;
-		}
-		if (var2 == 34) {
-			var3 = 1003;
-		}
-		if (var3 > 0 && var3 < 128) {
-			this.field969[var3] = 1;
-		}
-		if (var3 > 4) {
-			this.field970[this.field972] = var3;
-			this.field972 = this.field972 + 1 & 0x7F;
+
+		if (ch > 4) {
+			this.keyQueue[this.keyQueueWritePos] = ch;
+			this.keyQueueWritePos = this.keyQueueWritePos + 1 & 0x7F;
 		}
 	}
 
-	public void keyReleased(KeyEvent arg0) {
+	public void keyReleased(KeyEvent e) {
 		this.idleCycles = 0;
-		int var2 = arg0.getKeyCode();
-		char var3 = arg0.getKeyChar();
-		if (var3 < 30) {
-			var3 = 0;
+
+		int code = e.getKeyCode();
+		char ch = e.getKeyChar();
+
+		if (ch < 30) {
+			ch = 0;
 		}
-		if (var2 == 37) {
-			var3 = 1;
+
+		if (code == 37) {
+			ch = 1;
+		} else if (code == 39) {
+			ch = 2;
+		} else if (code == 38) {
+			ch = 3;
+		} else if (code == 40) {
+			ch = 4;
+		} else if (code == 17) {
+			ch = 5;
+		} else if (code == 8) {
+			ch = '\b';
+		} else if (code == 127) {
+			ch = '\b';
+		} else if (code == 9) {
+			ch = '\t';
+		} else if (code == 10) {
+			ch = '\n';
 		}
-		if (var2 == 39) {
-			var3 = 2;
-		}
-		if (var2 == 38) {
-			var3 = 3;
-		}
-		if (var2 == 40) {
-			var3 = 4;
-		}
-		if (var2 == 17) {
-			var3 = 5;
-		}
-		if (var2 == 8) {
-			var3 = '\b';
-		}
-		if (var2 == 127) {
-			var3 = '\b';
-		}
-		if (var2 == 9) {
-			var3 = '\t';
-		}
-		if (var2 == 10) {
-			var3 = '\n';
-		}
-		if (var3 > 0 && var3 < 128) {
-			this.field969[var3] = 0;
+
+		if (ch > 0 && ch < 128) {
+			this.actionKey[ch] = 0;
 		}
 	}
 
-	public void keyTyped(KeyEvent arg0) {
+	public void keyTyped(KeyEvent e) {
 	}
 
 	@ObfuscatedName("JWWAIQPI.a(I)I")
 	public int pollKey() {
-		int var2 = -1;
-		if (this.field972 != this.field971) {
-			var2 = this.field970[this.field971];
-			this.field971 = this.field971 + 1 & 0x7F;
+		int key = -1;
+		if (this.keyQueueWritePos != this.keyQueueReadPos) {
+			key = this.keyQueue[this.keyQueueReadPos];
+			this.keyQueueReadPos = this.keyQueueReadPos + 1 & 0x7F;
 		}
-		return var2;
+		return key;
 	}
 
-	public void focusGained(FocusEvent arg0) {
-		this.field956 = true;
-		this.field955 = true;
+	public void focusGained(FocusEvent e) {
+		this.hasFocus = true;
+		this.redrawScreen = true;
 		this.refresh();
 	}
 
-	public void focusLost(FocusEvent arg0) {
-		this.field956 = false;
-		for (int var2 = 0; var2 < 128; var2++) {
-			this.field969[var2] = 0;
+	public void focusLost(FocusEvent e) {
+		this.hasFocus = false;
+		for (int i = 0; i < 128; i++) {
+			this.actionKey[i] = 0;
 		}
 	}
 
-	public void windowActivated(WindowEvent arg0) {
+	public void windowActivated(WindowEvent e) {
 	}
 
-	public void windowClosed(WindowEvent arg0) {
+	public void windowClosed(WindowEvent e) {
 	}
 
-	public void windowClosing(WindowEvent arg0) {
+	public void windowClosing(WindowEvent e) {
 		this.destroy();
 	}
 
-	public void windowDeactivated(WindowEvent arg0) {
+	public void windowDeactivated(WindowEvent e) {
 	}
 
-	public void windowDeiconified(WindowEvent arg0) {
+	public void windowDeiconified(WindowEvent e) {
 	}
 
-	public void windowIconified(WindowEvent arg0) {
+	public void windowIconified(WindowEvent e) {
 	}
 
-	public void windowOpened(WindowEvent arg0) {
+	public void windowOpened(WindowEvent e) {
 	}
 
 	@ObfuscatedName("JWWAIQPI.a()V")
@@ -535,43 +552,52 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	}
 
 	@ObfuscatedName("JWWAIQPI.a(Ljava/lang/Runnable;I)V")
-	public void startThread(Runnable arg0, int arg1) {
-		Thread var3 = new Thread(arg0);
-		var3.start();
-		var3.setPriority(arg1);
+	public void startThread(Runnable thread, int priority) {
+		Thread t = new Thread(thread);
+		t.start();
+		t.setPriority(priority);
 	}
 
 	@ObfuscatedName("JWWAIQPI.a(IZLjava/lang/String;)V")
-	public void drawProgress(int arg0, String arg2) {
+	public void drawProgress(int percent, String message) {
 		while (this.graphics == null) {
 			this.graphics = this.getBaseComponent().getGraphics();
+
 			try {
 				this.getBaseComponent().repaint();
-			} catch (Exception var10) {
+			} catch (Exception ignore) {
 			}
+
 			try {
 				Thread.sleep(1000L);
-			} catch (Exception var9) {
+			} catch (Exception ignore) {
 			}
 		}
-		Font var4 = new Font("Helvetica", 1, 13);
-		FontMetrics var5 = this.getBaseComponent().getFontMetrics(var4);
-		Font var6 = new Font("Helvetica", 0, 13);
-		this.getBaseComponent().getFontMetrics(var6);
-		if (this.field955) {
+
+		Font bold = new Font("Helvetica", Font.BOLD, 13);
+		FontMetrics boldMetrics = this.getBaseComponent().getFontMetrics(bold);
+
+		Font plain = new Font("Helvetica", Font.PLAIN, 13);
+		FontMetrics plainMetrics = this.getBaseComponent().getFontMetrics(plain);
+
+		if (this.redrawScreen) {
 			this.graphics.setColor(Color.black);
-			this.graphics.fillRect(0, 0, this.field949, this.field950);
-			this.field955 = false;
+			this.graphics.fillRect(0, 0, this.canvasWidth, this.canvasHeight);
+			this.redrawScreen = false;
 		}
-		Color var7 = new Color(140, 17, 17);
-		int var8 = this.field950 / 2 - 18;
-		this.graphics.setColor(var7);
-		this.graphics.drawRect(this.field949 / 2 - 152, var8, 304, 34);
-		this.graphics.fillRect(this.field949 / 2 - 150, var8 + 2, arg0 * 3, 30);
+
+		Color background = new Color(140, 17, 17);
+
+		int y = this.canvasHeight / 2 - 18;
+		this.graphics.setColor(background);
+		this.graphics.drawRect(this.canvasWidth / 2 - 152, y, 304, 34);
+		this.graphics.fillRect(this.canvasWidth / 2 - 150, y + 2, percent * 3, 30);
+
 		this.graphics.setColor(Color.black);
-		this.graphics.fillRect(arg0 * 3 + (this.field949 / 2 - 150), var8 + 2, 300 - arg0 * 3, 30);
-		this.graphics.setFont(var4);
+		this.graphics.fillRect(percent * 3 + (this.canvasWidth / 2 - 150), y + 2, 300 - percent * 3, 30);
+
+		this.graphics.setFont(bold);
 		this.graphics.setColor(Color.white);
-		this.graphics.drawString(arg2, (this.field949 - var5.stringWidth(arg2)) / 2, var8 + 22);
+		this.graphics.drawString(message, (this.canvasWidth - boldMetrics.stringWidth(message)) / 2, y + 22);
 	}
 }

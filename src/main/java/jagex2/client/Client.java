@@ -1785,7 +1785,7 @@ public class Client extends GameShell {
 		SpotAnimType.field1297 = null;
 		SpotAnimType.field1309 = null;
 		VarpType.field1507 = null;
-		super.field952 = null;
+		super.drawArea = null;
 		ClientPlayer.field1683 = null;
 		Pix3D.unload();
 		World3D.unload();
@@ -1885,16 +1885,16 @@ public class Client extends GameShell {
 			if (this.field559 != var4) {
 				this.field559 += (var4 - this.field559) / 16;
 			}
-			if (super.field969[1] == 1) {
+			if (super.actionKey[1] == 1) {
 				this.field549 += (-24 - this.field549) / 2;
-			} else if (super.field969[2] == 1) {
+			} else if (super.actionKey[2] == 1) {
 				this.field549 += (24 - this.field549) / 2;
 			} else {
 				this.field549 /= 2;
 			}
-			if (super.field969[3] == 1) {
+			if (super.actionKey[3] == 1) {
 				this.field550 += (12 - this.field550) / 2;
-			} else if (super.field969[4] == 1) {
+			} else if (super.actionKey[4] == 1) {
 				this.field550 += (-12 - this.field550) / 2;
 			} else {
 				this.field550 /= 2;
@@ -2118,11 +2118,11 @@ public class Client extends GameShell {
 			}
 
 			if (super.mouseClickButton != 0) {
-				long var13 = (super.field968 - this.field198) / 50L;
+				long var13 = (super.mouseClickTime - this.field198) / 50L;
 				if (var13 > 4095L) {
 					var13 = 4095L;
 				}
-				this.field198 = super.field968;
+				this.field198 = super.mouseClickTime;
 				int var15 = super.mouseClickY;
 				if (var15 < 0) {
 					var15 = 0;
@@ -2150,7 +2150,7 @@ public class Client extends GameShell {
 				this.field560--;
 			}
 
-			if (super.field969[1] == 1 || super.field969[2] == 1 || super.field969[3] == 1 || super.field969[4] == 1) {
+			if (super.actionKey[1] == 1 || super.actionKey[2] == 1 || super.actionKey[3] == 1 || super.actionKey[4] == 1) {
 				this.field561 = true;
 			}
 
@@ -2164,7 +2164,7 @@ public class Client extends GameShell {
 				this.out.p2_alt1(this.field548);
 			}
 
-			if (super.field956 && !this.field571) {
+			if (super.hasFocus && !this.field571) {
 				this.field571 = true;
 
 				// todo: applet focus
@@ -2172,7 +2172,7 @@ public class Client extends GameShell {
 				this.out.p1(1);
 			}
 
-			if (!super.field956 && this.field571) {
+			if (!super.hasFocus && this.field571) {
 				this.field571 = false;
 
 				// todo: applet focus
@@ -4446,7 +4446,7 @@ public class Client extends GameShell {
 				this.out.p1(var34 + var34 + 3);
 			}
 			this.out.p2_alt3(this.sceneBaseTileX + var35);
-			this.out.p1(super.field969[5] == 1 ? 1 : 0);
+			this.out.p1(super.actionKey[5] == 1 ? 1 : 0);
 			this.out.p2_alt3(this.sceneBaseTileZ + var36);
 			this.field416 = this.field419[0];
 			this.field417 = this.field420[0];
@@ -4498,7 +4498,7 @@ public class Client extends GameShell {
 			this.ptype = this.in.g1();
 		}
 		if (signlink.mainapp == null) {
-			return super.field954 == null ? super.getDocumentBase().getHost().toLowerCase() : "runescape.com";
+			return super.frame == null ? super.getDocumentBase().getHost().toLowerCase() : "runescape.com";
 		} else {
 			return signlink.mainapp.getDocumentBase().getHost().toLowerCase();
 		}
@@ -5931,7 +5931,7 @@ public class Client extends GameShell {
 		if (this.field494 != null) {
 			return;
 		}
-		super.field952 = null;
+		super.drawArea = null;
 		this.field455 = null;
 		this.field453 = null;
 		this.field452 = null;
@@ -7020,7 +7020,7 @@ public class Client extends GameShell {
 
 	@ObfuscatedName("client.p(I)V")
 	public void drawGame() {
-		if (this.field349 != -1 && (this.sceneState == 2 || super.field952 != null)) {
+		if (this.field349 != -1 && (this.sceneState == 2 || super.drawArea != null)) {
 			if (this.sceneState == 2) {
 				this.updateInterfaceAnimation(this.sceneDelta, this.field349);
 				if (this.field256 != -1) {
@@ -7028,7 +7028,7 @@ public class Client extends GameShell {
 				}
 				this.sceneDelta = 0;
 				this.prepareFullGame();
-				super.field952.bind();
+				super.drawArea.bind();
 				Pix3D.lineOffset = this.areaFullscreenOffset;
 				Pix2D.cls();
 				this.field342 = true;
@@ -7053,7 +7053,7 @@ public class Client extends GameShell {
 					this.drawTooltip();
 				}
 			}
-			super.field952.draw(0, 0, super.graphics);
+			super.drawArea.draw(0, 0, super.graphics);
 			return;
 		}
 
@@ -7407,7 +7407,7 @@ public class Client extends GameShell {
 		} else {
 			membersWorld = true;
 		}
-		this.method267(765, 503);
+		this.initApplet(765, 503);
 	}
 
 	@ObfuscatedName("client.r(I)V")
@@ -7547,7 +7547,7 @@ public class Client extends GameShell {
 				this.field198 = 0L;
 				this.field595 = 0;
 				this.mouseTracking.field99 = 0;
-				super.field956 = true;
+				super.hasFocus = true;
 				this.field571 = true;
 				this.ingame = true;
 				this.out.pos = 0;
@@ -8340,7 +8340,7 @@ public class Client extends GameShell {
 			return signlink.mainapp.getCodeBase();
 		}
 		try {
-			if (super.field954 != null) {
+			if (super.frame != null) {
 				return new URL("http://127.0.0.1:" + (portOffset + 80));
 			}
 		} catch (Exception var1) {
@@ -8715,7 +8715,7 @@ public class Client extends GameShell {
 		} catch (Exception var61) {
 		}
 		LocType.field1633.clear();
-		if (super.field954 != null) {
+		if (super.frame != null) {
 			// todo: notifying the client is in a frame
 			this.out.p1isaac(78);
 			this.out.p4(1057001181);
@@ -9497,13 +9497,13 @@ public class Client extends GameShell {
 			short var2 = 507;
 			byte var3 = 20;
 			int var4 = 16776960;
-			if (super.field947 < 30 && lowMem) {
+			if (super.fps < 30 && lowMem) {
 				var4 = 16711680;
 			}
-			if (super.field947 < 20 && !lowMem) {
+			if (super.fps < 20 && !lowMem) {
 				var4 = 16711680;
 			}
-			this.fontPlain12.method243("Fps:" + super.field947, var4, var2, var3);
+			this.fontPlain12.method243("Fps:" + super.fps, var4, var2, var3);
 			int var13 = var3 + 15;
 			Runtime var5 = Runtime.getRuntime();
 			int var6 = (int) ((var5.totalMemory() - var5.freeMemory()) / 1024L);
@@ -9975,14 +9975,14 @@ public class Client extends GameShell {
 	}
 
 	@ObfuscatedName("client.a(Ljava/lang/Runnable;I)V")
-	public void startThread(Runnable arg0, int arg1) {
-		if (arg1 > 10) {
-			arg1 = 10;
+	public void startThread(Runnable thread, int priority) {
+		if (priority > 10) {
+			priority = 10;
 		}
 		if (signlink.mainapp == null) {
-			super.startThread(arg0, arg1);
+			super.startThread(thread, priority);
 		} else {
-			signlink.startthread(arg0, arg1);
+			signlink.startthread(thread, priority);
 		}
 	}
 
@@ -11113,7 +11113,7 @@ public class Client extends GameShell {
 			return;
 		}
 		this.unloadTitle();
-		super.field952 = null;
+		super.drawArea = null;
 		this.field494 = null;
 		this.field495 = null;
 		this.field496 = null;
@@ -11143,7 +11143,7 @@ public class Client extends GameShell {
 		Graphics var2 = this.getBaseComponent().getGraphics();
 		var2.setColor(Color.black);
 		var2.fillRect(0, 0, 765, 503);
-		this.method269(1);
+		this.setFramerate(1);
 		if (this.errorLoading) {
 			this.field539 = false;
 			var2.setFont(new Font("Helvetica", 1, 16));
@@ -11234,8 +11234,8 @@ public class Client extends GameShell {
 				this.fontPlain12.centreString(256, var4 - 1, 16777215, arg1);
 			}
 			this.areaViewport.draw(4, 4, super.graphics);
-		} else if (super.field952 != null) {
-			super.field952.bind();
+		} else if (super.drawArea != null) {
+			super.drawArea.bind();
 			Pix3D.lineOffset = this.areaFullscreenOffset;
 			int var5 = 251;
 			short var6 = 300;
@@ -11252,7 +11252,7 @@ public class Client extends GameShell {
 				this.fontPlain12.centreString(383, var5, 0, arg1);
 				this.fontPlain12.centreString(382, var5 - 1, 16777215, arg1);
 			}
-			super.field952.draw(0, 0, super.graphics);
+			super.drawArea.draw(0, 0, super.graphics);
 		}
 	}
 
@@ -11945,7 +11945,7 @@ public class Client extends GameShell {
 		if (this.stream != null) {
 			this.stream.method238();
 		}
-		super.field948 = true;
+		super.debug = true;
 	}
 
 	@ObfuscatedName("client.d(I)Ljava/awt/Component;")
@@ -11954,12 +11954,12 @@ public class Client extends GameShell {
 	}
 
 	@ObfuscatedName("client.a(IZLjava/lang/String;)V")
-	public void drawProgress(int arg0, String arg2) {
-		this.lastProgressPercent = arg0;
-		this.lastProgressMessage = arg2;
+	public void drawProgress(int percent, String message) {
+		this.lastProgressPercent = percent;
+		this.lastProgressMessage = message;
 		this.loadTitle();
 		if (this.jagTitle == null) {
-			super.drawProgress(arg0, arg2);
+			super.drawProgress(percent, message);
 			return;
 		}
 		this.field496.bind();
@@ -11970,9 +11970,9 @@ public class Client extends GameShell {
 		int var7 = var5 / 2 - 18 - var6;
 		Pix2D.drawRect(var7, 34, 9179409, var4 / 2 - 152, 304);
 		Pix2D.drawRect(var7 + 1, 32, 0, var4 / 2 - 151, 302);
-		Pix2D.fillRect(30, var7 + 2, 9179409, arg0 * 3, var4 / 2 - 150);
-		Pix2D.fillRect(30, var7 + 2, 0, 300 - arg0 * 3, arg0 * 3 + (var4 / 2 - 150));
-		this.fontBold12.centreString(var4 / 2, var5 / 2 + 5 - var6, 16777215, arg2);
+		Pix2D.fillRect(30, var7 + 2, 9179409, percent * 3, var4 / 2 - 150);
+		Pix2D.fillRect(30, var7 + 2, 0, 300 - percent * 3, percent * 3 + (var4 / 2 - 150));
+		this.fontBold12.centreString(var4 / 2, var5 / 2 + 5 - var6, 16777215, message);
 		this.field496.draw(171, 202, super.graphics);
 		if (this.field342) {
 			this.field342 = false;
@@ -12563,7 +12563,7 @@ public class Client extends GameShell {
 
 	@ObfuscatedName("client.J(I)V")
 	public void prepareFullGame() {
-		if (super.field952 != null) {
+		if (super.drawArea != null) {
 			return;
 		}
 		this.unloadTitle();
@@ -12583,7 +12583,7 @@ public class Client extends GameShell {
 		this.areaBackbase1 = null;
 		this.field405 = null;
 		this.field406 = null;
-		super.field952 = new PixMap(503, this.getBaseComponent(), 765);
+		super.drawArea = new PixMap(503, this.getBaseComponent(), 765);
 		this.field342 = true;
 	}
 
@@ -12603,14 +12603,14 @@ public class Client extends GameShell {
 	@ObfuscatedName("client.K(I)V")
 	public void updateTitle() {
 		if (this.field521 == 0) {
-			int var2 = super.field949 / 2 - 80;
-			int var3 = super.field950 / 2 + 20;
+			int var2 = super.canvasWidth / 2 - 80;
+			int var3 = super.canvasHeight / 2 + 20;
 			int var14 = var3 + 20;
 			if (super.mouseClickButton == 1 && super.mouseClickX >= var2 - 75 && super.mouseClickX <= var2 + 75 && super.mouseClickY >= var14 - 20 && super.mouseClickY <= var14 + 20) {
 				this.field521 = 3;
 				this.field273 = 0;
 			}
-			int var4 = super.field949 / 2 + 80;
+			int var4 = super.canvasWidth / 2 + 80;
 			if (super.mouseClickButton == 1 && super.mouseClickX >= var4 - 75 && super.mouseClickX <= var4 + 75 && super.mouseClickY >= var14 - 20 && super.mouseClickY <= var14 + 20) {
 				this.field253 = "";
 				this.field254 = "Enter your username & password.";
@@ -12618,7 +12618,7 @@ public class Client extends GameShell {
 				this.field273 = 0;
 			}
 		} else if (this.field521 == 2) {
-			int var5 = super.field950 / 2 - 40;
+			int var5 = super.canvasHeight / 2 - 40;
 			int var15 = var5 + 30;
 			int var16 = var15 + 25;
 			if (super.mouseClickButton == 1 && super.mouseClickY >= var16 - 15 && super.mouseClickY < var16) {
@@ -12629,8 +12629,8 @@ public class Client extends GameShell {
 				this.field273 = 1;
 			}
 			var5 += 15;
-			int var6 = super.field949 / 2 - 80;
-			int var7 = super.field950 / 2 + 50;
+			int var6 = super.canvasWidth / 2 - 80;
+			int var7 = super.canvasHeight / 2 + 50;
 			int var17 = var7 + 20;
 			if (super.mouseClickButton == 1 && super.mouseClickX >= var6 - 75 && super.mouseClickX <= var6 + 75 && super.mouseClickY >= var17 - 20 && super.mouseClickY <= var17 + 20) {
 				this.field146 = 0;
@@ -12639,7 +12639,7 @@ public class Client extends GameShell {
 					return;
 				}
 			}
-			int var8 = super.field949 / 2 + 80;
+			int var8 = super.canvasWidth / 2 + 80;
 			if (super.mouseClickButton == 1 && super.mouseClickX >= var8 - 75 && super.mouseClickX <= var8 + 75 && super.mouseClickY >= var17 - 20 && super.mouseClickY <= var17 + 20) {
 				this.field521 = 0;
 				this.username = "";
@@ -12686,8 +12686,8 @@ public class Client extends GameShell {
 				}
 			}
 		} else if (this.field521 == 3) {
-			int var12 = super.field949 / 2;
-			int var13 = super.field950 / 2 + 50;
+			int var12 = super.canvasWidth / 2;
+			int var13 = super.canvasHeight / 2 + 50;
 			int var18 = var13 + 20;
 			if (super.mouseClickButton == 1 && super.mouseClickX >= var12 - 75 && super.mouseClickX <= var12 + 75 && super.mouseClickY >= var18 - 20 && super.mouseClickY <= var18 + 20) {
 				this.field521 = 0;
