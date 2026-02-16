@@ -79,14 +79,14 @@ public final class WordFilter {
 
 	@ObfuscatedName("sc.a(Llb;B)V")
 	public static void method386(Packet arg0) {
-		int var1 = arg0.method229();
+		int var1 = arg0.g4();
 		field1209 = new char[var1][];
 		field1210 = new int[var1];
 		for (int var2 = 0; var2 < var1; var2++) {
-			field1210[var2] = arg0.method224();
-			char[] var3 = new char[arg0.method224()];
+			field1210[var2] = arg0.g1();
+			char[] var3 = new char[arg0.g1()];
 			for (int var4 = 0; var4 < var3.length; var4++) {
-				var3[var4] = (char) arg0.method224();
+				var3[var4] = (char) arg0.g1();
 			}
 			field1209[var2] = var3;
 		}
@@ -94,7 +94,7 @@ public final class WordFilter {
 
 	@ObfuscatedName("sc.a(ILlb;)V")
 	public static void method387(Packet arg0) {
-		int var1 = arg0.method229();
+		int var1 = arg0.g4();
 		field1206 = new char[var1][];
 		field1207 = new byte[var1][][];
 		method390(arg0, field1207, field1206);
@@ -102,31 +102,31 @@ public final class WordFilter {
 
 	@ObfuscatedName("sc.a(Llb;Z)V")
 	public static void method388(Packet arg0) {
-		int var1 = arg0.method229();
+		int var1 = arg0.g4();
 		field1208 = new char[var1][];
 		method391(field1208, arg0);
 	}
 
 	@ObfuscatedName("sc.b(ILlb;)V")
 	public static void method389(Packet arg0) {
-		field1205 = new int[arg0.method229()];
+		field1205 = new int[arg0.g4()];
 		for (int var1 = 0; var1 < field1205.length; var1++) {
-			field1205[var1] = arg0.method226();
+			field1205[var1] = arg0.g2();
 		}
 	}
 
 	@ObfuscatedName("sc.a(Llb;[[[B[[CZ)V")
 	public static void method390(Packet arg0, byte[][][] arg1, char[][] arg2) {
 		for (int var3 = 0; var3 < arg2.length; var3++) {
-			char[] var4 = new char[arg0.method224()];
+			char[] var4 = new char[arg0.g1()];
 			for (int var5 = 0; var5 < var4.length; var5++) {
-				var4[var5] = (char) arg0.method224();
+				var4[var5] = (char) arg0.g1();
 			}
 			arg2[var3] = var4;
-			byte[][] var6 = new byte[arg0.method224()][2];
+			byte[][] var6 = new byte[arg0.g1()][2];
 			for (int var7 = 0; var7 < var6.length; var7++) {
-				var6[var7][0] = (byte) arg0.method224();
-				var6[var7][1] = (byte) arg0.method224();
+				var6[var7][0] = (byte) arg0.g1();
+				var6[var7][1] = (byte) arg0.g1();
 			}
 			if (var6.length > 0) {
 				arg1[var3] = var6;
@@ -137,9 +137,9 @@ public final class WordFilter {
 	@ObfuscatedName("sc.a(Z[[CLlb;)V")
 	public static void method391(char[][] arg0, Packet arg1) {
 		for (int var2 = 0; var2 < arg0.length; var2++) {
-			char[] var3 = new char[arg1.method224()];
+			char[] var3 = new char[arg1.g1()];
 			for (int var4 = 0; var4 < var3.length; var4++) {
-				var3[var4] = (char) arg1.method224();
+				var3[var4] = (char) arg1.g1();
 			}
 			arg0[var2] = var3;
 		}

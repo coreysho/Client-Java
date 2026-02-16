@@ -39,10 +39,10 @@ public final class Packet extends Linkable2 {
 	public final int field707 = -186;
 
 	@ObfuscatedName("lb.t")
-	public byte[] field708;
+	public byte[] pos;
 
 	@ObfuscatedName("lb.u")
-	public int field709;
+	public int data;
 
 	@ObfuscatedName("lb.v")
 	public int field710;
@@ -54,7 +54,7 @@ public final class Packet extends Linkable2 {
 	public static final int[] field712;
 
 	@ObfuscatedName("lb.y")
-	public Isaac field713;
+	public Isaac random;
 
 	@ObfuscatedName("lb.z")
 	public static int field714;
@@ -111,7 +111,7 @@ public final class Packet extends Linkable2 {
 				var3 = (Packet) field719.method242();
 			}
 			if (var3 != null) {
-				var3.field709 = 0;
+				var3.data = 0;
 				return var3;
 			}
 		}
@@ -119,13 +119,13 @@ public final class Packet extends Linkable2 {
 		if (arg0 != -7939) {
 			throw new NullPointerException();
 		}
-		var4.field709 = 0;
+		var4.data = 0;
 		if (arg1 == 0) {
-			var4.field708 = new byte[100];
+			var4.pos = new byte[100];
 		} else if (arg1 == 1) {
-			var4.field708 = new byte[5000];
+			var4.pos = new byte[5000];
 		} else {
-			var4.field708 = new byte[30000];
+			var4.pos = new byte[30000];
 		}
 		return var4;
 	}
@@ -137,108 +137,108 @@ public final class Packet extends Linkable2 {
 	}
 
 	public Packet(byte[] arg0, byte arg1) {
-		this.field708 = arg0;
-		this.field709 = 0;
+		this.pos = arg0;
+		this.data = 0;
 	}
 
 	@ObfuscatedName("lb.a(BI)V")
-	public void method213(int arg0) {
-		this.field708[this.field709++] = (byte) (arg0 + this.field713.method290());
+	public void p1Enc(int arg0) {
+		this.pos[this.data++] = (byte) (arg0 + this.random.method290());
 	}
 
 	@ObfuscatedName("lb.a(I)V")
-	public void method214(int arg0) {
-		this.field708[this.field709++] = (byte) arg0;
+	public void p1(int arg0) {
+		this.pos[this.data++] = (byte) arg0;
 	}
 
 	@ObfuscatedName("lb.b(I)V")
-	public void method215(int arg0) {
-		this.field708[this.field709++] = (byte) (arg0 >> 8);
-		this.field708[this.field709++] = (byte) arg0;
+	public void p2(int arg0) {
+		this.pos[this.data++] = (byte) (arg0 >> 8);
+		this.pos[this.data++] = (byte) arg0;
 	}
 
 	@ObfuscatedName("lb.a(ZI)V")
-	public void method216(int arg0) {
-		this.field708[this.field709++] = (byte) arg0;
-		this.field708[this.field709++] = 0;
+	public void ip2(int arg0) {
+		this.pos[this.data++] = (byte) arg0;
+		this.pos[this.data++] = 0;
 	}
 
 	@ObfuscatedName("lb.c(I)V")
-	public void method217(int arg0) {
-		this.field708[this.field709++] = (byte) (arg0 >> 16);
-		this.field708[this.field709++] = (byte) (arg0 >> 8);
-		this.field708[this.field709++] = (byte) arg0;
+	public void p3(int arg0) {
+		this.pos[this.data++] = (byte) (arg0 >> 16);
+		this.pos[this.data++] = (byte) (arg0 >> 8);
+		this.pos[this.data++] = (byte) arg0;
 	}
 
 	@ObfuscatedName("lb.d(I)V")
-	public void method218(int arg0) {
-		this.field708[this.field709++] = (byte) (arg0 >> 24);
-		this.field708[this.field709++] = (byte) (arg0 >> 16);
-		this.field708[this.field709++] = (byte) (arg0 >> 8);
-		this.field708[this.field709++] = (byte) arg0;
+	public void p4(int arg0) {
+		this.pos[this.data++] = (byte) (arg0 >> 24);
+		this.pos[this.data++] = (byte) (arg0 >> 16);
+		this.pos[this.data++] = (byte) (arg0 >> 8);
+		this.pos[this.data++] = (byte) arg0;
 	}
 
 	@ObfuscatedName("lb.b(ZI)V")
-	public void method219(int arg0) {
-		this.field708[this.field709++] = (byte) arg0;
-		this.field708[this.field709++] = (byte) (arg0 >> 8);
-		this.field708[this.field709++] = (byte) (arg0 >> 16);
-		this.field708[this.field709++] = (byte) (arg0 >> 24);
+	public void ip4(int arg0) {
+		this.pos[this.data++] = (byte) arg0;
+		this.pos[this.data++] = (byte) (arg0 >> 8);
+		this.pos[this.data++] = (byte) (arg0 >> 16);
+		this.pos[this.data++] = (byte) (arg0 >> 24);
 	}
 
 	@ObfuscatedName("lb.a(JI)V")
-	public void method220(long arg0) {
-		this.field708[this.field709++] = (byte) (arg0 >> 56);
-		this.field708[this.field709++] = (byte) (arg0 >> 48);
-		this.field708[this.field709++] = (byte) (arg0 >> 40);
-		this.field708[this.field709++] = (byte) (arg0 >> 32);
-		this.field708[this.field709++] = (byte) (arg0 >> 24);
-		this.field708[this.field709++] = (byte) (arg0 >> 16);
-		this.field708[this.field709++] = (byte) (arg0 >> 8);
-		this.field708[this.field709++] = (byte) arg0;
+	public void p8(long arg0) {
+		this.pos[this.data++] = (byte) (arg0 >> 56);
+		this.pos[this.data++] = (byte) (arg0 >> 48);
+		this.pos[this.data++] = (byte) (arg0 >> 40);
+		this.pos[this.data++] = (byte) (arg0 >> 32);
+		this.pos[this.data++] = (byte) (arg0 >> 24);
+		this.pos[this.data++] = (byte) (arg0 >> 16);
+		this.pos[this.data++] = (byte) (arg0 >> 8);
+		this.pos[this.data++] = (byte) arg0;
 	}
 
 	@ObfuscatedName("lb.a(Ljava/lang/String;)V")
-	public void method221(String arg0) {
-		arg0.getBytes(0, arg0.length(), this.field708, this.field709);
-		this.field709 += arg0.length();
-		this.field708[this.field709++] = 10;
+	public void pjstr(String arg0) {
+		arg0.getBytes(0, arg0.length(), this.pos, this.data);
+		this.data += arg0.length();
+		this.pos[this.data++] = 10;
 	}
 
 	@ObfuscatedName("lb.a([BZII)V")
-	public void method222(byte[] arg0, int arg1) {
+	public void pdata(byte[] arg0, int arg1) {
 		for (int var3 = 0; var3 < arg1; var3++) {
-			this.field708[this.field709++] = arg0[var3];
+			this.pos[this.data++] = arg0[var3];
 		}
 	}
 
 	@ObfuscatedName("lb.b(II)V")
-	public void method223(int arg0, int arg1) {
+	public void psize1(int arg0, int arg1) {
 		if (arg1 == 0) {
-			this.field708[this.field709 - arg0 - 1] = (byte) arg0;
+			this.pos[this.data - arg0 - 1] = (byte) arg0;
 		}
 	}
 
 	@ObfuscatedName("lb.c()I")
-	public int method224() {
-		return this.field708[this.field709++] & 0xFF;
+	public int g1() {
+		return this.pos[this.data++] & 0xFF;
 	}
 
 	@ObfuscatedName("lb.d()B")
-	public byte method225() {
-		return this.field708[this.field709++];
+	public byte g1b() {
+		return this.pos[this.data++];
 	}
 
 	@ObfuscatedName("lb.e()I")
-	public int method226() {
-		this.field709 += 2;
-		return ((this.field708[this.field709 - 2] & 0xFF) << 8) + (this.field708[this.field709 - 1] & 0xFF);
+	public int g2() {
+		this.data += 2;
+		return ((this.pos[this.data - 2] & 0xFF) << 8) + (this.pos[this.data - 1] & 0xFF);
 	}
 
 	@ObfuscatedName("lb.f()I")
-	public int method227() {
-		this.field709 += 2;
-		int var1 = ((this.field708[this.field709 - 2] & 0xFF) << 8) + (this.field708[this.field709 - 1] & 0xFF);
+	public int g2b() {
+		this.data += 2;
+		int var1 = ((this.pos[this.data - 2] & 0xFF) << 8) + (this.pos[this.data - 1] & 0xFF);
 		if (var1 > 32767) {
 			var1 -= 65536;
 		}
@@ -246,107 +246,107 @@ public final class Packet extends Linkable2 {
 	}
 
 	@ObfuscatedName("lb.g()I")
-	public int method228() {
-		this.field709 += 3;
-		return ((this.field708[this.field709 - 3] & 0xFF) << 16) + ((this.field708[this.field709 - 2] & 0xFF) << 8) + (this.field708[this.field709 - 1] & 0xFF);
+	public int g3() {
+		this.data += 3;
+		return ((this.pos[this.data - 3] & 0xFF) << 16) + ((this.pos[this.data - 2] & 0xFF) << 8) + (this.pos[this.data - 1] & 0xFF);
 	}
 
 	@ObfuscatedName("lb.h()I")
-	public int method229() {
-		this.field709 += 4;
-		return ((this.field708[this.field709 - 4] & 0xFF) << 24) + ((this.field708[this.field709 - 3] & 0xFF) << 16) + ((this.field708[this.field709 - 2] & 0xFF) << 8) + (this.field708[this.field709 - 1] & 0xFF);
+	public int g4() {
+		this.data += 4;
+		return ((this.pos[this.data - 4] & 0xFF) << 24) + ((this.pos[this.data - 3] & 0xFF) << 16) + ((this.pos[this.data - 2] & 0xFF) << 8) + (this.pos[this.data - 1] & 0xFF);
 	}
 
 	@ObfuscatedName("lb.e(I)J")
-	public long method230() {
-		long var1 = (long) this.method229() & 0xFFFFFFFFL;
-		long var3 = (long) this.method229() & 0xFFFFFFFFL;
+	public long g8() {
+		long var1 = (long) this.g4() & 0xFFFFFFFFL;
+		long var3 = (long) this.g4() & 0xFFFFFFFFL;
 		return (var1 << 32) + var3;
 	}
 
 	@ObfuscatedName("lb.i()Ljava/lang/String;")
-	public String method231() {
-		int var1 = this.field709;
-		while (this.field708[this.field709++] != 10) {
+	public String gjstr() {
+		int var1 = this.data;
+		while (this.pos[this.data++] != 10) {
 		}
-		return new String(this.field708, var1, this.field709 - var1 - 1);
+		return new String(this.pos, var1, this.data - var1 - 1);
 	}
 
 	@ObfuscatedName("lb.f(I)[B")
-	public byte[] method232(int arg0) {
-		int var2 = this.field709;
-		while (this.field708[this.field709++] != 10) {
+	public byte[] gjstrraw(int arg0) {
+		int var2 = this.data;
+		while (this.pos[this.data++] != 10) {
 		}
-		byte[] var3 = new byte[this.field709 - var2 - 1];
+		byte[] var3 = new byte[this.data - var2 - 1];
 		if (arg0 != -32952) {
 			this.field698 = 127;
 		}
-		for (int var4 = var2; var4 < this.field709 - 1; var4++) {
-			var3[var4 - var2] = this.field708[var4];
+		for (int var4 = var2; var4 < this.data - 1; var4++) {
+			var3[var4 - var2] = this.pos[var4];
 		}
 		return var3;
 	}
 
 	@ObfuscatedName("lb.a(I[BII)V")
-	public void method233(int arg0, byte[] arg1) {
+	public void gdata(int arg0, byte[] arg1) {
 		for (int var3 = 0; var3 < arg0; var3++) {
-			arg1[var3] = this.field708[this.field709++];
+			arg1[var3] = this.pos[this.data++];
 		}
 	}
 
 	@ObfuscatedName("lb.a(B)V")
-	public void method234() {
-		this.field710 = this.field709 * 8;
+	public void gBitStart() {
+		this.field710 = this.data * 8;
 	}
 
 	@ObfuscatedName("lb.a(IB)I")
-	public int method235(int arg0) {
+	public int gBit(int arg0) {
 		int var2 = this.field710 >> 3;
 		int var3 = 8 - (this.field710 & 0x7);
 		int var4 = 0;
 		this.field710 += arg0;
 		while (arg0 > var3) {
-			var4 += (this.field708[var2++] & field712[var3]) << arg0 - var3;
+			var4 += (this.pos[var2++] & field712[var3]) << arg0 - var3;
 			arg0 -= var3;
 			var3 = 8;
 		}
 		int var5;
 		if (arg0 == var3) {
-			var5 = var4 + (this.field708[var2] & field712[var3]);
+			var5 = var4 + (this.pos[var2] & field712[var3]);
 		} else {
-			var5 = var4 + (this.field708[var2] >> var3 - arg0 & field712[arg0]);
+			var5 = var4 + (this.pos[var2] >> var3 - arg0 & field712[arg0]);
 		}
 		return var5;
 	}
 
 	@ObfuscatedName("lb.g(I)V")
-	public void method236() {
-		this.field709 = (this.field710 + 7) / 8;
+	public void gBitEnd() {
+		this.data = (this.field710 + 7) / 8;
 	}
 
 	@ObfuscatedName("lb.j()I")
 	public int method237() {
-		int var1 = this.field708[this.field709] & 0xFF;
-		return var1 < 128 ? this.method224() - 64 : this.method226() - 49152;
+		int var1 = this.pos[this.data] & 0xFF;
+		return var1 < 128 ? this.g1() - 64 : this.g2() - 49152;
 	}
 
 	@ObfuscatedName("lb.k()I")
 	public int method238() {
-		int var1 = this.field708[this.field709] & 0xFF;
-		return var1 < 128 ? this.method224() : this.method226() - 32768;
+		int var1 = this.pos[this.data] & 0xFF;
+		return var1 < 128 ? this.g1() : this.g2() - 32768;
 	}
 
 	@ObfuscatedName("lb.a(Ljava/math/BigInteger;Ljava/math/BigInteger;I)V")
-	public void method239(BigInteger arg0, BigInteger arg1) {
-		int var3 = this.field709;
-		this.field709 = 0;
+	public void rsaenc(BigInteger arg0, BigInteger arg1) {
+		int var3 = this.data;
+		this.data = 0;
 		byte[] var4 = new byte[var3];
-		this.method233(var3, var4);
+		this.gdata(var3, var4);
 		BigInteger var5 = new BigInteger(var4);
 		BigInteger var6 = var5.modPow(arg1, arg0);
 		byte[] var7 = var6.toByteArray();
-		this.field709 = 0;
-		this.method214(var7.length);
-		this.method222(var7, var7.length);
+		this.data = 0;
+		this.p1(var7.length);
+		this.pdata(var7, var7.length);
 	}
 }

@@ -109,12 +109,12 @@ public final class NpcType {
 	public static void method333(JagFile arg0) {
 		field1000 = new Packet(arg0.method294("npc.dat", null), (byte) 1);
 		Packet var1 = new Packet(arg0.method294("npc.idx", null), (byte) 1);
-		field998 = var1.method226();
+		field998 = var1.g2();
 		field999 = new int[field998];
 		int var2 = 2;
 		for (int var3 = 0; var3 < field998; var3++) {
 			field999[var3] = var2;
-			var2 += var1.method226();
+			var2 += var1.g2();
 		}
 		field1001 = new NpcType[20];
 		for (int var4 = 0; var4 < 20; var4++) {
@@ -139,7 +139,7 @@ public final class NpcType {
 		}
 		field1002 = (field1002 + 1) % 20;
 		NpcType var2 = field1001[field1002] = new NpcType();
-		field1000.field709 = field999[arg0];
+		field1000.data = field999[arg0];
 		var2.field1003 = arg0;
 		var2.method336(field1000);
 		return var2;
@@ -148,77 +148,77 @@ public final class NpcType {
 	@ObfuscatedName("gc.a(BLlb;)V")
 	public void method336(Packet arg0) {
 		while (true) {
-			int var2 = arg0.method224();
+			int var2 = arg0.g1();
 			if (var2 == 0) {
 				return;
 			}
 			if (var2 == 1) {
-				int var3 = arg0.method224();
+				int var3 = arg0.g1();
 				this.field1007 = new int[var3];
 				for (int var4 = 0; var4 < var3; var4++) {
-					this.field1007[var4] = arg0.method226();
+					this.field1007[var4] = arg0.g2();
 				}
 			} else if (var2 == 2) {
-				this.field1004 = arg0.method231();
+				this.field1004 = arg0.gjstr();
 			} else if (var2 == 3) {
-				this.field1005 = arg0.method232(this.field996);
+				this.field1005 = arg0.gjstrraw(this.field996);
 			} else if (var2 == 12) {
-				this.field1006 = arg0.method225();
+				this.field1006 = arg0.g1b();
 			} else if (var2 == 13) {
-				this.field1009 = arg0.method226();
+				this.field1009 = arg0.g2();
 			} else if (var2 == 14) {
-				this.field1010 = arg0.method226();
+				this.field1010 = arg0.g2();
 			} else if (var2 == 17) {
-				this.field1010 = arg0.method226();
-				this.field1011 = arg0.method226();
-				this.field1012 = arg0.method226();
-				this.field1013 = arg0.method226();
+				this.field1010 = arg0.g2();
+				this.field1011 = arg0.g2();
+				this.field1012 = arg0.g2();
+				this.field1013 = arg0.g2();
 			} else if (var2 >= 30 && var2 < 40) {
 				if (this.field1016 == null) {
 					this.field1016 = new String[5];
 				}
-				this.field1016[var2 - 30] = arg0.method231();
+				this.field1016[var2 - 30] = arg0.gjstr();
 				if (this.field1016[var2 - 30].equalsIgnoreCase("hidden")) {
 					this.field1016[var2 - 30] = null;
 				}
 			} else if (var2 == 40) {
-				int var5 = arg0.method224();
+				int var5 = arg0.g1();
 				this.field1014 = new int[var5];
 				this.field1015 = new int[var5];
 				for (int var6 = 0; var6 < var5; var6++) {
-					this.field1014[var6] = arg0.method226();
-					this.field1015[var6] = arg0.method226();
+					this.field1014[var6] = arg0.g2();
+					this.field1015[var6] = arg0.g2();
 				}
 			} else if (var2 == 60) {
-				int var7 = arg0.method224();
+				int var7 = arg0.g1();
 				this.field1008 = new int[var7];
 				for (int var8 = 0; var8 < var7; var8++) {
-					this.field1008[var8] = arg0.method226();
+					this.field1008[var8] = arg0.g2();
 				}
 			} else if (var2 == 90) {
-				this.field1017 = arg0.method226();
+				this.field1017 = arg0.g2();
 			} else if (var2 == 91) {
-				this.field1018 = arg0.method226();
+				this.field1018 = arg0.g2();
 			} else if (var2 == 92) {
-				this.field1019 = arg0.method226();
+				this.field1019 = arg0.g2();
 			} else if (var2 == 93) {
 				this.field1020 = false;
 			} else if (var2 == 95) {
-				this.field1021 = arg0.method226();
+				this.field1021 = arg0.g2();
 			} else if (var2 == 97) {
-				this.field1022 = arg0.method226();
+				this.field1022 = arg0.g2();
 			} else if (var2 == 98) {
-				this.field1023 = arg0.method226();
+				this.field1023 = arg0.g2();
 			} else if (var2 == 99) {
 				this.field1024 = true;
 			} else if (var2 == 100) {
-				this.field1025 = arg0.method225();
+				this.field1025 = arg0.g1b();
 			} else if (var2 == 101) {
-				this.field1026 = arg0.method225() * 5;
+				this.field1026 = arg0.g1b() * 5;
 			} else if (var2 == 102) {
-				this.field1027 = arg0.method226();
+				this.field1027 = arg0.g2();
 			} else if (var2 == 103) {
-				this.field1028 = arg0.method226();
+				this.field1028 = arg0.g2();
 			}
 		}
 	}

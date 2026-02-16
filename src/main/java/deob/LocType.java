@@ -148,12 +148,12 @@ public final class LocType {
 	public static void method323(JagFile arg0) {
 		field949 = new Packet(arg0.method294("loc.dat", null), (byte) 1);
 		Packet var1 = new Packet(arg0.method294("loc.idx", null), (byte) 1);
-		field947 = var1.method226();
+		field947 = var1.g2();
 		field948 = new int[field947];
 		int var2 = 2;
 		for (int var3 = 0; var3 < field947; var3++) {
 			field948[var3] = var2;
-			var2 += var1.method226();
+			var2 += var1.g2();
 		}
 		field950 = new LocType[10];
 		for (int var4 = 0; var4 < 10; var4++) {
@@ -179,7 +179,7 @@ public final class LocType {
 		}
 		field951 = (field951 + 1) % 10;
 		LocType var2 = field950[field951];
-		field949.field709 = field948[arg0];
+		field949.data = field948[arg0];
 		var2.field953 = arg0;
 		var2.method326();
 		var2.method327(field949);
@@ -230,7 +230,7 @@ public final class LocType {
 			int var4;
 			do {
 				while (true) {
-					int var3 = arg0.method224();
+					int var3 = arg0.g1();
 					if (var3 == 0) {
 						if (var2 == -1) {
 							this.field964 = false;
@@ -252,32 +252,32 @@ public final class LocType {
 						return;
 					}
 					if (var3 == 1) {
-						var4 = arg0.method224();
+						var4 = arg0.g1();
 						break;
 					}
 					if (var3 == 2) {
-						this.field956 = arg0.method231();
+						this.field956 = arg0.gjstr();
 					} else if (var3 == 3) {
-						this.field957 = arg0.method232(this.field942);
+						this.field957 = arg0.gjstrraw(this.field942);
 					} else if (var3 == 5) {
-						int var6 = arg0.method224();
+						int var6 = arg0.g1();
 						if (var6 > 0) {
 							this.field955 = null;
 							this.field954 = new int[var6];
 							for (int var7 = 0; var7 < var6; var7++) {
-								this.field954[var7] = arg0.method226();
+								this.field954[var7] = arg0.g2();
 							}
 						}
 					} else if (var3 == 14) {
-						this.field960 = arg0.method224();
+						this.field960 = arg0.g1();
 					} else if (var3 == 15) {
-						this.field961 = arg0.method224();
+						this.field961 = arg0.g1();
 					} else if (var3 == 17) {
 						this.field962 = false;
 					} else if (var3 == 18) {
 						this.field963 = false;
 					} else if (var3 == 19) {
-						var2 = arg0.method224();
+						var2 = arg0.g1();
 						if (var2 == 1) {
 							this.field964 = true;
 						}
@@ -288,68 +288,68 @@ public final class LocType {
 					} else if (var3 == 23) {
 						this.field967 = true;
 					} else if (var3 == 24) {
-						this.field968 = arg0.method226();
+						this.field968 = arg0.g2();
 						if (this.field968 == 65535) {
 							this.field968 = -1;
 						}
 					} else if (var3 == 28) {
-						this.field969 = arg0.method224();
+						this.field969 = arg0.g1();
 					} else if (var3 == 29) {
-						this.field970 = arg0.method225();
+						this.field970 = arg0.g1b();
 					} else if (var3 == 39) {
-						this.field971 = arg0.method225();
+						this.field971 = arg0.g1b();
 					} else if (var3 >= 30 && var3 < 39) {
 						if (this.field972 == null) {
 							this.field972 = new String[5];
 						}
-						this.field972[var3 - 30] = arg0.method231();
+						this.field972[var3 - 30] = arg0.gjstr();
 						if (this.field972[var3 - 30].equalsIgnoreCase("hidden")) {
 							this.field972[var3 - 30] = null;
 						}
 					} else if (var3 == 40) {
-						int var8 = arg0.method224();
+						int var8 = arg0.g1();
 						this.field958 = new int[var8];
 						this.field959 = new int[var8];
 						for (int var9 = 0; var9 < var8; var9++) {
-							this.field958[var9] = arg0.method226();
-							this.field959[var9] = arg0.method226();
+							this.field958[var9] = arg0.g2();
+							this.field959[var9] = arg0.g2();
 						}
 					} else if (var3 == 60) {
-						this.field973 = arg0.method226();
+						this.field973 = arg0.g2();
 					} else if (var3 == 62) {
 						this.field975 = true;
 					} else if (var3 == 64) {
 						this.field976 = false;
 					} else if (var3 == 65) {
-						this.field977 = arg0.method226();
+						this.field977 = arg0.g2();
 					} else if (var3 == 66) {
-						this.field978 = arg0.method226();
+						this.field978 = arg0.g2();
 					} else if (var3 == 67) {
-						this.field979 = arg0.method226();
+						this.field979 = arg0.g2();
 					} else if (var3 == 68) {
-						this.field974 = arg0.method226();
+						this.field974 = arg0.g2();
 					} else if (var3 == 69) {
-						this.field983 = arg0.method224();
+						this.field983 = arg0.g1();
 					} else if (var3 == 70) {
-						this.field980 = arg0.method227();
+						this.field980 = arg0.g2b();
 					} else if (var3 == 71) {
-						this.field981 = arg0.method227();
+						this.field981 = arg0.g2b();
 					} else if (var3 == 72) {
-						this.field982 = arg0.method227();
+						this.field982 = arg0.g2b();
 					} else if (var3 == 73) {
 						this.field984 = true;
 					} else if (var3 == 74) {
 						this.field985 = true;
 					} else if (var3 == 75) {
-						this.field986 = arg0.method224();
+						this.field986 = arg0.g1();
 					}
 				}
 			} while (var4 <= 0);
 			this.field955 = new int[var4];
 			this.field954 = new int[var4];
 			for (int var5 = 0; var5 < var4; var5++) {
-				this.field954[var5] = arg0.method226();
-				this.field955[var5] = arg0.method224();
+				this.field954[var5] = arg0.g2();
+				this.field955[var5] = arg0.g1();
 			}
 		}
 	}

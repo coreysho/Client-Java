@@ -30,7 +30,7 @@ public final class VarbitType {
 	@ObfuscatedName("qc.a(ZLxb;)V")
 	public static void method380(JagFile arg0) {
 		Packet var1 = new Packet(arg0.method294("varbit.dat", null), (byte) 1);
-		field1169 = var1.method226();
+		field1169 = var1.g2();
 		if (field1170 == null) {
 			field1170 = new VarbitType[field1169];
 		}
@@ -40,7 +40,7 @@ public final class VarbitType {
 			}
 			field1170[var2].method381(var1, field1167, var2);
 		}
-		if (var1.field709 != var1.field708.length) {
+		if (var1.data != var1.pos.length) {
 			System.out.println("varbit load mismatch");
 		}
 	}
@@ -52,16 +52,16 @@ public final class VarbitType {
 			}
 		}
 		while (true) {
-			int var5 = arg0.method224();
+			int var5 = arg0.g1();
 			if (var5 == 0) {
 				return;
 			}
 			if (var5 == 1) {
-				this.field1172 = arg0.method226();
-				this.field1173 = arg0.method224();
-				this.field1174 = arg0.method224();
+				this.field1172 = arg0.g2();
+				this.field1173 = arg0.g1();
+				this.field1174 = arg0.g1();
 			} else if (var5 == 10) {
-				this.field1171 = arg0.method231();
+				this.field1171 = arg0.gjstr();
 			} else {
 				System.out.println("Error unrecognised config code: " + var5);
 			}

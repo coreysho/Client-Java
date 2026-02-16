@@ -287,25 +287,25 @@ public final class Tone {
 		this.field917.method304(arg0);
 		this.field918 = new Envelope();
 		this.field918.method304(arg0);
-		int var2 = arg0.method224();
+		int var2 = arg0.g1();
 		if (var2 != 0) {
-			arg0.field709--;
+			arg0.data--;
 			this.field919 = new Envelope();
 			this.field919.method304(arg0);
 			this.field920 = new Envelope();
 			this.field920.method304(arg0);
 		}
-		int var3 = arg0.method224();
+		int var3 = arg0.g1();
 		if (var3 != 0) {
-			arg0.field709--;
+			arg0.data--;
 			this.field921 = new Envelope();
 			this.field921.method304(arg0);
 			this.field922 = new Envelope();
 			this.field922.method304(arg0);
 		}
-		int var4 = arg0.method224();
+		int var4 = arg0.g1();
 		if (var4 != 0) {
-			arg0.field709--;
+			arg0.data--;
 			this.field923 = new Envelope();
 			this.field923.method304(arg0);
 			this.field924 = new Envelope();
@@ -322,8 +322,8 @@ public final class Tone {
 		}
 		this.field928 = arg0.method238();
 		this.field929 = arg0.method238();
-		this.field932 = arg0.method226();
-		this.field933 = arg0.method226();
+		this.field932 = arg0.g2();
+		this.field933 = arg0.g2();
 		this.field930 = new Filter();
 		this.field931 = new Envelope();
 		this.field930.method312(arg0, this.field915, this.field931);

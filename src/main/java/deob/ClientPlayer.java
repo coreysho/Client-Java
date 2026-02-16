@@ -86,61 +86,61 @@ public final class ClientPlayer extends ClientEntity {
 
 	@ObfuscatedName("ab.a(Llb;I)V")
 	public void method116(Packet arg0, int arg1) {
-		arg0.field709 = 0;
-		this.field459 = arg0.method224();
-		this.field460 = arg0.method224();
+		arg0.data = 0;
+		this.field459 = arg0.g1();
+		this.field460 = arg0.g1();
 		this.field479 = null;
 		for (int var3 = 0; var3 < 12; var3++) {
-			int var4 = arg0.method224();
+			int var4 = arg0.g1();
 			if (var4 == 0) {
 				this.field461[var3] = 0;
 			} else {
-				int var5 = arg0.method224();
+				int var5 = arg0.g1();
 				this.field461[var3] = (var4 << 8) + var5;
 				if (var3 == 0 && this.field461[0] == 65535) {
-					this.field479 = NpcType.method335(arg0.method226());
+					this.field479 = NpcType.method335(arg0.g2());
 					break;
 				}
 			}
 		}
 		for (int var6 = 0; var6 < 5; var6++) {
-			int var7 = arg0.method224();
+			int var7 = arg0.g1();
 			if (var7 < 0 || var7 >= Client.field1657[var6].length) {
 				var7 = 0;
 			}
 			this.field462[var6] = var7;
 		}
-		super.field402 = arg0.method226();
+		super.field402 = arg0.g2();
 		if (super.field402 == 65535) {
 			super.field402 = -1;
 		}
-		super.field403 = arg0.method226();
+		super.field403 = arg0.g2();
 		if (super.field403 == 65535) {
 			super.field403 = -1;
 		}
-		super.field404 = arg0.method226();
+		super.field404 = arg0.g2();
 		if (super.field404 == 65535) {
 			super.field404 = -1;
 		}
-		super.field405 = arg0.method226();
+		super.field405 = arg0.g2();
 		if (super.field405 == 65535) {
 			super.field405 = -1;
 		}
-		super.field406 = arg0.method226();
+		super.field406 = arg0.g2();
 		if (super.field406 == 65535) {
 			super.field406 = -1;
 		}
-		super.field407 = arg0.method226();
+		super.field407 = arg0.g2();
 		if (super.field407 == 65535) {
 			super.field407 = -1;
 		}
-		super.field408 = arg0.method226();
+		super.field408 = arg0.g2();
 		if (super.field408 == 65535) {
 			super.field408 = -1;
 		}
-		this.field457 = JString.method299(JString.method296(arg0.method230()));
-		this.field463 = arg0.method224();
-		this.field464 = arg0.method226();
+		this.field457 = JString.method299(JString.method296(arg0.g8()));
+		this.field463 = arg0.g1();
+		this.field464 = arg0.g2();
 		this.field458 = true;
 		this.field465 = 0L;
 		for (int var8 = 0; var8 < 12; var8++) {

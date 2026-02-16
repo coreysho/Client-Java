@@ -286,21 +286,21 @@ public final class Model extends ModelSource {
 			return;
 		}
 		Packet var3 = new Packet(arg1, (byte) 1);
-		var3.field709 = arg1.length - 18;
+		var3.data = arg1.length - 18;
 		Metadata var4 = field571[arg0] = new Metadata();
 		var4.field205 = arg1;
-		var4.field206 = var3.method226();
-		var4.field207 = var3.method226();
-		var4.field208 = var3.method224();
-		int var5 = var3.method224();
-		int var6 = var3.method224();
-		int var7 = var3.method224();
-		int var8 = var3.method224();
-		int var9 = var3.method224();
-		int var10 = var3.method226();
-		int var11 = var3.method226();
-		int var12 = var3.method226();
-		int var13 = var3.method226();
+		var4.field206 = var3.g2();
+		var4.field207 = var3.g2();
+		var4.field208 = var3.g1();
+		int var5 = var3.g1();
+		int var6 = var3.g1();
+		int var7 = var3.g1();
+		int var8 = var3.g1();
+		int var9 = var3.g1();
+		int var10 = var3.g2();
+		int var11 = var3.g2();
+		int var12 = var3.g2();
+		int var13 = var3.g2();
 		var4.field209 = 0;
 		int var14 = var4.field206;
 		var4.field215 = var14;
@@ -441,20 +441,20 @@ public final class Model extends ModelSource {
 		}
 		this.field550 = new int[this.field540];
 		Packet var4 = new Packet(var3.field205, (byte) 1);
-		var4.field709 = var3.field209;
+		var4.data = var3.field209;
 		Packet var5 = new Packet(var3.field205, (byte) 1);
-		var5.field709 = var3.field210;
+		var5.data = var3.field210;
 		Packet var6 = new Packet(var3.field205, (byte) 1);
-		var6.field709 = var3.field211;
+		var6.data = var3.field211;
 		Packet var7 = new Packet(var3.field205, (byte) 1);
-		var7.field709 = var3.field212;
+		var7.data = var3.field212;
 		Packet var8 = new Packet(var3.field205, (byte) 1);
-		var8.field709 = var3.field213;
+		var8.data = var3.field213;
 		int var9 = 0;
 		int var10 = 0;
 		int var11 = 0;
 		for (int var12 = 0; var12 < this.field536; var12++) {
-			int var13 = var4.method224();
+			int var13 = var4.g1();
 			int var14 = 0;
 			if ((var13 & 0x1) != 0) {
 				var14 = var5.method237();
@@ -474,31 +474,31 @@ public final class Model extends ModelSource {
 			var10 = this.field538[var12];
 			var11 = this.field539[var12];
 			if (this.field565 != null) {
-				this.field565[var12] = var8.method224();
+				this.field565[var12] = var8.g1();
 			}
 		}
-		var4.field709 = var3.field216;
-		var5.field709 = var3.field217;
-		var6.field709 = var3.field218;
-		var7.field709 = var3.field219;
-		var8.field709 = var3.field220;
+		var4.data = var3.field216;
+		var5.data = var3.field217;
+		var6.data = var3.field218;
+		var7.data = var3.field219;
+		var8.data = var3.field220;
 		for (int var17 = 0; var17 < this.field540; var17++) {
-			this.field550[var17] = var4.method226();
+			this.field550[var17] = var4.g2();
 			if (this.field547 != null) {
-				this.field547[var17] = var5.method224();
+				this.field547[var17] = var5.g1();
 			}
 			if (this.field548 != null) {
-				this.field548[var17] = var6.method224();
+				this.field548[var17] = var6.g1();
 			}
 			if (this.field549 != null) {
-				this.field549[var17] = var7.method224();
+				this.field549[var17] = var7.g1();
 			}
 			if (this.field566 != null) {
-				this.field566[var17] = var8.method224();
+				this.field566[var17] = var8.g1();
 			}
 		}
-		var4.field709 = var3.field214;
-		var5.field709 = var3.field215;
+		var4.data = var3.field214;
+		var5.data = var3.field215;
 		int var18 = 0;
 		int var19 = 0;
 		int var20 = 0;
@@ -508,7 +508,7 @@ public final class Model extends ModelSource {
 			}
 		}
 		for (int var23 = 0; var23 < this.field540; var23++) {
-			int var24 = var5.method224();
+			int var24 = var5.g1();
 			if (var24 == 1) {
 				var18 = var4.method237() + var21;
 				var19 = var4.method237() + var18;
@@ -547,11 +547,11 @@ public final class Model extends ModelSource {
 				this.field543[var23] = var20;
 			}
 		}
-		var4.field709 = var3.field221;
+		var4.data = var3.field221;
 		for (int var26 = 0; var26 < this.field552; var26++) {
-			this.field553[var26] = var4.method226();
-			this.field554[var26] = var4.method226();
-			this.field555[var26] = var4.method226();
+			this.field553[var26] = var4.g2();
+			this.field554[var26] = var4.g2();
+			this.field555[var26] = var4.g2();
 		}
 	}
 

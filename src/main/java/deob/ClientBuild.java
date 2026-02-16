@@ -109,7 +109,7 @@ public final class ClientBuild {
 					var7 += var10 - 1;
 					int var11 = var7 & 0x3F;
 					int var12 = var7 >> 6 & 0x3F;
-					int var13 = var4.method224() >> 2;
+					int var13 = var4.g1() >> 2;
 					int var14 = var12 + arg2;
 					int var15 = var11 + arg1;
 					if (var14 > 0 && var15 > 0 && var14 < 103 && var15 < 103) {
@@ -124,7 +124,7 @@ public final class ClientBuild {
 				if (var9 == 0) {
 					break;
 				}
-				var4.method224();
+				var4.g1();
 			}
 		}
 	}
@@ -145,7 +145,7 @@ public final class ClientBuild {
 				if (var5 == 0) {
 					break;
 				}
-				arg0.method224();
+				arg0.g1();
 			}
 		}
 	}
@@ -471,7 +471,7 @@ public final class ClientBuild {
 					if (var10 >= 0 && var10 < 104 && var11 >= 0 && var11 < 104) {
 						this.field47[var7][var10][var11] = 0;
 						while (true) {
-							int var12 = var6.method224();
+							int var12 = var6.g1();
 							if (var12 == 0) {
 								if (var7 == 0) {
 									this.field46[0][var10][var11] = -method22(var10 + arg0 + 932731, var11 + 556238 + arg3) * 8;
@@ -481,7 +481,7 @@ public final class ClientBuild {
 								break;
 							}
 							if (var12 == 1) {
-								int var13 = var6.method224();
+								int var13 = var6.g1();
 								if (var13 == 1) {
 									var13 = 0;
 								}
@@ -493,7 +493,7 @@ public final class ClientBuild {
 								break;
 							}
 							if (var12 <= 49) {
-								this.field49[var7][var10][var11] = var6.method225();
+								this.field49[var7][var10][var11] = var6.g1b();
 								this.field50[var7][var10][var11] = (byte) ((var12 - 2) / 4);
 								this.field51[var7][var10][var11] = (byte) (var12 - 2 & 0x3);
 							} else if (var12 <= 81) {
@@ -504,16 +504,16 @@ public final class ClientBuild {
 						}
 					} else {
 						while (true) {
-							int var14 = var6.method224();
+							int var14 = var6.g1();
 							if (var14 == 0) {
 								break;
 							}
 							if (var14 == 1) {
-								var6.method224();
+								var6.g1();
 								break;
 							}
 							if (var14 <= 49) {
-								var6.method224();
+								var6.g1();
 							}
 						}
 					}
@@ -542,7 +542,7 @@ public final class ClientBuild {
 				int var11 = var9 & 0x3F;
 				int var12 = var9 >> 6 & 0x3F;
 				int var13 = var9 >> 12;
-				int var14 = var6.method224();
+				int var14 = var6.g1();
 				int var15 = var14 >> 2;
 				int var16 = var14 & 0x3;
 				int var17 = var12 + arg3;

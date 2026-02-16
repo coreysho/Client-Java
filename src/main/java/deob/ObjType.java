@@ -160,12 +160,12 @@ public final class ObjType {
 	public static void method339(JagFile arg0) {
 		field1036 = new Packet(arg0.method294("obj.dat", null), (byte) 1);
 		Packet var1 = new Packet(arg0.method294("obj.idx", null), (byte) 1);
-		field1034 = var1.method226();
+		field1034 = var1.g2();
 		field1035 = new int[field1034];
 		int var2 = 2;
 		for (int var3 = 0; var3 < field1034; var3++) {
 			field1035[var3] = var2;
-			var2 += var1.method226();
+			var2 += var1.g2();
 		}
 		field1037 = new ObjType[10];
 		for (int var4 = 0; var4 < 10; var4++) {
@@ -191,7 +191,7 @@ public final class ObjType {
 		}
 		field1038 = (field1038 + 1) % 10;
 		ObjType var2 = field1037[field1038];
-		field1036.field709 = field1035[arg0];
+		field1036.data = field1035[arg0];
 		var2.field1040 = arg0;
 		var2.method342();
 		var2.method343(field1036);
@@ -382,55 +382,55 @@ public final class ObjType {
 	@ObfuscatedName("hc.a(BLlb;)V")
 	public void method343(Packet arg0) {
 		while (true) {
-			int var2 = arg0.method224();
+			int var2 = arg0.g1();
 			if (var2 == 0) {
 				return;
 			}
 			if (var2 == 1) {
-				this.field1041 = arg0.method226();
+				this.field1041 = arg0.g2();
 			} else if (var2 == 2) {
-				this.field1042 = arg0.method231();
+				this.field1042 = arg0.gjstr();
 			} else if (var2 == 3) {
-				this.field1043 = arg0.method232(this.field1030);
+				this.field1043 = arg0.gjstrraw(this.field1030);
 			} else if (var2 == 4) {
-				this.field1046 = arg0.method226();
+				this.field1046 = arg0.g2();
 			} else if (var2 == 5) {
-				this.field1047 = arg0.method226();
+				this.field1047 = arg0.g2();
 			} else if (var2 == 6) {
-				this.field1048 = arg0.method226();
+				this.field1048 = arg0.g2();
 			} else if (var2 == 7) {
-				this.field1050 = arg0.method226();
+				this.field1050 = arg0.g2();
 				if (this.field1050 > 32767) {
 					this.field1050 -= 65536;
 				}
 			} else if (var2 == 8) {
-				this.field1051 = arg0.method226();
+				this.field1051 = arg0.g2();
 				if (this.field1051 > 32767) {
 					this.field1051 -= 65536;
 				}
 			} else if (var2 == 10) {
-				this.field1052 = arg0.method226();
+				this.field1052 = arg0.g2();
 			} else if (var2 == 11) {
 				this.field1053 = true;
 			} else if (var2 == 12) {
-				this.field1054 = arg0.method229();
+				this.field1054 = arg0.g4();
 			} else if (var2 == 16) {
 				this.field1055 = true;
 			} else if (var2 == 23) {
-				this.field1058 = arg0.method226();
-				this.field1060 = arg0.method225();
+				this.field1058 = arg0.g2();
+				this.field1060 = arg0.g1b();
 			} else if (var2 == 24) {
-				this.field1059 = arg0.method226();
+				this.field1059 = arg0.g2();
 			} else if (var2 == 25) {
-				this.field1061 = arg0.method226();
-				this.field1063 = arg0.method225();
+				this.field1061 = arg0.g2();
+				this.field1063 = arg0.g1b();
 			} else if (var2 == 26) {
-				this.field1062 = arg0.method226();
+				this.field1062 = arg0.g2();
 			} else if (var2 >= 30 && var2 < 35) {
 				if (this.field1056 == null) {
 					this.field1056 = new String[5];
 				}
-				this.field1056[var2 - 30] = arg0.method231();
+				this.field1056[var2 - 30] = arg0.gjstr();
 				if (this.field1056[var2 - 30].equalsIgnoreCase("hidden")) {
 					this.field1056[var2 - 30] = null;
 				}
@@ -438,50 +438,50 @@ public final class ObjType {
 				if (this.field1057 == null) {
 					this.field1057 = new String[5];
 				}
-				this.field1057[var2 - 35] = arg0.method231();
+				this.field1057[var2 - 35] = arg0.gjstr();
 			} else if (var2 == 40) {
-				int var3 = arg0.method224();
+				int var3 = arg0.g1();
 				this.field1044 = new int[var3];
 				this.field1045 = new int[var3];
 				for (int var4 = 0; var4 < var3; var4++) {
-					this.field1044[var4] = arg0.method226();
-					this.field1045[var4] = arg0.method226();
+					this.field1044[var4] = arg0.g2();
+					this.field1045[var4] = arg0.g2();
 				}
 			} else if (var2 == 78) {
-				this.field1064 = arg0.method226();
+				this.field1064 = arg0.g2();
 			} else if (var2 == 79) {
-				this.field1065 = arg0.method226();
+				this.field1065 = arg0.g2();
 			} else if (var2 == 90) {
-				this.field1066 = arg0.method226();
+				this.field1066 = arg0.g2();
 			} else if (var2 == 91) {
-				this.field1068 = arg0.method226();
+				this.field1068 = arg0.g2();
 			} else if (var2 == 92) {
-				this.field1067 = arg0.method226();
+				this.field1067 = arg0.g2();
 			} else if (var2 == 93) {
-				this.field1069 = arg0.method226();
+				this.field1069 = arg0.g2();
 			} else if (var2 == 95) {
-				this.field1049 = arg0.method226();
+				this.field1049 = arg0.g2();
 			} else if (var2 == 97) {
-				this.field1072 = arg0.method226();
+				this.field1072 = arg0.g2();
 			} else if (var2 == 98) {
-				this.field1073 = arg0.method226();
+				this.field1073 = arg0.g2();
 			} else if (var2 >= 100 && var2 < 110) {
 				if (this.field1070 == null) {
 					this.field1070 = new int[10];
 					this.field1071 = new int[10];
 				}
-				this.field1070[var2 - 100] = arg0.method226();
-				this.field1071[var2 - 100] = arg0.method226();
+				this.field1070[var2 - 100] = arg0.g2();
+				this.field1071[var2 - 100] = arg0.g2();
 			} else if (var2 == 110) {
-				this.field1074 = arg0.method226();
+				this.field1074 = arg0.g2();
 			} else if (var2 == 111) {
-				this.field1075 = arg0.method226();
+				this.field1075 = arg0.g2();
 			} else if (var2 == 112) {
-				this.field1076 = arg0.method226();
+				this.field1076 = arg0.g2();
 			} else if (var2 == 113) {
-				this.field1077 = arg0.method225();
+				this.field1077 = arg0.g1b();
 			} else if (var2 == 114) {
-				this.field1078 = arg0.method225() * 5;
+				this.field1078 = arg0.g1b() * 5;
 			}
 		}
 	}

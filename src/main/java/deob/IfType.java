@@ -10,7 +10,7 @@ public final class IfType {
 	public static int field67;
 
 	@ObfuscatedName("d.c")
-	public static IfType[] field68;
+	public static IfType[] list;
 
 	@ObfuscatedName("d.d")
 	public int[] field69;
@@ -91,10 +91,10 @@ public final class IfType {
 	public int field120;
 
 	@ObfuscatedName("d.db")
-	public int field121;
+	public int modelAnim;
 
 	@ObfuscatedName("d.eb")
-	public int field122;
+	public int modelAnim2;
 
 	@ObfuscatedName("d.fb")
 	public int field123;
@@ -139,7 +139,7 @@ public final class IfType {
 	public int field114;
 
 	@ObfuscatedName("d.Z")
-	public int field117;
+	public int model1Type;
 
 	@ObfuscatedName("d.B")
 	public int field93;
@@ -206,90 +206,90 @@ public final class IfType {
 		field131 = new LruCache(50000, 0);
 		Packet var3 = new Packet(arg0.method294("data", null), (byte) 1);
 		int var4 = -1;
-		int var5 = var3.method226();
-		field68 = new IfType[var5];
+		int var5 = var3.g2();
+		list = new IfType[var5];
 		while (true) {
 			IfType var7;
 			do {
-				if (var3.field709 >= var3.field708.length) {
+				if (var3.data >= var3.pos.length) {
 					field131 = null;
 					return;
 				}
-				int var6 = var3.method226();
+				int var6 = var3.g2();
 				if (var6 == 65535) {
-					var4 = var3.method226();
-					var6 = var3.method226();
+					var4 = var3.g2();
+					var6 = var3.g2();
 				}
-				var7 = field68[var6] = new IfType();
+				var7 = list[var6] = new IfType();
 				var7.field73 = var6;
 				var7.field74 = var4;
-				var7.field75 = var3.method224();
-				var7.field76 = var3.method224();
-				var7.field77 = var3.method226();
-				var7.field78 = var3.method226();
-				var7.field79 = var3.method226();
-				var7.field80 = (byte) var3.method224();
-				var7.field86 = var3.method224();
+				var7.field75 = var3.g1();
+				var7.field76 = var3.g1();
+				var7.field77 = var3.g2();
+				var7.field78 = var3.g2();
+				var7.field79 = var3.g2();
+				var7.field80 = (byte) var3.g1();
+				var7.field86 = var3.g1();
 				if (var7.field86 == 0) {
 					var7.field86 = -1;
 				} else {
-					var7.field86 = (var7.field86 - 1 << 8) + var3.method224();
+					var7.field86 = (var7.field86 - 1 << 8) + var3.g1();
 				}
-				int var8 = var3.method224();
+				int var8 = var3.g1();
 				if (var8 > 0) {
 					var7.field84 = new int[var8];
 					var7.field85 = new int[var8];
 					for (int var9 = 0; var9 < var8; var9++) {
-						var7.field84[var9] = var3.method224();
-						var7.field85[var9] = var3.method226();
+						var7.field84[var9] = var3.g1();
+						var7.field85[var9] = var3.g2();
 					}
 				}
-				int var10 = var3.method224();
+				int var10 = var3.g1();
 				if (var10 > 0) {
 					var7.field83 = new int[var10][];
 					for (int var11 = 0; var11 < var10; var11++) {
-						int var12 = var3.method226();
+						int var12 = var3.g2();
 						var7.field83[var11] = new int[var12];
 						for (int var13 = 0; var13 < var12; var13++) {
-							var7.field83[var11][var13] = var3.method226();
+							var7.field83[var11][var13] = var3.g2();
 						}
 					}
 				}
 				if (var7.field75 == 0) {
-					var7.field87 = var3.method226();
-					var7.field89 = var3.method224() == 1;
-					int var14 = var3.method226();
+					var7.field87 = var3.g2();
+					var7.field89 = var3.g1() == 1;
+					int var14 = var3.g2();
 					var7.field90 = new int[var14];
 					var7.field91 = new int[var14];
 					var7.field92 = new int[var14];
 					for (int var15 = 0; var15 < var14; var15++) {
-						var7.field90[var15] = var3.method226();
-						var7.field91[var15] = var3.method227();
-						var7.field92[var15] = var3.method227();
+						var7.field90[var15] = var3.g2();
+						var7.field91[var15] = var3.g2b();
+						var7.field92[var15] = var3.g2b();
 					}
 				}
 				if (var7.field75 == 1) {
-					var7.field93 = var3.method226();
-					var7.field94 = var3.method224() == 1;
+					var7.field93 = var3.g2();
+					var7.field94 = var3.g1() == 1;
 				}
 				if (var7.field75 == 2) {
 					var7.field69 = new int[var7.field78 * var7.field79];
 					var7.field70 = new int[var7.field78 * var7.field79];
-					var7.field95 = var3.method224() == 1;
-					var7.field96 = var3.method224() == 1;
-					var7.field97 = var3.method224() == 1;
-					var7.field98 = var3.method224() == 1;
-					var7.field99 = var3.method224();
-					var7.field100 = var3.method224();
+					var7.field95 = var3.g1() == 1;
+					var7.field96 = var3.g1() == 1;
+					var7.field97 = var3.g1() == 1;
+					var7.field98 = var3.g1() == 1;
+					var7.field99 = var3.g1();
+					var7.field100 = var3.g1();
 					var7.field102 = new int[20];
 					var7.field103 = new int[20];
 					var7.field101 = new Pix32[20];
 					for (int var16 = 0; var16 < 20; var16++) {
-						int var17 = var3.method224();
+						int var17 = var3.g1();
 						if (var17 == 1) {
-							var7.field102[var16] = var3.method227();
-							var7.field103[var16] = var3.method227();
-							String var18 = var3.method231();
+							var7.field102[var16] = var3.g2b();
+							var7.field103[var16] = var3.g2b();
+							String var18 = var3.gjstr();
 							if (arg1 != null && var18.length() > 0) {
 								int var19 = var18.lastIndexOf(",");
 								var7.field101[var16] = method37(Integer.parseInt(var18.substring(var19 + 1)), var18.substring(0, var19), arg1);
@@ -298,102 +298,102 @@ public final class IfType {
 					}
 					var7.field104 = new String[5];
 					for (int var20 = 0; var20 < 5; var20++) {
-						var7.field104[var20] = var3.method231();
+						var7.field104[var20] = var3.gjstr();
 						if (var7.field104[var20].length() == 0) {
 							var7.field104[var20] = null;
 						}
 					}
 				}
 				if (var7.field75 == 3) {
-					var7.field105 = var3.method224() == 1;
+					var7.field105 = var3.g1() == 1;
 				}
 				if (var7.field75 == 4 || var7.field75 == 1) {
-					var7.field106 = var3.method224() == 1;
-					int var21 = var3.method224();
+					var7.field106 = var3.g1() == 1;
+					int var21 = var3.g1();
 					if (arg2 != null) {
 						var7.field108 = arg2[var21];
 					}
-					var7.field107 = var3.method224() == 1;
+					var7.field107 = var3.g1() == 1;
 				}
 				if (var7.field75 == 4) {
-					var7.field109 = var3.method231();
-					var7.field110 = var3.method231();
+					var7.field109 = var3.gjstr();
+					var7.field110 = var3.gjstr();
 				}
 				if (var7.field75 == 1 || var7.field75 == 3 || var7.field75 == 4) {
-					var7.field111 = var3.method229();
+					var7.field111 = var3.g4();
 				}
 				if (var7.field75 == 3 || var7.field75 == 4) {
-					var7.field112 = var3.method229();
-					var7.field113 = var3.method229();
-					var7.field114 = var3.method229();
+					var7.field112 = var3.g4();
+					var7.field113 = var3.g4();
+					var7.field114 = var3.g4();
 				}
 				if (var7.field75 == 5) {
-					String var22 = var3.method231();
+					String var22 = var3.gjstr();
 					if (arg1 != null && var22.length() > 0) {
 						int var23 = var22.lastIndexOf(",");
 						var7.field115 = method37(Integer.parseInt(var22.substring(var23 + 1)), var22.substring(0, var23), arg1);
 					}
-					String var24 = var3.method231();
+					String var24 = var3.gjstr();
 					if (arg1 != null && var24.length() > 0) {
 						int var25 = var24.lastIndexOf(",");
 						var7.field116 = method37(Integer.parseInt(var24.substring(var25 + 1)), var24.substring(0, var25), arg1);
 					}
 				}
 				if (var7.field75 == 6) {
-					int var26 = var3.method224();
+					int var26 = var3.g1();
 					if (var26 != 0) {
-						var7.field117 = 1;
-						var7.field118 = (var26 - 1 << 8) + var3.method224();
+						var7.model1Type = 1;
+						var7.field118 = (var26 - 1 << 8) + var3.g1();
 					}
-					int var27 = var3.method224();
+					int var27 = var3.g1();
 					if (var27 != 0) {
 						var7.field119 = 1;
-						var7.field120 = (var27 - 1 << 8) + var3.method224();
+						var7.field120 = (var27 - 1 << 8) + var3.g1();
 					}
-					int var28 = var3.method224();
+					int var28 = var3.g1();
 					if (var28 == 0) {
-						var7.field121 = -1;
+						var7.modelAnim = -1;
 					} else {
-						var7.field121 = (var28 - 1 << 8) + var3.method224();
+						var7.modelAnim = (var28 - 1 << 8) + var3.g1();
 					}
-					int var29 = var3.method224();
+					int var29 = var3.g1();
 					if (var29 == 0) {
-						var7.field122 = -1;
+						var7.modelAnim2 = -1;
 					} else {
-						var7.field122 = (var29 - 1 << 8) + var3.method224();
+						var7.modelAnim2 = (var29 - 1 << 8) + var3.g1();
 					}
-					var7.field123 = var3.method226();
-					var7.field124 = var3.method226();
-					var7.field125 = var3.method226();
+					var7.field123 = var3.g2();
+					var7.field124 = var3.g2();
+					var7.field125 = var3.g2();
 				}
 				if (var7.field75 == 7) {
 					var7.field69 = new int[var7.field78 * var7.field79];
 					var7.field70 = new int[var7.field78 * var7.field79];
-					var7.field106 = var3.method224() == 1;
-					int var30 = var3.method224();
+					var7.field106 = var3.g1() == 1;
+					int var30 = var3.g1();
 					if (arg2 != null) {
 						var7.field108 = arg2[var30];
 					}
-					var7.field107 = var3.method224() == 1;
-					var7.field111 = var3.method229();
-					var7.field99 = var3.method227();
-					var7.field100 = var3.method227();
-					var7.field96 = var3.method224() == 1;
+					var7.field107 = var3.g1() == 1;
+					var7.field111 = var3.g4();
+					var7.field99 = var3.g2b();
+					var7.field100 = var3.g2b();
+					var7.field96 = var3.g1() == 1;
 					var7.field104 = new String[5];
 					for (int var31 = 0; var31 < 5; var31++) {
-						var7.field104[var31] = var3.method231();
+						var7.field104[var31] = var3.gjstr();
 						if (var7.field104[var31].length() == 0) {
 							var7.field104[var31] = null;
 						}
 					}
 				}
 				if (var7.field76 == 2 || var7.field75 == 2) {
-					var7.field126 = var3.method231();
-					var7.field127 = var3.method231();
-					var7.field128 = var3.method226();
+					var7.field126 = var3.gjstr();
+					var7.field127 = var3.gjstr();
+					var7.field128 = var3.g2();
 				}
 			} while (var7.field76 != 1 && var7.field76 != 4 && var7.field76 != 5 && var7.field76 != 6);
-			var7.field129 = var3.method231();
+			var7.field129 = var3.gjstr();
 			if (var7.field129.length() == 0) {
 				if (var7.field76 == 1) {
 					var7.field129 = "Ok";
@@ -451,7 +451,7 @@ public final class IfType {
 		if (arg2) {
 			var4 = this.method35(this.field119, this.field120);
 		} else {
-			var4 = this.method35(this.field117, this.field118);
+			var4 = this.method35(this.model1Type, this.field118);
 		}
 		if (var4 == null) {
 			return null;

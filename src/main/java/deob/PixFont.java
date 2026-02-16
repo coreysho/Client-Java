@@ -50,27 +50,27 @@ public final class PixFont extends Pix2D {
 	public PixFont(JagFile arg0, boolean arg1, String arg2, byte arg3) {
 		Packet var5 = new Packet(arg0.method294(arg2 + ".dat", null), (byte) 1);
 		Packet var6 = new Packet(arg0.method294("index.dat", null), (byte) 1);
-		var6.field709 = var5.method226() + 4;
-		int var7 = var6.method224();
+		var6.data = var5.g2() + 4;
+		int var7 = var6.g1();
 		if (var7 > 0) {
-			var6.field709 += (var7 - 1) * 3;
+			var6.data += (var7 - 1) * 3;
 		}
 		for (int var8 = 0; var8 < 256; var8++) {
-			this.field691[var8] = var6.method224();
-			this.field692[var8] = var6.method224();
-			int var9 = this.field689[var8] = var6.method226();
-			int var10 = this.field690[var8] = var6.method226();
-			int var11 = var6.method224();
+			this.field691[var8] = var6.g1();
+			this.field692[var8] = var6.g1();
+			int var9 = this.field689[var8] = var6.g2();
+			int var10 = this.field690[var8] = var6.g2();
+			int var11 = var6.g1();
 			int var12 = var9 * var10;
 			this.field688[var8] = new byte[var12];
 			if (var11 == 0) {
 				for (int var13 = 0; var13 < var12; var13++) {
-					this.field688[var8][var13] = var5.method225();
+					this.field688[var8][var13] = var5.g1b();
 				}
 			} else if (var11 == 1) {
 				for (int var14 = 0; var14 < var9; var14++) {
 					for (int var15 = 0; var15 < var10; var15++) {
-						this.field688[var8][var14 + var15 * var9] = var5.method225();
+						this.field688[var8][var14 + var15 * var9] = var5.g1b();
 					}
 				}
 			}

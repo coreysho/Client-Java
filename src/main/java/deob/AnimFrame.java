@@ -42,41 +42,41 @@ public final class AnimFrame {
 	@ObfuscatedName("g.a(I[B)V")
 	public static void method45(byte[] arg0) {
 		Packet var1 = new Packet(arg0, (byte) 1);
-		var1.field709 = arg0.length - 8;
-		int var2 = var1.method226();
-		int var3 = var1.method226();
-		int var4 = var1.method226();
-		int var5 = var1.method226();
+		var1.data = arg0.length - 8;
+		int var2 = var1.g2();
+		int var3 = var1.g2();
+		int var4 = var1.g2();
+		int var5 = var1.g2();
 		Packet var6 = new Packet(arg0, (byte) 1);
-		var6.field709 = 0;
+		var6.data = 0;
 		int var7 = var2 + 2;
 		Packet var8 = new Packet(arg0, (byte) 1);
-		var8.field709 = var7;
+		var8.data = var7;
 		int var9 = var7 + var3;
 		Packet var10 = new Packet(arg0, (byte) 1);
-		var10.field709 = var9;
+		var10.data = var9;
 		int var11 = var9 + var4;
 		Packet var12 = new Packet(arg0, (byte) 1);
-		var12.field709 = var11;
+		var12.data = var11;
 		int var13 = var11 + var5;
 		Packet var14 = new Packet(arg0, (byte) 1);
-		var14.field709 = var13;
+		var14.data = var13;
 		AnimBase var15 = new AnimBase(10470, var14);
-		int var16 = var6.method226();
+		int var16 = var6.g2();
 		int[] var17 = new int[500];
 		int[] var18 = new int[500];
 		int[] var19 = new int[500];
 		int[] var20 = new int[500];
 		for (int var21 = 0; var21 < var16; var21++) {
-			int var22 = var6.method226();
+			int var22 = var6.g2();
 			AnimFrame var23 = field148[var22] = new AnimFrame();
-			var23.field149 = var12.method224();
+			var23.field149 = var12.g1();
 			var23.field150 = var15;
-			int var24 = var6.method224();
+			int var24 = var6.g1();
 			int var25 = -1;
 			int var26 = 0;
 			for (int var27 = 0; var27 < var24; var27++) {
-				int var28 = var8.method224();
+				int var28 = var8.g1();
 				if (var28 > 0) {
 					if (var15.field146[var27] != 0) {
 						for (int var29 = var27 - 1; var29 > var25; var29--) {

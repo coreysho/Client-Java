@@ -40,8 +40,8 @@ public final class JagFile {
 	@ObfuscatedName("xb.a(I[B)V")
 	public void method293(byte[] arg0) {
 		Packet var2 = new Packet(arg0, (byte) 1);
-		int var3 = var2.method228();
-		int var4 = var2.method228();
+		int var3 = var2.g3();
+		int var4 = var2.g3();
 		if (var4 == var3) {
 			this.field864 = arg0;
 			this.field870 = false;
@@ -52,16 +52,16 @@ public final class JagFile {
 			var2 = new Packet(this.field864, (byte) 1);
 			this.field870 = true;
 		}
-		this.field865 = var2.method226();
+		this.field865 = var2.g2();
 		this.field866 = new int[this.field865];
 		this.field867 = new int[this.field865];
 		this.field868 = new int[this.field865];
 		this.field869 = new int[this.field865];
-		int var6 = var2.field709 + this.field865 * 10;
+		int var6 = var2.data + this.field865 * 10;
 		for (int var7 = 0; var7 < this.field865; var7++) {
-			this.field866[var7] = var2.method229();
-			this.field867[var7] = var2.method228();
-			this.field868[var7] = var2.method228();
+			this.field866[var7] = var2.g4();
+			this.field867[var7] = var2.g3();
+			this.field868[var7] = var2.g3();
 			this.field869[var7] = var6;
 			var6 += this.field868[var7];
 		}

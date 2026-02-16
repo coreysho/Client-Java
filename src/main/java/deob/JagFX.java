@@ -39,7 +39,7 @@ public final class JagFX {
 		field911 = new Packet(field910, (byte) 1);
 		Tone.method319();
 		while (true) {
-			int var1 = arg0.method226();
+			int var1 = arg0.g2();
 			if (var1 == 65535) {
 				return;
 			}
@@ -65,15 +65,15 @@ public final class JagFX {
 	@ObfuscatedName("cc.a(BLlb;)V")
 	public void method315(Packet arg0) {
 		for (int var2 = 0; var2 < 10; var2++) {
-			int var3 = arg0.method224();
+			int var3 = arg0.g1();
 			if (var3 != 0) {
-				arg0.field709--;
+				arg0.data--;
 				this.field912[var2] = new Tone();
 				this.field912[var2].method322(arg0);
 			}
 		}
-		this.field913 = arg0.method226();
-		this.field914 = arg0.method226();
+		this.field913 = arg0.g2();
+		this.field914 = arg0.g2();
 	}
 
 	@ObfuscatedName("cc.a(I)I")
@@ -105,24 +105,24 @@ public final class JagFX {
 	@ObfuscatedName("cc.a(IB)Llb;")
 	public Packet method317(int arg0) {
 		int var2 = this.method318(arg0);
-		field911.field709 = 0;
-		field911.method218(1380533830);
-		field911.method219(var2 + 36);
-		field911.method218(1463899717);
-		field911.method218(1718449184);
-		field911.method219(16);
-		field911.method216(1);
-		field911.method216(1);
-		field911.method219(22050);
-		field911.method219(22050);
-		field911.method216(1);
-		field911.method216(8);
-		field911.method218(1684108385);
-		field911.method219(var2);
+		field911.data = 0;
+		field911.p4(1380533830);
+		field911.ip4(var2 + 36);
+		field911.p4(1463899717);
+		field911.p4(1718449184);
+		field911.ip4(16);
+		field911.ip2(1);
+		field911.ip2(1);
+		field911.ip4(22050);
+		field911.ip4(22050);
+		field911.ip2(1);
+		field911.ip2(8);
+		field911.p4(1684108385);
+		field911.ip4(var2);
 		if (this.field906 != 5) {
 			throw new NullPointerException();
 		}
-		field911.field709 += var2;
+		field911.data += var2;
 		return field911;
 	}
 

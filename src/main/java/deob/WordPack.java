@@ -14,7 +14,7 @@ public final class WordPack {
 		int var2 = 0;
 		int var3 = -1;
 		for (int var4 = 0; var4 < arg0; var4++) {
-			int var5 = arg1.method224();
+			int var5 = arg1.g1();
 			int var6 = var5 >> 4 & 0xF;
 			if (var3 != -1) {
 				field878[var2++] = field879[(var3 << 4) + var6 - 195];
@@ -71,18 +71,18 @@ public final class WordPack {
 				if (var6 < 13) {
 					var3 = var6;
 				} else {
-					arg1.method214(var6);
+					arg1.p1(var6);
 				}
 			} else if (var6 < 13) {
-				arg1.method214((var3 << 4) + var6);
+				arg1.p1((var3 << 4) + var6);
 				var3 = -1;
 			} else {
-				arg1.method214((var3 << 4) + (var6 >> 4));
+				arg1.p1((var3 << 4) + (var6 >> 4));
 				var3 = var6 & 0xF;
 			}
 		}
 		if (var3 != -1) {
-			arg1.method214(var3 << 4);
+			arg1.p1(var3 << 4);
 		}
 	}
 }

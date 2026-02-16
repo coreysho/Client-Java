@@ -151,7 +151,7 @@ public final class OnDemand extends OnDemandProvider implements Runnable {
 			this.field808[var4] = new int[var6];
 			this.field810[var4] = new byte[var6];
 			for (int var8 = 0; var8 < var6; var8++) {
-				this.field808[var4][var8] = var7.method226();
+				this.field808[var4][var8] = var7.g2();
 			}
 		}
 		String[] var9 = new String[] { "model_crc", "anim_crc", "midi_crc", "map_crc" };
@@ -161,7 +161,7 @@ public final class OnDemand extends OnDemandProvider implements Runnable {
 			Packet var13 = new Packet(var11, (byte) 1);
 			this.field809[var10] = new int[var12];
 			for (int var14 = 0; var14 < var12; var14++) {
-				this.field809[var10][var14] = var13.method229();
+				this.field809[var10][var14] = var13.g4();
 			}
 		}
 		byte[] var15 = arg0.method294("model_index", null);
@@ -182,24 +182,24 @@ public final class OnDemand extends OnDemandProvider implements Runnable {
 		this.field815 = new int[var20];
 		this.field816 = new int[var20];
 		for (int var21 = 0; var21 < var20; var21++) {
-			this.field813[var21] = var19.method226();
-			this.field814[var21] = var19.method226();
-			this.field815[var21] = var19.method226();
-			this.field816[var21] = var19.method224();
+			this.field813[var21] = var19.g2();
+			this.field814[var21] = var19.g2();
+			this.field815[var21] = var19.g2();
+			this.field816[var21] = var19.g1();
 		}
 		byte[] var22 = arg0.method294("anim_index", null);
 		Packet var23 = new Packet(var22, (byte) 1);
 		int var24 = var22.length / 2;
 		this.field817 = new int[var24];
 		for (int var25 = 0; var25 < var24; var25++) {
-			this.field817[var25] = var23.method226();
+			this.field817[var25] = var23.g2();
 		}
 		byte[] var26 = arg0.method294("midi_index", null);
 		Packet var27 = new Packet(var26, (byte) 1);
 		int var28 = var26.length;
 		this.field818 = new int[var28];
 		for (int var29 = 0; var29 < var28; var29++) {
-			this.field818[var29] = var27.method224();
+			this.field818[var29] = var27.g1();
 		}
 		this.field820 = arg1;
 		this.field819 = true;
@@ -260,7 +260,7 @@ public final class OnDemand extends OnDemandProvider implements Runnable {
 	}
 
 	@ObfuscatedName("ub.a(IB)I")
-	public int method272(int arg0) {
+	public int getModelUse(int arg0) {
 		return this.field812[arg0] & 0xFF;
 	}
 
@@ -272,11 +272,11 @@ public final class OnDemand extends OnDemandProvider implements Runnable {
 	@ObfuscatedName("ub.a(I)V")
 	@Override
 	public void method264(int arg0) {
-		this.method274(0, arg0);
+		this.request(0, arg0);
 	}
 
 	@ObfuscatedName("ub.c(II)V")
-	public void method274(int arg0, int arg1) {
+	public void request(int arg0, int arg1) {
 		if (arg0 > this.field808.length || arg1 < 0 || arg1 > this.field808[arg0].length || this.field808[arg0][arg1] == 0) {
 			return;
 		}

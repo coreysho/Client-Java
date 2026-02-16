@@ -51,7 +51,7 @@ public final class FloType {
 	@ObfuscatedName("kc.a(ZLxb;)V")
 	public static void method364(JagFile arg0) {
 		Packet var1 = new Packet(arg0.method294("flo.dat", null), (byte) 1);
-		field1097 = var1.method226();
+		field1097 = var1.g2();
 		if (field1098 == null) {
 			field1098 = new FloType[field1097];
 		}
@@ -66,21 +66,21 @@ public final class FloType {
 	@ObfuscatedName("kc.a(BLlb;)V")
 	public void method365(Packet arg0) {
 		while (true) {
-			int var2 = arg0.method224();
+			int var2 = arg0.g1();
 			if (var2 == 0) {
 				return;
 			}
 			if (var2 == 1) {
-				this.field1099 = arg0.method228();
+				this.field1099 = arg0.g3();
 				this.method366(this.field1099);
 			} else if (var2 == 2) {
-				this.field1100 = arg0.method224();
+				this.field1100 = arg0.g1();
 			} else if (var2 == 3) {
 				this.field1101 = true;
 			} else if (var2 == 5) {
 				this.field1102 = false;
 			} else if (var2 == 6) {
-				this.field1103 = arg0.method231();
+				this.field1103 = arg0.gjstr();
 			} else {
 				System.out.println("Error unrecognised config code: " + var2);
 			}

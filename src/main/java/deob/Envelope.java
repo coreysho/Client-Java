@@ -44,20 +44,20 @@ public final class Envelope {
 
 	@ObfuscatedName("ac.a(BLlb;)V")
 	public void method304(Packet arg0) {
-		this.field887 = arg0.method224();
-		this.field885 = arg0.method229();
-		this.field886 = arg0.method229();
+		this.field887 = arg0.g1();
+		this.field885 = arg0.g4();
+		this.field886 = arg0.g4();
 		this.method305(arg0);
 	}
 
 	@ObfuscatedName("ac.a(Llb;I)V")
 	public void method305(Packet arg0) {
-		this.field882 = arg0.method224();
+		this.field882 = arg0.g1();
 		this.field883 = new int[this.field882];
 		this.field884 = new int[this.field882];
 		for (int var2 = 0; var2 < this.field882; var2++) {
-			this.field883[var2] = arg0.method226();
-			this.field884[var2] = arg0.method226();
+			this.field883[var2] = arg0.g2();
+			this.field884[var2] = arg0.g2();
 		}
 	}
 

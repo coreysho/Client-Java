@@ -58,7 +58,7 @@ public final class VarpType {
 	public static void method382(JagFile arg0) {
 		Packet var1 = new Packet(arg0.method294("varp.dat", null), (byte) 1);
 		field1179 = 0;
-		field1177 = var1.method226();
+		field1177 = var1.g2();
 		if (field1178 == null) {
 			field1178 = new VarpType[field1177];
 		}
@@ -71,7 +71,7 @@ public final class VarpType {
 			}
 			field1178[var2].method383(var1, field1176, var2);
 		}
-		if (var1.field709 != var1.field708.length) {
+		if (var1.data != var1.pos.length) {
 			System.out.println("varptype load mismatch");
 		}
 	}
@@ -83,34 +83,34 @@ public final class VarpType {
 			}
 		}
 		while (true) {
-			int var5 = arg0.method224();
+			int var5 = arg0.g1();
 			if (var5 == 0) {
 				return;
 			}
 			if (var5 == 1) {
-				this.field1182 = arg0.method224();
+				this.field1182 = arg0.g1();
 			} else if (var5 == 2) {
-				this.field1183 = arg0.method224();
+				this.field1183 = arg0.g1();
 			} else if (var5 == 3) {
 				this.field1184 = true;
 				field1180[field1179++] = arg2;
 			} else if (var5 == 4) {
 				this.field1185 = false;
 			} else if (var5 == 5) {
-				this.field1186 = arg0.method226();
+				this.field1186 = arg0.g2();
 			} else if (var5 == 6) {
 				this.field1187 = true;
 			} else if (var5 == 7) {
-				this.field1188 = arg0.method229();
+				this.field1188 = arg0.g4();
 			} else if (var5 == 8) {
 				this.field1189 = 1;
 				this.field1190 = true;
 			} else if (var5 == 10) {
-				this.field1181 = arg0.method231();
+				this.field1181 = arg0.gjstr();
 			} else if (var5 == 11) {
 				this.field1190 = true;
 			} else if (var5 == 12) {
-				this.field1191 = arg0.method229();
+				this.field1191 = arg0.g4();
 			} else if (var5 == 13) {
 				this.field1189 = 2;
 			} else {
