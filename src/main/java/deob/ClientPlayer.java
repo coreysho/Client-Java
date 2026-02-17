@@ -19,10 +19,10 @@ public final class ClientPlayer extends ClientEntity {
 	public boolean field458 = false;
 
 	@ObfuscatedName("ab.vb")
-	public int field459;
+	public int gender;
 
 	@ObfuscatedName("ab.wb")
-	public int field460;
+	public int headicons;
 
 	@ObfuscatedName("ab.xb")
 	public final int[] field461 = new int[12];
@@ -87,8 +87,8 @@ public final class ClientPlayer extends ClientEntity {
 	@ObfuscatedName("ab.a(Llb;I)V")
 	public void method116(Packet arg0, int arg1) {
 		arg0.data = 0;
-		this.field459 = arg0.g1();
-		this.field460 = arg0.g1();
+		this.gender = arg0.g1();
+		this.headicons = arg0.g1();
 		this.field479 = null;
 		for (int var3 = 0; var3 < 12; var3++) {
 			int var4 = arg0.g1();
@@ -160,7 +160,7 @@ public final class ClientPlayer extends ClientEntity {
 			this.field465 += this.field462[var9];
 		}
 		this.field465 <<= 0x1;
-		this.field465 += this.field459;
+		this.field465 += this.gender;
 	}
 
 	@ObfuscatedName("ab.a(Z)Leb;")
@@ -279,7 +279,7 @@ public final class ClientPlayer extends ClientEntity {
 				if (var13 >= 256 && var13 < 512 && !IdkType.field1113[var13 - 256].method370()) {
 					var11 = true;
 				}
-				if (var13 >= 512 && !ObjType.method341(var13 - 512).method348(this.field459)) {
+				if (var13 >= 512 && !ObjType.method341(var13 - 512).method348(this.gender)) {
 					var11 = true;
 				}
 			}
@@ -310,7 +310,7 @@ public final class ClientPlayer extends ClientEntity {
 					}
 				}
 				if (var17 >= 512) {
-					Model var19 = ObjType.method341(var17 - 512).method349(this.field459);
+					Model var19 = ObjType.method341(var17 - 512).method349(this.gender);
 					if (var19 != null) {
 						var14[var15++] = var19;
 					}
@@ -357,7 +357,7 @@ public final class ClientPlayer extends ClientEntity {
 			if (var3 >= 256 && var3 < 512 && !IdkType.field1113[var3 - 256].method372()) {
 				var1 = true;
 			}
-			if (var3 >= 512 && !ObjType.method341(var3 - 512).method350(this.field459)) {
+			if (var3 >= 512 && !ObjType.method341(var3 - 512).method350(this.gender)) {
 				var1 = true;
 			}
 		}
@@ -375,7 +375,7 @@ public final class ClientPlayer extends ClientEntity {
 				}
 			}
 			if (var7 >= 512) {
-				Model var9 = ObjType.method341(var7 - 512).method351(this.field459);
+				Model var9 = ObjType.method341(var7 - 512).method351(this.gender);
 				if (var9 != null) {
 					var4[var5++] = var9;
 				}

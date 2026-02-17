@@ -462,7 +462,7 @@ public final class Client extends GameShell {
 	public final int[] field1470 = new int[33];
 
 	@ObfuscatedName("client.Tf")
-	public int[] field1481 = new int[1000];
+	public int[] entityRemovalIds = new int[1000];
 
 	@ObfuscatedName("client.Vf")
 	public final int field1483 = 100;
@@ -717,7 +717,7 @@ public final class Client extends GameShell {
 	public ClientNpc[] field1675 = new ClientNpc[16384];
 
 	@ObfuscatedName("client.Hj")
-	public int[] field1677 = new int[16384];
+	public int[] npcIds = new int[16384];
 
 	@ObfuscatedName("client.Ij")
 	public final boolean field1678 = false;
@@ -969,7 +969,7 @@ public final class Client extends GameShell {
 	public int field1479;
 
 	@ObfuscatedName("client.Sf")
-	public int field1480;
+	public int entityRemovalCount;
 
 	@ObfuscatedName("client.Uf")
 	public int field1482;
@@ -1161,7 +1161,7 @@ public final class Client extends GameShell {
 	public int field1674;
 
 	@ObfuscatedName("client.Gj")
-	public int field1676;
+	public int npcCount;
 
 	@ObfuscatedName("client.hg")
 	public long field1495;
@@ -2066,7 +2066,7 @@ public final class Client extends GameShell {
 	}
 
 	@ObfuscatedName("client.a(ILlb;I)V")
-	public void method433(Packet arg0, int arg1) {
+	public void getNpcPosNewVis(Packet arg0, int arg1) {
 		while (true) {
 			if (arg0.field710 + 21 < arg1 * 8) {
 				int var3 = arg0.gBit(14);
@@ -2075,7 +2075,7 @@ public final class Client extends GameShell {
 						this.field1675[var3] = new ClientNpc();
 					}
 					ClientNpc var4 = this.field1675[var3];
-					this.field1677[this.field1676++] = var3;
+					this.npcIds[this.npcCount++] = var3;
 					var4.field442 = field1218;
 					var4.field453 = NpcType.method335(arg0.gBit(11));
 					var4.field401 = var4.field453.field1006;
@@ -2233,9 +2233,9 @@ public final class Client extends GameShell {
 
 	@ObfuscatedName("client.a(ZZ)V")
 	public void method440(boolean arg0) {
-		for (int var2 = 0; var2 < this.field1676; var2++) {
-			ClientNpc var3 = this.field1675[this.field1677[var2]];
-			int var4 = (this.field1677[var2] << 14) + 536870912;
+		for (int var2 = 0; var2 < this.npcCount; var2++) {
+			ClientNpc var3 = this.field1675[this.npcIds[var2]];
+			int var4 = (this.npcIds[var2] << 14) + 536870912;
 			if (var3 != null && var3.method113() && var3.field453.field1024 == arg0) {
 				int var5 = var3.field397 >> 7;
 				int var6 = var3.field398 >> 7;
@@ -2358,9 +2358,9 @@ public final class Client extends GameShell {
 		this.field1538 = null;
 		this.field1540 = null;
 		this.field1541 = null;
-		this.field1481 = null;
+		this.entityRemovalIds = null;
 		this.field1675 = null;
-		this.field1677 = null;
+		this.npcIds = null;
 		this.field1232 = null;
 		this.field1644 = null;
 		this.field1572 = null;
@@ -3614,10 +3614,10 @@ public final class Client extends GameShell {
 				if (var6 == 1) {
 					ClientNpc var10 = this.field1675[var7];
 					if (var10.field453.field1006 == 1 && (var10.field397 & 0x7F) == 64 && (var10.field398 & 0x7F) == 64) {
-						for (int var11 = 0; var11 < this.field1676; var11++) {
-							ClientNpc var12 = this.field1675[this.field1677[var11]];
+						for (int var11 = 0; var11 < this.npcCount; var11++) {
+							ClientNpc var12 = this.field1675[this.npcIds[var11]];
 							if (var12 != null && var12 != var10 && var12.field453.field1006 == 1 && var12.field397 == var10.field397 && var12.field398 == var10.field398) {
-								this.method541(var4, var5, var12.field453, this.field1677[var11]);
+								this.method541(var4, var5, var12.field453, this.npcIds[var11]);
 							}
 						}
 						for (int var13 = 0; var13 < this.field1537; var13++) {
@@ -3632,10 +3632,10 @@ public final class Client extends GameShell {
 				if (var6 == 0) {
 					ClientPlayer var15 = this.field1536[var7];
 					if ((var15.field397 & 0x7F) == 64 && (var15.field398 & 0x7F) == 64) {
-						for (int var16 = 0; var16 < this.field1676; var16++) {
-							ClientNpc var17 = this.field1675[this.field1677[var16]];
+						for (int var16 = 0; var16 < this.npcCount; var16++) {
+							ClientNpc var17 = this.field1675[this.npcIds[var16]];
 							if (var17 != null && var17.field453.field1006 == 1 && var17.field397 == var15.field397 && var17.field398 == var15.field398) {
-								this.method541(var4, var5, var17.field453, this.field1677[var16]);
+								this.method541(var4, var5, var17.field453, this.npcIds[var16]);
 							}
 						}
 						for (int var18 = 0; var18 < this.field1537; var18++) {
@@ -3816,7 +3816,7 @@ public final class Client extends GameShell {
 				this.minimapFlagX = 0;
 				this.field1442 = 0;
 				this.field1537 = 0;
-				this.field1676 = 0;
+				this.npcCount = 0;
 				for (int var13 = 0; var13 < this.field1534; var13++) {
 					this.field1536[var13] = null;
 					this.field1541[var13] = null;
@@ -5693,6 +5693,7 @@ public final class Client extends GameShell {
 			this.field1576 = new MouseTracking(field1640, this);
 			this.method12(this.field1576, 10);
 		} catch (Exception var75) {
+			var75.printStackTrace();
 			signlink.reporterror("loaderror " + this.field1244 + " " + this.field1324);
 			this.field1590 = true;
 		}
@@ -5748,34 +5749,34 @@ public final class Client extends GameShell {
 	}
 
 	@ObfuscatedName("client.a(IILlb;)V")
-	public void method474(int arg0, int arg1, Packet arg2) {
+	public void getNpcPosOldVis(int arg0, int arg1, Packet arg2) {
 		arg2.gBitStart();
 		int var4 = arg2.gBit(8);
-		if (var4 < this.field1676) {
-			for (int var5 = var4; var5 < this.field1676; var5++) {
-				this.field1481[this.field1480++] = this.field1677[var5];
+		if (var4 < this.npcCount) {
+			for (int var5 = var4; var5 < this.npcCount; var5++) {
+				this.entityRemovalIds[this.entityRemovalCount++] = this.npcIds[var5];
 			}
 		}
-		if (var4 > this.field1676) {
+		if (var4 > this.npcCount) {
 			signlink.reporterror(this.field1563 + " Too many npcs");
 			throw new RuntimeException("eek");
 		}
-		this.field1676 = 0;
+		this.npcCount = 0;
 		for (int var6 = 0; var6 < var4; var6++) {
-			int var7 = this.field1677[var6];
+			int var7 = this.npcIds[var6];
 			ClientNpc var8 = this.field1675[var7];
 			int var9 = arg2.gBit(1);
 			if (var9 == 0) {
-				this.field1677[this.field1676++] = var7;
+				this.npcIds[this.npcCount++] = var7;
 				var8.field442 = field1218;
 			} else {
 				int var10 = arg2.gBit(2);
 				if (var10 == 0) {
-					this.field1677[this.field1676++] = var7;
+					this.npcIds[this.npcCount++] = var7;
 					var8.field442 = field1218;
 					this.field1540[this.field1539++] = var7;
 				} else if (var10 == 1) {
-					this.field1677[this.field1676++] = var7;
+					this.npcIds[this.npcCount++] = var7;
 					var8.field442 = field1218;
 					int var11 = arg2.gBit(3);
 					var8.method111(var11, false);
@@ -5784,7 +5785,7 @@ public final class Client extends GameShell {
 						this.field1540[this.field1539++] = var7;
 					}
 				} else if (var10 == 2) {
-					this.field1677[this.field1676++] = var7;
+					this.npcIds[this.npcCount++] = var7;
 					var8.field442 = field1218;
 					int var13 = arg2.gBit(3);
 					var8.method111(var13, true);
@@ -5795,7 +5796,7 @@ public final class Client extends GameShell {
 						this.field1540[this.field1539++] = var7;
 					}
 				} else if (var10 == 3) {
-					this.field1481[this.field1480++] = var7;
+					this.entityRemovalIds[this.entityRemovalCount++] = var7;
 				}
 			}
 		}
@@ -6477,7 +6478,7 @@ public final class Client extends GameShell {
 	}
 
 	@ObfuscatedName("client.a(Llb;II)V")
-	public void method483(Packet arg0, int arg1) {
+	public void getPlayerPosExtended(Packet arg0, int arg1) {
 		for (int var3 = 0; var3 < this.field1539; var3++) {
 			int var4 = this.field1540[var3];
 			ClientPlayer var5 = this.field1536[var4];
@@ -6485,7 +6486,7 @@ public final class Client extends GameShell {
 			if ((var6 & 0x80) == 128) {
 				var6 += arg0.g1() << 8;
 			}
-			this.method509(var6, var4, var5, arg0);
+			this.getPlayerPosExtended(var6, var4, var5, arg0);
 		}
 	}
 
@@ -7178,11 +7179,11 @@ public final class Client extends GameShell {
 	}
 
 	@ObfuscatedName("client.b(ILlb;I)V")
-	public void method502(Packet arg0, int arg1) {
+	public void getPlayerPosOldVis(Packet arg0, int arg1) {
 		int var3 = arg0.gBit(8);
 		if (var3 < this.field1537) {
 			for (int var4 = var3; var4 < this.field1537; var4++) {
-				this.field1481[this.field1480++] = this.field1538[var4];
+				this.entityRemovalIds[this.entityRemovalCount++] = this.field1538[var4];
 			}
 		}
 		if (var3 > this.field1537) {
@@ -7224,7 +7225,7 @@ public final class Client extends GameShell {
 						this.field1540[this.field1539++] = var6;
 					}
 				} else if (var9 == 3) {
-					this.field1481[this.field1480++] = var6;
+					this.entityRemovalIds[this.entityRemovalCount++] = var6;
 				}
 			}
 		}
@@ -7373,7 +7374,7 @@ public final class Client extends GameShell {
 	}
 
 	@ObfuscatedName("client.a(IBLlb;)V")
-	public void method507(int arg0, Packet arg1) {
+	public void getNpcPosExtended(int arg0, Packet arg1) {
 		for (int var3 = 0; var3 < this.field1539; var3++) {
 			int var4 = this.field1540[var3];
 			ClientNpc var5 = this.field1675[var4];
@@ -7501,7 +7502,7 @@ public final class Client extends GameShell {
 	}
 
 	@ObfuscatedName("client.a(IIBLab;Llb;)V")
-	public void method509(int arg0, int arg1, ClientPlayer arg2, Packet arg3) {
+	public void getPlayerPosExtended(int arg0, int arg1, ClientPlayer arg2, Packet arg3) {
 		if (this.field1252 != 3) {
 			return;
 		}
@@ -7629,15 +7630,14 @@ public final class Client extends GameShell {
 			arg2.field441 = arg3.g1();
 			arg2.method112();
 		}
-		if ((arg0 & 0x400) != 1024) {
-			return;
+		if ((arg0 & 0x400) == 1024) {
+			int var25 = arg3.g1();
+			int var26 = arg3.g1();
+			arg2.method114(field1218, var25, var26);
+			arg2.field416 = field1218 + 300;
+			arg2.field417 = arg3.g1();
+			arg2.field418 = arg3.g1();
 		}
-		int var25 = arg3.g1();
-		int var26 = arg3.g1();
-		arg2.method114(field1218, var25, var26);
-		arg2.field416 = field1218 + 300;
-		arg2.field417 = arg3.g1();
-		arg2.field418 = arg3.g1();
 	}
 
 	@ObfuscatedName("client.b(IJ)V")
@@ -7731,8 +7731,8 @@ public final class Client extends GameShell {
 				}
 			}
 		}
-		for (int var16 = 0; var16 < this.field1676; var16++) {
-			ClientNpc var17 = this.field1675[this.field1677[var16]];
+		for (int var16 = 0; var16 < this.npcCount; var16++) {
+			ClientNpc var17 = this.field1675[this.npcIds[var16]];
 			if (var17 != null && var17.method113() && var17.field453.field1020) {
 				int var18 = var17.field397 / 32 - field1668.field397 / 32;
 				int var19 = var17.field398 / 32 - field1668.field398 / 32;
@@ -7954,18 +7954,18 @@ public final class Client extends GameShell {
 	}
 
 	@ObfuscatedName("client.b(IBLlb;)V")
-	public void method519(int arg0, Packet arg1) {
-		this.field1480 = 0;
+	public void getPlayerPos(int arg0, Packet arg1) {
+		this.entityRemovalCount = 0;
 		this.field1539 = 0;
-		this.method527(arg1, arg0);
-		this.method502(arg1, arg0);
-		this.method553(arg1, arg0, this.field1222);
-		this.method483(arg1, arg0);
+		this.getPlayerPosLocal(arg1, arg0);
+		this.getPlayerPosOldVis(arg1, arg0);
+		this.getPlayerPosNewVis(arg1, arg0, this.field1222);
+		this.getPlayerPosExtended(arg1, arg0);
 		if (this.field1503 != -44) {
 			return;
 		}
-		for (int var3 = 0; var3 < this.field1480; var3++) {
-			int var4 = this.field1481[var3];
+		for (int var3 = 0; var3 < this.entityRemovalCount; var3++) {
+			int var4 = this.entityRemovalIds[var3];
 			if (this.field1536[var4].field442 != field1218) {
 				this.field1536[var4] = null;
 			}
@@ -8132,7 +8132,7 @@ public final class Client extends GameShell {
 			}
 			if (this.ptype == 167) {
 				// PLAYER_INFO
-				this.method519(this.psize, this.in);
+				this.getPlayerPos(this.psize, this.in);
 				this.field1665 = false;
 				this.ptype = -1;
 				return true;
@@ -8950,7 +8950,7 @@ public final class Client extends GameShell {
 			}
 			if (this.ptype == 197) {
 				// NPC_INFO
-				this.method551(this.psize, this.in);
+				this.getNpcPos(this.psize, this.in);
 				this.ptype = -1;
 				return true;
 			}
@@ -9011,6 +9011,7 @@ public final class Client extends GameShell {
 		} catch (IOException var158) {
 			this.method479();
 		} catch (Exception var159) {
+			var159.printStackTrace();
 			String var155 = "T2 - " + this.ptype + "," + this.ptype1 + "," + this.ptype2 + " - " + this.psize + "," + (this.field1471 + field1668.field447[0]) + "," + (this.field1472 + field1668.field448[0]) + " - ";
 			for (int var156 = 0; var156 < this.psize && var156 < 50; var156++) {
 				var155 = var155 + this.in.pos[var156] + ",";
@@ -9174,14 +9175,14 @@ public final class Client extends GameShell {
 	@ObfuscatedName("client.H(I)V")
 	public void method523() {
 		this.field1506 = 0;
-		for (int var1 = -1; var1 < this.field1537 + this.field1676; var1++) {
+		for (int var1 = -1; var1 < this.field1537 + this.npcCount; var1++) {
 			ClientEntity var2;
 			if (var1 == -1) {
 				var2 = field1668;
 			} else if (var1 < this.field1537) {
 				var2 = this.field1536[this.field1538[var1]];
 			} else {
-				var2 = this.field1675[this.field1677[var1 - this.field1537]];
+				var2 = this.field1675[this.npcIds[var1 - this.field1537]];
 			}
 			if (var2 != null && var2.method113()) {
 				if (var1 >= this.field1537) {
@@ -9192,7 +9193,7 @@ public final class Client extends GameShell {
 							this.headicons[var6.field1027].method185(this.field1486, this.field1415 - 12, this.field1416 - 30);
 						}
 					}
-					if (this.field1616 == 1 && this.field1336 == this.field1677[var1 - this.field1537] && field1218 % 20 < 10) {
+					if (this.field1616 == 1 && this.field1336 == this.npcIds[var1 - this.field1537] && field1218 % 20 < 10) {
 						this.method437(var2, var2.field443 + 15);
 						if (this.field1415 > -1) {
 							this.headicons[2].method185(this.field1486, this.field1415 - 12, this.field1416 - 28);
@@ -9201,11 +9202,11 @@ public final class Client extends GameShell {
 				} else {
 					int var3 = 30;
 					ClientPlayer var4 = (ClientPlayer) var2;
-					if (var4.field460 != 0) {
+					if (var4.headicons != 0) {
 						this.method437(var2, var2.field443 + 15);
 						if (this.field1415 > -1) {
 							for (int var5 = 0; var5 < 8; var5++) {
-								if ((var4.field460 & 0x1 << var5) != 0) {
+								if ((var4.headicons & 0x1 << var5) != 0) {
 									this.headicons[var5].method185(this.field1486, this.field1415 - 12, this.field1416 - var3);
 									var3 -= 25;
 								}
@@ -9470,8 +9471,8 @@ public final class Client extends GameShell {
 				}
 			}
 		}
-		for (int var4 = 0; var4 < this.field1676; var4++) {
-			int var5 = this.field1677[var4];
+		for (int var4 = 0; var4 < this.npcCount; var4++) {
+			int var5 = this.npcIds[var4];
 			ClientNpc var6 = this.field1675[var5];
 			if (var6 != null && var6.field410 > 0) {
 				var6.field410--;
@@ -9513,7 +9514,7 @@ public final class Client extends GameShell {
 	}
 
 	@ObfuscatedName("client.a(Llb;IB)V")
-	public void method527(Packet arg0, int arg1) {
+	public void getPlayerPosLocal(Packet arg0, int arg1) {
 		arg0.gBitStart();
 		int var3 = arg0.gBit(1);
 		if (var3 == 0) {
@@ -10877,8 +10878,8 @@ public final class Client extends GameShell {
 
 	@ObfuscatedName("client.k(B)V")
 	public void method543() {
-		for (int var1 = 0; var1 < this.field1676; var1++) {
-			int var2 = this.field1677[var1];
+		for (int var1 = 0; var1 < this.npcCount; var1++) {
+			int var2 = this.npcIds[var1];
 			ClientNpc var3 = this.field1675[var2];
 			if (var3 != null) {
 				this.method544(var3, var3.field453.field1006);
@@ -11445,15 +11446,15 @@ public final class Client extends GameShell {
 	}
 
 	@ObfuscatedName("client.c(IILlb;)V")
-	public void method551(int arg0, Packet arg1) {
-		this.field1480 = 0;
+	public void getNpcPos(int arg0, Packet arg1) {
+		this.entityRemovalCount = 0;
 		this.field1539 = 0;
 		int var3 = arg0;
-		this.method474(var3, this.field1341, arg1);
-		this.method433(arg1, var3);
-		this.method507(var3, arg1);
-		for (int var4 = 0; var4 < this.field1480; var4++) {
-			int var5 = this.field1481[var4];
+		this.getNpcPosOldVis(var3, this.field1341, arg1);
+		this.getNpcPosNewVis(arg1, var3);
+		this.getNpcPosExtended(var3, arg1);
+		for (int var4 = 0; var4 < this.entityRemovalCount; var4++) {
+			int var5 = this.entityRemovalIds[var4];
 			if (this.field1675[var5].field442 != field1218) {
 				this.field1675[var5].field453 = null;
 				this.field1675[var5] = null;
@@ -11463,9 +11464,9 @@ public final class Client extends GameShell {
 			signlink.reporterror(this.field1563 + " size mismatch in getnpcpos - pos:" + arg1.data + " psize:" + var3);
 			throw new RuntimeException("eek");
 		}
-		for (int var6 = 0; var6 < this.field1676; var6++) {
-			if (this.field1675[this.field1677[var6]] == null) {
-				signlink.reporterror(this.field1563 + " null entry in npc list - pos:" + var6 + " size:" + this.field1676);
+		for (int var6 = 0; var6 < this.npcCount; var6++) {
+			if (this.field1675[this.npcIds[var6]] == null) {
+				signlink.reporterror(this.field1563 + " null entry in npc list - pos:" + var6 + " size:" + this.npcCount);
 				throw new RuntimeException("eek");
 			}
 		}
@@ -11501,7 +11502,7 @@ public final class Client extends GameShell {
 	}
 
 	@ObfuscatedName("client.b(Llb;II)V")
-	public void method553(Packet arg0, int arg1, int arg2) {
+	public void getPlayerPosNewVis(Packet arg0, int arg1, int arg2) {
 		while (true) {
 			if (arg0.field710 + 10 < arg1 * 8) {
 				int var4 = arg0.gBit(11);
