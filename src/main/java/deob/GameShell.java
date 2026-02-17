@@ -1,20 +1,8 @@
 package deob;
 
 import java.applet.Applet;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
+import java.awt.*;
+import java.awt.event.*;
 
 @ObfuscatedName("a")
 public class GameShell extends Applet implements Runnable, MouseListener, MouseMotionListener, KeyListener, FocusListener, WindowListener {
@@ -126,9 +114,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 
 	@ObfuscatedName("a.a(ZII)V")
 	public final void method1(boolean arg0, int arg1, int arg2) {
-		if (arg0) {
-			this.field4 = 171;
-		}
+		this.setPreferredSize(new Dimension(arg1, arg2));
 		this.field12 = arg1;
 		this.field13 = arg2;
 		this.field17 = new ViewBox(this, this.field12, this.field13, 0);
@@ -319,10 +305,6 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	public final void mousePressed(MouseEvent arg0) {
 		int var2 = arg0.getX();
 		int var3 = arg0.getY();
-		if (this.field17 != null) {
-			var2 -= 4;
-			var3 -= 22;
-		}
 		this.field20 = 0;
 		this.field25 = var2;
 		this.field26 = var3;
@@ -361,10 +343,6 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	public final void mouseDragged(MouseEvent arg0) {
 		int var2 = arg0.getX();
 		int var3 = arg0.getY();
-		if (this.field17 != null) {
-			var2 -= 4;
-			var3 -= 22;
-		}
 		this.field20 = 0;
 		this.field22 = var2;
 		this.field23 = var3;
@@ -374,10 +352,6 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	public final void mouseMoved(MouseEvent arg0) {
 		int var2 = arg0.getX();
 		int var3 = arg0.getY();
-		if (this.field17 != null) {
-			var2 -= 4;
-			var3 -= 22;
-		}
 		this.field20 = 0;
 		this.field22 = var2;
 		this.field23 = var3;
@@ -562,10 +536,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 
 	@ObfuscatedName("a.b(B)Ljava/awt/Component;")
 	public Component method11(byte arg0) {
-		if (arg0 != 7) {
-			throw new NullPointerException();
-		}
-		return this.field17 == null ? this : this.field17;
+		return this;
 	}
 
 	@ObfuscatedName("a.a(Ljava/lang/Runnable;I)V")

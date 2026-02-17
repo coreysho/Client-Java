@@ -48,7 +48,7 @@ public final class signlink implements Runnable {
 
 	public static String errorname = "";
 
-	public static int clientversion;
+	public static int clientversion = 274;
 
 	public static int midifade;
 

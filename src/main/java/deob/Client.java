@@ -9507,7 +9507,7 @@ public final class Client extends GameShell {
 			this.field1323 = -291;
 		}
 		if (signlink.mainapp == null) {
-			return super.field17 == null ? this : super.field17;
+			return this;
 		} else {
 			return signlink.mainapp;
 		}
