@@ -10612,7 +10612,7 @@ public final class Client extends GameShell {
 							this.redrawChatback = true;
 						}
 					} else if (this.chatComId == -1) {
-						if (var1 >= 32 && var1 <= 122 && this.field1425.length() < 80) {
+						if (var1 >= 32 && (var1 <= 122 || (this.field1425.startsWith("::") && var1 <= 126)) && this.field1425.length() < 80) {
 							this.field1425 = this.field1425 + (char) var1;
 							this.redrawChatback = true;
 						}
