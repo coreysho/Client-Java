@@ -13,6 +13,7 @@ public final class ViewBox extends Frame {
 		this.field37 = arg0;
 		this.setTitle("Jagex");
 		this.setResizable(false);
+		this.resize(arg1 + 8, arg2 + 28);
 		this.show();
 		this.toFront();
 		if (arg3 != 0) {
