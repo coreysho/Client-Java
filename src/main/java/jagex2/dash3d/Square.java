@@ -7,77 +7,77 @@ import jagex2.datastruct.Linkable;
 public final class Square extends Linkable {
 
 	@ObfuscatedName("v.f")
-	public int field366;
+	public int level;
 
 	@ObfuscatedName("v.g")
-	public final int field367;
+	public final int x;
 
 	@ObfuscatedName("v.h")
-	public final int field368;
+	public final int z;
 
 	@ObfuscatedName("v.i")
-	public final int field369;
+	public final int originalLevel;
 
 	@ObfuscatedName("v.j")
-	public QuickGround field370;
+	public QuickGround quickGround;
 
 	@ObfuscatedName("v.k")
-	public Ground field371;
+	public Ground ground;
 
 	@ObfuscatedName("v.l")
-	public Wall field372;
+	public Wall wall;
 
 	@ObfuscatedName("v.m")
-	public Decor field373;
+	public Decor decor;
 
 	@ObfuscatedName("v.n")
-	public GroundDecor field374;
+	public GroundDecor groundDecor;
 
 	@ObfuscatedName("v.o")
-	public GroundObject field375;
+	public GroundObject groundObject;
 
 	@ObfuscatedName("v.p")
-	public int field376;
+	public int spriteCount;
 
 	@ObfuscatedName("v.q")
-	public final Sprite[] field377 = new Sprite[5];
+	public final Sprite[] sprites = new Sprite[5];
 
 	@ObfuscatedName("v.r")
-	public final int[] field378 = new int[5];
+	public final int[] spriteSpan = new int[5];
 
 	@ObfuscatedName("v.s")
-	public int field379;
+	public int spriteSpans;
 
 	@ObfuscatedName("v.t")
 	public int field380;
 
 	@ObfuscatedName("v.u")
-	public boolean field381;
+	public boolean drawFront;
 
 	@ObfuscatedName("v.v")
-	public boolean field382;
+	public boolean drawBack;
 
 	@ObfuscatedName("v.w")
-	public boolean field383;
+	public boolean drawSprites;
 
 	@ObfuscatedName("v.x")
-	public int field384;
+	public int cornerSides;
 
 	@ObfuscatedName("v.y")
-	public int field385;
+	public int sidesBeforeCorner;
 
 	@ObfuscatedName("v.z")
-	public int field386;
+	public int sidesAfterCorner;
 
 	@ObfuscatedName("v.A")
-	public int field387;
+	public int backWallTypes;
 
 	@ObfuscatedName("v.B")
-	public Square field388;
+	public Square linkedSquare;
 
 	public Square(int arg0, int arg1, int arg2) {
-		this.field369 = this.field366 = arg0;
-		this.field367 = arg1;
-		this.field368 = arg2;
+		this.originalLevel = this.level = arg0;
+		this.x = arg1;
+		this.z = arg2;
 	}
 }

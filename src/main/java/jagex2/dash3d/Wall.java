@@ -15,20 +15,20 @@ public final class Wall {
 	public int field267;
 
 	@ObfuscatedName("q.d")
-	public int field268;
+	public int angle1;
 
 	@ObfuscatedName("q.e")
-	public int field269;
+	public int angle2;
 
 	@ObfuscatedName("q.f")
-	public ModelSource field270;
+	public ModelSource model1;
 
 	@ObfuscatedName("q.g")
-	public ModelSource field271;
+	public ModelSource model2;
 
 	@ObfuscatedName("q.h")
-	public int field272;
+	public int typecode;
 
 	@ObfuscatedName("q.i")
-	public byte field273;
+	public byte typecode2;
 }

@@ -172,7 +172,7 @@ public final class ClientPlayer extends ClientEntity {
 
 	@ObfuscatedName("ab.a(Z)Leb;")
 	@Override
-	public Model method109() {
+	public Model getTempModel() {
 		if (!this.field458) {
 			return null;
 		}
@@ -340,7 +340,7 @@ public final class ClientPlayer extends ClientEntity {
 		if (this.field477) {
 			return var10;
 		}
-		Model var21 = Model.field531;
+		Model var21 = Model.tempModel;
 		var21.set(var10, AnimFrame.animateTransparencies(var5) & AnimFrame.animateTransparencies(var6));
 		if (var5 != -1 && var6 != -1) {
 			var21.maskAnimate(SeqType.list[super.field425].walkmerge, var5, var6);

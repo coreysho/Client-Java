@@ -6,53 +6,53 @@ import deob.ObfuscatedName;
 public final class Metadata {
 
 	@ObfuscatedName("l.a")
-	public byte[] field205;
+	public byte[] src;
 
 	@ObfuscatedName("l.b")
-	public int field206;
+	public int numPoints;
 
 	@ObfuscatedName("l.c")
-	public int field207;
+	public int numFaces;
 
 	@ObfuscatedName("l.d")
-	public int field208;
+	public int numT;
 
 	@ObfuscatedName("l.e")
-	public int field209;
+	public int vertexOrderOffset;
 
 	@ObfuscatedName("l.f")
-	public int field210;
+	public int vertexXOffset;
 
 	@ObfuscatedName("l.g")
-	public int field211;
+	public int vertexYOffset;
 
 	@ObfuscatedName("l.h")
-	public int field212;
+	public int vertexZOffset;
 
 	@ObfuscatedName("l.i")
-	public int field213;
+	public int vertexLabelOffset;
 
 	@ObfuscatedName("l.j")
-	public int field214;
+	public int faceIndexOffset;
 
 	@ObfuscatedName("l.k")
-	public int field215;
+	public int faceIndexOrderOffset;
 
 	@ObfuscatedName("l.l")
-	public int field216;
+	public int faceColourOffset;
 
 	@ObfuscatedName("l.m")
-	public int field217;
+	public int faceRenderTypeOffset;
 
 	@ObfuscatedName("l.n")
-	public int field218;
+	public int facePriorityOffset;
 
 	@ObfuscatedName("l.o")
-	public int field219;
+	public int faceAlphaOffset;
 
 	@ObfuscatedName("l.p")
-	public int field220;
+	public int faceLabelOffset;
 
 	@ObfuscatedName("l.q")
-	public int field221;
+	public int faceTextureAxisOffset;
 }

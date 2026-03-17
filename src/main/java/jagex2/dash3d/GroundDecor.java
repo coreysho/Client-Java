@@ -15,11 +15,11 @@ public final class GroundDecor {
 	public int field193;
 
 	@ObfuscatedName("j.d")
-	public ModelSource field194;
+	public ModelSource model;
 
 	@ObfuscatedName("j.e")
-	public int field195;
+	public int typecode;
 
 	@ObfuscatedName("j.f")
-	public byte field196;
+	public byte typecode2;
 }

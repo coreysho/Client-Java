@@ -466,7 +466,7 @@ public final class IfType {
 		}
 		if (var4 == null) {
 			return null;
-		} else if (arg0 == -1 && arg1 == -1 && var4.field550 == null) {
+		} else if (arg0 == -1 && arg1 == -1 && var4.faceColour == null) {
 			return var4;
 		} else {
 			Model var5 = new Model(true, AnimFrame.animateTransparencies(arg0) & AnimFrame.animateTransparencies(arg1), var4, true, false);

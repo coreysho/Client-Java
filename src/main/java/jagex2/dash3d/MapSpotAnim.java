@@ -63,7 +63,7 @@ public final class MapSpotAnim extends ModelSource {
 
 	@ObfuscatedName("fb.a(Z)Leb;")
 	@Override
-	public Model method109() {
+	public Model getTempModel() {
 		Model var1 = this.field603.getTempModel2();
 		if (var1 == null) {
 			return null;

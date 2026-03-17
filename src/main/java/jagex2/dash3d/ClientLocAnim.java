@@ -66,7 +66,7 @@ public final class ClientLocAnim extends ModelSource {
 
 	@ObfuscatedName("bb.a(Z)Leb;")
 	@Override
-	public Model method109() {
+	public Model getTempModel() {
 		if (this.field490 != null) {
 			int var1 = Client.field1218 - this.field492;
 			if (var1 > 100 && this.field490.loops > 0) {

@@ -261,7 +261,7 @@ public final class NpcType {
 			var4.calculateNormals(this.ambient + 64, this.contrast + 850, -30, -50, -30, true);
 			modelCache.put(this.id, var4);
 		}
-		Model var10 = Model.field531;
+		Model var10 = Model.tempModel;
 		var10.set(var4, AnimFrame.animateTransparencies(arg0) & AnimFrame.animateTransparencies(arg1));
 		if (arg0 != -1 && arg1 != -1) {
 			var10.maskAnimate(arg2, arg0, arg1);

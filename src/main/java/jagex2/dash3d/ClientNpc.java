@@ -16,7 +16,7 @@ public final class ClientNpc extends ClientEntity {
 
 	@ObfuscatedName("z.a(Z)Leb;")
 	@Override
-	public Model method109() {
+	public Model getTempModel() {
 		if (this.field453 == null) {
 			return null;
 		}

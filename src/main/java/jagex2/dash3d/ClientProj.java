@@ -146,7 +146,7 @@ public final class ClientProj extends ModelSource {
 
 	@ObfuscatedName("db.a(Z)Leb;")
 	@Override
-	public Model method109() {
+	public Model getTempModel() {
 		Model var1 = this.field498.getTempModel2();
 		if (var1 == null) {
 			return null;
@@ -165,7 +165,7 @@ public final class ClientProj extends ModelSource {
 		if (this.field498.resizeh != 128 || this.field498.resizev != 128) {
 			var3.resize(this.field498.resizeh, this.field498.resizeh, this.field498.resizev);
 		}
-		var3.method137(this.field519);
+		var3.rotateXAxis(this.field519);
 		var3.calculateNormals(this.field498.ambient + 64, this.field498.contrast + 850, -30, -50, -30, true);
 		return var3;
 	}

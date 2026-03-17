@@ -17,7 +17,7 @@ public final class ClientObj extends ModelSource {
 
 	@ObfuscatedName("cb.a(Z)Leb;")
 	@Override
-	public Model method109() {
+	public Model getTempModel() {
 		ObjType var1 = ObjType.list(this.field494);
 		return var1.getModelLit(this.field495);
 	}
