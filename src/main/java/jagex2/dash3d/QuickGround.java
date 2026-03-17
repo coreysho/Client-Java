@@ -27,12 +27,12 @@ public final class QuickGround {
 	public final int minimapRgb;
 
 	public QuickGround(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, boolean arg6) {
-		this.colourSW = arg0;
-		this.field245 = arg1;
-		this.colourNE = arg2;
-		this.field247 = arg3;
-		this.texture = arg4;
-		this.minimapRgb = arg5;
-		this.flat = arg6;
+		colourSW = arg0;
+		field245 = arg1;
+		colourNE = arg2;
+		field247 = arg3;
+		texture = arg4;
+		minimapRgb = arg5;
+		flat = arg6;
 	}
 }

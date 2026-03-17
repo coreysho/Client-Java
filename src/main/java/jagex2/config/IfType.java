@@ -1,6 +1,6 @@
 package jagex2.config;
 
-import deob.*;
+import deob.ObfuscatedName;
 import jagex2.client.Client;
 import jagex2.dash3d.AnimFrame;
 import jagex2.dash3d.Model;
@@ -14,41 +14,35 @@ import jagex2.io.Packet;
 @ObfuscatedName("d")
 public final class IfType {
 
-	@ObfuscatedName("d.a")
-	public static boolean field66;
-
-	@ObfuscatedName("d.b")
-	public static int field67;
-
 	@ObfuscatedName("d.c")
 	public static IfType[] list;
 
 	@ObfuscatedName("d.d")
-	public int[] field69;
+	public int[] linkObjType;
 
 	@ObfuscatedName("d.e")
-	public int[] field70;
+	public int[] linkObjNumber;
 
 	@ObfuscatedName("d.f")
-	public int field71;
+	public int animFrame;
 
 	@ObfuscatedName("d.g")
-	public int field72;
+	public int animCycle;
 
 	@ObfuscatedName("d.h")
-	public int field73;
+	public int id;
 
 	@ObfuscatedName("d.i")
 	public int field74;
 
 	@ObfuscatedName("d.j")
-	public int field75;
+	public int type;
 
 	@ObfuscatedName("d.k")
 	public int field76;
 
 	@ObfuscatedName("d.l")
-	public int field77;
+	public int clientCode;
 
 	@ObfuscatedName("d.m")
 	public int field78;
@@ -87,7 +81,7 @@ public final class IfType {
 	public boolean field89;
 
 	@ObfuscatedName("d.y")
-	public int[] field90;
+	public int[] children;
 
 	@ObfuscatedName("d.z")
 	public int[] field91;
@@ -129,7 +123,7 @@ public final class IfType {
 	public String field129;
 
 	@ObfuscatedName("d.mb")
-	public static final LruCache field130 = new LruCache(30, 0);
+	public static final LruCache field130 = new LruCache(30);
 
 	@ObfuscatedName("d.nb")
 	public static LruCache field131;
@@ -195,7 +189,7 @@ public final class IfType {
 	public boolean field97;
 
 	@ObfuscatedName("d.G")
-	public boolean field98;
+	public boolean objReplace;
 
 	@ObfuscatedName("d.K")
 	public int[] field102;
@@ -213,274 +207,274 @@ public final class IfType {
 	public String[] field104;
 
 	@ObfuscatedName("d.a(Lxb;Lxb;[Lkb;I)V")
-	public static void method32(JagFile arg0, JagFile arg1, PixFont[] arg2) {
-		field131 = new LruCache(50000, 0);
-		Packet var3 = new Packet(arg0.read("data", null), (byte) 1);
-		int var4 = -1;
-		int var5 = var3.g2();
-		list = new IfType[var5];
+	public static void init(JagFile arg0, JagFile arg1, PixFont[] arg2) {
+		field131 = new LruCache(50000);
+		Packet var4 = new Packet(arg0.read("data", null));
+		int var5 = -1;
+		int var6 = var4.g2();
+		list = new IfType[var6];
 		while (true) {
-			IfType var7;
+			IfType var8;
 			do {
-				if (var3.data >= var3.pos.length) {
+				if (var4.data >= var4.pos.length) {
 					field131 = null;
 					return;
 				}
-				int var6 = var3.g2();
-				if (var6 == 65535) {
-					var4 = var3.g2();
-					var6 = var3.g2();
+				int var7 = var4.g2();
+				if (var7 == 65535) {
+					var5 = var4.g2();
+					var7 = var4.g2();
 				}
-				var7 = list[var6] = new IfType();
-				var7.field73 = var6;
-				var7.field74 = var4;
-				var7.field75 = var3.g1();
-				var7.field76 = var3.g1();
-				var7.field77 = var3.g2();
-				var7.field78 = var3.g2();
-				var7.field79 = var3.g2();
-				var7.field80 = (byte) var3.g1();
-				var7.field86 = var3.g1();
-				if (var7.field86 == 0) {
-					var7.field86 = -1;
+				var8 = list[var7] = new IfType();
+				var8.id = var7;
+				var8.field74 = var5;
+				var8.type = var4.g1();
+				var8.field76 = var4.g1();
+				var8.clientCode = var4.g2();
+				var8.field78 = var4.g2();
+				var8.field79 = var4.g2();
+				var8.field80 = (byte) var4.g1();
+				var8.field86 = var4.g1();
+				if (var8.field86 == 0) {
+					var8.field86 = -1;
 				} else {
-					var7.field86 = (var7.field86 - 1 << 8) + var3.g1();
+					var8.field86 = (var8.field86 - 1 << 8) + var4.g1();
 				}
-				int var8 = var3.g1();
-				if (var8 > 0) {
-					var7.field84 = new int[var8];
-					var7.field85 = new int[var8];
-					for (int var9 = 0; var9 < var8; var9++) {
-						var7.field84[var9] = var3.g1();
-						var7.field85[var9] = var3.g2();
+				int var9 = var4.g1();
+				if (var9 > 0) {
+					var8.field84 = new int[var9];
+					var8.field85 = new int[var9];
+					for (int var10 = 0; var10 < var9; var10++) {
+						var8.field84[var10] = var4.g1();
+						var8.field85[var10] = var4.g2();
 					}
 				}
-				int var10 = var3.g1();
-				if (var10 > 0) {
-					var7.field83 = new int[var10][];
-					for (int var11 = 0; var11 < var10; var11++) {
-						int var12 = var3.g2();
-						var7.field83[var11] = new int[var12];
-						for (int var13 = 0; var13 < var12; var13++) {
-							var7.field83[var11][var13] = var3.g2();
+				int var11 = var4.g1();
+				if (var11 > 0) {
+					var8.field83 = new int[var11][];
+					for (int var12 = 0; var12 < var11; var12++) {
+						int var13 = var4.g2();
+						var8.field83[var12] = new int[var13];
+						for (int var14 = 0; var14 < var13; var14++) {
+							var8.field83[var12][var14] = var4.g2();
 						}
 					}
 				}
-				if (var7.field75 == 0) {
-					var7.field87 = var3.g2();
-					var7.field89 = var3.g1() == 1;
-					int var14 = var3.g2();
-					var7.field90 = new int[var14];
-					var7.field91 = new int[var14];
-					var7.field92 = new int[var14];
-					for (int var15 = 0; var15 < var14; var15++) {
-						var7.field90[var15] = var3.g2();
-						var7.field91[var15] = var3.g2b();
-						var7.field92[var15] = var3.g2b();
+				if (var8.type == 0) {
+					var8.field87 = var4.g2();
+					var8.field89 = var4.g1() == 1;
+					int var15 = var4.g2();
+					var8.children = new int[var15];
+					var8.field91 = new int[var15];
+					var8.field92 = new int[var15];
+					for (int var16 = 0; var16 < var15; var16++) {
+						var8.children[var16] = var4.g2();
+						var8.field91[var16] = var4.g2b();
+						var8.field92[var16] = var4.g2b();
 					}
 				}
-				if (var7.field75 == 1) {
-					var7.field93 = var3.g2();
-					var7.field94 = var3.g1() == 1;
+				if (var8.type == 1) {
+					var8.field93 = var4.g2();
+					var8.field94 = var4.g1() == 1;
 				}
-				if (var7.field75 == 2) {
-					var7.field69 = new int[var7.field78 * var7.field79];
-					var7.field70 = new int[var7.field78 * var7.field79];
-					var7.field95 = var3.g1() == 1;
-					var7.field96 = var3.g1() == 1;
-					var7.field97 = var3.g1() == 1;
-					var7.field98 = var3.g1() == 1;
-					var7.field99 = var3.g1();
-					var7.field100 = var3.g1();
-					var7.field102 = new int[20];
-					var7.field103 = new int[20];
-					var7.field101 = new Pix32[20];
-					for (int var16 = 0; var16 < 20; var16++) {
-						int var17 = var3.g1();
-						if (var17 == 1) {
-							var7.field102[var16] = var3.g2b();
-							var7.field103[var16] = var3.g2b();
-							String var18 = var3.gjstr();
-							if (arg1 != null && var18.length() > 0) {
-								int var19 = var18.lastIndexOf(",");
-								var7.field101[var16] = method37(Integer.parseInt(var18.substring(var19 + 1)), var18.substring(0, var19), arg1);
+				if (var8.type == 2) {
+					var8.linkObjType = new int[var8.field78 * var8.field79];
+					var8.linkObjNumber = new int[var8.field78 * var8.field79];
+					var8.field95 = var4.g1() == 1;
+					var8.field96 = var4.g1() == 1;
+					var8.field97 = var4.g1() == 1;
+					var8.objReplace = var4.g1() == 1;
+					var8.field99 = var4.g1();
+					var8.field100 = var4.g1();
+					var8.field102 = new int[20];
+					var8.field103 = new int[20];
+					var8.field101 = new Pix32[20];
+					for (int var17 = 0; var17 < 20; var17++) {
+						int var18 = var4.g1();
+						if (var18 == 1) {
+							var8.field102[var17] = var4.g2b();
+							var8.field103[var17] = var4.g2b();
+							String var19 = var4.gjstr();
+							if (arg1 != null && var19.length() > 0) {
+								int var20 = var19.lastIndexOf(",");
+								var8.field101[var17] = method37(Integer.parseInt(var19.substring(var20 + 1)), var19.substring(0, var20), arg1);
 							}
 						}
 					}
-					var7.field104 = new String[5];
-					for (int var20 = 0; var20 < 5; var20++) {
-						var7.field104[var20] = var3.gjstr();
-						if (var7.field104[var20].length() == 0) {
-							var7.field104[var20] = null;
+					var8.field104 = new String[5];
+					for (int var21 = 0; var21 < 5; var21++) {
+						var8.field104[var21] = var4.gjstr();
+						if (var8.field104[var21].length() == 0) {
+							var8.field104[var21] = null;
 						}
 					}
 				}
-				if (var7.field75 == 3) {
-					var7.field105 = var3.g1() == 1;
+				if (var8.type == 3) {
+					var8.field105 = var4.g1() == 1;
 				}
-				if (var7.field75 == 4 || var7.field75 == 1) {
-					var7.field106 = var3.g1() == 1;
-					int var21 = var3.g1();
+				if (var8.type == 4 || var8.type == 1) {
+					var8.field106 = var4.g1() == 1;
+					int var22 = var4.g1();
 					if (arg2 != null) {
-						var7.field108 = arg2[var21];
+						var8.field108 = arg2[var22];
 					}
-					var7.field107 = var3.g1() == 1;
+					var8.field107 = var4.g1() == 1;
 				}
-				if (var7.field75 == 4) {
-					var7.field109 = var3.gjstr();
-					var7.field110 = var3.gjstr();
+				if (var8.type == 4) {
+					var8.field109 = var4.gjstr();
+					var8.field110 = var4.gjstr();
 				}
-				if (var7.field75 == 1 || var7.field75 == 3 || var7.field75 == 4) {
-					var7.field111 = var3.g4();
+				if (var8.type == 1 || var8.type == 3 || var8.type == 4) {
+					var8.field111 = var4.g4();
 				}
-				if (var7.field75 == 3 || var7.field75 == 4) {
-					var7.field112 = var3.g4();
-					var7.field113 = var3.g4();
-					var7.field114 = var3.g4();
+				if (var8.type == 3 || var8.type == 4) {
+					var8.field112 = var4.g4();
+					var8.field113 = var4.g4();
+					var8.field114 = var4.g4();
 				}
-				if (var7.field75 == 5) {
-					String var22 = var3.gjstr();
-					if (arg1 != null && var22.length() > 0) {
-						int var23 = var22.lastIndexOf(",");
-						var7.field115 = method37(Integer.parseInt(var22.substring(var23 + 1)), var22.substring(0, var23), arg1);
+				if (var8.type == 5) {
+					String var23 = var4.gjstr();
+					if (arg1 != null && var23.length() > 0) {
+						int var24 = var23.lastIndexOf(",");
+						var8.field115 = method37(Integer.parseInt(var23.substring(var24 + 1)), var23.substring(0, var24), arg1);
 					}
-					String var24 = var3.gjstr();
-					if (arg1 != null && var24.length() > 0) {
-						int var25 = var24.lastIndexOf(",");
-						var7.field116 = method37(Integer.parseInt(var24.substring(var25 + 1)), var24.substring(0, var25), arg1);
+					String var25 = var4.gjstr();
+					if (arg1 != null && var25.length() > 0) {
+						int var26 = var25.lastIndexOf(",");
+						var8.field116 = method37(Integer.parseInt(var25.substring(var26 + 1)), var25.substring(0, var26), arg1);
 					}
 				}
-				if (var7.field75 == 6) {
-					int var26 = var3.g1();
-					if (var26 != 0) {
-						var7.model1Type = 1;
-						var7.field118 = (var26 - 1 << 8) + var3.g1();
-					}
-					int var27 = var3.g1();
+				if (var8.type == 6) {
+					int var27 = var4.g1();
 					if (var27 != 0) {
-						var7.field119 = 1;
-						var7.field120 = (var27 - 1 << 8) + var3.g1();
+						var8.model1Type = 1;
+						var8.field118 = (var27 - 1 << 8) + var4.g1();
 					}
-					int var28 = var3.g1();
-					if (var28 == 0) {
-						var7.modelAnim = -1;
-					} else {
-						var7.modelAnim = (var28 - 1 << 8) + var3.g1();
+					int var28 = var4.g1();
+					if (var28 != 0) {
+						var8.field119 = 1;
+						var8.field120 = (var28 - 1 << 8) + var4.g1();
 					}
-					int var29 = var3.g1();
+					int var29 = var4.g1();
 					if (var29 == 0) {
-						var7.modelAnim2 = -1;
+						var8.modelAnim = -1;
 					} else {
-						var7.modelAnim2 = (var29 - 1 << 8) + var3.g1();
+						var8.modelAnim = (var29 - 1 << 8) + var4.g1();
 					}
-					var7.field123 = var3.g2();
-					var7.field124 = var3.g2();
-					var7.field125 = var3.g2();
+					int var30 = var4.g1();
+					if (var30 == 0) {
+						var8.modelAnim2 = -1;
+					} else {
+						var8.modelAnim2 = (var30 - 1 << 8) + var4.g1();
+					}
+					var8.field123 = var4.g2();
+					var8.field124 = var4.g2();
+					var8.field125 = var4.g2();
 				}
-				if (var7.field75 == 7) {
-					var7.field69 = new int[var7.field78 * var7.field79];
-					var7.field70 = new int[var7.field78 * var7.field79];
-					var7.field106 = var3.g1() == 1;
-					int var30 = var3.g1();
+				if (var8.type == 7) {
+					var8.linkObjType = new int[var8.field78 * var8.field79];
+					var8.linkObjNumber = new int[var8.field78 * var8.field79];
+					var8.field106 = var4.g1() == 1;
+					int var31 = var4.g1();
 					if (arg2 != null) {
-						var7.field108 = arg2[var30];
+						var8.field108 = arg2[var31];
 					}
-					var7.field107 = var3.g1() == 1;
-					var7.field111 = var3.g4();
-					var7.field99 = var3.g2b();
-					var7.field100 = var3.g2b();
-					var7.field96 = var3.g1() == 1;
-					var7.field104 = new String[5];
-					for (int var31 = 0; var31 < 5; var31++) {
-						var7.field104[var31] = var3.gjstr();
-						if (var7.field104[var31].length() == 0) {
-							var7.field104[var31] = null;
+					var8.field107 = var4.g1() == 1;
+					var8.field111 = var4.g4();
+					var8.field99 = var4.g2b();
+					var8.field100 = var4.g2b();
+					var8.field96 = var4.g1() == 1;
+					var8.field104 = new String[5];
+					for (int var32 = 0; var32 < 5; var32++) {
+						var8.field104[var32] = var4.gjstr();
+						if (var8.field104[var32].length() == 0) {
+							var8.field104[var32] = null;
 						}
 					}
 				}
-				if (var7.field76 == 2 || var7.field75 == 2) {
-					var7.field126 = var3.gjstr();
-					var7.field127 = var3.gjstr();
-					var7.field128 = var3.g2();
+				if (var8.field76 == 2 || var8.type == 2) {
+					var8.field126 = var4.gjstr();
+					var8.field127 = var4.gjstr();
+					var8.field128 = var4.g2();
 				}
-			} while (var7.field76 != 1 && var7.field76 != 4 && var7.field76 != 5 && var7.field76 != 6);
-			var7.field129 = var3.gjstr();
-			if (var7.field129.length() == 0) {
-				if (var7.field76 == 1) {
-					var7.field129 = "Ok";
+			} while (var8.field76 != 1 && var8.field76 != 4 && var8.field76 != 5 && var8.field76 != 6);
+			var8.field129 = var4.gjstr();
+			if (var8.field129.length() == 0) {
+				if (var8.field76 == 1) {
+					var8.field129 = "Ok";
 				}
-				if (var7.field76 == 4) {
-					var7.field129 = "Select";
+				if (var8.field76 == 4) {
+					var8.field129 = "Select";
 				}
-				if (var7.field76 == 5) {
-					var7.field129 = "Select";
+				if (var8.field76 == 5) {
+					var8.field129 = "Select";
 				}
-				if (var7.field76 == 6) {
-					var7.field129 = "Continue";
+				if (var8.field76 == 6) {
+					var8.field129 = "Continue";
 				}
 			}
 		}
 	}
 
 	@ObfuscatedName("d.a(IILeb;I)V")
-	public static void method36(Model arg0) {
+	public static void method36(int arg1, Model arg2, int arg3) {
 		field130.clear();
-		if (arg0 != null) {
-			field130.put((long) 327680, arg0);
+		if (arg2 != null && arg3 != 4) {
+			field130.put((long) ((arg3 << 16) + arg1), arg2);
 		}
 	}
 
 	@ObfuscatedName("d.a(IZLjava/lang/String;Lxb;)Lib;")
-	public static Pix32 method37(int arg0, String arg1, JagFile arg2) {
-		long var3 = (JString.hashCode(arg1) << 8) + (long) arg0;
-		Pix32 var5 = (Pix32) field131.find(var3);
-		if (var5 != null) {
-			return var5;
+	public static Pix32 method37(int arg0, String arg2, JagFile arg3) {
+		long var4 = (JString.hashCode(arg2) << 8) + (long) arg0;
+		Pix32 var6 = (Pix32) field131.find(var4);
+		if (var6 != null) {
+			return var6;
 		}
 		try {
-			Pix32 var6 = new Pix32(arg2, arg1, arg0);
-			field131.put(var3, var6);
-			return var6;
-		} catch (Exception var7) {
+			Pix32 var7 = new Pix32(arg3, arg2, arg0);
+			field131.put(var4, var7);
+			return var7;
+		} catch (Exception var8) {
 			return null;
 		}
 	}
 
 	@ObfuscatedName("d.a(III)V")
-	public void method33(int arg0, int arg1) {
-		int var3 = this.field69[arg0];
-		this.field69[arg0] = this.field69[arg1];
-		this.field69[arg1] = var3;
-		int var4 = this.field70[arg0];
-		this.field70[arg0] = this.field70[arg1];
-		this.field70[arg1] = var4;
+	public void swapSlots(int arg0, int arg1) {
+		int var3 = linkObjType[arg0];
+		linkObjType[arg0] = linkObjType[arg1];
+		linkObjType[arg1] = var3;
+		int var4 = linkObjNumber[arg0];
+		linkObjNumber[arg0] = linkObjNumber[arg1];
+		linkObjNumber[arg1] = var4;
 	}
 
 	@ObfuscatedName("d.a(IIIZ)Leb;")
-	public Model method34(int arg0, int arg1, boolean arg2) {
-		Model var4;
-		if (arg2) {
-			var4 = this.method35(this.field119, this.field120);
+	public Model method34(int arg0, int arg1, boolean arg3) {
+		Model var5;
+		if (arg3) {
+			var5 = method35(field119, field120);
 		} else {
-			var4 = this.method35(this.model1Type, this.field118);
+			var5 = method35(model1Type, field118);
 		}
-		if (var4 == null) {
+		if (var5 == null) {
 			return null;
-		} else if (arg0 == -1 && arg1 == -1 && var4.faceColour == null) {
-			return var4;
+		} else if (arg0 == -1 && arg1 == -1 && var5.faceColour == null) {
+			return var5;
 		} else {
-			Model var5 = new Model(true, AnimFrame.animateTransparencies(arg0) & AnimFrame.animateTransparencies(arg1), var4, true, false);
+			Model var6 = new Model(true, AnimFrame.animateTransparencies(arg0) & AnimFrame.animateTransparencies(arg1), var5, false);
 			if (arg0 != -1 || arg1 != -1) {
-				var5.prepareAnim();
+				var6.prepareAnim();
 			}
 			if (arg0 != -1) {
-				var5.animate(arg0);
+				var6.animate(arg0);
 			}
 			if (arg1 != -1) {
-				var5.animate(arg1);
+				var6.animate(arg1);
 			}
-			var5.calculateNormals(64, 768, -50, -10, -50, true);
-			return var5;
+			var6.calculateNormals(64, 768, -50, -10, -50, true);
+			return var6;
 		}
 	}
 
@@ -497,7 +491,7 @@ public final class IfType {
 			var3 = NpcType.list(arg1).getHead();
 		}
 		if (arg0 == 3) {
-			var3 = Client.field1668.method118();
+			var3 = Client.localPlayer.method118();
 		}
 		if (arg0 == 4) {
 			var3 = ObjType.list(arg1).getModelUnlit(50);

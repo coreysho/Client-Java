@@ -6,15 +6,6 @@ import jagex2.io.Packet;
 @ObfuscatedName("cc")
 public final class JagFX {
 
-	@ObfuscatedName("cc.a")
-	public int field905;
-
-	@ObfuscatedName("cc.b")
-	public final byte field906 = 5;
-
-	@ObfuscatedName("cc.c")
-	public static boolean field907;
-
 	@ObfuscatedName("cc.d")
 	public static final JagFX[] synth = new JagFX[1000];
 
@@ -37,18 +28,18 @@ public final class JagFX {
 	public int loopEnd;
 
 	@ObfuscatedName("cc.a(ZLlb;)V")
-	public static void unpack(Packet arg0) {
+	public static void init(Packet arg1) {
 		waveBytes = new byte[441000];
-		waveBuffer = new Packet(waveBytes, (byte) 1);
+		waveBuffer = new Packet(waveBytes);
 		Tone.init();
 		while (true) {
-			int var1 = arg0.g2();
-			if (var1 == 65535) {
+			int var2 = arg1.g2();
+			if (var2 == 65535) {
 				return;
 			}
-			synth[var1] = new JagFX(-46900);
-			synth[var1].load(arg0);
-			delays[var1] = synth[var1].optimiseStart();
+			synth[var2] = new JagFX();
+			synth[var2].load(arg1);
+			delays[var2] = synth[var2].optimiseStart();
 		}
 	}
 
@@ -57,60 +48,60 @@ public final class JagFX {
 		if (synth[arg0] == null) {
 			return null;
 		} else {
-			JagFX var2 = synth[arg0];
-			return var2.getWave(arg1);
+			JagFX var4 = synth[arg0];
+			return var4.getWave(arg1);
 		}
 	}
 
-	public JagFX(int arg0) {
+	public JagFX() {
 	}
 
 	@ObfuscatedName("cc.a(BLlb;)V")
-	public void load(Packet arg0) {
-		for (int var2 = 0; var2 < 10; var2++) {
-			int var3 = arg0.g1();
-			if (var3 != 0) {
-				arg0.data--;
-				this.tones[var2] = new Tone();
-				this.tones[var2].load(arg0);
+	public void load(Packet arg1) {
+		for (int var3 = 0; var3 < 10; var3++) {
+			int var4 = arg1.g1();
+			if (var4 != 0) {
+				arg1.data--;
+				tones[var3] = new Tone();
+				tones[var3].load(arg1);
 			}
 		}
-		this.loopBegin = arg0.g2();
-		this.loopEnd = arg0.g2();
+		loopBegin = arg1.g2();
+		loopEnd = arg1.g2();
 	}
 
 	@ObfuscatedName("cc.a(I)I")
 	public int optimiseStart() {
-		int var1 = 9999999;
-		for (int var2 = 0; var2 < 10; var2++) {
-			if (this.tones[var2] != null && this.tones[var2].start / 20 < var1) {
-				var1 = this.tones[var2].start / 20;
+		int var3 = 9999999;
+		for (int var4 = 0; var4 < 10; var4++) {
+			if (tones[var4] != null && tones[var4].start / 20 < var3) {
+				var3 = tones[var4].start / 20;
 			}
 		}
-		if (this.loopBegin < this.loopEnd && this.loopBegin / 20 < var1) {
-			var1 = this.loopBegin / 20;
+		if (loopBegin < loopEnd && loopBegin / 20 < var3) {
+			var3 = loopBegin / 20;
 		}
-		if (var1 == 9999999 || var1 == 0) {
+		if (var3 == 9999999 || var3 == 0) {
 			return 0;
 		}
-		for (int var3 = 0; var3 < 10; var3++) {
-			if (this.tones[var3] != null) {
-				this.tones[var3].start -= var1 * 20;
+		for (int var5 = 0; var5 < 10; var5++) {
+			if (tones[var5] != null) {
+				tones[var5].start -= var3 * 20;
 			}
 		}
-		if (this.loopBegin < this.loopEnd) {
-			this.loopBegin -= var1 * 20;
-			this.loopEnd -= var1 * 20;
+		if (loopBegin < loopEnd) {
+			loopBegin -= var3 * 20;
+			loopEnd -= var3 * 20;
 		}
-		return var1;
+		return var3;
 	}
 
 	@ObfuscatedName("cc.a(IB)Llb;")
 	public Packet getWave(int arg0) {
-		int var2 = this.makeSound(arg0);
+		int var3 = makeSound(arg0);
 		waveBuffer.data = 0;
 		waveBuffer.p4(1380533830);
-		waveBuffer.ip4(var2 + 36);
+		waveBuffer.ip4(var3 + 36);
 		waveBuffer.p4(1463899717);
 		waveBuffer.p4(1718449184);
 		waveBuffer.ip4(16);
@@ -121,11 +112,8 @@ public final class JagFX {
 		waveBuffer.ip2(1);
 		waveBuffer.ip2(8);
 		waveBuffer.p4(1684108385);
-		waveBuffer.ip4(var2);
-		if (this.field906 != 5) {
-			throw new NullPointerException();
-		}
-		waveBuffer.data += var2;
+		waveBuffer.ip4(var3);
+		waveBuffer.data += var3;
 		return waveBuffer;
 	}
 
@@ -133,16 +121,16 @@ public final class JagFX {
 	public int makeSound(int arg0) {
 		int var2 = 0;
 		for (int var3 = 0; var3 < 10; var3++) {
-			if (this.tones[var3] != null && this.tones[var3].length + this.tones[var3].start > var2) {
-				var2 = this.tones[var3].length + this.tones[var3].start;
+			if (tones[var3] != null && tones[var3].length + tones[var3].start > var2) {
+				var2 = tones[var3].length + tones[var3].start;
 			}
 		}
 		if (var2 == 0) {
 			return 0;
 		}
 		int var4 = var2 * 22050 / 1000;
-		int var5 = this.loopBegin * 22050 / 1000;
-		int var6 = this.loopEnd * 22050 / 1000;
+		int var5 = loopBegin * 22050 / 1000;
+		int var6 = loopEnd * 22050 / 1000;
 		if (var5 < 0 || var5 > var4 || var6 < 0 || var6 > var4 || var5 >= var6) {
 			arg0 = 0;
 		}
@@ -151,10 +139,10 @@ public final class JagFX {
 			waveBytes[var8] = -128;
 		}
 		for (int var9 = 0; var9 < 10; var9++) {
-			if (this.tones[var9] != null) {
-				int var10 = this.tones[var9].length * 22050 / 1000;
-				int var11 = this.tones[var9].start * 22050 / 1000;
-				int[] var12 = this.tones[var9].generate(var10, this.tones[var9].length);
+			if (tones[var9] != null) {
+				int var10 = tones[var9].length * 22050 / 1000;
+				int var11 = tones[var9].start * 22050 / 1000;
+				int[] var12 = tones[var9].generate(var10, tones[var9].length);
 				for (int var13 = 0; var13 < var10; var13++) {
 					waveBytes[var13 + var11 + 44] += (byte) (var12[var13] >> 8);
 				}

@@ -1,17 +1,11 @@
 package jagex2.config;
 
-import jagex2.io.JagFile;
 import deob.ObfuscatedName;
+import jagex2.io.JagFile;
 import jagex2.io.Packet;
 
 @ObfuscatedName("kc")
 public final class FloType {
-
-	@ObfuscatedName("kc.a")
-	public final boolean field1095 = true;
-
-	@ObfuscatedName("kc.b")
-	public final int field1096 = -186;
 
 	@ObfuscatedName("kc.c")
 	public static int numDefinitions;
@@ -53,123 +47,123 @@ public final class FloType {
 	public int overlayHsl;
 
 	@ObfuscatedName("kc.a(ZLxb;)V")
-	public static void init(JagFile arg0) {
-		Packet var1 = new Packet(arg0.read("flo.dat", null), (byte) 1);
-		numDefinitions = var1.g2();
+	public static void init(JagFile arg1) {
+		Packet var2 = new Packet(arg1.read("flo.dat", null));
+		numDefinitions = var2.g2();
 		if (list == null) {
 			list = new FloType[numDefinitions];
 		}
-		for (int var2 = 0; var2 < numDefinitions; var2++) {
-			if (list[var2] == null) {
-				list[var2] = new FloType();
+		for (int var3 = 0; var3 < numDefinitions; var3++) {
+			if (list[var3] == null) {
+				list[var3] = new FloType();
 			}
-			list[var2].decode(var1);
+			list[var3].decode(var2);
 		}
 	}
 
 	@ObfuscatedName("kc.a(BLlb;)V")
-	public void decode(Packet arg0) {
+	public void decode(Packet arg1) {
 		while (true) {
-			int var2 = arg0.g1();
-			if (var2 == 0) {
+			int var3 = arg1.g1();
+			if (var3 == 0) {
 				return;
 			}
-			if (var2 == 1) {
-				this.colour = arg0.g3();
-				this.getHsl(this.colour);
-			} else if (var2 == 2) {
-				this.texture = arg0.g1();
-			} else if (var2 == 3) {
-				this.overlay = true;
-			} else if (var2 == 5) {
-				this.occlude = false;
-			} else if (var2 == 6) {
-				this.debugname = arg0.gjstr();
+			if (var3 == 1) {
+				colour = arg1.g3();
+				getHsl(colour);
+			} else if (var3 == 2) {
+				texture = arg1.g1();
+			} else if (var3 == 3) {
+				overlay = true;
+			} else if (var3 == 5) {
+				occlude = false;
+			} else if (var3 == 6) {
+				debugname = arg1.gjstr();
 			} else {
-				System.out.println("Error unrecognised config code: " + var2);
+				System.out.println("Error unrecognised config code: " + var3);
 			}
 		}
 	}
 
 	@ObfuscatedName("kc.a(II)V")
-	public void getHsl(int rgb) {
-		double var2 = (double) (rgb >> 16 & 0xFF) / 256.0D;
-		double var4 = (double) (rgb >> 8 & 0xFF) / 256.0D;
-		double var6 = (double) (rgb & 0xFF) / 256.0D;
-		double var8 = var2;
-		if (var4 < var2) {
-			var8 = var4;
+	public void getHsl(int arg0) {
+		double var3 = (double) (arg0 >> 16 & 0xFF) / 256.0D;
+		double var5 = (double) (arg0 >> 8 & 0xFF) / 256.0D;
+		double var7 = (double) (arg0 & 0xFF) / 256.0D;
+		double var9 = var3;
+		if (var5 < var3) {
+			var9 = var5;
 		}
-		if (var6 < var8) {
-			var8 = var6;
+		if (var7 < var9) {
+			var9 = var7;
 		}
-		double var10 = var2;
-		if (var4 > var2) {
-			var10 = var4;
+		double var11 = var3;
+		if (var5 > var3) {
+			var11 = var5;
 		}
-		if (var6 > var10) {
-			var10 = var6;
+		if (var7 > var11) {
+			var11 = var7;
 		}
-		double var12 = 0.0D;
-		double var14 = 0.0D;
-		double var16 = (var8 + var10) / 2.0D;
-		if (var8 != var10) {
-			if (var16 < 0.5D) {
-				var14 = (var10 - var8) / (var10 + var8);
+		double var13 = 0.0D;
+		double var15 = 0.0D;
+		double var17 = (var9 + var11) / 2.0D;
+		if (var9 != var11) {
+			if (var17 < 0.5D) {
+				var15 = (var11 - var9) / (var11 + var9);
 			}
-			if (var16 >= 0.5D) {
-				var14 = (var10 - var8) / (2.0D - var10 - var8);
+			if (var17 >= 0.5D) {
+				var15 = (var11 - var9) / (2.0D - var11 - var9);
 			}
-			if (var2 == var10) {
-				var12 = (var4 - var6) / (var10 - var8);
-			} else if (var4 == var10) {
-				var12 = (var6 - var2) / (var10 - var8) + 2.0D;
-			} else if (var6 == var10) {
-				var12 = (var2 - var4) / (var10 - var8) + 4.0D;
+			if (var3 == var11) {
+				var13 = (var5 - var7) / (var11 - var9);
+			} else if (var5 == var11) {
+				var13 = (var7 - var3) / (var11 - var9) + 2.0D;
+			} else if (var7 == var11) {
+				var13 = (var3 - var5) / (var11 - var9) + 4.0D;
 			}
 		}
-		double var18 = var12 / 6.0D;
-		this.hue = (int) (var18 * 256.0D);
-		this.saturation = (int) (var14 * 256.0D);
-		this.lightness = (int) (var16 * 256.0D);
-		if (this.saturation < 0) {
-			this.saturation = 0;
-		} else if (this.saturation > 255) {
-			this.saturation = 255;
+		double var19 = var13 / 6.0D;
+		hue = (int) (var19 * 256.0D);
+		saturation = (int) (var15 * 256.0D);
+		lightness = (int) (var17 * 256.0D);
+		if (saturation < 0) {
+			saturation = 0;
+		} else if (saturation > 255) {
+			saturation = 255;
 		}
-		if (this.lightness < 0) {
-			this.lightness = 0;
-		} else if (this.lightness > 255) {
-			this.lightness = 255;
+		if (lightness < 0) {
+			lightness = 0;
+		} else if (lightness > 255) {
+			lightness = 255;
 		}
-		if (var16 > 0.5D) {
-			this.chroma = (int) ((1.0D - var16) * var14 * 512.0D);
+		if (var17 > 0.5D) {
+			chroma = (int) ((1.0D - var17) * var15 * 512.0D);
 		} else {
-			this.chroma = (int) (var16 * var14 * 512.0D);
+			chroma = (int) (var17 * var15 * 512.0D);
 		}
-		if (this.chroma < 1) {
-			this.chroma = 1;
+		if (chroma < 1) {
+			chroma = 1;
 		}
-		this.underlayHue = (int) (var18 * (double) this.chroma);
-		int var20 = this.hue + (int) (Math.random() * 16.0D) - 8;
-		if (var20 < 0) {
-			var20 = 0;
-		} else if (var20 > 255) {
-			var20 = 255;
-		}
-		int var21 = this.saturation + (int) (Math.random() * 48.0D) - 24;
+		underlayHue = (int) (var19 * (double) chroma);
+		int var21 = hue + (int) (Math.random() * 16.0D) - 8;
 		if (var21 < 0) {
 			var21 = 0;
 		} else if (var21 > 255) {
 			var21 = 255;
 		}
-		int var22 = this.lightness + (int) (Math.random() * 48.0D) - 24;
+		int var22 = saturation + (int) (Math.random() * 48.0D) - 24;
 		if (var22 < 0) {
 			var22 = 0;
 		} else if (var22 > 255) {
 			var22 = 255;
 		}
-		this.overlayHsl = this.getTable(var20, var21, var22);
+		int var23 = lightness + (int) (Math.random() * 48.0D) - 24;
+		if (var23 < 0) {
+			var23 = 0;
+		} else if (var23 > 255) {
+			var23 = 255;
+		}
+		overlayHsl = getTable(var21, var22, var23);
 	}
 
 	@ObfuscatedName("kc.a(III)I")

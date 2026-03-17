@@ -76,8 +76,8 @@ public final class Square extends Linkable {
 	public Square linkedSquare;
 
 	public Square(int arg0, int arg1, int arg2) {
-		this.originalLevel = this.level = arg0;
-		this.x = arg1;
-		this.z = arg2;
+		originalLevel = level = arg0;
+		x = arg1;
+		z = arg2;
 	}
 }

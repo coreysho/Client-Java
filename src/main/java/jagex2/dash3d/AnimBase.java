@@ -15,18 +15,18 @@ public final class AnimBase {
 	@ObfuscatedName("f.c")
 	public final int[][] labels;
 
-	public AnimBase(int arg0, Packet arg1) {
-		this.size = arg1.g1();
-		this.type = new int[this.size];
-		this.labels = new int[this.size][];
-		for (int var3 = 0; var3 < this.size; var3++) {
-			this.type[var3] = arg1.g1();
+	public AnimBase(Packet arg1) {
+		size = arg1.g1();
+		type = new int[size];
+		labels = new int[size][];
+		for (int var4 = 0; var4 < size; var4++) {
+			type[var4] = arg1.g1();
 		}
-		for (int var4 = 0; var4 < this.size; var4++) {
-			int var5 = arg1.g1();
-			this.labels[var4] = new int[var5];
-			for (int var6 = 0; var6 < var5; var6++) {
-				this.labels[var4][var6] = arg1.g1();
+		for (int var5 = 0; var5 < size; var5++) {
+			int var6 = arg1.g1();
+			labels[var5] = new int[var6];
+			for (int var7 = 0; var7 < var6; var7++) {
+				labels[var5][var7] = arg1.g1();
 			}
 		}
 	}

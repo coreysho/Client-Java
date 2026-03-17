@@ -1,7 +1,7 @@
 package jagex2.io;
 
-import jagex2.client.GameShell;
 import deob.ObfuscatedName;
+import jagex2.client.GameShell;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,15 +10,6 @@ import java.net.Socket;
 
 @ObfuscatedName("e")
 public final class ClientStream implements Runnable {
-
-	@ObfuscatedName("e.a")
-	public int field132 = 416;
-
-	@ObfuscatedName("e.b")
-	public final int field133 = -2584;
-
-	@ObfuscatedName("e.c")
-	public final boolean field134 = false;
 
 	@ObfuscatedName("e.d")
 	public final InputStream in;
@@ -50,55 +41,55 @@ public final class ClientStream implements Runnable {
 	@ObfuscatedName("e.m")
 	public boolean ioerror = false;
 
-	public ClientStream(int arg0, Socket arg1, GameShell arg2) throws IOException {
-		this.shell = arg2;
-		this.socket = arg1;
-		this.socket.setSoTimeout(30000);
-		this.socket.setTcpNoDelay(true);
-		this.in = this.socket.getInputStream();
-		this.out = this.socket.getOutputStream();
+	public ClientStream(Socket arg1, GameShell arg2) throws IOException {
+		shell = arg2;
+		socket = arg1;
+		socket.setSoTimeout(30000);
+		socket.setTcpNoDelay(true);
+		in = socket.getInputStream();
+		out = socket.getOutputStream();
 	}
 
 	@ObfuscatedName("e.a()V")
 	public void close() {
-		this.dummy = true;
+		dummy = true;
 		try {
-			if (this.in != null) {
-				this.in.close();
+			if (in != null) {
+				in.close();
 			}
-			if (this.out != null) {
-				this.out.close();
+			if (out != null) {
+				out.close();
 			}
-			if (this.socket != null) {
-				this.socket.close();
+			if (socket != null) {
+				socket.close();
 			}
 		} catch (IOException var3) {
 			System.out.println("Error closing stream");
 		}
-		this.writer = false;
+		writer = false;
 		synchronized (this) {
-			this.notify();
+			notify();
 		}
-		this.data = null;
+		data = null;
 	}
 
 	@ObfuscatedName("e.b()I")
 	public int read() throws IOException {
-		return this.dummy ? 0 : this.in.read();
+		return dummy ? 0 : in.read();
 	}
 
 	@ObfuscatedName("e.c()I")
 	public int available() throws IOException {
-		return this.dummy ? 0 : this.in.available();
+		return dummy ? 0 : in.available();
 	}
 
 	@ObfuscatedName("e.a([BII)V")
 	public void read(byte[] arg0, int arg1, int arg2) throws IOException {
-		if (this.dummy) {
+		if (dummy) {
 			return;
 		}
 		while (arg2 > 0) {
-			int var4 = this.in.read(arg0, arg1, arg2);
+			int var4 = in.read(arg0, arg1, arg2);
 			if (var4 <= 0) {
 				throw new IOException("EOF");
 			}
@@ -108,71 +99,68 @@ public final class ClientStream implements Runnable {
 	}
 
 	@ObfuscatedName("e.a(II[BI)V")
-	public void write(int arg0, byte[] arg1) throws IOException {
-		if (this.dummy) {
+	public void write(int arg0, byte[] arg2, int arg3) throws IOException {
+		if (dummy) {
 			return;
 		}
-		if (this.ioerror) {
-			this.ioerror = false;
+		if (ioerror) {
+			ioerror = false;
 			throw new IOException("Error in writer thread");
 		}
-		if (this.data == null) {
-			this.data = new byte[5000];
+		if (data == null) {
+			data = new byte[5000];
 		}
 		synchronized (this) {
-			for (int var4 = 0; var4 < arg0; var4++) {
-				this.data[this.tnum] = arg1[var4];
-				this.tnum = (this.tnum + 1) % 5000;
-				if (this.tnum == (this.tcycl + 4900) % 5000) {
+			for (int var6 = 0; var6 < arg0; var6++) {
+				data[tnum] = arg2[var6 + arg3];
+				tnum = (tnum + 1) % 5000;
+				if (tnum == (tcycl + 4900) % 5000) {
 					throw new IOException("buffer overflow");
 				}
 			}
-			if (!this.writer) {
-				this.writer = true;
-				this.shell.startThread(this, 3);
+			if (!writer) {
+				writer = true;
+				shell.startThread(this, 3);
 			}
-			this.notify();
-		}
-		if (this.field133 != -2584) {
-			this.field132 = -158;
+			notify();
 		}
 	}
 
 	@Override
 	public void run() {
-		while (this.writer) {
+		while (writer) {
 			int var2;
 			int var3;
 			synchronized (this) {
-				if (this.tnum == this.tcycl) {
+				if (tnum == tcycl) {
 					try {
-						this.wait();
+						wait();
 					} catch (InterruptedException var6) {
 					}
 				}
-				if (!this.writer) {
+				if (!writer) {
 					return;
 				}
-				var2 = this.tcycl;
-				if (this.tnum >= this.tcycl) {
-					var3 = this.tnum - this.tcycl;
+				var2 = tcycl;
+				if (tnum >= tcycl) {
+					var3 = tnum - tcycl;
 				} else {
-					var3 = 5000 - this.tcycl;
+					var3 = 5000 - tcycl;
 				}
 			}
 			if (var3 > 0) {
 				try {
-					this.out.write(this.data, var2, var3);
+					out.write(data, var2, var3);
 				} catch (IOException var5) {
-					this.ioerror = true;
+					ioerror = true;
 				}
-				this.tcycl = (this.tcycl + var3) % 5000;
+				tcycl = (tcycl + var3) % 5000;
 				try {
-					if (this.tnum == this.tcycl) {
-						this.out.flush();
+					if (tnum == tcycl) {
+						out.flush();
 					}
 				} catch (IOException var4) {
-					this.ioerror = true;
+					ioerror = true;
 				}
 			}
 		}
@@ -180,14 +168,14 @@ public final class ClientStream implements Runnable {
 
 	@ObfuscatedName("e.a(Z)V")
 	public void method43() {
-		System.out.println("dummy:" + this.dummy);
-		System.out.println("tcycl:" + this.tcycl);
-		System.out.println("tnum:" + this.tnum);
-		System.out.println("writer:" + this.writer);
-		System.out.println("ioerror:" + this.ioerror);
+		System.out.println("dummy:" + dummy);
+		System.out.println("tcycl:" + tcycl);
+		System.out.println("tnum:" + tnum);
+		System.out.println("writer:" + writer);
+		System.out.println("ioerror:" + ioerror);
 		try {
-			System.out.println("available:" + this.available());
-		} catch (IOException var1) {
+			System.out.println("available:" + available());
+		} catch (IOException var2) {
 		}
 	}
 }

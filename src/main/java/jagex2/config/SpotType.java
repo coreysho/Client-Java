@@ -1,16 +1,13 @@
 package jagex2.config;
 
-import jagex2.datastruct.LruCache;
 import deob.ObfuscatedName;
-import jagex2.io.Packet;
 import jagex2.dash3d.Model;
+import jagex2.datastruct.LruCache;
 import jagex2.io.JagFile;
+import jagex2.io.Packet;
 
 @ObfuscatedName("pc")
 public final class SpotType {
-
-	@ObfuscatedName("pc.a")
-	public final boolean field1152 = false;
 
 	@ObfuscatedName("pc.b")
 	public static int numDefinitions;
@@ -52,74 +49,76 @@ public final class SpotType {
 	public int contrast;
 
 	@ObfuscatedName("pc.o")
-	public static LruCache modelCache = new LruCache(30, 0);
+	public static LruCache modelCache = new LruCache(30);
 
 	@ObfuscatedName("pc.a(ZLxb;)V")
-	public static void init(JagFile arg0) {
-		Packet var1 = new Packet(arg0.read("spotanim.dat", null), (byte) 1);
-		numDefinitions = var1.g2();
+	public static void init(JagFile arg1) {
+		Packet var2 = new Packet(arg1.read("spotanim.dat", null));
+		numDefinitions = var2.g2();
 		if (list == null) {
 			list = new SpotType[numDefinitions];
 		}
-		for (int var2 = 0; var2 < numDefinitions; var2++) {
-			if (list[var2] == null) {
-				list[var2] = new SpotType();
+		for (int var3 = 0; var3 < numDefinitions; var3++) {
+			if (list[var3] == null) {
+				list[var3] = new SpotType();
 			}
-			list[var2].id = var2;
-			list[var2].decode(var1);
+			list[var3].id = var3;
+			list[var3].decode(var2);
 		}
 	}
 
 	@ObfuscatedName("pc.a(BLlb;)V")
-	public void decode(Packet arg0) {
+	public void decode(Packet arg1) {
 		while (true) {
-			int var2 = arg0.g1();
-			if (var2 == 0) {
-				return;
-			}
-			if (var2 == 1) {
-				this.model = arg0.g2();
-			} else if (var2 == 2) {
-				this.anim = arg0.g2();
-				if (SeqType.list != null) {
-					this.seq = SeqType.list[this.anim];
+			while (true) {
+				int var3 = arg1.g1();
+				if (var3 == 0) {
+					return;
 				}
-			} else if (var2 == 4) {
-				this.resizeh = arg0.g2();
-			} else if (var2 == 5) {
-				this.resizev = arg0.g2();
-			} else if (var2 == 6) {
-				this.angle = arg0.g2();
-			} else if (var2 == 7) {
-				this.ambient = arg0.g1();
-			} else if (var2 == 8) {
-				this.contrast = arg0.g1();
-			} else if (var2 >= 40 && var2 < 50) {
-				this.recol_s[var2 - 40] = arg0.g2();
-			} else if (var2 >= 50 && var2 < 60) {
-				this.recol_d[var2 - 50] = arg0.g2();
-			} else {
-				System.out.println("Error unrecognised spotanim config code: " + var2);
+				if (var3 == 1) {
+					model = arg1.g2();
+				} else if (var3 == 2) {
+					anim = arg1.g2();
+					if (SeqType.list != null) {
+						seq = SeqType.list[anim];
+					}
+				} else if (var3 == 4) {
+					resizeh = arg1.g2();
+				} else if (var3 == 5) {
+					resizev = arg1.g2();
+				} else if (var3 == 6) {
+					angle = arg1.g2();
+				} else if (var3 == 7) {
+					ambient = arg1.g1();
+				} else if (var3 == 8) {
+					contrast = arg1.g1();
+				} else if (var3 >= 40 && var3 < 50) {
+					recol_s[var3 - 40] = arg1.g2();
+				} else if (var3 >= 50 && var3 < 60) {
+					recol_d[var3 - 50] = arg1.g2();
+				} else {
+					System.out.println("Error unrecognised spotanim config code: " + var3);
+				}
 			}
 		}
 	}
 
 	@ObfuscatedName("pc.a()Leb;")
 	public Model getTempModel2() {
-		Model var1 = (Model) modelCache.find((long) this.id);
+		Model var1 = (Model) modelCache.find((long) id);
 		if (var1 != null) {
 			return var1;
 		}
-		Model var2 = Model.load(this.model);
+		Model var2 = Model.load(model);
 		if (var2 == null) {
 			return null;
 		}
 		for (int var3 = 0; var3 < 6; var3++) {
-			if (this.recol_s[0] != 0) {
-				var2.recolour(this.recol_s[var3], this.recol_d[var3]);
+			if (recol_s[0] != 0) {
+				var2.recolour(recol_s[var3], recol_d[var3]);
 			}
 		}
-		modelCache.put((long) this.id, var2);
+		modelCache.put((long) id, var2);
 		return var2;
 	}
 }

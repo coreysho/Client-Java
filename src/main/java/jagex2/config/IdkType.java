@@ -1,18 +1,12 @@
 package jagex2.config;
 
-import jagex2.io.JagFile;
-import jagex2.dash3d.Model;
 import deob.ObfuscatedName;
+import jagex2.dash3d.Model;
+import jagex2.io.JagFile;
 import jagex2.io.Packet;
 
 @ObfuscatedName("lc")
 public final class IdkType {
-
-	@ObfuscatedName("lc.a")
-	public final byte field1110 = 0;
-
-	@ObfuscatedName("lc.b")
-	public boolean field1111 = false;
 
 	@ObfuscatedName("lc.c")
 	public static int numDefinitions;
@@ -39,111 +33,110 @@ public final class IdkType {
 	public boolean disable = false;
 
 	@ObfuscatedName("lc.a(ZLxb;)V")
-	public static void init(JagFile arg0) {
-		Packet var1 = new Packet(arg0.read("idk.dat", null), (byte) 1);
-		numDefinitions = var1.g2();
+	public static void init(JagFile arg1) {
+		Packet var2 = new Packet(arg1.read("idk.dat", null));
+		numDefinitions = var2.g2();
 		if (list == null) {
 			list = new IdkType[numDefinitions];
 		}
-		for (int var2 = 0; var2 < numDefinitions; var2++) {
-			if (list[var2] == null) {
-				list[var2] = new IdkType();
+		for (int var3 = 0; var3 < numDefinitions; var3++) {
+			if (list[var3] == null) {
+				list[var3] = new IdkType();
 			}
-			list[var2].decode(var1);
+			list[var3].decode(var2);
 		}
 	}
 
 	@ObfuscatedName("lc.a(BLlb;)V")
-	public void decode(Packet arg0) {
+	public void decode(Packet arg1) {
 		while (true) {
-			int var2 = arg0.g1();
-			if (var2 == 0) {
-				return;
-			}
-			if (var2 == 1) {
-				this.part = arg0.g1();
-			} else if (var2 == 2) {
-				int var3 = arg0.g1();
-				this.model = new int[var3];
-				for (int var4 = 0; var4 < var3; var4++) {
-					this.model[var4] = arg0.g2();
+			while (true) {
+				int var3 = arg1.g1();
+				if (var3 == 0) {
+					return;
 				}
-			} else if (var2 == 3) {
-				this.disable = true;
-			} else if (var2 >= 40 && var2 < 50) {
-				this.recol_s[var2 - 40] = arg0.g2();
-			} else if (var2 >= 50 && var2 < 60) {
-				this.recol_d[var2 - 50] = arg0.g2();
-			} else if (var2 >= 60 && var2 < 70) {
-				this.head[var2 - 60] = arg0.g2();
-			} else {
-				System.out.println("Error unrecognised config code: " + var2);
+				if (var3 == 1) {
+					part = arg1.g1();
+				} else if (var3 == 2) {
+					int var4 = arg1.g1();
+					model = new int[var4];
+					for (int var5 = 0; var5 < var4; var5++) {
+						model[var5] = arg1.g2();
+					}
+				} else if (var3 == 3) {
+					disable = true;
+				} else if (var3 >= 40 && var3 < 50) {
+					recol_s[var3 - 40] = arg1.g2();
+				} else if (var3 >= 50 && var3 < 60) {
+					recol_d[var3 - 50] = arg1.g2();
+				} else if (var3 >= 60 && var3 < 70) {
+					head[var3 - 60] = arg1.g2();
+				} else {
+					System.out.println("Error unrecognised config code: " + var3);
+				}
 			}
 		}
 	}
 
 	@ObfuscatedName("lc.a(I)Z")
 	public boolean checkModel() {
-		if (this.model == null) {
+		if (model == null) {
 			return true;
 		}
-		boolean var1 = true;
-		for (int var2 = 0; var2 < this.model.length; var2++) {
-			if (!Model.requestDownload(this.model[var2])) {
-				var1 = false;
+		boolean var2 = true;
+		for (int var3 = 0; var3 < model.length; var3++) {
+			if (!Model.requestDownload(model[var3])) {
+				var2 = false;
 			}
 		}
-		return var1;
+		return var2;
 	}
 
 	@ObfuscatedName("lc.a(B)Leb;")
 	public Model getModelNoCheck() {
-		if (this.field1110 != 0) {
-			this.field1111 = !this.field1111;
-		}
-		if (this.model == null) {
+		if (model == null) {
 			return null;
 		}
-		Model[] var1 = new Model[this.model.length];
-		for (int var2 = 0; var2 < this.model.length; var2++) {
-			var1[var2] = Model.load(this.model[var2]);
+		Model[] var2 = new Model[model.length];
+		for (int var3 = 0; var3 < model.length; var3++) {
+			var2[var3] = Model.load(model[var3]);
 		}
-		Model var3;
-		if (var1.length == 1) {
-			var3 = var1[0];
+		Model var4;
+		if (var2.length == 1) {
+			var4 = var2[0];
 		} else {
-			var3 = new Model(var1.length, -643, var1);
+			var4 = new Model(var2.length, var2);
 		}
-		for (int var4 = 0; var4 < 6 && this.recol_s[var4] != 0; var4++) {
-			var3.recolour(this.recol_s[var4], this.recol_d[var4]);
+		for (int var5 = 0; var5 < 6 && recol_s[var5] != 0; var5++) {
+			var4.recolour(recol_s[var5], recol_d[var5]);
 		}
-		return var3;
+		return var4;
 	}
 
 	@ObfuscatedName("lc.b(I)Z")
 	public boolean checkHead() {
-		boolean var1 = true;
-		for (int var2 = 0; var2 < 5; var2++) {
-			if (this.head[var2] != -1 && !Model.requestDownload(this.head[var2])) {
-				var1 = false;
+		boolean var2 = true;
+		for (int var3 = 0; var3 < 5; var3++) {
+			if (head[var3] != -1 && !Model.requestDownload(head[var3])) {
+				var2 = false;
 			}
 		}
-		return var1;
+		return var2;
 	}
 
 	@ObfuscatedName("lc.b(B)Leb;")
 	public Model getHeadNoCheck() {
-		Model[] var1 = new Model[5];
-		int var2 = 0;
-		for (int var3 = 0; var3 < 5; var3++) {
-			if (this.head[var3] != -1) {
-				var1[var2++] = Model.load(this.head[var3]);
+		Model[] var2 = new Model[5];
+		int var3 = 0;
+		for (int var4 = 0; var4 < 5; var4++) {
+			if (head[var4] != -1) {
+				var2[var3++] = Model.load(head[var4]);
 			}
 		}
-		Model var4 = new Model(var2, -643, var1);
-		for (int var5 = 0; var5 < 6 && this.recol_s[var5] != 0; var5++) {
-			var4.recolour(this.recol_s[var5], this.recol_d[var5]);
+		Model var5 = new Model(var3, var2);
+		for (int var6 = 0; var6 < 6 && recol_s[var6] != 0; var6++) {
+			var5.recolour(recol_s[var6], recol_d[var6]);
 		}
-		return var4;
+		return var5;
 	}
 }

@@ -6,12 +6,6 @@ import jagex2.io.Packet;
 @ObfuscatedName("ac")
 public final class Envelope {
 
-	@ObfuscatedName("ac.a")
-	public final int field880 = 1;
-
-	@ObfuscatedName("ac.b")
-	public final boolean field881 = false;
-
 	@ObfuscatedName("ac.c")
 	public int length;
 
@@ -46,47 +40,47 @@ public final class Envelope {
 	public int ticks;
 
 	@ObfuscatedName("ac.a(BLlb;)V")
-	public void load(Packet arg0) {
-		this.form = arg0.g1();
-		this.start = arg0.g4();
-		this.end = arg0.g4();
-		this.loadPoints(arg0);
+	public void load(Packet arg1) {
+		form = arg1.g1();
+		start = arg1.g4();
+		end = arg1.g4();
+		loadPoints(arg1);
 	}
 
 	@ObfuscatedName("ac.a(Llb;I)V")
 	public void loadPoints(Packet arg0) {
-		this.length = arg0.g1();
-		this.shapeDelta = new int[this.length];
-		this.shapePeak = new int[this.length];
-		for (int var2 = 0; var2 < this.length; var2++) {
-			this.shapeDelta[var2] = arg0.g2();
-			this.shapePeak[var2] = arg0.g2();
+		length = arg0.g1();
+		shapeDelta = new int[length];
+		shapePeak = new int[length];
+		for (int var3 = 0; var3 < length; var3++) {
+			shapeDelta[var3] = arg0.g2();
+			shapePeak[var3] = arg0.g2();
 		}
 	}
 
 	@ObfuscatedName("ac.a(I)V")
 	public void genInit() {
-		this.threshold = 0;
-		this.position = 0;
-		this.delta = 0;
-		this.amplitude = 0;
-		this.ticks = 0;
+		threshold = 0;
+		position = 0;
+		delta = 0;
+		amplitude = 0;
+		ticks = 0;
 	}
 
 	@ObfuscatedName("ac.a(BI)I")
-	public int genNext(int arg0) {
-		if (this.ticks >= this.threshold) {
-			this.amplitude = this.shapePeak[this.position++] << 15;
-			if (this.position >= this.length) {
-				this.position = this.length - 1;
+	public int genNext(int arg1) {
+		if (ticks >= threshold) {
+			amplitude = shapePeak[position++] << 15;
+			if (position >= length) {
+				position = length - 1;
 			}
-			this.threshold = (int) ((double) this.shapeDelta[this.position] / 65536.0D * (double) arg0);
-			if (this.threshold > this.ticks) {
-				this.delta = ((this.shapePeak[this.position] << 15) - this.amplitude) / (this.threshold - this.ticks);
+			threshold = (int) ((double) shapeDelta[position] / 65536.0D * (double) arg1);
+			if (threshold > ticks) {
+				delta = ((shapePeak[position] << 15) - amplitude) / (threshold - ticks);
 			}
 		}
-		this.amplitude += this.delta;
-		this.ticks++;
-		return this.amplitude - this.delta >> 15;
+		amplitude += delta;
+		ticks++;
+		return amplitude - delta >> 15;
 	}
 }

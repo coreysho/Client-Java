@@ -5,9 +5,6 @@ import deob.ObfuscatedName;
 @ObfuscatedName("u")
 public class Linkable {
 
-	@ObfuscatedName("u.a")
-	public final int field361 = 587;
-
 	@ObfuscatedName("u.b")
 	public long key;
 
@@ -19,11 +16,11 @@ public class Linkable {
 
 	@ObfuscatedName("u.a()V")
 	public final void unlink() {
-		if (this.prev != null) {
-			this.prev.next = this.next;
-			this.next.prev = this.prev;
-			this.next = null;
-			this.prev = null;
+		if (prev != null) {
+			prev.next = next;
+			next.prev = prev;
+			next = null;
+			prev = null;
 		}
 	}
 }

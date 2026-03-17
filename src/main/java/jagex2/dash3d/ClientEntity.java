@@ -7,7 +7,7 @@ import jagex2.config.SeqType;
 public class ClientEntity extends ModelSource {
 
 	@ObfuscatedName("y.m")
-	public final boolean field396 = true;
+	public boolean field396 = true;
 
 	@ObfuscatedName("y.n")
 	public int field397;
@@ -175,89 +175,95 @@ public class ClientEntity extends ModelSource {
 	public int field435;
 
 	@ObfuscatedName("y.a(IZZI)V")
-	public final void method110(int arg0, boolean arg1, int arg2) {
-		if (this.field425 != -1 && SeqType.list[this.field425].postanim_move == 1) {
-			this.field425 = -1;
+	public final void method110(int arg0, boolean arg1, boolean arg2, int arg3) {
+		if (field425 != -1 && SeqType.list[field425].postanim_move == 1) {
+			field425 = -1;
 		}
 		if (!arg1) {
-			int var4 = arg0 - this.field447[0];
-			int var5 = arg2 - this.field448[0];
-			if (var4 >= -8 && var4 <= 8 && var5 >= -8 && var5 <= 8) {
-				if (this.field446 < 9) {
-					this.field446++;
+			int var5 = arg0 - field447[0];
+			int var6 = arg3 - field448[0];
+			if (var5 >= -8 && var5 <= 8 && var6 >= -8 && var6 <= 8) {
+				if (field446 < 9) {
+					field446++;
 				}
-				for (int var6 = this.field446; var6 > 0; var6--) {
-					this.field447[var6] = this.field447[var6 - 1];
-					this.field448[var6] = this.field448[var6 - 1];
-					this.field449[var6] = this.field449[var6 - 1];
+				for (int var7 = field446; var7 > 0; var7--) {
+					field447[var7] = field447[var7 - 1];
+					field448[var7] = field448[var7 - 1];
+					field449[var7] = field449[var7 - 1];
 				}
-				this.field447[0] = arg0;
-				this.field448[0] = arg2;
-				this.field449[0] = false;
+				field447[0] = arg0;
+				field448[0] = arg3;
+				field449[0] = false;
 				return;
 			}
 		}
-		this.field446 = 0;
-		this.field451 = 0;
-		this.field450 = 0;
-		this.field447[0] = arg0;
-		this.field448[0] = arg2;
-		this.field397 = this.field447[0] * 128 + this.field401 * 64;
-		this.field398 = this.field448[0] * 128 + this.field401 * 64;
+		field446 = 0;
+		field451 = 0;
+		field450 = 0;
+		field447[0] = arg0;
+		if (arg2) {
+			field396 = !field396;
+		}
+		field448[0] = arg3;
+		field397 = field447[0] * 128 + field401 * 64;
+		field398 = field448[0] * 128 + field401 * 64;
 	}
 
 	@ObfuscatedName("y.a(ZIZ)V")
-	public final void method111(int arg0, boolean arg1) {
-		int var3 = this.field447[0];
-		int var4 = this.field448[0];
-		if (arg0 == 0) {
-			var3--;
+	public final void method111(boolean arg0, int arg1, boolean arg2) {
+		int var4 = field447[0];
+		int var5 = field448[0];
+		if (arg1 == 0) {
+			var4--;
+			var5++;
+		}
+		if (arg1 == 1) {
+			var5++;
+		}
+		if (arg1 == 2) {
 			var4++;
+			var5++;
 		}
-		if (arg0 == 1) {
-			var4++;
-		}
-		if (arg0 == 2) {
-			var3++;
-			var4++;
-		}
-		if (arg0 == 3) {
-			var3--;
-		}
-		if (arg0 == 4) {
-			var3++;
-		}
-		if (arg0 == 5) {
-			var3--;
+		if (arg1 == 3) {
 			var4--;
 		}
-		if (arg0 == 6) {
+		if (arg1 == 4) {
+			var4++;
+		}
+		if (arg1 == 5) {
 			var4--;
+			var5--;
 		}
-		if (arg0 == 7) {
-			var3++;
-			var4--;
+		if (arg1 == 6) {
+			var5--;
 		}
-		if (this.field425 != -1 && SeqType.list[this.field425].postanim_move == 1) {
-			this.field425 = -1;
+		if (arg1 == 7) {
+			var4++;
+			var5--;
 		}
-		if (this.field446 < 9) {
-			this.field446++;
+		if (field425 != -1 && SeqType.list[field425].postanim_move == 1) {
+			field425 = -1;
 		}
-		for (int var5 = this.field446; var5 > 0; var5--) {
-			this.field447[var5] = this.field447[var5 - 1];
-			this.field448[var5] = this.field448[var5 - 1];
-			this.field449[var5] = this.field449[var5 - 1];
+		if (field446 < 9) {
+			field446++;
 		}
-		this.field447[0] = var3;
-		this.field448[0] = var4;
-		this.field449[0] = arg1;
+		for (int var6 = field446; var6 > 0; var6--) {
+			field447[var6] = field447[var6 - 1];
+			field448[var6] = field448[var6 - 1];
+			field449[var6] = field449[var6 - 1];
+		}
+		field447[0] = var4;
+		if (!arg0) {
+			field396 = !field396;
+		}
+		field448[0] = var5;
+		field449[0] = arg2;
 	}
 
 	@ObfuscatedName("y.b(Z)V")
 	public final void method112() {
-		this.field446 = 0;
-		this.field451 = 0;
+		field446 = 0;
+		field451 = 0;
 	}
 
 	@ObfuscatedName("y.a(I)Z")
@@ -266,12 +272,12 @@ public class ClientEntity extends ModelSource {
 	}
 
 	@ObfuscatedName("y.a(IBII)V")
-	public final void method114(int arg0, int arg1, int arg2) {
-		for (int var4 = 0; var4 < 4; var4++) {
-			if (this.field415[var4] <= arg0) {
-				this.field413[var4] = arg1;
-				this.field414[var4] = arg2;
-				this.field415[var4] = arg0 + 70;
+	public final void method114(int arg0, int arg2, int arg3) {
+		for (int var5 = 0; var5 < 4; var5++) {
+			if (field415[var5] <= arg0) {
+				field413[var5] = arg2;
+				field414[var5] = arg3;
+				field415[var5] = arg0 + 70;
 				return;
 			}
 		}

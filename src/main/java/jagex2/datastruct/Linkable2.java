@@ -13,11 +13,11 @@ public class Linkable2 extends Linkable {
 
 	@ObfuscatedName("w.b()V")
 	public final void unlink2() {
-		if (this.prev2 != null) {
-			this.prev2.next2 = this.next2;
-			this.next2.prev2 = this.prev2;
-			this.next2 = null;
-			this.prev2 = null;
+		if (prev2 != null) {
+			prev2.next2 = next2;
+			next2.prev2 = prev2;
+			next2 = null;
+			prev2 = null;
 		}
 	}
 }

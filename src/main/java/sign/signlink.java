@@ -1,13 +1,7 @@
 package sign;
 
 import java.applet.Applet;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.URL;
@@ -48,7 +42,7 @@ public final class signlink implements Runnable {
 
 	public static String errorname = "";
 
-	public static int clientversion = 274;
+	public static int clientversion;
 
 	public static int midifade;
 

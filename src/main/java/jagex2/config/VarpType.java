@@ -7,12 +7,6 @@ import jagex2.io.Packet;
 @ObfuscatedName("rc")
 public final class VarpType {
 
-	@ObfuscatedName("rc.a")
-	public static final int field1175 = -643;
-
-	@ObfuscatedName("rc.b")
-	public static final byte field1176 = 6;
-
 	@ObfuscatedName("rc.c")
 	public static int numDefinitions;
 
@@ -59,64 +53,60 @@ public final class VarpType {
 	public int field1191 = -1;
 
 	@ObfuscatedName("rc.a(ZLxb;)V")
-	public static void init(JagFile arg0) {
-		Packet var1 = new Packet(arg0.read("varp.dat", null), (byte) 1);
+	public static void init(JagFile arg1) {
+		Packet var2 = new Packet(arg1.read("varp.dat", null));
 		field1179 = 0;
-		numDefinitions = var1.g2();
+		numDefinitions = var2.g2();
 		if (list == null) {
 			list = new VarpType[numDefinitions];
 		}
 		if (field1180 == null) {
 			field1180 = new int[numDefinitions];
 		}
-		for (int var2 = 0; var2 < numDefinitions; var2++) {
-			if (list[var2] == null) {
-				list[var2] = new VarpType();
+		for (int var3 = 0; var3 < numDefinitions; var3++) {
+			if (list[var3] == null) {
+				list[var3] = new VarpType();
 			}
-			list[var2].decode(var1, field1176, var2);
+			list[var3].decode(var2, var3);
 		}
-		if (var1.data != var1.pos.length) {
+		if (var2.data != var2.pos.length) {
 			System.out.println("varptype load mismatch");
 		}
 	}
 
 	@ObfuscatedName("rc.a(Llb;BI)V")
-	public void decode(Packet arg0, byte arg1, int arg2) {
-		if (arg1 != 6) {
-			for (int var4 = 1; var4 > 0; var4++) {
-			}
-		}
+	public void decode(Packet arg0, int arg2) {
 		while (true) {
 			int var5 = arg0.g1();
 			if (var5 == 0) {
 				return;
 			}
 			if (var5 == 1) {
-				this.field1182 = arg0.g1();
+				field1182 = arg0.g1();
 			} else if (var5 == 2) {
-				this.field1183 = arg0.g1();
+				field1183 = arg0.g1();
 			} else if (var5 == 3) {
-				this.field1184 = true;
+				field1184 = true;
 				field1180[field1179++] = arg2;
 			} else if (var5 == 4) {
-				this.field1185 = false;
+				field1185 = false;
 			} else if (var5 == 5) {
-				this.clientcode = arg0.g2();
+				clientcode = arg0.g2();
 			} else if (var5 == 6) {
-				this.field1187 = true;
+				field1187 = true;
 			} else if (var5 == 7) {
-				this.field1188 = arg0.g4();
+				field1188 = arg0.g4();
 			} else if (var5 == 8) {
-				this.field1189 = 1;
-				this.field1190 = true;
+				field1189 = 1;
+				field1190 = true;
 			} else if (var5 == 10) {
-				this.field1181 = arg0.gjstr();
+				field1181 = arg0.gjstr();
 			} else if (var5 == 11) {
-				this.field1190 = true;
+				field1190 = true;
 			} else if (var5 == 12) {
-				this.field1191 = arg0.g4();
+				field1191 = arg0.g4();
 			} else if (var5 == 13) {
-				this.field1189 = 2;
+				field1189 = 2;
 			} else {
 				System.out.println("Error unrecognised config code: " + var5);
 			}

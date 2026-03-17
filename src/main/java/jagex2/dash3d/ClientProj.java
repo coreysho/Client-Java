@@ -6,12 +6,6 @@ import jagex2.config.SpotType;
 @ObfuscatedName("db")
 public final class ClientProj extends ModelSource {
 
-	@ObfuscatedName("db.m")
-	public int field496;
-
-	@ObfuscatedName("db.n")
-	public boolean field497 = false;
-
 	@ObfuscatedName("db.o")
 	public final SpotType field498;
 
@@ -84,62 +78,59 @@ public final class ClientProj extends ModelSource {
 	@ObfuscatedName("db.L")
 	public int field521;
 
-	public ClientProj(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, boolean arg8, int arg9, int arg10, int arg11) {
-		this.field498 = SpotType.list[arg7];
-		this.field499 = arg6;
-		this.field500 = arg0;
-		this.field501 = arg11;
-		this.field502 = arg9;
-		this.field504 = arg5;
-		this.field505 = arg3;
-		this.field506 = arg4;
-		this.field507 = arg1;
-		this.field508 = arg10;
-		this.field503 = arg2;
-		this.field509 = false;
-		if (!arg8) {
-			this.field497 = !this.field497;
-		}
+	public ClientProj(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg9, int arg10, int arg11) {
+		field498 = SpotType.list[arg7];
+		field499 = arg6;
+		field500 = arg0;
+		field501 = arg11;
+		field502 = arg9;
+		field504 = arg5;
+		field505 = arg3;
+		field506 = arg4;
+		field507 = arg1;
+		field508 = arg10;
+		field503 = arg2;
+		field509 = false;
 	}
 
 	@ObfuscatedName("db.a(IIIBI)V")
-	public void method119(int arg0, int arg1, int arg2, int arg3) {
-		if (!this.field509) {
-			double var5 = (double) (arg2 - this.field500);
-			double var7 = (double) (arg3 - this.field501);
-			double var9 = Math.sqrt(var5 * var5 + var7 * var7);
-			this.field510 = (double) this.field500 + var5 * (double) this.field507 / var9;
-			this.field511 = (double) this.field501 + var7 * (double) this.field507 / var9;
-			this.field512 = this.field502;
+	public void method119(int arg0, int arg1, int arg2, int arg4) {
+		if (!field509) {
+			double var6 = (double) (arg2 - field500);
+			double var8 = (double) (arg4 - field501);
+			double var10 = Math.sqrt(var6 * var6 + var8 * var8);
+			field510 = (double) field500 + var6 * (double) field507 / var10;
+			field511 = (double) field501 + var8 * (double) field507 / var10;
+			field512 = field502;
 		}
-		double var11 = (double) (this.field505 + 1 - arg0);
-		this.field513 = ((double) arg2 - this.field510) / var11;
-		this.field514 = ((double) arg3 - this.field511) / var11;
-		this.field515 = Math.sqrt(this.field513 * this.field513 + this.field514 * this.field514);
-		if (!this.field509) {
-			this.field516 = -this.field515 * Math.tan((double) this.field506 * 0.02454369D);
+		double var12 = (double) (field505 + 1 - arg0);
+		field513 = ((double) arg2 - field510) / var12;
+		field514 = ((double) arg4 - field511) / var12;
+		field515 = Math.sqrt(field513 * field513 + field514 * field514);
+		if (!field509) {
+			field516 = -field515 * Math.tan((double) field506 * 0.02454369D);
 		}
-		this.field517 = ((double) arg1 - this.field512 - this.field516 * var11) * 2.0D / (var11 * var11);
+		field517 = ((double) arg1 - field512 - field516 * var12) * 2.0D / (var12 * var12);
 	}
 
 	@ObfuscatedName("db.a(IZ)V")
 	public void method120(int arg0) {
-		this.field509 = true;
-		this.field510 += this.field513 * (double) arg0;
-		this.field511 += this.field514 * (double) arg0;
-		this.field512 += this.field516 * (double) arg0 + this.field517 * 0.5D * (double) arg0 * (double) arg0;
-		this.field516 += this.field517 * (double) arg0;
-		this.field518 = (int) (Math.atan2(this.field513, this.field514) * 325.949D) + 1024 & 0x7FF;
-		this.field519 = (int) (Math.atan2(this.field516, this.field515) * 325.949D) & 0x7FF;
-		if (this.field498.seq == null) {
+		field509 = true;
+		field510 += field513 * (double) arg0;
+		field511 += field514 * (double) arg0;
+		field512 += field516 * (double) arg0 + field517 * 0.5D * (double) arg0 * (double) arg0;
+		field516 += field517 * (double) arg0;
+		field518 = (int) (Math.atan2(field513, field514) * 325.949D) + 1024 & 0x7FF;
+		field519 = (int) (Math.atan2(field516, field515) * 325.949D) & 0x7FF;
+		if (field498.seq == null) {
 			return;
 		}
-		this.field521 += arg0;
-		while (this.field521 > this.field498.seq.getDelay(this.field520)) {
-			this.field521 -= this.field498.seq.getDelay(this.field520) + 1;
-			this.field520++;
-			if (this.field520 >= this.field498.seq.numFrames) {
-				this.field520 = 0;
+		field521 += arg0;
+		while (field521 > field498.seq.getDelay(field520)) {
+			field521 -= field498.seq.getDelay(field520) + 1;
+			field520++;
+			if (field520 >= field498.seq.numFrames) {
+				field520 = 0;
 			}
 		}
 	}
@@ -147,26 +138,26 @@ public final class ClientProj extends ModelSource {
 	@ObfuscatedName("db.a(Z)Leb;")
 	@Override
 	public Model getTempModel() {
-		Model var1 = this.field498.getTempModel2();
-		if (var1 == null) {
+		Model var2 = field498.getTempModel2();
+		if (var2 == null) {
 			return null;
 		}
-		int var2 = -1;
-		if (this.field498.seq != null) {
-			var2 = this.field498.seq.frames[this.field520];
+		int var3 = -1;
+		if (field498.seq != null) {
+			var3 = field498.seq.frames[field520];
 		}
-		Model var3 = new Model(true, AnimFrame.animateTransparencies(var2), var1, true, false);
-		if (var2 != -1) {
-			var3.prepareAnim();
-			var3.animate(var2);
-			var3.labelFaces = null;
-			var3.labelVertices = null;
+		Model var4 = new Model(true, AnimFrame.animateTransparencies(var3), var2, false);
+		if (var3 != -1) {
+			var4.prepareAnim();
+			var4.animate(var3);
+			var4.labelFaces = null;
+			var4.labelVertices = null;
 		}
-		if (this.field498.resizeh != 128 || this.field498.resizev != 128) {
-			var3.resize(this.field498.resizeh, this.field498.resizeh, this.field498.resizev);
+		if (field498.resizeh != 128 || field498.resizev != 128) {
+			var4.resize(field498.resizeh, field498.resizeh, field498.resizev);
 		}
-		var3.rotateXAxis(this.field519);
-		var3.calculateNormals(this.field498.ambient + 64, this.field498.contrast + 850, -30, -50, -30, true);
-		return var3;
+		var4.rotateXAxis(field519);
+		var4.calculateNormals(field498.ambient + 64, field498.contrast + 850, -30, -50, -30, true);
+		return var4;
 	}
 }

@@ -9,10 +9,10 @@ public final class Isaac {
 	public int count;
 
 	@ObfuscatedName("wb.b")
-	public final int[] rsl = new int[256];
+	public final int[] rsl;
 
 	@ObfuscatedName("wb.c")
-	public final int[] mem = new int[256];
+	public final int[] mem;
 
 	@ObfuscatedName("wb.d")
 	public int a;
@@ -23,44 +23,46 @@ public final class Isaac {
 	@ObfuscatedName("wb.f")
 	public int c;
 
-	public Isaac(boolean arg0, int[] arg1) {
+	public Isaac(int[] arg1) {
+		mem = new int[256];
+		rsl = new int[256];
 		for (int var3 = 0; var3 < arg1.length; var3++) {
-			this.rsl[var3] = arg1[var3];
+			rsl[var3] = arg1[var3];
 		}
-		this.init();
+		init();
 	}
 
 	@ObfuscatedName("wb.a()I")
 	public int takeNextValue() {
-		if (this.count-- == 0) {
-			this.generate();
-			this.count = 255;
+		if (count-- == 0) {
+			generate();
+			count = 255;
 		}
-		return this.rsl[this.count];
+		return rsl[count];
 	}
 
 	@ObfuscatedName("wb.b()V")
 	public void generate() {
-		this.b += ++this.c;
+		b += ++c;
 		for (int var1 = 0; var1 < 256; var1++) {
-			int var2 = this.mem[var1];
+			int var2 = mem[var1];
 			switch(var1 & 0x3) {
 				case 0:
-					this.a ^= this.a << 13;
+					a ^= a << 13;
 					break;
 				case 1:
-					this.a ^= this.a >>> 6;
+					a ^= a >>> 6;
 					break;
 				case 2:
-					this.a ^= this.a << 2;
+					a ^= a << 2;
 					break;
 				case 3:
-					this.a ^= this.a >>> 16;
+					a ^= a >>> 16;
 			}
-			this.a += this.mem[var1 + 128 & 0xFF];
+			a += mem[var1 + 128 & 0xFF];
 			int var3;
-			this.mem[var1] = var3 = this.mem[var2 >> 2 & 0xFF] + this.a + this.b;
-			this.rsl[var1] = this.b = this.mem[var3 >> 8 >> 2 & 0xFF] + var2;
+			mem[var1] = var3 = mem[var2 >> 2 & 0xFF] + a + b;
+			rsl[var1] = b = mem[var3 >> 8 >> 2 & 0xFF] + var2;
 		}
 	}
 
@@ -101,14 +103,14 @@ public final class Isaac {
 			var8 = var23 + var7;
 		}
 		for (int var26 = 0; var26 < 256; var26 += 8) {
-			int var27 = var8 + this.rsl[var26];
-			int var28 = var7 + this.rsl[var26 + 1];
-			int var29 = var6 + this.rsl[var26 + 2];
-			int var30 = var5 + this.rsl[var26 + 3];
-			int var31 = var4 + this.rsl[var26 + 4];
-			int var32 = var3 + this.rsl[var26 + 5];
-			int var33 = var2 + this.rsl[var26 + 6];
-			int var34 = var1 + this.rsl[var26 + 7];
+			int var27 = var8 + rsl[var26];
+			int var28 = var7 + rsl[var26 + 1];
+			int var29 = var6 + rsl[var26 + 2];
+			int var30 = var5 + rsl[var26 + 3];
+			int var31 = var4 + rsl[var26 + 4];
+			int var32 = var3 + rsl[var26 + 5];
+			int var33 = var2 + rsl[var26 + 6];
+			int var34 = var1 + rsl[var26 + 7];
 			int var35 = var27 ^ var28 << 11;
 			int var36 = var30 + var35;
 			int var37 = var28 + var29;
@@ -133,24 +135,24 @@ public final class Isaac {
 			var1 = var50 ^ var48 >>> 9;
 			var6 = var41 + var1;
 			var8 = var48 + var7;
-			this.mem[var26] = var8;
-			this.mem[var26 + 1] = var7;
-			this.mem[var26 + 2] = var6;
-			this.mem[var26 + 3] = var5;
-			this.mem[var26 + 4] = var4;
-			this.mem[var26 + 5] = var3;
-			this.mem[var26 + 6] = var2;
-			this.mem[var26 + 7] = var1;
+			mem[var26] = var8;
+			mem[var26 + 1] = var7;
+			mem[var26 + 2] = var6;
+			mem[var26 + 3] = var5;
+			mem[var26 + 4] = var4;
+			mem[var26 + 5] = var3;
+			mem[var26 + 6] = var2;
+			mem[var26 + 7] = var1;
 		}
 		for (int var51 = 0; var51 < 256; var51 += 8) {
-			int var52 = var8 + this.mem[var51];
-			int var53 = var7 + this.mem[var51 + 1];
-			int var54 = var6 + this.mem[var51 + 2];
-			int var55 = var5 + this.mem[var51 + 3];
-			int var56 = var4 + this.mem[var51 + 4];
-			int var57 = var3 + this.mem[var51 + 5];
-			int var58 = var2 + this.mem[var51 + 6];
-			int var59 = var1 + this.mem[var51 + 7];
+			int var52 = var8 + mem[var51];
+			int var53 = var7 + mem[var51 + 1];
+			int var54 = var6 + mem[var51 + 2];
+			int var55 = var5 + mem[var51 + 3];
+			int var56 = var4 + mem[var51 + 4];
+			int var57 = var3 + mem[var51 + 5];
+			int var58 = var2 + mem[var51 + 6];
+			int var59 = var1 + mem[var51 + 7];
 			int var60 = var52 ^ var53 << 11;
 			int var61 = var55 + var60;
 			int var62 = var53 + var54;
@@ -175,16 +177,16 @@ public final class Isaac {
 			var1 = var75 ^ var73 >>> 9;
 			var6 = var66 + var1;
 			var8 = var73 + var7;
-			this.mem[var51] = var8;
-			this.mem[var51 + 1] = var7;
-			this.mem[var51 + 2] = var6;
-			this.mem[var51 + 3] = var5;
-			this.mem[var51 + 4] = var4;
-			this.mem[var51 + 5] = var3;
-			this.mem[var51 + 6] = var2;
-			this.mem[var51 + 7] = var1;
+			mem[var51] = var8;
+			mem[var51 + 1] = var7;
+			mem[var51 + 2] = var6;
+			mem[var51 + 3] = var5;
+			mem[var51 + 4] = var4;
+			mem[var51 + 5] = var3;
+			mem[var51 + 6] = var2;
+			mem[var51 + 7] = var1;
 		}
-		this.generate();
-		this.count = 256;
+		generate();
+		count = 256;
 	}
 }

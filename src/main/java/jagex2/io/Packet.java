@@ -9,39 +9,6 @@ import java.math.BigInteger;
 @ObfuscatedName("lb")
 public final class Packet extends Linkable2 {
 
-	@ObfuscatedName("lb.i")
-	public final boolean field697 = true;
-
-	@ObfuscatedName("lb.j")
-	public int field698 = 9;
-
-	@ObfuscatedName("lb.k")
-	public final int field699 = -442;
-
-	@ObfuscatedName("lb.l")
-	public final int field700 = -41441;
-
-	@ObfuscatedName("lb.m")
-	public final boolean field701 = true;
-
-	@ObfuscatedName("lb.n")
-	public final int field702 = 368;
-
-	@ObfuscatedName("lb.o")
-	public final boolean field703 = true;
-
-	@ObfuscatedName("lb.p")
-	public final boolean field704 = true;
-
-	@ObfuscatedName("lb.q")
-	public final boolean field705 = false;
-
-	@ObfuscatedName("lb.r")
-	public final boolean field706 = false;
-
-	@ObfuscatedName("lb.s")
-	public final int field707 = -186;
-
 	@ObfuscatedName("lb.t")
 	public byte[] pos;
 
@@ -94,13 +61,13 @@ public final class Packet extends Linkable2 {
 			crctable[var0] = var1;
 		}
 		bitmask = new int[] { 0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, 2047, 4095, 8191, 16383, 32767, 65535, 131071, 262143, 524287, 1048575, 2097151, 4194303, 8388607, 16777215, 33554431, 67108863, 134217727, 268435455, 536870911, 1073741823, Integer.MAX_VALUE, -1 };
-		cacheMin = new LinkList(-822);
-		cacheMid = new LinkList(-822);
-		cacheMax = new LinkList(-822);
+		cacheMin = new LinkList();
+		cacheMid = new LinkList();
+		cacheMax = new LinkList();
 	}
 
 	@ObfuscatedName("lb.a(II)Llb;")
-	public static Packet alloc(int arg0, int arg1) {
+	public static Packet alloc(int arg1) {
 		LinkList var2 = cacheMid;
 		synchronized (cacheMid) {
 			Packet var3 = null;
@@ -119,10 +86,7 @@ public final class Packet extends Linkable2 {
 				return var3;
 			}
 		}
-		Packet var4 = new Packet((byte) 3);
-		if (arg0 != -7939) {
-			throw new NullPointerException();
-		}
+		Packet var4 = new Packet();
 		var4.data = 0;
 		if (arg1 == 0) {
 			var4.pos = new byte[100];
@@ -134,115 +98,110 @@ public final class Packet extends Linkable2 {
 		return var4;
 	}
 
-	public Packet(byte arg0) {
-		if (arg0 != 3) {
-			throw new NullPointerException();
-		}
+	public Packet() {
 	}
 
-	public Packet(byte[] arg0, byte arg1) {
-		this.pos = arg0;
-		this.data = 0;
+	public Packet(byte[] arg0) {
+		pos = arg0;
+		data = 0;
 	}
 
 	@ObfuscatedName("lb.a(BI)V")
-	public void p1Enc(int arg0) {
-		this.pos[this.data++] = (byte) (arg0 + this.random.takeNextValue());
+	public void p1Enc(int arg1) {
+		pos[data++] = (byte) (arg1 + random.takeNextValue());
 	}
 
 	@ObfuscatedName("lb.a(I)V")
 	public void p1(int arg0) {
-		this.pos[this.data++] = (byte) arg0;
+		pos[data++] = (byte) arg0;
 	}
 
 	@ObfuscatedName("lb.b(I)V")
 	public void p2(int arg0) {
-		this.pos[this.data++] = (byte) (arg0 >> 8);
-		this.pos[this.data++] = (byte) arg0;
+		pos[data++] = (byte) (arg0 >> 8);
+		pos[data++] = (byte) arg0;
 	}
 
 	@ObfuscatedName("lb.a(ZI)V")
-	public void ip2(int arg0) {
-		this.pos[this.data++] = (byte) arg0;
-		this.pos[this.data++] = 0;
+	public void ip2(int arg1) {
+		pos[data++] = (byte) arg1;
+		pos[data++] = (byte) (arg1 >> 8);
 	}
 
 	@ObfuscatedName("lb.c(I)V")
 	public void p3(int arg0) {
-		this.pos[this.data++] = (byte) (arg0 >> 16);
-		this.pos[this.data++] = (byte) (arg0 >> 8);
-		this.pos[this.data++] = (byte) arg0;
+		pos[data++] = (byte) (arg0 >> 16);
+		pos[data++] = (byte) (arg0 >> 8);
+		pos[data++] = (byte) arg0;
 	}
 
 	@ObfuscatedName("lb.d(I)V")
 	public void p4(int arg0) {
-		this.pos[this.data++] = (byte) (arg0 >> 24);
-		this.pos[this.data++] = (byte) (arg0 >> 16);
-		this.pos[this.data++] = (byte) (arg0 >> 8);
-		this.pos[this.data++] = (byte) arg0;
+		pos[data++] = (byte) (arg0 >> 24);
+		pos[data++] = (byte) (arg0 >> 16);
+		pos[data++] = (byte) (arg0 >> 8);
+		pos[data++] = (byte) arg0;
 	}
 
 	@ObfuscatedName("lb.b(ZI)V")
-	public void ip4(int arg0) {
-		this.pos[this.data++] = (byte) arg0;
-		this.pos[this.data++] = (byte) (arg0 >> 8);
-		this.pos[this.data++] = (byte) (arg0 >> 16);
-		this.pos[this.data++] = (byte) (arg0 >> 24);
+	public void ip4(int arg1) {
+		pos[data++] = (byte) arg1;
+		pos[data++] = (byte) (arg1 >> 8);
+		pos[data++] = (byte) (arg1 >> 16);
+		pos[data++] = (byte) (arg1 >> 24);
 	}
 
 	@ObfuscatedName("lb.a(JI)V")
 	public void p8(long arg0) {
-		this.pos[this.data++] = (byte) (arg0 >> 56);
-		this.pos[this.data++] = (byte) (arg0 >> 48);
-		this.pos[this.data++] = (byte) (arg0 >> 40);
-		this.pos[this.data++] = (byte) (arg0 >> 32);
-		this.pos[this.data++] = (byte) (arg0 >> 24);
-		this.pos[this.data++] = (byte) (arg0 >> 16);
-		this.pos[this.data++] = (byte) (arg0 >> 8);
-		this.pos[this.data++] = (byte) arg0;
+		pos[data++] = (byte) (arg0 >> 56);
+		pos[data++] = (byte) (arg0 >> 48);
+		pos[data++] = (byte) (arg0 >> 40);
+		pos[data++] = (byte) (arg0 >> 32);
+		pos[data++] = (byte) (arg0 >> 24);
+		pos[data++] = (byte) (arg0 >> 16);
+		pos[data++] = (byte) (arg0 >> 8);
+		pos[data++] = (byte) arg0;
 	}
 
 	@ObfuscatedName("lb.a(Ljava/lang/String;)V")
 	public void pjstr(String arg0) {
-		arg0.getBytes(0, arg0.length(), this.pos, this.data);
-		this.data += arg0.length();
-		this.pos[this.data++] = 10;
+		arg0.getBytes(0, arg0.length(), pos, data);
+		data += arg0.length();
+		pos[data++] = 10;
 	}
 
 	@ObfuscatedName("lb.a([BZII)V")
-	public void pdata(byte[] arg0, int arg1) {
-		for (int var3 = 0; var3 < arg1; var3++) {
-			this.pos[this.data++] = arg0[var3];
+	public void pdata(byte[] arg0, int arg2, int arg3) {
+		for (int var5 = arg2; var5 < arg2 + arg3; var5++) {
+			pos[data++] = arg0[var5];
 		}
 	}
 
 	@ObfuscatedName("lb.b(II)V")
-	public void psize1(int arg0, int arg1) {
-		if (arg1 == 0) {
-			this.pos[this.data - arg0 - 1] = (byte) arg0;
-		}
+	public void psize1(int arg0) {
+		pos[data - arg0 - 1] = (byte) arg0;
 	}
 
 	@ObfuscatedName("lb.c()I")
 	public int g1() {
-		return this.pos[this.data++] & 0xFF;
+		return pos[data++] & 0xFF;
 	}
 
 	@ObfuscatedName("lb.d()B")
 	public byte g1b() {
-		return this.pos[this.data++];
+		return pos[data++];
 	}
 
 	@ObfuscatedName("lb.e()I")
 	public int g2() {
-		this.data += 2;
-		return ((this.pos[this.data - 2] & 0xFF) << 8) + (this.pos[this.data - 1] & 0xFF);
+		data += 2;
+		return ((pos[data - 2] & 0xFF) << 8) + (pos[data - 1] & 0xFF);
 	}
 
 	@ObfuscatedName("lb.f()I")
 	public int g2b() {
-		this.data += 2;
-		int var1 = ((this.pos[this.data - 2] & 0xFF) << 8) + (this.pos[this.data - 1] & 0xFF);
+		data += 2;
+		int var1 = ((pos[data - 2] & 0xFF) << 8) + (pos[data - 1] & 0xFF);
 		if (var1 > 32767) {
 			var1 -= 65536;
 		}
@@ -251,106 +210,103 @@ public final class Packet extends Linkable2 {
 
 	@ObfuscatedName("lb.g()I")
 	public int g3() {
-		this.data += 3;
-		return ((this.pos[this.data - 3] & 0xFF) << 16) + ((this.pos[this.data - 2] & 0xFF) << 8) + (this.pos[this.data - 1] & 0xFF);
+		data += 3;
+		return ((pos[data - 3] & 0xFF) << 16) + ((pos[data - 2] & 0xFF) << 8) + (pos[data - 1] & 0xFF);
 	}
 
 	@ObfuscatedName("lb.h()I")
 	public int g4() {
-		this.data += 4;
-		return ((this.pos[this.data - 4] & 0xFF) << 24) + ((this.pos[this.data - 3] & 0xFF) << 16) + ((this.pos[this.data - 2] & 0xFF) << 8) + (this.pos[this.data - 1] & 0xFF);
+		data += 4;
+		return ((pos[data - 4] & 0xFF) << 24) + ((pos[data - 3] & 0xFF) << 16) + ((pos[data - 2] & 0xFF) << 8) + (pos[data - 1] & 0xFF);
 	}
 
 	@ObfuscatedName("lb.e(I)J")
 	public long g8() {
-		long var1 = (long) this.g4() & 0xFFFFFFFFL;
-		long var3 = (long) this.g4() & 0xFFFFFFFFL;
-		return (var1 << 32) + var3;
+		long var2 = (long) g4() & 0xFFFFFFFFL;
+		long var4 = (long) g4() & 0xFFFFFFFFL;
+		return (var2 << 32) + var4;
 	}
 
 	@ObfuscatedName("lb.i()Ljava/lang/String;")
 	public String gjstr() {
-		int var1 = this.data;
-		while (this.pos[this.data++] != 10) {
+		int var1 = data;
+		while (pos[data++] != 10) {
 		}
-		return new String(this.pos, var1, this.data - var1 - 1);
+		return new String(pos, var1, data - var1 - 1);
 	}
 
 	@ObfuscatedName("lb.f(I)[B")
-	public byte[] gjstrraw(int arg0) {
-		int var2 = this.data;
-		while (this.pos[this.data++] != 10) {
+	public byte[] gjstrraw() {
+		int var2 = data;
+		while (pos[data++] != 10) {
 		}
-		byte[] var3 = new byte[this.data - var2 - 1];
-		if (arg0 != -32952) {
-			this.field698 = 127;
-		}
-		for (int var4 = var2; var4 < this.data - 1; var4++) {
-			var3[var4 - var2] = this.pos[var4];
+		byte[] var3 = new byte[data - var2 - 1];
+		for (int var4 = var2; var4 < data - 1; var4++) {
+			var3[var4 - var2] = pos[var4];
 		}
 		return var3;
 	}
 
 	@ObfuscatedName("lb.a(I[BII)V")
-	public void gdata(int arg0, byte[] arg1) {
-		for (int var3 = 0; var3 < arg0; var3++) {
-			arg1[var3] = this.pos[this.data++];
+	public void gdata(int arg0, byte[] arg1, int arg2) {
+		for (int var6 = arg2; var6 < arg2 + arg0; var6++) {
+			arg1[var6] = pos[data++];
 		}
 	}
 
 	@ObfuscatedName("lb.a(B)V")
 	public void gBitStart() {
-		this.field710 = this.data * 8;
+		field710 = data * 8;
 	}
 
 	@ObfuscatedName("lb.a(IB)I")
 	public int gBit(int arg0) {
-		int var2 = this.field710 >> 3;
-		int var3 = 8 - (this.field710 & 0x7);
-		int var4 = 0;
-		this.field710 += arg0;
-		while (arg0 > var3) {
-			var4 += (this.pos[var2++] & bitmask[var3]) << arg0 - var3;
-			arg0 -= var3;
-			var3 = 8;
+		int var3 = field710 >> 3;
+		int var4 = 8 - (field710 & 0x7);
+		int var5 = 0;
+		field710 += arg0;
+		while (arg0 > var4) {
+			var5 += (pos[var3++] & bitmask[var4]) << arg0 - var4;
+			arg0 -= var4;
+			var4 = 8;
 		}
-		int var5;
-		if (arg0 == var3) {
-			var5 = var4 + (this.pos[var2] & bitmask[var3]);
+		int var6;
+		if (arg0 == var4) {
+			var6 = var5 + (pos[var3] & bitmask[var4]);
 		} else {
-			var5 = var4 + (this.pos[var2] >> var3 - arg0 & bitmask[arg0]);
+			var6 = var5 + (pos[var3] >> var4 - arg0 & bitmask[arg0]);
 		}
-		return var5;
+		return var6;
 	}
 
 	@ObfuscatedName("lb.g(I)V")
 	public void gBitEnd() {
-		this.data = (this.field710 + 7) / 8;
+		data = (field710 + 7) / 8;
 	}
 
 	@ObfuscatedName("lb.j()I")
 	public int gsmarts() {
-		int var1 = this.pos[this.data] & 0xFF;
-		return var1 < 128 ? this.g1() - 64 : this.g2() - 49152;
+		int var1 = pos[data] & 0xFF;
+		return var1 < 128 ? g1() - 64 : g2() - 49152;
 	}
 
 	@ObfuscatedName("lb.k()I")
 	public int gsmart() {
-		int var1 = this.pos[this.data] & 0xFF;
-		return var1 < 128 ? this.g1() : this.g2() - 32768;
+		int var1 = pos[data] & 0xFF;
+		return var1 < 128 ? g1() : g2() - 32768;
 	}
 
 	@ObfuscatedName("lb.a(Ljava/math/BigInteger;Ljava/math/BigInteger;I)V")
 	public void rsaenc(BigInteger arg0, BigInteger arg1) {
-		int var3 = this.data;
-		this.data = 0;
-		byte[] var4 = new byte[var3];
-		this.gdata(var3, var4);
-		BigInteger var5 = new BigInteger(var4);
-		BigInteger var6 = var5.modPow(arg1, arg0);
-		byte[] var7 = var6.toByteArray();
-		this.data = 0;
-		this.p1(var7.length);
-		this.pdata(var7, var7.length);
+		int var4 = data;
+		data = 0;
+		byte[] var5 = new byte[var4];
+		gdata(var4, var5, 0);
+		BigInteger var6 = new BigInteger(var5);
+		BigInteger var7 = var6.modPow(arg1, arg0);
+		byte[] var8 = var7.toByteArray();
+		data = 0;
+		p1(var8.length);
+		pdata(var8, 0, var8.length);
 	}
 }

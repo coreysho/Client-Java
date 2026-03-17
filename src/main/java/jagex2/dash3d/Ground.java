@@ -6,7 +6,7 @@ import deob.ObfuscatedName;
 public final class Ground {
 
 	@ObfuscatedName("i.a")
-	public final boolean field165 = true;
+	public boolean field165 = true;
 
 	@ObfuscatedName("i.b")
 	public final int[] vertexX;
@@ -85,204 +85,211 @@ public final class Ground {
 
 	public Ground(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, int arg9, int arg10, int arg11, int arg12, int arg13, int arg14, int arg15, int arg16, int arg17, int arg18, int arg19) {
 		if (arg1 != arg14 || arg1 != arg2 || arg1 != arg13) {
-			this.flat = false;
+			flat = false;
 		}
-		this.overlayShape = arg6;
-		this.overlayRotation = arg16;
-		this.minimapOverlay = arg4;
-		this.minimapUnderlay = arg7;
-		int[] var21 = field189[arg6];
-		int var22 = var21.length;
-		this.vertexX = new int[var22];
-		this.vertexY = new int[var22];
-		this.vertexZ = new int[var22];
-		int[] var23 = new int[var22];
-		int[] var24 = new int[var22];
-		int var25 = arg15 * 128;
-		int var26 = arg11 * 128;
-		for (int var27 = 0; var27 < var22; var27++) {
-			int var28 = var21[var27];
-			if ((var28 & 0x1) == 0 && var28 <= 8) {
-				var28 = (var28 - arg16 - arg16 - 1 & 0x7) + 1;
+		overlayShape = arg6;
+		if (arg17 >= 0) {
+			field165 = !field165;
+		}
+		overlayRotation = arg16;
+		minimapOverlay = arg4;
+		minimapUnderlay = arg7;
+		short var21 = 128;
+		int var22 = var21 / 2;
+		int var23 = var21 / 4;
+		int var24 = var21 * 3 / 4;
+		int[] var25 = field189[arg6];
+		int var26 = var25.length;
+		vertexX = new int[var26];
+		vertexY = new int[var26];
+		vertexZ = new int[var26];
+		int[] var27 = new int[var26];
+		int[] var28 = new int[var26];
+		int var29 = arg15 * var21;
+		int var30 = arg11 * var21;
+		for (int var31 = 0; var31 < var26; var31++) {
+			int var32 = var25[var31];
+			if ((var32 & 0x1) == 0 && var32 <= 8) {
+				var32 = (var32 - arg16 - arg16 - 1 & 0x7) + 1;
 			}
-			if (var28 > 8 && var28 <= 12) {
-				var28 = (var28 - arg16 - 9 & 0x3) + 9;
+			if (var32 > 8 && var32 <= 12) {
+				var32 = (var32 - arg16 - 9 & 0x3) + 9;
 			}
-			if (var28 > 12 && var28 <= 16) {
-				var28 = (var28 - arg16 - 13 & 0x3) + 13;
+			if (var32 > 12 && var32 <= 16) {
+				var32 = (var32 - arg16 - 13 & 0x3) + 13;
 			}
-			int var29;
-			int var30;
-			int var31;
-			int var32;
 			int var33;
-			if (var28 == 1) {
-				var29 = var25;
-				var30 = var26;
-				var31 = arg1;
-				var32 = arg8;
-				var33 = arg0;
-			} else if (var28 == 2) {
-				var29 = var25 + 64;
-				var30 = var26;
-				var31 = arg1 + arg14 >> 1;
-				var32 = arg8 + arg9 >> 1;
-				var33 = arg0 + arg18 >> 1;
-			} else if (var28 == 3) {
-				var29 = var25 + 128;
-				var30 = var26;
-				var31 = arg14;
-				var32 = arg9;
-				var33 = arg18;
-			} else if (var28 == 4) {
-				var29 = var25 + 128;
-				var30 = var26 + 64;
-				var31 = arg14 + arg2 >> 1;
-				var32 = arg9 + arg10 >> 1;
-				var33 = arg18 + arg19 >> 1;
-			} else if (var28 == 5) {
-				var29 = var25 + 128;
-				var30 = var26 + 128;
-				var31 = arg2;
-				var32 = arg10;
-				var33 = arg19;
-			} else if (var28 == 6) {
-				var29 = var25 + 64;
-				var30 = var26 + 128;
-				var31 = arg2 + arg13 >> 1;
-				var32 = arg10 + arg12 >> 1;
-				var33 = arg19 + arg3 >> 1;
-			} else if (var28 == 7) {
-				var29 = var25;
-				var30 = var26 + 128;
-				var31 = arg13;
-				var32 = arg12;
-				var33 = arg3;
-			} else if (var28 == 8) {
-				var29 = var25;
-				var30 = var26 + 64;
-				var31 = arg13 + arg1 >> 1;
-				var32 = arg12 + arg8 >> 1;
-				var33 = arg3 + arg0 >> 1;
-			} else if (var28 == 9) {
-				var29 = var25 + 64;
-				var30 = var26 + 32;
-				var31 = arg1 + arg14 >> 1;
-				var32 = arg8 + arg9 >> 1;
-				var33 = arg0 + arg18 >> 1;
-			} else if (var28 == 10) {
-				var29 = var25 + 96;
-				var30 = var26 + 64;
-				var31 = arg14 + arg2 >> 1;
-				var32 = arg9 + arg10 >> 1;
-				var33 = arg18 + arg19 >> 1;
-			} else if (var28 == 11) {
-				var29 = var25 + 64;
-				var30 = var26 + 96;
-				var31 = arg2 + arg13 >> 1;
-				var32 = arg10 + arg12 >> 1;
-				var33 = arg19 + arg3 >> 1;
-			} else if (var28 == 12) {
-				var29 = var25 + 32;
-				var30 = var26 + 64;
-				var31 = arg13 + arg1 >> 1;
-				var32 = arg12 + arg8 >> 1;
-				var33 = arg3 + arg0 >> 1;
-			} else if (var28 == 13) {
-				var29 = var25 + 32;
-				var30 = var26 + 32;
-				var31 = arg1;
-				var32 = arg8;
-				var33 = arg0;
-			} else if (var28 == 14) {
-				var29 = var25 + 96;
-				var30 = var26 + 32;
-				var31 = arg14;
-				var32 = arg9;
-				var33 = arg18;
-			} else if (var28 == 15) {
-				var29 = var25 + 96;
-				var30 = var26 + 96;
-				var31 = arg2;
-				var32 = arg10;
-				var33 = arg19;
+			int var34;
+			int var35;
+			int var36;
+			int var37;
+			if (var32 == 1) {
+				var33 = var29;
+				var34 = var30;
+				var35 = arg1;
+				var36 = arg8;
+				var37 = arg0;
+			} else if (var32 == 2) {
+				var33 = var29 + var22;
+				var34 = var30;
+				var35 = arg1 + arg14 >> 1;
+				var36 = arg8 + arg9 >> 1;
+				var37 = arg0 + arg18 >> 1;
+			} else if (var32 == 3) {
+				var33 = var29 + var21;
+				var34 = var30;
+				var35 = arg14;
+				var36 = arg9;
+				var37 = arg18;
+			} else if (var32 == 4) {
+				var33 = var29 + var21;
+				var34 = var30 + var22;
+				var35 = arg14 + arg2 >> 1;
+				var36 = arg9 + arg10 >> 1;
+				var37 = arg18 + arg19 >> 1;
+			} else if (var32 == 5) {
+				var33 = var29 + var21;
+				var34 = var30 + var21;
+				var35 = arg2;
+				var36 = arg10;
+				var37 = arg19;
+			} else if (var32 == 6) {
+				var33 = var29 + var22;
+				var34 = var30 + var21;
+				var35 = arg2 + arg13 >> 1;
+				var36 = arg10 + arg12 >> 1;
+				var37 = arg19 + arg3 >> 1;
+			} else if (var32 == 7) {
+				var33 = var29;
+				var34 = var30 + var21;
+				var35 = arg13;
+				var36 = arg12;
+				var37 = arg3;
+			} else if (var32 == 8) {
+				var33 = var29;
+				var34 = var30 + var22;
+				var35 = arg13 + arg1 >> 1;
+				var36 = arg12 + arg8 >> 1;
+				var37 = arg3 + arg0 >> 1;
+			} else if (var32 == 9) {
+				var33 = var29 + var22;
+				var34 = var30 + var23;
+				var35 = arg1 + arg14 >> 1;
+				var36 = arg8 + arg9 >> 1;
+				var37 = arg0 + arg18 >> 1;
+			} else if (var32 == 10) {
+				var33 = var29 + var24;
+				var34 = var30 + var22;
+				var35 = arg14 + arg2 >> 1;
+				var36 = arg9 + arg10 >> 1;
+				var37 = arg18 + arg19 >> 1;
+			} else if (var32 == 11) {
+				var33 = var29 + var22;
+				var34 = var30 + var24;
+				var35 = arg2 + arg13 >> 1;
+				var36 = arg10 + arg12 >> 1;
+				var37 = arg19 + arg3 >> 1;
+			} else if (var32 == 12) {
+				var33 = var29 + var23;
+				var34 = var30 + var22;
+				var35 = arg13 + arg1 >> 1;
+				var36 = arg12 + arg8 >> 1;
+				var37 = arg3 + arg0 >> 1;
+			} else if (var32 == 13) {
+				var33 = var29 + var23;
+				var34 = var30 + var23;
+				var35 = arg1;
+				var36 = arg8;
+				var37 = arg0;
+			} else if (var32 == 14) {
+				var33 = var29 + var24;
+				var34 = var30 + var23;
+				var35 = arg14;
+				var36 = arg9;
+				var37 = arg18;
+			} else if (var32 == 15) {
+				var33 = var29 + var24;
+				var34 = var30 + var24;
+				var35 = arg2;
+				var36 = arg10;
+				var37 = arg19;
 			} else {
-				var29 = var25 + 32;
-				var30 = var26 + 96;
-				var31 = arg13;
-				var32 = arg12;
-				var33 = arg3;
+				var33 = var29 + var23;
+				var34 = var30 + var24;
+				var35 = arg13;
+				var36 = arg12;
+				var37 = arg3;
 			}
-			this.vertexX[var27] = var29;
-			this.vertexY[var27] = var31;
-			this.vertexZ[var27] = var30;
-			var23[var27] = var32;
-			var24[var27] = var33;
+			vertexX[var31] = var33;
+			vertexY[var31] = var35;
+			vertexZ[var31] = var34;
+			var27[var31] = var36;
+			var28[var31] = var37;
 		}
-		int[] var34 = field190[arg6];
-		int var35 = var34.length / 4;
-		this.faceVertexA = new int[var35];
-		this.faceVertexB = new int[var35];
-		this.faceVertexC = new int[var35];
-		this.faceColourA = new int[var35];
-		this.field170 = new int[var35];
-		this.field171 = new int[var35];
+		int[] var38 = field190[arg6];
+		int var39 = var38.length / 4;
+		faceVertexA = new int[var39];
+		faceVertexB = new int[var39];
+		faceVertexC = new int[var39];
+		faceColourA = new int[var39];
+		field170 = new int[var39];
+		field171 = new int[var39];
 		if (arg5 != -1) {
-			this.faceTexture = new int[var35];
+			faceTexture = new int[var39];
 		}
-		int var36 = 0;
-		for (int var37 = 0; var37 < var35; var37++) {
-			int var38 = var34[var36];
-			int var39 = var34[var36 + 1];
-			int var40 = var34[var36 + 2];
-			int var41 = var34[var36 + 3];
-			var36 += 4;
-			if (var39 < 4) {
-				var39 = var39 - arg16 & 0x3;
+		int var40 = 0;
+		for (int var41 = 0; var41 < var39; var41++) {
+			int var42 = var38[var40];
+			int var43 = var38[var40 + 1];
+			int var44 = var38[var40 + 2];
+			int var45 = var38[var40 + 3];
+			var40 += 4;
+			if (var43 < 4) {
+				var43 = var43 - arg16 & 0x3;
 			}
-			if (var40 < 4) {
-				var40 = var40 - arg16 & 0x3;
+			if (var44 < 4) {
+				var44 = var44 - arg16 & 0x3;
 			}
-			if (var41 < 4) {
-				var41 = var41 - arg16 & 0x3;
+			if (var45 < 4) {
+				var45 = var45 - arg16 & 0x3;
 			}
-			this.faceVertexA[var37] = var39;
-			this.faceVertexB[var37] = var40;
-			this.faceVertexC[var37] = var41;
-			if (var38 == 0) {
-				this.faceColourA[var37] = var23[var39];
-				this.field170[var37] = var23[var40];
-				this.field171[var37] = var23[var41];
-				if (this.faceTexture != null) {
-					this.faceTexture[var37] = -1;
+			faceVertexA[var41] = var43;
+			faceVertexB[var41] = var44;
+			faceVertexC[var41] = var45;
+			if (var42 == 0) {
+				faceColourA[var41] = var27[var43];
+				field170[var41] = var27[var44];
+				field171[var41] = var27[var45];
+				if (faceTexture != null) {
+					faceTexture[var41] = -1;
 				}
 			} else {
-				this.faceColourA[var37] = var24[var39];
-				this.field170[var37] = var24[var40];
-				this.field171[var37] = var24[var41];
-				if (this.faceTexture != null) {
-					this.faceTexture[var37] = arg5;
+				faceColourA[var41] = var28[var43];
+				field170[var41] = var28[var44];
+				field171[var41] = var28[var45];
+				if (faceTexture != null) {
+					faceTexture[var41] = arg5;
 				}
 			}
 		}
-		int var42 = arg1;
-		int var43 = arg14;
+		int var46 = arg1;
+		int var47 = arg14;
 		if (arg14 < arg1) {
-			var42 = arg14;
+			var46 = arg14;
 		}
 		if (arg14 > arg14) {
-			var43 = arg14;
+			var47 = arg14;
 		}
-		if (arg2 < var42) {
-			var42 = arg2;
+		if (arg2 < var46) {
+			var46 = arg2;
 		}
 		if (arg2 > arg14) {
-			var43 = arg2;
+			var47 = arg2;
 		}
-		if (arg13 < var42) {
+		if (arg13 < var46) {
 			;
 		}
-		if (arg13 > var43) {
+		if (arg13 > var47) {
 			;
 		}
 	}

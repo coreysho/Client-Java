@@ -1,18 +1,12 @@
 package jagex2.dash3d;
 
-import deob.*;
+import deob.ObfuscatedName;
 import jagex2.client.Client;
 import jagex2.config.LocType;
 import jagex2.config.SeqType;
 
 @ObfuscatedName("bb")
 public final class ClientLocAnim extends ModelSource {
-
-	@ObfuscatedName("bb.m")
-	public int field481;
-
-	@ObfuscatedName("bb.n")
-	public final boolean field482 = false;
 
 	@ObfuscatedName("bb.o")
 	public final int field483;
@@ -44,54 +38,51 @@ public final class ClientLocAnim extends ModelSource {
 	@ObfuscatedName("bb.x")
 	public int field492;
 
-	public ClientLocAnim(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, boolean arg6, int arg7, int arg8, int arg9) {
-		this.field483 = arg3;
-		this.field484 = arg0;
-		this.field485 = arg1;
-		this.field486 = arg9;
-		this.field487 = arg7;
-		this.field488 = arg4;
-		this.field489 = arg8;
-		this.field490 = SeqType.list[arg2];
-		this.field491 = 0;
-		this.field492 = Client.field1218;
-		if (arg5 != 0) {
-			this.field481 = 429;
-		}
-		if (arg6 && this.field490.loops != -1) {
-			this.field491 = (int) (Math.random() * (double) this.field490.numFrames);
-			this.field492 -= (int) (Math.random() * (double) this.field490.getDelay(this.field491));
+	public ClientLocAnim(int arg0, int arg1, int arg2, int arg3, int arg4, boolean arg6, int arg7, int arg8, int arg9) {
+		field483 = arg3;
+		field484 = arg0;
+		field485 = arg1;
+		field486 = arg9;
+		field487 = arg7;
+		field488 = arg4;
+		field489 = arg8;
+		field490 = SeqType.list[arg2];
+		field491 = 0;
+		field492 = Client.loopCycle;
+		if (arg6 && field490.loops != -1) {
+			field491 = (int) (Math.random() * (double) field490.numFrames);
+			field492 -= (int) (Math.random() * (double) field490.getDelay(field491));
 		}
 	}
 
 	@ObfuscatedName("bb.a(Z)Leb;")
 	@Override
 	public Model getTempModel() {
-		if (this.field490 != null) {
-			int var1 = Client.field1218 - this.field492;
-			if (var1 > 100 && this.field490.loops > 0) {
-				var1 = 100;
+		if (field490 != null) {
+			int var2 = Client.loopCycle - field492;
+			if (var2 > 100 && field490.loops > 0) {
+				var2 = 100;
 			}
-			label33: {
+			label42: {
 				do {
 					do {
-						if (var1 <= this.field490.getDelay(this.field491)) {
-							break label33;
+						if (var2 <= field490.getDelay(field491)) {
+							break label42;
 						}
-						var1 -= this.field490.getDelay(this.field491);
-						this.field491++;
-					} while (this.field491 < this.field490.numFrames);
-					this.field491 -= this.field490.loops;
-				} while (this.field491 >= 0 && this.field491 < this.field490.numFrames);
-				this.field490 = null;
+						var2 -= field490.getDelay(field491);
+						field491++;
+					} while (field491 < field490.numFrames);
+					field491 -= field490.loops;
+				} while (field491 >= 0 && field491 < field490.numFrames);
+				field490 = null;
 			}
-			this.field492 = Client.field1218 - var1;
+			field492 = Client.loopCycle - var2;
 		}
-		int var2 = -1;
-		if (this.field490 != null) {
-			var2 = this.field490.frames[this.field491];
+		int var3 = -1;
+		if (field490 != null) {
+			var3 = field490.frames[field491];
 		}
-		LocType var3 = LocType.list(this.field483);
-		return var3.getModel(this.field484, this.field485, this.field486, this.field487, this.field488, this.field489, var2);
+		LocType var4 = LocType.list(field483);
+		return var4.getModel(field484, field485, field486, field487, field488, field489, var3);
 	}
 }

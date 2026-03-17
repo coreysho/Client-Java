@@ -1,7 +1,6 @@
 package jagex2.client;
 
 import deob.ObfuscatedName;
-import sign.signlink;
 
 import java.awt.*;
 
@@ -11,10 +10,13 @@ public final class ViewBox extends Frame {
 	@ObfuscatedName("b.a")
 	public final GameShell shell;
 
-	public ViewBox(GameShell arg0, int arg1, int arg2, int arg3) {
-		this.shell = arg0;
-		this.setTitle("RS2 user client - release #" + signlink.clientversion);
-		this.setResizable(false);
+	public ViewBox(GameShell arg0, int arg1, int arg2) {
+		shell = arg0;
+		setTitle("Jagex");
+		setResizable(false);
+		// show();
+		// toFront();
+		// resize(arg1 + 8, arg2 + 28);
 
 		BorderLayout manager = new BorderLayout();
 		this.setLayout(manager);
@@ -26,13 +28,20 @@ public final class ViewBox extends Frame {
 		this.toFront();
 	}
 
+	// @Override
+	// public Graphics getGraphics() {
+	// 	Graphics var1 = super.getGraphics();
+	// 	var1.translate(4, 24);
+	// 	return var1;
+	// }
+
 	@Override
 	public void update(Graphics arg0) {
-		this.shell.update(arg0);
+		shell.update(arg0);
 	}
 
 	@Override
 	public void paint(Graphics arg0) {
-		this.shell.paint(arg0);
+		shell.paint(arg0);
 	}
 }

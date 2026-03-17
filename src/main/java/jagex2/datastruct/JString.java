@@ -5,24 +5,6 @@ import deob.ObfuscatedName;
 @ObfuscatedName("yb")
 public final class JString {
 
-	@ObfuscatedName("yb.a")
-	public static boolean field871 = true;
-
-	@ObfuscatedName("yb.b")
-	public static final int field872 = 618;
-
-	@ObfuscatedName("yb.c")
-	public static final int field873 = 7;
-
-	@ObfuscatedName("yb.d")
-	public static final byte field874 = 7;
-
-	@ObfuscatedName("yb.e")
-	public static final int field875 = -407;
-
-	@ObfuscatedName("yb.f")
-	public static final int field876 = 1;
-
 	@ObfuscatedName("yb.g")
 	public static final char[] USERHASH_CHAR = new char[] { '_', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 
@@ -47,87 +29,85 @@ public final class JString {
 	}
 
 	@ObfuscatedName("yb.a(IJ)Ljava/lang/String;")
-	public static String toRawUsername(long arg0) {
-		if (arg0 <= 0L || arg0 >= 6582952005840035281L) {
+	public static String toRawUsername(long arg1) {
+		if (arg1 <= 0L || arg1 >= 6582952005840035281L) {
 			return "invalid_name";
-		} else if (arg0 % 37L == 0L) {
+		} else if (arg1 % 37L == 0L) {
 			return "invalid_name";
 		} else {
-			int var2 = 0;
-			char[] var3 = new char[12];
-			while (arg0 != 0L) {
-				long var4 = arg0;
-				arg0 /= 37L;
-				var3[11 - var2++] = USERHASH_CHAR[(int) (var4 - arg0 * 37L)];
+			int var3 = 0;
+			char[] var4 = new char[12];
+			while (arg1 != 0L) {
+				long var5 = arg1;
+				arg1 /= 37L;
+				var4[11 - var3++] = USERHASH_CHAR[(int) (var5 - arg1 * 37L)];
 			}
-			return new String(var3, 12 - var2, var2);
+			return new String(var4, 12 - var3, var3);
 		}
 	}
 
 	@ObfuscatedName("yb.a(ILjava/lang/String;)J")
-	public static long hashCode(String arg0) {
-		String var1 = arg0.toUpperCase();
-		if (field873 > 7 || field873 < 7) {
-			field871 = !field871;
+	public static long hashCode(String arg1) {
+		String var2 = arg1.toUpperCase();
+		long var3 = 0L;
+		for (int var5 = 0; var5 < var2.length(); var5++) {
+			long var6 = var3 * 61L + (long) var2.charAt(var5) - 32L;
+			var3 = var6 + (var6 >> 56) & 0xFFFFFFFFFFFFFFL;
 		}
-		long var2 = 0L;
-		for (int var4 = 0; var4 < var1.length(); var4++) {
-			long var5 = var2 * 61L + (long) var1.charAt(var4) - 32L;
-			var2 = var5 + (var5 >> 56) & 0xFFFFFFFFFFFFFFL;
-		}
-		return var2;
+		return var3;
 	}
 
 	@ObfuscatedName("yb.a(BI)Ljava/lang/String;")
-	public static String formatIPv4(int arg0) {
-		return (arg0 >> 24 & 0xFF) + "." + (arg0 >> 16 & 0xFF) + "." + (arg0 >> 8 & 0xFF) + "." + (arg0 & 0xFF);
+	public static String formatIPv4(int arg1) {
+		return (arg1 >> 24 & 0xFF) + "." + (arg1 >> 16 & 0xFF) + "." + (arg1 >> 8 & 0xFF) + "." + (arg1 & 0xFF);
 	}
 
 	@ObfuscatedName("yb.b(ILjava/lang/String;)Ljava/lang/String;")
-	public static String toScreenName(String arg0) {
-		if (arg0.length() <= 0) {
-			return arg0;
-		}
-		char[] var1 = arg0.toCharArray();
-		for (int var2 = 0; var2 < var1.length; var2++) {
-			if (var1[var2] == '_') {
-				var1[var2] = ' ';
-				if (var2 + 1 < var1.length && var1[var2 + 1] >= 'a' && var1[var2 + 1] <= 'z') {
-					var1[var2 + 1] = (char) (var1[var2 + 1] + 'A' - 97);
+	public static String toScreenName(String arg1) {
+		if (arg1.length() > 0) {
+			char[] var2 = arg1.toCharArray();
+			for (int var3 = 0; var3 < var2.length; var3++) {
+				if (var2[var3] == '_') {
+					var2[var3] = ' ';
+					if (var3 + 1 < var2.length && var2[var3 + 1] >= 'a' && var2[var3 + 1] <= 'z') {
+						var2[var3 + 1] = (char) (var2[var3 + 1] + 'A' - 97);
+					}
 				}
 			}
+			if (var2[0] >= 'a' && var2[0] <= 'z') {
+				var2[0] = (char) (var2[0] + 'A' - 97);
+			}
+			return new String(var2);
+		} else {
+			return arg1;
 		}
-		if (var1[0] >= 'a' && var1[0] <= 'z') {
-			var1[0] = (char) (var1[0] + 'A' - 97);
-		}
-		return new String(var1);
 	}
 
 	@ObfuscatedName("yb.a(Ljava/lang/String;I)Ljava/lang/String;")
 	public static String toSentenceCase(String arg0) {
-		String var1 = arg0.toLowerCase();
-		char[] var2 = var1.toCharArray();
-		int var3 = var2.length;
-		boolean var4 = true;
-		for (int var5 = 0; var5 < var3; var5++) {
-			char var6 = var2[var5];
-			if (var4 && var6 >= 'a' && var6 <= 'z') {
-				var2[var5] = (char) (var2[var5] - 32);
-				var4 = false;
+		String var2 = arg0.toLowerCase();
+		char[] var3 = var2.toCharArray();
+		int var4 = var3.length;
+		boolean var5 = true;
+		for (int var6 = 0; var6 < var4; var6++) {
+			char var7 = var3[var6];
+			if (var5 && var7 >= 'a' && var7 <= 'z') {
+				var3[var6] = (char) (var3[var6] - 32);
+				var5 = false;
 			}
-			if (var6 == '.' || var6 == '!') {
-				var4 = true;
+			if (var7 == '.' || var7 == '!') {
+				var5 = true;
 			}
 		}
-		return new String(var2);
+		return new String(var3);
 	}
 
 	@ObfuscatedName("yb.a(Ljava/lang/String;Z)Ljava/lang/String;")
 	public static String getRepeatedCharacter(String arg0) {
-		StringBuffer var1 = new StringBuffer();
-		for (int var2 = 0; var2 < arg0.length(); var2++) {
-			var1.append("*");
+		StringBuffer var2 = new StringBuffer();
+		for (int var3 = 0; var3 < arg0.length(); var3++) {
+			var2.append("*");
 		}
-		return var1.toString();
+		return var2.toString();
 	}
 }

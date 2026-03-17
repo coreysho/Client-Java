@@ -8,15 +8,6 @@ import java.io.RandomAccessFile;
 @ObfuscatedName("vb")
 public final class FileStream {
 
-	@ObfuscatedName("vb.a")
-	public final boolean field847 = true;
-
-	@ObfuscatedName("vb.b")
-	public final int field848 = 29615;
-
-	@ObfuscatedName("vb.c")
-	public final int field849 = 7228;
-
 	@ObfuscatedName("vb.d")
 	public static final byte[] temp = new byte[520];
 
@@ -33,141 +24,137 @@ public final class FileStream {
 	public int maxFileSize = 65000;
 
 	public FileStream(RandomAccessFile arg0, int arg1, RandomAccessFile arg2, int arg3, int arg4) {
-		this.archive = arg3;
-		this.dat = arg0;
-		if (this.field848 != 29615) {
-			for (int var6 = 1; var6 > 0; var6++) {
-			}
-		}
-		this.idx = arg2;
-		this.maxFileSize = 500000;
+		archive = arg3;
+		dat = arg0;
+		idx = arg2;
+		maxFileSize = arg4;
 	}
 
 	@ObfuscatedName("vb.a(BI)[B")
-	public synchronized byte[] readFromFile(int arg0) {
+	public synchronized byte[] readFromFile(int arg1) {
 		try {
-			this.seek(arg0 * 6, this.idx);
-			int var3;
-			for (int var2 = 0; var2 < 6; var2 += var3) {
-				var3 = this.idx.read(temp, var2, 6 - var2);
-				if (var3 == -1) {
+			seek(arg1 * 6, idx);
+			int var4;
+			for (int var3 = 0; var3 < 6; var3 += var4) {
+				var4 = idx.read(temp, var3, 6 - var3);
+				if (var4 == -1) {
 					return null;
 				}
 			}
-			int var4 = ((temp[0] & 0xFF) << 16) + ((temp[1] & 0xFF) << 8) + (temp[2] & 0xFF);
-			int var5 = ((temp[3] & 0xFF) << 16) + ((temp[4] & 0xFF) << 8) + (temp[5] & 0xFF);
-			if (var4 < 0 || var4 > this.maxFileSize) {
+			int var5 = ((temp[0] & 0xFF) << 16) + ((temp[1] & 0xFF) << 8) + (temp[2] & 0xFF);
+			int var6 = ((temp[3] & 0xFF) << 16) + ((temp[4] & 0xFF) << 8) + (temp[5] & 0xFF);
+			if (var5 < 0 || var5 > maxFileSize) {
 				return null;
-			} else if (var5 > 0 && (long) var5 <= this.dat.length() / 520L) {
-				byte[] var6 = new byte[var4];
-				int var7 = 0;
+			} else if (var6 > 0 && (long) var6 <= dat.length() / 520L) {
+				byte[] var7 = new byte[var5];
 				int var8 = 0;
-				while (var7 < var4) {
-					if (var5 == 0) {
+				int var9 = 0;
+				while (var8 < var5) {
+					if (var6 == 0) {
 						return null;
 					}
-					this.seek(var5 * 520, this.dat);
-					int var9 = 0;
-					int var10 = var4 - var7;
-					if (var10 > 512) {
-						var10 = 512;
+					seek(var6 * 520, dat);
+					int var10 = 0;
+					int var11 = var5 - var8;
+					if (var11 > 512) {
+						var11 = 512;
 					}
-					while (var9 < var10 + 8) {
-						int var11 = this.dat.read(temp, var9, var10 + 8 - var9);
-						if (var11 == -1) {
+					while (var10 < var11 + 8) {
+						int var12 = dat.read(temp, var10, var11 + 8 - var10);
+						if (var12 == -1) {
 							return null;
 						}
-						var9 += var11;
+						var10 += var12;
 					}
-					int var12 = ((temp[0] & 0xFF) << 8) + (temp[1] & 0xFF);
-					int var13 = ((temp[2] & 0xFF) << 8) + (temp[3] & 0xFF);
-					int var14 = ((temp[4] & 0xFF) << 16) + ((temp[5] & 0xFF) << 8) + (temp[6] & 0xFF);
-					int var15 = temp[7] & 0xFF;
-					if (var12 == arg0 && var13 == var8 && var15 == this.archive) {
-						if (var14 >= 0 && (long) var14 <= this.dat.length() / 520L) {
-							for (int var16 = 0; var16 < var10; var16++) {
-								var6[var7++] = temp[var16 + 8];
+					int var13 = ((temp[0] & 0xFF) << 8) + (temp[1] & 0xFF);
+					int var14 = ((temp[2] & 0xFF) << 8) + (temp[3] & 0xFF);
+					int var15 = ((temp[4] & 0xFF) << 16) + ((temp[5] & 0xFF) << 8) + (temp[6] & 0xFF);
+					int var16 = temp[7] & 0xFF;
+					if (var13 == arg1 && var14 == var9 && var16 == archive) {
+						if (var15 >= 0 && (long) var15 <= dat.length() / 520L) {
+							for (int var17 = 0; var17 < var11; var17++) {
+								var7[var8++] = temp[var17 + 8];
 							}
-							var5 = var14;
-							var8++;
+							var6 = var15;
+							var9++;
 							continue;
 						}
 						return null;
 					}
 					return null;
 				}
-				return var6;
+				return var7;
 			} else {
 				return null;
 			}
-		} catch (IOException var17) {
+		} catch (IOException var18) {
 			return null;
 		}
 	}
 
 	@ObfuscatedName("vb.a(II[BB)Z")
 	public synchronized boolean writeToFile(int arg0, int arg1, byte[] arg2) {
-		boolean var4 = this.writeToFile(true, arg2, arg1, arg0);
-		if (!var4) {
-			var4 = this.writeToFile(false, arg2, arg1, arg0);
+		boolean var5 = writeToFile(true, arg2, arg1, arg0);
+		if (!var5) {
+			var5 = writeToFile(false, arg2, arg1, arg0);
 		}
-		return var4;
+		return var5;
 	}
 
 	@ObfuscatedName("vb.a(Z[BIIB)Z")
 	public synchronized boolean writeToFile(boolean arg0, byte[] arg1, int arg2, int arg3) {
 		try {
-			int var7;
+			int var8;
 			if (arg0) {
-				this.seek(arg2 * 6, this.idx);
-				int var6;
-				for (int var5 = 0; var5 < 6; var5 += var6) {
-					var6 = this.idx.read(temp, var5, 6 - var5);
-					if (var6 == -1) {
+				seek(arg2 * 6, idx);
+				int var7;
+				for (int var6 = 0; var6 < 6; var6 += var7) {
+					var7 = idx.read(temp, var6, 6 - var6);
+					if (var7 == -1) {
 						return false;
 					}
 				}
-				var7 = ((temp[3] & 0xFF) << 16) + ((temp[4] & 0xFF) << 8) + (temp[5] & 0xFF);
-				if (var7 <= 0 || (long) var7 > this.dat.length() / 520L) {
+				var8 = ((temp[3] & 0xFF) << 16) + ((temp[4] & 0xFF) << 8) + (temp[5] & 0xFF);
+				if (var8 <= 0 || (long) var8 > dat.length() / 520L) {
 					return false;
 				}
 			} else {
-				var7 = (int) ((this.dat.length() + 519L) / 520L);
-				if (var7 == 0) {
-					var7 = 1;
+				var8 = (int) ((dat.length() + 519L) / 520L);
+				if (var8 == 0) {
+					var8 = 1;
 				}
 			}
 			temp[0] = (byte) (arg3 >> 16);
 			temp[1] = (byte) (arg3 >> 8);
 			temp[2] = (byte) arg3;
-			temp[3] = (byte) (var7 >> 16);
-			temp[4] = (byte) (var7 >> 8);
-			temp[5] = (byte) var7;
-			this.seek(arg2 * 6, this.idx);
-			this.idx.write(temp, 0, 6);
-			int var8 = 0;
+			temp[3] = (byte) (var8 >> 16);
+			temp[4] = (byte) (var8 >> 8);
+			temp[5] = (byte) var8;
+			seek(arg2 * 6, idx);
+			idx.write(temp, 0, 6);
 			int var9 = 0;
-			while (var8 < arg3) {
-				int var10 = 0;
+			int var10 = 0;
+			while (var9 < arg3) {
+				int var11 = 0;
 				if (arg0) {
-					this.seek(var7 * 520, this.dat);
-					int var11;
+					seek(var8 * 520, dat);
 					int var12;
-					for (var11 = 0; var11 < 8; var11 += var12) {
-						var12 = this.dat.read(temp, var11, 8 - var11);
-						if (var12 == -1) {
+					int var13;
+					for (var12 = 0; var12 < 8; var12 += var13) {
+						var13 = dat.read(temp, var12, 8 - var12);
+						if (var13 == -1) {
 							break;
 						}
 					}
-					if (var11 == 8) {
-						label106: {
-							int var13 = ((temp[0] & 0xFF) << 8) + (temp[1] & 0xFF);
-							int var14 = ((temp[2] & 0xFF) << 8) + (temp[3] & 0xFF);
-							var10 = ((temp[4] & 0xFF) << 16) + ((temp[5] & 0xFF) << 8) + (temp[6] & 0xFF);
-							int var15 = temp[7] & 0xFF;
-							if (var13 == arg2 && var14 == var9 && var15 == this.archive) {
-								if (var10 >= 0 && (long) var10 <= this.dat.length() / 520L) {
-									break label106;
+					if (var12 == 8) {
+						label110: {
+							int var14 = ((temp[0] & 0xFF) << 8) + (temp[1] & 0xFF);
+							int var15 = ((temp[2] & 0xFF) << 8) + (temp[3] & 0xFF);
+							var11 = ((temp[4] & 0xFF) << 16) + ((temp[5] & 0xFF) << 8) + (temp[6] & 0xFF);
+							int var16 = temp[7] & 0xFF;
+							if (var14 == arg2 && var15 == var10 && var16 == archive) {
+								if (var11 >= 0 && (long) var11 <= dat.length() / 520L) {
+									break label110;
 								}
 								return false;
 							}
@@ -175,54 +162,54 @@ public final class FileStream {
 						}
 					}
 				}
-				if (var10 == 0) {
+				if (var11 == 0) {
 					arg0 = false;
-					var10 = (int) ((this.dat.length() + 519L) / 520L);
-					if (var10 == 0) {
-						var10++;
+					var11 = (int) ((dat.length() + 519L) / 520L);
+					if (var11 == 0) {
+						var11++;
 					}
-					if (var10 == var7) {
-						var10++;
+					if (var11 == var8) {
+						var11++;
 					}
 				}
-				if (arg3 - var8 <= 512) {
-					var10 = 0;
+				if (arg3 - var9 <= 512) {
+					var11 = 0;
 				}
 				temp[0] = (byte) (arg2 >> 8);
 				temp[1] = (byte) arg2;
-				temp[2] = (byte) (var9 >> 8);
-				temp[3] = (byte) var9;
-				temp[4] = (byte) (var10 >> 16);
-				temp[5] = (byte) (var10 >> 8);
-				temp[6] = (byte) var10;
-				temp[7] = (byte) this.archive;
-				this.seek(var7 * 520, this.dat);
-				this.dat.write(temp, 0, 8);
-				int var16 = arg3 - var8;
-				if (var16 > 512) {
-					var16 = 512;
+				temp[2] = (byte) (var10 >> 8);
+				temp[3] = (byte) var10;
+				temp[4] = (byte) (var11 >> 16);
+				temp[5] = (byte) (var11 >> 8);
+				temp[6] = (byte) var11;
+				temp[7] = (byte) archive;
+				seek(var8 * 520, dat);
+				dat.write(temp, 0, 8);
+				int var17 = arg3 - var9;
+				if (var17 > 512) {
+					var17 = 512;
 				}
-				this.dat.write(arg1, var8, var16);
-				var8 += var16;
-				var7 = var10;
-				var9++;
+				dat.write(arg1, var9, var17);
+				var9 += var17;
+				var8 = var11;
+				var10++;
 			}
 			return true;
-		} catch (IOException var17) {
+		} catch (IOException var18) {
 			return false;
 		}
 	}
 
 	@ObfuscatedName("vb.a(IZLjava/io/RandomAccessFile;)V")
-	public synchronized void seek(int arg0, RandomAccessFile arg1) throws IOException {
+	public synchronized void seek(int arg0, RandomAccessFile arg2) throws IOException {
 		if (arg0 < 0 || arg0 > 62914560) {
-			System.out.println("Badseek - pos:" + arg0 + " len:" + arg1.length());
+			System.out.println("Badseek - pos:" + arg0 + " len:" + arg2.length());
 			arg0 = 62914560;
 			try {
 				Thread.sleep(1000L);
-			} catch (Exception var3) {
+			} catch (Exception var4) {
 			}
 		}
-		arg1.seek((long) arg0);
+		arg2.seek((long) arg0);
 	}
 }

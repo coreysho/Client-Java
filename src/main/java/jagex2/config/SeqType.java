@@ -1,9 +1,9 @@
 package jagex2.config;
 
 import deob.ObfuscatedName;
-import jagex2.io.Packet;
 import jagex2.dash3d.AnimFrame;
 import jagex2.io.JagFile;
+import jagex2.io.Packet;
 
 @ObfuscatedName("nc")
 public final class SeqType {
@@ -57,105 +57,108 @@ public final class SeqType {
 	public int duplicatebehaviour;
 
 	@ObfuscatedName("nc.a(ZLxb;)V")
-	public static void init(JagFile arg0) {
-		Packet var1 = new Packet(arg0.read("seq.dat", null), (byte) 1);
-		numDefinitions = var1.g2();
+	public static void init(JagFile arg1) {
+		Packet var2 = new Packet(arg1.read("seq.dat", null));
+		numDefinitions = var2.g2();
 		if (list == null) {
 			list = new SeqType[numDefinitions];
 		}
-		for (int var2 = 0; var2 < numDefinitions; var2++) {
-			if (list[var2] == null) {
-				list[var2] = new SeqType();
+		for (int var3 = 0; var3 < numDefinitions; var3++) {
+			if (list[var3] == null) {
+				list[var3] = new SeqType();
 			}
-			list[var2].decode(var1);
+			list[var3].decode(var2);
 		}
 	}
 
 	@ObfuscatedName("nc.a(II)I")
 	public int getDelay(int arg0) {
-		int var2 = this.delay[arg0];
-		if (var2 == 0) {
-			AnimFrame var3 = AnimFrame.get(this.frames[arg0]);
-			if (var3 != null) {
-				var2 = this.delay[arg0] = var3.delay;
+		int var3 = delay[arg0];
+		if (var3 == 0) {
+			AnimFrame var4 = AnimFrame.get(frames[arg0]);
+			if (var4 != null) {
+				var3 = delay[arg0] = var4.delay;
 			}
 		}
-		if (var2 == 0) {
-			var2 = 1;
+		if (var3 == 0) {
+			var3 = 1;
 		}
-		return var2;
+		return var3;
 	}
 
 	@ObfuscatedName("nc.a(BLlb;)V")
-	public void decode(Packet arg0) {
+	public void decode(Packet arg1) {
 		while (true) {
-			int var2 = arg0.g1();
-			if (var2 == 0) {
-				if (this.numFrames == 0) {
-					this.numFrames = 1;
-					this.frames = new int[1];
-					this.frames[0] = -1;
-					this.iframes = new int[1];
-					this.iframes[0] = -1;
-					this.delay = new int[1];
-					this.delay[0] = -1;
-				}
-				if (this.preanim_move == -1) {
-					if (this.walkmerge == null) {
-						this.preanim_move = 0;
-					} else {
-						this.preanim_move = 2;
+			while (true) {
+				int var4 = arg1.g1();
+				if (var4 == 0) {
+					if (numFrames == 0) {
+						numFrames = 1;
+						frames = new int[1];
+						frames[0] = -1;
+						iframes = new int[1];
+						iframes[0] = -1;
+						delay = new int[1];
+						delay[0] = -1;
 					}
-				}
-				if (this.postanim_move == -1) {
-					if (this.walkmerge == null) {
-						this.postanim_move = 0;
-					} else {
-						this.postanim_move = 2;
+					if (preanim_move == -1) {
+						if (walkmerge == null) {
+							preanim_move = 0;
+						} else {
+							preanim_move = 2;
+						}
 					}
-				}
-				return;
-			}
-			if (var2 == 1) {
-				this.numFrames = arg0.g1();
-				this.frames = new int[this.numFrames];
-				this.iframes = new int[this.numFrames];
-				this.delay = new int[this.numFrames];
-				for (int var3 = 0; var3 < this.numFrames; var3++) {
-					this.frames[var3] = arg0.g2();
-					this.iframes[var3] = arg0.g2();
-					if (this.iframes[var3] == 65535) {
-						this.iframes[var3] = -1;
+					if (postanim_move == -1) {
+						if (walkmerge != null) {
+							postanim_move = 2;
+							return;
+						}
+						postanim_move = 0;
+						return;
 					}
-					this.delay[var3] = arg0.g2();
+					return;
 				}
-			} else if (var2 == 2) {
-				this.loops = arg0.g2();
-			} else if (var2 == 3) {
-				int var4 = arg0.g1();
-				this.walkmerge = new int[var4 + 1];
-				for (int var5 = 0; var5 < var4; var5++) {
-					this.walkmerge[var5] = arg0.g1();
+				if (var4 == 1) {
+					numFrames = arg1.g1();
+					frames = new int[numFrames];
+					iframes = new int[numFrames];
+					delay = new int[numFrames];
+					for (int var5 = 0; var5 < numFrames; var5++) {
+						frames[var5] = arg1.g2();
+						iframes[var5] = arg1.g2();
+						if (iframes[var5] == 65535) {
+							iframes[var5] = -1;
+						}
+						delay[var5] = arg1.g2();
+					}
+				} else if (var4 == 2) {
+					loops = arg1.g2();
+				} else if (var4 == 3) {
+					int var6 = arg1.g1();
+					walkmerge = new int[var6 + 1];
+					for (int var7 = 0; var7 < var6; var7++) {
+						walkmerge[var7] = arg1.g1();
+					}
+					walkmerge[var6] = 9999999;
+				} else if (var4 == 4) {
+					reachforward = true;
+				} else if (var4 == 5) {
+					priority = arg1.g1();
+				} else if (var4 == 6) {
+					replaceheldleft = arg1.g2();
+				} else if (var4 == 7) {
+					replaceheldright = arg1.g2();
+				} else if (var4 == 8) {
+					maxloops = arg1.g1();
+				} else if (var4 == 9) {
+					preanim_move = arg1.g1();
+				} else if (var4 == 10) {
+					postanim_move = arg1.g1();
+				} else if (var4 == 11) {
+					duplicatebehaviour = arg1.g1();
+				} else {
+					System.out.println("Error unrecognised seq config code: " + var4);
 				}
-				this.walkmerge[var4] = 9999999;
-			} else if (var2 == 4) {
-				this.reachforward = true;
-			} else if (var2 == 5) {
-				this.priority = arg0.g1();
-			} else if (var2 == 6) {
-				this.replaceheldleft = arg0.g2();
-			} else if (var2 == 7) {
-				this.replaceheldright = arg0.g2();
-			} else if (var2 == 8) {
-				this.maxloops = arg0.g1();
-			} else if (var2 == 9) {
-				this.preanim_move = arg0.g1();
-			} else if (var2 == 10) {
-				this.postanim_move = arg0.g1();
-			} else if (var2 == 11) {
-				this.duplicatebehaviour = arg0.g1();
-			} else {
-				System.out.println("Error unrecognised seq config code: " + var2);
 			}
 		}
 	}

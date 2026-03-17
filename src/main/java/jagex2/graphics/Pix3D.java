@@ -6,12 +6,6 @@ import jagex2.io.JagFile;
 @ObfuscatedName("hb")
 public final class Pix3D extends Pix2D {
 
-	@ObfuscatedName("hb.w")
-	public static boolean field626;
-
-	@ObfuscatedName("hb.x")
-	public static final int field627 = -593;
-
 	@ObfuscatedName("hb.y")
 	public static boolean lowMem = true;
 
@@ -121,85 +115,85 @@ public final class Pix3D extends Pix2D {
 	@ObfuscatedName("hb.b(Z)V")
 	public static void setRenderClipping() {
 		scanline = new int[Pix2D.height];
-		for (int var0 = 0; var0 < Pix2D.height; var0++) {
-			scanline[var0] = Pix2D.width * var0;
+		for (int var1 = 0; var1 < Pix2D.height; var1++) {
+			scanline[var1] = Pix2D.width * var1;
 		}
 		originX = Pix2D.width / 2;
 		originY = Pix2D.height / 2;
 	}
 
 	@ObfuscatedName("hb.a(III)V")
-	public static void setClipping(int arg0, int arg1) {
-		scanline = new int[arg1];
-		for (int var2 = 0; var2 < arg1; var2++) {
-			scanline[var2] = arg0 * var2;
+	public static void setClipping(int arg0, int arg2) {
+		scanline = new int[arg2];
+		for (int var3 = 0; var3 < arg2; var3++) {
+			scanline[var3] = arg0 * var3;
 		}
 		originX = arg0 / 2;
-		originY = arg1 / 2;
+		originY = arg2 / 2;
 	}
 
 	@ObfuscatedName("hb.b(I)V")
 	public static void clearTexels() {
 		texelPool = null;
-		for (int var0 = 0; var0 < 50; var0++) {
-			activeTexels[var0] = null;
+		for (int var2 = 0; var2 < 50; var2++) {
+			activeTexels[var2] = null;
 		}
 	}
 
 	@ObfuscatedName("hb.a(II)V")
-	public static void initPool() {
+	public static void initPool(int arg0) {
 		if (texelPool != null) {
 			return;
 		}
-		poolSize = 20;
+		poolSize = arg0;
 		if (lowMem) {
 			texelPool = new int[poolSize][16384];
 		} else {
 			texelPool = new int[poolSize][65536];
 		}
-		for (int var0 = 0; var0 < 50; var0++) {
-			activeTexels[var0] = null;
+		for (int var3 = 0; var3 < 50; var3++) {
+			activeTexels[var3] = null;
 		}
 	}
 
 	@ObfuscatedName("hb.a(Lxb;I)V")
 	public static void unpackTextures(JagFile arg0) {
 		numTextures = 0;
-		for (int var1 = 0; var1 < 50; var1++) {
+		for (int var2 = 0; var2 < 50; var2++) {
 			try {
-				textures[var1] = new Pix8(arg0, String.valueOf(var1), 0);
-				if (lowMem && textures[var1].owi == 128) {
-					textures[var1].halveSize();
+				textures[var2] = new Pix8(arg0, String.valueOf(var2), 0);
+				if (lowMem && textures[var2].owi == 128) {
+					textures[var2].halveSize();
 				} else {
-					textures[var1].trim();
+					textures[var2].trim();
 				}
 				numTextures++;
-			} catch (Exception var2) {
+			} catch (Exception var3) {
 			}
 		}
 	}
 
 	@ObfuscatedName("hb.a(ZI)I")
-	public static int getTextureAverage(int arg0) {
-		if (texAverage[arg0] != 0) {
-			return texAverage[arg0];
+	public static int getTextureAverage(int arg1) {
+		if (texAverage[arg1] != 0) {
+			return texAverage[arg1];
 		}
-		int var1 = 0;
 		int var2 = 0;
 		int var3 = 0;
-		int var4 = texPal[arg0].length;
-		for (int var5 = 0; var5 < var4; var5++) {
-			var1 += texPal[arg0][var5] >> 16 & 0xFF;
-			var2 += texPal[arg0][var5] >> 8 & 0xFF;
-			var3 += texPal[arg0][var5] & 0xFF;
+		int var4 = 0;
+		int var5 = texPal[arg1].length;
+		for (int var6 = 0; var6 < var5; var6++) {
+			var2 += texPal[arg1][var6] >> 16 & 0xFF;
+			var3 += texPal[arg1][var6] >> 8 & 0xFF;
+			var4 += texPal[arg1][var6] & 0xFF;
 		}
-		int var6 = (var1 / var4 << 16) + (var2 / var4 << 8) + var3 / var4;
-		int var7 = gammaCorrect(var6, 1.4D);
-		if (var7 == 0) {
-			var7 = 1;
+		int var7 = (var2 / var5 << 16) + (var3 / var5 << 8) + var4 / var5;
+		int var8 = gammaCorrect(var7, 1.4D);
+		if (var8 == 0) {
+			var8 = 1;
 		}
-		texAverage[arg0] = var7;
-		return var7;
+		texAverage[arg1] = var8;
+		return var8;
 	}
 
 	@ObfuscatedName("hb.a(IZ)V")
@@ -274,83 +268,83 @@ public final class Pix3D extends Pix2D {
 	}
 
 	@ObfuscatedName("hb.a(ID)V")
-	public static void initColourTable(double arg0) {
-		double var2 = arg0 + Math.random() * 0.03D - 0.015D;
-		int var4 = 0;
-		for (int var5 = 0; var5 < 512; var5++) {
-			double var6 = (double) (var5 / 8) / 64.0D + 0.0078125D;
-			double var8 = (double) (var5 & 0x7) / 8.0D + 0.0625D;
-			for (int var10 = 0; var10 < 128; var10++) {
-				double var11 = (double) var10 / 128.0D;
-				double var13 = var11;
-				double var15 = var11;
-				double var17 = var11;
-				if (var8 != 0.0D) {
-					double var19;
-					if (var11 < 0.5D) {
-						var19 = var11 * (var8 + 1.0D);
+	public static void initColourTable(double arg1) {
+		double var3 = arg1 + Math.random() * 0.03D - 0.015D;
+		int var5 = 0;
+		for (int var6 = 0; var6 < 512; var6++) {
+			double var7 = (double) (var6 / 8) / 64.0D + 0.0078125D;
+			double var9 = (double) (var6 & 0x7) / 8.0D + 0.0625D;
+			for (int var11 = 0; var11 < 128; var11++) {
+				double var12 = (double) var11 / 128.0D;
+				double var14 = var12;
+				double var16 = var12;
+				double var18 = var12;
+				if (var9 != 0.0D) {
+					double var20;
+					if (var12 < 0.5D) {
+						var20 = var12 * (var9 + 1.0D);
 					} else {
-						var19 = var11 + var8 - var11 * var8;
+						var20 = var12 + var9 - var12 * var9;
 					}
-					double var21 = var11 * 2.0D - var19;
-					double var23 = var6 + 0.3333333333333333D;
-					if (var23 > 1.0D) {
-						var23--;
+					double var22 = var12 * 2.0D - var20;
+					double var24 = var7 + 0.3333333333333333D;
+					if (var24 > 1.0D) {
+						var24--;
 					}
-					double var25 = var6 - 0.3333333333333333D;
-					if (var25 < 0.0D) {
-						var25++;
+					double var26 = var7 - 0.3333333333333333D;
+					if (var26 < 0.0D) {
+						var26++;
 					}
-					if (var23 * 6.0D < 1.0D) {
-						var13 = var21 + (var19 - var21) * 6.0D * var23;
-					} else if (var23 * 2.0D < 1.0D) {
-						var13 = var19;
-					} else if (var23 * 3.0D < 2.0D) {
-						var13 = var21 + (var19 - var21) * (0.6666666666666666D - var23) * 6.0D;
+					if (var24 * 6.0D < 1.0D) {
+						var14 = var22 + (var20 - var22) * 6.0D * var24;
+					} else if (var24 * 2.0D < 1.0D) {
+						var14 = var20;
+					} else if (var24 * 3.0D < 2.0D) {
+						var14 = var22 + (var20 - var22) * (0.6666666666666666D - var24) * 6.0D;
 					} else {
-						var13 = var21;
+						var14 = var22;
 					}
-					if (var6 * 6.0D < 1.0D) {
-						var15 = var21 + (var19 - var21) * 6.0D * var6;
-					} else if (var6 * 2.0D < 1.0D) {
-						var15 = var19;
-					} else if (var6 * 3.0D < 2.0D) {
-						var15 = var21 + (var19 - var21) * (0.6666666666666666D - var6) * 6.0D;
+					if (var7 * 6.0D < 1.0D) {
+						var16 = var22 + (var20 - var22) * 6.0D * var7;
+					} else if (var7 * 2.0D < 1.0D) {
+						var16 = var20;
+					} else if (var7 * 3.0D < 2.0D) {
+						var16 = var22 + (var20 - var22) * (0.6666666666666666D - var7) * 6.0D;
 					} else {
-						var15 = var21;
+						var16 = var22;
 					}
-					if (var25 * 6.0D < 1.0D) {
-						var17 = var21 + (var19 - var21) * 6.0D * var25;
-					} else if (var25 * 2.0D < 1.0D) {
-						var17 = var19;
-					} else if (var25 * 3.0D < 2.0D) {
-						var17 = var21 + (var19 - var21) * (0.6666666666666666D - var25) * 6.0D;
+					if (var26 * 6.0D < 1.0D) {
+						var18 = var22 + (var20 - var22) * 6.0D * var26;
+					} else if (var26 * 2.0D < 1.0D) {
+						var18 = var20;
+					} else if (var26 * 3.0D < 2.0D) {
+						var18 = var22 + (var20 - var22) * (0.6666666666666666D - var26) * 6.0D;
 					} else {
-						var17 = var21;
+						var18 = var22;
 					}
 				}
-				int var27 = (int) (var13 * 256.0D);
-				int var28 = (int) (var15 * 256.0D);
-				int var29 = (int) (var17 * 256.0D);
-				int var30 = (var27 << 16) + (var28 << 8) + var29;
-				int var31 = gammaCorrect(var30, var2);
-				colourTable[var4++] = var31;
+				int var28 = (int) (var14 * 256.0D);
+				int var29 = (int) (var16 * 256.0D);
+				int var30 = (int) (var18 * 256.0D);
+				int var31 = (var28 << 16) + (var29 << 8) + var30;
+				int var32 = gammaCorrect(var31, var3);
+				colourTable[var5++] = var32;
 			}
 		}
-		for (int var32 = 0; var32 < 50; var32++) {
-			if (textures[var32] != null) {
-				int[] var33 = textures[var32].bpal;
-				texPal[var32] = new int[var33.length];
-				for (int var34 = 0; var34 < var33.length; var34++) {
-					texPal[var32][var34] = gammaCorrect(var33[var34], var2);
-					if ((texPal[var32][var34] & 0xF8F8FF) == 0 && var34 != 0) {
-						texPal[var32][var34] = 1;
+		for (int var33 = 0; var33 < 50; var33++) {
+			if (textures[var33] != null) {
+				int[] var34 = textures[var33].bpal;
+				texPal[var33] = new int[var34.length];
+				for (int var35 = 0; var35 < var34.length; var35++) {
+					texPal[var33][var35] = gammaCorrect(var34[var35], var3);
+					if ((texPal[var33][var35] & 0xF8F8FF) == 0 && var35 != 0) {
+						texPal[var33][var35] = 1;
 					}
 				}
 			}
 		}
-		for (int var35 = 0; var35 < 50; var35++) {
-			pushTexture(var35);
+		for (int var36 = 0; var36 < 50; var36++) {
+			pushTexture(var36);
 		}
 	}
 
