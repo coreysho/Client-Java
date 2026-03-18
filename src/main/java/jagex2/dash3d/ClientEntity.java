@@ -6,213 +6,207 @@ import jagex2.config.SeqType;
 @ObfuscatedName("y")
 public class ClientEntity extends ModelSource {
 
-	@ObfuscatedName("y.m")
-	public boolean field396 = true;
-
 	@ObfuscatedName("y.n")
-	public int field397;
+	public int x;
 
 	@ObfuscatedName("y.o")
-	public int field398;
+	public int z;
 
 	@ObfuscatedName("y.p")
-	public int field399;
+	public int yaw;
 
 	@ObfuscatedName("y.q")
-	public boolean field400 = false;
+	public boolean reachforward = false;
 
 	@ObfuscatedName("y.r")
-	public int field401 = 1;
+	public int size = 1;
 
 	@ObfuscatedName("y.s")
-	public int field402 = -1;
+	public int readyanim = -1;
 
 	@ObfuscatedName("y.t")
-	public int field403 = -1;
+	public int turnanim = -1;
 
 	@ObfuscatedName("y.u")
-	public int field404 = -1;
+	public int walkanim = -1;
 
 	@ObfuscatedName("y.v")
-	public int field405 = -1;
+	public int walkanim_b = -1;
 
 	@ObfuscatedName("y.w")
-	public int field406 = -1;
+	public int walkanim_r = -1;
 
 	@ObfuscatedName("y.x")
-	public int field407 = -1;
+	public int walkanim_l = -1;
 
 	@ObfuscatedName("y.y")
 	public int field408 = -1;
 
 	@ObfuscatedName("y.z")
-	public String field409;
+	public String chatMessage;
 
 	@ObfuscatedName("y.ab")
-	public int field436;
+	public int exactEndX;
 
 	@ObfuscatedName("y.bb")
-	public int field437;
+	public int exactStartZ;
 
 	@ObfuscatedName("y.cb")
-	public int field438;
+	public int exactEndZ;
 
 	@ObfuscatedName("y.db")
-	public int field439;
+	public int exactMoveStart;
 
 	@ObfuscatedName("y.eb")
-	public int field440;
+	public int exactMoveEnd;
 
 	@ObfuscatedName("y.fb")
-	public int field441;
+	public int exactMoveFacing;
 
 	@ObfuscatedName("y.gb")
-	public int field442;
+	public int cycle;
 
 	@ObfuscatedName("y.hb")
-	public int field443 = 200;
+	public int height = 200;
 
 	@ObfuscatedName("y.ib")
-	public int field444;
+	public int dstYaw;
 
 	@ObfuscatedName("y.jb")
-	public int field445 = 32;
+	public int turnspeed = 32;
 
 	@ObfuscatedName("y.kb")
-	public int field446;
+	public int routeLength;
 
 	@ObfuscatedName("y.lb")
-	public final int[] field447 = new int[10];
+	public final int[] routeX = new int[10];
 
 	@ObfuscatedName("y.mb")
-	public final int[] field448 = new int[10];
+	public final int[] routeZ = new int[10];
 
 	@ObfuscatedName("y.nb")
-	public final boolean[] field449 = new boolean[10];
+	public final boolean[] routeRun = new boolean[10];
 
 	@ObfuscatedName("y.ob")
-	public int field450;
+	public int animDelayMove;
 
 	@ObfuscatedName("y.pb")
-	public int field451;
+	public int preanimRouteLength;
 
 	@ObfuscatedName("y.A")
-	public int field410 = 100;
+	public int chatTimer = 100;
 
 	@ObfuscatedName("y.D")
-	public final int[] field413 = new int[4];
+	public final int[] damageValues = new int[4];
 
 	@ObfuscatedName("y.E")
-	public final int[] field414 = new int[4];
+	public final int[] damageTypes = new int[4];
 
 	@ObfuscatedName("y.F")
-	public final int[] field415 = new int[4];
+	public final int[] damageCycles = new int[4];
 
 	@ObfuscatedName("y.G")
-	public int field416 = -1000;
+	public int combatCycle = -1000;
 
 	@ObfuscatedName("y.J")
-	public int field419 = -1;
+	public int faceEntity = -1;
 
 	@ObfuscatedName("y.M")
-	public int field422 = -1;
+	public int secondaryAnim = -1;
 
 	@ObfuscatedName("y.P")
-	public int field425 = -1;
+	public int primaryAnim = -1;
 
 	@ObfuscatedName("y.U")
-	public int field430 = -1;
+	public int spotanimId = -1;
 
 	@ObfuscatedName("y.B")
-	public int field411;
+	public int chatColour;
 
 	@ObfuscatedName("y.C")
-	public int field412;
+	public int chatEffect;
 
 	@ObfuscatedName("y.H")
-	public int field417;
+	public int health;
 
 	@ObfuscatedName("y.I")
-	public int field418;
+	public int totalHealth;
 
 	@ObfuscatedName("y.K")
-	public int field420;
+	public int faceSquareX;
 
 	@ObfuscatedName("y.L")
-	public int field421;
+	public int faceSquareZ;
 
 	@ObfuscatedName("y.N")
-	public int field423;
+	public int secondaryAnimFrame;
 
 	@ObfuscatedName("y.O")
-	public int field424;
+	public int secondaryAnimCycle;
 
 	@ObfuscatedName("y.Q")
-	public int field426;
+	public int primaryAnimFrame;
 
 	@ObfuscatedName("y.R")
-	public int field427;
+	public int primaryAnimCycle;
 
 	@ObfuscatedName("y.S")
-	public int field428;
+	public int primaryAnimDelay;
 
 	@ObfuscatedName("y.T")
-	public int field429;
+	public int primaryAnimLoop;
 
 	@ObfuscatedName("y.V")
-	public int field431;
+	public int spotanimFrame;
 
 	@ObfuscatedName("y.W")
-	public int field432;
+	public int spotanimCycle;
 
 	@ObfuscatedName("y.X")
-	public int field433;
+	public int spotanimLastCycle;
 
 	@ObfuscatedName("y.Y")
-	public int field434;
+	public int spotanimHeight;
 
 	@ObfuscatedName("y.Z")
-	public int field435;
+	public int exactStartX;
 
 	@ObfuscatedName("y.a(IZZI)V")
-	public final void method110(int arg0, boolean arg1, boolean arg2, int arg3) {
-		if (field425 != -1 && SeqType.list[field425].postanim_move == 1) {
-			field425 = -1;
+	public final void teleport(int arg0, boolean arg1, int arg3) {
+		if (primaryAnim != -1 && SeqType.list[primaryAnim].postanim_move == 1) {
+			primaryAnim = -1;
 		}
 		if (!arg1) {
-			int var5 = arg0 - field447[0];
-			int var6 = arg3 - field448[0];
+			int var5 = arg0 - routeX[0];
+			int var6 = arg3 - routeZ[0];
 			if (var5 >= -8 && var5 <= 8 && var6 >= -8 && var6 <= 8) {
-				if (field446 < 9) {
-					field446++;
+				if (routeLength < 9) {
+					routeLength++;
 				}
-				for (int var7 = field446; var7 > 0; var7--) {
-					field447[var7] = field447[var7 - 1];
-					field448[var7] = field448[var7 - 1];
-					field449[var7] = field449[var7 - 1];
+				for (int var7 = routeLength; var7 > 0; var7--) {
+					routeX[var7] = routeX[var7 - 1];
+					routeZ[var7] = routeZ[var7 - 1];
+					routeRun[var7] = routeRun[var7 - 1];
 				}
-				field447[0] = arg0;
-				field448[0] = arg3;
-				field449[0] = false;
+				routeX[0] = arg0;
+				routeZ[0] = arg3;
+				routeRun[0] = false;
 				return;
 			}
 		}
-		field446 = 0;
-		field451 = 0;
-		field450 = 0;
-		field447[0] = arg0;
-		if (arg2) {
-			field396 = !field396;
-		}
-		field448[0] = arg3;
-		field397 = field447[0] * 128 + field401 * 64;
-		field398 = field448[0] * 128 + field401 * 64;
+		routeLength = 0;
+		preanimRouteLength = 0;
+		animDelayMove = 0;
+		routeX[0] = arg0;
+		routeZ[0] = arg3;
+		x = routeX[0] * 128 + size * 64;
+		z = routeZ[0] * 128 + size * 64;
 	}
 
 	@ObfuscatedName("y.a(ZIZ)V")
-	public final void method111(boolean arg0, int arg1, boolean arg2) {
-		int var4 = field447[0];
-		int var5 = field448[0];
+	public final void moveCode(int arg1, boolean arg2) {
+		int var4 = routeX[0];
+		int var5 = routeZ[0];
 		if (arg1 == 0) {
 			var4--;
 			var5++;
@@ -241,43 +235,40 @@ public class ClientEntity extends ModelSource {
 			var4++;
 			var5--;
 		}
-		if (field425 != -1 && SeqType.list[field425].postanim_move == 1) {
-			field425 = -1;
+		if (primaryAnim != -1 && SeqType.list[primaryAnim].postanim_move == 1) {
+			primaryAnim = -1;
 		}
-		if (field446 < 9) {
-			field446++;
+		if (routeLength < 9) {
+			routeLength++;
 		}
-		for (int var6 = field446; var6 > 0; var6--) {
-			field447[var6] = field447[var6 - 1];
-			field448[var6] = field448[var6 - 1];
-			field449[var6] = field449[var6 - 1];
+		for (int var6 = routeLength; var6 > 0; var6--) {
+			routeX[var6] = routeX[var6 - 1];
+			routeZ[var6] = routeZ[var6 - 1];
+			routeRun[var6] = routeRun[var6 - 1];
 		}
-		field447[0] = var4;
-		if (!arg0) {
-			field396 = !field396;
-		}
-		field448[0] = var5;
-		field449[0] = arg2;
+		routeX[0] = var4;
+		routeZ[0] = var5;
+		routeRun[0] = arg2;
 	}
 
 	@ObfuscatedName("y.b(Z)V")
-	public final void method112() {
-		field446 = 0;
-		field451 = 0;
+	public final void abortRoute() {
+		routeLength = 0;
+		preanimRouteLength = 0;
 	}
 
 	@ObfuscatedName("y.a(I)Z")
-	public boolean method113() {
+	public boolean isReady() {
 		return false;
 	}
 
 	@ObfuscatedName("y.a(IBII)V")
-	public final void method114(int arg0, int arg2, int arg3) {
+	public final void addHitmark(int arg0, int arg2, int arg3) {
 		for (int var5 = 0; var5 < 4; var5++) {
-			if (field415[var5] <= arg0) {
-				field413[var5] = arg2;
-				field414[var5] = arg3;
-				field415[var5] = arg0 + 70;
+			if (damageCycles[var5] <= arg0) {
+				damageValues[var5] = arg2;
+				damageTypes[var5] = arg3;
+				damageCycles[var5] = arg0 + 70;
 				return;
 			}
 		}

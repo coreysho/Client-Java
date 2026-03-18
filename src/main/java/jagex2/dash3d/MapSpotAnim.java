@@ -10,10 +10,10 @@ public final class MapSpotAnim extends ModelSource {
 	public final SpotType field603;
 
 	@ObfuscatedName("fb.n")
-	public final int field604;
+	public final int startCycle;
 
 	@ObfuscatedName("fb.o")
-	public final int field605;
+	public final int level;
 
 	@ObfuscatedName("fb.p")
 	public final int field606;
@@ -31,23 +31,23 @@ public final class MapSpotAnim extends ModelSource {
 	public int field610;
 
 	@ObfuscatedName("fb.u")
-	public boolean field611 = false;
+	public boolean animComplete = false;
 
 	public MapSpotAnim(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7) {
 		field603 = SpotType.list[arg6];
 		if (arg4 != 0) {
 			throw new NullPointerException();
 		}
-		field605 = arg3;
+		level = arg3;
 		field606 = arg2;
 		field607 = arg1;
 		field608 = arg5;
-		field604 = arg7 + arg0;
-		field611 = false;
+		startCycle = arg7 + arg0;
+		animComplete = false;
 	}
 
 	@ObfuscatedName("fb.a(II)V")
-	public void method150(int arg0, int arg1) {
+	public void update(int arg0, int arg1) {
 		field610 += arg1;
 		if (arg0 != 0) {
 			return;
@@ -63,7 +63,7 @@ public final class MapSpotAnim extends ModelSource {
 				} while (field609 < field603.seq.numFrames);
 			} while (field609 >= 0 && field609 < field603.seq.numFrames);
 			field609 = 0;
-			field611 = true;
+			animComplete = true;
 		}
 	}
 
@@ -76,7 +76,7 @@ public final class MapSpotAnim extends ModelSource {
 		} else {
 			int var3 = field603.seq.frames[field609];
 			Model var4 = new Model(true, AnimFrame.animateTransparencies(var3), var2, false);
-			if (!field611) {
+			if (!animComplete) {
 				var4.prepareAnim();
 				var4.animate(var3);
 				var4.labelFaces = null;

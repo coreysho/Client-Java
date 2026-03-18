@@ -16,7 +16,7 @@ public final class Packet extends Linkable2 {
 	public int data;
 
 	@ObfuscatedName("lb.v")
-	public int field710;
+	public int bitPos;
 
 	@ObfuscatedName("lb.w")
 	public static final int[] crctable = new int[256];
@@ -256,15 +256,15 @@ public final class Packet extends Linkable2 {
 
 	@ObfuscatedName("lb.a(B)V")
 	public void gBitStart() {
-		field710 = data * 8;
+		bitPos = data * 8;
 	}
 
 	@ObfuscatedName("lb.a(IB)I")
 	public int gBit(int arg0) {
-		int var3 = field710 >> 3;
-		int var4 = 8 - (field710 & 0x7);
+		int var3 = bitPos >> 3;
+		int var4 = 8 - (bitPos & 0x7);
 		int var5 = 0;
-		field710 += arg0;
+		bitPos += arg0;
 		while (arg0 > var4) {
 			var5 += (pos[var3++] & bitmask[var4]) << arg0 - var4;
 			arg0 -= var4;
@@ -281,7 +281,7 @@ public final class Packet extends Linkable2 {
 
 	@ObfuscatedName("lb.g(I)V")
 	public void gBitEnd() {
-		data = (field710 + 7) / 8;
+		data = (bitPos + 7) / 8;
 	}
 
 	@ObfuscatedName("lb.j()I")

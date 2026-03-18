@@ -11,7 +11,7 @@ import jagex2.io.Packet;
 public final class ClientPlayer extends ClientEntity {
 
 	@ObfuscatedName("ab.tb")
-	public String field457;
+	public String name;
 
 	@ObfuscatedName("ab.ub")
 	public boolean field458 = false;
@@ -29,61 +29,61 @@ public final class ClientPlayer extends ClientEntity {
 	public final int[] field462 = new int[5];
 
 	@ObfuscatedName("ab.zb")
-	public int field463;
+	public int combatLevel;
 
 	@ObfuscatedName("ab.Qb")
 	public static LruCache field480 = new LruCache(260);
 
 	@ObfuscatedName("ab.Nb")
-	public boolean field477 = false;
+	public boolean lowMem = false;
 
 	@ObfuscatedName("ab.Ob")
 	public long field478 = -1L;
 
 	@ObfuscatedName("ab.Ab")
-	public int field464;
+	public int skillLevel;
 
 	@ObfuscatedName("ab.Cb")
-	public int field466;
+	public int y;
 
 	@ObfuscatedName("ab.Db")
-	public int field467;
+	public int locStartCycle;
 
 	@ObfuscatedName("ab.Eb")
-	public int field468;
+	public int locStopCycle;
 
 	@ObfuscatedName("ab.Fb")
-	public int field469;
+	public int locOffsetX;
 
 	@ObfuscatedName("ab.Gb")
-	public int field470;
+	public int locOffsetY;
 
 	@ObfuscatedName("ab.Hb")
-	public int field471;
+	public int locOffsetZ;
 
 	@ObfuscatedName("ab.Jb")
-	public int field473;
+	public int minTileX;
 
 	@ObfuscatedName("ab.Kb")
-	public int field474;
+	public int minTileZ;
 
 	@ObfuscatedName("ab.Lb")
-	public int field475;
+	public int maxTileX;
 
 	@ObfuscatedName("ab.Mb")
-	public int field476;
+	public int maxTileZ;
 
 	@ObfuscatedName("ab.Bb")
 	public long field465;
 
 	@ObfuscatedName("ab.Ib")
-	public Model field472;
+	public Model locModel;
 
 	@ObfuscatedName("ab.Pb")
 	public NpcType field479;
 
 	@ObfuscatedName("ab.a(Llb;I)V")
-	public void method116(Packet arg0) {
+	public void setAppearance(Packet arg0) {
 		arg0.data = 0;
 		gender = arg0.g1();
 		headicons = arg0.g1();
@@ -103,42 +103,42 @@ public final class ClientPlayer extends ClientEntity {
 		}
 		for (int var6 = 0; var6 < 5; var6++) {
 			int var7 = arg0.g1();
-			if (var7 < 0 || var7 >= Client.field1657[var6].length) {
+			if (var7 < 0 || var7 >= Client.recol1d[var6].length) {
 				var7 = 0;
 			}
 			field462[var6] = var7;
 		}
-		super.field402 = arg0.g2();
-		if (super.field402 == 65535) {
-			super.field402 = -1;
+		super.readyanim = arg0.g2();
+		if (super.readyanim == 65535) {
+			super.readyanim = -1;
 		}
-		super.field403 = arg0.g2();
-		if (super.field403 == 65535) {
-			super.field403 = -1;
+		super.turnanim = arg0.g2();
+		if (super.turnanim == 65535) {
+			super.turnanim = -1;
 		}
-		super.field404 = arg0.g2();
-		if (super.field404 == 65535) {
-			super.field404 = -1;
+		super.walkanim = arg0.g2();
+		if (super.walkanim == 65535) {
+			super.walkanim = -1;
 		}
-		super.field405 = arg0.g2();
-		if (super.field405 == 65535) {
-			super.field405 = -1;
+		super.walkanim_b = arg0.g2();
+		if (super.walkanim_b == 65535) {
+			super.walkanim_b = -1;
 		}
-		super.field406 = arg0.g2();
-		if (super.field406 == 65535) {
-			super.field406 = -1;
+		super.walkanim_r = arg0.g2();
+		if (super.walkanim_r == 65535) {
+			super.walkanim_r = -1;
 		}
-		super.field407 = arg0.g2();
-		if (super.field407 == 65535) {
-			super.field407 = -1;
+		super.walkanim_l = arg0.g2();
+		if (super.walkanim_l == 65535) {
+			super.walkanim_l = -1;
 		}
 		super.field408 = arg0.g2();
 		if (super.field408 == 65535) {
 			super.field408 = -1;
 		}
-		field457 = JString.toScreenName(JString.toRawUsername(arg0.g8()));
-		field463 = arg0.g1();
-		field464 = arg0.g2();
+		name = JString.toScreenName(JString.toRawUsername(arg0.g8()));
+		combatLevel = arg0.g1();
+		skillLevel = arg0.g2();
 		field458 = true;
 		field465 = 0L;
 		for (int var8 = 0; var8 < 12; var8++) {
@@ -171,19 +171,19 @@ public final class ClientPlayer extends ClientEntity {
 		if (var2 == null) {
 			return null;
 		}
-		super.field443 = var2.minY;
+		super.height = var2.minY;
 		var2.useAABBMouseCheck = true;
-		if (field477) {
+		if (lowMem) {
 			return var2;
 		}
-		if (super.field430 != -1 && super.field431 != -1) {
-			SpotType var3 = SpotType.list[super.field430];
+		if (super.spotanimId != -1 && super.spotanimFrame != -1) {
+			SpotType var3 = SpotType.list[super.spotanimId];
 			Model var4 = var3.getTempModel2();
 			if (var4 != null) {
-				Model var5 = new Model(true, AnimFrame.animateTransparencies(super.field431), var4, false);
-				var5.translate(0, -super.field434, 0);
+				Model var5 = new Model(true, AnimFrame.animateTransparencies(super.spotanimFrame), var4, false);
+				var5.translate(0, -super.spotanimHeight, 0);
 				var5.prepareAnim();
-				var5.animate(var3.seq.frames[super.field431]);
+				var5.animate(var3.seq.frames[super.spotanimFrame]);
 				var5.labelFaces = null;
 				var5.labelVertices = null;
 				if (var3.resizeh != 128 || var3.resizev != 128) {
@@ -194,36 +194,36 @@ public final class ClientPlayer extends ClientEntity {
 				var2 = new Model(true, var6, 2);
 			}
 		}
-		if (field472 != null) {
-			if (Client.loopCycle >= field468) {
-				field472 = null;
+		if (locModel != null) {
+			if (Client.loopCycle >= locStopCycle) {
+				locModel = null;
 			}
-			if (Client.loopCycle >= field467 && Client.loopCycle < field468) {
-				Model var7 = field472;
-				var7.translate(field469 - super.field397, field470 - field466, field471 - super.field398);
-				if (super.field444 == 512) {
+			if (Client.loopCycle >= locStartCycle && Client.loopCycle < locStopCycle) {
+				Model var7 = locModel;
+				var7.translate(locOffsetX - super.x, locOffsetY - y, locOffsetZ - super.z);
+				if (super.dstYaw == 512) {
 					var7.rotate90();
 					var7.rotate90();
 					var7.rotate90();
-				} else if (super.field444 == 1024) {
+				} else if (super.dstYaw == 1024) {
 					var7.rotate90();
 					var7.rotate90();
-				} else if (super.field444 == 1536) {
+				} else if (super.dstYaw == 1536) {
 					var7.rotate90();
 				}
 				Model[] var8 = new Model[] { var2, var7 };
 				var2 = new Model(true, var8, 2);
-				if (super.field444 == 512) {
+				if (super.dstYaw == 512) {
 					var7.rotate90();
-				} else if (super.field444 == 1024) {
+				} else if (super.dstYaw == 1024) {
 					var7.rotate90();
 					var7.rotate90();
-				} else if (super.field444 == 1536) {
+				} else if (super.dstYaw == 1536) {
 					var7.rotate90();
 					var7.rotate90();
 					var7.rotate90();
 				}
-				var7.translate(super.field397 - field469, field466 - field470, super.field398 - field471);
+				var7.translate(super.x - locOffsetX, y - locOffsetY, super.z - locOffsetZ);
 			}
 		}
 		var2.useAABBMouseCheck = true;
@@ -234,10 +234,10 @@ public final class ClientPlayer extends ClientEntity {
 	public Model method117() {
 		if (field479 != null) {
 			int var3 = -1;
-			if (super.field425 >= 0 && super.field428 == 0) {
-				var3 = SeqType.list[super.field425].frames[super.field426];
-			} else if (super.field422 >= 0) {
-				var3 = SeqType.list[super.field422].frames[super.field423];
+			if (super.primaryAnim >= 0 && super.primaryAnimDelay == 0) {
+				var3 = SeqType.list[super.primaryAnim].frames[super.primaryAnimFrame];
+			} else if (super.secondaryAnim >= 0) {
+				var3 = SeqType.list[super.secondaryAnim].frames[super.secondaryAnimFrame];
 			}
 			return field479.getTempModel(var3, -1, null);
 		}
@@ -246,11 +246,11 @@ public final class ClientPlayer extends ClientEntity {
 		int var8 = -1;
 		int var9 = -1;
 		int var10 = -1;
-		if (super.field425 >= 0 && super.field428 == 0) {
-			SeqType var11 = SeqType.list[super.field425];
-			var7 = var11.frames[super.field426];
-			if (super.field422 >= 0 && super.field422 != super.field402) {
-				var8 = SeqType.list[super.field422].frames[super.field423];
+		if (super.primaryAnim >= 0 && super.primaryAnimDelay == 0) {
+			SeqType var11 = SeqType.list[super.primaryAnim];
+			var7 = var11.frames[super.primaryAnimFrame];
+			if (super.secondaryAnim >= 0 && super.secondaryAnim != super.readyanim) {
+				var8 = SeqType.list[super.secondaryAnim].frames[super.secondaryAnimFrame];
 			}
 			if (var11.replaceheldleft >= 0) {
 				var9 = var11.replaceheldleft;
@@ -260,8 +260,8 @@ public final class ClientPlayer extends ClientEntity {
 				var10 = var11.replaceheldright;
 				var5 += var10 - field461[3] << 16;
 			}
-		} else if (super.field422 >= 0) {
-			var7 = SeqType.list[super.field422].frames[super.field423];
+		} else if (super.secondaryAnim >= 0) {
+			var7 = SeqType.list[super.secondaryAnim].frames[super.secondaryAnimFrame];
 		}
 		Model var12 = (Model) field480.find(var5);
 		if (var12 == null) {
@@ -317,9 +317,9 @@ public final class ClientPlayer extends ClientEntity {
 			var12 = new Model(var17, var16);
 			for (int var22 = 0; var22 < 5; var22++) {
 				if (field462[var22] != 0) {
-					var12.recolour(Client.field1657[var22][0], Client.field1657[var22][field462[var22]]);
+					var12.recolour(Client.recol1d[var22][0], Client.recol1d[var22][field462[var22]]);
 					if (var22 == 1) {
-						var12.recolour(Client.field1550[0], Client.field1550[field462[var22]]);
+						var12.recolour(Client.recol2d[0], Client.recol2d[field462[var22]]);
 					}
 				}
 			}
@@ -328,13 +328,13 @@ public final class ClientPlayer extends ClientEntity {
 			field480.put(var5, var12);
 			field478 = var5;
 		}
-		if (field477) {
+		if (lowMem) {
 			return var12;
 		}
 		Model var23 = Model.tempModel;
 		var23.set(var12, AnimFrame.animateTransparencies(var7) & AnimFrame.animateTransparencies(var8));
 		if (var7 != -1 && var8 != -1) {
-			var23.maskAnimate(SeqType.list[super.field425].walkmerge, var7, var8);
+			var23.maskAnimate(SeqType.list[super.primaryAnim].walkmerge, var7, var8);
 		} else if (var7 != -1) {
 			var23.animate(var7);
 		}
@@ -382,9 +382,9 @@ public final class ClientPlayer extends ClientEntity {
 		Model var11 = new Model(var6, var5);
 		for (int var12 = 0; var12 < 5; var12++) {
 			if (field462[var12] != 0) {
-				var11.recolour(Client.field1657[var12][0], Client.field1657[var12][field462[var12]]);
+				var11.recolour(Client.recol1d[var12][0], Client.recol1d[var12][field462[var12]]);
 				if (var12 == 1) {
-					var11.recolour(Client.field1550[0], Client.field1550[field462[var12]]);
+					var11.recolour(Client.recol2d[0], Client.recol2d[field462[var12]]);
 				}
 			}
 		}
@@ -393,7 +393,7 @@ public final class ClientPlayer extends ClientEntity {
 
 	@ObfuscatedName("ab.a(I)Z")
 	@Override
-	public boolean method113() {
+	public boolean isReady() {
 		return field458;
 	}
 }

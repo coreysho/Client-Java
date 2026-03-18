@@ -9,26 +9,26 @@ import jagex2.config.SpotType;
 public final class ClientNpc extends ClientEntity {
 
 	@ObfuscatedName("z.rb")
-	public NpcType field453;
+	public NpcType type;
 
 	@ObfuscatedName("z.a(Z)Leb;")
 	@Override
 	public Model getTempModel() {
-		if (field453 == null) {
+		if (type == null) {
 			return null;
 		}
 		Model var3 = method115();
 		if (var3 == null) {
 			return null;
 		}
-		super.field443 = var3.minY;
-		if (super.field430 != -1 && super.field431 != -1) {
-			SpotType var4 = SpotType.list[super.field430];
+		super.height = var3.minY;
+		if (super.spotanimId != -1 && super.spotanimFrame != -1) {
+			SpotType var4 = SpotType.list[super.spotanimId];
 			Model var5 = var4.getTempModel2();
 			if (var5 != null) {
-				int var6 = var4.seq.frames[super.field431];
+				int var6 = var4.seq.frames[super.spotanimFrame];
 				Model var7 = new Model(true, AnimFrame.animateTransparencies(var6), var5, false);
-				var7.translate(0, -super.field434, 0);
+				var7.translate(0, -super.spotanimHeight, 0);
 				var7.prepareAnim();
 				var7.animate(var6);
 				var7.labelFaces = null;
@@ -41,7 +41,7 @@ public final class ClientNpc extends ClientEntity {
 				var3 = new Model(true, var8, 2);
 			}
 		}
-		if (field453.size == 1) {
+		if (type.size == 1) {
 			var3.useAABBMouseCheck = true;
 		}
 		return var3;
@@ -49,24 +49,24 @@ public final class ClientNpc extends ClientEntity {
 
 	@ObfuscatedName("z.c(Z)Leb;")
 	public Model method115() {
-		if (super.field425 >= 0 && super.field428 == 0) {
-			int var2 = SeqType.list[super.field425].frames[super.field426];
+		if (super.primaryAnim >= 0 && super.primaryAnimDelay == 0) {
+			int var2 = SeqType.list[super.primaryAnim].frames[super.primaryAnimFrame];
 			int var3 = -1;
-			if (super.field422 >= 0 && super.field422 != super.field402) {
-				var3 = SeqType.list[super.field422].frames[super.field423];
+			if (super.secondaryAnim >= 0 && super.secondaryAnim != super.readyanim) {
+				var3 = SeqType.list[super.secondaryAnim].frames[super.secondaryAnimFrame];
 			}
-			return field453.getTempModel(var2, var3, SeqType.list[super.field425].walkmerge);
+			return type.getTempModel(var2, var3, SeqType.list[super.primaryAnim].walkmerge);
 		}
 		int var4 = -1;
-		if (super.field422 >= 0) {
-			var4 = SeqType.list[super.field422].frames[super.field423];
+		if (super.secondaryAnim >= 0) {
+			var4 = SeqType.list[super.secondaryAnim].frames[super.secondaryAnimFrame];
 		}
-		return field453.getTempModel(var4, -1, null);
+		return type.getTempModel(var4, -1, null);
 	}
 
 	@ObfuscatedName("z.a(I)Z")
 	@Override
-	public boolean method113() {
-		return field453 != null;
+	public boolean isReady() {
+		return type != null;
 	}
 }

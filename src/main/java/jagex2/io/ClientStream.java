@@ -167,7 +167,7 @@ public final class ClientStream implements Runnable {
 	}
 
 	@ObfuscatedName("e.a(Z)V")
-	public void method43() {
+	public void debug() {
 		System.out.println("dummy:" + dummy);
 		System.out.println("tcycl:" + tcycl);
 		System.out.println("tnum:" + tnum);

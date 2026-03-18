@@ -10,7 +10,7 @@ public final class ClientProj extends ModelSource {
 	public final SpotType field498;
 
 	@ObfuscatedName("db.p")
-	public final int field499;
+	public final int level;
 
 	@ObfuscatedName("db.q")
 	public final int field500;
@@ -22,13 +22,13 @@ public final class ClientProj extends ModelSource {
 	public final int field502;
 
 	@ObfuscatedName("db.t")
-	public final int field503;
+	public final int h2;
 
 	@ObfuscatedName("db.u")
-	public final int field504;
+	public final int t1;
 
 	@ObfuscatedName("db.v")
-	public final int field505;
+	public final int t2;
 
 	@ObfuscatedName("db.w")
 	public final int field506;
@@ -37,7 +37,7 @@ public final class ClientProj extends ModelSource {
 	public final int field507;
 
 	@ObfuscatedName("db.y")
-	public final int field508;
+	public final int target;
 
 	@ObfuscatedName("db.z")
 	public boolean field509 = false;
@@ -80,21 +80,21 @@ public final class ClientProj extends ModelSource {
 
 	public ClientProj(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg9, int arg10, int arg11) {
 		field498 = SpotType.list[arg7];
-		field499 = arg6;
+		level = arg6;
 		field500 = arg0;
 		field501 = arg11;
 		field502 = arg9;
-		field504 = arg5;
-		field505 = arg3;
+		t1 = arg5;
+		t2 = arg3;
 		field506 = arg4;
 		field507 = arg1;
-		field508 = arg10;
-		field503 = arg2;
+		target = arg10;
+		h2 = arg2;
 		field509 = false;
 	}
 
 	@ObfuscatedName("db.a(IIIBI)V")
-	public void method119(int arg0, int arg1, int arg2, int arg4) {
+	public void setTarget(int arg0, int arg1, int arg2, int arg4) {
 		if (!field509) {
 			double var6 = (double) (arg2 - field500);
 			double var8 = (double) (arg4 - field501);
@@ -103,7 +103,7 @@ public final class ClientProj extends ModelSource {
 			field511 = (double) field501 + var8 * (double) field507 / var10;
 			field512 = field502;
 		}
-		double var12 = (double) (field505 + 1 - arg0);
+		double var12 = (double) (t2 + 1 - arg0);
 		field513 = ((double) arg2 - field510) / var12;
 		field514 = ((double) arg4 - field511) / var12;
 		field515 = Math.sqrt(field513 * field513 + field514 * field514);
@@ -114,7 +114,7 @@ public final class ClientProj extends ModelSource {
 	}
 
 	@ObfuscatedName("db.a(IZ)V")
-	public void method120(int arg0) {
+	public void move(int arg0) {
 		field509 = true;
 		field510 += field513 * (double) arg0;
 		field511 += field514 * (double) arg0;

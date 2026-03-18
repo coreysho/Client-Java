@@ -113,7 +113,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	}
 
 	@ObfuscatedName("a.a(IIB)V")
-	public final void method2(int arg0, int arg1) {
+	public final void initApplet(int arg0, int arg1) {
 		sHei = arg1;
 		sWid = arg0;
 		graphics = getBaseComponent().getGraphics();

@@ -7,15 +7,15 @@ import jagex2.config.ObjType;
 public final class ClientObj extends ModelSource {
 
 	@ObfuscatedName("cb.n")
-	public int field494;
+	public int id;
 
 	@ObfuscatedName("cb.o")
-	public int field495;
+	public int count;
 
 	@ObfuscatedName("cb.a(Z)Leb;")
 	@Override
 	public Model getTempModel() {
-		ObjType var2 = ObjType.list(field494);
-		return var2.getModelLit(field495);
+		ObjType var2 = ObjType.list(id);
+		return var2.getModelLit(count);
 	}
 }
