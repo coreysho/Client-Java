@@ -374,7 +374,7 @@ public final class ClientBuild {
 				arg0.setDecor(WSHAPE0[arg6], var36, var18, arg9, var15, 0, arg6 * 512, arg2, arg10, 0, var17);
 			} else if (arg5 == 5) {
 				int var37 = 16;
-				int var38 = arg0.getWall(arg2, arg10, arg9);
+				int var38 = arg0.wallType(arg2, arg10, arg9);
 				if (var38 > 0) {
 					var37 = LocType.list(var38 >> 14 & 0x7FFF).wallwidth;
 				}
@@ -819,7 +819,7 @@ public final class ClientBuild {
 				arg6.setDecor(WSHAPE0[arg3], var39, var17, arg5, var14, 0, arg3 * 512, arg1, arg8, 0, var16);
 			} else if (arg4 == 5) {
 				int var40 = 16;
-				int var41 = arg6.getWall(arg1, arg8, arg5);
+				int var41 = arg6.wallType(arg1, arg8, arg5);
 				if (var41 > 0) {
 					var40 = LocType.list(var41 >> 14 & 0x7FFF).wallwidth;
 				}

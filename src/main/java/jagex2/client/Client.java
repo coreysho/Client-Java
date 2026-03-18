@@ -3098,7 +3098,7 @@ public final class Client extends GameShell {
 
 	@ObfuscatedName("client.a(IIIIII)V")
 	public void drawDetail(int arg0, int arg1, int arg2, int arg3, int arg4) {
-		int var7 = world.getWall(arg4, arg0, arg2);
+		int var7 = world.wallType(arg4, arg0, arg2);
 		if (var7 != 0) {
 			int var8 = world.typeCode2(arg4, arg0, arg2, var7);
 			int var9 = var8 >> 6 & 0x3;
@@ -3178,7 +3178,7 @@ public final class Client extends GameShell {
 				}
 			}
 		}
-		int var19 = world.getScene(arg4, arg0, arg2);
+		int var19 = world.sceneType(arg4, arg0, arg2);
 		if (var19 != 0) {
 			int var20 = world.typeCode2(arg4, arg0, arg2, var19);
 			int var21 = var20 >> 6 & 0x3;
@@ -3212,7 +3212,7 @@ public final class Client extends GameShell {
 				}
 			}
 		}
-		int var31 = world.getGd(arg4, arg0, arg2);
+		int var31 = world.gdType(arg4, arg0, arg2);
 		if (var31 == 0) {
 			return;
 		}
@@ -3294,16 +3294,16 @@ public final class Client extends GameShell {
 		}
 		int var10 = 0;
 		if (arg1 == 0) {
-			var10 = world.getWall(arg6, arg2, arg7);
+			var10 = world.wallType(arg6, arg2, arg7);
 		}
 		if (arg1 == 1) {
-			var10 = world.getDecor(arg7, arg2, arg6);
+			var10 = world.decorType(arg7, arg2, arg6);
 		}
 		if (arg1 == 2) {
-			var10 = world.getScene(arg6, arg2, arg7);
+			var10 = world.sceneType(arg6, arg2, arg7);
 		}
 		if (arg1 == 3) {
-			var10 = world.getGd(arg6, arg2, arg7);
+			var10 = world.gdType(arg6, arg2, arg7);
 		}
 		if (var10 != 0) {
 			int var11 = world.typeCode2(arg6, arg2, arg7, var10);
@@ -5609,7 +5609,7 @@ public final class Client extends GameShell {
 				int var21 = groundh[minusedlevel][var12 + 1][var13 + 1];
 				int var22 = groundh[minusedlevel][var12][var13 + 1];
 				if (var17 == 0) {
-					Wall var23 = world.wallType(var13, minusedlevel, var12);
+					Wall var23 = world.getWall(var13, minusedlevel, var12);
 					if (var23 != null) {
 						int var24 = var23.typecode >> 14 & 0x7FFF;
 						if (var15 == 2) {
@@ -5621,13 +5621,13 @@ public final class Client extends GameShell {
 					}
 				}
 				if (var17 == 1) {
-					Decor var25 = world.decorType(var12, minusedlevel, var13);
+					Decor var25 = world.getDecor(var12, minusedlevel, var13);
 					if (var25 != null) {
 						var25.model = new ClientLocAnim(4, 0, var18, var25.typecode >> 14 & 0x7FFF, var21, false, var20, var22, var19);
 					}
 				}
 				if (var17 == 2) {
-					Sprite var26 = world.sceneType(var12, minusedlevel, var13);
+					Sprite var26 = world.getScene(var12, minusedlevel, var13);
 					if (var15 == 11) {
 						var15 = 10;
 					}
@@ -5636,7 +5636,7 @@ public final class Client extends GameShell {
 					}
 				}
 				if (var17 == 3) {
-					GroundDecor var27 = world.gdType(var12, minusedlevel, var13);
+					GroundDecor var27 = world.getGd(var12, minusedlevel, var13);
 					if (var27 != null) {
 						var27.model = new ClientLocAnim(22, var16, var18, var27.typecode >> 14 & 0x7FFF, var21, false, var20, var22, var19);
 					}
@@ -6310,7 +6310,7 @@ public final class Client extends GameShell {
 		activeMapFunctionCount = 0;
 		for (int var13 = 0; var13 < 104; var13++) {
 			for (int var14 = 0; var14 < 104; var14++) {
-				int var15 = world.getGd(minusedlevel, var13, var14);
+				int var15 = world.gdType(minusedlevel, var13, var14);
 				if (var15 != 0) {
 					int var16 = var15 >> 14 & 0x7FFF;
 					int var17 = LocType.list(var16).mapfunction;
@@ -6385,16 +6385,16 @@ public final class Client extends GameShell {
 		int var5 = 0;
 		int var6 = 0;
 		if (arg1.layer == 0) {
-			var3 = world.getWall(arg1.level, arg1.x, arg1.z);
+			var3 = world.wallType(arg1.level, arg1.x, arg1.z);
 		}
 		if (arg1.layer == 1) {
-			var3 = world.getDecor(arg1.z, arg1.x, arg1.level);
+			var3 = world.decorType(arg1.z, arg1.x, arg1.level);
 		}
 		if (arg1.layer == 2) {
-			var3 = world.getScene(arg1.level, arg1.x, arg1.z);
+			var3 = world.sceneType(arg1.level, arg1.x, arg1.z);
 		}
 		if (arg1.layer == 3) {
-			var3 = world.getGd(arg1.level, arg1.x, arg1.z);
+			var3 = world.gdType(arg1.level, arg1.x, arg1.z);
 		}
 		if (var3 != 0) {
 			int var7 = world.typeCode2(arg1.level, arg1.x, arg1.z, var3);

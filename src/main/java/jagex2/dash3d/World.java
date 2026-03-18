@@ -703,19 +703,19 @@ public final class World {
 	}
 
 	@ObfuscatedName("r.a(BIII)Lq;")
-	public Wall wallType(int arg1, int arg2, int arg3) {
+	public Wall getWall(int arg1, int arg2, int arg3) {
 		Square var5 = squares[arg2][arg3][arg1];
 		return var5 == null ? null : var5.wall;
 	}
 
 	@ObfuscatedName("r.b(IBII)Lh;")
-	public Decor decorType(int arg0, int arg2, int arg3) {
+	public Decor getDecor(int arg0, int arg2, int arg3) {
 		Square var5 = squares[arg2][arg0][arg3];
 		return var5 == null ? null : var5.decor;
 	}
 
 	@ObfuscatedName("r.a(IIZI)Lp;")
-	public Sprite sceneType(int arg0, int arg1, int arg3) {
+	public Sprite getScene(int arg0, int arg1, int arg3) {
 		Square var6 = squares[arg1][arg0][arg3];
 		if (var6 == null) {
 			return null;
@@ -730,25 +730,25 @@ public final class World {
 	}
 
 	@ObfuscatedName("r.b(IIIB)Lj;")
-	public GroundDecor gdType(int arg0, int arg1, int arg2) {
+	public GroundDecor getGd(int arg0, int arg1, int arg2) {
 		Square var5 = squares[arg1][arg0][arg2];
 		return var5 == null || var5.groundDecor == null ? null : var5.groundDecor;
 	}
 
 	@ObfuscatedName("r.b(III)I")
-	public int getWall(int arg0, int arg1, int arg2) {
+	public int wallType(int arg0, int arg1, int arg2) {
 		Square var4 = squares[arg0][arg1][arg2];
 		return var4 == null || var4.wall == null ? 0 : var4.wall.typecode;
 	}
 
 	@ObfuscatedName("r.d(IIII)I")
-	public int getDecor(int arg0, int arg1, int arg2) {
+	public int decorType(int arg0, int arg1, int arg2) {
 		Square var5 = squares[arg2][arg1][arg0];
 		return var5 == null || var5.decor == null ? 0 : var5.decor.typecode;
 	}
 
 	@ObfuscatedName("r.c(III)I")
-	public int getScene(int arg0, int arg1, int arg2) {
+	public int sceneType(int arg0, int arg1, int arg2) {
 		Square var4 = squares[arg0][arg1][arg2];
 		if (var4 == null) {
 			return 0;
@@ -763,7 +763,7 @@ public final class World {
 	}
 
 	@ObfuscatedName("r.d(III)I")
-	public int getGd(int arg0, int arg1, int arg2) {
+	public int gdType(int arg0, int arg1, int arg2) {
 		Square var4 = squares[arg0][arg1][arg2];
 		return var4 == null || var4.groundDecor == null ? 0 : var4.groundDecor.typecode;
 	}
@@ -882,9 +882,9 @@ public final class World {
 									for (int var20 = 0; var20 < var17.spriteCount; var20++) {
 										Sprite var21 = var17.sprites[var20];
 										if (var21 != null && var21.model != null && var21.model.pointNormal != null) {
-											int var22 = var21.maxTileX + 1 - var21.minTileX;
-											int var23 = var21.maxTileZ + 1 - var21.minTileZ;
-											modelShareLight(arg6, (Model) var21.model, (var21.minTileX - arg3) * 128 + (var22 - arg4) * 64, var18, (var21.minTileZ - arg1) * 128 + (var23 - arg0) * 64, var8);
+											int sizeX = var21.maxTileX + 1 - var21.minTileX;
+											int sizeZ = var21.maxTileZ + 1 - var21.minTileZ;
+											modelShareLight(arg6, (Model) var21.model, (var21.minTileX - arg3) * 128 + (sizeX - arg4) * 64, var18, (var21.minTileZ - arg1) * 128 + (sizeZ - arg0) * 64, var8);
 										}
 									}
 								}
