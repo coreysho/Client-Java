@@ -49,7 +49,7 @@ public final class Square extends Linkable {
 	public int spriteSpans;
 
 	@ObfuscatedName("v.t")
-	public int field380;
+	public int drawLevel;
 
 	@ObfuscatedName("v.u")
 	public boolean drawFront;

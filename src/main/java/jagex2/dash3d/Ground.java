@@ -5,9 +5,6 @@ import deob.ObfuscatedName;
 @ObfuscatedName("i")
 public final class Ground {
 
-	@ObfuscatedName("i.a")
-	public boolean field165 = true;
-
 	@ObfuscatedName("i.b")
 	public final int[] vertexX;
 
@@ -21,10 +18,10 @@ public final class Ground {
 	public final int[] faceColourA;
 
 	@ObfuscatedName("i.f")
-	public final int[] field170;
+	public final int[] faceColourB;
 
 	@ObfuscatedName("i.g")
-	public final int[] field171;
+	public final int[] faceColourC;
 
 	@ObfuscatedName("i.h")
 	public final int[] faceVertexA;
@@ -69,28 +66,25 @@ public final class Ground {
 	public static final int[] drawTextureVertexZ = new int[6];
 
 	@ObfuscatedName("i.v")
-	public static final int[] field186 = new int[] { 1, 0 };
+	public static final int[] shape0P1 = new int[] { 1, 0 };
 
 	@ObfuscatedName("i.w")
-	public static final int[] field187 = new int[] { 2, 1 };
+	public static final int[] shape0P2 = new int[] { 2, 1 };
 
 	@ObfuscatedName("i.x")
-	public static final int[] field188 = new int[] { 3, 3 };
+	public static final int[] shape0P3 = new int[] { 3, 3 };
 
 	@ObfuscatedName("i.y")
-	public static final int[][] field189 = new int[][] { { 1, 3, 5, 7 }, { 1, 3, 5, 7 }, { 1, 3, 5, 7 }, { 1, 3, 5, 7, 6 }, { 1, 3, 5, 7, 6 }, { 1, 3, 5, 7, 6 }, { 1, 3, 5, 7, 6 }, { 1, 3, 5, 7, 2, 6 }, { 1, 3, 5, 7, 2, 8 }, { 1, 3, 5, 7, 2, 8 }, { 1, 3, 5, 7, 11, 12 }, { 1, 3, 5, 7, 11, 12 }, { 1, 3, 5, 7, 13, 14 } };
+	public static final int[][] defShapeP = new int[][] { { 1, 3, 5, 7 }, { 1, 3, 5, 7 }, { 1, 3, 5, 7 }, { 1, 3, 5, 7, 6 }, { 1, 3, 5, 7, 6 }, { 1, 3, 5, 7, 6 }, { 1, 3, 5, 7, 6 }, { 1, 3, 5, 7, 2, 6 }, { 1, 3, 5, 7, 2, 8 }, { 1, 3, 5, 7, 2, 8 }, { 1, 3, 5, 7, 11, 12 }, { 1, 3, 5, 7, 11, 12 }, { 1, 3, 5, 7, 13, 14 } };
 
 	@ObfuscatedName("i.z")
-	public static final int[][] field190 = new int[][] { { 0, 1, 2, 3, 0, 0, 1, 3 }, { 1, 1, 2, 3, 1, 0, 1, 3 }, { 0, 1, 2, 3, 1, 0, 1, 3 }, { 0, 0, 1, 2, 0, 0, 2, 4, 1, 0, 4, 3 }, { 0, 0, 1, 4, 0, 0, 4, 3, 1, 1, 2, 4 }, { 0, 0, 4, 3, 1, 0, 1, 2, 1, 0, 2, 4 }, { 0, 1, 2, 4, 1, 0, 1, 4, 1, 0, 4, 3 }, { 0, 4, 1, 2, 0, 4, 2, 5, 1, 0, 4, 5, 1, 0, 5, 3 }, { 0, 4, 1, 2, 0, 4, 2, 3, 0, 4, 3, 5, 1, 0, 4, 5 }, { 0, 0, 4, 5, 1, 4, 1, 2, 1, 4, 2, 3, 1, 4, 3, 5 }, { 0, 0, 1, 5, 0, 1, 4, 5, 0, 1, 2, 4, 1, 0, 5, 3, 1, 5, 4, 3, 1, 4, 2, 3 }, { 1, 0, 1, 5, 1, 1, 4, 5, 1, 1, 2, 4, 0, 0, 5, 3, 0, 5, 4, 3, 0, 4, 2, 3 }, { 1, 0, 5, 4, 1, 0, 1, 5, 0, 0, 4, 3, 0, 4, 5, 3, 0, 5, 2, 3, 0, 1, 2, 5 } };
+	public static final int[][] defShapeF = new int[][] { { 0, 1, 2, 3, 0, 0, 1, 3 }, { 1, 1, 2, 3, 1, 0, 1, 3 }, { 0, 1, 2, 3, 1, 0, 1, 3 }, { 0, 0, 1, 2, 0, 0, 2, 4, 1, 0, 4, 3 }, { 0, 0, 1, 4, 0, 0, 4, 3, 1, 1, 2, 4 }, { 0, 0, 4, 3, 1, 0, 1, 2, 1, 0, 2, 4 }, { 0, 1, 2, 4, 1, 0, 1, 4, 1, 0, 4, 3 }, { 0, 4, 1, 2, 0, 4, 2, 5, 1, 0, 4, 5, 1, 0, 5, 3 }, { 0, 4, 1, 2, 0, 4, 2, 3, 0, 4, 3, 5, 1, 0, 4, 5 }, { 0, 0, 4, 5, 1, 4, 1, 2, 1, 4, 2, 3, 1, 4, 3, 5 }, { 0, 0, 1, 5, 0, 1, 4, 5, 0, 1, 2, 4, 1, 0, 5, 3, 1, 5, 4, 3, 1, 4, 2, 3 }, { 1, 0, 1, 5, 1, 1, 4, 5, 1, 1, 2, 4, 0, 0, 5, 3, 0, 5, 4, 3, 0, 4, 2, 3 }, { 1, 0, 5, 4, 1, 0, 1, 5, 0, 0, 4, 3, 0, 4, 5, 3, 0, 5, 2, 3, 0, 1, 2, 5 } };
 
-	public Ground(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, int arg9, int arg10, int arg11, int arg12, int arg13, int arg14, int arg15, int arg16, int arg17, int arg18, int arg19) {
+	public Ground(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg8, int arg9, int arg10, int arg11, int arg12, int arg13, int arg14, int arg15, int arg16, int arg18, int arg19) {
 		if (arg1 != arg14 || arg1 != arg2 || arg1 != arg13) {
 			flat = false;
 		}
 		overlayShape = arg6;
-		if (arg17 >= 0) {
-			field165 = !field165;
-		}
 		overlayRotation = arg16;
 		minimapOverlay = arg4;
 		minimapUnderlay = arg7;
@@ -98,7 +92,7 @@ public final class Ground {
 		int var22 = var21 / 2;
 		int var23 = var21 / 4;
 		int var24 = var21 * 3 / 4;
-		int[] var25 = field189[arg6];
+		int[] var25 = defShapeP[arg6];
 		int var26 = var25.length;
 		vertexX = new int[var26];
 		vertexY = new int[var26];
@@ -226,14 +220,14 @@ public final class Ground {
 			var27[var31] = var36;
 			var28[var31] = var37;
 		}
-		int[] var38 = field190[arg6];
+		int[] var38 = defShapeF[arg6];
 		int var39 = var38.length / 4;
 		faceVertexA = new int[var39];
 		faceVertexB = new int[var39];
 		faceVertexC = new int[var39];
 		faceColourA = new int[var39];
-		field170 = new int[var39];
-		field171 = new int[var39];
+		faceColourB = new int[var39];
+		faceColourC = new int[var39];
 		if (arg5 != -1) {
 			faceTexture = new int[var39];
 		}
@@ -258,15 +252,15 @@ public final class Ground {
 			faceVertexC[var41] = var45;
 			if (var42 == 0) {
 				faceColourA[var41] = var27[var43];
-				field170[var41] = var27[var44];
-				field171[var41] = var27[var45];
+				faceColourB[var41] = var27[var44];
+				faceColourC[var41] = var27[var45];
 				if (faceTexture != null) {
 					faceTexture[var41] = -1;
 				}
 			} else {
 				faceColourA[var41] = var28[var43];
-				field170[var41] = var28[var44];
-				field171[var41] = var28[var45];
+				faceColourB[var41] = var28[var44];
+				faceColourC[var41] = var28[var45];
 				if (faceTexture != null) {
 					faceTexture[var41] = arg5;
 				}

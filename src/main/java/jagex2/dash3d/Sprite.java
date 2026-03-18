@@ -9,7 +9,7 @@ public final class Sprite {
 	public int level;
 
 	@ObfuscatedName("p.b")
-	public int field252;
+	public int y;
 
 	@ObfuscatedName("p.c")
 	public int x;
@@ -21,7 +21,7 @@ public final class Sprite {
 	public ModelSource model;
 
 	@ObfuscatedName("p.f")
-	public int field256;
+	public int yaw;
 
 	@ObfuscatedName("p.g")
 	public int minTileX;

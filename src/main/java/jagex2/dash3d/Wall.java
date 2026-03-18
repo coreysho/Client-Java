@@ -6,13 +6,13 @@ import deob.ObfuscatedName;
 public final class Wall {
 
 	@ObfuscatedName("q.a")
-	public int field265;
+	public int y;
 
 	@ObfuscatedName("q.b")
-	public int field266;
+	public int x;
 
 	@ObfuscatedName("q.c")
-	public int field267;
+	public int z;
 
 	@ObfuscatedName("q.d")
 	public int angle1;

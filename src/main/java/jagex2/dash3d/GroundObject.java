@@ -6,13 +6,13 @@ import deob.ObfuscatedName;
 public final class GroundObject {
 
 	@ObfuscatedName("k.a")
-	public int field197;
+	public int y;
 
 	@ObfuscatedName("k.b")
-	public int field198;
+	public int x;
 
 	@ObfuscatedName("k.c")
-	public int field199;
+	public int z;
 
 	@ObfuscatedName("k.d")
 	public ModelSource topObj;
@@ -24,7 +24,7 @@ public final class GroundObject {
 	public ModelSource middleObj;
 
 	@ObfuscatedName("k.g")
-	public int field203;
+	public int typecode;
 
 	@ObfuscatedName("k.h")
 	public int height;

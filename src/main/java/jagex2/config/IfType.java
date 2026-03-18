@@ -51,7 +51,7 @@ public final class IfType {
 	public int height;
 
 	@ObfuscatedName("d.o")
-	public byte field80;
+	public byte trans;
 
 	@ObfuscatedName("d.p")
 	public int x;
@@ -60,7 +60,7 @@ public final class IfType {
 	public int y;
 
 	@ObfuscatedName("d.r")
-	public int[][] field83;
+	public int[][] scripts;
 
 	@ObfuscatedName("d.s")
 	public int[] scriptComparator;
@@ -90,10 +90,10 @@ public final class IfType {
 	public int model1Id;
 
 	@ObfuscatedName("d.bb")
-	public int field119;
+	public int model2Type;
 
 	@ObfuscatedName("d.cb")
-	public int field120;
+	public int model2Id;
 
 	@ObfuscatedName("d.db")
 	public int modelAnim;
@@ -102,7 +102,7 @@ public final class IfType {
 	public int modelAnim2;
 
 	@ObfuscatedName("d.fb")
-	public int field123;
+	public int modelZoom;
 
 	@ObfuscatedName("d.gb")
 	public int modelXAn;
@@ -117,16 +117,16 @@ public final class IfType {
 	public String targetBase;
 
 	@ObfuscatedName("d.kb")
-	public int field128;
+	public int targetMask;
 
 	@ObfuscatedName("d.lb")
 	public String buttonText;
 
 	@ObfuscatedName("d.mb")
-	public static final LruCache field130 = new LruCache(30);
+	public static final LruCache modelCache = new LruCache(30);
 
 	@ObfuscatedName("d.nb")
-	public static LruCache field131;
+	public static LruCache spriteCache;
 
 	@ObfuscatedName("d.I")
 	public int marginY;
@@ -135,13 +135,13 @@ public final class IfType {
 	public int colour;
 
 	@ObfuscatedName("d.U")
-	public int field112;
+	public int colour2;
 
 	@ObfuscatedName("d.V")
 	public int colourOver;
 
 	@ObfuscatedName("d.W")
-	public int field114;
+	public int colour2Over;
 
 	@ObfuscatedName("d.Z")
 	public int model1Type;
@@ -165,10 +165,10 @@ public final class IfType {
 	public String text;
 
 	@ObfuscatedName("d.S")
-	public String field110;
+	public String text2;
 
 	@ObfuscatedName("d.N")
-	public boolean field105;
+	public boolean fill;
 
 	@ObfuscatedName("d.O")
 	public boolean centre;
@@ -201,14 +201,14 @@ public final class IfType {
 	public int[] childY;
 
 	@ObfuscatedName("d.J")
-	public Pix32[] field101;
+	public Pix32[] invBackground;
 
 	@ObfuscatedName("d.M")
 	public String[] iop;
 
 	@ObfuscatedName("d.a(Lxb;Lxb;[Lkb;I)V")
 	public static void init(JagFile arg0, JagFile arg1, PixFont[] arg2) {
-		field131 = new LruCache(50000);
+		spriteCache = new LruCache(50000);
 		Packet var4 = new Packet(arg0.read("data", null));
 		int var5 = -1;
 		int var6 = var4.g2();
@@ -217,7 +217,7 @@ public final class IfType {
 			IfType var8;
 			do {
 				if (var4.data >= var4.pos.length) {
-					field131 = null;
+					spriteCache = null;
 					return;
 				}
 				int var7 = var4.g2();
@@ -233,7 +233,7 @@ public final class IfType {
 				var8.clientCode = var4.g2();
 				var8.width = var4.g2();
 				var8.height = var4.g2();
-				var8.field80 = (byte) var4.g1();
+				var8.trans = (byte) var4.g1();
 				var8.overLayerId = var4.g1();
 				if (var8.overLayerId == 0) {
 					var8.overLayerId = -1;
@@ -251,12 +251,12 @@ public final class IfType {
 				}
 				int var11 = var4.g1();
 				if (var11 > 0) {
-					var8.field83 = new int[var11][];
+					var8.scripts = new int[var11][];
 					for (int var12 = 0; var12 < var11; var12++) {
 						int var13 = var4.g2();
-						var8.field83[var12] = new int[var13];
+						var8.scripts[var12] = new int[var13];
 						for (int var14 = 0; var14 < var13; var14++) {
-							var8.field83[var12][var14] = var4.g2();
+							var8.scripts[var12][var14] = var4.g2();
 						}
 					}
 				}
@@ -288,7 +288,7 @@ public final class IfType {
 					var8.marginY = var4.g1();
 					var8.invBackgroundX = new int[20];
 					var8.invBackgroundY = new int[20];
-					var8.field101 = new Pix32[20];
+					var8.invBackground = new Pix32[20];
 					for (int var17 = 0; var17 < 20; var17++) {
 						int var18 = var4.g1();
 						if (var18 == 1) {
@@ -297,7 +297,7 @@ public final class IfType {
 							String var19 = var4.gjstr();
 							if (arg1 != null && var19.length() > 0) {
 								int var20 = var19.lastIndexOf(",");
-								var8.field101[var17] = method37(Integer.parseInt(var19.substring(var20 + 1)), var19.substring(0, var20), arg1);
+								var8.invBackground[var17] = getSprite(Integer.parseInt(var19.substring(var20 + 1)), var19.substring(0, var20), arg1);
 							}
 						}
 					}
@@ -310,7 +310,7 @@ public final class IfType {
 					}
 				}
 				if (var8.type == 3) {
-					var8.field105 = var4.g1() == 1;
+					var8.fill = var4.g1() == 1;
 				}
 				if (var8.type == 4 || var8.type == 1) {
 					var8.centre = var4.g1() == 1;
@@ -322,26 +322,26 @@ public final class IfType {
 				}
 				if (var8.type == 4) {
 					var8.text = var4.gjstr();
-					var8.field110 = var4.gjstr();
+					var8.text2 = var4.gjstr();
 				}
 				if (var8.type == 1 || var8.type == 3 || var8.type == 4) {
 					var8.colour = var4.g4();
 				}
 				if (var8.type == 3 || var8.type == 4) {
-					var8.field112 = var4.g4();
+					var8.colour2 = var4.g4();
 					var8.colourOver = var4.g4();
-					var8.field114 = var4.g4();
+					var8.colour2Over = var4.g4();
 				}
 				if (var8.type == 5) {
 					String var23 = var4.gjstr();
 					if (arg1 != null && var23.length() > 0) {
 						int var24 = var23.lastIndexOf(",");
-						var8.graphic = method37(Integer.parseInt(var23.substring(var24 + 1)), var23.substring(0, var24), arg1);
+						var8.graphic = getSprite(Integer.parseInt(var23.substring(var24 + 1)), var23.substring(0, var24), arg1);
 					}
 					String var25 = var4.gjstr();
 					if (arg1 != null && var25.length() > 0) {
 						int var26 = var25.lastIndexOf(",");
-						var8.graphic2 = method37(Integer.parseInt(var25.substring(var26 + 1)), var25.substring(0, var26), arg1);
+						var8.graphic2 = getSprite(Integer.parseInt(var25.substring(var26 + 1)), var25.substring(0, var26), arg1);
 					}
 				}
 				if (var8.type == 6) {
@@ -352,8 +352,8 @@ public final class IfType {
 					}
 					int var28 = var4.g1();
 					if (var28 != 0) {
-						var8.field119 = 1;
-						var8.field120 = (var28 - 1 << 8) + var4.g1();
+						var8.model2Type = 1;
+						var8.model2Id = (var28 - 1 << 8) + var4.g1();
 					}
 					int var29 = var4.g1();
 					if (var29 == 0) {
@@ -367,7 +367,7 @@ public final class IfType {
 					} else {
 						var8.modelAnim2 = (var30 - 1 << 8) + var4.g1();
 					}
-					var8.field123 = var4.g2();
+					var8.modelZoom = var4.g2();
 					var8.modelXAn = var4.g2();
 					var8.modelYAn = var4.g2();
 				}
@@ -395,7 +395,7 @@ public final class IfType {
 				if (var8.buttonType == 2 || var8.type == 2) {
 					var8.targetVerb = var4.gjstr();
 					var8.targetBase = var4.gjstr();
-					var8.field128 = var4.g2();
+					var8.targetMask = var4.g2();
 				}
 			} while (var8.buttonType != 1 && var8.buttonType != 4 && var8.buttonType != 5 && var8.buttonType != 6);
 			var8.buttonText = var4.gjstr();
@@ -418,22 +418,22 @@ public final class IfType {
 
 	@ObfuscatedName("d.a(IILeb;I)V")
 	public static void cacheModel(int arg1, Model arg2, int arg3) {
-		field130.clear();
+		modelCache.clear();
 		if (arg2 != null && arg3 != 4) {
-			field130.put((long) ((arg3 << 16) + arg1), arg2);
+			modelCache.put((long) ((arg3 << 16) + arg1), arg2);
 		}
 	}
 
 	@ObfuscatedName("d.a(IZLjava/lang/String;Lxb;)Lib;")
-	public static Pix32 method37(int arg0, String arg2, JagFile arg3) {
+	public static Pix32 getSprite(int arg0, String arg2, JagFile arg3) {
 		long var4 = (JString.hashCode(arg2) << 8) + (long) arg0;
-		Pix32 var6 = (Pix32) field131.find(var4);
+		Pix32 var6 = (Pix32) spriteCache.find(var4);
 		if (var6 != null) {
 			return var6;
 		}
 		try {
 			Pix32 var7 = new Pix32(arg3, arg2, arg0);
-			field131.put(var4, var7);
+			spriteCache.put(var4, var7);
 			return var7;
 		} catch (Exception var8) {
 			return null;
@@ -454,9 +454,9 @@ public final class IfType {
 	public Model getTempModel(int arg0, int arg1, boolean arg3) {
 		Model var5;
 		if (arg3) {
-			var5 = method35(field119, field120);
+			var5 = getModel(model2Type, model2Id);
 		} else {
-			var5 = method35(model1Type, model1Id);
+			var5 = getModel(model1Type, model1Id);
 		}
 		if (var5 == null) {
 			return null;
@@ -479,8 +479,8 @@ public final class IfType {
 	}
 
 	@ObfuscatedName("d.a(II)Leb;")
-	public Model method35(int arg0, int arg1) {
-		Model var3 = (Model) field130.find((long) ((arg0 << 16) + arg1));
+	public Model getModel(int arg0, int arg1) {
+		Model var3 = (Model) modelCache.find((long) ((arg0 << 16) + arg1));
 		if (var3 != null) {
 			return var3;
 		}
@@ -491,7 +491,7 @@ public final class IfType {
 			var3 = NpcType.list(arg1).getHead();
 		}
 		if (arg0 == 3) {
-			var3 = Client.localPlayer.method118();
+			var3 = Client.localPlayer.getHeadModel();
 		}
 		if (arg0 == 4) {
 			var3 = ObjType.list(arg1).getModelUnlit(50);
@@ -500,7 +500,7 @@ public final class IfType {
 			var3 = null;
 		}
 		if (var3 != null) {
-			field130.put((long) ((arg0 << 16) + arg1), var3);
+			modelCache.put((long) ((arg0 << 16) + arg1), var3);
 		}
 		return var3;
 	}

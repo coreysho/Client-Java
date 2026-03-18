@@ -42,7 +42,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	public PixMap drawArea;
 
 	@ObfuscatedName("a.p")
-	public final Pix32[] field16 = new Pix32[6];
+	public final Pix32[] drawAreas = new Pix32[6];
 
 	@ObfuscatedName("a.q")
 	public ViewBox frame;

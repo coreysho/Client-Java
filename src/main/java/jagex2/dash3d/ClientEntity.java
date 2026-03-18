@@ -40,7 +40,7 @@ public class ClientEntity extends ModelSource {
 	public int walkanim_l = -1;
 
 	@ObfuscatedName("y.y")
-	public int field408 = -1;
+	public int runanim = -1;
 
 	@ObfuscatedName("y.z")
 	public String chatMessage;

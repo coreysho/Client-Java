@@ -656,7 +656,7 @@ public final class WordFilter {
 					}
 					byte var19 = getIndex(var17);
 					byte var20 = getIndex(var18);
-					if (arg3 != null && comboMatches(-484, arg3, var19, var20)) {
+					if (arg3 != null && comboMatches(arg3, var19, var20)) {
 						var16 = false;
 					}
 				}
@@ -688,15 +688,13 @@ public final class WordFilter {
 	}
 
 	@ObfuscatedName("sc.a(I[[BBB)Z")
-	public static boolean comboMatches(int arg0, byte[][] arg1, byte arg2, byte arg3) {
+	public static boolean comboMatches(byte[][] arg1, byte arg2, byte arg3) {
 		int var4 = 0;
 		if (arg1[var4][0] == arg2 && arg1[var4][1] == arg3) {
 			return true;
 		}
 		int var5 = arg1.length - 1;
-		if (arg0 >= 0) {
-			throw new NullPointerException();
-		} else if (arg1[var5][0] == arg2 && arg1[var5][1] == arg3) {
+		if (arg1[var5][0] == arg2 && arg1[var5][1] == arg3) {
 			return true;
 		} else {
 			do {

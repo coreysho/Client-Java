@@ -72,10 +72,10 @@ public final class ClientBuild {
 	public static final int[] WSHAPE1 = new int[] { 16, 32, 64, 128 };
 
 	@ObfuscatedName("c.y")
-	public static final int[] field62 = new int[] { 1, 0, -1, 0 };
+	public static final int[] DECORXOF = new int[] { 1, 0, -1, 0 };
 
 	@ObfuscatedName("c.z")
-	public static final int[] field63 = new int[] { 0, -1, 0, 1 };
+	public static final int[] DECORZOF = new int[] { 0, -1, 0, 1 };
 
 	@ObfuscatedName("c.A")
 	public static int hueOff = (int) (Math.random() * 17.0D) - 8;
@@ -384,7 +384,7 @@ public final class ClientBuild {
 				} else {
 					var39 = new ClientLocAnim(4, 0, var16.anim, arg4, var13, true, var12, var14, var11);
 				}
-				arg0.setDecor(WSHAPE0[arg6], var39, var18, arg9, var15, field62[arg6] * var37, arg6 * 512, arg2, arg10, field63[arg6] * var37, var17);
+				arg0.setDecor(WSHAPE0[arg6], var39, var18, arg9, var15, DECORXOF[arg6] * var37, arg6 * 512, arg2, arg10, DECORZOF[arg6] * var37, var17);
 			} else if (arg5 == 6) {
 				ModelSource var40;
 				if (var16.anim == -1) {
@@ -829,7 +829,7 @@ public final class ClientBuild {
 				} else {
 					var42 = new ClientLocAnim(4, 0, var15.anim, arg7, var12, true, var11, var13, var10);
 				}
-				arg6.setDecor(WSHAPE0[arg3], var42, var17, arg5, var14, field62[arg3] * var40, arg3 * 512, arg1, arg8, field63[arg3] * var40, var16);
+				arg6.setDecor(WSHAPE0[arg3], var42, var17, arg5, var14, DECORXOF[arg3] * var40, arg3 * 512, arg1, arg8, DECORZOF[arg3] * var40, var16);
 			} else if (arg4 == 6) {
 				ModelSource var43;
 				if (var15.anim == -1) {

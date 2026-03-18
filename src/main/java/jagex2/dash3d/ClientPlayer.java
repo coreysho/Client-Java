@@ -14,7 +14,7 @@ public final class ClientPlayer extends ClientEntity {
 	public String name;
 
 	@ObfuscatedName("ab.ub")
-	public boolean field458 = false;
+	public boolean ready = false;
 
 	@ObfuscatedName("ab.vb")
 	public int gender;
@@ -23,22 +23,22 @@ public final class ClientPlayer extends ClientEntity {
 	public int headicons;
 
 	@ObfuscatedName("ab.xb")
-	public final int[] field461 = new int[12];
+	public final int[] appearance = new int[12];
 
 	@ObfuscatedName("ab.yb")
-	public final int[] field462 = new int[5];
+	public final int[] colour = new int[5];
 
 	@ObfuscatedName("ab.zb")
 	public int combatLevel;
 
 	@ObfuscatedName("ab.Qb")
-	public static LruCache field480 = new LruCache(260);
+	public static LruCache modelCache = new LruCache(260);
 
 	@ObfuscatedName("ab.Nb")
 	public boolean lowMem = false;
 
 	@ObfuscatedName("ab.Ob")
-	public long field478 = -1L;
+	public long modelCacheKey = -1L;
 
 	@ObfuscatedName("ab.Ab")
 	public int skillLevel;
@@ -74,29 +74,29 @@ public final class ClientPlayer extends ClientEntity {
 	public int maxTileZ;
 
 	@ObfuscatedName("ab.Bb")
-	public long field465;
+	public long baseId;
 
 	@ObfuscatedName("ab.Ib")
 	public Model locModel;
 
 	@ObfuscatedName("ab.Pb")
-	public NpcType field479;
+	public NpcType transmog;
 
 	@ObfuscatedName("ab.a(Llb;I)V")
 	public void setAppearance(Packet arg0) {
 		arg0.data = 0;
 		gender = arg0.g1();
 		headicons = arg0.g1();
-		field479 = null;
+		transmog = null;
 		for (int var3 = 0; var3 < 12; var3++) {
 			int var4 = arg0.g1();
 			if (var4 == 0) {
-				field461[var3] = 0;
+				appearance[var3] = 0;
 			} else {
 				int var5 = arg0.g1();
-				field461[var3] = (var4 << 8) + var5;
-				if (var3 == 0 && field461[0] == 65535) {
-					field479 = NpcType.list(arg0.g2());
+				appearance[var3] = (var4 << 8) + var5;
+				if (var3 == 0 && appearance[0] == 65535) {
+					transmog = NpcType.list(arg0.g2());
 					break;
 				}
 			}
@@ -106,7 +106,7 @@ public final class ClientPlayer extends ClientEntity {
 			if (var7 < 0 || var7 >= Client.recol1d[var6].length) {
 				var7 = 0;
 			}
-			field462[var6] = var7;
+			colour[var6] = var7;
 		}
 		super.readyanim = arg0.g2();
 		if (super.readyanim == 65535) {
@@ -132,42 +132,42 @@ public final class ClientPlayer extends ClientEntity {
 		if (super.walkanim_l == 65535) {
 			super.walkanim_l = -1;
 		}
-		super.field408 = arg0.g2();
-		if (super.field408 == 65535) {
-			super.field408 = -1;
+		super.runanim = arg0.g2();
+		if (super.runanim == 65535) {
+			super.runanim = -1;
 		}
 		name = JString.toScreenName(JString.toRawUsername(arg0.g8()));
 		combatLevel = arg0.g1();
 		skillLevel = arg0.g2();
-		field458 = true;
-		field465 = 0L;
+		ready = true;
+		baseId = 0L;
 		for (int var8 = 0; var8 < 12; var8++) {
-			field465 <<= 0x4;
-			if (field461[var8] >= 256) {
-				field465 += field461[var8] - 256;
+			baseId <<= 0x4;
+			if (appearance[var8] >= 256) {
+				baseId += appearance[var8] - 256;
 			}
 		}
-		if (field461[0] >= 256) {
-			field465 += field461[0] - 256 >> 4;
+		if (appearance[0] >= 256) {
+			baseId += appearance[0] - 256 >> 4;
 		}
-		if (field461[1] >= 256) {
-			field465 += field461[1] - 256 >> 8;
+		if (appearance[1] >= 256) {
+			baseId += appearance[1] - 256 >> 8;
 		}
 		for (int var9 = 0; var9 < 5; var9++) {
-			field465 <<= 0x3;
-			field465 += field462[var9];
+			baseId <<= 0x3;
+			baseId += colour[var9];
 		}
-		field465 <<= 0x1;
-		field465 += gender;
+		baseId <<= 0x1;
+		baseId += gender;
 	}
 
 	@ObfuscatedName("ab.a(Z)Leb;")
 	@Override
 	public Model getTempModel() {
-		if (!field458) {
+		if (!ready) {
 			return null;
 		}
-		Model var2 = method117();
+		Model var2 = getTempModel2();
 		if (var2 == null) {
 			return null;
 		}
@@ -231,17 +231,17 @@ public final class ClientPlayer extends ClientEntity {
 	}
 
 	@ObfuscatedName("ab.c(Z)Leb;")
-	public Model method117() {
-		if (field479 != null) {
+	public Model getTempModel2() {
+		if (transmog != null) {
 			int var3 = -1;
 			if (super.primaryAnim >= 0 && super.primaryAnimDelay == 0) {
 				var3 = SeqType.list[super.primaryAnim].frames[super.primaryAnimFrame];
 			} else if (super.secondaryAnim >= 0) {
 				var3 = SeqType.list[super.secondaryAnim].frames[super.secondaryAnimFrame];
 			}
-			return field479.getTempModel(var3, -1, null);
+			return transmog.getTempModel(var3, -1, null);
 		}
-		long var5 = field465;
+		long var5 = baseId;
 		int var7 = -1;
 		int var8 = -1;
 		int var9 = -1;
@@ -254,20 +254,20 @@ public final class ClientPlayer extends ClientEntity {
 			}
 			if (var11.replaceheldleft >= 0) {
 				var9 = var11.replaceheldleft;
-				var5 += var9 - field461[5] << 8;
+				var5 += var9 - appearance[5] << 8;
 			}
 			if (var11.replaceheldright >= 0) {
 				var10 = var11.replaceheldright;
-				var5 += var10 - field461[3] << 16;
+				var5 += var10 - appearance[3] << 16;
 			}
 		} else if (super.secondaryAnim >= 0) {
 			var7 = SeqType.list[super.secondaryAnim].frames[super.secondaryAnimFrame];
 		}
-		Model var12 = (Model) field480.find(var5);
+		Model var12 = (Model) modelCache.find(var5);
 		if (var12 == null) {
 			boolean var13 = false;
 			for (int var14 = 0; var14 < 12; var14++) {
-				int var15 = field461[var14];
+				int var15 = appearance[var14];
 				if (var10 >= 0 && var14 == 3) {
 					var15 = var10;
 				}
@@ -282,8 +282,8 @@ public final class ClientPlayer extends ClientEntity {
 				}
 			}
 			if (var13) {
-				if (field478 != -1L) {
-					var12 = (Model) field480.find(field478);
+				if (modelCacheKey != -1L) {
+					var12 = (Model) modelCache.find(modelCacheKey);
 				}
 				if (var12 == null) {
 					return null;
@@ -294,7 +294,7 @@ public final class ClientPlayer extends ClientEntity {
 			Model[] var16 = new Model[12];
 			int var17 = 0;
 			for (int var18 = 0; var18 < 12; var18++) {
-				int var19 = field461[var18];
+				int var19 = appearance[var18];
 				if (var10 >= 0 && var18 == 3) {
 					var19 = var10;
 				}
@@ -316,17 +316,17 @@ public final class ClientPlayer extends ClientEntity {
 			}
 			var12 = new Model(var17, var16);
 			for (int var22 = 0; var22 < 5; var22++) {
-				if (field462[var22] != 0) {
-					var12.recolour(Client.recol1d[var22][0], Client.recol1d[var22][field462[var22]]);
+				if (colour[var22] != 0) {
+					var12.recolour(Client.recol1d[var22][0], Client.recol1d[var22][colour[var22]]);
 					if (var22 == 1) {
-						var12.recolour(Client.recol2d[0], Client.recol2d[field462[var22]]);
+						var12.recolour(Client.recol2d[0], Client.recol2d[colour[var22]]);
 					}
 				}
 			}
 			var12.prepareAnim();
 			var12.calculateNormals(64, 850, -30, -50, -30, true);
-			field480.put(var5, var12);
-			field478 = var5;
+			modelCache.put(var5, var12);
+			modelCacheKey = var5;
 		}
 		if (lowMem) {
 			return var12;
@@ -345,13 +345,13 @@ public final class ClientPlayer extends ClientEntity {
 	}
 
 	@ObfuscatedName("ab.d(Z)Leb;")
-	public Model method118() {
-		if (!field458) {
+	public Model getHeadModel() {
+		if (!ready) {
 			return null;
 		}
 		boolean var2 = false;
 		for (int var3 = 0; var3 < 12; var3++) {
-			int var4 = field461[var3];
+			int var4 = appearance[var3];
 			if (var4 >= 256 && var4 < 512 && !IdkType.list[var4 - 256].checkHead()) {
 				var2 = true;
 			}
@@ -365,7 +365,7 @@ public final class ClientPlayer extends ClientEntity {
 		Model[] var5 = new Model[12];
 		int var6 = 0;
 		for (int var7 = 0; var7 < 12; var7++) {
-			int var8 = field461[var7];
+			int var8 = appearance[var7];
 			if (var8 >= 256 && var8 < 512) {
 				Model var9 = IdkType.list[var8 - 256].getHeadNoCheck();
 				if (var9 != null) {
@@ -381,10 +381,10 @@ public final class ClientPlayer extends ClientEntity {
 		}
 		Model var11 = new Model(var6, var5);
 		for (int var12 = 0; var12 < 5; var12++) {
-			if (field462[var12] != 0) {
-				var11.recolour(Client.recol1d[var12][0], Client.recol1d[var12][field462[var12]]);
+			if (colour[var12] != 0) {
+				var11.recolour(Client.recol1d[var12][0], Client.recol1d[var12][colour[var12]]);
 				if (var12 == 1) {
-					var11.recolour(Client.recol2d[0], Client.recol2d[field462[var12]]);
+					var11.recolour(Client.recol2d[0], Client.recol2d[colour[var12]]);
 				}
 			}
 		}
@@ -394,6 +394,6 @@ public final class ClientPlayer extends ClientEntity {
 	@ObfuscatedName("ab.a(I)Z")
 	@Override
 	public boolean isReady() {
-		return field458;
+		return ready;
 	}
 }

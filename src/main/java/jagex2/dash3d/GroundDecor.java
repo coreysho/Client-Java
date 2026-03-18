@@ -6,13 +6,13 @@ import deob.ObfuscatedName;
 public final class GroundDecor {
 
 	@ObfuscatedName("j.a")
-	public int field191;
+	public int y;
 
 	@ObfuscatedName("j.b")
-	public int field192;
+	public int x;
 
 	@ObfuscatedName("j.c")
-	public int field193;
+	public int z;
 
 	@ObfuscatedName("j.d")
 	public ModelSource model;

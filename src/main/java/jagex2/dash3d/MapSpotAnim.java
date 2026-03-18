@@ -7,7 +7,7 @@ import jagex2.config.SpotType;
 public final class MapSpotAnim extends ModelSource {
 
 	@ObfuscatedName("fb.m")
-	public final SpotType field603;
+	public final SpotType type;
 
 	@ObfuscatedName("fb.n")
 	public final int startCycle;
@@ -16,53 +16,47 @@ public final class MapSpotAnim extends ModelSource {
 	public final int level;
 
 	@ObfuscatedName("fb.p")
-	public final int field606;
+	public final int x;
 
 	@ObfuscatedName("fb.q")
-	public final int field607;
+	public final int z;
 
 	@ObfuscatedName("fb.r")
-	public final int field608;
+	public final int y;
 
 	@ObfuscatedName("fb.s")
-	public int field609;
+	public int animFrame;
 
 	@ObfuscatedName("fb.t")
-	public int field610;
+	public int animCycle;
 
 	@ObfuscatedName("fb.u")
 	public boolean animComplete = false;
 
 	public MapSpotAnim(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7) {
-		field603 = SpotType.list[arg6];
-		if (arg4 != 0) {
-			throw new NullPointerException();
-		}
+		type = SpotType.list[arg6];
 		level = arg3;
-		field606 = arg2;
-		field607 = arg1;
-		field608 = arg5;
+		x = arg2;
+		z = arg1;
+		y = arg5;
 		startCycle = arg7 + arg0;
 		animComplete = false;
 	}
 
 	@ObfuscatedName("fb.a(II)V")
-	public void update(int arg0, int arg1) {
-		field610 += arg1;
-		if (arg0 != 0) {
-			return;
-		}
+	public void update(int arg1) {
+		animCycle += arg1;
 		while (true) {
 			do {
 				do {
-					if (field610 <= field603.seq.getDelay(field609)) {
+					if (animCycle <= type.seq.getDelay(animFrame)) {
 						return;
 					}
-					field610 -= field603.seq.getDelay(field609) + 1;
-					field609++;
-				} while (field609 < field603.seq.numFrames);
-			} while (field609 >= 0 && field609 < field603.seq.numFrames);
-			field609 = 0;
+					animCycle -= type.seq.getDelay(animFrame) + 1;
+					animFrame++;
+				} while (animFrame < type.seq.numFrames);
+			} while (animFrame >= 0 && animFrame < type.seq.numFrames);
+			animFrame = 0;
 			animComplete = true;
 		}
 	}
@@ -70,11 +64,11 @@ public final class MapSpotAnim extends ModelSource {
 	@ObfuscatedName("fb.a(Z)Leb;")
 	@Override
 	public Model getTempModel() {
-		Model var2 = field603.getTempModel2();
+		Model var2 = type.getTempModel2();
 		if (var2 == null) {
 			return null;
 		} else {
-			int var3 = field603.seq.frames[field609];
+			int var3 = type.seq.frames[animFrame];
 			Model var4 = new Model(true, AnimFrame.animateTransparencies(var3), var2, false);
 			if (!animComplete) {
 				var4.prepareAnim();
@@ -82,24 +76,24 @@ public final class MapSpotAnim extends ModelSource {
 				var4.labelFaces = null;
 				var4.labelVertices = null;
 			}
-			if (field603.resizeh != 128 || field603.resizev != 128) {
-				var4.resize(field603.resizeh, field603.resizeh, field603.resizev);
+			if (type.resizeh != 128 || type.resizev != 128) {
+				var4.resize(type.resizeh, type.resizeh, type.resizev);
 			}
-			if (field603.angle != 0) {
-				if (field603.angle == 90) {
+			if (type.angle != 0) {
+				if (type.angle == 90) {
 					var4.rotate90();
 				}
-				if (field603.angle == 180) {
+				if (type.angle == 180) {
 					var4.rotate90();
 					var4.rotate90();
 				}
-				if (field603.angle == 270) {
+				if (type.angle == 270) {
 					var4.rotate90();
 					var4.rotate90();
 					var4.rotate90();
 				}
 			}
-			var4.calculateNormals(field603.ambient + 64, field603.contrast + 850, -30, -50, -30, true);
+			var4.calculateNormals(type.ambient + 64, type.contrast + 850, -30, -50, -30, true);
 			return var4;
 		}
 	}

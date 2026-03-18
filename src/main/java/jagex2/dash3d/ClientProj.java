@@ -7,19 +7,19 @@ import jagex2.config.SpotType;
 public final class ClientProj extends ModelSource {
 
 	@ObfuscatedName("db.o")
-	public final SpotType field498;
+	public final SpotType spotanim;
 
 	@ObfuscatedName("db.p")
 	public final int level;
 
 	@ObfuscatedName("db.q")
-	public final int field500;
+	public final int srcX;
 
 	@ObfuscatedName("db.r")
-	public final int field501;
+	public final int srcZ;
 
 	@ObfuscatedName("db.s")
-	public final int field502;
+	public final int h1;
 
 	@ObfuscatedName("db.t")
 	public final int h2;
@@ -31,106 +31,106 @@ public final class ClientProj extends ModelSource {
 	public final int t2;
 
 	@ObfuscatedName("db.w")
-	public final int field506;
+	public final int angle;
 
 	@ObfuscatedName("db.x")
-	public final int field507;
+	public final int startpos;
 
 	@ObfuscatedName("db.y")
 	public final int target;
 
 	@ObfuscatedName("db.z")
-	public boolean field509 = false;
+	public boolean mobile = false;
 
 	@ObfuscatedName("db.A")
-	public double field510;
+	public double x;
 
 	@ObfuscatedName("db.B")
-	public double field511;
+	public double z;
 
 	@ObfuscatedName("db.C")
-	public double field512;
+	public double y;
 
 	@ObfuscatedName("db.D")
-	public double field513;
+	public double velocityX;
 
 	@ObfuscatedName("db.E")
-	public double field514;
+	public double velocityZ;
 
 	@ObfuscatedName("db.F")
-	public double field515;
+	public double velocity;
 
 	@ObfuscatedName("db.G")
-	public double field516;
+	public double velocityY;
 
 	@ObfuscatedName("db.H")
-	public double field517;
+	public double accelerationY;
 
 	@ObfuscatedName("db.I")
-	public int field518;
+	public int aw;
 
 	@ObfuscatedName("db.J")
-	public int field519;
+	public int pitch;
 
 	@ObfuscatedName("db.K")
-	public int field520;
+	public int animFrame;
 
 	@ObfuscatedName("db.L")
-	public int field521;
+	public int animCycle;
 
 	public ClientProj(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, int arg6, int arg7, int arg9, int arg10, int arg11) {
-		field498 = SpotType.list[arg7];
+		spotanim = SpotType.list[arg7];
 		level = arg6;
-		field500 = arg0;
-		field501 = arg11;
-		field502 = arg9;
+		srcX = arg0;
+		srcZ = arg11;
+		h1 = arg9;
 		t1 = arg5;
 		t2 = arg3;
-		field506 = arg4;
-		field507 = arg1;
+		angle = arg4;
+		startpos = arg1;
 		target = arg10;
 		h2 = arg2;
-		field509 = false;
+		mobile = false;
 	}
 
 	@ObfuscatedName("db.a(IIIBI)V")
 	public void setTarget(int arg0, int arg1, int arg2, int arg4) {
-		if (!field509) {
-			double var6 = (double) (arg2 - field500);
-			double var8 = (double) (arg4 - field501);
+		if (!mobile) {
+			double var6 = (double) (arg2 - srcX);
+			double var8 = (double) (arg4 - srcZ);
 			double var10 = Math.sqrt(var6 * var6 + var8 * var8);
-			field510 = (double) field500 + var6 * (double) field507 / var10;
-			field511 = (double) field501 + var8 * (double) field507 / var10;
-			field512 = field502;
+			x = (double) srcX + var6 * (double) startpos / var10;
+			z = (double) srcZ + var8 * (double) startpos / var10;
+			y = h1;
 		}
 		double var12 = (double) (t2 + 1 - arg0);
-		field513 = ((double) arg2 - field510) / var12;
-		field514 = ((double) arg4 - field511) / var12;
-		field515 = Math.sqrt(field513 * field513 + field514 * field514);
-		if (!field509) {
-			field516 = -field515 * Math.tan((double) field506 * 0.02454369D);
+		velocityX = ((double) arg2 - x) / var12;
+		velocityZ = ((double) arg4 - z) / var12;
+		velocity = Math.sqrt(velocityX * velocityX + velocityZ * velocityZ);
+		if (!mobile) {
+			velocityY = -velocity * Math.tan((double) angle * 0.02454369D);
 		}
-		field517 = ((double) arg1 - field512 - field516 * var12) * 2.0D / (var12 * var12);
+		accelerationY = ((double) arg1 - y - velocityY * var12) * 2.0D / (var12 * var12);
 	}
 
 	@ObfuscatedName("db.a(IZ)V")
 	public void move(int arg0) {
-		field509 = true;
-		field510 += field513 * (double) arg0;
-		field511 += field514 * (double) arg0;
-		field512 += field516 * (double) arg0 + field517 * 0.5D * (double) arg0 * (double) arg0;
-		field516 += field517 * (double) arg0;
-		field518 = (int) (Math.atan2(field513, field514) * 325.949D) + 1024 & 0x7FF;
-		field519 = (int) (Math.atan2(field516, field515) * 325.949D) & 0x7FF;
-		if (field498.seq == null) {
+		mobile = true;
+		x += velocityX * (double) arg0;
+		z += velocityZ * (double) arg0;
+		y += velocityY * (double) arg0 + accelerationY * 0.5D * (double) arg0 * (double) arg0;
+		velocityY += accelerationY * (double) arg0;
+		aw = (int) (Math.atan2(velocityX, velocityZ) * 325.949D) + 1024 & 0x7FF;
+		pitch = (int) (Math.atan2(velocityY, velocity) * 325.949D) & 0x7FF;
+		if (spotanim.seq == null) {
 			return;
 		}
-		field521 += arg0;
-		while (field521 > field498.seq.getDelay(field520)) {
-			field521 -= field498.seq.getDelay(field520) + 1;
-			field520++;
-			if (field520 >= field498.seq.numFrames) {
-				field520 = 0;
+		animCycle += arg0;
+		while (animCycle > spotanim.seq.getDelay(animFrame)) {
+			animCycle -= spotanim.seq.getDelay(animFrame) + 1;
+			animFrame++;
+			if (animFrame >= spotanim.seq.numFrames) {
+				animFrame = 0;
 			}
 		}
 	}
@@ -138,13 +138,13 @@ public final class ClientProj extends ModelSource {
 	@ObfuscatedName("db.a(Z)Leb;")
 	@Override
 	public Model getTempModel() {
-		Model var2 = field498.getTempModel2();
+		Model var2 = spotanim.getTempModel2();
 		if (var2 == null) {
 			return null;
 		}
 		int var3 = -1;
-		if (field498.seq != null) {
-			var3 = field498.seq.frames[field520];
+		if (spotanim.seq != null) {
+			var3 = spotanim.seq.frames[animFrame];
 		}
 		Model var4 = new Model(true, AnimFrame.animateTransparencies(var3), var2, false);
 		if (var3 != -1) {
@@ -153,11 +153,11 @@ public final class ClientProj extends ModelSource {
 			var4.labelFaces = null;
 			var4.labelVertices = null;
 		}
-		if (field498.resizeh != 128 || field498.resizev != 128) {
-			var4.resize(field498.resizeh, field498.resizeh, field498.resizev);
+		if (spotanim.resizeh != 128 || spotanim.resizev != 128) {
+			var4.resize(spotanim.resizeh, spotanim.resizeh, spotanim.resizev);
 		}
-		var4.rotateXAxis(field519);
-		var4.calculateNormals(field498.ambient + 64, field498.contrast + 850, -30, -50, -30, true);
+		var4.rotateXAxis(pitch);
+		var4.calculateNormals(spotanim.ambient + 64, spotanim.contrast + 850, -30, -50, -30, true);
 		return var4;
 	}
 }

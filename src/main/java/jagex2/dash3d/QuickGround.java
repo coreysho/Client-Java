@@ -9,13 +9,13 @@ public final class QuickGround {
 	public final int colourSW;
 
 	@ObfuscatedName("o.b")
-	public final int field245;
+	public final int colourSE;
 
 	@ObfuscatedName("o.c")
 	public final int colourNE;
 
 	@ObfuscatedName("o.d")
-	public final int field247;
+	public final int colourNW;
 
 	@ObfuscatedName("o.e")
 	public final int texture;
@@ -28,9 +28,9 @@ public final class QuickGround {
 
 	public QuickGround(int arg0, int arg1, int arg2, int arg3, int arg4, int arg5, boolean arg6) {
 		colourSW = arg0;
-		field245 = arg1;
+		colourSE = arg1;
 		colourNE = arg2;
-		field247 = arg3;
+		colourNW = arg3;
 		texture = arg4;
 		minimapRgb = arg5;
 		flat = arg6;

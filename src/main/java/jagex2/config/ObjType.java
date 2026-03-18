@@ -205,7 +205,7 @@ public final class ObjType {
 	}
 
 	@ObfuscatedName("hc.a(IIII)Lib;")
-	public static Pix32 getSprite(int arg0, int arg1, int arg2, int arg3) {
+	public static Pix32 getSprite(int arg0, int arg1, int arg3) {
 		if (arg1 == 0) {
 			Pix32 var4 = (Pix32) spriteCache.find((long) arg0);
 			if (var4 != null && var4.ohi != arg3 && var4.ohi != -1) {
@@ -237,7 +237,7 @@ public final class ObjType {
 		}
 		Pix32 var9 = null;
 		if (var5.certtemplate != -1) {
-			var9 = getSprite(var5.certlink, -1, 45926, 10);
+			var9 = getSprite(var5.certlink, -1, 10);
 			if (var9 == null) {
 				return null;
 			}
@@ -253,9 +253,6 @@ public final class ObjType {
 		int var18 = Pix2D.clipMaxX;
 		int var19 = Pix2D.clipMinY;
 		int var20 = Pix2D.clipMaxY;
-		if (arg2 != 45926) {
-			throw new NullPointerException();
-		}
 		Pix3D.lowDetail = false;
 		Pix2D.setPixels(32, 32, var10.data);
 		Pix2D.fillRect(32, 0, 32, 0, 0);

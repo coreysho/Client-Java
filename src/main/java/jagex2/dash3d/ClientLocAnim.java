@@ -9,80 +9,80 @@ import jagex2.config.SeqType;
 public final class ClientLocAnim extends ModelSource {
 
 	@ObfuscatedName("bb.o")
-	public final int field483;
+	public final int id;
 
 	@ObfuscatedName("bb.p")
-	public final int field484;
+	public final int shape;
 
 	@ObfuscatedName("bb.q")
-	public final int field485;
+	public final int angle;
 
 	@ObfuscatedName("bb.r")
-	public final int field486;
+	public final int heightSW;
 
 	@ObfuscatedName("bb.s")
-	public final int field487;
+	public final int heightSE;
 
 	@ObfuscatedName("bb.t")
-	public final int field488;
+	public final int heightNE;
 
 	@ObfuscatedName("bb.u")
-	public final int field489;
+	public final int heightNW;
 
 	@ObfuscatedName("bb.v")
-	public SeqType field490;
+	public SeqType seq;
 
 	@ObfuscatedName("bb.w")
-	public int field491;
+	public int seqFrame;
 
 	@ObfuscatedName("bb.x")
-	public int field492;
+	public int seqCycle;
 
 	public ClientLocAnim(int arg0, int arg1, int arg2, int arg3, int arg4, boolean arg6, int arg7, int arg8, int arg9) {
-		field483 = arg3;
-		field484 = arg0;
-		field485 = arg1;
-		field486 = arg9;
-		field487 = arg7;
-		field488 = arg4;
-		field489 = arg8;
-		field490 = SeqType.list[arg2];
-		field491 = 0;
-		field492 = Client.loopCycle;
-		if (arg6 && field490.loops != -1) {
-			field491 = (int) (Math.random() * (double) field490.numFrames);
-			field492 -= (int) (Math.random() * (double) field490.getDelay(field491));
+		id = arg3;
+		shape = arg0;
+		angle = arg1;
+		heightSW = arg9;
+		heightSE = arg7;
+		heightNE = arg4;
+		heightNW = arg8;
+		seq = SeqType.list[arg2];
+		seqFrame = 0;
+		seqCycle = Client.loopCycle;
+		if (arg6 && seq.loops != -1) {
+			seqFrame = (int) (Math.random() * (double) seq.numFrames);
+			seqCycle -= (int) (Math.random() * (double) seq.getDelay(seqFrame));
 		}
 	}
 
 	@ObfuscatedName("bb.a(Z)Leb;")
 	@Override
 	public Model getTempModel() {
-		if (field490 != null) {
-			int var2 = Client.loopCycle - field492;
-			if (var2 > 100 && field490.loops > 0) {
+		if (seq != null) {
+			int var2 = Client.loopCycle - seqCycle;
+			if (var2 > 100 && seq.loops > 0) {
 				var2 = 100;
 			}
 			label42: {
 				do {
 					do {
-						if (var2 <= field490.getDelay(field491)) {
+						if (var2 <= seq.getDelay(seqFrame)) {
 							break label42;
 						}
-						var2 -= field490.getDelay(field491);
-						field491++;
-					} while (field491 < field490.numFrames);
-					field491 -= field490.loops;
-				} while (field491 >= 0 && field491 < field490.numFrames);
-				field490 = null;
+						var2 -= seq.getDelay(seqFrame);
+						seqFrame++;
+					} while (seqFrame < seq.numFrames);
+					seqFrame -= seq.loops;
+				} while (seqFrame >= 0 && seqFrame < seq.numFrames);
+				seq = null;
 			}
-			field492 = Client.loopCycle - var2;
+			seqCycle = Client.loopCycle - var2;
 		}
 		int var3 = -1;
-		if (field490 != null) {
-			var3 = field490.frames[field491];
+		if (seq != null) {
+			var3 = seq.frames[seqFrame];
 		}
-		LocType var4 = LocType.list(field483);
-		return var4.getModel(field484, field485, field486, field487, field488, field489, var3);
+		LocType var4 = LocType.list(id);
+		return var4.getModel(shape, angle, heightSW, heightSE, heightNE, heightNW, var3);
 	}
 }

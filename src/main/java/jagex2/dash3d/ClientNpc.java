@@ -17,7 +17,7 @@ public final class ClientNpc extends ClientEntity {
 		if (type == null) {
 			return null;
 		}
-		Model var3 = method115();
+		Model var3 = getTempModel2();
 		if (var3 == null) {
 			return null;
 		}
@@ -48,7 +48,7 @@ public final class ClientNpc extends ClientEntity {
 	}
 
 	@ObfuscatedName("z.c(Z)Leb;")
-	public Model method115() {
+	public Model getTempModel2() {
 		if (super.primaryAnim >= 0 && super.primaryAnimDelay == 0) {
 			int var2 = SeqType.list[super.primaryAnim].frames[super.primaryAnimFrame];
 			int var3 = -1;
