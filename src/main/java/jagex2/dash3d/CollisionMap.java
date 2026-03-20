@@ -362,7 +362,7 @@ public final class CollisionMap {
 	}
 
 	@ObfuscatedName("jc.b(III)V")
-	public void unblockGroundDecor(int arg0, int arg2) {
+	public void unblockGround(int arg0, int arg2) {
 		int var4 = arg0 - startX;
 		int var5 = arg2 - startZ;
 		flags[var4][var5] &= 0xDFFFFF;

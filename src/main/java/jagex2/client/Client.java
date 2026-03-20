@@ -2608,8 +2608,8 @@ public final class Client extends GameShell {
 	}
 
 	@ObfuscatedName("client.a(IIILab;Z)V")
-	public void addPlayerOptions(int arg0, int arg1, int arg2, ClientPlayer arg3, boolean arg4) {
-		if (!arg4 || (arg3 == localPlayer || menuNumEntries >= 400)) {
+	public void addPlayerOptions(int arg0, int arg1, int arg2, ClientPlayer arg3) {
+		if (arg3 == localPlayer || menuNumEntries >= 400) {
 			return;
 		}
 		String var6;
@@ -3334,7 +3334,7 @@ public final class Client extends GameShell {
 				world.delGroundDecor(arg2, arg6, arg7);
 				LocType var17 = LocType.list(var12);
 				if (var17.blockwalk && var17.active) {
-					collision[arg6].unblockGroundDecor(arg2, arg7);
+					collision[arg6].unblockGround(arg2, arg7);
 				}
 			}
 		}
@@ -3452,7 +3452,7 @@ public final class Client extends GameShell {
 						for (int var14 = 0; var14 < playerCount; var14++) {
 							ClientPlayer var15 = players[playerIds[var14]];
 							if (var15 != null && var15.x == var11.x && var15.z == var11.z) {
-								addPlayerOptions(var5, playerIds[var14], var6, var15, true);
+								addPlayerOptions(var5, playerIds[var14], var6, var15);
 							}
 						}
 					}
@@ -3470,11 +3470,11 @@ public final class Client extends GameShell {
 						for (int var19 = 0; var19 < playerCount; var19++) {
 							ClientPlayer var20 = players[playerIds[var19]];
 							if (var20 != null && var20 != var16 && var20.x == var16.x && var20.z == var16.z) {
-								addPlayerOptions(var5, playerIds[var19], var6, var20, true);
+								addPlayerOptions(var5, playerIds[var19], var6, var20);
 							}
 						}
 					}
-					addPlayerOptions(var5, var8, var6, var16, true);
+					addPlayerOptions(var5, var8, var6, var16);
 				}
 				if (var7 == 3) {
 					LinkList var21 = groundObj[minusedlevel][var5][var6];
@@ -4329,7 +4329,7 @@ public final class Client extends GameShell {
 					addIgnore(var14);
 				}
 				if (var5 == 513) {
-					delFriend(0, var14);
+					delFriend(var14);
 				}
 				if (var5 == 884) {
 					delIgnore(var14);
@@ -4934,8 +4934,8 @@ public final class Client extends GameShell {
 	}
 
 	@ObfuscatedName("client.a(IJ)V")
-	public void delFriend(int arg0, long arg1) {
-		if (arg0 != 0 || arg1 == 0L) {
+	public void delFriend(long arg1) {
+		if (arg1 == 0L) {
 			return;
 		}
 		for (int var4 = 0; var4 < friendCount; var4++) {
@@ -7566,7 +7566,7 @@ public final class Client extends GameShell {
 			}
 			ClientPlayer var4 = players[var3];
 			if (var4 != null) {
-				moveEntity(var4, 0);
+				moveEntity(var4);
 			}
 		}
 	}
@@ -8652,7 +8652,7 @@ public final class Client extends GameShell {
 					return true;
 				}
 				if (ptype == 197) {
-					getNpcPos(0, psize, in);
+					getNpcPos(psize, in);
 					ptype = -1;
 					return true;
 				}
@@ -10229,7 +10229,7 @@ public final class Client extends GameShell {
 							}
 							if (socialInputType == 2 && friendCount > 0) {
 								long var5 = JString.toUserhash(socialInput);
-								delFriend(0, var5);
+								delFriend(var5);
 							}
 							if (socialInputType == 3 && socialInput.length() > 0) {
 								out.p1Enc(139);
@@ -10549,13 +10549,13 @@ public final class Client extends GameShell {
 			int var3 = npcIds[var2];
 			ClientNpc var4 = npc[var3];
 			if (var4 != null) {
-				moveEntity(var4, 0);
+				moveEntity(var4);
 			}
 		}
 	}
 
 	@ObfuscatedName("client.b(Ly;II)V")
-	public void moveEntity(ClientEntity arg0, int arg1) {
+	public void moveEntity(ClientEntity arg0) {
 		if (arg0.x < 128 || arg0.z < 128 || arg0.x >= 13184 || arg0.z >= 13184) {
 			arg0.primaryAnim = -1;
 			arg0.spotanimId = -1;
@@ -10579,7 +10579,7 @@ public final class Client extends GameShell {
 		} else if (arg0.exactMoveEnd >= loopCycle) {
 			exactMove2(arg0);
 		} else {
-			routeMove(0, arg0);
+			routeMove(arg0);
 		}
 		entityFace(arg0);
 		entityAnim(arg0);
@@ -10636,7 +10636,7 @@ public final class Client extends GameShell {
 	}
 
 	@ObfuscatedName("client.a(ILy;)V")
-	public void routeMove(int arg0, ClientEntity arg1) {
+	public void routeMove(ClientEntity arg1) {
 		arg1.secondaryAnim = arg1.readyanim;
 		if (arg1.routeLength == 0) {
 			arg1.animDelayMove = 0;
@@ -10699,9 +10699,6 @@ public final class Client extends GameShell {
 			var9 = arg1.walkanim;
 		}
 		arg1.secondaryAnim = var9;
-		if (arg0 != 0) {
-			return;
-		}
 		int var10 = 4;
 		if (arg1.yaw != arg1.dstYaw && arg1.faceEntity == -1 && arg1.turnspeed != 0) {
 			var10 = 2;
@@ -11114,13 +11111,12 @@ public final class Client extends GameShell {
 	}
 
 	@ObfuscatedName("client.c(IILlb;)V")
-	public void getNpcPos(int arg0, int arg1, Packet arg2) {
+	public void getNpcPos(int arg1, Packet arg2) {
 		entityRemovalCount = 0;
 		entityUpdateCount = 0;
-		int var4 = arg1 + arg0;
-		getNpcPosOldVis(var4, arg2);
-		getNpcPosNewVis(arg2, var4);
-		getNpcPosExtended(var4, arg2);
+		getNpcPosOldVis(arg1, arg2);
+		getNpcPosNewVis(arg2, arg1);
+		getNpcPosExtended(arg1, arg2);
 		for (int var5 = 0; var5 < entityRemovalCount; var5++) {
 			int var6 = entityRemovalIds[var5];
 			if (npc[var6].cycle != loopCycle) {
@@ -11128,8 +11124,8 @@ public final class Client extends GameShell {
 				npc[var6] = null;
 			}
 		}
-		if (arg2.data != var4) {
-			signlink.reporterror(loginUser + " size mismatch in getnpcpos - pos:" + arg2.data + " psize:" + var4);
+		if (arg2.data != arg1) {
+			signlink.reporterror(loginUser + " size mismatch in getnpcpos - pos:" + arg2.data + " psize:" + arg1);
 			throw new RuntimeException("eek");
 		}
 		for (int var7 = 0; var7 < npcCount; var7++) {
