@@ -641,7 +641,7 @@ public final class World {
 	}
 
 	@ObfuscatedName("r.a(ZIIII)V")
-	public void setDecor(int arg1, int arg2, int arg3, int arg4) {
+	public void moveDecor(int arg1, int arg2, int arg3, int arg4) {
 		Square var6 = squares[arg3][arg1][arg2];
 		if (var6 == null) {
 			return;

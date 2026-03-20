@@ -696,7 +696,7 @@ public final class ClientBuild {
 				arg2.addWall(arg3, arg4, var15.blockrange, arg5, arg8);
 			}
 			if (var15.wallwidth != 16) {
-				arg6.setDecor(arg8, arg5, arg1, var15.wallwidth);
+				arg6.moveDecor(arg8, arg5, arg1, var15.wallwidth);
 			}
 		} else if (arg4 == 1) {
 			ModelSource var29;
@@ -751,7 +751,7 @@ public final class ClientBuild {
 				arg2.addWall(arg3, arg4, var15.blockrange, arg5, arg8);
 			}
 			if (var15.wallwidth != 16) {
-				arg6.setDecor(arg8, arg5, arg1, var15.wallwidth);
+				arg6.moveDecor(arg8, arg5, arg1, var15.wallwidth);
 			}
 		} else if (arg4 == 3) {
 			ModelSource var33;
