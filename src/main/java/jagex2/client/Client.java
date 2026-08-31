@@ -555,7 +555,7 @@ public class Client extends GameShell {
 	// -Dlostcity.host=... / -Dlostcity.webport=... (or LOSTCITY_HOST / LOSTCITY_WEBPORT
 	// env vars) so friends outside the LAN can point at your public DuckDNS domain
 	// instead of the LXC's internal IP, without touching source.
-	public static String SERVER_HOST = System.getProperty("lostcity.host", System.getenv().getOrDefault("LOSTCITY_HOST", "192.168.4.97"));
+	public static String SERVER_HOST = System.getProperty("lostcity.host", System.getenv().getOrDefault("LOSTCITY_HOST", "rsps-project-lost-city.duckdns.org"));
 	public static int WEB_PORT = Integer.parseInt(System.getProperty("lostcity.webport", System.getenv().getOrDefault("LOSTCITY_WEBPORT", "8888")));
 
 	@ObfuscatedName("client.uc")
