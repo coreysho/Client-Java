@@ -551,6 +551,13 @@ public class Client extends GameShell {
 	@ObfuscatedName("client.sc")
 	public static int nodeId = 10;
 
+	// Server address the standalone client connects to. Override at launch with
+	// -Dlostcity.host=... / -Dlostcity.webport=... (or LOSTCITY_HOST / LOSTCITY_WEBPORT
+	// env vars) so friends outside the LAN can point at your public DuckDNS domain
+	// instead of the LXC's internal IP, without touching source.
+	public static String SERVER_HOST = System.getProperty("lostcity.host", System.getenv().getOrDefault("LOSTCITY_HOST", "192.168.4.97"));
+	public static int WEB_PORT = Integer.parseInt(System.getProperty("lostcity.webport", System.getenv().getOrDefault("LOSTCITY_WEBPORT", "8888")));
+
 	@ObfuscatedName("client.uc")
 	public static boolean membersWorld = true;
 
@@ -1534,7 +1541,7 @@ public class Client extends GameShell {
 		}
 		try {
 			if (super.frame != null) {
-				return new URL("http://127.0.0.1:" + (portOffset + 80));
+				return new URL("http://" + SERVER_HOST + ":" + WEB_PORT);
 			}
 		} catch (Exception var1) {
 		}
@@ -1586,9 +1593,7 @@ public class Client extends GameShell {
 	}
 
 	@ObfuscatedName("client.g(I)Ljava/net/Socket;")
-	public Socket openSocket(int port) throws IOException {
-		return signlink.mainapp == null ? new Socket(InetAddress.getByName(this.getCodeBase().getHost()), port) : signlink.opensocket(port);
-	}
+	public Socket openSocket(int port) throws IOException { return new Socket(InetAddress.getByName(SERVER_HOST), port); }
 
 	@ObfuscatedName("client.a(Ljava/lang/Runnable;I)V")
 	public void startThread(Runnable thread, int priority) {
@@ -1749,10 +1754,7 @@ public class Client extends GameShell {
 
 				while (this.onDemand.remaining() > 0) {
 					this.updateOnDemand();
-					try {
-						Thread.sleep(100L);
-					} catch (Exception ignore) {
-					}
+					try { Thread.sleep(100L); } catch (Exception ignore) { }
 
 					if (this.onDemand.tries > 3) {
 						this.showError("ondemand");
