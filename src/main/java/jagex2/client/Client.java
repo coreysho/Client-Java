@@ -3456,6 +3456,7 @@ public class Client extends GameShell {
 		}
 		if (this.sceneState == 1) {
 			int var2 = this.checkScene();
+			System.out.println("SCENE_DEBUG var2=" + var2 + " awaitingSync=" + this.awaitingSync + " onDemandRemaining=" + this.onDemand.remaining() + " level=" + this.currentLevel + " zoneX=" + this.sceneCenterZoneX + " zoneZ=" + this.sceneCenterZoneZ);
 			if (var2 != 0 && System.currentTimeMillis() - this.sceneLoadStartTime > 360000L) {
 				signlink.reporterror(this.username + " glcfb " + this.serverSeed + "," + var2 + "," + lowMem + "," + this.fileStreams[0] + "," + this.onDemand.remaining() + "," + this.currentLevel + "," + this.sceneCenterZoneX + "," + this.sceneCenterZoneZ);
 				this.sceneLoadStartTime = System.currentTimeMillis();
