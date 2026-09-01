@@ -551,6 +551,13 @@ public class Client extends GameShell {
 	@ObfuscatedName("client.sc")
 	public static int nodeId = 10;
 
+	// Server address the standalone client connects to. Override at launch with
+	// -Dlostcity.host=... / -Dlostcity.webport=... (or LOSTCITY_HOST / LOSTCITY_WEBPORT
+	// env vars) so friends outside the LAN can point at your public DuckDNS domain
+	// instead of the LXC's internal IP, without touching source.
+	public static String SERVER_HOST = System.getProperty("lostcity.host", System.getenv().getOrDefault("LOSTCITY_HOST", "rsps-project-lost-city.duckdns.org"));
+	public static int WEB_PORT = Integer.parseInt(System.getProperty("lostcity.webport", System.getenv().getOrDefault("LOSTCITY_WEBPORT", "8888")));
+
 	// --- QoL additions (Corey, 2026-09-01): Tab-to-reply, space-to-continue, Escape-to-close,
 	// middle-mouse camera drag, scroll-wheel zoom, shift-click drop. See handleInputKey(),
 	// handleMouseInput(), updateOrbitCamera() and drawScene() for where these are used.
@@ -1542,11 +1549,11 @@ public class Client extends GameShell {
 		try {
 			if (super.frame != null) {
 				// Standalone (non-applet) launches otherwise always talk to 127.0.0.1, which only works
-				// when the client and server run on the same machine. Defaults to the homelab server
-				// so a plain launch just connects; pass -Drs2.host=<ip-or-hostname> on the java command
-				// line to point this build at some other server instead (e.g. local same-machine dev).
-				String host = System.getProperty("rs2.host", "rsps-project-lost-city.duckdns.org");
-				return new URL("http://" + host + ":" + (portOffset + 80));
+				// when the client and server run on the same machine. SERVER_HOST/WEB_PORT (above)
+				// default to the homelab server so a plain launch just connects; override with
+				// -Dlostcity.host=/-Dlostcity.webport= (or LOSTCITY_HOST/LOSTCITY_WEBPORT env vars)
+				// to point this build at some other server instead (e.g. local same-machine dev).
+				return new URL("http://" + SERVER_HOST + ":" + WEB_PORT);
 			}
 		} catch (Exception var1) {
 		}
@@ -1598,9 +1605,7 @@ public class Client extends GameShell {
 	}
 
 	@ObfuscatedName("client.g(I)Ljava/net/Socket;")
-	public Socket openSocket(int port) throws IOException {
-		return signlink.mainapp == null ? new Socket(InetAddress.getByName(this.getCodeBase().getHost()), port) : signlink.opensocket(port);
-	}
+	public Socket openSocket(int port) throws IOException { return new Socket(InetAddress.getByName(SERVER_HOST), port); }
 
 	@ObfuscatedName("client.a(Ljava/lang/Runnable;I)V")
 	public void startThread(Runnable thread, int priority) {
@@ -1761,10 +1766,7 @@ public class Client extends GameShell {
 
 				while (this.onDemand.remaining() > 0) {
 					this.updateOnDemand();
-					try {
-						Thread.sleep(100L);
-					} catch (Exception ignore) {
-					}
+					try { Thread.sleep(100L); } catch (Exception ignore) { }
 
 					if (this.onDemand.tries > 3) {
 						this.showError("ondemand");
