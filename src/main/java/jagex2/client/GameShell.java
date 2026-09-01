@@ -18,10 +18,12 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-public class GameShell extends Applet implements Runnable, MouseListener, MouseMotionListener, KeyListener, FocusListener, WindowListener {
+public class GameShell extends Applet implements Runnable, MouseListener, MouseMotionListener, MouseWheelListener, KeyListener, FocusListener, WindowListener {
 
 	@ObfuscatedName("JWWAIQPI.g")
 	public int deltime = 20;
@@ -113,6 +115,18 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	@ObfuscatedName("JWWAIQPI.n")
 	public Graphics graphics;
 
+	// --- QoL additions (Corey, 2026-09-01): key/mouse input for client-side quality-of-life
+	// features (middle-mouse camera drag, scroll-wheel zoom, shift-click drop, Tab/Space/Escape
+	// hotkeys). See Client.java for where these get consumed.
+	public static final int KEY_SHIFT = 6;
+	public static final int KEY_ESCAPE = 7;
+	public boolean middleMouseDown;
+	private int middleMouseLastX;
+	private int middleMouseLastY;
+	public int cameraDragDeltaX;
+	public int cameraDragDeltaY;
+	public int mouseScrollDelta;
+
 	@ObfuscatedName("JWWAIQPI.a(III)V")
 	public void initApplication(int height, int width) {
 		this.setPreferredSize(new Dimension(width, height));
@@ -141,6 +155,7 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	public void run() {
 		this.getBaseComponent().addMouseListener(this);
 		this.getBaseComponent().addMouseMotionListener(this);
+		this.getBaseComponent().addMouseWheelListener(this);
 		this.getBaseComponent().addKeyListener(this);
 		this.getBaseComponent().addFocusListener(this);
 
@@ -338,6 +353,15 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 		this.nextMouseClickY = y;
 		this.nextMouseClickTime = System.currentTimeMillis();
 
+		// QoL: middle-mouse-button camera drag. Track it separately and don't let it fall through
+		// to the normal left/right click handling below (middle click isn't a game click).
+		if (e.getButton() == MouseEvent.BUTTON2) {
+			this.middleMouseDown = true;
+			this.middleMouseLastX = x;
+			this.middleMouseLastY = y;
+			return;
+		}
+
 		try {
 			// Java >8 no longer uses "isMetaDown" for right clicks
 			if (e.getButton() == MouseEvent.BUTTON3) {
@@ -361,6 +385,9 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	public void mouseReleased(MouseEvent e) {
 		this.idleCycles = 0;
 		this.mouseButton = 0;
+		if (e.getButton() == MouseEvent.BUTTON2) {
+			this.middleMouseDown = false;
+		}
 	}
 
 	public void mouseClicked(MouseEvent e) {
@@ -382,6 +409,15 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 		this.idleCycles = 0;
 		this.mouseX = x;
 		this.mouseY = y;
+
+		// QoL: accumulate the drag delta while the middle mouse button is held, for camera rotation.
+		// Client.java's updateOrbitCamera() consumes and resets this every game tick.
+		if (this.middleMouseDown) {
+			this.cameraDragDeltaX += x - this.middleMouseLastX;
+			this.cameraDragDeltaY += y - this.middleMouseLastY;
+			this.middleMouseLastX = x;
+			this.middleMouseLastY = y;
+		}
 	}
 
 	public void mouseMoved(MouseEvent e) {
@@ -391,6 +427,12 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 		this.idleCycles = 0;
 		this.mouseX = x;
 		this.mouseY = y;
+	}
+
+	// QoL: scroll wheel camera zoom. Client.java's updateOrbitCamera() consumes and resets this.
+	public void mouseWheelMoved(MouseWheelEvent e) {
+		this.idleCycles = 0;
+		this.mouseScrollDelta += e.getWheelRotation();
 	}
 
 	public void keyPressed(KeyEvent e) {
@@ -431,6 +473,12 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 			ch = 1002;
 		} else if (code == 34) {
 			ch = 1003;
+		} else if (code == 16) {
+			// QoL: track Shift as a held key (for shift-click-drop)
+			ch = KEY_SHIFT;
+		} else if (code == 27) {
+			// QoL: Escape closes the current interface
+			ch = KEY_ESCAPE;
 		}
 
 		if (ch > 0 && ch < 128) {
@@ -471,6 +519,10 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 			ch = '\t';
 		} else if (code == 10) {
 			ch = '\n';
+		} else if (code == 16) {
+			ch = KEY_SHIFT;
+		} else if (code == 27) {
+			ch = KEY_ESCAPE;
 		}
 
 		if (ch > 0 && ch < 128) {
