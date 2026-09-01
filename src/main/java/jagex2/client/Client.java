@@ -1451,6 +1451,7 @@ public class Client extends GameShell {
 	public static void main(String[] args) {
 		try {
 			System.out.println("RS2 user client - release #" + signlink.clientversion);
+			DevLog.log("SESSION", "=== DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log");
 
 			if (args.length == 5) {
 				nodeId = Integer.parseInt(args[0]);
@@ -2759,6 +2760,7 @@ public class Client extends GameShell {
 				super.hasFocus = true;
 				this.field571 = true;
 				this.ingame = true;
+				DevLog.log("SESSION", "logged in as \"" + arg0 + "\"");
 				this.out.pos = 0;
 				this.in.pos = 0;
 				this.ptype = -1;
@@ -2889,6 +2891,7 @@ public class Client extends GameShell {
 				this.loginMessage1 = "Please wait 1 minute and try again.";
 			} else if (var8 == 15) {
 				this.ingame = true;
+				DevLog.log("SESSION", "logged in as \"" + arg0 + "\"");
 				this.out.pos = 0;
 				this.in.pos = 0;
 				this.ptype = -1;
@@ -2966,6 +2969,7 @@ public class Client extends GameShell {
 
 	@ObfuscatedName("client.n(Z)V")
 	public void logout() {
+		DevLog.log("SESSION", "logged out, was \"" + this.username + "\"");
 		try {
 			if (this.stream != null) {
 				this.stream.method233();
@@ -4645,6 +4649,71 @@ public class Client extends GameShell {
 		return -1;
 	}
 
+	// DEV: best-effort description of a useMenuOption() target, based on the menuParamA/B/C
+	// conventions this client already uses per action family - see addNpcOptions() (npc index in
+	// paramA), addPlayerOptions() (player index in paramA), and the loc menu-building block in
+	// handleViewportOptions() (loc id packed into paramA, local tile x/z in paramB/paramC). These
+	// action ids are read directly from where each family actually assigns them, not guessed.
+	// Falls back to the raw params for anything else (interface-only clicks like bank/trade/
+	// spellbook, "Walk here", etc.) so nothing is silently dropped.
+	private String describeMenuTarget(int action, int paramA, int paramB, int paramC) {
+		switch (action) {
+			case 318:
+			case 921:
+			case 118:
+			case 553:
+			case 432:
+			case 1668:
+			case 67: {
+				// NPC actions (addNpcOptions): paramA = index into this.npcs[]
+				ClientNpc npc = paramA >= 0 && paramA < this.npcs.length ? this.npcs[paramA] : null;
+				if (npc != null) {
+					String name = npc.field1370 != null ? npc.field1370.field1455 : "?";
+					return "target=npc name=\"" + name + "\" coords=(" + (npc.routeTileX[0] + this.sceneBaseTileX) + "," + (npc.routeTileZ[0] + this.sceneBaseTileZ) + "," + this.currentLevel + ")";
+				}
+				break;
+			}
+			case 200:
+			case 493:
+			case 408:
+			case 677:
+			case 876:
+			case 918:
+			case 596: {
+				// Player actions (addPlayerOptions): paramA = index into this.players[]
+				ClientPlayer p = paramA >= 0 && paramA < this.players.length ? this.players[paramA] : null;
+				if (p != null) {
+					return "target=player name=\"" + p.name + "\" coords=(" + (p.routeTileX[0] + this.sceneBaseTileX) + "," + (p.routeTileZ[0] + this.sceneBaseTileZ) + "," + this.currentLevel + ")";
+				}
+				break;
+			}
+			case 35:
+			case 389:
+			case 888:
+			case 892:
+			case 1280:
+			case 1412:
+			case 467:
+			case 376: {
+				// Loc actions (handleViewportOptions): paramA packs the loc id at bits 14-28,
+				// paramB/paramC are the local scene tile x/z (add sceneBaseTileX/Z for world coords).
+				int locId = paramA >> 14 & 0x7FFF;
+				LocType loc = LocType.method561(locId);
+				String name = loc != null ? loc.field1630 : "?";
+				return "target=loc id=" + locId + " name=\"" + name + "\" coords=(" + (paramB + this.sceneBaseTileX) + "," + (paramC + this.sceneBaseTileZ) + "," + this.currentLevel + ")";
+			}
+			case 891:
+			case 894: {
+				// Inventory item actions (OPHELD5/INV_BUTTON5, incl. shift-click drop): paramA = obj
+				// id, paramB = inventory slot. No world coords - it's not placed anywhere.
+				return "target=item id=" + paramA + " slot=" + paramB + " (inventory, no world coords)";
+			}
+			default:
+				break;
+		}
+		return "target=? action=" + action + " paramA=" + paramA + " paramB=" + paramB + " paramC=" + paramC;
+	}
+
 	@ObfuscatedName("client.u(I)V")
 	public void updateEntityChats() {
 		for (int var2 = -1; var2 < this.playerCount; var2++) {
@@ -4877,6 +4946,7 @@ public class Client extends GameShell {
 
 					// QoL: Escape closes whatever interface is currently open, regardless of state.
 					if (key == GameShell.KEY_ESCAPE) {
+						DevLog.log("HOTKEY", "Escape closed interfaces");
 						this.closeInterfaces();
 					}
 
@@ -5010,6 +5080,7 @@ public class Client extends GameShell {
 						}
 					} else if (key == 9 && this.hasLastPmFrom) {
 						// QoL: Tab replies to whoever last sent you a PM
+						DevLog.log("HOTKEY", "Tab reply to " + JString.formatDisplayName(JString.fromBase37(this.lastPmFrom37)));
 						this.redrawChatback = true;
 						this.chatbackInputOpen = 0;
 						this.showSocialInput = true;
@@ -5022,6 +5093,7 @@ public class Client extends GameShell {
 						if (!this.pressedContinueOption) {
 							int continueComponentId = this.findContinueComponentId(Component.get(this.chatInterfaceId));
 							if (continueComponentId != -1) {
+								DevLog.log("HOTKEY", "Space advanced dialogue");
 								// RESUME_PAUSEBUTTON
 								this.out.p1isaac(226);
 								this.out.p2(continueComponentId);
@@ -9786,6 +9858,12 @@ public class Client extends GameShell {
 		if (var5 >= 2000) {
 			var5 -= 2000;
 		}
+		// DEV: log every menu-driven interaction (walk, attack, use, examine, trade, bank, equip,
+		// spell-on-target, drop, etc. all funnel through here) with its human-readable menu text,
+		// the player's own world position, and (best-effort) the id/coords of whatever was clicked.
+		DevLog.log("ACTION", DevLog.stripTags(this.menuOption[arg0])
+			+ " | player=(" + (localPlayer.routeTileX[0] + this.sceneBaseTileX) + "," + (localPlayer.routeTileZ[0] + this.sceneBaseTileZ) + "," + this.currentLevel + ")"
+			+ " | " + this.describeMenuTarget(var5, var6, var3, var4));
 		if (this.chatbackInputOpen != 0 && var5 != 1016) {
 			this.chatbackInputOpen = 0;
 			this.redrawChatback = true;
@@ -12508,6 +12586,9 @@ public class Client extends GameShell {
 
 	@ObfuscatedName("client.a(Ljava/lang/String;BLjava/lang/String;I)V")
 	public void addMessage(String arg0, String arg2, int arg3) {
+		// DEV: single choke point for essentially all chat/message text - public chat sent and
+		// received, private messages sent and received, NPC chat, game/system messages, etc.
+		DevLog.log("CHAT", "type=" + arg3 + " from=\"" + arg0 + "\" msg=\"" + arg2 + "\"");
 		if (arg3 == 0 && this.stickyChatInterfaceId != -1) {
 			this.modalMessage = arg2;
 			super.mouseClickButton = 0;
