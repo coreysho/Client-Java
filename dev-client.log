@@ -1060,3 +1060,614 @@
 [23:43:38.574] [ACTION] Cancel | player=(3252,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
 [23:43:39.039] [ACTION] Ok | player=(3252,3421,0) | target=? action=352 paramA=2 paramB=480 paramC=2458
 [23:43:39.224] [SESSION] logged out, was "corey"
+
+=== dev client session started Wed Sep 02 08:28:23 EDT 2026 ===
+[08:28:23.659] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+
+=== dev client session started Wed Sep 02 08:29:19 EDT 2026 ===
+[08:29:19.105] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[08:29:28.071] [SESSION] logged in as "corey"
+[08:29:28.922] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[08:29:30.506] [ACTION] Close | player=(3252,3421,0) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[08:29:31.309] [ACTION] Cancel | player=(3252,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:29:33.237] [ACTION] Use Bank booth | player=(3252,3421,0) | target=loc id=2213 name="Bank booth" coords=(3252,3419,0)
+[08:29:35.511] [HOTKEY] Space advanced dialogue
+[08:29:39.405] [ACTION] Use Bank booth | player=(3252,3420,0) | target=loc id=2213 name="Bank booth" coords=(3252,3419,0)
+[08:29:40.075] [HOTKEY] Space advanced dialogue
+[08:29:41.332] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=36257792 paramB=298 paramC=2471
+[08:29:42.497] [HOTKEY] Space advanced dialogue
+[08:29:46.621] [HOTKEY] Escape closed interfaces
+[08:29:47.667] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:29:48.259] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:29:48.661] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=1617 paramB=18 paramC=2458
+[08:29:49.119] [SESSION] logged out, was "corey"
+
+=== dev client session started Wed Sep 02 08:50:27 EDT 2026 ===
+[08:50:27.007] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[08:50:37.041] [SESSION] logged in as "corey"
+[08:50:37.833] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[08:50:39.425] [ACTION] Close | player=(3252,3420,0) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[08:50:40.641] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:50:41.618] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:50:42.505] [ACTION] Use Bank booth | player=(3252,3420,0) | target=loc id=2213 name="Bank booth" coords=(3252,3419,0)
+[08:50:43.989] [HOTKEY] Space advanced dialogue
+[08:50:45.337] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=36257792 paramB=285 paramC=2471
+[08:50:45.772] [HOTKEY] Space advanced dialogue
+[08:50:52.994] [HOTKEY] Escape closed interfaces
+[08:51:17.537] [ACTION] Talk-to Banker | player=(3252,3420,0) | target=npc name="Banker" coords=(3252,3418,0)
+[08:51:18.424] [HOTKEY] Space advanced dialogue
+[08:51:19.072] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=0 paramC=2472
+[08:51:51.411] [ACTION] Close | player=(3252,3420,0) | target=? action=639 paramA=3469 paramB=0 paramC=15036
+[08:51:53.967] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:51:55.230] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:51:55.808] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:51:56.267] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:51:56.998] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:52:33.525] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:52:35.276] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:52:35.987] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:52:36.532] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:52:38.117] [ACTION] Use Bank booth | player=(3252,3420,0) | target=loc id=2213 name="Bank booth" coords=(3252,3419,0)
+[08:52:41.117] [ACTION] Use-quickly Bank booth | player=(3252,3420,0) | target=loc id=2213 name="Bank booth" coords=(3252,3419,0)
+[08:52:42.487] [ACTION] Close | player=(3252,3420,0) | target=? action=639 paramA=36257792 paramB=52 paramC=5384
+[08:52:44.222] [ACTION] Use-quickly Bank booth | player=(3252,3420,0) | target=loc id=2213 name="Bank booth" coords=(3252,3419,0)
+[08:52:45.807] [ACTION] Deposit 1 Runite ore | player=(3252,3420,0) | target=? action=9 paramA=451 paramB=19 paramC=2006
+[08:52:46.456] [ACTION] Select | player=(3252,3420,0) | target=? action=518 paramA=1617 paramB=18 paramC=5386
+[08:52:47.154] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:52:47.642] [ACTION] Withdraw 1 Runite ore | player=(3252,3420,0) | target=? action=9 paramA=451 paramB=1 paramC=5382
+[08:52:49.390] [ACTION] Deposit 1 Runite ore | player=(3252,3420,0) | target=? action=9 paramA=452 paramB=19 paramC=2006
+[08:52:51.266] [ACTION] Deposit 1 Uncut diamond | player=(3252,3420,0) | target=? action=9 paramA=1617 paramB=18 paramC=2006
+[08:52:51.949] [ACTION] Select | player=(3252,3420,0) | target=? action=518 paramA=1617 paramB=18 paramC=8131
+[08:52:54.121] [ACTION] Select | player=(3252,3420,0) | target=? action=518 paramA=1617 paramB=0 paramC=8130
+[08:57:32.594] [ACTION] Close | player=(3252,3420,0) | target=? action=639 paramA=1275 paramB=16 paramC=5384
+[08:57:36.124] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:57:36.921] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:57:46.137] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:57:46.581] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:57:48.476] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:57:48.823] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:57:58.489] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:58:01.851] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:58:04.397] [ACTION] View Combat guide | player=(3252,3420,0) | target=? action=352 paramA=556 paramB=0 paramC=8654
+[08:58:05.616] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:58:06.320] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=556 paramB=0 paramC=10162
+[08:58:06.902] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:58:07.326] [ACTION] View Combat guide | player=(3252,3420,0) | target=? action=352 paramA=556 paramB=501 paramC=8660
+[08:58:08.505] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=36257792 paramB=497 paramC=10162
+[08:58:32.485] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:58:33.263] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:58:33.677] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:58:34.078] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:58:34.901] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:58:35.507] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:58:35.926] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:58:36.371] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:58:36.861] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:58:37.345] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:58:38.371] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:58:38.915] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:58:39.422] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:58:39.902] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:58:40.431] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:58:41.009] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:58:42.475] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:12:48.036] [SESSION] logged out, was "corey"
+
+=== dev client session started Wed Sep 02 09:30:11 EDT 2026 ===
+[09:30:11.867] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[09:30:20.180] [SESSION] logged in as "corey"
+[09:30:20.942] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[09:30:23.269] [ACTION] Close | player=(3252,3420,0) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[09:30:25.433] [ACTION] Use Bank booth | player=(3252,3420,0) | target=loc id=2213 name="Bank booth" coords=(3252,3419,0)
+[09:30:26.105] [HOTKEY] Space advanced dialogue
+[09:30:27.251] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=270 paramC=2472
+[09:30:40.839] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=36257792 paramB=267 paramC=15078
+[09:30:45.837] [ACTION] Enter digit | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=270 paramC=14875
+[09:30:47.759] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:30:48.117] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:30:48.510] [ACTION] Enter digit | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=270 paramC=14881
+[09:30:49.900] [ACTION] Enter digit | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=270 paramC=14880
+[09:30:51.706] [ACTION] Enter digit | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=270 paramC=14873
+[09:30:51.979] [CHAT] type=0 from="" msg="That is not your current PIN."
+[09:30:53.107] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=270 paramC=15078
+[09:30:57.294] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=270 paramC=14922
+[09:30:59.520] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=36257792 paramB=267 paramC=15082
+[09:30:59.767] [CHAT] type=0 from="" msg="Your pending PIN removal has been cancelled."
+[09:31:04.795] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=270 paramC=15075
+[09:31:08.181] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=270 paramC=14922
+[09:31:10.489] [HOTKEY] Escape closed interfaces
+
+=== dev client session started Wed Sep 02 09:38:28 EDT 2026 ===
+[09:38:28.026] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[09:40:50.269] [SESSION] logged in as "corey"
+[09:40:50.665] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[09:40:52.416] [ACTION] Close | player=(3252,3420,0) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[09:40:53.791] [ACTION] Use Bank booth | player=(3252,3420,0) | target=loc id=2213 name="Bank booth" coords=(3252,3419,0)
+[09:40:55.139] [HOTKEY] Space advanced dialogue
+[09:40:56.186] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=36257792 paramB=52 paramC=2472
+[09:46:46.615] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:46.997] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:47.832] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=36257792 paramB=52 paramC=2458
+[09:46:48.379] [SESSION] logged out, was "corey"
+[09:47:42.326] [SESSION] logged in as "corey"
+[09:47:42.528] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[09:47:43.891] [ACTION] Close | player=(3252,3420,0) | target=? action=639 paramA=36257792 paramB=52 paramC=15251
+[09:47:44.594] [ACTION] Use Bank booth | player=(3252,3420,0) | target=loc id=2213 name="Bank booth" coords=(3252,3419,0)
+[09:47:45.149] [HOTKEY] Space advanced dialogue
+[09:47:46.254] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=223 paramC=2472
+[09:47:47.332] [HOTKEY] Escape closed interfaces
+[09:47:48.234] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:48.870] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=485 paramC=2458
+[09:47:49.484] [SESSION] logged out, was "corey"
+
+=== dev client session started Wed Sep 02 09:48:26 EDT 2026 ===
+[09:48:26.547] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[09:51:02.725] [SESSION] logged in as "corey"
+[09:51:03.121] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[09:51:23.240] [ACTION] Close | player=(3252,3420,0) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[09:51:24.541] [ACTION] Use Bank booth | player=(3252,3420,0) | target=loc id=2213 name="Bank booth" coords=(3252,3419,0)
+[09:51:25.288] [HOTKEY] Space advanced dialogue
+[09:51:26.288] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=271 paramC=2472
+[09:52:15.235] [SESSION] logged out, was "corey"
+[09:52:28.278] [SESSION] logged in as "corey"
+[09:52:28.734] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[09:52:30.550] [ACTION] Close | player=(3252,3420,0) | target=? action=639 paramA=3469 paramB=271 paramC=15251
+[09:52:31.541] [ACTION] Talk-to Banker | player=(3252,3420,0) | target=npc name="Banker" coords=(3252,3418,0)
+[09:52:32.603] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:52:33.018] [HOTKEY] Space advanced dialogue
+[09:52:33.718] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=36257792 paramB=52 paramC=2472
+
+=== dev client session started Wed Sep 02 09:56:24 EDT 2026 ===
+[09:56:24.053] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[09:56:34.861] [SESSION] logged in as "corey"
+[09:56:35.658] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[09:56:37.288] [ACTION] Close | player=(3252,3420,0) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[09:56:38.034] [ACTION] Talk-to Banker | player=(3252,3420,0) | target=npc name="Banker" coords=(3252,3418,0)
+[09:56:38.805] [HOTKEY] Space advanced dialogue
+[09:56:39.435] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=36257792 paramB=330 paramC=2472
+[09:58:35.473] [SESSION] logged out, was "corey"
+
+=== dev client session started Wed Sep 02 09:58:55 EDT 2026 ===
+[09:58:55.626] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[10:01:46.725] [SESSION] logged in as "corey"
+[10:01:47.099] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[10:01:52.301] [ACTION] Close | player=(3252,3420,0) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[10:01:57.324] [ACTION] Talk-to Banker | player=(3252,3420,0) | target=npc name="Banker" coords=(3252,3418,0)
+[10:01:58.029] [HOTKEY] Space advanced dialogue
+[10:01:58.435] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=286 paramC=2472
+[10:02:11.543] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=286 paramC=15075
+[10:02:14.928] [ACTION] Enter digit | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=286 paramC=14873
+[10:02:16.510] [ACTION] Enter digit | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=286 paramC=14881
+[10:02:18.371] [ACTION] Enter digit | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=286 paramC=14878
+[10:02:19.751] [ACTION] Enter digit | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=286 paramC=14877
+[10:02:20.416] [CHAT] type=0 from="" msg="Please enter your new PIN again to confirm it."
+[10:02:21.449] [ACTION] Enter digit | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=286 paramC=14874
+[10:02:24.033] [ACTION] Enter digit | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=286 paramC=14882
+[10:02:25.267] [ACTION] Enter digit | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=286 paramC=14879
+[10:02:26.349] [ACTION] Enter digit | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=286 paramC=14878
+[10:02:26.982] [CHAT] type=0 from="" msg="Your bank PIN has been set."
+[10:02:30.581] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=286 paramC=15080
+[10:02:33.569] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=9666560 paramB=53 paramC=2485
+[10:02:34.359] [CHAT] type=0 from="" msg="Your recovery delay is now 42 days."
+[10:02:35.617] [ACTION] Use Bank booth | player=(3252,3420,0) | target=loc id=2213 name="Bank booth" coords=(3252,3419,0)
+[10:02:36.319] [HOTKEY] Space advanced dialogue
+[10:02:37.263] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=259 paramC=2472
+[10:02:38.875] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=259 paramC=15080
+[10:02:40.013] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=253 paramC=2482
+[10:02:40.110] [CHAT] type=0 from="" msg="Your recovery delay is now 7 days."
+[10:02:40.733] [ACTION] Talk-to Banker | player=(3252,3420,0) | target=npc name="Banker" coords=(3252,3418,0)
+[10:02:41.331] [HOTKEY] Space advanced dialogue
+[10:02:43.088] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=0 paramC=2472
+[10:02:46.754] [ACTION] Close | player=(3252,3420,0) | target=? action=639 paramA=36257792 paramB=53 paramC=15036
+[10:02:47.348] [ACTION] Use Bank booth | player=(3252,3420,0) | target=loc id=2213 name="Bank booth" coords=(3252,3419,0)
+[10:02:48.108] [HOTKEY] Space advanced dialogue
+[10:02:48.692] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=36257792 paramB=52 paramC=2471
+[10:02:49.666] [HOTKEY] Space advanced dialogue
+[10:02:50.824] [HOTKEY] Escape closed interfaces
+[10:03:19.578] [ACTION] Talk-to Banker | player=(3252,3420,0) | target=npc name="Banker" coords=(3252,3418,0)
+[10:03:20.215] [HOTKEY] Space advanced dialogue
+[10:03:21.301] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:03:21.907] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:03:22.368] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=36257792 paramB=52 paramC=2472
+
+=== dev client session started Wed Sep 02 10:05:55 EDT 2026 ===
+[10:05:55.409] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+
+=== dev client session started Wed Sep 02 10:06:13 EDT 2026 ===
+[10:06:13.068] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+
+=== dev client session started Wed Sep 02 10:06:38 EDT 2026 ===
+[10:06:38.006] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[10:09:55.675] [SESSION] logged in as "corey"
+[10:09:56.351] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[10:09:57.884] [ACTION] Close | player=(3252,3420,0) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[10:09:58.847] [ACTION] Talk-to Banker | player=(3252,3420,0) | target=npc name="Banker" coords=(3252,3418,0)
+[10:09:59.662] [HOTKEY] Space advanced dialogue
+[10:10:00.659] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:10:01.216] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=0 paramC=2472
+[10:10:20.809] [ACTION] Close | player=(3252,3420,0) | target=? action=639 paramA=3469 paramB=0 paramC=15036
+[10:10:21.791] [ACTION] Talk-to Banker | player=(3252,3420,0) | target=npc name="Banker" coords=(3252,3418,0)
+[10:10:22.597] [ACTION] Continue | player=(3252,3420,0) | target=? action=575 paramA=36257792 paramB=266 paramC=4886
+[10:10:23.243] [ACTION] Cancel | player=(3252,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:10:23.826] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=36257792 paramB=266 paramC=2471
+[10:10:25.402] [HOTKEY] Space advanced dialogue
+[10:10:27.412] [ACTION] Close | player=(3252,3420,0) | target=? action=639 paramA=36257792 paramB=266 paramC=5384
+[10:10:34.158] [ACTION] Talk-to Banker | player=(3252,3420,0) | target=npc name="Banker" coords=(3252,3418,0)
+[10:10:35.191] [ACTION] Continue | player=(3252,3420,0) | target=? action=575 paramA=36257792 paramB=52 paramC=4886
+[10:10:38.071] [ACTION] Talk-to Banker | player=(3252,3420,0) | target=npc name="Banker" coords=(3252,3418,0)
+[10:10:39.002] [ACTION] Continue | player=(3252,3420,0) | target=? action=575 paramA=3469 paramB=277 paramC=4886
+[10:12:33.114] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=277 paramC=2472
+[10:12:36.097] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=277 paramC=15079
+[10:12:38.458] [ACTION] Enter digit | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=277 paramC=14879
+[10:12:39.635] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=277 paramC=14922
+[10:12:41.157] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=277 paramC=15078
+[10:12:42.243] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=277 paramC=14921
+[10:12:42.483] [CHAT] type=0 from="" msg="Your PIN will be removed in 7 days. You can cancel this from the PIN settings screen at any time."
+[10:12:44.573] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=277 paramC=18849
+[10:12:45.083] [CHAT] type=0 from="" msg="No trigger for [if_button,bankpin_settings:com_255]"
+[10:12:45.687] [ACTION] Ok | player=(3252,3420,0) | target=? action=352 paramA=3469 paramB=277 paramC=15082
+[10:12:46.298] [CHAT] type=0 from="" msg="Your pending PIN removal has been cancelled."
+[10:12:47.210] [HOTKEY] Escape closed interfaces
+[10:12:53.977] [HOTKEY] Escape closed interfaces
+[10:12:54.304] [HOTKEY] Escape closed interfaces
+[10:12:54.516] [HOTKEY] Escape closed interfaces
+[10:16:07.437] [ACTION] Cancel | player=(3278,3500,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:16:11.129] [ACTION] Walk here | player=(3278,3500,1) | target=? action=14 paramA=25133056 paramB=267 paramC=181
+[10:16:39.548] [ACTION] Cancel | player=(3278,3500,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:16:39.805] [ACTION] Cancel | player=(3278,3500,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:16:40.307] [ACTION] Cancel | player=(3278,3500,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:16:58.838] [ACTION] Cancel | player=(3278,3500,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:17:00.503] [ACTION] Cast Varrock teleport | player=(3278,3500,1) | target=? action=352 paramA=565 paramB=9 paramC=1164
+[10:17:01.179] [ACTION] Cancel | player=(3278,3500,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:17:03.612] [ACTION] Cancel | player=(3212,3426,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:17:03.762] [ACTION] Cancel | player=(3212,3426,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:17:05.535] [ACTION] Cancel | player=(3214,3425,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:17:06.191] [ACTION] Select | player=(3215,3425,0) | target=? action=518 paramA=565 paramB=9 paramC=153
+[10:17:06.715] [ACTION] Cancel | player=(3217,3425,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:17:07.747] [ACTION] Cancel | player=(3221,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:17:08.813] [ACTION] Cancel | player=(3223,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:17:10.087] [ACTION] Cancel | player=(3229,3428,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:17:10.691] [ACTION] Cancel | player=(3231,3428,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:17:11.769] [ACTION] Cancel | player=(3233,3428,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:17:12.496] [ACTION] Select | player=(3237,3428,0) | target=? action=518 paramA=565 paramB=9 paramC=1771
+[10:17:13.098] [ACTION] Cancel | player=(3237,3428,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:17:13.822] [ACTION] Cancel | player=(3241,3428,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:17:14.494] [ACTION] Cancel | player=(3243,3428,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:19:12.471] [SESSION] logged out, was "corey"
+
+=== dev client session started Wed Sep 02 10:21:38 EDT 2026 ===
+[10:21:38.395] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[10:21:49.203] [SESSION] logged in as "corey"
+[10:21:49.592] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[10:21:51.396] [ACTION] Close | player=(3254,3421,0) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[10:21:54.783] [ACTION] Use Bank booth | player=(3254,3421,0) | target=loc id=2213 name="Bank booth" coords=(3254,3419,0)
+[10:21:56.098] [HOTKEY] Space advanced dialogue
+[10:21:57.037] [ACTION] Ok | player=(3254,3420,0) | target=? action=352 paramA=36257792 paramB=291 paramC=2472
+[10:21:59.066] [HOTKEY] Escape closed interfaces
+[10:21:59.623] [ACTION] Use Bank booth | player=(3254,3420,0) | target=loc id=2213 name="Bank booth" coords=(3254,3419,0)
+[10:22:00.369] [HOTKEY] Space advanced dialogue
+[10:22:00.902] [ACTION] Ok | player=(3254,3420,0) | target=? action=352 paramA=9666560 paramB=53 paramC=2471
+[10:22:01.836] [HOTKEY] Space advanced dialogue
+[10:22:03.812] [ACTION] Enter digit | player=(3254,3420,0) | target=? action=352 paramA=9666560 paramB=53 paramC=14882
+[10:22:06.146] [ACTION] Enter digit | player=(3254,3420,0) | target=? action=352 paramA=9666560 paramB=53 paramC=14879
+[10:22:09.001] [ACTION] Enter digit | player=(3254,3420,0) | target=? action=352 paramA=9666560 paramB=53 paramC=14879
+[10:22:10.866] [ACTION] Enter digit | player=(3254,3420,0) | target=? action=352 paramA=9666560 paramB=53 paramC=14880
+[10:22:12.661] [HOTKEY] Escape closed interfaces
+[10:22:13.526] [ACTION] Cancel | player=(3254,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:22:14.153] [ACTION] Ok | player=(3254,3420,0) | target=? action=352 paramA=22806528 paramB=58 paramC=2458
+[10:22:14.413] [SESSION] logged out, was "corey"
+
+=== dev client session started Wed Sep 02 10:41:11 EDT 2026 ===
+[10:41:11.659] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[10:41:20.845] [SESSION] logged in as "corey"
+[10:41:21.420] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[10:41:23.345] [ACTION] Cancel | player=(3254,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:41:28.078] [ACTION] Close | player=(3254,3420,0) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[10:41:31.766] [ACTION] Use Bank booth | player=(3254,3420,0) | target=loc id=2213 name="Bank booth" coords=(3254,3419,0)
+[10:41:33.113] [HOTKEY] Space advanced dialogue
+[10:41:38.393] [ACTION] Ok | player=(3254,3420,0) | target=? action=352 paramA=22790144 paramB=429 paramC=2472
+[10:41:40.156] [HOTKEY] Escape closed interfaces
+[10:41:40.820] [ACTION] Use Bank booth | player=(3254,3420,0) | target=loc id=2213 name="Bank booth" coords=(3254,3419,0)
+[10:41:41.626] [HOTKEY] Space advanced dialogue
+[10:41:42.208] [ACTION] Ok | player=(3254,3420,0) | target=? action=352 paramA=3473 paramB=272 paramC=2471
+[10:41:42.907] [HOTKEY] Space advanced dialogue
+[10:41:43.957] [HOTKEY] Number key entered bank PIN digit 8
+[10:41:44.322] [HOTKEY] Number key entered bank PIN digit 7
+[10:41:44.593] [HOTKEY] Number key entered bank PIN digit 8
+[10:41:44.850] [HOTKEY] Number key entered bank PIN digit 6
+[10:41:45.091] [HOTKEY] Number key entered bank PIN digit 6
+[10:41:45.513] [HOTKEY] Number key entered bank PIN digit 7
+[10:41:46.396] [HOTKEY] Escape closed interfaces
+[10:41:47.067] [HOTKEY] Escape closed interfaces
+
+=== dev client session started Wed Sep 02 10:43:45 EDT 2026 ===
+[10:43:45.148] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+
+=== dev client session started Wed Sep 02 10:44:13 EDT 2026 ===
+[10:44:13.083] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[10:44:23.340] [SESSION] logged in as "corey"
+[10:44:23.676] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[10:44:25.725] [ACTION] Close | player=(3254,3420,0) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[10:44:27.395] [ACTION] Talk-to Banker | player=(3254,3420,0) | target=npc name="Banker" coords=(3254,3417,0)
+[10:44:29.358] [ACTION] Talk-to Banker | player=(3254,3420,0) | target=npc name="Banker" coords=(3254,3418,0)
+[10:44:30.404] [HOTKEY] Space advanced dialogue
+[10:44:36.003] [ACTION] Ok | player=(3254,3420,0) | target=? action=352 paramA=36257792 paramB=54 paramC=2471
+[10:44:37.410] [HOTKEY] Space advanced dialogue
+[10:44:38.195] [HOTKEY] Number key entered bank PIN digit 1
+[10:44:38.462] [HOTKEY] Number key entered bank PIN digit 1
+[10:44:38.764] [HOTKEY] Number key entered bank PIN digit 1
+[10:44:39.015] [HOTKEY] Number key entered bank PIN digit 1
+[10:44:39.373] [HOTKEY] Number key entered bank PIN digit 2
+[10:44:40.170] [HOTKEY] Number key entered bank PIN digit 4
+[10:44:40.609] [HOTKEY] Number key entered bank PIN digit 3
+[10:44:41.647] [HOTKEY] Number key entered bank PIN digit 8
+[10:44:41.930] [HOTKEY] Number key entered bank PIN digit 7
+[10:44:42.212] [HOTKEY] Number key entered bank PIN digit 6
+[10:44:42.477] [HOTKEY] Number key entered bank PIN digit 6
+[10:44:42.763] [HOTKEY] Number key entered bank PIN digit 7
+
+=== dev client session started Wed Sep 02 10:49:24 EDT 2026 ===
+[10:49:24.844] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[10:49:49.013] [SESSION] logged in as "corey"
+[10:49:49.848] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[10:49:59.976] [ACTION] Close | player=(3254,3420,0) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[10:50:04.188] [ACTION] Talk-to Banker | player=(3254,3420,0) | target=npc name="Banker" coords=(3254,3418,0)
+[10:50:05.144] [HOTKEY] Space advanced dialogue
+[10:50:06.100] [HOTKEY] Number key selected dialogue option 2
+[10:50:07.372] [HOTKEY] Escape closed interfaces
+[10:50:07.862] [ACTION] Use Bank booth | player=(3254,3420,0) | target=loc id=2213 name="Bank booth" coords=(3254,3419,0)
+[10:50:08.593] [HOTKEY] Space advanced dialogue
+[10:50:09.123] [HOTKEY] Number key selected dialogue option 1
+[10:50:10.131] [HOTKEY] Space advanced dialogue
+[10:50:11.308] [HOTKEY] Number key entered bank PIN digit 7
+[10:50:12.451] [HOTKEY] Number key entered bank PIN digit 3
+[10:50:13.396] [HOTKEY] Number key entered bank PIN digit 5
+[10:50:14.604] [HOTKEY] Escape closed interfaces
+[10:50:15.278] [ACTION] Use Bank booth | player=(3254,3420,0) | target=loc id=2213 name="Bank booth" coords=(3254,3419,0)
+[10:50:15.788] [HOTKEY] Space advanced dialogue
+[10:50:16.286] [HOTKEY] Number key selected dialogue option 1
+[10:50:17.074] [HOTKEY] Space advanced dialogue
+[10:50:17.948] [HOTKEY] Number key entered bank PIN digit 7
+[10:50:18.870] [HOTKEY] Number key entered bank PIN digit 3
+[10:50:19.454] [HOTKEY] Number key entered bank PIN digit 2
+[10:50:20.126] [HOTKEY] Number key entered bank PIN digit 5
+[10:50:20.818] [HOTKEY] Escape closed interfaces
+[10:51:00.307] [ACTION] Cancel | player=(3254,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:51:00.705] [ACTION] Cancel | player=(3254,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:51:01.336] [ACTION] Cancel | player=(3254,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:51:01.829] [ACTION] Cancel | player=(3254,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:51:02.334] [ACTION] Cancel | player=(3254,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:52:47.263] [ACTION] Cancel | player=(3254,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:52:47.801] [ACTION] Cancel | player=(3254,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:52:48.263] [ACTION] Cancel | player=(3254,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:52:48.779] [ACTION] Cancel | player=(3254,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:52:49.307] [ACTION] Cancel | player=(3254,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:52:49.834] [ACTION] Cancel | player=(3254,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:52:50.400] [ACTION] Select | player=(3254,3420,0) | target=? action=518 paramA=556 paramB=0 paramC=1771
+[10:52:51.449] [ACTION] Cancel | player=(3254,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:55:31.563] [ACTION] Talk-to Drunken Dwarf | player=(3254,3420,0) | target=npc name="Drunken Dwarf" coords=(3253,3420,0)
+[10:55:32.407] [HOTKEY] Space advanced dialogue
+[10:55:33.849] [ACTION] Cancel | player=(3254,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:55:34.987] [ACTION] Eat Kebab | player=(3254,3420,0) | target=? action=961 paramA=1971 paramB=18 paramC=3214
+[10:55:35.190] [CHAT] type=0 from="" msg="You eat the kebab."
+[10:55:35.191] [CHAT] type=0 from="" msg="That was a good kebab. You feel a lot better."
+[10:55:35.540] [ACTION] Drink Beer | player=(3254,3420,0) | target=? action=961 paramA=1917 paramB=19 paramC=3214
+[10:55:36.702] [ACTION] Drink Beer | player=(3254,3420,0) | target=? action=961 paramA=1917 paramB=19 paramC=3214
+[10:55:37.051] [CHAT] type=0 from="" msg="You drink the beer.  You feel slightly reinvigorated..."
+[10:55:37.052] [CHAT] type=0 from="" msg="...and slightly dizzy too."
+[10:55:38.512] [ACTION] Drop Beer glass | player=(3254,3420,0) | target=item id=1919 slot=19 (inventory, no world coords)
+[10:55:39.217] [ACTION] Cancel | player=(3254,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:55:40.317] [ACTION] Cancel | player=(3254,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+
+=== dev client session started Wed Sep 02 10:59:14 EDT 2026 ===
+[10:59:14.058] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[10:59:27.942] [SESSION] logged in as "corey"
+[10:59:28.761] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[10:59:30.153] [ACTION] Close | player=(3254,3420,0) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[10:59:31.089] [ACTION] Cancel | player=(3254,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:59:33.423] [ACTION] Cancel | player=(3254,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:59:34.721] [ACTION] Cast Varrock teleport | player=(3254,3420,0) | target=? action=352 paramA=556 paramB=0 paramC=1164
+[10:59:35.518] [ACTION] Cancel | player=(3254,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:59:36.496] [ACTION] Select | player=(3254,3420,0) | target=? action=518 paramA=556 paramB=0 paramC=1771
+[10:59:37.611] [ACTION] Cancel | player=(3214,3423,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:59:40.003] [ACTION] Cancel | player=(3214,3423,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:59:42.429] [ACTION] Cancel | player=(3216,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:59:42.978] [ACTION] Select | player=(3217,3428,0) | target=? action=518 paramA=558 paramB=11 paramC=153
+[10:59:43.449] [ACTION] Cancel | player=(3217,3428,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:59:44.640] [ACTION] Cancel | player=(3217,3432,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:59:45.820] [ACTION] Cancel | player=(3215,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:59:47.879] [ACTION] Cancel | player=(3213,3444,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:59:49.474] [ACTION] Cancel | player=(3213,3448,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:59:52.145] [ACTION] Attack Guard (level-21) | player=(3213,3456,0) | target=npc name="Guard" coords=(3213,3462,0)
+[10:59:52.375] [ACTION] Walk here | player=(3213,3458,0) | target=? action=14 paramA=3486 paramB=229 paramC=5
+[10:59:53.362] [ACTION] Attack Guard (level-21) | player=(3213,3462,0) | target=npc name="Guard" coords=(3211,3461,0)
+[10:59:58.885] [ACTION] Attack Guard (level-21) | player=(3213,3462,0) | target=npc name="Guard" coords=(3215,3464,0)
+[11:13:08.540] [ACTION] Cancel | player=(3213,3462,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:13:09.098] [ACTION] Ok | player=(3213,3462,0) | target=? action=352 paramA=4151 paramB=15 paramC=2458
+[11:13:09.515] [SESSION] logged out, was "corey"
+
+=== dev client session started Wed Sep 02 11:14:06 EDT 2026 ===
+[11:14:06.587] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[11:14:38.792] [SESSION] logged in as "corey"
+[11:14:39.153] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[11:14:40.720] [ACTION] Close | player=(3213,3462,0) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[11:14:43.203] [ACTION] Cancel | player=(3213,3462,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:14:43.938] [ACTION] Select | player=(3213,3462,0) | target=? action=518 paramA=3491 paramB=0 paramC=1772
+[11:14:44.347] [ACTION] Cancel | player=(3213,3462,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:14:44.736] [ACTION] Cancel | player=(3213,3462,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:14:45.432] [ACTION] Select | player=(3213,3462,0) | target=? action=518 paramA=3491 paramB=0 paramC=1771
+[11:14:46.189] [ACTION] Attack Guard (level-21) | player=(3213,3462,0) | target=npc name="Guard" coords=(3212,3462,0)
+[11:14:52.157] [ACTION] Attack Guard (level-21) | player=(3213,3462,0) | target=npc name="Guard" coords=(3212,3464,0)
+[11:14:56.014] [ACTION] Attack Guard (level-21) | player=(3213,3462,0) | target=npc name="Guard" coords=(3211,3462,0)
+[11:14:56.132] [CHAT] type=0 from="" msg="I'm already under attack"
+[11:14:57.550] [ACTION] Attack Guard (level-21) | player=(3213,3462,0) | target=npc name="Guard" coords=(3213,3463,0)
+[11:14:59.634] [ACTION] Attack Guard (level-21) | player=(3213,3462,0) | target=npc name="Guard" coords=(3211,3462,0)
+[11:15:02.064] [ACTION] Cancel | player=(3213,3462,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:20:23.461] [ACTION] Cancel | player=(3213,3462,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:20:24.209] [ACTION] Cancel | player=(3213,3462,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:20:24.678] [ACTION] Ok | player=(3213,3462,0) | target=? action=352 paramA=3491 paramB=0 paramC=2458
+[11:20:24.942] [SESSION] logged out, was "corey"
+
+=== dev client session started Wed Sep 02 11:20:55 EDT 2026 ===
+[11:20:55.356] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[11:21:03.331] [SESSION] logged in as "corey"
+[11:21:03.962] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[11:21:05.841] [ACTION] Close | player=(3213,3462,0) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[11:21:06.505] [ACTION] Cancel | player=(3213,3462,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:21:07.249] [ACTION] Cancel | player=(3213,3462,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:21:07.616] [ACTION] Cancel | player=(3213,3462,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:21:08.632] [ACTION] Cancel | player=(3213,3462,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:21:09.210] [ACTION] Cancel | player=(3213,3462,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:21:10.002] [ACTION] Select | player=(3213,3462,0) | target=? action=518 paramA=3491 paramB=0 paramC=1771
+[11:21:11.856] [ACTION] Attack Guard (level-21) | player=(3213,3462,0) | target=npc name="Guard" coords=(3214,3463,0)
+[11:21:21.607] [ACTION] Attack Guard (level-21) | player=(3213,3462,0) | target=npc name="Guard" coords=(3213,3464,0)
+[11:21:22.953] [ACTION] Walk here | player=(3213,3462,0) | target=? action=14 paramA=3487 paramB=247 paramC=189
+[11:21:23.121] [ACTION] Walk here | player=(3213,3462,0) | target=? action=14 paramA=3487 paramB=247 paramC=189
+[11:21:23.289] [ACTION] Walk here | player=(3213,3462,0) | target=? action=14 paramA=3487 paramB=247 paramC=189
+[11:21:23.453] [ACTION] Walk here | player=(3213,3462,0) | target=? action=14 paramA=3487 paramB=247 paramC=189
+[11:21:23.587] [ACTION] Walk here | player=(3213,3462,0) | target=? action=14 paramA=3487 paramB=247 paramC=189
+[11:21:23.764] [ACTION] Walk here | player=(3213,3462,0) | target=? action=14 paramA=3487 paramB=247 paramC=189
+[11:21:23.897] [ACTION] Walk here | player=(3213,3462,0) | target=? action=14 paramA=3487 paramB=247 paramC=189
+[11:21:24.075] [ACTION] Walk here | player=(3213,3462,0) | target=? action=14 paramA=3487 paramB=247 paramC=189
+[11:21:24.207] [ACTION] Walk here | player=(3213,3462,0) | target=? action=14 paramA=3487 paramB=247 paramC=189
+[11:21:24.386] [ACTION] Walk here | player=(3213,3462,0) | target=? action=14 paramA=3487 paramB=247 paramC=189
+[11:21:24.546] [ACTION] Walk here | player=(3213,3462,0) | target=? action=14 paramA=3487 paramB=247 paramC=189
+[11:21:24.741] [ACTION] Walk here | player=(3213,3462,0) | target=? action=14 paramA=3487 paramB=247 paramC=189
+[11:21:24.874] [ACTION] Walk here | player=(3213,3462,0) | target=? action=14 paramA=3487 paramB=247 paramC=189
+[11:21:25.066] [ACTION] Walk here | player=(3213,3462,0) | target=? action=14 paramA=3487 paramB=247 paramC=189
+[11:21:25.722] [ACTION] Attack Guard (level-21) | player=(3213,3462,0) | target=npc name="Guard" coords=(3213,3463,0)
+[11:21:28.357] [ACTION] Attack Guard (level-21) | player=(3213,3462,0) | target=npc name="Guard" coords=(3212,3461,0)
+[11:21:29.662] [ACTION] Use Special Attack | player=(3213,3462,0) | target=? action=352 paramA=3485 paramB=484 paramC=7537
+[11:22:12.179] [ACTION] Cancel | player=(3213,3462,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:22:12.737] [ACTION] Wield Abyssal whip | player=(3213,3462,0) | target=? action=399 paramA=4151 paramB=15 paramC=3214
+[11:22:13.424] [ACTION] Attack Guard (level-21) | player=(3213,3462,0) | target=npc name="Guard" coords=(3214,3460,0)
+[11:22:18.226] [ACTION] Wield Magic shortbow | player=(3214,3461,0) | target=? action=399 paramA=861 paramB=15 paramC=3214
+[11:23:15.857] [ACTION] Cancel | player=(3214,3461,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:23:16.271] [ACTION] Cancel | player=(3214,3461,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:23:16.749] [ACTION] Ok | player=(3214,3461,0) | target=? action=352 paramA=4151 paramB=15 paramC=2458
+[11:23:17.124] [SESSION] logged out, was "corey"
+
+=== dev client session started Wed Sep 02 11:24:27 EDT 2026 ===
+[11:24:27.289] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[11:25:57.396] [SESSION] logged in as "corey"
+[11:25:57.899] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[11:25:59.439] [ACTION] Close | player=(3214,3461,0) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[11:26:00.195] [ACTION] Cancel | player=(3214,3461,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:26:00.984] [ACTION] Select | player=(3214,3461,0) | target=? action=518 paramA=20905984 paramB=514 paramC=1771
+[11:26:02.960] [ACTION] Attack Guard (level-21) | player=(3214,3461,0) | target=npc name="Guard" coords=(3213,3462,0)
+[11:26:06.816] [ACTION] Attack Guard (level-21) | player=(3214,3461,0) | target=npc name="Guard" coords=(3216,3460,0)
+[11:26:10.639] [ACTION] Attack Guard (level-21) | player=(3214,3461,0) | target=npc name="Guard" coords=(3212,3463,0)
+[11:26:11.573] [ACTION] Cancel | player=(3214,3461,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:26:13.213] [ACTION] Wield Abyssal whip | player=(3214,3461,0) | target=? action=399 paramA=4151 paramB=15 paramC=3214
+[11:26:14.224] [ACTION] Attack Guard (level-21) | player=(3214,3461,0) | target=npc name="Guard" coords=(3214,3462,0)
+[11:26:15.906] [ACTION] Attack Guard (level-21) | player=(3214,3461,0) | target=npc name="Guard" coords=(3213,3464,0)
+[11:26:18.648] [ACTION] Cancel | player=(3213,3463,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:26:19.143] [ACTION] Cancel | player=(3213,3463,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:26:19.716] [ACTION] Select | player=(3213,3463,0) | target=? action=518 paramA=995 paramB=13 paramC=153
+[11:26:20.305] [ACTION] Select | player=(3213,3463,0) | target=? action=518 paramA=995 paramB=13 paramC=153
+[11:26:20.978] [ACTION] Cancel | player=(3213,3463,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:26:22.022] [ACTION] Cancel | player=(3213,3463,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:26:22.467] [ACTION] Cancel | player=(3213,3463,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:26:22.880] [ACTION] Cancel | player=(3213,3463,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:26:23.456] [ACTION] Cancel | player=(3213,3463,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:26:24.009] [ACTION] Ok | player=(3213,3463,0) | target=? action=352 paramA=566 paramB=10 paramC=2458
+[11:26:24.436] [CHAT] type=0 from="" msg="You can't log out until 10 seconds after the end of combat."
+
+=== dev client session started Wed Sep 02 11:27:56 EDT 2026 ===
+[11:27:56.425] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[11:28:03.916] [SESSION] logged in as "corey"
+[11:28:04.591] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[11:28:06.386] [ACTION] Close | player=(3213,3463,0) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[11:28:07.338] [ACTION] Attack Guard (level-21) | player=(3213,3463,0) | target=npc name="Guard" coords=(3213,3463,0)
+[11:28:09.543] [ACTION] Attack Guard (level-21) | player=(3213,3464,0) | target=npc name="Guard" coords=(3210,3463,0)
+[11:28:12.589] [ACTION] Attack Guard (level-21) | player=(3211,3463,0) | target=npc name="Guard" coords=(3213,3464,0)
+[11:28:21.427] [ACTION] Wield Magic shortbow | player=(3212,3464,0) | target=? action=399 paramA=861 paramB=15 paramC=3214
+[11:28:22.189] [ACTION] Attack Guard (level-21) | player=(3212,3464,0) | target=npc name="Guard" coords=(3213,3464,0)
+[11:28:23.001] [ACTION] Cancel | player=(3212,3464,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:28:23.649] [ACTION] Select | player=(3212,3464,0) | target=? action=518 paramA=3490 paramB=515 paramC=1771
+[11:28:24.363] [ACTION] Cancel | player=(3212,3464,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:28:26.293] [ACTION] Attack Guard (level-21) | player=(3212,3464,0) | target=npc name="Guard" coords=(3215,3465,0)
+[11:28:27.347] [ACTION] Cancel | player=(3212,3464,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:28:31.677] [ACTION] Use Special Attack | player=(3212,3464,0) | target=? action=352 paramA=556 paramB=0 paramC=7537
+[11:28:34.220] [ACTION] Attack Guard (level-21) | player=(3212,3464,0) | target=npc name="Guard" coords=(3207,3462,0)
+[11:28:36.218] [ACTION] Use Special Attack | player=(3212,3464,0) | target=? action=352 paramA=892 paramB=475 paramC=7537
+[11:28:37.527] [ACTION] Cancel | player=(3212,3464,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:50:08.929] [ACTION] Cancel | player=(3212,3464,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:50:09.649] [ACTION] Cancel | player=(3212,3464,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:50:10.781] [ACTION] Ok | player=(3212,3464,0) | target=? action=352 paramA=1540 paramB=17 paramC=2458
+[11:50:11.116] [SESSION] logged out, was "corey"
+
+=== dev client session started Wed Sep 02 11:54:38 EDT 2026 ===
+[11:54:38.142] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[11:54:46.421] [SESSION] logged in as "corey"
+[11:54:46.707] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[11:54:48.377] [ACTION] Close | player=(3212,3464,0) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[11:54:49.006] [ACTION] Cancel | player=(3212,3464,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:54:50.917] [ACTION] View Fishing guide | player=(3212,3464,0) | target=? action=352 paramA=0 paramB=356 paramC=8662
+[11:54:52.062] [ACTION] View Cooking guide | player=(3212,3464,0) | target=? action=352 paramA=0 paramB=356 paramC=8665
+[11:54:55.611] [ACTION] Cancel | player=(3212,3464,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:55:01.139] [ACTION] Cancel | player=(3212,3464,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[11:55:03.895] [ACTION] Cancel | player=(3212,3464,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[12:10:52.009] [ACTION] Cancel | player=(3212,3464,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[12:10:52.248] [HOTKEY] Escape closed interfaces
+[12:10:52.700] [ACTION] Cancel | player=(3212,3464,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[12:10:53.380] [ACTION] Ok | player=(3212,3464,0) | target=? action=352 paramA=0 paramB=356 paramC=2458
+[12:10:53.616] [SESSION] logged out, was "corey"
+
+=== dev client session started Wed Sep 02 13:20:10 EDT 2026 ===
+[13:20:10.893] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+
+=== dev client session started Wed Sep 02 13:20:26 EDT 2026 ===
+[13:20:26.200] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[13:20:35.149] [SESSION] logged in as "corey"
+[13:20:35.573] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[13:20:37.224] [ACTION] Close | player=(3212,3464,0) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[13:20:38.005] [ACTION] Cancel | player=(3212,3464,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:20:39.048] [ACTION] View Cooking guide | player=(3212,3464,0) | target=? action=352 paramA=556 paramB=0 paramC=8665
+[13:20:40.761] [ACTION] Cancel | player=(3212,3464,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:20:45.662] [ACTION] Cancel | player=(3212,3464,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:20:46.372] [ACTION] Cancel | player=(3212,3464,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:22:02.919] [ACTION] Cancel | player=(3212,3464,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:22:03.439] [HOTKEY] Escape closed interfaces
+[13:22:05.020] [ACTION] View Firemaking guide | player=(3212,3464,0) | target=? action=352 paramA=3490 paramB=0 paramC=8668
+[13:22:06.417] [ACTION] View Cooking guide | player=(3212,3464,0) | target=? action=352 paramA=3490 paramB=0 paramC=8665
+[13:22:13.007] [ACTION] Close | player=(3212,3464,0) | target=? action=352 paramA=3490 paramB=0 paramC=18853
+[13:22:14.136] [ACTION] Cancel | player=(3212,3464,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:22:17.856] [ACTION] Cancel | player=(3212,3464,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:22:18.476] [ACTION] Cancel | player=(3212,3464,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:22:20.240] [ACTION] Cancel | player=(3212,3464,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:22:20.844] [ACTION] Cancel | player=(3212,3464,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:22:21.488] [ACTION] Cancel | player=(3212,3464,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:22:21.950] [ACTION] Cancel | player=(3212,3464,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:22:23.372] [ACTION] Cancel | player=(3212,3464,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:22:24.433] [ACTION] View Cooking guide | player=(3212,3464,0) | target=? action=352 paramA=563 paramB=4 paramC=8665
+[13:24:19.124] [ACTION] Close | player=(3212,3464,0) | target=? action=352 paramA=563 paramB=432 paramC=18853
+[13:24:19.770] [ACTION] Cancel | player=(3212,3464,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:25:16.111] [ACTION] Walk here | player=(3212,3464,0) | target=? action=14 paramA=3491 paramB=263 paramC=229
+[13:25:16.905] [ACTION] Walk here | player=(3212,3463,0) | target=? action=14 paramA=3491 paramB=322 paramC=208
+[13:25:17.616] [ACTION] Walk here | player=(3213,3463,0) | target=? action=14 paramA=3491 paramB=307 paramC=163
+[13:25:18.239] [ACTION] Walk here | player=(3213,3463,0) | target=? action=14 paramA=3491 paramB=233 paramC=197
+[13:30:09.411] [ACTION] Cancel | player=(3212,3463,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:30:10.010] [ACTION] Cancel | player=(3212,3463,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:30:11.576] [ACTION] Cancel | player=(3212,3463,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:30:11.970] [ACTION] Cancel | player=(3212,3463,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:30:12.435] [ACTION] Ok | player=(3212,3463,0) | target=? action=352 paramA=563 paramB=4 paramC=2458
+[13:30:12.803] [SESSION] logged out, was "corey"
+
+=== dev client session started Wed Sep 02 13:30:58 EDT 2026 ===
+[13:30:58.443] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[13:31:06.796] [SESSION] logged in as "corey"
+[13:31:07.499] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[13:31:09.473] [ACTION] Close | player=(3212,3463,0) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[13:31:10.846] [ACTION] Cancel | player=(3212,3463,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:31:11.737] [ACTION] View Firemaking guide | player=(3212,3463,0) | target=? action=352 paramA=556 paramB=0 paramC=8668
+[13:31:12.683] [ACTION] View Cooking guide | player=(3212,3463,0) | target=? action=352 paramA=556 paramB=0 paramC=8665
+[13:31:20.554] [ACTION] Close | player=(3212,3463,0) | target=? action=352 paramA=556 paramB=0 paramC=18853
+[13:31:21.304] [ACTION] Cancel | player=(3212,3463,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:33:03.082] [ACTION] Cancel | player=(3212,3463,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:45:10.092] [ACTION] Cancel | player=(3212,3463,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:45:36.885] [ACTION] Cancel | player=(3212,3463,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:55:11.044] [ACTION] Cancel | player=(3212,3463,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:55:11.559] [ACTION] Cancel | player=(3212,3463,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:55:11.960] [ACTION] Ok | player=(3212,3463,0) | target=? action=352 paramA=4151 paramB=15 paramC=2458
+[13:55:12.197] [SESSION] logged out, was "corey"

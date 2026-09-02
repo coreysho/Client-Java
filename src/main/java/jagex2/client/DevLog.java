@@ -7,11 +7,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Pattern;
 
-// --- Dev client only (Corey, 2026-09-01) ---
-// Logs every player interaction (menu actions/clicks, chat sent/received, login/logout) to both
-// the console (System.out) and a plain-text log file (dev-client.log, written next to wherever the
-// jar is run from, one line appended per event, flushed immediately). This class does not exist in
-// the normal (non-dev) client build - it's only wired up in this javaclient-dev copy.
+// Logs every player interaction (menu actions/clicks, chat sent/received, login/logout, QoL
+// hotkeys) to both the console (System.out) and a plain-text log file (dev-client.log, written
+// next to wherever the jar is run from, one line appended per event, flushed immediately).
+// Update (2026-09-02, Corey's call): this lives in the single shared javaclient source tree, not
+// a separate standalone copy - there's only one Client.java. Which jar comes out of a build
+// ('rs2client.jar' vs the console-logging 'rs2client-dev.jar') is controlled entirely by
+// settings.gradle's rootProject.name; this class and its DevLog.log(...) call sites are compiled
+// into both either way, so a "plain" build still carries the (unused-unless-you-look) logging
+// code, just under whichever jar name settings.gradle currently produces.
 public final class DevLog {
 	private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("HH:mm:ss.SSS");
 	private static final Pattern TAG_PATTERN = Pattern.compile("@\\w+@");

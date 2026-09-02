@@ -431,6 +431,132 @@ public class Client extends GameShell {
 	@ObfuscatedName("client.xi")
 	public boolean pressedContinueOption = false;
 
+	// QoL (Corey, 2026-09-02): last time a bank PIN keypad digit key press was actually sent.
+	// The keypad reshuffles after every digit but stays open (no interface-reopen packet), so
+	// unlike pressedContinueOption (reset when a new interface opens) this needs a small time
+	// debounce instead - otherwise OS key-repeat from a briefly-held digit key would spam the
+	// same shuffled button several times before the server's reshuffle reply arrives back.
+	public long lastBankPinKeyTime = 0L;
+
+	// QoL (Corey, 2026-09-03): XP drop counter - a floating "+X" indicator with the skill's icon
+	// near the top of the viewport whenever a skill's xp increases, matching real OSRS's XP drops
+	// (icon + number, no spelled-out skill name). Built entirely client-side off the existing
+	// UPDATE_STAT packet (opcode 49, see that handler below) - the server already sends every
+	// skill's current level/xp uniformly on every single gain across all skills, so the client
+	// just diffs the new xp against what it already had stored and turns any increase into a
+	// drop. No server-side changes needed at all.
+	private static final long XPDROP_FADE_MS = 1500L; // how long a single drop stays up before disappearing (tuned: 3000L -> 600L (too slow) -> 1500L (Corey: "now its a bit too fast lol"))
+	private static final int XPDROP_MAX_VISIBLE = 8; // oldest entries beyond this are dropped outright
+
+	// Root cause of Corey's "character/compass seem off-center compared to normal runescape" report:
+	// retail Jagex clients randomize macroCameraX/Z/Angle and macroMinimapAngle/Zoom on login (see
+	// setLoginScreen-ish block below) and then let them slowly drift (+-2 units every ~500 cycles,
+	// see the macroCameraCycle/macroMinimapCycle blocks) as an anti-macro measure - bots that read
+	// fixed on-screen pixel offsets get thrown off by a camera focus point and minimap rotation that
+	// silently wobble away from the player's true position/facing over time. That's genuine 2006 RS
+	// behavior, but on a private server nobody is screen-scraping bots this way, and it has two
+	// visible side effects here: (1) drawScene() adds macroCameraX/Z directly to the camera's focus
+	// point (see updateOrbitCamera()), so the player renders up to ~0.4 tiles off from the true
+	// viewport center - normally a couple subtle pixels in retail's zoom range, but our custom
+	// scroll-wheel zoom (see the "QoL: scroll wheel zoom" comment in drawScene()) lets players zoom
+	// in ~5x closer than retail ever allowed, which massively amplifies that same world-space offset
+	// into a very obvious on-screen shift (confirmed via pixel measurement: ~28px off-center at a
+	// normal view, ~59px off-center zoomed in); (2) the minimap rotates by orbitCameraYaw +
+	// macroMinimapAngle while the compass dial rotates by orbitCameraYaw alone (see drawMinimap()),
+	// so the compass's indicated bearing can silently disagree with the minimap's rotation by up to
+	// ~10 degrees. Disabling the drift (below) keeps all the mechanism's code intact - re-enable by
+	// flipping this back to true - but zeroes its effect so the camera always tracks the player
+	// exactly and the compass always agrees with the minimap.
+	private static final boolean MACRO_ANTIBOT_CAMERA_JITTER = false;
+	private final java.util.ArrayList<XpDrop> xpDrops = new java.util.ArrayList<>();
+	// Guards against a spurious "gained thousands of xp!" drop for every skill at login, when the
+	// server sends each skill's real current xp for the first time against a freshly-zeroed
+	// skillExperience[] array (a fresh Client object has no prior xp to diff against). A skill
+	// only starts producing drops after its first real UPDATE_STAT since this client connected.
+	private final boolean[] xpDropStatSeen = new boolean[Stats.field1503];
+
+	// Per-stat-id (matching Stats.field1504's order) skill icon, as (sprite sheet, index within
+	// that sheet) - read directly out of interfaces/stats.if's own icon components (its "View
+	// guide" row layout: each row is a layer with 3 icon graphics paired column-for-column with
+	// that column's script1op1=stat_level,<skill> text). 18 of the 21 skills use the "staticons"
+	// sheet (indices 0-17); the last row (Runecraft/Slayer/Farming) uses a second sheet,
+	// "staticons2" (indices 0-2), confirmed from stats.if directly rather than assumed.
+	private static final String[] XPDROP_ICON_SHEET = {
+		"staticons", "staticons", "staticons", "staticons", "staticons", "staticons", "staticons", // attack, defence, strength, hitpoints, ranged, prayer, magic
+		"staticons", "staticons", "staticons", "staticons", "staticons", "staticons", "staticons", // cooking, woodcutting, fletching, fishing, firemaking, crafting, smithing
+		"staticons", "staticons", "staticons", "staticons", // mining, herblore, agility, thieving
+		"staticons2", "staticons2", "staticons2", // slayer, farming, runecraft
+	};
+	private static final int[] XPDROP_ICON_INDEX = {
+		0, 2, 1, 6, 3, 4, 5, // attack, defence, strength, hitpoints, ranged, prayer, magic
+		15, 17, 11, 14, 16, 10, 13, // cooking, woodcutting, fletching, fishing, firemaking, crafting, smithing
+		12, 8, 7, 9, // mining, herblore, agility, thieving
+		1, 2, 0, // slayer, farming, runecraft
+	};
+
+	private static final class XpDrop {
+		final int skillId;
+		int amount;
+		long lastUpdate;
+
+		XpDrop(int skillId, int amount, long lastUpdate) {
+			this.skillId = skillId;
+			this.amount = amount;
+			this.lastUpdate = lastUpdate;
+		}
+	}
+
+	// Corrected 2026-09-03 (Corey: "i don't want the xp to stack - i want it to flow and
+	// disappear after each drop, like runescapes"): every gain is now always its own new entry,
+	// full stop - no more merging into a same-skill running total. Pushing a new entry in at the
+	// top naturally shifts every existing one down a row (the "flow"), and each entry's own fade
+	// timer is set once here and never touched again, so it disappears on its own fixed schedule
+	// regardless of what else gains xp after it - matching real OSRS's drop-per-gain behaviour
+	// instead of the accumulating-counter version this had before.
+	private void addXpDrop(int skillId, int amount) {
+		this.xpDrops.add(0, new XpDrop(skillId, amount, System.currentTimeMillis()));
+		while (this.xpDrops.size() > XPDROP_MAX_VISIBLE) {
+			this.xpDrops.remove(this.xpDrops.size() - 1);
+		}
+	}
+
+	// Called every frame from draw3DEntityElements() - expires any entry whose own fixed
+	// XPDROP_FADE_MS lifetime (set once when it was created in addXpDrop(), never refreshed)
+	// has elapsed, then renders whatever's left as a right-aligned stack of icon+number rows
+	// near the top-right of the viewport (same anchor the ::fpson debug counter uses, offset
+	// below it when that's also on). Newest drop is always at index 0/top, since addXpDrop()
+	// inserts there - so as new drops flow in, older ones are pushed down until they expire.
+	private void drawXpDrops() {
+		if (this.xpDrops.isEmpty()) {
+			return;
+		}
+		long now = System.currentTimeMillis();
+		for (int i = this.xpDrops.size() - 1; i >= 0; i--) {
+			if (now - this.xpDrops.get(i).lastUpdate >= XPDROP_FADE_MS) {
+				this.xpDrops.remove(i);
+			}
+		}
+		int rightX = 507;
+		int y = displayFps ? 68 : 22;
+		int rowHeight = 27;
+		for (int i = 0; i < this.xpDrops.size(); i++) {
+			XpDrop drop = this.xpDrops.get(i);
+			String text = "+" + drop.amount;
+			int textWidth = this.fontPlain12.stringWid(text);
+			Pix32 icon = drop.skillId >= 0 && drop.skillId < XPDROP_ICON_SHEET.length ? Component.getImage(XPDROP_ICON_INDEX[drop.skillId], XPDROP_ICON_SHEET[drop.skillId]) : null;
+			int iconWidth = icon != null ? icon.wi : 0;
+			int textX = rightX;
+			int textY = y + 18;
+			// black drop-shadow, offset by one pixel, so it stays readable over any scene colour
+			this.fontPlain12.method243(text, 0x000000, textX + 1, textY + 1);
+			this.fontPlain12.method243(text, 0xFFFF00, textX, textY);
+			if (icon != null) {
+				icon.plotSprite(y, rightX - textWidth - iconWidth - 4);
+			}
+			y += rowHeight;
+		}
+	}
+
 	@ObfuscatedName("client.yi")
 	public boolean redrawChatback = false;
 
@@ -2782,11 +2908,21 @@ public class Client extends GameShell {
 				this.spellSelected = 0;
 				this.sceneState = 0;
 				this.waveCount = 0;
-				this.macroCameraX = (int) (Math.random() * 100.0D) - 50;
-				this.macroCameraZ = (int) (Math.random() * 110.0D) - 55;
-				this.macroCameraAngle = (int) (Math.random() * 80.0D) - 40;
-				this.macroMinimapAngle = (int) (Math.random() * 120.0D) - 60;
-				this.macroMinimapZoom = (int) (Math.random() * 30.0D) - 20;
+				// See MACRO_ANTIBOT_CAMERA_JITTER above - retail randomizes these on login, which is
+				// exactly why the very first frame after logging in can already look off-center.
+				if (MACRO_ANTIBOT_CAMERA_JITTER) {
+					this.macroCameraX = (int) (Math.random() * 100.0D) - 50;
+					this.macroCameraZ = (int) (Math.random() * 110.0D) - 55;
+					this.macroCameraAngle = (int) (Math.random() * 80.0D) - 40;
+					this.macroMinimapAngle = (int) (Math.random() * 120.0D) - 60;
+					this.macroMinimapZoom = (int) (Math.random() * 30.0D) - 20;
+				} else {
+					this.macroCameraX = 0;
+					this.macroCameraZ = 0;
+					this.macroCameraAngle = 0;
+					this.macroMinimapAngle = 0;
+					this.macroMinimapZoom = 0;
+				}
 				this.orbitCameraYaw = (int) (Math.random() * 20.0D) - 10 & 0x7FF;
 				this.minimapType = 0;
 				this.minimapLevel = -1;
@@ -3362,63 +3498,68 @@ public class Client extends GameShell {
 				this.out.p1isaac(202);
 			}
 
-			this.macroCameraCycle++;
-			if (this.macroCameraCycle > 500) {
-				this.macroCameraCycle = 0;
+			// See MACRO_ANTIBOT_CAMERA_JITTER above - skipping this whole block entirely (rather than
+			// just leaving the values at 0) means macroCameraCycle/macroMinimapCycle never advance
+			// either, so there's no dormant state to worry about if this is ever flipped back on.
+			if (MACRO_ANTIBOT_CAMERA_JITTER) {
+				this.macroCameraCycle++;
+				if (this.macroCameraCycle > 500) {
+					this.macroCameraCycle = 0;
 
-				int rand = (int) (Math.random() * 8.0D);
-				if ((rand & 0x1) == 1) {
-					this.macroCameraX += this.macroCameraXModifier;
+					int rand = (int) (Math.random() * 8.0D);
+					if ((rand & 0x1) == 1) {
+						this.macroCameraX += this.macroCameraXModifier;
+					}
+					if ((rand & 0x2) == 2) {
+						this.macroCameraZ += this.macroCameraZModifier;
+					}
+					if ((rand & 0x4) == 4) {
+						this.macroCameraAngle += this.macroCameraAngleModifier;
+					}
 				}
-				if ((rand & 0x2) == 2) {
-					this.macroCameraZ += this.macroCameraZModifier;
+
+				if (this.macroCameraX < -50) {
+					this.macroCameraXModifier = 2;
+				} else if (this.macroCameraX > 50) {
+					this.macroCameraXModifier = -2;
 				}
-				if ((rand & 0x4) == 4) {
-					this.macroCameraAngle += this.macroCameraAngleModifier;
+
+				if (this.macroCameraZ < -55) {
+					this.macroCameraZModifier = 2;
+				} else if (this.macroCameraZ > 55) {
+					this.macroCameraZModifier = -2;
 				}
-			}
 
-			if (this.macroCameraX < -50) {
-				this.macroCameraXModifier = 2;
-			} else if (this.macroCameraX > 50) {
-				this.macroCameraXModifier = -2;
-			}
-
-			if (this.macroCameraZ < -55) {
-				this.macroCameraZModifier = 2;
-			} else if (this.macroCameraZ > 55) {
-				this.macroCameraZModifier = -2;
-			}
-
-			if (this.macroCameraAngle < -40) {
-				this.macroCameraAngleModifier = 1;
-			} else if (this.macroCameraAngle > 40) {
-				this.macroCameraAngleModifier = -1;
-			}
-
-			this.macroMinimapCycle++;
-			if (this.macroMinimapCycle > 500) {
-				this.macroMinimapCycle = 0;
-
-				int rand = (int) (Math.random() * 8.0D);
-				if ((rand & 0x1) == 1) {
-					this.macroMinimapAngle += this.macroMinimapAngleModifier;
+				if (this.macroCameraAngle < -40) {
+					this.macroCameraAngleModifier = 1;
+				} else if (this.macroCameraAngle > 40) {
+					this.macroCameraAngleModifier = -1;
 				}
-				if ((rand & 0x2) == 2) {
-					this.macroMinimapZoom += this.macroMinimapZoomModifier;
+
+				this.macroMinimapCycle++;
+				if (this.macroMinimapCycle > 500) {
+					this.macroMinimapCycle = 0;
+
+					int rand = (int) (Math.random() * 8.0D);
+					if ((rand & 0x1) == 1) {
+						this.macroMinimapAngle += this.macroMinimapAngleModifier;
+					}
+					if ((rand & 0x2) == 2) {
+						this.macroMinimapZoom += this.macroMinimapZoomModifier;
+					}
 				}
-			}
 
-			if (this.macroMinimapAngle < -60) {
-				this.macroMinimapAngleModifier = 2;
-			} else if (this.macroMinimapAngle > 60) {
-				this.macroMinimapAngleModifier = -2;
-			}
+				if (this.macroMinimapAngle < -60) {
+					this.macroMinimapAngleModifier = 2;
+				} else if (this.macroMinimapAngle > 60) {
+					this.macroMinimapAngleModifier = -2;
+				}
 
-			if (this.macroMinimapZoom < -20) {
-				this.macroMinimapZoomModifier = 1;
-			} else if (this.macroMinimapZoom > 10) {
-				this.macroMinimapZoomModifier = -1;
+				if (this.macroMinimapZoom < -20) {
+					this.macroMinimapZoomModifier = 1;
+				} else if (this.macroMinimapZoom > 10) {
+					this.macroMinimapZoomModifier = -1;
+				}
 			}
 
 			this.noTimeoutCycle++;
@@ -4649,6 +4790,53 @@ public class Client extends GameShell {
 		return -1;
 	}
 
+	// QoL (Corey, 2026-09-02): number-key dialogue option selection. The classic "Select an
+	// Option" chat popup (used throughout scripts for player dialogue choices, header text
+	// "Select an Option") is built from four fixed interfaces - multi2/multi3/multi4/multi5,
+	// one per possible option count - each opened via if_openchat with its N choice buttons
+	// registered as if_addresumebutton(multiN:com_1) .. com_N. Unlike findContinueComponentId()
+	// above, this can't be done structurally: if_openchat is also used by several other popups
+	// (the bank withdraw-amount picker, crafting item choice, etc.) that also have buttonType 1
+	// text/graphic buttons but where "button order" doesn't mean "option 1, 2, 3...". So this is
+	// scoped to just these four known interface ids instead, matching the numeric-id convention
+	// this whole codebase already uses for varps/components. Read directly from interface.pack's
+	// bare "NNNN=multiN" lines (the interface's OWN id, not to be confused with its com_0 - every
+	// interface's com_0 is one higher than its own root id, e.g. "2459=multi2" then
+	// "2460=multi2:com_0", same offset bankpin_main uses; com_N for N>=1 is root+1+N). Corrected
+	// 2026-09-02: first pass wrongly assumed com_0's id was the root id (off by one for all four).
+	// If interface.pack is ever repacked such that these ids shift, these four constants need
+	// updating to match.
+	private static final int MULTI2_INTERFACE_ID = 2459;
+	private static final int MULTI3_INTERFACE_ID = 2469;
+	private static final int MULTI4_INTERFACE_ID = 2480;
+	private static final int MULTI5_INTERFACE_ID = 2492;
+
+	// Returns how many selectable options the currently-open chat interface has (2-5), or -1 if
+	// it isn't one of the four "Select an Option" dialogue interfaces above.
+	private int dialogueOptionCount(int interfaceId) {
+		if (interfaceId == MULTI2_INTERFACE_ID) {
+			return 2;
+		} else if (interfaceId == MULTI3_INTERFACE_ID) {
+			return 3;
+		} else if (interfaceId == MULTI4_INTERFACE_ID) {
+			return 4;
+		} else if (interfaceId == MULTI5_INTERFACE_ID) {
+			return 5;
+		}
+		return -1;
+	}
+
+	// QoL (Corey, 2026-09-02): bank PIN keypad number-key entry. bankpin_main (interface id 7424,
+	// content/scripts/interfaces/bankpin_main.if) shows ten buttons (a_button..j_button) whose
+	// digit values are reshuffled after every press (bank_pin.rs2's bankpin_shuffle proc) and
+	// displayed via ten matching text labels (a_text..j_text). Typing a digit looks up which
+	// label currently shows it and clicks that button - so this reads live component state
+	// instead of trying to replicate the server's shuffle math client-side. Ids read directly
+	// from interface.pack, same convention as the dialogue-option ids above.
+	private static final int BANKPIN_MAIN_INTERFACE_ID = 7424;
+	private static final int[] BANKPIN_DIGIT_TEXT_IDS = {14883, 14884, 14885, 14886, 14887, 14888, 14889, 14890, 14891, 14892}; // a_text..j_text
+	private static final int[] BANKPIN_DIGIT_BUTTON_IDS = {14873, 14874, 14875, 14876, 14877, 14878, 14879, 14880, 14881, 14882}; // a_button..j_button
+
 	// DEV: best-effort description of a useMenuOption() target, based on the menuParamA/B/C
 	// conventions this client already uses per action family - see addNpcOptions() (npc index in
 	// paramA), addPlayerOptions() (player index in paramA), and the loc menu-building block in
@@ -4791,8 +4979,11 @@ public class Client extends GameShell {
 			}
 
 			// QoL: scroll wheel camera zoom. Accumulate into cameraZoomOffset here (once per game
-			// tick); drawScene() folds it into the camera distance every frame.
-			if (super.mouseScrollDelta != 0) {
+			// tick); drawScene() folds it into the camera distance every frame. Only zoom when no
+			// interface is open (same fields closeInterfaces() checks) - otherwise the scroll wheel
+			// is reserved for scrolling that interface (see handleInterfaceInput()/the chat-history
+			// block below), even if the specific spot under the mouse isn't itself scrollable.
+			if (super.mouseScrollDelta != 0 && this.sidebarInterfaceId == -1 && this.chatInterfaceId == -1 && this.fullscreenInterfaceId0 == -1 && this.fullscreenInterfaceId1 == -1 && this.viewportInterfaceId == -1) {
 				this.cameraZoomOffset -= super.mouseScrollDelta * 40;
 				super.mouseScrollDelta = 0;
 				if (this.cameraZoomOffset < -600) {
@@ -5098,6 +5289,53 @@ public class Client extends GameShell {
 								this.out.p1isaac(226);
 								this.out.p2(continueComponentId);
 								this.pressedContinueOption = true;
+							}
+						}
+					} else if (this.chatInterfaceId != -1 && key >= 49 && key <= 53) {
+						// QoL: number keys 1-5 pick the matching "Select an Option" dialogue choice.
+						// See dialogueOptionCount() above for why this is scoped to just multi2-5.
+						// Corrected 2026-09-02: a buttonType 1 ("normal") click - which is what every
+						// multiN:com_N option button is - is NOT a RESUME_PAUSEBUTTON click. Real mouse
+						// clicks on buttonType 1 components go through menu action 352, which sends
+						// IF_BUTTON (opcode 79, see the "var5 == 352" block elsewhere in this file) -
+						// RESUME_PAUSEBUTTON (226) is only for buttonType 6 ("pause"/continue) targets,
+						// which is why the space-bar continue hotkey right above this correctly uses it
+						// and this one, copied from that without checking, originally did not work.
+						int optionCount = this.dialogueOptionCount(this.chatInterfaceId);
+						int digit = key - 48;
+						if (optionCount != -1 && digit <= optionCount && !this.pressedContinueOption) {
+							int optionComponentId = this.chatInterfaceId + 1 + digit;
+							DevLog.log("HOTKEY", "Number key selected dialogue option " + digit);
+							// IF_BUTTON
+							this.out.p1isaac(79);
+							this.out.p2(optionComponentId);
+							this.pressedContinueOption = true;
+						}
+					} else if (this.viewportInterfaceId == BANKPIN_MAIN_INTERFACE_ID && key >= 48 && key <= 57) {
+						// QoL: typing a digit clicks whichever shuffled bank PIN keypad button
+						// currently displays it. Time-debounced rather than using
+						// pressedContinueOption, since this interface stays open across all 4
+						// digit presses (just reshuffling each time) instead of closing/reopening.
+						// Corrected 2026-09-02: same wrong-opcode bug as the dialogue-option hotkey
+						// above - a_button..j_button are buttonType 1, so this needs IF_BUTTON (79),
+						// not RESUME_PAUSEBUTTON (226). This is why the earlier version logged the
+						// hotkey firing (the digit/button lookup itself was correct) but nothing
+						// actually happened in game - the server has no paused resume target
+						// registered for these buttons at all, so it silently ignored the packet.
+						long now = System.currentTimeMillis();
+						if (now - this.lastBankPinKeyTime >= 200L) {
+							int digit = key - 48;
+							String digitText = String.valueOf(digit);
+							for (int i = 0; i < BANKPIN_DIGIT_TEXT_IDS.length; i++) {
+								Component digitCom = Component.get(BANKPIN_DIGIT_TEXT_IDS[i]);
+								if (digitCom != null && digitText.equals(digitCom.text)) {
+									DevLog.log("HOTKEY", "Number key entered bank PIN digit " + digit);
+									// IF_BUTTON
+									this.out.p1isaac(79);
+									this.out.p2(BANKPIN_DIGIT_BUTTON_IDS[i]);
+									this.lastBankPinKeyTime = now;
+									break;
+								}
 							}
 						}
 					} else if (this.chatInterfaceId == -1 && this.fullscreenInterfaceId0 == -1) {
@@ -6870,6 +7108,8 @@ public class Client extends GameShell {
 			this.fontPlain12.method243("Mem:" + var6 + "k", 16776960, var2, var13);
 			var13 += 15;
 		}
+		// QoL: XP drop counter, see drawXpDrops() above.
+		this.drawXpDrops();
 		if (this.systemUpdateTimer != 0) {
 			int var10 = this.systemUpdateTimer / 50;
 			int var11 = var10 / 60;
@@ -8244,6 +8484,12 @@ public class Client extends GameShell {
 				int var103 = this.in.g1_alt2();
 				int var104 = this.in.g1();
 				int var105 = this.in.g4();
+				// QoL: XP drop counter - see addXpDrop() above. Skipped on each skill's first ever
+				// update this session so login's initial xp sync doesn't look like a giant gain.
+				if (this.xpDropStatSeen[var103] && var105 > this.skillExperience[var103]) {
+					this.addXpDrop(var103, var105 - this.skillExperience[var103]);
+				}
+				this.xpDropStatSeen[var103] = true;
 				this.skillExperience[var103] = var105;
 				this.skillLevel[var103] = var104;
 				this.skillBaseLevel[var103] = 1;
@@ -11144,31 +11390,43 @@ public class Client extends GameShell {
 						var45.plotSprite(var16, var15);
 					}
 				} else if (var14.type == 6) {
-					int var46 = Pix3D.centerX;
-					int var47 = Pix3D.centerY;
-					Pix3D.centerX = var14.width / 2 + var15;
-					Pix3D.centerY = var14.height / 2 + var16;
-					int var48 = Pix3D.sinTable[var14.xan] * var14.zoom >> 16;
-					int var49 = Pix3D.cosTable[var14.xan] * var14.zoom >> 16;
-					boolean var50 = this.executeInterfaceScript(var14);
-					int var51;
-					if (var50) {
-						var51 = var14.activeAnim;
-					} else {
-						var51 = var14.anim;
+					// QoL fix: unlike text (type 4, via PixFont) and sprites (type 5, via Pix32.plotSprite),
+					// this 3D model icon draw (var52.method380(...)) never consulted Pix2D's active clip
+					// rect at all - it always rendered at full position/size regardless of the enclosing
+					// interface layer's bounds. That's invisible for a static icon, but inside a *scrollable*
+					// layer (e.g. the Cooking Guide's item list) it meant icons kept drawing past the
+					// scrolled-out edge of the list even once their row had scrolled off - "extra items
+					// scrolled outside of the interface" per Corey's report. Added the same kind of manual
+					// AABB-vs-clip-rect bounds check the type=2 inv slot icon draw already does above
+					// (see the `var20 > Pix2D.left - 32 && ...` check) rather than relying on Pix2D's clip
+					// alone, since 3D model rendering plainly doesn't honor it.
+					if (var15 + var14.width > Pix2D.left && var15 < Pix2D.right && var16 + var14.height > Pix2D.top && var16 < Pix2D.bottom) {
+						int var46 = Pix3D.centerX;
+						int var47 = Pix3D.centerY;
+						Pix3D.centerX = var14.width / 2 + var15;
+						Pix3D.centerY = var14.height / 2 + var16;
+						int var48 = Pix3D.sinTable[var14.xan] * var14.zoom >> 16;
+						int var49 = Pix3D.cosTable[var14.xan] * var14.zoom >> 16;
+						boolean var50 = this.executeInterfaceScript(var14);
+						int var51;
+						if (var50) {
+							var51 = var14.activeAnim;
+						} else {
+							var51 = var14.anim;
+						}
+						Model var52;
+						if (var51 == -1) {
+							var52 = var14.getModel(-1, -1, var50);
+						} else {
+							SeqType var53 = SeqType.field775[var51];
+							var52 = var14.getModel(var53.field777[var14.field717], var53.field778[var14.field717], var50);
+						}
+						if (var52 != null) {
+							var52.method380(0, var14.yan, 0, var14.xan, 0, var48, var49);
+						}
+						Pix3D.centerX = var46;
+						Pix3D.centerY = var47;
 					}
-					Model var52;
-					if (var51 == -1) {
-						var52 = var14.getModel(-1, -1, var50);
-					} else {
-						SeqType var53 = SeqType.field775[var51];
-						var52 = var14.getModel(var53.field777[var14.field717], var53.field778[var14.field717], var50);
-					}
-					if (var52 != null) {
-						var52.method380(0, var14.yan, 0, var14.xan, 0, var48, var49);
-					}
-					Pix3D.centerX = var46;
-					Pix3D.centerY = var47;
 				} else {
 					if (var14.type == 7) {
 						PixFont var54 = var14.font;
