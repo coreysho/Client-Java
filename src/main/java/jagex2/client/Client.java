@@ -1147,6 +1147,10 @@ public class Client extends GameShell {
 	@ObfuscatedName("client.Mi")
 	public int orbitCameraPitchVelocity;
 
+	// QoL: click-compass-to-face-north (see handleMinimapInput()/updateOrbitCamera()) - not a
+	// stored/obfuscated client field, just drives a smooth camera turn once set.
+	private boolean compassResetting;
+
 	@ObfuscatedName("client.Ni")
 	public int macroCameraAngle;
 
@@ -4572,6 +4576,21 @@ public class Client extends GameShell {
 
 	@ObfuscatedName("client.m(B)V")
 	public void handleMinimapInput() {
+		// QoL: click the compass (top-left corner of the minimap) to smoothly turn the camera to
+		// face north, like retail RS. Checked before the minimapType/walk-to-point logic below since
+		// it should work regardless of minimap display mode, and uses the same hole-in-the-mask data
+		// (compassMaskLineOffsets/Lengths, built at startup from imageMapback) that's already used to
+		// draw the compass itself, so the click region always matches its actual on-screen shape.
+		if (super.mouseClickButton == 1) {
+			int compassLocalX = super.mouseClickX - 550;
+			int compassLocalY = super.mouseClickY - 4;
+			if (compassLocalY >= 0 && compassLocalY < 33 && compassLocalX >= this.compassMaskLineOffsets[compassLocalY] && compassLocalX < this.compassMaskLineOffsets[compassLocalY] + this.compassMaskLineLengths[compassLocalY]) {
+				this.compassResetting = true;
+				super.mouseClickButton = 0;
+				return;
+			}
+		}
+
 		if (this.minimapType != 0 || super.mouseClickButton != 1) {
 			return;
 		}
@@ -4946,7 +4965,27 @@ public class Client extends GameShell {
 			if (this.orbitCameraZ != var4) {
 				this.orbitCameraZ += (var4 - this.orbitCameraZ) / 16;
 			}
-			if (super.actionKey[1] == 1) {
+			// QoL: click-compass-to-face-north. Manual rotation (arrow keys or the middle-mouse-drag
+			// QoL below) cancels an in-progress reset so the player's own input always wins.
+			if (this.compassResetting && (super.actionKey[1] == 1 || super.actionKey[2] == 1 || super.cameraDragDeltaX != 0 || super.cameraDragDeltaY != 0)) {
+				this.compassResetting = false;
+			}
+
+			if (this.compassResetting) {
+				// Shortest signed distance from the current yaw to north (0), in (-1024, 1024].
+				int yawDeltaToNorth = ((-this.orbitCameraYaw + 1024) & 0x7FF) - 1024;
+				if (yawDeltaToNorth > -12 && yawDeltaToNorth < 12) {
+					// Close enough that one more tick would overshoot - snap the rest of the way and
+					// stop, rather than letting the velocity ramp-down oscillate around 0.
+					this.orbitCameraYaw = 0;
+					this.orbitCameraYawVelocity = 0;
+					this.compassResetting = false;
+				} else if (yawDeltaToNorth < 0) {
+					this.orbitCameraYawVelocity += (-24 - this.orbitCameraYawVelocity) / 2;
+				} else {
+					this.orbitCameraYawVelocity += (24 - this.orbitCameraYawVelocity) / 2;
+				}
+			} else if (super.actionKey[1] == 1) {
 				this.orbitCameraYawVelocity += (-24 - this.orbitCameraYawVelocity) / 2;
 			} else if (super.actionKey[2] == 1) {
 				this.orbitCameraYawVelocity += (24 - this.orbitCameraYawVelocity) / 2;

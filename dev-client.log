@@ -1671,3 +1671,34 @@
 [13:55:11.559] [ACTION] Cancel | player=(3212,3463,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
 [13:55:11.960] [ACTION] Ok | player=(3212,3463,0) | target=? action=352 paramA=4151 paramB=15 paramC=2458
 [13:55:12.197] [SESSION] logged out, was "corey"
+
+=== dev client session started Wed Sep 02 13:57:43 EDT 2026 ===
+[13:57:43.781] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[13:57:51.816] [SESSION] logged in as "corey"
+[13:57:52.509] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[13:57:54.493] [ACTION] Close | player=(3212,3463,0) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[13:58:57.770] [ACTION] Cancel | player=(3212,3463,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:58:58.321] [ACTION] Cancel | player=(3212,3463,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:58:59.254] [ACTION] Cast Low level alchemy | player=(3212,3463,0) | target=? action=70 paramA=554 paramB=3 paramC=1162
+[13:58:59.636] [ACTION] Cast Low level alchemy on Nature rune | player=(3212,3463,0) | target=? action=361 paramA=561 paramB=6 paramC=3214
+[13:59:00.543] [ACTION] Cast Low level alchemy | player=(3212,3463,0) | target=? action=70 paramA=561 paramB=6 paramC=1162
+[13:59:01.347] [ACTION] Cast Low level alchemy on Nature rune | player=(3212,3463,0) | target=? action=361 paramA=561 paramB=6 paramC=3214
+[13:59:03.443] [ACTION] Cancel | player=(3212,3463,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:59:04.272] [ACTION] Cancel | player=(3212,3463,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:59:05.105] [ACTION] Cast Low level alchemy | player=(3212,3463,0) | target=? action=70 paramA=554 paramB=3 paramC=1162
+[13:59:05.543] [ACTION] Cast Low level alchemy on Nature rune | player=(3212,3463,0) | target=? action=361 paramA=561 paramB=6 paramC=3214
+[13:59:06.562] [ACTION] Cancel | player=(3212,3463,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:59:07.612] [ACTION] Cast Low level alchemy | player=(3212,3463,0) | target=? action=70 paramA=561 paramB=422 paramC=1162
+[13:59:08.119] [ACTION] Cast Low level alchemy on Nature rune | player=(3212,3463,0) | target=? action=361 paramA=561 paramB=6 paramC=3214
+[13:59:09.003] [ACTION] Cast Fire bolt | player=(3212,3463,0) | target=? action=70 paramA=561 paramB=6 paramC=1169
+[13:59:09.826] [ACTION] Cast Fire bolt on Guard (level-21) | player=(3212,3463,0) | target=npc name="Guard" coords=(3212,3464,0)
+[13:59:10.978] [ACTION] Cast Low level alchemy | player=(3212,3463,0) | target=? action=70 paramA=3485 paramB=382 paramC=1162
+[13:59:11.482] [ACTION] Cast Low level alchemy on Nature rune | player=(3212,3463,0) | target=? action=361 paramA=561 paramB=6 paramC=3214
+[13:59:12.666] [ACTION] Cancel | player=(3212,3463,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:59:28.499] [ACTION] Attack Guard (level-21) | player=(3212,3463,0) | target=npc name="Guard" coords=(3215,3465,0)
+[13:59:29.194] [ACTION] Cancel | player=(3212,3463,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:59:29.794] [ACTION] Select | player=(3212,3463,0) | target=? action=518 paramA=3487 paramB=0 paramC=1771
+[13:59:30.502] [ACTION] Cancel | player=(3212,3463,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[14:01:23.824] [ACTION] Cancel | player=(3212,3463,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[14:01:24.476] [ACTION] Ok | player=(3212,3463,0) | target=? action=352 paramA=1540 paramB=17 paramC=2458
+[14:01:24.799] [SESSION] logged out, was "corey"
