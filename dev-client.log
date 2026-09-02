@@ -209,3 +209,854 @@
 [22:28:37.093] [ACTION] Message Nsx | player=(3222,3474,3) | target=? action=984 paramA=995 paramB=13 paramC=3214
 [22:28:45.688] [CHAT] type=6 from="Nsx" msg="Gonna try a restart and see if i did this right lmfao"
 [22:29:56.893] [SESSION] logged out, was "corey"
+
+=== dev client session started Tue Sep 01 22:35:46 EDT 2026 ===
+[22:35:46.353] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[22:35:57.825] [SESSION] logged in as "corey"
+[22:35:58.594] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[22:36:00.434] [ACTION] Close | player=(3222,3474,3) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[22:36:01.152] [ACTION] Cancel | player=(3222,3474,3) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:01.687] [ACTION] View Combat guide | player=(3222,3474,3) | target=? action=352 paramA=556 paramB=0 paramC=8654
+[22:36:03.511] [ACTION] View Combat guide | player=(3222,3474,3) | target=? action=352 paramA=556 paramB=0 paramC=8657
+[22:36:04.364] [ACTION] View Ranged guide | player=(3222,3474,3) | target=? action=352 paramA=556 paramB=0 paramC=8663
+[22:36:05.307] [ACTION] View Thieving guide | player=(3222,3474,3) | target=? action=352 paramA=556 paramB=0 paramC=8664
+[22:36:06.349] [ACTION] View Crafting guide | player=(3222,3474,3) | target=? action=352 paramA=556 paramB=0 paramC=8667
+[22:36:07.689] [ACTION] Ok | player=(3222,3474,3) | target=? action=352 paramA=556 paramB=0 paramC=841
+[22:36:08.772] [ACTION] Ok | player=(3222,3474,3) | target=? action=352 paramA=556 paramB=0 paramC=841
+[22:36:09.398] [ACTION] Ok | player=(3222,3474,3) | target=? action=352 paramA=556 paramB=0 paramC=841
+[22:36:10.091] [ACTION] View Combat guide | player=(3222,3474,3) | target=? action=352 paramA=556 paramB=0 paramC=8660
+[22:36:10.944] [ACTION] Ok | player=(3222,3474,3) | target=? action=352 paramA=556 paramB=0 paramC=841
+[22:36:11.503] [ACTION] Ok | player=(3222,3474,3) | target=? action=352 paramA=556 paramB=0 paramC=841
+[22:36:12.218] [ACTION] View Magic guide | player=(3222,3474,3) | target=? action=352 paramA=556 paramB=0 paramC=8669
+[22:36:13.171] [ACTION] Ok | player=(3222,3474,3) | target=? action=352 paramA=556 paramB=0 paramC=841
+[22:36:13.634] [ACTION] Ok | player=(3222,3474,3) | target=? action=352 paramA=556 paramB=0 paramC=841
+[22:36:14.304] [HOTKEY] Escape closed interfaces
+[22:36:14.890] [ACTION] Cancel | player=(3222,3474,3) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:17.598] [ACTION] Cancel | player=(3222,3474,3) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:19.515] [ACTION] Cancel | player=(3222,3474,3) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:19.879] [ACTION] Cancel | player=(3222,3474,3) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:20.562] [ACTION] Cancel | player=(3222,3474,3) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:20.991] [ACTION] Cancel | player=(3222,3474,3) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:21.496] [ACTION] Cancel | player=(3222,3474,3) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:22.090] [ACTION] Cancel | player=(3222,3474,3) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:22.774] [ACTION] Cancel | player=(3222,3474,3) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:23.298] [ACTION] Cancel | player=(3222,3474,3) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:24.125] [ACTION] Cancel | player=(3222,3474,3) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:25.014] [ACTION] Cancel | player=(3222,3474,3) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:25.368] [ACTION] Cancel | player=(3222,3474,3) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:25.696] [ACTION] Cancel | player=(3222,3474,3) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:26.117] [ACTION] Cancel | player=(3222,3474,3) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:27.037] [ACTION] Cancel | player=(3222,3474,3) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:27.600] [ACTION] Cancel | player=(3222,3474,3) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:28.134] [ACTION] Cancel | player=(3222,3474,3) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:28.634] [ACTION] Cancel | player=(3222,3474,3) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:29.034] [ACTION] Cancel | player=(3222,3474,3) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:38.461] [ACTION] Rub Amulet of glory(4) | player=(3222,3474,3) | target=? action=227 paramA=1712 paramB=19 paramC=3214
+[22:36:38.620] [CHAT] type=0 from="" msg="You rub the amulet..."
+[22:36:39.257] [ACTION] Ok | player=(3222,3474,3) | target=? action=352 paramA=1712 paramB=19 paramC=2494
+[22:36:39.820] [CHAT] type=0 from="" msg="Your amulet has three charges left."
+[22:36:42.979] [ACTION] Cancel | player=(3087,3496,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:47.345] [ACTION] Drop Amulet of glory | player=(3087,3503,0) | target=item id=1704 slot=19 (inventory, no world coords)
+[22:36:47.859] [ACTION] Cancel | player=(3087,3504,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:48.466] [ACTION] Select | player=(3087,3505,0) | target=? action=518 paramA=1704 paramB=19 paramC=153
+[22:36:48.985] [ACTION] Cancel | player=(3087,3507,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:49.689] [ACTION] Cancel | player=(3087,3509,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:50.622] [ACTION] Cancel | player=(3087,3513,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:51.296] [ACTION] Cancel | player=(3087,3515,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:51.942] [ACTION] Cancel | player=(3087,3517,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:53.351] [ACTION] Cancel | player=(3085,3521,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:53.595] [ACTION] Cancel | player=(3085,3521,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:53.758] [ACTION] Cancel | player=(3083,3523,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:53.922] [ACTION] Cancel | player=(3083,3523,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:54.247] [ACTION] Cancel | player=(3081,3525,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:54.887] [ACTION] Cancel | player=(3080,3527,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:55.622] [ACTION] Cancel | player=(3080,3529,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:56.368] [ACTION] Cancel | player=(3080,3531,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:56.897] [ACTION] Cancel | player=(3080,3533,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:57.083] [ACTION] Cancel | player=(3080,3533,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:57.591] [ACTION] Cancel | player=(3080,3535,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:57.776] [ACTION] Cancel | player=(3080,3535,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:36:58.932] [ACTION] Cancel | player=(3080,3539,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:00.022] [ACTION] Cancel | player=(3080,3543,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:00.866] [ACTION] Cancel | player=(3080,3547,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:04.990] [ACTION] Cancel | player=(3075,3559,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:06.805] [ACTION] Cancel | player=(3074,3565,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:07.571] [ACTION] Cancel | player=(3074,3569,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:08.329] [ACTION] Cancel | player=(3073,3571,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:09.347] [ACTION] Cancel | player=(3073,3575,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:10.648] [ACTION] Cancel | player=(3073,3579,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:12.146] [ACTION] Cancel | player=(3073,3583,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:12.742] [ACTION] Cancel | player=(3071,3585,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:14.340] [ACTION] Cancel | player=(3071,3591,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:15.458] [ACTION] Cancel | player=(3071,3595,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:15.950] [ACTION] Cancel | player=(3071,3597,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:17.446] [ACTION] Cancel | player=(3071,3601,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:17.833] [ACTION] Cancel | player=(3071,3603,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:18.218] [ACTION] Cancel | player=(3071,3603,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:19.137] [ACTION] Cancel | player=(3071,3607,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:19.851] [ACTION] Cancel | player=(3071,3607,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:20.628] [ACTION] Cancel | player=(3071,3607,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:22.262] [ACTION] Cancel | player=(3071,3611,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:22.550] [ACTION] Cancel | player=(3071,3613,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:24.421] [ACTION] Cancel | player=(3071,3619,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:25.002] [ACTION] Cancel | player=(3071,3621,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:25.630] [ACTION] Cancel | player=(3071,3623,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:26.862] [ACTION] Cancel | player=(3071,3627,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:29.388] [ACTION] Cancel | player=(3072,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:30.640] [ACTION] Cancel | player=(3071,3639,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:32.488] [ACTION] Cancel | player=(3069,3645,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:36.084] [ACTION] Cancel | player=(3069,3657,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:38.047] [ACTION] Cancel | player=(3069,3665,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:39.053] [ACTION] Cancel | player=(3069,3667,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:42.935] [ACTION] Cancel | player=(3070,3681,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:47.063] [ACTION] Cancel | player=(3068,3695,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:50.317] [ACTION] Cancel | player=(3071,3705,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:51.108] [ACTION] Cancel | player=(3071,3707,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:52.895] [ACTION] Cancel | player=(3071,3713,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:53.691] [ACTION] Cancel | player=(3071,3717,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:54.442] [ACTION] Cancel | player=(3071,3719,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:55.179] [ACTION] Cancel | player=(3071,3721,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:55.946] [ACTION] Wear Anti-dragon shield | player=(3071,3723,0) | target=? action=399 paramA=1540 paramB=17 paramC=3214
+[22:37:56.898] [ACTION] Cancel | player=(3071,3727,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:58.789] [ACTION] Cancel | player=(3071,3733,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:59.511] [ACTION] Cancel | player=(3071,3735,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:59.733] [ACTION] Cancel | player=(3071,3737,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:37:59.953] [ACTION] Cancel | player=(3071,3737,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:00.426] [ACTION] Cancel | player=(3071,3739,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:00.779] [ACTION] Cancel | player=(3071,3739,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:02.084] [ACTION] Cancel | player=(3071,3745,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:03.517] [ACTION] Cancel | player=(3071,3749,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:04.476] [ACTION] Cancel | player=(3073,3753,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:04.924] [ACTION] Cancel | player=(3073,3753,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:07.322] [ACTION] Cancel | player=(3073,3761,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:08.318] [ACTION] Cancel | player=(3073,3763,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:09.178] [ACTION] Cancel | player=(3073,3764,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:10.328] [ACTION] Cancel | player=(3073,3766,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:11.630] [ACTION] Cancel | player=(3073,3769,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:12.841] [ACTION] Cancel | player=(3073,3771,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:13.421] [ACTION] Cancel | player=(3073,3772,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:15.587] [ACTION] Cancel | player=(3073,3775,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:16.835] [ACTION] Cancel | player=(3073,3777,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:17.653] [ACTION] Cancel | player=(3072,3779,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:18.291] [ACTION] Cancel | player=(3072,3780,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:19.193] [ACTION] Cancel | player=(3072,3781,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:20.167] [ACTION] Cancel | player=(3072,3783,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:21.350] [ACTION] Cancel | player=(3072,3785,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:22.576] [ACTION] Cancel | player=(3072,3787,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:24.956] [ACTION] Cancel | player=(3072,3791,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:26.030] [CHAT] type=5 from="" msg="Nsx has logged in."
+[22:38:26.116] [ACTION] Cancel | player=(3072,3793,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:26.991] [ACTION] Cancel | player=(3072,3794,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:28.269] [ACTION] Cancel | player=(3072,3796,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:29.839] [ACTION] Cancel | player=(3072,3799,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:30.983] [ACTION] Cancel | player=(3072,3801,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:31.942] [ACTION] Cancel | player=(3072,3802,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:32.373] [ACTION] Cancel | player=(3072,3803,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:32.778] [ACTION] Cancel | player=(3072,3804,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:33.437] [ACTION] Select | player=(3072,3805,0) | target=? action=518 paramA=562 paramB=7 paramC=153
+[22:38:34.010] [ACTION] Cancel | player=(3072,3807,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:34.707] [ACTION] Cancel | player=(3072,3809,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:35.485] [ACTION] Cancel | player=(3074,3809,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:38.680] [ACTION] Cancel | player=(3086,3817,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:39.762] [ACTION] Cancel | player=(3088,3817,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:40.891] [ACTION] Wield Magic shortbow | player=(3092,3820,0) | target=? action=399 paramA=861 paramB=17 paramC=3214
+[22:38:41.686] [CHAT] type=7 from="@cr2@Nsx" msg="Tf u do again "
+[22:38:41.750] [ACTION] Cancel | player=(3096,3824,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:43.638] [ACTION] Cancel | player=(3099,3824,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:44.542] [ACTION] Cancel | player=(3100,3824,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:45.263] [ACTION] Message Nsx | player=(3102,3824,0) | target=? action=984 paramA=560 paramB=12 paramC=3214
+[22:38:46.172] [ACTION] Cancel | player=(3103,3824,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:48.207] [CHAT] type=6 from="Nsx" msg="Whatchu mean"
+[22:38:49.429] [CHAT] type=7 from="@cr2@Nsx" msg="Wha interface?"
+[22:38:49.476] [ACTION] Cancel | player=(3109,3824,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:52.159] [ACTION] Message Nsx | player=(3113,3825,0) | target=? action=984 paramA=560 paramB=12 paramC=3214
+[22:38:53.000] [ACTION] Cancel | player=(3114,3826,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:38:58.026] [CHAT] type=6 from="Nsx" msg="Click on a skil"
+[22:38:59.464] [ACTION] Cancel | player=(3117,3837,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:39:00.450] [ACTION] Cancel | player=(3118,3839,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:39:01.493] [ACTION] Cancel | player=(3118,3841,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:39:02.085] [ACTION] View Mining guide | player=(3118,3842,0) | target=? action=352 paramA=560 paramB=12 paramC=8656
+[22:39:03.089] [HOTKEY] Escape closed interfaces
+[22:39:03.610] [ACTION] View Herblore guide | player=(3118,3844,0) | target=? action=352 paramA=560 paramB=12 paramC=8661
+[22:39:04.336] [HOTKEY] Escape closed interfaces
+[22:39:05.106] [ACTION] View Crafting guide | player=(3121,3847,0) | target=? action=352 paramA=560 paramB=12 paramC=8667
+[22:39:07.807] [HOTKEY] Escape closed interfaces
+[22:39:08.030] [ACTION] Cancel | player=(3125,3852,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:39:09.681] [ACTION] Cancel | player=(3125,3854,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:39:10.660] [ACTION] Cancel | player=(3125,3856,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:39:11.926] [ACTION] Cancel | player=(3125,3858,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:39:12.611] [ACTION] Select | player=(3125,3859,0) | target=? action=518 paramA=560 paramB=12 paramC=153
+[22:39:13.921] [ACTION] Cancel | player=(3125,3863,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:39:14.657] [ACTION] Cancel | player=(3125,3867,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:39:15.728] [ACTION] Cancel | player=(3123,3869,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:39:16.509] [ACTION] View Magic guide | player=(3119,3873,0) | target=? action=352 paramA=560 paramB=12 paramC=8669
+[22:39:17.822] [HOTKEY] Escape closed interfaces
+[22:39:18.186] [ACTION] Cancel | player=(3116,3876,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:39:19.179] [ACTION] View Runecrafting guide | player=(3116,3880,0) | target=? action=352 paramA=560 paramB=12 paramC=8672
+[22:39:20.411] [HOTKEY] Escape closed interfaces
+[22:39:20.983] [ACTION] Cancel | player=(3110,3885,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:39:21.231] [CHAT] type=7 from="@cr2@Nsx" msg="Lmfa000000000000000 the herb is the book!"
+[22:39:22.008] [ACTION] Cancel | player=(3106,3885,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:39:24.592] [ACTION] View Herblore guide | player=(3101,3886,0) | target=? action=352 paramA=560 paramB=12 paramC=8661
+[22:39:27.221] [CHAT] type=7 from="@cr2@Nsx" msg="Thats so cool!"
+[22:39:28.959] [ACTION] Ok | player=(3094,3885,0) | target=? action=352 paramA=560 paramB=12 paramC=841
+[22:39:30.377] [ACTION] Ok | player=(3091,3885,0) | target=? action=352 paramA=560 paramB=12 paramC=839
+[22:39:30.867] [HOTKEY] Escape closed interfaces
+[22:39:31.768] [ACTION] Cancel | player=(3090,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:39:32.203] [ACTION] Cancel | player=(3089,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:39:34.320] [ACTION] Cancel | player=(3086,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:39:38.566] [ACTION] Cancel | player=(3079,3883,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:39:39.409] [ACTION] Message Nsx | player=(3077,3883,0) | target=? action=984 paramA=560 paramB=12 paramC=3214
+[22:39:42.870] [CHAT] type=6 from="Nsx" msg="They;re all books :d"
+[22:39:43.415] [ACTION] Message Nsx | player=(3071,3883,0) | target=? action=984 paramA=560 paramB=12 paramC=3214
+[22:39:50.170] [CHAT] type=6 from="Nsx" msg="Tab reply isnt working as intended"
+[22:39:51.209] [CHAT] type=7 from="@cr2@Nsx" msg="Their all guides "
+[22:39:51.465] [ACTION] Cancel | player=(3070,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:39:52.920] [ACTION] Cancel | player=(3068,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:39:56.704] [ACTION] Mine Rocks | player=(3061,3883,0) | target=loc id=14859 name="Rocks" coords=(3059,3885,0)
+[22:39:59.013] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[22:40:00.384] [ACTION] Mine Rocks | player=(3059,3884,0) | target=loc id=14859 name="Rocks" coords=(3059,3885,0)
+[22:40:00.824] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[22:40:01.788] [ACTION] Prospect Rocks | player=(3059,3884,0) | target=loc id=14859 name="Rocks" coords=(3059,3885,0)
+[22:40:02.014] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[22:40:13.907] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:14.820] [ACTION] Message Nsx | player=(3059,3884,0) | target=? action=984 paramA=1617 paramB=18 paramC=3214
+[22:40:16.631] [CHAT] type=6 from="Nsx" msg="U like?"
+[22:40:39.227] [CHAT] type=7 from="@cr2@Nsx" msg="I do for the ol days but the skill guide should be what we all know "
+[22:40:41.152] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:50.033] [CHAT] type=7 from="@cr2@Nsx" msg="For lvl purposes"
+[22:40:51.805] [ACTION] Message Nsx | player=(3059,3884,0) | target=? action=984 paramA=1617 paramB=18 paramC=3214
+[22:41:05.358] [CHAT] type=6 from="Nsx" msg="Gotcha - i can work on an update then"
+[22:41:23.433] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:41:24.317] [ACTION] Mine Rocks | player=(3059,3884,0) | target=loc id=14859 name="Rocks" coords=(3059,3885,0)
+[22:41:24.840] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[22:41:24.907] [ACTION] Mine Rocks | player=(3059,3884,0) | target=loc id=14859 name="Rocks" coords=(3059,3885,0)
+[22:41:25.437] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[22:41:26.913] [ACTION] Mine Rocks | player=(3059,3884,0) | target=loc id=14859 name="Rocks" coords=(3059,3885,0)
+[22:41:27.230] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[22:41:58.088] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:41:58.849] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:41:59.322] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:41:59.811] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:42:00.624] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:42:01.243] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:42:01.857] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:42:02.901] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:42:03.819] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:42:04.286] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:42:04.788] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:42:05.226] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:42:05.702] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:42:06.117] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:42:06.689] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:42:07.084] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:42:07.448] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:42:08.447] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:42:26.123] [ACTION] Mine Rocks | player=(3059,3884,0) | target=loc id=14860 name="Rocks" coords=(3060,3884,0)
+[22:42:26.614] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[22:43:00.228] [CHAT] type=7 from="@cr2@Nsx" msg="Already fixed log use nice "
+[22:43:30.955] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:37.186] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:39.218] [ACTION] Message Nsx | player=(3059,3884,0) | target=? action=984 paramA=1540 paramB=17 paramC=3214
+[22:43:40.030] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:41.704] [ACTION] Mine Rocks | player=(3059,3884,0) | target=loc id=14860 name="Rocks" coords=(3060,3884,0)
+[22:43:42.217] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[22:44:57.219] [CHAT] type=7 from="@cr2@Nsx" msg="Is the camera inverted? "
+[22:45:06.890] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:45:07.791] [ACTION] Message Nsx | player=(3059,3884,0) | target=? action=984 paramA=243466240 paramB=239 paramC=242
+[22:45:13.550] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:45:16.612] [ACTION] Message Nsx | player=(3059,3884,0) | target=? action=984 paramA=243466240 paramB=239 paramC=242
+[22:45:27.306] [CHAT] type=6 from="Nsx" msg="With arrow keys, zoom, or middle mouse moving?"
+[22:45:45.810] [CHAT] type=7 from="@cr2@Nsx" msg="Zoom and middle botton"
+[22:46:04.746] [ACTION] Message Nsx | player=(3059,3884,0) | target=? action=984 paramA=243449856 paramB=328 paramC=155
+[22:46:06.256] [CHAT] type=6 from="Nsx" msg="Nah its not"
+[22:46:09.811] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:46:19.318] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:46:19.664] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:46:20.305] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:46:21.979] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:46:22.500] [ACTION] Message Nsx | player=(3059,3884,0) | target=? action=984 paramA=995 paramB=13 paramC=3214
+[22:46:28.862] [CHAT] type=6 from="Nsx" msg="Testing censor removal - ****"
+[22:46:29.792] [ACTION] Message Nsx | player=(3059,3884,0) | target=? action=984 paramA=995 paramB=13 paramC=3214
+[22:46:32.037] [CHAT] type=6 from="Nsx" msg="Shoot"
+[22:46:39.207] [CHAT] type=7 from="@cr2@Nsx" msg="Wellllllll ****"
+[22:51:15.530] [ACTION] Message Nsx | player=(3059,3884,0) | target=? action=984 paramA=995 paramB=13 paramC=3214
+[22:51:19.065] [CHAT] type=6 from="Nsx" msg="Update"
+[22:51:26.006] [CHAT] type=7 from="@cr2@Nsx" msg="****"
+[22:51:37.996] [CHAT] type=7 from="@cr2@Nsx" msg="Lay it on me"
+[22:51:53.577] [SESSION] logged out, was "corey"
+[22:52:04.423] [SESSION] logged in as "corey"
+[22:52:04.613] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[22:52:05.804] [ACTION] Close | player=(3059,3884,0) | target=? action=639 paramA=995 paramB=178 paramC=15251
+[22:52:06.361] [ACTION] Mine Rocks | player=(3059,3884,0) | target=loc id=14860 name="Rocks" coords=(3060,3884,0)
+[22:52:06.829] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[22:52:08.290] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:52:26.651] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:52:26.899] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:52:27.144] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:52:30.051] [CHAT] type=2 from="@cr2@Corey" msg="****"
+[22:53:17.059] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:53:18.245] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:53:18.760] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:53:19.374] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:53:19.693] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:53:20.057] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:53:20.264] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:53:20.612] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:53:20.834] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:53:21.040] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:53:21.471] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:53:21.701] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:53:21.903] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:53:22.136] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:53:22.345] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:53:22.539] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:53:23.219] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:53:23.907] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:53:33.204] [ACTION] Mine Rocks | player=(3059,3884,0) | target=loc id=14860 name="Rocks" coords=(3060,3884,0)
+[22:53:33.227] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[22:53:33.917] [ACTION] Prospect Rocks | player=(3059,3884,0) | target=loc id=14860 name="Rocks" coords=(3060,3884,0)
+[22:53:34.432] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[22:54:07.448] [CHAT] type=5 from="" msg="Nsx has logged in."
+[22:54:19.446] [CHAT] type=7 from="@cr2@Nsx" msg="Shitttttttttttt "
+[22:54:20.069] [SESSION] logged out, was "corey"
+[22:54:36.074] [SESSION] logged in as "corey"
+[22:54:36.710] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[22:54:37.922] [ACTION] Close | player=(3059,3884,0) | target=? action=639 paramA=243466240 paramB=478 paramC=15251
+[22:54:38.494] [ACTION] Mine Rocks | player=(3059,3884,0) | target=loc id=14860 name="Rocks" coords=(3060,3884,0)
+[22:54:39.684] [CHAT] type=0 from="" msg="You swing your pick at the rock."
+[22:54:57.969] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:55:00.621] [CHAT] type=2 from="@cr2@Corey" msg="****"
+[22:55:06.086] [CHAT] type=5 from="" msg="Nsx has logged in."
+[22:55:09.538] [ACTION] Message Nsx | player=(3059,3884,0) | target=? action=984 paramA=1275 paramB=16 paramC=3214
+[22:55:12.695] [CHAT] type=7 from="@cr2@Nsx" msg="Alright"
+[22:55:13.736] [CHAT] type=6 from="Nsx" msg="I restarted again"
+[22:55:16.297] [CHAT] type=7 from="@cr2@Nsx" msg="Ahem! "
+[22:55:18.222] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:55:18.420] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:55:19.878] [CHAT] type=7 from="@cr2@Nsx" msg="Fuck "
+[22:55:22.477] [ACTION] Prospect Rocks | player=(3059,3884,0) | target=loc id=14860 name="Rocks" coords=(3060,3884,0)
+[22:55:22.882] [CHAT] type=0 from="" msg="You examine the rock for ores..."
+[22:55:22.884] [CHAT] type=7 from="@cr2@Nsx" msg="Nope "
+[22:55:24.683] [CHAT] type=0 from="" msg="This rock contains runite."
+[22:55:24.778] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:55:25.846] [ACTION] Message Nsx | player=(3059,3884,0) | target=? action=984 paramA=243466240 paramB=344 paramC=213
+[22:55:32.486] [CHAT] type=6 from="Nsx" msg="It didnt censor on my end.."
+[22:55:33.566] [ACTION] Message Nsx | player=(3059,3884,0) | target=? action=984 paramA=243466240 paramB=344 paramC=213
+[22:55:34.795] [CHAT] type=6 from="Nsx" msg="****"
+[22:55:35.766] [ACTION] Message Nsx | player=(3059,3884,0) | target=? action=984 paramA=243466240 paramB=344 paramC=213
+[22:55:40.020] [CHAT] type=6 from="Nsx" msg="But that did when i said it"
+[22:55:41.207] [ACTION] Mine Rocks | player=(3059,3884,0) | target=loc id=14860 name="Rocks" coords=(3060,3884,0)
+[22:55:42.087] [CHAT] type=0 from="" msg="You swing your pick at the rock."
+[22:55:43.285] [CHAT] type=0 from="" msg="You manage to mine some runite."
+[22:55:44.305] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:55:44.484] [CHAT] type=7 from="@cr2@Nsx" msg="Fuck "
+[22:55:46.515] [ACTION] Cancel | player=(3059,3884,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:55:47.047] [ACTION] Message Nsx | player=(3059,3884,0) | target=? action=984 paramA=1617 paramB=18 paramC=3214
+[22:55:49.479] [CHAT] type=6 from="Nsx" msg="Ye i can read that"
+[22:55:56.037] [CHAT] type=2 from="@cr2@Corey" msg="****"
+[22:55:59.649] [ACTION] Walk here | player=(3252,3420,0) | target=? action=14 paramA=1617 paramB=326 paramC=166
+[22:56:00.560] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:56:01.285] [CHAT] type=7 from="@cr2@Nsx" msg="Lol it censors me "
+[22:56:02.459] [ACTION] Examine Runite ore | player=(3253,3421,0) | target=? action=1094 paramA=451 paramB=19 paramC=3214
+[22:56:02.460] [CHAT] type=0 from="" msg="This needs refining."
+[22:56:04.129] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:56:04.610] [ACTION] Message Nsx | player=(3253,3421,0) | target=? action=984 paramA=451 paramB=19 paramC=3214
+[22:56:17.456] [CHAT] type=6 from="Nsx" msg="Ye looks like others can see but not ourselves"
+[22:56:18.644] [ACTION] Message Nsx | player=(3253,3421,0) | target=? action=984 paramA=451 paramB=19 paramC=3214
+[22:56:19.145] [ACTION] Message Nsx | player=(3253,3421,0) | target=? action=984 paramA=451 paramB=19 paramC=3214
+[22:56:20.478] [CHAT] type=7 from="@cr2@Nsx" msg="Can u see my chat public? "
+[22:56:31.640] [CHAT] type=6 from="Nsx" msg="Not yet, work on that next"
+[22:56:36.671] [CHAT] type=7 from="@cr2@Nsx" msg="Good thing"
+[22:56:41.048] [ACTION] Message Nsx | player=(3253,3421,0) | target=? action=984 paramA=451 paramB=19 paramC=3214
+[22:56:42.450] [CHAT] type=6 from="Nsx" msg="****"
+[22:56:42.674] [CHAT] type=7 from="@cr2@Nsx" msg="Xdd"
+[22:56:46.895] [CHAT] type=7 from="@cr2@Nsx" msg="Not nice "
+[22:56:53.538] [CHAT] type=7 from="@cr2@Nsx" msg="I cant defend myself "
+[22:57:00.717] [CHAT] type=7 from="@cr2@Nsx" msg="Ur words mean nothin!"
+[22:57:25.067] [ACTION] Message Nsx | player=(3253,3421,0) | target=? action=984 paramA=451 paramB=19 paramC=3214
+[22:57:28.519] [CHAT] type=6 from="Nsx" msg="Ye sure *****"
+[22:57:30.361] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:57:32.452] [ACTION] Examine Runite ore | player=(3253,3421,0) | target=? action=1094 paramA=451 paramB=19 paramC=3214
+[22:57:32.454] [CHAT] type=0 from="" msg="This needs refining."
+[22:57:34.298] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:57:34.957] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:57:35.520] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:57:40.566] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:57:41.368] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:58:39.590] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:58:40.072] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:58:41.070] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:58:42.500] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:58:42.927] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:58:59.529] [CHAT] type=7 from="@cr2@Nsx" msg="Well looky here"
+[22:59:09.130] [CHAT] type=7 from="@cr2@Nsx" msg="Bows darts and arrows are working "
+[22:59:21.547] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:59:22.136] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:59:22.462] [ACTION] Message Nsx | player=(3253,3421,0) | target=? action=984 paramA=564 paramB=8 paramC=3214
+[22:59:24.224] [CHAT] type=6 from="Nsx" msg="Si*****"
+[22:59:34.922] [CHAT] type=7 from="@cr2@Nsx" msg="See if animation is working"
+[22:59:37.158] [ACTION] Message Nsx | player=(3253,3421,0) | target=? action=984 paramA=564 paramB=8 paramC=3214
+[22:59:43.515] [CHAT] type=6 from="Nsx" msg="U want newer whip anim?"
+[22:59:46.397] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:59:46.635] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:59:46.874] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:59:53.540] [CHAT] type=7 from="@cr2@Nsx" msg="For sure "
+[22:59:56.749] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:59:57.326] [ACTION] Message Nsx | player=(3253,3421,0) | target=? action=984 paramA=28475392 paramB=497 paramC=203
+[22:59:58.985] [CHAT] type=6 from="Nsx" msg="Kk"
+[23:00:18.731] [CHAT] type=7 from="@cr2@Nsx" msg="And the gnome hat and wizards hat new mesh"
+[23:00:27.543] [ACTION] Message Nsx | player=(3253,3421,0) | target=? action=984 paramA=28475392 paramB=497 paramC=203
+[23:00:33.116] [CHAT] type=7 from="@cr2@Nsx" msg="Just the little shit like that makes it so much better "
+[23:00:34.279] [CHAT] type=6 from="Nsx" msg="Ur gonna have to elaborate on that one"
+[23:00:40.459] [ACTION] Message Nsx | player=(3253,3421,0) | target=? action=984 paramA=28475392 paramB=497 paramC=203
+[23:00:43.323] [CHAT] type=7 from="@cr2@Nsx" msg="Ight let me dig it up "
+[23:01:10.459] [ACTION] Message Nsx | player=(3253,3421,0) | target=? action=984 paramA=28475392 paramB=497 paramC=203
+[23:01:22.854] [CHAT] type=6 from="Nsx" msg="Sec, think the profanity filter is cloent sided, gonna restart my client"
+[23:01:24.230] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:24.734] [ACTION] Ok | player=(3253,3421,0) | target=? action=352 paramA=28475392 paramB=474 paramC=2458
+[23:01:25.325] [SESSION] logged out, was "corey"
+
+=== dev client session started Tue Sep 01 23:02:13 EDT 2026 ===
+[23:02:13.434] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[23:02:21.099] [SESSION] logged in as "corey"
+[23:02:21.775] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[23:02:23.338] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:02:24.474] [ACTION] Close | player=(3253,3421,0) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[23:02:25.842] [CHAT] type=2 from="@cr2@Corey" msg="Fuck "
+[23:02:29.971] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:02:30.420] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:02:30.586] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:02:30.747] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:03:05.807] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:03:06.085] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:03:06.511] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:03:06.791] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:03:07.225] [ACTION] Ok | player=(3253,3421,0) | target=? action=352 paramA=4151 paramB=15 paramC=2458
+[23:03:07.379] [SESSION] logged out, was "corey"
+
+=== dev client session started Tue Sep 01 23:09:14 EDT 2026 ===
+[23:09:14.699] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[23:09:26.460] [SESSION] logged in as "corey"
+[23:09:26.834] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[23:09:28.669] [ACTION] Close | player=(3253,3421,0) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[23:09:29.367] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:09:30.012] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:09:57.802] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:09:58.781] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:09:59.790] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:10:04.280] [CHAT] type=5 from="" msg="Nsx has logged in."
+[23:10:08.961] [ACTION] Message Nsx | player=(3253,3421,0) | target=? action=984 paramA=22790144 paramB=456 paramC=277
+[23:10:11.348] [CHAT] type=6 from="Nsx" msg="U on new client? "
+[23:10:16.373] [CHAT] type=2 from="@cr2@Corey" msg="Can u see this "
+[23:10:22.271] [CHAT] type=7 from="@cr2@Nsx" msg="Ya "
+[23:10:28.209] [ACTION] Message Nsx | player=(3253,3421,0) | target=? action=984 paramA=22790144 paramB=456 paramC=277
+[23:10:29.220] [CHAT] type=6 from="Nsx" msg="Fuck "
+[23:10:36.685] [CHAT] type=7 from="@cr2@Nsx" msg="Shit"
+[23:10:38.250] [ACTION] Message Nsx | player=(3253,3421,0) | target=? action=984 paramA=22790144 paramB=456 paramC=277
+[23:10:39.839] [CHAT] type=6 from="Nsx" msg="Nice "
+[23:10:42.089] [CHAT] type=7 from="@cr2@Nsx" msg="Yayyyyyyyyyy "
+[23:11:12.029] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:11:12.734] [ACTION] Message Nsx | player=(3253,3421,0) | target=? action=984 paramA=22790144 paramB=456 paramC=277
+[23:11:28.531] [CHAT] type=6 from="Nsx" msg="Gotta do a quick restart and then check some logs to figure out public chat"
+[23:11:29.069] [ACTION] Message Nsx | player=(3253,3421,0) | target=? action=984 paramA=22790144 paramB=456 paramC=277
+[23:11:30.376] [CHAT] type=6 from="Nsx" msg="One sec"
+[23:11:42.071] [SESSION] logged out, was "corey"
+[23:11:55.214] [SESSION] logged in as "corey"
+[23:11:55.901] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[23:11:57.312] [ACTION] Close | player=(3253,3421,0) | target=? action=639 paramA=22790144 paramB=508 paramC=15251
+[23:11:57.822] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:11:58.230] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:12:05.451] [ACTION] Walk here | player=(3253,3421,0) | target=? action=14 paramA=28475392 paramB=257 paramC=186
+[23:12:10.233] [CHAT] type=5 from="" msg="Nsx has logged in."
+[23:12:10.640] [ACTION] Message Nsx | player=(3253,3421,0) | target=? action=984 paramA=28475392 paramB=471 paramC=229
+[23:12:19.543] [CHAT] type=6 from="Nsx" msg="Type something in game so i can see where the chats are getting dropped"
+[23:12:26.074] [CHAT] type=2 from="@cr2@Corey" msg="Ur a bitch austin "
+[23:12:40.830] [CHAT] type=7 from="@cr2@Nsx" msg="I did "
+[23:12:42.126] [CHAT] type=2 from="@cr2@Corey" msg="Asdfsdf "
+[23:12:43.388] [ACTION] Message Nsx | player=(3253,3421,0) | target=? action=984 paramA=15745024 paramB=495 paramC=275
+[23:12:44.980] [CHAT] type=6 from="Nsx" msg="Kk ty"
+[23:13:54.489] [CHAT] type=2 from="@cr2@Corey" msg="Sdfsdf"
+[23:16:11.251] [ACTION] Message Nsx | player=(3253,3421,0) | target=? action=984 paramA=15745024 paramB=423 paramC=14
+[23:16:17.837] [CHAT] type=6 from="Nsx" msg="Retrying again, logs didnt pull anything"
+[23:16:23.429] [SESSION] logged out, was "corey"
+[23:16:32.096] [SESSION] logged in as "corey"
+[23:16:32.267] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[23:16:33.823] [ACTION] Close | player=(3253,3421,0) | target=? action=639 paramA=4898816 paramB=452 paramC=15251
+[23:16:41.107] [CHAT] type=5 from="" msg="Nsx has logged in."
+[23:16:43.357] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:16:44.193] [ACTION] Message Nsx | player=(3253,3421,0) | target=? action=984 paramA=1540 paramB=17 paramC=3214
+[23:16:46.338] [CHAT] type=6 from="Nsx" msg="Type in pub "
+[23:16:47.367] [CHAT] type=2 from="@cr2@Corey" msg="Asda"
+[23:17:02.704] [CHAT] type=7 from="@cr2@Nsx" msg="Did it"
+[23:17:06.701] [ACTION] Message Nsx | player=(3253,3421,0) | target=? action=984 paramA=1540 paramB=17 paramC=3214
+[23:17:07.389] [CHAT] type=6 from="Nsx" msg="Ty "
+[23:17:35.014] [ACTION] Message Nsx | player=(3253,3421,0) | target=? action=984 paramA=28475392 paramB=412 paramC=198
+[23:17:40.880] [CHAT] type=6 from="Nsx" msg="Found it - deocding bug "
+[23:17:43.470] [ACTION] Message Nsx | player=(3253,3421,0) | target=? action=984 paramA=28475392 paramB=412 paramC=198
+[23:17:49.331] [CHAT] type=6 from="Nsx" msg="Decoding*"
+[23:18:36.736] [ACTION] Message Nsx | player=(3253,3421,0) | target=? action=984 paramA=28475392 paramB=412 paramC=198
+[23:18:42.753] [CHAT] type=6 from="Nsx" msg="Next update should fix it "
+[23:18:54.887] [SESSION] logged out, was "corey"
+[23:19:03.323] [SESSION] logged in as "corey"
+[23:19:03.843] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[23:19:06.156] [ACTION] Close | player=(3253,3421,0) | target=? action=639 paramA=28475392 paramB=470 paramC=15251
+[23:19:22.211] [ACTION] Climb-up Staircase | player=(3253,3421,0) | target=loc id=1738 name="Staircase" coords=(3255,3421,0)
+[23:19:23.797] [ACTION] Climb-down Staircase | player=(3255,3420,1) | target=loc id=1740 name="Staircase" coords=(3255,3421,1)
+[23:19:24.853] [ACTION] Climb-up Staircase | player=(3254,3421,0) | target=loc id=1738 name="Staircase" coords=(3255,3421,0)
+[23:19:26.835] [ACTION] Climb-down Staircase | player=(3255,3420,1) | target=loc id=1740 name="Staircase" coords=(3255,3421,1)
+[23:19:27.928] [ACTION] Walk here | player=(3254,3421,0) | target=? action=14 paramA=28508160 paramB=231 paramC=129
+[23:19:28.818] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:19:29.536] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:19:39.928] [CHAT] type=5 from="" msg="Nsx has logged in."
+[23:19:45.830] [CHAT] type=2 from="@cr2@Corey" msg="Can you see this shit? "
+[23:19:50.780] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:19:51.953] [ACTION] Message Nsx | player=(3253,3421,0) | target=? action=984 paramA=36290560 paramB=414 paramC=313
+[23:19:52.512] [CHAT] type=1 from="@cr2@Nsx" msg="I can see this shit"
+[23:19:55.264] [CHAT] type=2 from="@cr2@Corey" msg="Hellll ya"
+[23:19:56.063] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:19:56.107] [CHAT] type=1 from="@cr2@Nsx" msg="Can u see my shit"
+[23:19:57.915] [CHAT] type=1 from="@cr2@Nsx" msg="Xd "
+[23:19:58.120] [CHAT] type=2 from="@cr2@Corey" msg="Yee"
+[23:19:59.438] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:19:59.807] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:20:00.337] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:20:05.732] [CHAT] type=1 from="@cr2@Nsx" msg="Look at you wizard"
+[23:20:20.390] [CHAT] type=2 from="@cr2@Corey" msg="Why even code things pazzaz if its shit :)"
+[23:20:33.329] [CHAT] type=1 from="@cr2@Nsx" msg="Bro this give shit "
+[23:20:34.538] [CHAT] type=1 from="@cr2@Nsx" msg="Is wild"
+[23:20:35.716] [CHAT] type=1 from="@cr2@Nsx" msg="Likeee "
+[23:20:39.327] [CHAT] type=1 from="@cr2@Nsx" msg="Just use item code "
+[23:20:41.729] [CHAT] type=1 from="@cr2@Nsx" msg="Tf bro"
+[23:20:45.110] [CHAT] type=2 from="@cr2@Corey" msg="Agreed lol "
+[23:20:52.533] [CHAT] type=1 from="@cr2@Nsx" msg="Its not archers ring"
+[23:20:59.724] [CHAT] type=1 from="@cr2@Nsx" msg="Its rangers ring"
+[23:20:59.862] [CHAT] type=2 from="@cr2@Corey" msg="U should try ::givecrap"
+[23:21:01.530] [CHAT] type=1 from="@cr2@Nsx" msg="Likkkkkkkkkkkkkk"
+[23:21:02.860] [ACTION] Drop Pickaxe handle | player=(3253,3421,0) | target=item id=466 slot=20 (inventory, no world coords)
+[23:21:05.076] [ACTION] Drink Cider(m2) | player=(3253,3421,0) | target=? action=961 paramA=5925 paramB=24 paramC=3214
+[23:21:05.117] [CHAT] type=0 from="" msg="No trigger for [opheld1,keg_mature_cider_2]"
+[23:21:05.887] [ACTION] Drop Cider(m2) | player=(3253,3421,0) | target=item id=5925 slot=24 (inventory, no world coords)
+[23:21:06.625] [ACTION] Drop Whoopsie | player=(3253,3421,0) | target=item id=3985 slot=25 (inventory, no world coords)
+[23:21:07.350] [ACTION] Drop Thatch spar dense | player=(3253,3421,0) | target=item id=6285 slot=26 (inventory, no world coords)
+[23:21:08.347] [ACTION] Drop Amulet of accuracy | player=(3253,3421,0) | target=item id=1478 slot=27 (inventory, no world coords)
+[23:21:09.490] [ACTION] Drop null | player=(3253,3421,0) | target=item id=4063 slot=23 (inventory, no world coords)
+[23:21:09.878] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:21:11.728] [CHAT] type=1 from="@cr2@Nsx" msg="Ew "
+[23:21:12.129] [ACTION] Drop Diamond bauble | player=(3253,3421,0) | target=item id=6834 slot=22 (inventory, no world coords)
+[23:21:12.676] [ACTION] Drop Broodoo shield (5) | player=(3253,3421,0) | target=item id=6247 slot=21 (inventory, no world coords)
+[23:21:14.768] [CHAT] type=2 from="@cr2@Corey" msg="L0lllll"
+[23:21:15.332] [CHAT] type=1 from="@cr2@Nsx" msg="Just ew "
+[23:21:21.922] [CHAT] type=1 from="@cr2@Nsx" msg="Lmfa0000000000000"
+[23:21:24.316] [CHAT] type=1 from="@cr2@Nsx" msg="Burnt curry"
+[23:21:25.519] [CHAT] type=1 from="@cr2@Nsx" msg="Wtf "
+[23:21:31.663] [CHAT] type=2 from="@cr2@Corey" msg="All of that shit is last on my list lol but i know i need to change em "
+[23:21:38.717] [CHAT] type=1 from="@cr2@Nsx" msg="It gave me camel shit"
+[23:21:39.931] [CHAT] type=1 from="@cr2@Nsx" msg="Legit"
+[23:21:41.910] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:21:42.319] [CHAT] type=1 from="@cr2@Nsx" msg="Like fr "
+[23:21:44.635] [CHAT] type=2 from="@cr2@Corey" msg="L0000000000000000000000000000000l"
+[23:21:47.730] [CHAT] type=1 from="@cr2@Nsx" msg="L0000000000000000000000000000l"
+[23:21:51.926] [CHAT] type=1 from="@cr2@Nsx" msg="I mean "
+[23:21:53.124] [CHAT] type=1 from="@cr2@Nsx" msg="Okay"
+[23:21:54.324] [CHAT] type=1 from="@cr2@Nsx" msg="Cool "
+[23:22:01.854] [CHAT] type=2 from="@cr2@Corey" msg=" Camel shit "
+[23:22:10.024] [CHAT] type=2 from="@cr2@Corey" msg=" Gross "
+[23:22:14.496] [CHAT] type=2 from="@cr2@Corey" msg="Flash: icky"
+[23:22:22.887] [CHAT] type=2 from="@cr2@Corey" msg=" Oooooo "
+[23:22:30.960] [CHAT] type=2 from="@cr2@Corey" msg=" Interesting "
+[23:22:48.922] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:22:54.919] [CHAT] type=1 from="@cr2@Nsx" msg="Spcy maggots"
+[23:22:56.717] [CHAT] type=1 from="@cr2@Nsx" msg="Wtf "
+[23:23:03.086] [CHAT] type=2 from="@cr2@Corey" msg="What other client related things did u want? Working on fixing shift tab "
+[23:23:09.885] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:23:10.629] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:23:11.637] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:23:17.488] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:23:21.912] [CHAT] type=1 from="@cr2@Nsx" msg="Hmm how far u wanna go"
+[23:23:24.222] [CHAT] type=2 from="@cr2@Corey" msg="Scroll on interfaces "
+[23:23:29.140] [CHAT] type=1 from="@cr2@Nsx" msg="Ya for sure "
+[23:23:39.012] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:23:51.564] [CHAT] type=2 from="@cr2@Corey" msg="Do you want runelite plugins or something "
+[23:23:55.462] [CHAT] type=2 from="@cr2@Corey" msg="Like xp drops or anything "
+[23:24:04.788] [ACTION] Walk here | player=(3253,3421,0) | target=? action=14 paramA=11667 paramB=154 paramC=181
+[23:24:05.176] [ACTION] Walk here | player=(3254,3421,0) | target=? action=14 paramA=11667 paramB=168 paramC=183
+[23:24:05.625] [ACTION] Talk-to Mysterious Old Man | player=(3254,3421,0) | target=npc name="Mysterious Old Man" coords=(3253,3422,0)
+[23:24:06.935] [CHAT] type=1 from="@cr2@Nsx" msg="Yep sure do if its possible"
+[23:24:07.164] [HOTKEY] Space advanced dialogue
+[23:24:08.688] [ACTION] Open Casket | player=(3254,3421,0) | target=? action=961 paramA=405 paramB=20 paramC=3214
+[23:24:09.937] [HOTKEY] Space advanced dialogue
+[23:24:13.543] [ACTION] Walk here | player=(3254,3421,0) | target=? action=14 paramA=6247 paramB=305 paramC=237
+[23:24:14.117] [CHAT] type=1 from="@cr2@Nsx" msg="Idk whats possible tbh "
+[23:24:26.566] [CHAT] type=2 from="@cr2@Corey" msg="Aactually porting runelite might be impossible due to cache "
+[23:24:33.355] [CHAT] type=2 from="@cr2@Corey" msg="But i can create plugins by code"
+[23:24:46.594] [CHAT] type=2 from="@cr2@Corey" msg="Just write em in suggestions what u want "
+[23:24:53.714] [CHAT] type=1 from="@cr2@Nsx" msg="Runelite would be baller but ya it would be a challenge"
+[23:25:03.324] [CHAT] type=1 from="@cr2@Nsx" msg="Xp drops "
+[23:25:05.124] [CHAT] type=1 from="@cr2@Nsx" msg="For sure "
+[23:25:06.620] [CHAT] type=2 from="@cr2@Corey" msg="I'll keep looking into it"
+[23:25:07.691] [CHAT] type=2 from="@cr2@Corey" msg="Kk"
+[23:25:11.133] [CHAT] type=1 from="@cr2@Nsx" msg="Umm "
+[23:25:14.381] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:25:18.312] [CHAT] type=1 from="@cr2@Nsx" msg="Def re do the skill guides "
+[23:25:23.119] [CHAT] type=1 from="@cr2@Nsx" msg="On interface"
+[23:25:24.627] [CHAT] type=2 from="@cr2@Corey" msg="Just mark em in suggestions :d i'll look at em tomorrow "
+[23:25:29.199] [CHAT] type=2 from="@cr2@Corey" msg="Ye i will "
+[23:25:31.519] [CHAT] type=1 from="@cr2@Nsx" msg="Ight i will "
+[23:25:32.240] [CHAT] type=2 from="@cr2@Corey" msg="I noted that already "
+[23:25:36.306] [CHAT] type=1 from="@cr2@Nsx" msg="Ill get dumb fuck too "
+[23:25:54.712] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:25:58.026] [CHAT] type=2 from="@cr2@Corey" msg="Lmfaoooooo dumb fuck "
+[23:26:05.705] [CHAT] type=1 from="@cr2@Nsx" msg="1 Serious pker "
+[23:26:08.103] [CHAT] type=1 from="@cr2@Nsx" msg="Xddd "
+[23:26:22.125] [CHAT] type=2 from="@cr2@Corey" msg="Wow "
+[23:26:26.565] [CHAT] type=2 from="@cr2@Corey" msg="Just tell me i suck "
+[23:26:39.165] [CHAT] type=2 from="@cr2@Corey" msg="I;m gonna hardcode my pk skills fuck u"
+[23:26:48.301] [CHAT] type=1 from="@cr2@Nsx" msg="L00l"
+[23:26:53.099] [CHAT] type=1 from="@cr2@Nsx" msg="Okay megatron script"
+[23:26:55.780] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:27:03.310] [CHAT] type=1 from="@cr2@Nsx" msg="Lets see how good u are when ur ready "
+[23:27:08.558] [CHAT] type=2 from="@cr2@Corey" msg=" Autobots, roll out "
+[23:28:18.885] [CHAT] type=1 from="@cr2@Nsx" msg="So when this goes live "
+[23:28:40.499] [CHAT] type=1 from="@cr2@Nsx" msg="Does this engine have a frame cap "
+[23:28:45.282] [CHAT] type=1 from="@cr2@Nsx" msg="Like 30 fps?"
+[23:28:58.565] [CHAT] type=2 from="@cr2@Corey" msg="I bleieve 50 but i'll have to check it and test "
+[23:29:02.852] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:29:08.684] [CHAT] type=1 from="@cr2@Nsx" msg="Nice thats all we need"
+[23:29:15.288] [CHAT] type=1 from="@cr2@Nsx" msg="I just want a modern 06"
+[23:29:20.683] [CHAT] type=1 from="@cr2@Nsx" msg="But this is urs aswell"
+[23:29:21.294] [CHAT] type=1 from="@cr2@Nsx" msg="So"
+[23:29:27.896] [CHAT] type=1 from="@cr2@Nsx" msg="U do ur shit it aint on me bro"
+[23:29:30.094] [CHAT] type=2 from="@cr2@Corey" msg="Oh i dont mind xd "
+[23:29:38.829] [CHAT] type=2 from="@cr2@Corey" msg="Im used to old 50 fps rs "
+[23:29:54.974] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:29:55.483] [CHAT] type=1 from="@cr2@Nsx" msg="Client wise ill think of some shit "
+[23:30:00.724] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:30:04.170] [CHAT] type=2 from="@cr2@Corey" msg="Sounds good"
+[23:30:05.673] [CHAT] type=1 from="@cr2@Nsx" msg="I havent seen what all rl "
+[23:30:08.072] [CHAT] type=1 from="@cr2@Nsx" msg="Has anymore "
+[23:30:10.695] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:30:12.290] [CHAT] type=1 from="@cr2@Nsx" msg="Its been updated so many times "
+[23:30:13.765] [CHAT] type=2 from="@cr2@Corey" msg="A fuck load lmfao"
+[23:30:18.288] [CHAT] type=1 from="@cr2@Nsx" msg="Right"
+[23:30:19.959] [CHAT] type=2 from="@cr2@Corey" msg="Thousounds of plugins"
+[23:30:30.871] [CHAT] type=1 from="@cr2@Nsx" msg="Just the good ones for sure"
+[23:30:33.461] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:30:37.246] [CHAT] type=2 from="@cr2@Corey" msg="Nothing overboard"
+[23:30:38.671] [CHAT] type=1 from="@cr2@Nsx" msg="Like hear me out"
+[23:30:47.656] [CHAT] type=1 from="@cr2@Nsx" msg="Quest helper?"
+[23:30:53.666] [CHAT] type=1 from="@cr2@Nsx" msg="Too much?"
+[23:31:06.087] [CHAT] type=2 from="@cr2@Corey" msg="Hmmmm "
+[23:31:13.472] [CHAT] type=1 from="@cr2@Nsx" msg="That would be sick"
+[23:31:16.337] [CHAT] type=2 from="@cr2@Corey" msg="Would be a long process of coding everything "
+[23:31:26.992] [CHAT] type=2 from="@cr2@Corey" msg="Since it'd have to be done by me "
+[23:31:27.250] [CHAT] type=1 from="@cr2@Nsx" msg="Lets just get the basics"
+[23:31:36.869] [CHAT] type=1 from="@cr2@Nsx" msg="Xp drops "
+[23:31:41.358] [CHAT] type=2 from="@cr2@Corey" msg="Ye u give me ur basics and i will work on em"
+[23:31:51.259] [CHAT] type=1 from="@cr2@Nsx" msg="Ight ill put em in "
+[23:32:02.055] [CHAT] type=1 from="@cr2@Nsx" msg="Mark em if u cant do "
+[23:32:04.198] [CHAT] type=2 from="@cr2@Corey" msg="1 Sec rebuilding client to test somethin"
+[23:32:05.073] [CHAT] type=2 from="@cr2@Corey" msg="I will "
+[23:32:06.337] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:32:06.637] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:32:07.097] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:32:07.496] [ACTION] Ok | player=(3253,3421,0) | target=? action=352 paramA=36257792 paramB=53 paramC=2458
+[23:32:08.049] [SESSION] logged out, was "corey"
+
+=== dev client session started Tue Sep 01 23:32:28 EDT 2026 ===
+[23:32:28.984] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[23:32:39.251] [SESSION] logged in as "corey"
+[23:32:40.138] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[23:32:41.670] [ACTION] Close | player=(3253,3421,0) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[23:32:42.415] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:32:42.717] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:32:43.591] [ACTION] Message Nsx | player=(3253,3421,0) | target=? action=984 paramA=0 paramB=0 paramC=0
+[23:32:48.017] [CHAT] type=6 from="Nsx" msg="Mssg me real quick"
+[23:32:53.311] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:32:53.985] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:32:55.374] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:32:55.918] [ACTION] Use Bank booth | player=(3253,3421,0) | target=loc id=2213 name="Bank booth" coords=(3253,3419,0)
+[23:32:57.784] [ACTION] Continue | player=(3253,3420,0) | target=? action=575 paramA=15745024 paramB=292 paramC=4886
+[23:32:58.580] [ACTION] Cancel | player=(3253,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:32:58.920] [ACTION] Ok | player=(3253,3420,0) | target=? action=352 paramA=15745024 paramB=292 paramC=2471
+[23:33:00.076] [ACTION] Continue | player=(3253,3420,0) | target=? action=575 paramA=15745024 paramB=296 paramC=972
+[23:33:00.440] [ACTION] Cancel | player=(3253,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:02.829] [ACTION] Close | player=(3253,3420,0) | target=? action=639 paramA=15745024 paramB=296 paramC=5384
+[23:33:03.526] [ACTION] Cancel | player=(3253,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:03.789] [ACTION] Cancel | player=(3253,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:03.969] [ACTION] Cancel | player=(3253,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:04.525] [ACTION] Walk here Nsx (level-95) | player=(3253,3420,0) | target=? action=14 paramA=2 paramB=189 paramC=191
+[23:33:18.287] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:18.565] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:18.772] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:19.034] [ACTION] Cancel | player=(3253,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:30.846] [CHAT] type=1 from="@cr2@Nsx" msg="Pub "
+[23:33:32.061] [CHAT] type=1 from="@cr2@Nsx" msg="Or"
+[23:33:32.671] [CHAT] type=1 from="@cr2@Nsx" msg="Pri"
+[23:33:34.239] [CHAT] type=2 from="@cr2@Corey" msg="Pm"
+[23:33:38.647] [CHAT] type=7 from="@cr2@Nsx" msg="Yo "
+[23:33:39.098] [HOTKEY] Tab reply to Nsx
+[23:33:43.541] [CHAT] type=6 from="Nsx" msg="Tab reply works"
+[23:33:47.168] [HOTKEY] Tab reply to Nsx
+[23:33:49.446] [CHAT] type=1 from="@cr2@Nsx" msg="Not mine "
+[23:33:55.345] [CHAT] type=2 from="@cr2@Corey" msg="Ye i just rebuilt my client "
+[23:33:59.653] [CHAT] type=1 from="@cr2@Nsx" msg="Ahh "
+[23:34:00.785] [CHAT] type=2 from="@cr2@Corey" msg="I'll send u after "
+[23:34:02.646] [CHAT] type=1 from="@cr2@Nsx" msg="I see "
+[23:34:04.450] [CHAT] type=1 from="@cr2@Nsx" msg="Allg "
+[23:34:06.635] [CHAT] type=2 from="@cr2@Corey" msg="Also scroll interfaces "
+[23:34:07.860] [ACTION] Use Bank booth | player=(3253,3421,0) | target=loc id=2213 name="Bank booth" coords=(3253,3419,0)
+[23:34:09.230] [HOTKEY] Space advanced dialogue
+[23:34:12.475] [ACTION] Cancel | player=(3253,3420,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:34:12.887] [ACTION] Ok | player=(3253,3420,0) | target=? action=352 paramA=2 paramB=185 paramC=2471
+[23:34:14.272] [HOTKEY] Space advanced dialogue
+[23:34:20.223] [CHAT] type=2 from="@cr2@Corey" msg="But i wanna fix it a bit more "
+[23:34:20.735] [HOTKEY] Escape closed interfaces
+[23:34:25.195] [CHAT] type=2 from="@cr2@Corey" msg="I'll send to u tomorrow"
+[23:34:25.444] [CHAT] type=1 from="@cr2@Nsx" msg="Something about the camera seems off"
+[23:34:31.440] [CHAT] type=1 from="@cr2@Nsx" msg="It feels weird"
+[23:34:31.736] [CHAT] type=2 from="@cr2@Corey" msg="Ye i noticed that too "
+[23:34:32.045] [CHAT] type=1 from="@cr2@Nsx" msg="Idk"
+[23:34:33.843] [CHAT] type=1 from="@cr2@Nsx" msg="Could be me"
+[23:34:38.042] [CHAT] type=1 from="@cr2@Nsx" msg="Like "
+[23:34:39.211] [CHAT] type=2 from="@cr2@Corey" msg="Nah its not centered "
+[23:34:42.372] [CHAT] type=2 from="@cr2@Corey" msg="Look at compass "
+[23:34:52.611] [CHAT] type=2 from="@cr2@Corey" msg="Relative to ur char "
+[23:34:53.642] [CHAT] type=1 from="@cr2@Nsx" msg="It feels inverted "
+[23:34:54.784] [CHAT] type=2 from="@cr2@Corey" msg="Its not centered "
+[23:34:56.649] [CHAT] type=1 from="@cr2@Nsx" msg="Right is left "
+[23:34:56.893] [ACTION] Walk here | player=(3253,3420,0) | target=? action=14 paramA=2 paramB=305 paramC=197
+[23:34:57.562] [ACTION] Walk here | player=(3252,3420,0) | target=? action=14 paramA=2 paramB=302 paramC=237
+[23:34:59.642] [CHAT] type=1 from="@cr2@Nsx" msg="Left is rigjt"
+[23:35:03.237] [CHAT] type=1 from="@cr2@Nsx" msg="Up is down"
+[23:35:05.634] [CHAT] type=1 from="@cr2@Nsx" msg="Down is up"
+[23:35:08.652] [CHAT] type=2 from="@cr2@Corey" msg="Mines right o.O"
+[23:35:14.645] [CHAT] type=1 from="@cr2@Nsx" msg="Nah "
+[23:35:16.435] [CHAT] type=1 from="@cr2@Nsx" msg="Ur rigjt"
+[23:35:23.041] [CHAT] type=1 from="@cr2@Nsx" msg="Its just not center "
+[23:35:24.514] [ACTION] Cancel | player=(3252,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:35:29.192] [CHAT] type=2 from="@cr2@Corey" msg="Ye i'll work on that"
+[23:35:33.239] [CHAT] type=1 from="@cr2@Nsx" msg="Allg "
+[23:35:37.451] [CHAT] type=1 from="@cr2@Nsx" msg="Doin that good work"
+[23:35:41.765] [ACTION] Cancel | player=(3252,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:35:44.565] [CHAT] type=2 from="@cr2@Corey" msg="Tryin"
+[23:35:49.492] [CHAT] type=2 from="@cr2@Corey" msg="Better late than never"
+[23:36:06.742] [ACTION] Cancel | player=(3252,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:36:08.037] [CHAT] type=1 from="@cr2@Nsx" msg="Well theirs an opt to make some passive side cash aswell "
+[23:36:10.740] [ACTION] Cancel | player=(3252,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:36:13.432] [CHAT] type=1 from="@cr2@Nsx" msg="Ull have to donos"
+[23:36:16.434] [CHAT] type=1 from="@cr2@Nsx" msg="But"
+[23:36:26.306] [ACTION] Cancel | player=(3252,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:36:32.036] [CHAT] type=1 from="@cr2@Nsx" msg="Make ad campaign ect "
+[23:36:33.768] [ACTION] Cancel | player=(3252,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:36:34.866] [CHAT] type=2 from="@cr2@Corey" msg="Ye "
+[23:36:44.629] [CHAT] type=1 from="@cr2@Nsx" msg="Wont be too bad ik alot of people"
+[23:36:47.069] [CHAT] type=2 from="@cr2@Corey" msg="Idm money for it tbh, if it happens it does, i just want good quality shit "
+[23:36:54.837] [CHAT] type=1 from="@cr2@Nsx" msg="Same here"
+[23:37:06.295] [CHAT] type=2 from="@cr2@Corey" msg="Alright go to bed you ole fag "
+[23:37:08.645] [CHAT] type=1 from="@cr2@Nsx" msg="But idk if u seen the costs for hosts"
+[23:37:10.029] [ACTION] Cancel | player=(3252,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:15.904] [CHAT] type=1 from="@cr2@Nsx" msg="Their $$"
+[23:37:19.045] [CHAT] type=2 from="@cr2@Corey" msg="They can be pricy "
+[23:37:22.386] [CHAT] type=2 from="@cr2@Corey" msg="But i also have a homelab so"
+[23:37:25.370] [CHAT] type=2 from="@cr2@Corey" msg="I can host myself "
+[23:37:28.867] [CHAT] type=2 from="@cr2@Corey" msg="24 7 "
+[23:37:30.835] [CHAT] type=1 from="@cr2@Nsx" msg="Tf is home lab "
+[23:37:35.035] [CHAT] type=2 from="@cr2@Corey" msg="In home server"
+[23:37:41.649] [CHAT] type=1 from="@cr2@Nsx" msg="Ahh shit"
+[23:37:43.027] [CHAT] type=2 from="@cr2@Corey" msg="Im running this on a linux container"
+[23:37:54.847] [CHAT] type=1 from="@cr2@Nsx" msg="Ddos prot?"
+[23:38:00.007] [CHAT] type=2 from="@cr2@Corey" msg="Also have media streaming and also hosting a minecraft server same time l0l "
+[23:38:03.093] [CHAT] type=2 from="@cr2@Corey" msg="Ye "
+[23:38:13.450] [CHAT] type=1 from="@cr2@Nsx" msg="These nerds are good bro"
+[23:38:18.749] [CHAT] type=2 from="@cr2@Corey" msg="Oh i know "
+[23:38:20.042] [CHAT] type=1 from="@cr2@Nsx" msg="Like that fggot ass dream"
+[23:38:24.466] [CHAT] type=2 from="@cr2@Corey" msg="Thats why i said only to cody lmfao"
+[23:38:25.443] [CHAT] type=1 from="@cr2@Nsx" msg="He will try it"
+[23:38:32.638] [CHAT] type=1 from="@cr2@Nsx" msg="He hits all 2004-2006 based "
+[23:38:39.083] [CHAT] type=2 from="@cr2@Corey" msg="Homo "
+[23:38:49.219] [ACTION] Cancel | player=(3252,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:38:51.240] [CHAT] type=1 from="@cr2@Nsx" msg="U will get attacked "
+[23:38:53.649] [CHAT] type=1 from="@cr2@Nsx" msg="Im sure of it "
+[23:38:56.654] [CHAT] type=1 from="@cr2@Nsx" msg="Be ready it "
+[23:39:02.052] [CHAT] type=1 from="@cr2@Nsx" msg="For it& "
+[23:39:11.605] [CHAT] type=2 from="@cr2@Corey" msg="I aint scurred "
+[23:39:15.842] [CHAT] type=1 from="@cr2@Nsx" msg="Ahaha "
+[23:39:25.432] [CHAT] type=1 from="@cr2@Nsx" msg="Only cody will get access no1 else"
+[23:39:26.034] [CHAT] type=1 from="@cr2@Nsx" msg="So"
+[23:39:27.844] [CHAT] type=1 from="@cr2@Nsx" msg="No worries "
+[23:39:29.637] [CHAT] type=1 from="@cr2@Nsx" msg="Their "
+[23:39:41.047] [CHAT] type=1 from="@cr2@Nsx" msg="Thats if he wants too "
+[23:39:41.592] [CHAT] type=2 from="@cr2@Corey" msg="Sounds good"
+[23:39:45.831] [CHAT] type=1 from="@cr2@Nsx" msg="Hes mad at me "
+[23:39:48.574] [CHAT] type=2 from="@cr2@Corey" msg="Why lol "
+[23:39:48.841] [CHAT] type=1 from="@cr2@Nsx" msg="Cuz i wont play osrs "
+[23:39:54.243] [CHAT] type=1 from="@cr2@Nsx" msg="Iron group gay shit "
+[23:39:54.365] [CHAT] type=2 from="@cr2@Corey" msg="Ah"
+[23:40:03.079] [CHAT] type=2 from="@cr2@Corey" msg="Im in 3 l0l"
+[23:40:03.236] [CHAT] type=1 from="@cr2@Nsx" msg="Im sorry osrs is fuckin gat "
+[23:40:05.026] [CHAT] type=1 from="@cr2@Nsx" msg="Gay "
+[23:40:11.904] [CHAT] type=2 from="@cr2@Corey" msg="Its gotten old to me"
+[23:40:15.033] [CHAT] type=2 from="@cr2@Corey" msg="To omany updates "
+[23:40:22.438] [CHAT] type=1 from="@cr2@Nsx" msg="Its too fuckin much"
+[23:40:32.410] [ACTION] Cancel | player=(3252,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:40:33.681] [CHAT] type=2 from="@cr2@Corey" msg="Agreed "
+[23:40:36.248] [CHAT] type=1 from="@cr2@Nsx" msg="I mean i watch framed"
+[23:40:37.460] [CHAT] type=1 from="@cr2@Nsx" msg="And oda "
+[23:40:41.643] [CHAT] type=1 from="@cr2@Nsx" msg="And kemp all them "
+[23:40:50.641] [CHAT] type=1 from="@cr2@Nsx" msg="But uck me bro idk where to start anymore"
+[23:40:52.813] [ACTION] Cancel | player=(3252,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:40:54.835] [CHAT] type=1 from="@cr2@Nsx" msg="Pking is brain surgey "
+[23:40:56.631] [CHAT] type=1 from="@cr2@Nsx" msg="Like "
+[23:41:02.639] [CHAT] type=1 from="@cr2@Nsx" msg="U can litterlaly"
+[23:41:06.841] [CHAT] type=1 from="@cr2@Nsx" msg="I mean litterlly"
+[23:41:09.847] [CHAT] type=1 from="@cr2@Nsx" msg="Dagger poke "
+[23:41:13.439] [CHAT] type=1 from="@cr2@Nsx" msg="G maul"
+[23:41:15.236] [CHAT] type=1 from="@cr2@Nsx" msg="Dead"
+[23:41:18.248] [CHAT] type=1 from="@cr2@Nsx" msg="Like wtf bro"
+[23:41:22.216] [CHAT] type=2 from="@cr2@Corey" msg="Ye its aids"
+[23:41:27.836] [CHAT] type=1 from="@cr2@Nsx" msg="Its fuckin awful "
+[23:41:29.351] [CHAT] type=2 from="@cr2@Corey" msg="Thats why i play ironman now lol"
+[23:41:36.218] [CHAT] type=1 from="@cr2@Nsx" msg="No skill at all"
+[23:41:42.229] [CHAT] type=1 from="@cr2@Nsx" msg="Id love to see all the good pkers "
+[23:41:44.036] [CHAT] type=1 from="@cr2@Nsx" msg="So called"
+[23:41:47.022] [CHAT] type=1 from="@cr2@Nsx" msg="Jump on here "
+[23:41:54.245] [CHAT] type=1 from="@cr2@Nsx" msg="Where there is no f keys"
+[23:41:54.852] [CHAT] type=2 from="@cr2@Corey" msg="They're fucked with no fkeys lol "
+[23:42:03.835] [CHAT] type=1 from="@cr2@Nsx" msg="I mean serosuly "
+[23:42:08.559] [ACTION] Cancel | player=(3252,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:42:16.423] [ACTION] Cancel | player=(3252,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:42:16.792] [ACTION] Cancel | player=(3252,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:42:17.454] [ACTION] Cancel | player=(3252,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:42:17.704] [ACTION] Cancel | player=(3252,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:42:17.964] [ACTION] Cancel | player=(3252,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:42:18.448] [ACTION] Cancel | player=(3252,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:42:18.745] [ACTION] Cancel | player=(3252,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:42:20.207] [ACTION] Cancel | player=(3252,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:42:23.035] [CHAT] type=1 from="@cr2@Nsx" msg="Fuckin cheto finger fucks"
+[23:42:25.436] [CHAT] type=1 from="@cr2@Nsx" msg="Fat nerds"
+[23:42:26.634] [CHAT] type=1 from="@cr2@Nsx" msg="Im sorry"
+[23:42:26.768] [CHAT] type=2 from="@cr2@Corey" msg="L0l"
+[23:42:30.225] [CHAT] type=1 from="@cr2@Nsx" msg="Ranting"
+[23:42:32.925] [CHAT] type=2 from="@cr2@Corey" msg="Alright bed time old geezer"
+[23:42:35.622] [CHAT] type=1 from="@cr2@Nsx" msg="But its just fucked man "
+[23:42:38.028] [CHAT] type=1 from="@cr2@Nsx" msg="Yep i am "
+[23:42:44.333] [CHAT] type=2 from="@cr2@Corey" msg="Ur gonna be cranky in morning"
+[23:42:44.637] [CHAT] type=1 from="@cr2@Nsx" msg="330 Comes fast"
+[23:42:48.551] [CHAT] type=2 from="@cr2@Corey" msg="Dear god "
+[23:42:59.007] [CHAT] type=2 from="@cr2@Corey" msg="Banking his gear"
+[23:43:00.352] [CHAT] type=2 from="@cr2@Corey" msg="L000l"
+[23:43:03.234] [CHAT] type=1 from="@cr2@Nsx" msg="Yep "
+[23:43:07.426] [CHAT] type=1 from="@cr2@Nsx" msg="Habit"
+[23:43:09.230] [CHAT] type=1 from="@cr2@Nsx" msg="Lmfaoooo"
+[23:43:11.811] [CHAT] type=2 from="@cr2@Corey" msg="Lmfao "
+[23:43:17.640] [CHAT] type=1 from="@cr2@Nsx" msg="Ight later goof ball"
+[23:43:20.631] [CHAT] type=1 from="@cr2@Nsx" msg="Ill hit u up tommrow"
+[23:43:25.598] [ACTION] Cancel | player=(3252,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:43:27.978] [CHAT] type=2 from="@cr2@Corey" msg="Sounds good"
+[23:43:29.541] [CHAT] type=2 from="@cr2@Corey" msg="Night cuz"
+[23:43:36.239] [CHAT] type=1 from="@cr2@Nsx" msg="G night bro"
+[23:43:37.441] [CHAT] type=5 from="" msg="Nsx has logged out."
+[23:43:38.574] [ACTION] Cancel | player=(3252,3421,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:43:39.039] [ACTION] Ok | player=(3252,3421,0) | target=? action=352 paramA=2 paramB=480 paramC=2458
+[23:43:39.224] [SESSION] logged out, was "corey"
