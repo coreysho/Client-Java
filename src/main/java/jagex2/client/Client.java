@@ -5951,6 +5951,17 @@ public class Client extends GameShell {
 			if (var5 > this.chatScrollHeight - 77) {
 				var5 = this.chatScrollHeight - 77;
 			}
+			// QoL: mouse wheel scrolls the chat history when hovering over it
+			if (super.mouseScrollDelta != 0 && super.mouseX > 448 && super.mouseX < 560 && super.mouseY > 332) {
+				var5 -= super.mouseScrollDelta * 16;
+				if (var5 < 0) {
+					var5 = 0;
+				}
+				if (var5 > this.chatScrollHeight - 77) {
+					var5 = this.chatScrollHeight - 77;
+				}
+				super.mouseScrollDelta = 0;
+			}
 			if (this.chatScrollOffset != var5) {
 				this.chatScrollOffset = var5;
 				this.redrawChatback = true;
@@ -11516,6 +11527,23 @@ public class Client extends GameShell {
 				this.handleInterfaceInput(var15, var13, arg2, var13.field713, var14, arg5, arg7);
 				if (var13.scroll > var13.height) {
 					this.handleScrollInput(var13.scroll, var15, var13, arg7, arg2, arg5, var13.height, var13.width + var14);
+					// QoL: mouse wheel scrolls any scrollable interface panel (e.g. bank) when hovering over it
+					if (super.mouseScrollDelta != 0 && arg5 >= var14 && arg7 >= var15 && arg5 < var13.width + var14 && arg7 < var13.height + var15) {
+						var13.field713 += super.mouseScrollDelta * 16;
+						if (var13.field713 < 0) {
+							var13.field713 = 0;
+						}
+						if (var13.field713 > var13.scroll - var13.height) {
+							var13.field713 = var13.scroll - var13.height;
+						}
+						super.mouseScrollDelta = 0;
+						if (arg2 == 1) {
+							this.redrawSidebar = true;
+						}
+						if (arg2 == 2 || arg2 == 3) {
+							this.redrawChatback = true;
+						}
+					}
 				}
 			} else {
 				if (var13.buttonType == 1 && arg5 >= var14 && arg7 >= var15 && arg5 < var13.width + var14 && arg7 < var13.height + var15) {

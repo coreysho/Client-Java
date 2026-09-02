@@ -158,6 +158,10 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 		this.getBaseComponent().addMouseWheelListener(this);
 		this.getBaseComponent().addKeyListener(this);
 		this.getBaseComponent().addFocusListener(this);
+		// QoL: Tab is AWT's default focus-traversal key by default, so without this, pressing Tab
+		// just shifts component focus and the keystroke never reaches keyPressed() at all - which
+		// is why the Tab-to-reply-PM hotkey silently did nothing.
+		this.getBaseComponent().setFocusTraversalKeysEnabled(false);
 
 		if (this.frame != null) {
 			this.frame.addWindowListener(this);
