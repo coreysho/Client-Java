@@ -4994,7 +4994,7 @@ public class Client extends GameShell {
 								this.out.psize1(this.out.pos - start);
 
 								this.socialInput = WordPack.toSentenceCase(this.socialInput);
-								this.socialInput = WordFilter.filter(this.socialInput);
+								// this.socialInput = WordFilter.filter(this.socialInput); // client-side profanity filter disabled per Corey's request
 
 								this.addMessage(JString.formatDisplayName(JString.fromBase37(this.socialName37)), this.socialInput, 6);
 
@@ -5215,7 +5215,7 @@ public class Client extends GameShell {
 								this.out.psize1(this.out.pos - start);
 
 								this.chatTyped = WordPack.toSentenceCase(this.chatTyped);
-								this.chatTyped = WordFilter.filter(this.chatTyped);
+								// this.chatTyped = WordFilter.filter(this.chatTyped); // client-side profanity filter disabled per Corey's request
 
 								localPlayer.chatMessage = this.chatTyped;
 								localPlayer.chatColour = colour;
@@ -8122,9 +8122,10 @@ public class Client extends GameShell {
 						this.lastPmFrom37 = var91;
 						this.hasLastPmFrom = true;
 						String var98 = WordPack.method453(this.in, this.psize - 13);
-						if (var94 != 3) {
-							var98 = WordFilter.filter(var98);
-						}
+						// client-side profanity filter disabled per Corey's request
+						//if (var94 != 3) {
+						//	var98 = WordFilter.filter(var98);
+						//}
 						if (var94 == 2 || var94 == 3) {
 							this.addMessage("@cr2@" + JString.formatDisplayName(JString.fromBase37(var91)), var98, 7);
 						} else if (var94 == 1) {
@@ -9513,7 +9514,7 @@ public class Client extends GameShell {
 						arg4.gdata_alt2(this.chatPacket.data, var18, 0);
 						this.chatPacket.pos = 0;
 						String var24 = WordPack.method453(this.chatPacket, var18);
-						String var25 = WordFilter.filter(var24);
+						String var25 = var24; // WordFilter.filter(var24) disabled per Corey's request (client-side profanity filter)
 						arg2.chatMessage = var25;
 						arg2.chatColour = var16 >> 8;
 						arg2.chatEffect = var16 & 0xFF;
