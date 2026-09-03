@@ -558,6 +558,13 @@ public class Client extends GameShell {
 	public static String SERVER_HOST = System.getProperty("lostcity.host", System.getenv().getOrDefault("LOSTCITY_HOST", "rsps-project-lost-city.duckdns.org"));
 	public static int WEB_PORT = Integer.parseInt(System.getProperty("lostcity.webport", System.getenv().getOrDefault("LOSTCITY_WEBPORT", "8888")));
 
+	// --- QoL additions (Corey, 2026-09-01): Tab-to-reply, space-to-continue, Escape-to-close,
+	// middle-mouse camera drag, scroll-wheel zoom, shift-click drop. See handleInputKey(),
+	// handleMouseInput(), updateOrbitCamera() and drawScene() for where these are used.
+	public long lastPmFrom37;
+	public boolean hasLastPmFrom;
+	public int cameraZoomOffset;
+
 	@ObfuscatedName("client.uc")
 	public static boolean membersWorld = true;
 
@@ -1541,6 +1548,11 @@ public class Client extends GameShell {
 		}
 		try {
 			if (super.frame != null) {
+				// Standalone (non-applet) launches otherwise always talk to 127.0.0.1, which only works
+				// when the client and server run on the same machine. SERVER_HOST/WEB_PORT (above)
+				// default to the homelab server so a plain launch just connects; override with
+				// -Dlostcity.host=/-Dlostcity.webport= (or LOSTCITY_HOST/LOSTCITY_WEBPORT env vars)
+				// to point this build at some other server instead (e.g. local same-machine dev).
 				return new URL("http://" + SERVER_HOST + ":" + WEB_PORT);
 			}
 		} catch (Exception var1) {
@@ -4300,6 +4312,21 @@ public class Client extends GameShell {
 			var2 = 0;
 		}
 		if (!this.menuVisible) {
+			// QoL: shift-click an inventory item to drop it instantly, bypassing whatever its
+			// normal default left-click action (and the drag-to-reorder handling below) would be.
+			if (var2 == 1 && super.actionKey[GameShell.KEY_SHIFT] == 1 && this.menuSize > 0) {
+				int dropIndex = -1;
+				for (int i = 0; i < this.menuSize; i++) {
+					if (this.menuAction[i] == 891) {
+						dropIndex = i;
+						break;
+					}
+				}
+				if (dropIndex != -1) {
+					this.useMenuOption(dropIndex);
+					return;
+				}
+			}
 			if (var2 == 1 && this.menuSize > 0) {
 				int var13 = this.menuAction[this.menuSize - 1];
 				if (var13 == 9 || var13 == 225 || var13 == 444 || var13 == 564 || var13 == 894 || var13 == 961 || var13 == 399 || var13 == 324 || var13 == 227 || var13 == 891 || var13 == 52 || var13 == 1094) {
@@ -4598,6 +4625,27 @@ public class Client extends GameShell {
 		}
 	}
 
+	// QoL: find the first "click here to continue" component (buttonType 6) anywhere under the
+	// given interface, so space bar can trigger it without needing the mouse to be hovering over
+	// it (mirrors the geometry-free part of what handleInterfaceInput() does for buttonType 6).
+	private int findContinueComponentId(Component com) {
+		if (com.children == null) {
+			return -1;
+		}
+		for (int i = 0; i < com.children.length; i++) {
+			Component child = Component.get(com.children[i]);
+			if (child.type == 0) {
+				int found = this.findContinueComponentId(child);
+				if (found != -1) {
+					return found;
+				}
+			} else if (child.buttonType == 6) {
+				return child.id;
+			}
+		}
+		return -1;
+	}
+
 	@ObfuscatedName("client.u(I)V")
 	public void updateEntityChats() {
 		for (int var2 = -1; var2 < this.playerCount; var2++) {
@@ -4658,11 +4706,33 @@ public class Client extends GameShell {
 			}
 			this.orbitCameraYaw = this.orbitCameraYawVelocity / 2 + this.orbitCameraYaw & 0x7FF;
 			this.orbitCameraPitch += this.orbitCameraPitchVelocity / 2;
+
+			// QoL: middle-mouse-drag camera rotation, on top of the arrow-key rotation above.
+			if (super.cameraDragDeltaX != 0 || super.cameraDragDeltaY != 0) {
+				this.orbitCameraYaw = this.orbitCameraYaw + super.cameraDragDeltaX * 2 & 0x7FF;
+				this.orbitCameraPitch -= super.cameraDragDeltaY * 2;
+				super.cameraDragDeltaX = 0;
+				super.cameraDragDeltaY = 0;
+			}
+
 			if (this.orbitCameraPitch < 128) {
 				this.orbitCameraPitch = 128;
 			}
 			if (this.orbitCameraPitch > 383) {
 				this.orbitCameraPitch = 383;
+			}
+
+			// QoL: scroll wheel camera zoom. Accumulate into cameraZoomOffset here (once per game
+			// tick); drawScene() folds it into the camera distance every frame.
+			if (super.mouseScrollDelta != 0) {
+				this.cameraZoomOffset -= super.mouseScrollDelta * 40;
+				super.mouseScrollDelta = 0;
+				if (this.cameraZoomOffset < -600) {
+					this.cameraZoomOffset = -600;
+				}
+				if (this.cameraZoomOffset > 900) {
+					this.cameraZoomOffset = 900;
+				}
 			}
 			int var5 = this.orbitCameraX >> 7;
 			int var6 = this.orbitCameraZ >> 7;
@@ -4806,6 +4876,11 @@ public class Client extends GameShell {
 						return;
 					}
 
+					// QoL: Escape closes whatever interface is currently open, regardless of state.
+					if (key == GameShell.KEY_ESCAPE) {
+						this.closeInterfaces();
+					}
+
 					if (this.viewportInterfaceId != -1 && this.reportAbuseInterfaceId == this.viewportInterfaceId) {
 						if (key == 8 && this.reportAbuseInput.length() > 0) {
 							this.reportAbuseInput = this.reportAbuseInput.substring(0, this.reportAbuseInput.length() - 1);
@@ -4933,6 +5008,26 @@ public class Client extends GameShell {
 						if (key == 8 && this.chatbackInput.length() > 0) {
 							this.chatbackInput = this.chatbackInput.substring(0, this.chatbackInput.length() - 1);
 							this.redrawChatback = true;
+						}
+					} else if (key == 9 && this.hasLastPmFrom) {
+						// QoL: Tab replies to whoever last sent you a PM
+						this.redrawChatback = true;
+						this.chatbackInputOpen = 0;
+						this.showSocialInput = true;
+						this.socialInput = "";
+						this.socialInputType = 3;
+						this.socialName37 = this.lastPmFrom37;
+						this.socialMessage = "Enter message to send to " + JString.formatDisplayName(JString.fromBase37(this.lastPmFrom37));
+					} else if (this.chatInterfaceId != -1 && key == 32) {
+						// QoL: space bar advances "click here to continue" dialogues
+						if (!this.pressedContinueOption) {
+							int continueComponentId = this.findContinueComponentId(Component.get(this.chatInterfaceId));
+							if (continueComponentId != -1) {
+								// RESUME_PAUSEBUTTON
+								this.out.p1isaac(226);
+								this.out.p2(continueComponentId);
+								this.pressedContinueOption = true;
+							}
 						}
 					} else if (this.chatInterfaceId == -1 && this.fullscreenInterfaceId0 == -1) {
 						if (key >= 32 && (key <= 122 || (this.chatTyped.startsWith("::") && key <= 126)) && this.chatTyped.length() < 80) {
@@ -6007,7 +6102,17 @@ public class Client extends GameShell {
 				var2 = this.cameraModifierWobbleScale[4] + 128;
 			}
 			int var3 = this.macroCameraAngle + this.orbitCameraYaw & 0x7FF;
-			this.orbitCamera(this.getHeightmapY(localPlayer.field1158, localPlayer.field1157, this.currentLevel) - 50, this.orbitCameraX, var2, var2 * 3 + 600, var3, this.orbitCameraZ);
+
+			// QoL: scroll wheel zoom folded into the normal pitch-based camera distance.
+			int var3zoom = var2 * 3 + 600 - this.cameraZoomOffset;
+			if (var3zoom < 200) {
+				var3zoom = 200;
+			}
+			if (var3zoom > 3000) {
+				var3zoom = 3000;
+			}
+
+			this.orbitCamera(this.getHeightmapY(localPlayer.field1158, localPlayer.field1157, this.currentLevel) - 50, this.orbitCameraX, var2, var3zoom, var3, this.orbitCameraZ);
 		}
 		int var4;
 		if (this.cutscene) {
@@ -7942,6 +8047,9 @@ public class Client extends GameShell {
 					try {
 						this.messageIds[this.privateMessageCount] = var93;
 						this.privateMessageCount = (this.privateMessageCount + 1) % 100;
+						// QoL: remember who sent this so Tab can reply to them
+						this.lastPmFrom37 = var91;
+						this.hasLastPmFrom = true;
 						String var98 = WordPack.method453(this.in, this.psize - 13);
 						if (var94 != 3) {
 							var98 = WordFilter.filter(var98);
