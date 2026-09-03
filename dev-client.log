@@ -3775,3 +3775,1846 @@
 [18:56:18.161] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
 [18:56:18.302] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
 [18:56:18.450] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[18:58:19.160] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[18:58:19.702] [ACTION] Drop Iron plateskirt | player=(3188,3427,0) | target=item id=1081 slot=12 (inventory, no world coords)
+[18:58:19.842] [ACTION] Drop Iron warhammer | player=(3188,3427,0) | target=item id=1335 slot=8 (inventory, no world coords)
+[18:58:19.965] [ACTION] Drop Iron battleaxe | player=(3188,3427,0) | target=item id=1363 slot=9 (inventory, no world coords)
+[18:58:20.113] [ACTION] Drop Iron 2h sword | player=(3188,3427,0) | target=item id=1309 slot=5 (inventory, no world coords)
+[18:58:20.268] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[18:58:20.704] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[18:58:20.880] [ACTION] Drop Iron longsword | player=(3188,3427,0) | target=item id=1293 slot=4 (inventory, no world coords)
+[18:58:21.019] [ACTION] Drop Iron dagger | player=(3188,3427,0) | target=item id=1203 slot=1 (inventory, no world coords)
+[18:58:21.183] [ACTION] Drop Iron sword | player=(3188,3427,0) | target=item id=1279 slot=2 (inventory, no world coords)
+[18:58:21.328] [ACTION] Drop Iron axe | player=(3188,3427,0) | target=item id=1349 slot=6 (inventory, no world coords)
+[18:58:21.491] [ACTION] Drop Iron chainbody | player=(3188,3427,0) | target=item id=1101 slot=10 (inventory, no world coords)
+[18:58:21.655] [ACTION] Drop Iron mace | player=(3188,3427,0) | target=item id=1420 slot=7 (inventory, no world coords)
+[18:58:21.799] [ACTION] Drop Iron platelegs | player=(3188,3427,0) | target=item id=1067 slot=11 (inventory, no world coords)
+[18:58:21.964] [ACTION] Drop Iron scimitar | player=(3188,3427,0) | target=item id=1323 slot=3 (inventory, no world coords)
+[18:58:26.035] [ACTION] Use Iron bar | player=(3188,3427,0) | target=? action=52 paramA=2351 paramB=1 paramC=3214
+[18:58:26.428] [ACTION] Use Iron bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[18:58:27.639] [ACTION] Make Iron platebody | player=(3188,3427,0) | target=? action=9 paramA=1115 paramB=3 paramC=1121
+[18:58:29.299] [CHAT] type=0 from="" msg="You hammer the iron and make a plate body."
+[18:58:31.575] [ACTION] Use Iron bar | player=(3188,3427,0) | target=? action=52 paramA=2351 paramB=6 paramC=3214
+[18:58:32.070] [ACTION] Use Iron bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[18:58:42.546] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[18:58:43.060] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[18:58:43.481] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[18:58:43.825] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[18:58:44.129] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[18:58:55.118] [ACTION] Make Iron med helm | player=(3188,3427,0) | target=? action=9 paramA=1137 paramB=0 paramC=1122
+[18:58:56.909] [CHAT] type=0 from="" msg="You hammer the iron and make a medium helmet."
+[18:58:56.967] [ACTION] Use Iron bar | player=(3188,3427,0) | target=? action=52 paramA=2351 paramB=7 paramC=3214
+[18:58:58.884] [ACTION] Use Iron bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[18:59:07.152] [ACTION] Make Iron full helm | player=(3188,3427,0) | target=? action=9 paramA=1153 paramB=1 paramC=1122
+[18:59:08.905] [CHAT] type=0 from="" msg="You hammer the iron and make a full helm."
+[18:59:15.271] [ACTION] Use Iron bar | player=(3188,3427,0) | target=? action=52 paramA=2351 paramB=9 paramC=3214
+[18:59:16.092] [ACTION] Use Iron bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[18:59:17.714] [ACTION] Make Iron sq shield | player=(3188,3427,0) | target=? action=9 paramA=1175 paramB=2 paramC=1122
+[18:59:19.106] [CHAT] type=0 from="" msg="You hammer the iron and make a square shield."
+[18:59:19.245] [ACTION] Use Iron bar | player=(3188,3427,0) | target=? action=52 paramA=2351 paramB=11 paramC=3214
+[18:59:21.331] [ACTION] Use Iron bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[18:59:22.575] [ACTION] Make Iron kiteshield | player=(3188,3427,0) | target=? action=9 paramA=1191 paramB=3 paramC=1122
+[18:59:23.919] [CHAT] type=0 from="" msg="You hammer the iron and make a kiteshield."
+[18:59:24.589] [ACTION] Use Iron bar | player=(3188,3427,0) | target=? action=52 paramA=2351 paramB=14 paramC=3214
+[18:59:27.788] [ACTION] Use Iron bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[18:59:30.578] [ACTION] Make Iron nails | player=(3188,3427,0) | target=? action=9 paramA=4820 paramB=4 paramC=1122
+[18:59:32.302] [CHAT] type=0 from="" msg="You hammer the iron and make fifteen iron nails."
+[18:59:40.980] [ACTION] Use Iron bar | player=(3188,3427,0) | target=? action=52 paramA=2351 paramB=15 paramC=3214
+[18:59:41.432] [ACTION] Use Iron bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[18:59:43.590] [ACTION] Make set Iron arrowtips | player=(3188,3427,0) | target=? action=9 paramA=40 paramB=1 paramC=1123
+[18:59:44.407] [ACTION] Use Iron bar | player=(3188,3427,0) | target=? action=52 paramA=2351 paramB=16 paramC=3214
+[18:59:44.913] [CHAT] type=0 from="" msg="You hammer the iron and make fifteen arrow heads."
+[18:59:46.851] [ACTION] Use Iron bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[18:59:48.184] [ACTION] Make set Iron knife | player=(3188,3427,0) | target=? action=9 paramA=863 paramB=2 paramC=1123
+[18:59:49.055] [ACTION] Use Iron bar | player=(3188,3427,0) | target=? action=52 paramA=2351 paramB=17 paramC=3214
+[18:59:49.705] [CHAT] type=0 from="" msg="You hammer the iron and make five throwing knives."
+[18:59:51.608] [ACTION] Use Iron bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[18:59:52.893] [ACTION] Make set Iron spit | player=(3188,3427,0) | target=? action=9 paramA=7225 paramB=3 paramC=1123
+[18:59:53.309] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[19:00:29.200] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[19:00:30.545] [ACTION] Drop Iron knife | player=(3188,3427,0) | target=item id=863 slot=8 (inventory, no world coords)
+[19:00:30.697] [ACTION] Drop Iron sq shield | player=(3188,3427,0) | target=item id=1175 slot=4 (inventory, no world coords)
+[19:00:30.846] [ACTION] Drop Iron kiteshield | player=(3188,3427,0) | target=item id=1191 slot=5 (inventory, no world coords)
+[19:00:31.018] [ACTION] Drop Iron platebody | player=(3188,3427,0) | target=item id=1115 slot=1 (inventory, no world coords)
+[19:00:31.731] [ACTION] Drop Iron med helm | player=(3188,3427,0) | target=item id=1137 slot=2 (inventory, no world coords)
+[19:00:31.887] [ACTION] Drop Iron nails | player=(3188,3427,0) | target=item id=4820 slot=6 (inventory, no world coords)
+[19:00:32.002] [ACTION] Drop Iron full helm | player=(3188,3427,0) | target=item id=1153 slot=3 (inventory, no world coords)
+[19:00:32.153] [ACTION] Drop Iron arrowtips | player=(3188,3427,0) | target=item id=40 slot=7 (inventory, no world coords)
+[19:00:32.423] [ACTION] Drop Iron bar | player=(3188,3427,0) | target=item id=2351 slot=19 (inventory, no world coords)
+[19:00:32.601] [ACTION] Drop Iron bar | player=(3188,3427,0) | target=item id=2351 slot=18 (inventory, no world coords)
+[19:00:32.786] [ACTION] Drop Iron bar | player=(3188,3427,0) | target=item id=2351 slot=17 (inventory, no world coords)
+[19:00:33.005] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[19:00:33.211] [ACTION] Drop Iron bar | player=(3188,3427,0) | target=item id=2351 slot=21 (inventory, no world coords)
+[19:00:33.556] [ACTION] Drop Iron bar | player=(3188,3427,0) | target=item id=2351 slot=20 (inventory, no world coords)
+[19:00:33.729] [ACTION] Drop Iron bar | player=(3188,3427,0) | target=item id=2351 slot=24 (inventory, no world coords)
+[19:00:33.889] [ACTION] Drop Iron bar | player=(3188,3427,0) | target=item id=2351 slot=25 (inventory, no world coords)
+[19:00:34.026] [ACTION] Drop Iron bar | player=(3188,3427,0) | target=item id=2351 slot=22 (inventory, no world coords)
+[19:00:34.174] [ACTION] Drop Iron bar | player=(3188,3427,0) | target=item id=2351 slot=26 (inventory, no world coords)
+[19:00:34.492] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[19:00:34.646] [ACTION] Drop Iron bar | player=(3188,3427,0) | target=item id=2351 slot=27 (inventory, no world coords)
+[19:00:34.844] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[19:00:35.124] [ACTION] Drop Iron bar | player=(3188,3427,0) | target=item id=2351 slot=23 (inventory, no world coords)
+[19:02:23.863] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[19:02:25.477] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[19:03:50.723] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[19:03:54.549] [CHAT] type=2 from="@cr2@Corey" msg=":;Give steel bar 99"
+[19:04:00.230] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=4 paramC=3214
+[19:04:01.025] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[19:04:02.003] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=6 paramC=3214
+[19:04:02.680] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[19:04:03.214] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=4 paramC=3214
+[19:04:03.795] [ACTION] Use Steel bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:04:22.450] [ACTION] Make Steel dagger | player=(3188,3427,0) | target=? action=9 paramA=1207 paramB=0 paramC=1119
+[19:04:23.898] [CHAT] type=0 from="" msg="You hammer the steel and make a dagger."
+[19:04:24.263] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=2 paramC=3214
+[19:04:28.056] [ACTION] Use Steel bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:04:28.983] [ACTION] Make Steel sword | player=(3188,3427,0) | target=? action=9 paramA=1281 paramB=1 paramC=1119
+[19:04:30.356] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=3 paramC=3214
+[19:04:30.501] [CHAT] type=0 from="" msg="You hammer the steel and make a sword."
+[19:04:33.492] [ACTION] Use Steel bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:04:34.694] [ACTION] Make Steel scimitar | player=(3188,3427,0) | target=? action=9 paramA=1325 paramB=2 paramC=1119
+[19:04:36.487] [CHAT] type=0 from="" msg="You hammer the steel and make a scimitar."
+[19:04:41.498] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=5 paramC=3214
+[19:04:42.089] [ACTION] Use Steel bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:04:43.594] [ACTION] Make Steel longsword | player=(3188,3427,0) | target=? action=9 paramA=1295 paramB=3 paramC=1119
+[19:04:44.893] [CHAT] type=0 from="" msg="You hammer the steel and make a longsword."
+[19:04:45.277] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=7 paramC=3214
+[19:04:46.801] [ACTION] Use Steel bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:04:48.075] [ACTION] Make Steel 2h sword | player=(3188,3427,0) | target=? action=9 paramA=1311 paramB=4 paramC=1119
+[19:04:49.497] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=10 paramC=3214
+[19:04:49.700] [CHAT] type=0 from="" msg="You hammer the steel and make a two handed sword."
+[19:04:51.983] [ACTION] Use Steel bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:04:53.149] [ACTION] Make Steel axe | player=(3188,3427,0) | target=? action=9 paramA=1353 paramB=0 paramC=1120
+[19:04:54.495] [CHAT] type=0 from="" msg="You hammer the steel and make an axe."
+[19:04:55.921] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=11 paramC=3214
+[19:04:56.471] [ACTION] Use Steel bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:04:57.927] [ACTION] Make Steel mace | player=(3188,3427,0) | target=? action=9 paramA=1424 paramB=1 paramC=1120
+[19:04:59.051] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=12 paramC=3214
+[19:04:59.295] [CHAT] type=0 from="" msg="You hammer the steel and make a mace."
+[19:05:01.215] [ACTION] Use Steel bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:05:03.377] [ACTION] Make Steel warhammer | player=(3188,3427,0) | target=? action=9 paramA=1339 paramB=2 paramC=1120
+[19:05:04.372] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=15 paramC=3214
+[19:05:04.699] [CHAT] type=0 from="" msg="You hammer the steel and make a warhammer."
+[19:05:06.563] [ACTION] Use Steel bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:05:08.407] [ACTION] Make Steel battleaxe | player=(3188,3427,0) | target=? action=9 paramA=1365 paramB=3 paramC=1120
+[19:05:09.505] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=18 paramC=3214
+[19:05:10.099] [CHAT] type=0 from="" msg="You hammer the steel and make a battleaxe."
+[19:05:11.792] [ACTION] Use Steel bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:05:13.531] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=18 paramC=3214
+[19:05:14.030] [ACTION] Use Steel bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:05:15.064] [ACTION] Make Steel chainbody | player=(3188,3427,0) | target=? action=9 paramA=1105 paramB=0 paramC=1121
+[19:05:16.106] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=21 paramC=3214
+[19:05:16.686] [CHAT] type=0 from="" msg="You hammer the steel and make a chain mail body."
+[19:05:18.986] [ACTION] Use Steel bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:05:20.084] [ACTION] Make Steel platelegs | player=(3188,3427,0) | target=? action=9 paramA=1069 paramB=1 paramC=1121
+[19:05:21.042] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=23 paramC=3214
+[19:05:21.464] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[19:05:21.487] [CHAT] type=0 from="" msg="You hammer the steel and make a pair of plate legs."
+[19:05:22.145] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[19:05:22.414] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=24 paramC=3214
+[19:05:23.922] [ACTION] Use Steel bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:05:25.184] [ACTION] Make Steel plateskirt | player=(3188,3427,0) | target=? action=9 paramA=1083 paramB=2 paramC=1121
+[19:05:26.893] [CHAT] type=0 from="" msg="You hammer the steel and make a plate skirt."
+[19:05:30.275] [ACTION] Drop Steel plateskirt | player=(3188,3427,0) | target=item id=1083 slot=12 (inventory, no world coords)
+[19:05:30.467] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[19:05:30.676] [ACTION] Drop Steel battleaxe | player=(3188,3427,0) | target=item id=1365 slot=9 (inventory, no world coords)
+[19:05:30.840] [ACTION] Drop Steel 2h sword | player=(3188,3427,0) | target=item id=1311 slot=5 (inventory, no world coords)
+[19:05:31.101] [ACTION] Drop Steel longsword | player=(3188,3427,0) | target=item id=1295 slot=4 (inventory, no world coords)
+[19:05:31.248] [ACTION] Drop Steel warhammer | player=(3188,3427,0) | target=item id=1339 slot=8 (inventory, no world coords)
+[19:05:31.447] [ACTION] Drop Steel dagger | player=(3188,3427,0) | target=item id=1207 slot=1 (inventory, no world coords)
+[19:05:31.675] [ACTION] Drop Steel sword | player=(3188,3427,0) | target=item id=1281 slot=2 (inventory, no world coords)
+[19:05:31.883] [ACTION] Drop Steel axe | player=(3188,3427,0) | target=item id=1353 slot=6 (inventory, no world coords)
+[19:05:33.273] [ACTION] Drop Steel chainbody | player=(3188,3427,0) | target=item id=1105 slot=10 (inventory, no world coords)
+[19:05:33.432] [ACTION] Drop Steel mace | player=(3188,3427,0) | target=item id=1424 slot=7 (inventory, no world coords)
+[19:05:33.578] [ACTION] Drop Steel platelegs | player=(3188,3427,0) | target=item id=1069 slot=11 (inventory, no world coords)
+[19:05:33.757] [ACTION] Drop Steel scimitar | player=(3188,3427,0) | target=item id=1325 slot=3 (inventory, no world coords)
+[19:05:34.158] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[19:05:34.565] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=1 paramC=3214
+[19:05:35.022] [ACTION] Use Steel bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:05:36.495] [ACTION] Make Steel platebody | player=(3188,3427,0) | target=? action=9 paramA=1119 paramB=3 paramC=1121
+[19:05:37.852] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=8 paramC=3214
+[19:05:38.309] [CHAT] type=0 from="" msg="You hammer the steel and make a plate body."
+[19:05:40.056] [ACTION] Use Steel bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:05:41.267] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[19:05:41.645] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=8 paramC=3214
+[19:05:42.136] [ACTION] Use Steel bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:05:43.474] [ACTION] Make Steel med helm | player=(3188,3427,0) | target=? action=9 paramA=1141 paramB=0 paramC=1122
+[19:05:44.902] [CHAT] type=0 from="" msg="You hammer the steel and make a medium helmet."
+[19:05:45.474] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=9 paramC=3214
+[19:05:47.066] [ACTION] Use Steel bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:05:48.030] [ACTION] Make Steel full helm | player=(3188,3427,0) | target=? action=9 paramA=1157 paramB=1 paramC=1122
+[19:05:48.925] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=13 paramC=3214
+[19:05:49.701] [CHAT] type=0 from="" msg="You hammer the steel and make a full helm."
+[19:05:51.703] [ACTION] Use Steel bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:05:52.820] [ACTION] Make Steel sq shield | player=(3188,3427,0) | target=? action=9 paramA=1177 paramB=2 paramC=1122
+[19:05:54.190] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=15 paramC=3214
+[19:05:54.512] [CHAT] type=0 from="" msg="You hammer the steel and make a square shield."
+[19:05:56.269] [ACTION] Use Steel bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:05:57.878] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=15 paramC=3214
+[19:05:58.296] [ACTION] Use Steel bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:05:59.574] [ACTION] Make Steel kiteshield | player=(3188,3427,0) | target=? action=9 paramA=1193 paramB=3 paramC=1122
+[19:06:00.402] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=18 paramC=3214
+[19:06:01.111] [CHAT] type=0 from="" msg="You hammer the steel and make a kiteshield."
+[19:06:03.487] [ACTION] Use Steel bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:06:05.872] [ACTION] Make Steel nails | player=(3188,3427,0) | target=? action=9 paramA=1539 paramB=4 paramC=1122
+[19:06:07.100] [CHAT] type=0 from="" msg="You hammer the steel and make fifteen steel nails."
+[19:06:07.643] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=19 paramC=3214
+[19:06:09.496] [ACTION] Use Steel bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:06:10.748] [ACTION] Make set Steel dart tip | player=(3188,3427,0) | target=? action=9 paramA=821 paramB=0 paramC=1123
+[19:06:11.596] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=19 paramC=3214
+[19:06:12.084] [ACTION] Use Steel bar with Steel plateskirt | player=(3188,3427,0) | target=? action=100 paramA=1083 paramB=28 paramC=51
+[19:06:12.499] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[19:06:13.206] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[19:06:13.542] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=19 paramC=3214
+[19:06:14.119] [ACTION] Use Steel bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:06:15.013] [ACTION] Make set Steel arrowtips | player=(3188,3427,0) | target=? action=9 paramA=41 paramB=1 paramC=1123
+[19:06:15.887] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=20 paramC=3214
+[19:06:16.702] [CHAT] type=0 from="" msg="You hammer the steel and make fifteen arrow heads."
+[19:06:19.015] [ACTION] Use Steel bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:06:19.837] [ACTION] Make set Steel knife | player=(3188,3427,0) | target=? action=9 paramA=865 paramB=2 paramC=1123
+[19:06:20.729] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=21 paramC=3214
+[19:06:21.489] [CHAT] type=0 from="" msg="You hammer the steel and make five throwing knives."
+[19:06:23.698] [ACTION] Use Steel bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:06:24.747] [ACTION] Make set Steel studs | player=(3188,3427,0) | target=? action=9 paramA=2370 paramB=3 paramC=1123
+[19:06:26.066] [ACTION] Use Steel bar | player=(3188,3427,0) | target=? action=52 paramA=2353 paramB=22 paramC=3214
+[19:06:26.300] [CHAT] type=0 from="" msg="You hammer the steel and make set of studs."
+[19:06:28.181] [ACTION] Use Steel bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:06:29.238] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[19:06:29.914] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[19:06:30.381] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[19:06:30.675] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[19:07:06.612] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[19:07:06.812] [ACTION] Close | player=(3188,3427,0) | target=? action=639 paramA=865 paramB=2 paramC=1084
+[19:07:07.701] [ACTION] Drop Hammer | player=(3188,3427,0) | target=item id=2347 slot=0 (inventory, no world coords)
+[19:07:09.026] [ACTION] Take Hammer | player=(3188,3427,0) | target=? action=684 paramA=2347 paramB=28 paramC=51
+[19:07:09.557] [ACTION] Drop Steel sq shield | player=(3188,3427,0) | target=item id=1177 slot=4 (inventory, no world coords)
+[19:07:09.698] [ACTION] Drop Steel knife | player=(3188,3427,0) | target=item id=865 slot=8 (inventory, no world coords)
+[19:07:09.838] [ACTION] Drop Steel kiteshield | player=(3188,3427,0) | target=item id=1193 slot=5 (inventory, no world coords)
+[19:07:09.980] [ACTION] Drop Steel studs | player=(3188,3427,0) | target=item id=2370 slot=9 (inventory, no world coords)
+[19:07:10.121] [ACTION] Drop Steel platebody | player=(3188,3427,0) | target=item id=1119 slot=1 (inventory, no world coords)
+[19:07:10.286] [ACTION] Drop Steel med helm | player=(3188,3427,0) | target=item id=1141 slot=2 (inventory, no world coords)
+[19:07:10.432] [ACTION] Drop Steel nails | player=(3188,3427,0) | target=item id=1539 slot=6 (inventory, no world coords)
+[19:07:10.577] [ACTION] Drop Steel full helm | player=(3188,3427,0) | target=item id=1157 slot=3 (inventory, no world coords)
+[19:07:10.697] [ACTION] Drop Steel arrowtips | player=(3188,3427,0) | target=item id=41 slot=7 (inventory, no world coords)
+[19:07:11.137] [ACTION] Drop Steel bar | player=(3188,3427,0) | target=item id=2353 slot=22 (inventory, no world coords)
+[19:07:11.285] [ACTION] Drop Steel bar | player=(3188,3427,0) | target=item id=2353 slot=23 (inventory, no world coords)
+[19:07:11.427] [ACTION] Drop Steel bar | player=(3188,3427,0) | target=item id=2353 slot=27 (inventory, no world coords)
+[19:07:11.587] [ACTION] Drop Steel bar | player=(3188,3427,0) | target=item id=2353 slot=26 (inventory, no world coords)
+[19:07:11.755] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[19:07:11.916] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[19:07:12.080] [ACTION] Drop Steel bar | player=(3188,3427,0) | target=item id=2353 slot=24 (inventory, no world coords)
+[19:07:12.246] [ACTION] Drop Steel bar | player=(3188,3427,0) | target=item id=2353 slot=24 (inventory, no world coords)
+[19:07:12.429] [ACTION] Drop Steel bar | player=(3188,3427,0) | target=item id=2353 slot=25 (inventory, no world coords)
+[19:07:13.142] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[19:07:31.746] [ACTION] Use Mithril bar | player=(3188,3427,0) | target=? action=52 paramA=2359 paramB=1 paramC=3214
+[19:07:32.280] [ACTION] Use Mithril bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:07:34.005] [ACTION] Make Mithril dagger | player=(3188,3427,0) | target=? action=9 paramA=1209 paramB=0 paramC=1119
+[19:07:35.318] [CHAT] type=0 from="" msg="You hammer the mithril and make a dagger."
+[19:07:35.477] [ACTION] Use Mithril bar | player=(3188,3427,0) | target=? action=52 paramA=2359 paramB=2 paramC=3214
+[19:07:37.419] [ACTION] Use Mithril bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:07:38.391] [ACTION] Make Mithril sword | player=(3188,3427,0) | target=? action=9 paramA=1285 paramB=1 paramC=1119
+[19:07:39.422] [ACTION] Use Mithril bar | player=(3188,3427,0) | target=? action=52 paramA=2359 paramB=3 paramC=3214
+[19:07:40.107] [CHAT] type=0 from="" msg="You hammer the mithril and make a sword."
+[19:07:41.839] [ACTION] Use Mithril bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:07:43.257] [ACTION] Use Mithril bar | player=(3188,3427,0) | target=? action=52 paramA=2359 paramB=3 paramC=3214
+[19:07:43.680] [ACTION] Use Mithril bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:07:44.879] [ACTION] Make Mithril scimitar | player=(3188,3427,0) | target=? action=9 paramA=1329 paramB=2 paramC=1119
+[19:07:46.103] [ACTION] Use Mithril bar | player=(3188,3427,0) | target=? action=52 paramA=2359 paramB=5 paramC=3214
+[19:07:46.708] [CHAT] type=0 from="" msg="You hammer the mithril and make a scimitar."
+[19:07:48.656] [ACTION] Use Mithril bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:07:50.185] [ACTION] Make Mithril longsword | player=(3188,3427,0) | target=? action=9 paramA=1299 paramB=3 paramC=1119
+[19:07:51.230] [ACTION] Use Mithril bar | player=(3188,3427,0) | target=? action=52 paramA=2359 paramB=7 paramC=3214
+[19:07:51.509] [CHAT] type=0 from="" msg="You hammer the mithril and make a longsword."
+[19:07:53.358] [ACTION] Use Mithril bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:07:54.323] [ACTION] Make Mithril 2h sword | player=(3188,3427,0) | target=? action=9 paramA=1315 paramB=4 paramC=1119
+[19:07:55.716] [CHAT] type=0 from="" msg="You hammer the mithril and make a two handed sword."
+[19:07:56.011] [ACTION] Use Mithril bar | player=(3188,3427,0) | target=? action=52 paramA=2359 paramB=10 paramC=3214
+[19:07:57.634] [ACTION] Use Mithril bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:07:58.803] [ACTION] Make Mithril axe | player=(3188,3427,0) | target=? action=9 paramA=1355 paramB=0 paramC=1120
+[19:07:59.689] [ACTION] Use Mithril bar | player=(3188,3427,0) | target=? action=52 paramA=2359 paramB=11 paramC=3214
+[19:08:00.496] [CHAT] type=0 from="" msg="You hammer the mithril and make an axe."
+[19:08:02.439] [ACTION] Use Mithril bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:08:03.448] [ACTION] Make Mithril mace | player=(3188,3427,0) | target=? action=9 paramA=1428 paramB=1 paramC=1120
+[19:08:04.194] [ACTION] Use Mithril bar | player=(3188,3427,0) | target=? action=52 paramA=2359 paramB=12 paramC=3214
+[19:08:04.705] [CHAT] type=0 from="" msg="You hammer the mithril and make a mace."
+[19:08:06.465] [ACTION] Use Mithril bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:08:07.778] [ACTION] Use Mithril bar | player=(3188,3427,0) | target=? action=52 paramA=2359 paramB=12 paramC=3214
+[19:08:08.213] [ACTION] Use Mithril bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:08:09.013] [ACTION] Make Mithril warhammer | player=(3188,3427,0) | target=? action=9 paramA=1343 paramB=2 paramC=1120
+[19:08:10.696] [CHAT] type=0 from="" msg="You hammer the mithril and make a warhammer."
+[19:08:11.289] [ACTION] Use Mithril bar | player=(3188,3427,0) | target=? action=52 paramA=2359 paramB=15 paramC=3214
+[19:08:13.512] [ACTION] Use Mithril bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:08:14.436] [ACTION] Make Mithril battleaxe | player=(3188,3427,0) | target=? action=9 paramA=1369 paramB=3 paramC=1120
+[19:08:16.049] [ACTION] Use Mithril bar | player=(3188,3427,0) | target=? action=52 paramA=2359 paramB=18 paramC=3214
+[19:08:16.106] [CHAT] type=0 from="" msg="You hammer the mithril and make a battleaxe."
+[19:08:19.048] [ACTION] Use Mithril bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:08:19.836] [ACTION] Make Mithril chainbody | player=(3188,3427,0) | target=? action=9 paramA=1109 paramB=0 paramC=1121
+[19:08:21.486] [CHAT] type=0 from="" msg="You hammer the mithril and make a chain mail body."
+[19:08:22.146] [ACTION] Use Mithril bar | player=(3188,3427,0) | target=? action=52 paramA=2359 paramB=21 paramC=3214
+[19:08:23.645] [ACTION] Use Mithril bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:08:24.474] [ACTION] Make Mithril platelegs | player=(3188,3427,0) | target=? action=9 paramA=1071 paramB=1 paramC=1121
+[19:08:25.920] [ACTION] Use Mithril bar | player=(3188,3427,0) | target=? action=52 paramA=2359 paramB=25 paramC=3214
+[19:08:26.290] [CHAT] type=0 from="" msg="You hammer the mithril and make a pair of plate legs."
+[19:08:28.896] [ACTION] Use Mithril bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:08:29.997] [ACTION] Make Mithril plateskirt | player=(3188,3427,0) | target=? action=9 paramA=1085 paramB=2 paramC=1121
+[19:08:31.698] [CHAT] type=0 from="" msg="You hammer the mithril and make a plate skirt."
+[19:08:34.576] [ACTION] Drop Mithril plateskirt | player=(3188,3427,0) | target=item id=1085 slot=12 (inventory, no world coords)
+[19:08:34.732] [ACTION] Drop Mithril warhammer | player=(3188,3427,0) | target=item id=1343 slot=8 (inventory, no world coords)
+[19:08:34.876] [ACTION] Drop Mithril battleaxe | player=(3188,3427,0) | target=item id=1369 slot=9 (inventory, no world coords)
+[19:08:34.996] [ACTION] Drop Mithril 2h sword | player=(3188,3427,0) | target=item id=1315 slot=5 (inventory, no world coords)
+[19:08:35.138] [ACTION] Drop Mithril longsword | player=(3188,3427,0) | target=item id=1299 slot=4 (inventory, no world coords)
+[19:08:36.274] [ACTION] Drop Mithril dagger | player=(3188,3427,0) | target=item id=1209 slot=1 (inventory, no world coords)
+[19:08:36.411] [ACTION] Drop Mithril sword | player=(3188,3427,0) | target=item id=1285 slot=2 (inventory, no world coords)
+[19:08:36.592] [ACTION] Drop Mithril axe | player=(3188,3427,0) | target=item id=1355 slot=6 (inventory, no world coords)
+[19:08:36.737] [ACTION] Drop Mithril chainbody | player=(3188,3427,0) | target=item id=1109 slot=10 (inventory, no world coords)
+[19:08:36.883] [ACTION] Drop Mithril mace | player=(3188,3427,0) | target=item id=1428 slot=7 (inventory, no world coords)
+[19:08:37.021] [ACTION] Drop Mithril platelegs | player=(3188,3427,0) | target=item id=1071 slot=11 (inventory, no world coords)
+[19:08:37.169] [ACTION] Drop Mithril scimitar | player=(3188,3427,0) | target=item id=1329 slot=3 (inventory, no world coords)
+[19:08:37.685] [ACTION] Use Mithril bar | player=(3188,3427,0) | target=? action=52 paramA=2359 paramB=5 paramC=3214
+[19:08:38.141] [ACTION] Use Mithril bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:08:39.267] [ACTION] Make Mithril platebody | player=(3188,3427,0) | target=? action=9 paramA=1121 paramB=3 paramC=1121
+[19:08:40.684] [CHAT] type=0 from="" msg="You hammer the mithril and make a plate body."
+[19:08:40.750] [ACTION] Use Mithril bar | player=(3188,3427,0) | target=? action=52 paramA=2359 paramB=13 paramC=3214
+[19:08:42.586] [ACTION] Use Mithril bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:08:44.046] [ACTION] Make Mithril med helm | player=(3188,3427,0) | target=? action=9 paramA=1143 paramB=0 paramC=1122
+[19:08:44.859] [ACTION] Use Mithril bar | player=(3188,3427,0) | target=? action=52 paramA=2359 paramB=14 paramC=3214
+[19:08:45.487] [CHAT] type=0 from="" msg="You hammer the mithril and make a medium helmet."
+[19:08:46.959] [ACTION] Use Mithril bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:08:48.121] [ACTION] Use Mithril bar | player=(3188,3427,0) | target=? action=52 paramA=2359 paramB=14 paramC=3214
+[19:08:48.729] [ACTION] Use Mithril bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:08:49.711] [ACTION] Make Mithril full helm | player=(3188,3427,0) | target=? action=9 paramA=1159 paramB=1 paramC=1122
+[19:08:50.552] [ACTION] Use Mithril bar | player=(3188,3427,0) | target=? action=52 paramA=2359 paramB=16 paramC=3214
+[19:08:51.497] [CHAT] type=0 from="" msg="You hammer the mithril and make a full helm."
+[19:08:53.185] [ACTION] Use Mithril bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:08:54.420] [ACTION] Use Mithril bar | player=(3188,3427,0) | target=? action=52 paramA=2359 paramB=16 paramC=3214
+[19:08:55.056] [ACTION] Use Mithril bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:08:56.082] [ACTION] Make Mithril sq shield | player=(3188,3427,0) | target=? action=9 paramA=1181 paramB=2 paramC=1122
+[19:08:57.181] [ACTION] Use Mithril bar | player=(3188,3427,0) | target=? action=52 paramA=2359 paramB=18 paramC=3214
+[19:08:57.491] [CHAT] type=0 from="" msg="You hammer the mithril and make a square shield."
+[19:09:00.298] [ACTION] Use Mithril bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:09:01.566] [ACTION] Make Mithril kiteshield | player=(3188,3427,0) | target=? action=9 paramA=1197 paramB=3 paramC=1122
+[19:09:02.580] [ACTION] Use Mithril bar | player=(3188,3427,0) | target=? action=52 paramA=2359 paramB=21 paramC=3214
+[19:09:02.897] [CHAT] type=0 from="" msg="You hammer the mithril and make a kiteshield."
+[19:09:05.542] [ACTION] Use Mithril bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:09:06.496] [ACTION] Make Mithril nails | player=(3188,3427,0) | target=? action=9 paramA=4822 paramB=4 paramC=1122
+[19:09:07.942] [ACTION] Use Mithril bar | player=(3188,3427,0) | target=? action=52 paramA=2359 paramB=22 paramC=3214
+[19:09:08.278] [CHAT] type=0 from="" msg="You hammer the mithril and make fifteen mithril nails."
+[19:09:10.350] [ACTION] Use Mithril bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:09:11.939] [ACTION] Make set Mithril arrowtips | player=(3188,3427,0) | target=? action=9 paramA=42 paramB=1 paramC=1123
+[19:09:12.896] [ACTION] Use Mithril bar | player=(3188,3427,0) | target=? action=52 paramA=2359 paramB=23 paramC=3214
+[19:09:13.684] [CHAT] type=0 from="" msg="You hammer the mithril and make fifteen arrow heads."
+[19:09:15.525] [ACTION] Use Mithril bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:09:16.883] [ACTION] Make set Mithril knife | player=(3188,3427,0) | target=? action=9 paramA=866 paramB=2 paramC=1123
+[19:09:18.493] [CHAT] type=0 from="" msg="You hammer the mithril and make five throwing knives."
+[19:09:19.233] [ACTION] Drop Mithril sq shield | player=(3188,3427,0) | target=item id=1181 slot=4 (inventory, no world coords)
+[19:09:19.412] [ACTION] Drop Mithril knife | player=(3188,3427,0) | target=item id=866 slot=8 (inventory, no world coords)
+[19:09:19.577] [ACTION] Drop Mithril kiteshield | player=(3188,3427,0) | target=item id=1197 slot=5 (inventory, no world coords)
+[19:09:19.759] [ACTION] Drop Mithril platebody | player=(3188,3427,0) | target=item id=1121 slot=1 (inventory, no world coords)
+[19:09:19.932] [ACTION] Drop Mithril med helm | player=(3188,3427,0) | target=item id=1143 slot=2 (inventory, no world coords)
+[19:09:20.073] [ACTION] Drop Mithril nails | player=(3188,3427,0) | target=item id=4822 slot=6 (inventory, no world coords)
+[19:09:20.224] [ACTION] Drop Mithril full helm | player=(3188,3427,0) | target=item id=1159 slot=3 (inventory, no world coords)
+[19:09:20.372] [ACTION] Drop Mithril arrowtips | player=(3188,3427,0) | target=item id=42 slot=7 (inventory, no world coords)
+[19:09:20.906] [ACTION] Drop Mithril bar | player=(3188,3427,0) | target=item id=2359 slot=27 (inventory, no world coords)
+[19:09:21.079] [ACTION] Drop Mithril bar | player=(3188,3427,0) | target=item id=2359 slot=27 (inventory, no world coords)
+[19:09:21.288] [ACTION] Drop Mithril bar | player=(3188,3427,0) | target=item id=2359 slot=26 (inventory, no world coords)
+[19:09:21.480] [ACTION] Drop Mithril bar | player=(3188,3427,0) | target=item id=2359 slot=25 (inventory, no world coords)
+[19:09:21.660] [ACTION] Drop Mithril bar | player=(3188,3427,0) | target=item id=2359 slot=24 (inventory, no world coords)
+[19:09:21.850] [ACTION] Drop Mithril bar | player=(3188,3427,0) | target=item id=2359 slot=24 (inventory, no world coords)
+[19:09:22.157] [ACTION] Drop Mithril knife | player=(3188,3427,0) | target=item id=866 slot=8 (inventory, no world coords)
+[19:09:22.409] [ACTION] Drop Mithril sq shield | player=(3188,3427,0) | target=item id=1181 slot=4 (inventory, no world coords)
+[19:09:22.557] [ACTION] Drop Mithril kiteshield | player=(3188,3427,0) | target=item id=1197 slot=5 (inventory, no world coords)
+[19:09:22.720] [ACTION] Drop Mithril platebody | player=(3188,3427,0) | target=item id=1121 slot=1 (inventory, no world coords)
+[19:09:22.867] [ACTION] Drop Mithril med helm | player=(3188,3427,0) | target=item id=1143 slot=2 (inventory, no world coords)
+[19:09:23.032] [ACTION] Drop Mithril nails | player=(3188,3427,0) | target=item id=4822 slot=6 (inventory, no world coords)
+[19:09:23.172] [ACTION] Drop Mithril full helm | player=(3188,3427,0) | target=item id=1159 slot=3 (inventory, no world coords)
+[19:09:34.660] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[19:09:52.943] [ACTION] Use Adamantite bar | player=(3188,3427,0) | target=? action=52 paramA=2361 paramB=9 paramC=3214
+[19:09:53.513] [ACTION] Use Adamantite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:09:54.968] [ACTION] Make Adamant dagger | player=(3188,3427,0) | target=? action=9 paramA=1211 paramB=0 paramC=1119
+[19:09:55.941] [ACTION] Use Adamantite bar | player=(3188,3427,0) | target=? action=52 paramA=2361 paramB=2 paramC=3214
+[19:09:56.290] [CHAT] type=0 from="" msg="You hammer the adamantite and make a dagger."
+[19:09:58.436] [ACTION] Use Adamantite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:09:59.208] [ACTION] Make Adamant sword | player=(3188,3427,0) | target=? action=9 paramA=1287 paramB=1 paramC=1119
+[19:09:59.952] [ACTION] Use Adamantite bar | player=(3188,3427,0) | target=? action=52 paramA=2361 paramB=3 paramC=3214
+[19:10:00.497] [CHAT] type=0 from="" msg="You hammer the adamantite and make a sword."
+[19:10:02.475] [ACTION] Use Adamantite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:10:03.551] [ACTION] Make Adamant scimitar | player=(3188,3427,0) | target=? action=9 paramA=1331 paramB=2 paramC=1119
+[19:10:04.892] [ACTION] Use Adamantite bar | player=(3188,3427,0) | target=? action=52 paramA=2361 paramB=5 paramC=3214
+[19:10:05.289] [CHAT] type=0 from="" msg="You hammer the adamantite and make a scimitar."
+[19:10:07.647] [ACTION] Use Adamantite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:10:08.633] [ACTION] Make Adamant longsword | player=(3188,3427,0) | target=? action=9 paramA=1301 paramB=3 paramC=1119
+[19:10:09.938] [ACTION] Use Adamantite bar | player=(3188,3427,0) | target=? action=52 paramA=2361 paramB=8 paramC=3214
+[19:10:10.080] [CHAT] type=0 from="" msg="You hammer the adamantite and make a longsword."
+[19:10:12.201] [ACTION] Use Adamantite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:10:13.374] [ACTION] Make Adamant 2h sword | player=(3188,3427,0) | target=? action=9 paramA=1317 paramB=4 paramC=1119
+[19:10:14.435] [ACTION] Use Adamantite bar | player=(3188,3427,0) | target=? action=52 paramA=2361 paramB=10 paramC=3214
+[19:10:14.889] [CHAT] type=0 from="" msg="You hammer the adamantite and make a two handed sword."
+[19:10:16.386] [ACTION] Use Adamantite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:10:17.783] [ACTION] Use Adamantite bar | player=(3188,3427,0) | target=? action=52 paramA=2361 paramB=10 paramC=3214
+[19:10:18.183] [ACTION] Use Adamantite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:10:18.969] [ACTION] Make Adamant axe | player=(3188,3427,0) | target=? action=9 paramA=1357 paramB=0 paramC=1120
+[19:10:19.999] [ACTION] Use Adamantite bar | player=(3188,3427,0) | target=? action=52 paramA=2361 paramB=11 paramC=3214
+[19:10:20.282] [CHAT] type=0 from="" msg="You hammer the adamantite and make an axe."
+[19:10:22.709] [ACTION] Use Adamantite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:10:24.056] [ACTION] Make Adamant mace | player=(3188,3427,0) | target=? action=9 paramA=1430 paramB=1 paramC=1120
+[19:10:24.974] [ACTION] Use Adamantite bar | player=(3188,3427,0) | target=? action=52 paramA=2361 paramB=14 paramC=3214
+[19:10:25.691] [CHAT] type=0 from="" msg="You hammer the adamantite and make a mace."
+[19:10:27.967] [ACTION] Use Adamantite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:10:30.324] [ACTION] Make Addy warhammer | player=(3188,3427,0) | target=? action=9 paramA=1345 paramB=2 paramC=1120
+[19:10:31.079] [ACTION] Use Adamantite bar | player=(3188,3427,0) | target=? action=52 paramA=2361 paramB=15 paramC=3214
+[19:10:31.686] [CHAT] type=0 from="" msg="You hammer the adamantite and make a warhammer."
+[19:10:34.592] [ACTION] Use Adamantite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[19:10:35.743] [ACTION] Make Adamant battleaxe | player=(3188,3427,0) | target=? action=9 paramA=1371 paramB=3 paramC=1120
+[19:10:37.072] [CHAT] type=0 from="" msg="You hammer the adamantite and make a battleaxe."
+[20:07:24.479] [ACTION] Use Adamantite bar | player=(3188,3427,0) | target=? action=52 paramA=2361 paramB=18 paramC=3214
+[20:07:25.153] [ACTION] Use Adamantite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:07:27.092] [ACTION] Make Adamant chainbody | player=(3188,3427,0) | target=? action=9 paramA=1111 paramB=0 paramC=1121
+[20:07:28.058] [ACTION] Use Adamantite bar | player=(3188,3427,0) | target=? action=52 paramA=2361 paramB=21 paramC=3214
+[20:07:28.463] [CHAT] type=0 from="" msg="You hammer the adamantite and make a chain mail body."
+[20:07:30.992] [ACTION] Use Adamantite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:07:32.481] [ACTION] Make Adamant plateskirt | player=(3188,3427,0) | target=? action=9 paramA=1091 paramB=2 paramC=1121
+[20:07:33.627] [ACTION] Use Adamantite bar | player=(3188,3427,0) | target=? action=52 paramA=2361 paramB=25 paramC=3214
+[20:07:33.856] [CHAT] type=0 from="" msg="You hammer the adamantite and make a plate skirt."
+[20:07:35.673] [ACTION] Use Adamantite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:07:38.165] [ACTION] Make Adamant platelegs | player=(3188,3427,0) | target=? action=9 paramA=1073 paramB=1 paramC=1121
+[20:07:39.861] [CHAT] type=0 from="" msg="You hammer the adamantite and make a pair of plate legs."
+[20:07:52.091] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:07:52.414] [ACTION] Use Adamantite bar | player=(3188,3427,0) | target=? action=52 paramA=2361 paramB=13 paramC=3214
+[20:07:52.847] [ACTION] Use Adamantite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:07:54.097] [ACTION] Make Adamant platebody | player=(3188,3427,0) | target=? action=9 paramA=1123 paramB=3 paramC=1121
+[20:07:55.504] [CHAT] type=0 from="" msg="You hammer the adamantite and make a plate body."
+[20:07:55.744] [ACTION] Use Adamantite bar | player=(3188,3427,0) | target=? action=52 paramA=2361 paramB=18 paramC=3214
+[20:07:57.412] [ACTION] Use Adamantite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:07:58.650] [ACTION] Make Adamant med helm | player=(3188,3427,0) | target=? action=9 paramA=1145 paramB=0 paramC=1122
+[20:08:00.307] [CHAT] type=0 from="" msg="You hammer the adamantite and make a medium helmet."
+[20:08:00.973] [ACTION] Use Adamantite bar | player=(3188,3427,0) | target=? action=52 paramA=2361 paramB=19 paramC=3214
+[20:08:01.468] [ACTION] Use Adamantite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:08:02.934] [ACTION] Use Adamantite bar | player=(3188,3427,0) | target=? action=52 paramA=2361 paramB=19 paramC=3214
+[20:08:03.393] [ACTION] Use Adamantite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:08:04.625] [ACTION] Make Adamant full helm | player=(3188,3427,0) | target=? action=9 paramA=1161 paramB=1 paramC=1122
+[20:08:06.460] [CHAT] type=0 from="" msg="You hammer the adamantite and make a full helm."
+[20:08:06.593] [ACTION] Use Adamantite bar | player=(3188,3427,0) | target=? action=52 paramA=2361 paramB=21 paramC=3214
+[20:08:08.710] [ACTION] Use Adamantite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:08:12.301] [ACTION] Make Adamant sq shield | player=(3188,3427,0) | target=? action=9 paramA=1183 paramB=2 paramC=1122
+[20:08:14.140] [CHAT] type=0 from="" msg="You hammer the adamantite and make a square shield."
+[20:08:17.845] [ACTION] Use Adamantite bar | player=(3188,3427,0) | target=? action=52 paramA=2361 paramB=24 paramC=3214
+[20:08:18.378] [ACTION] Use Adamantite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:08:19.702] [ACTION] Make Adamant kiteshield | player=(3188,3427,0) | target=? action=9 paramA=1199 paramB=3 paramC=1122
+[20:08:21.311] [CHAT] type=0 from="" msg="You hammer the adamantite and make a kiteshield."
+[20:08:23.210] [ACTION] Use Adamantite bar | player=(3188,3427,0) | target=? action=52 paramA=2361 paramB=18 paramC=3214
+[20:08:24.113] [ACTION] Use Adamantite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:08:25.225] [ACTION] Make Adamantite nails | player=(3188,3427,0) | target=? action=9 paramA=4823 paramB=4 paramC=1122
+[20:08:26.743] [CHAT] type=0 from="" msg="You hammer the adamantite and make fifteen adamant nails."
+[20:08:26.844] [ACTION] Use Adamantite bar | player=(3188,3427,0) | target=? action=52 paramA=2361 paramB=20 paramC=3214
+[20:08:29.178] [ACTION] Use Adamantite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:08:30.314] [ACTION] Make set Adamant dart tip | player=(3188,3427,0) | target=? action=9 paramA=823 paramB=0 paramC=1123
+[20:08:32.391] [ACTION] Use Adamantite bar | player=(3188,3427,0) | target=? action=52 paramA=2361 paramB=21 paramC=3214
+[20:08:32.826] [ACTION] Use Adamantite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:08:34.019] [ACTION] Make set Adamant arrowtips | player=(3188,3427,0) | target=? action=9 paramA=43 paramB=1 paramC=1123
+[20:08:34.745] [ACTION] Use Adamantite bar | player=(3188,3427,0) | target=? action=52 paramA=2361 paramB=22 paramC=3214
+[20:08:35.672] [CHAT] type=0 from="" msg="You hammer the adamantite and make fifteen arrow heads."
+[20:08:37.529] [ACTION] Use Adamantite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:08:38.768] [ACTION] Make set Adamant knife | player=(3188,3427,0) | target=? action=9 paramA=867 paramB=2 paramC=1123
+[20:08:40.566] [CHAT] type=0 from="" msg="You hammer the adamantite and make five throwing knives."
+[20:08:42.177] [ACTION] Drop Adamant longsword | player=(3188,3427,0) | target=item id=1301 slot=4 (inventory, no world coords)
+[20:08:42.342] [ACTION] Drop Adamant 2h sword | player=(3188,3427,0) | target=item id=1317 slot=5 (inventory, no world coords)
+[20:08:42.521] [ACTION] Drop Adamant dagger | player=(3188,3427,0) | target=item id=1211 slot=1 (inventory, no world coords)
+[20:08:42.683] [ACTION] Drop Adamant sword | player=(3188,3427,0) | target=item id=1287 slot=2 (inventory, no world coords)
+[20:08:42.842] [ACTION] Drop Adamant axe | player=(3188,3427,0) | target=item id=1357 slot=6 (inventory, no world coords)
+[20:08:43.346] [ACTION] Drop Adamant scimitar | player=(3188,3427,0) | target=item id=1331 slot=3 (inventory, no world coords)
+[20:08:43.571] [ACTION] Drop Adamant mace | player=(3188,3427,0) | target=item id=1430 slot=7 (inventory, no world coords)
+[20:08:43.902] [ACTION] Drop Adamant longsword | player=(3188,3427,0) | target=item id=1301 slot=4 (inventory, no world coords)
+[20:08:44.134] [ACTION] Drop Addy warhammer | player=(3188,3427,0) | target=item id=1345 slot=8 (inventory, no world coords)
+[20:08:44.295] [ACTION] Drop Adamant battleaxe | player=(3188,3427,0) | target=item id=1371 slot=9 (inventory, no world coords)
+[20:08:44.463] [ACTION] Drop Adamant platelegs | player=(3188,3427,0) | target=item id=1073 slot=12 (inventory, no world coords)
+[20:08:44.604] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:08:44.802] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:08:45.164] [ACTION] Drop Adamant kiteshield | player=(3188,3427,0) | target=item id=1199 slot=17 (inventory, no world coords)
+[20:08:45.369] [ACTION] Drop Adamant sq shield | player=(3188,3427,0) | target=item id=1183 slot=16 (inventory, no world coords)
+[20:08:45.551] [ACTION] Drop Adamant knife | player=(3188,3427,0) | target=item id=867 slot=20 (inventory, no world coords)
+[20:08:45.779] [ACTION] Drop Adamantite bar | player=(3188,3427,0) | target=item id=2361 slot=24 (inventory, no world coords)
+[20:08:45.983] [ACTION] Drop Adamantite bar | player=(3188,3427,0) | target=item id=2361 slot=21 (inventory, no world coords)
+[20:08:46.144] [ACTION] Drop Adamantite bar | player=(3188,3427,0) | target=item id=2361 slot=25 (inventory, no world coords)
+[20:08:46.477] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:08:46.655] [ACTION] Drop Adamantite bar | player=(3188,3427,0) | target=item id=2361 slot=22 (inventory, no world coords)
+[20:08:46.916] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:08:47.120] [ACTION] Drop Adamantite bar | player=(3188,3427,0) | target=item id=2361 slot=26 (inventory, no world coords)
+[20:08:47.351] [ACTION] Drop Adamantite bar | player=(3188,3427,0) | target=item id=2361 slot=23 (inventory, no world coords)
+[20:08:47.538] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:08:47.727] [ACTION] Drop Adamant arrowtips | player=(3188,3427,0) | target=item id=43 slot=19 (inventory, no world coords)
+[20:08:47.941] [ACTION] Drop Adamantite nails | player=(3188,3427,0) | target=item id=4823 slot=18 (inventory, no world coords)
+[20:08:48.113] [ACTION] Drop Adamant med helm | player=(3188,3427,0) | target=item id=1145 slot=14 (inventory, no world coords)
+[20:08:48.294] [ACTION] Drop Adamant full helm | player=(3188,3427,0) | target=item id=1161 slot=15 (inventory, no world coords)
+[20:08:48.477] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:08:48.689] [ACTION] Drop Adamant chainbody | player=(3188,3427,0) | target=item id=1111 slot=10 (inventory, no world coords)
+[20:08:48.890] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:08:49.323] [ACTION] Drop Adamant platebody | player=(3188,3427,0) | target=item id=1123 slot=13 (inventory, no world coords)
+[20:08:49.754] [ACTION] Drop Adamantite bar | player=(3188,3427,0) | target=item id=2361 slot=27 (inventory, no world coords)
+[20:08:50.078] [ACTION] Drop Adamant plateskirt | player=(3188,3427,0) | target=item id=1091 slot=11 (inventory, no world coords)
+[20:08:54.313] [ACTION] Use Runite bar | player=(3188,3427,0) | target=? action=52 paramA=2363 paramB=1 paramC=3214
+[20:08:54.737] [ACTION] Use Runite bar with Adamant platebody | player=(3188,3427,0) | target=? action=100 paramA=1123 paramB=28 paramC=51
+[20:08:54.856] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[20:08:55.483] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:08:56.036] [ACTION] Use Runite bar | player=(3188,3427,0) | target=? action=52 paramA=2363 paramB=9 paramC=3214
+[20:08:56.631] [ACTION] Use Runite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:08:59.015] [ACTION] Make Rune dagger | player=(3188,3427,0) | target=? action=9 paramA=1213 paramB=0 paramC=1119
+[20:08:59.709] [ACTION] Use Runite bar | player=(3188,3427,0) | target=? action=52 paramA=2363 paramB=13 paramC=3214
+[20:09:00.250] [CHAT] type=0 from="" msg="You hammer the runite and make a dagger."
+[20:09:02.666] [ACTION] Use Runite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:09:04.613] [ACTION] Make Rune sword | player=(3188,3427,0) | target=? action=9 paramA=1289 paramB=1 paramC=1119
+[20:09:06.267] [CHAT] type=0 from="" msg="You hammer the runite and make a sword."
+[20:09:09.986] [ACTION] Use Runite bar | player=(3188,3427,0) | target=? action=52 paramA=2363 paramB=4 paramC=3214
+[20:09:10.418] [ACTION] Use Runite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:09:11.341] [ACTION] Make Rune scimitar | player=(3188,3427,0) | target=? action=9 paramA=1333 paramB=2 paramC=1119
+[20:09:12.862] [CHAT] type=0 from="" msg="You hammer the runite and make a scimitar."
+[20:09:15.234] [ACTION] Use Runite bar | player=(3188,3427,0) | target=? action=52 paramA=2363 paramB=5 paramC=3214
+[20:09:15.672] [ACTION] Use Runite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:09:16.802] [ACTION] Make Rune longsword | player=(3188,3427,0) | target=? action=9 paramA=1303 paramB=3 paramC=1119
+[20:09:18.020] [ACTION] Use Runite bar | player=(3188,3427,0) | target=? action=52 paramA=2363 paramB=10 paramC=3214
+[20:09:18.258] [CHAT] type=0 from="" msg="You hammer the runite and make a longsword."
+[20:09:20.839] [ACTION] Use Runite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:09:22.294] [ACTION] Make Rune 2h sword | player=(3188,3427,0) | target=? action=9 paramA=1319 paramB=4 paramC=1119
+[20:09:23.318] [ACTION] Use Runite bar | player=(3188,3427,0) | target=? action=52 paramA=2363 paramB=10 paramC=3214
+[20:09:23.672] [CHAT] type=0 from="" msg="You hammer the runite and make a two handed sword."
+[20:09:26.185] [ACTION] Use Runite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:09:27.300] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:09:28.254] [ACTION] Make Rune axe | player=(3188,3427,0) | target=? action=9 paramA=1359 paramB=0 paramC=1120
+[20:09:29.057] [ACTION] Use Runite bar | player=(3188,3427,0) | target=? action=52 paramA=2363 paramB=14 paramC=3214
+[20:09:29.724] [CHAT] type=0 from="" msg="You hammer the runite and make an axe."
+[20:09:32.020] [ACTION] Use Runite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:09:33.217] [ACTION] Make Rune mace | player=(3188,3427,0) | target=? action=9 paramA=1432 paramB=1 paramC=1120
+[20:09:35.041] [CHAT] type=0 from="" msg="You hammer the runite and make a mace."
+[20:09:35.629] [ACTION] Use Runite bar | player=(3188,3427,0) | target=? action=52 paramA=2363 paramB=13 paramC=3214
+[20:09:37.587] [ACTION] Use Runite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:09:40.759] [ACTION] Make Rune warhammer | player=(3188,3427,0) | target=? action=9 paramA=1347 paramB=2 paramC=1120
+[20:09:41.779] [ACTION] Use Runite bar | player=(3188,3427,0) | target=? action=52 paramA=2363 paramB=17 paramC=3214
+[20:09:42.322] [CHAT] type=0 from="" msg="You hammer the runite and make a warhammer."
+[20:09:45.178] [ACTION] Use Runite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:09:48.116] [ACTION] Make Rune battleaxe | player=(3188,3427,0) | target=? action=9 paramA=1373 paramB=3 paramC=1120
+[20:09:49.445] [CHAT] type=0 from="" msg="You hammer the runite and make a battleaxe."
+[20:09:51.402] [ACTION] Use Runite bar | player=(3188,3427,0) | target=? action=52 paramA=2363 paramB=21 paramC=3214
+[20:09:52.448] [ACTION] Use Runite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:09:53.990] [ACTION] Make Rune chainbody | player=(3188,3427,0) | target=? action=9 paramA=1113 paramB=0 paramC=1121
+[20:09:55.021] [ACTION] Use Runite bar | player=(3188,3427,0) | target=? action=52 paramA=2363 paramB=22 paramC=3214
+[20:09:55.476] [CHAT] type=0 from="" msg="You hammer the runite and make a chain mail body."
+[20:09:58.122] [ACTION] Use Runite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:09:59.454] [ACTION] Make Rune platelegs | player=(3188,3427,0) | target=? action=9 paramA=1079 paramB=1 paramC=1121
+[20:10:00.130] [ACTION] Use Runite bar | player=(3188,3427,0) | target=? action=52 paramA=2363 paramB=26 paramC=3214
+[20:10:00.837] [CHAT] type=0 from="" msg="You hammer the runite and make a pair of plate legs."
+[20:10:03.752] [ACTION] Use Runite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:10:04.906] [ACTION] Make Rune plateskirt | player=(3188,3427,0) | target=? action=9 paramA=1093 paramB=2 paramC=1121
+[20:10:06.269] [CHAT] type=0 from="" msg="You hammer the runite and make a plate skirt."
+[20:10:12.377] [ACTION] Drop Rune plateskirt | player=(3188,3427,0) | target=item id=1093 slot=12 (inventory, no world coords)
+[20:10:12.553] [ACTION] Drop Rune warhammer | player=(3188,3427,0) | target=item id=1347 slot=8 (inventory, no world coords)
+[20:10:12.720] [ACTION] Drop Rune battleaxe | player=(3188,3427,0) | target=item id=1373 slot=9 (inventory, no world coords)
+[20:10:12.904] [ACTION] Drop Rune 2h sword | player=(3188,3427,0) | target=item id=1319 slot=5 (inventory, no world coords)
+[20:10:13.062] [ACTION] Drop Rune longsword | player=(3188,3427,0) | target=item id=1303 slot=4 (inventory, no world coords)
+[20:10:14.577] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:10:14.899] [ACTION] Use Runite bar | player=(3188,3427,0) | target=? action=52 paramA=2363 paramB=4 paramC=3214
+[20:10:15.256] [ACTION] Use Runite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:10:17.333] [ACTION] Make Rune platebody | player=(3188,3427,0) | target=? action=9 paramA=1127 paramB=3 paramC=1121
+[20:10:18.491] [ACTION] Use Runite bar | player=(3188,3427,0) | target=? action=52 paramA=2363 paramB=14 paramC=3214
+[20:10:18.857] [CHAT] type=0 from="" msg="You hammer the runite and make a plate body."
+[20:10:21.204] [ACTION] Use Runite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:10:21.943] [ACTION] Make Rune med helm | player=(3188,3427,0) | target=? action=9 paramA=1147 paramB=0 paramC=1122
+[20:10:22.805] [ACTION] Use Runite bar | player=(3188,3427,0) | target=? action=52 paramA=2363 paramB=18 paramC=3214
+[20:10:23.672] [CHAT] type=0 from="" msg="You hammer the runite and make a medium helmet."
+[20:10:26.012] [ACTION] Use Runite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:10:26.886] [ACTION] Make Rune full helm | player=(3188,3427,0) | target=? action=9 paramA=1163 paramB=1 paramC=1122
+[20:10:27.512] [ACTION] Use Runite bar | player=(3188,3427,0) | target=? action=52 paramA=2363 paramB=22 paramC=3214
+[20:10:28.446] [CHAT] type=0 from="" msg="You hammer the runite and make a full helm."
+[20:10:29.951] [ACTION] Use Runite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:10:31.030] [ACTION] Use Runite bar | player=(3188,3427,0) | target=? action=52 paramA=2363 paramB=21 paramC=3214
+[20:10:31.404] [ACTION] Use Runite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:10:32.721] [ACTION] Make Rune sq shield | player=(3188,3427,0) | target=? action=9 paramA=1185 paramB=2 paramC=1122
+[20:10:33.637] [ACTION] Use Runite bar | player=(3188,3427,0) | target=? action=52 paramA=2363 paramB=21 paramC=3214
+[20:10:34.432] [CHAT] type=0 from="" msg="You hammer the runite and make a square shield."
+[20:10:37.099] [ACTION] Use Runite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:10:39.366] [ACTION] Make Rune kiteshield | player=(3188,3427,0) | target=? action=9 paramA=1201 paramB=3 paramC=1122
+[20:10:40.299] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:10:40.768] [ACTION] Use Runite bar | player=(3188,3427,0) | target=? action=52 paramA=2363 paramB=25 paramC=3214
+[20:10:41.088] [CHAT] type=0 from="" msg="You hammer the runite and make a kiteshield."
+[20:10:43.673] [ACTION] Use Runite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:10:45.118] [ACTION] Make Rune nails | player=(3188,3427,0) | target=? action=9 paramA=4824 paramB=4 paramC=1122
+[20:10:45.776] [ACTION] Use Runite bar | player=(3188,3427,0) | target=? action=52 paramA=2363 paramB=25 paramC=3214
+[20:10:46.522] [CHAT] type=0 from="" msg="You hammer the runite and make fifteen rune nails."
+[20:10:48.997] [ACTION] Use Runite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:10:50.147] [ACTION] Make set Rune dart tip | player=(3188,3427,0) | target=? action=9 paramA=824 paramB=0 paramC=1123
+[20:10:50.778] [ACTION] Use Runite bar | player=(3188,3427,0) | target=? action=52 paramA=2363 paramB=26 paramC=3214
+[20:10:51.286] [ACTION] Use Runite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:10:52.354] [ACTION] Make set Rune arrowtips | player=(3188,3427,0) | target=? action=9 paramA=44 paramB=1 paramC=1123
+[20:10:53.088] [ACTION] Use Runite bar | player=(3188,3427,0) | target=? action=52 paramA=2363 paramB=27 paramC=3214
+[20:10:53.676] [CHAT] type=0 from="" msg="You hammer the runite and make fifteen arrow heads."
+[20:10:55.726] [ACTION] Use Runite bar with Anvil | player=(3188,3427,0) | target=loc id=2783 name="Anvil" coords=(3188,3426,0)
+[20:10:56.671] [ACTION] Make set Rune knife | player=(3188,3427,0) | target=? action=9 paramA=868 paramB=2 paramC=1123
+[20:10:58.500] [CHAT] type=0 from="" msg="You hammer the runite and make five throwing knives."
+[20:10:59.460] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:10:59.721] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:10:59.902] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:11:00.308] [ACTION] Take Rune plateskirt | player=(3188,3427,0) | target=? action=684 paramA=1093 paramB=28 paramC=51
+[20:11:01.761] [ACTION] Take Rune 2h sword | player=(3188,3427,0) | target=? action=684 paramA=1319 paramB=28 paramC=51
+[20:11:02.390] [ACTION] Take Rune battleaxe | player=(3188,3427,0) | target=? action=684 paramA=1373 paramB=28 paramC=51
+[20:11:02.842] [ACTION] Take Rune warhammer | player=(3188,3427,0) | target=? action=684 paramA=1347 paramB=28 paramC=51
+[20:11:03.375] [ACTION] Take Rune longsword | player=(3188,3427,0) | target=? action=684 paramA=1303 paramB=28 paramC=51
+[20:11:03.966] [ACTION] Take Adamant platebody | player=(3188,3427,0) | target=? action=684 paramA=1123 paramB=28 paramC=51
+[20:11:04.534] [ACTION] Take Adamant platebody | player=(3188,3427,0) | target=? action=684 paramA=1123 paramB=28 paramC=51
+[20:11:05.583] [ACTION] Take Adamant 2h sword | player=(3188,3427,0) | target=? action=684 paramA=1317 paramB=28 paramC=51
+[20:11:06.986] [ACTION] Take Adamant platelegs | player=(3188,3427,0) | target=? action=684 paramA=1073 paramB=28 paramC=51
+[20:11:07.703] [ACTION] Cancel | player=(3188,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:11:11.399] [ACTION] Use Bank booth | player=(3184,3436,0) | target=loc id=2213 name="Bank booth" coords=(3186,3436,0)
+[20:11:13.621] [ACTION] Use-quickly Bank booth | player=(3185,3436,0) | target=loc id=2213 name="Bank booth" coords=(3186,3436,0)
+[20:11:15.105] [ACTION] Deposit 1 Rune med helm | player=(3185,3436,0) | target=? action=9 paramA=1147 paramB=9 paramC=2006
+[20:11:15.276] [ACTION] Deposit 1 Rune dagger | player=(3185,3436,0) | target=? action=9 paramA=1213 paramB=1 paramC=2006
+[20:11:15.555] [ACTION] Deposit 1 Rune sword | player=(3185,3436,0) | target=? action=9 paramA=1289 paramB=2 paramC=2006
+[20:11:15.749] [ACTION] Deposit 1 Rune axe | player=(3185,3436,0) | target=? action=9 paramA=1359 paramB=6 paramC=2006
+[20:11:15.925] [ACTION] Deposit 1 Rune sq shield | player=(3185,3436,0) | target=? action=9 paramA=1185 paramB=5 paramC=2006
+[20:11:16.156] [ACTION] Deposit 1 Rune platebody | player=(3185,3436,0) | target=? action=9 paramA=1127 paramB=4 paramC=2006
+[20:11:16.325] [ACTION] Deposit 1 Rune full helm | player=(3185,3436,0) | target=? action=9 paramA=1163 paramB=8 paramC=2006
+[20:11:16.540] [ACTION] Deposit 1 Rune kiteshield | player=(3185,3436,0) | target=? action=9 paramA=1201 paramB=12 paramC=2006
+[20:11:16.982] [ACTION] Deposit 1 Rune plateskirt | player=(3185,3436,0) | target=? action=9 paramA=1093 paramB=16 paramC=2006
+[20:11:17.184] [ACTION] Deposit 1 Rune longsword | player=(3185,3436,0) | target=? action=9 paramA=1303 paramB=20 paramC=2006
+[20:11:17.386] [ACTION] Deposit 1 Runite bar | player=(3185,3436,0) | target=? action=9 paramA=2363 paramB=24 paramC=2006
+[20:11:17.580] [ACTION] Deposit 1 Adamant platebody | player=(3185,3436,0) | target=? action=9 paramA=1123 paramB=21 paramC=2006
+[20:11:17.777] [ACTION] Deposit 1 Runite bar | player=(3185,3436,0) | target=? action=9 paramA=2363 paramB=25 paramC=2006
+[20:11:17.985] [ACTION] Deposit 1 Adamant 2h sword | player=(3185,3436,0) | target=? action=9 paramA=1317 paramB=22 paramC=2006
+[20:11:18.180] [ACTION] Deposit 1 Runite bar | player=(3185,3436,0) | target=? action=9 paramA=2363 paramB=26 paramC=2006
+[20:11:18.344] [ACTION] Deposit 1 Adamant platelegs | player=(3185,3436,0) | target=? action=9 paramA=1073 paramB=23 paramC=2006
+[20:11:18.519] [ACTION] Deposit 1 Runite bar | player=(3185,3436,0) | target=? action=9 paramA=2363 paramB=27 paramC=2006
+[20:11:18.726] [ACTION] Deposit 1 Rune warhammer | player=(3185,3436,0) | target=? action=9 paramA=1347 paramB=19 paramC=2006
+[20:11:18.944] [ACTION] Deposit 1 Rune battleaxe | player=(3185,3436,0) | target=? action=9 paramA=1373 paramB=18 paramC=2006
+[20:11:19.235] [ACTION] Deposit 1 Rune 2h sword | player=(3185,3436,0) | target=? action=9 paramA=1319 paramB=17 paramC=2006
+[20:11:19.715] [ACTION] Deposit 1 Rune platelegs | player=(3185,3436,0) | target=? action=9 paramA=1079 paramB=11 paramC=2006
+[20:11:20.025] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:11:20.382] [ACTION] Deposit 1 Rune mace | player=(3185,3436,0) | target=? action=9 paramA=1432 paramB=7 paramC=2006
+[20:11:20.602] [ACTION] Deposit 1 Rune scimitar | player=(3185,3436,0) | target=? action=9 paramA=1333 paramB=3 paramC=2006
+[20:11:21.110] [ACTION] Deposit 5 Rune knife | player=(3185,3436,0) | target=? action=225 paramA=868 paramB=15 paramC=2006
+[20:11:21.462] [ACTION] Deposit 1 Rune chainbody | player=(3185,3436,0) | target=? action=9 paramA=1113 paramB=10 paramC=2006
+[20:11:22.015] [ACTION] Deposit All Rune arrowtips | player=(3185,3436,0) | target=? action=564 paramA=44 paramB=14 paramC=2006
+[20:11:22.627] [ACTION] Deposit All Rune nails | player=(3185,3436,0) | target=? action=564 paramA=4824 paramB=13 paramC=2006
+[20:11:23.340] [HOTKEY] Escape closed interfaces
+[20:11:29.600] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:11:29.879] [ACTION] Cancel | player=(3183,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:11:30.172] [ACTION] Cancel | player=(3183,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:11:32.282] [ACTION] Walk here | player=(3180,3429,0) | target=? action=14 paramA=25116672 paramB=286 paramC=218
+[20:11:32.559] [ACTION] Walk here | player=(3180,3429,0) | target=? action=14 paramA=25116672 paramB=297 paramC=174
+[20:11:40.673] [ACTION] Walk here | player=(3182,3431,0) | target=? action=14 paramA=25116672 paramB=267 paramC=86
+[20:11:41.555] [ACTION] Cancel | player=(3182,3433,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:11:42.538] [ACTION] Use Bank booth | player=(3183,3437,0) | target=loc id=2213 name="Bank booth" coords=(3186,3436,0)
+[20:11:44.630] [CHAT] type=1 from="@cr2@Nsx" msg="Check docs"
+[20:12:06.823] [CHAT] type=1 from="@cr2@Nsx" msg="Superheat works"
+[20:12:33.822] [CHAT] type=1 from="@cr2@Nsx" msg="Can confrim tool leperchan doesnt work"
+[20:12:44.035] [CHAT] type=1 from="@cr2@Nsx" msg="Alongside ali in desert"
+[20:13:19.501] [CHAT] type=1 from="@cr2@Nsx" msg="Cant cut onyx "
+[20:15:00.234] [ACTION] Use-quickly Bank booth | player=(3185,3436,0) | target=loc id=2213 name="Bank booth" coords=(3186,3436,0)
+[20:15:01.593] [ACTION] Deposit 1 Hammer | player=(3185,3436,0) | target=? action=9 paramA=2347 paramB=0 paramC=2006
+[20:15:03.541] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:15:04.166] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:15:09.032] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:15:12.522] [CHAT] type=2 from="@cr2@Corey" msg="Gotcha"
+[20:15:25.907] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:15:27.195] [HOTKEY] Escape closed interfaces
+[20:15:36.595] [ACTION] Use Uncut onyx | player=(3185,3436,0) | target=? action=52 paramA=6571 paramB=0 paramC=3214
+[20:15:36.748] [ACTION] Use Uncut onyx with Chisel | player=(3185,3436,0) | target=? action=903 paramA=1755 paramB=1 paramC=3214
+[20:15:36.794] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[20:15:39.439] [ACTION] Use-quickly Bank booth | player=(3185,3436,0) | target=loc id=2213 name="Bank booth" coords=(3186,3436,0)
+[20:15:40.299] [ACTION] Deposit 1 Uncut onyx | player=(3185,3436,0) | target=? action=9 paramA=6571 paramB=0 paramC=2006
+[20:15:40.448] [ACTION] Deposit 1 Chisel | player=(3185,3436,0) | target=? action=9 paramA=1755 paramB=1 paramC=2006
+[20:15:41.291] [HOTKEY] Escape closed interfaces
+[20:16:51.175] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:16:51.775] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:16:58.609] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:16:58.994] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:17:09.717] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:17:10.197] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:17:10.373] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:17:12.343] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:17:13.219] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:17:13.406] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:17:58.502] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:17:58.999] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:17:59.997] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:18:00.612] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:18:01.134] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:18:01.433] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:18:01.700] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:18:02.092] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:18:02.440] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:18:03.169] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:18:03.462] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:18:04.163] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:18:05.594] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:18:05.952] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:18:07.812] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:18:08.367] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:18:08.690] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:18:09.231] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:18:10.165] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:19:05.700] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:19:14.969] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:19:17.043] [ACTION] Devious Minds | player=(3185,3436,0) | target=? action=352 paramA=25116672 paramB=23 paramC=15841
+[20:19:17.571] [CHAT] type=0 from="" msg="No trigger for [if_button,questlist:devious]"
+[20:19:33.745] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:19:34.395] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:19:35.002] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:19:35.213] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:19:35.416] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:19:35.692] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:19:36.241] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:20:38.018] [ACTION] Talk-to Genie | player=(3185,3436,0) | target=npc name="Genie" coords=(3185,3437,0)
+[20:20:39.098] [ACTION] Rub Lamp | player=(3185,3436,0) | target=? action=961 paramA=2528 paramB=0 paramC=3214
+[20:20:42.089] [ACTION] Advance Runecraft | player=(3185,3436,0) | target=? action=352 paramA=2528 paramB=0 paramC=2823
+[20:20:42.701] [ACTION] Advance Slayer | player=(3185,3436,0) | target=? action=352 paramA=2528 paramB=0 paramC=12034
+[20:20:44.067] [ACTION] Advance Slayer | player=(3185,3436,0) | target=? action=352 paramA=2528 paramB=0 paramC=12034
+[20:20:45.107] [ACTION] Ok | player=(3185,3436,0) | target=? action=352 paramA=2528 paramB=0 paramC=2831
+[20:20:47.097] [ACTION] Continue | player=(3185,3436,0) | target=? action=575 paramA=18972672 paramB=20 paramC=362
+[20:21:38.234] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:21:38.643] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:21:39.138] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:21:39.588] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:22:32.732] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:22:33.076] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:22:41.859] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:22:50.438] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:22:51.027] [ACTION] Use Bank booth | player=(3185,3436,0) | target=loc id=2213 name="Bank booth" coords=(3186,3436,0)
+[20:22:51.868] [ACTION] Use-quickly Bank booth | player=(3185,3436,0) | target=loc id=2213 name="Bank booth" coords=(3186,3436,0)
+[20:22:54.111] [ACTION] Withdraw All Cosmic rune | player=(3185,3436,0) | target=? action=564 paramA=564 paramB=8 paramC=5382
+[20:22:54.885] [ACTION] Withdraw All Blood rune | player=(3185,3436,0) | target=? action=564 paramA=565 paramB=9 paramC=5382
+[20:22:55.519] [ACTION] Withdraw All Soul rune | player=(3185,3436,0) | target=? action=564 paramA=566 paramB=10 paramC=5382
+[20:22:56.150] [ACTION] Withdraw All Mind rune | player=(3185,3436,0) | target=? action=564 paramA=558 paramB=11 paramC=5382
+[20:22:56.725] [ACTION] Withdraw All Chaos rune | player=(3185,3436,0) | target=? action=564 paramA=562 paramB=12 paramC=5382
+[20:22:57.397] [ACTION] Withdraw All Nature rune | player=(3185,3436,0) | target=? action=564 paramA=561 paramB=13 paramC=5382
+[20:22:58.053] [ACTION] Withdraw All Body rune | player=(3185,3436,0) | target=? action=564 paramA=559 paramB=14 paramC=5382
+[20:22:58.682] [ACTION] Withdraw All Law rune | player=(3185,3436,0) | target=? action=564 paramA=563 paramB=15 paramC=5382
+[20:22:59.956] [ACTION] Withdraw All Air rune | player=(3185,3436,0) | target=? action=564 paramA=556 paramB=16 paramC=5382
+[20:23:00.540] [ACTION] Withdraw All Water rune | player=(3185,3436,0) | target=? action=564 paramA=555 paramB=17 paramC=5382
+[20:23:01.096] [ACTION] Withdraw All Earth rune | player=(3185,3436,0) | target=? action=564 paramA=557 paramB=18 paramC=5382
+[20:23:01.685] [ACTION] Withdraw All Fire rune | player=(3185,3436,0) | target=? action=564 paramA=554 paramB=19 paramC=5382
+[20:23:02.886] [ACTION] Deposit All Mind rune | player=(3185,3436,0) | target=? action=564 paramA=558 paramB=4 paramC=2006
+[20:23:03.627] [ACTION] Deposit All Chaos rune | player=(3185,3436,0) | target=? action=564 paramA=562 paramB=5 paramC=2006
+[20:23:04.741] [HOTKEY] Escape closed interfaces
+[20:23:06.742] [ACTION] Cast Enchant Lvl-1 Jewelry | player=(3185,3436,0) | target=? action=70 paramA=561 paramB=6 paramC=1155
+[20:23:07.272] [ACTION] Cast Enchant Lvl-1 Jewelry on Sapphire necklace | player=(3185,3436,0) | target=? action=361 paramA=1656 paramB=0 paramC=3214
+[20:23:07.354] [CHAT] type=0 from="" msg="You successfully enchant the sapphire necklace."
+[20:23:07.773] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:23:10.947] [ACTION] Use-quickly Bank booth | player=(3185,3436,0) | target=loc id=2213 name="Bank booth" coords=(3186,3436,0)
+[20:23:13.154] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:23:13.407] [HOTKEY] Escape closed interfaces
+[20:23:22.154] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:23:23.442] [ACTION] Cast Enchant Lvl-2 Jewelry | player=(3185,3436,0) | target=? action=70 paramA=564 paramB=1 paramC=1165
+[20:23:23.931] [ACTION] Cast Enchant Lvl-2 Jewelry on Emerald ring | player=(3185,3436,0) | target=? action=361 paramA=1639 paramB=4 paramC=3214
+[20:23:24.161] [CHAT] type=0 from="" msg="You successfully enchant the emerald ring."
+[20:23:24.567] [ACTION] Cancel | player=(3185,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:23:25.367] [ACTION] Use-quickly Bank booth | player=(3185,3436,0) | target=loc id=2213 name="Bank booth" coords=(3186,3436,0)
+[20:23:28.992] [ACTION] Deposit All Nature rune | player=(3185,3436,0) | target=? action=564 paramA=561 paramB=6 paramC=2006
+[20:23:29.909] [ACTION] Deposit All Soul rune | player=(3185,3436,0) | target=? action=564 paramA=566 paramB=3 paramC=2006
+[20:23:30.507] [ACTION] Deposit All Blood rune | player=(3185,3436,0) | target=? action=564 paramA=565 paramB=2 paramC=2006
+[20:23:31.433] [ACTION] Deposit All Cosmic rune | player=(3185,3436,0) | target=? action=564 paramA=564 paramB=1 paramC=2006
+[20:23:32.165] [ACTION] Deposit All Body rune | player=(3185,3436,0) | target=? action=564 paramA=559 paramB=7 paramC=2006
+[20:23:32.655] [HOTKEY] Escape closed interfaces
+[20:23:34.371] [ACTION] Rub Games necklace(8) | player=(3185,3436,0) | target=? action=227 paramA=3853 paramB=0 paramC=3214
+[20:23:34.956] [CHAT] type=0 from="" msg="You rub the necklace..."
+[20:23:37.619] [ACTION] Ok | player=(3185,3436,0) | target=? action=352 paramA=2552 paramB=4 paramC=2461
+[20:23:39.769] [CHAT] type=0 from="" msg="Your Games Necklace has 7 uses left."
+[20:23:43.083] [ACTION] Rub Ring of dueling(8) | player=(2207,4941,0) | target=? action=227 paramA=2552 paramB=4 paramC=3214
+[20:23:43.436] [CHAT] type=0 from="" msg="You rub the ring..."
+[20:23:46.226] [ACTION] Climb-up Stairs | player=(2207,4941,0) | target=loc id=4622 name="Stairs" coords=(2207,4935,0)
+[20:23:49.471] [ACTION] Climb-up Stairs | player=(2207,4934,1) | target=loc id=4627 name="Stairs" coords=(2205,4935,1)
+[20:23:52.468] [ACTION] Cancel | player=(2899,3565,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:23:55.322] [ACTION] Open Large door | player=(2899,3561,0) | target=loc id=1516 name="Large door" coords=(2898,3558,0)
+[20:23:57.178] [ACTION] Cancel | player=(2898,3559,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:07.363] [ACTION] Cancel | player=(2903,3544,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:14.143] [ACTION] Cancel | player=(2902,3532,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:14.391] [ACTION] Cancel | player=(2902,3532,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:14.611] [ACTION] Cancel | player=(2902,3532,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:16.579] [ACTION] Cancel | player=(2902,3532,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:18.769] [ACTION] Cast Camelot teleport | player=(2902,3532,0) | target=? action=352 paramA=3855 paramB=0 paramC=1174
+[20:24:18.984] [ACTION] Cancel | player=(2902,3532,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:19.387] [ACTION] Cancel | player=(2902,3532,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:19.545] [ACTION] Cancel | player=(2902,3532,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:19.828] [ACTION] Cancel | player=(2902,3532,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:21.493] [ACTION] Cancel | player=(2757,3479,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:21.882] [ACTION] Cancel | player=(2757,3479,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:22.349] [ACTION] Cancel | player=(2757,3479,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:25.079] [ACTION] Cancel | player=(2749,3478,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:25.776] [ACTION] Cancel | player=(2747,3478,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:26.487] [ACTION] Cancel | player=(2745,3478,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:26.812] [ACTION] Cancel | player=(2743,3478,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:27.452] [ACTION] Cancel | player=(2741,3478,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:28.069] [ACTION] Cancel | player=(2739,3478,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:28.702] [ACTION] Cancel | player=(2737,3478,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:30.555] [ACTION] Cancel | player=(2731,3478,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:31.113] [ACTION] Cancel | player=(2731,3480,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:37.878] [ACTION] Cancel | player=(2714,3484,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:38.199] [ACTION] Cancel | player=(2712,3484,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:42.636] [ACTION] Cancel | player=(2699,3482,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:44.519] [ACTION] Cancel | player=(2693,3483,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:50.122] [ACTION] Cancel | player=(2679,3477,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:58.036] [ACTION] Cancel | player=(2669,3466,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:58.551] [ACTION] Cancel | player=(2669,3464,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:24:58.972] [ACTION] Cancel | player=(2667,3464,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:25:01.629] [ACTION] Cancel | player=(2661,3456,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:25:03.364] [ACTION] Cancel | player=(2657,3452,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:25:03.676] [ACTION] Cancel | player=(2657,3452,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:25:05.526] [ACTION] Cancel | player=(2653,3448,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:25:06.219] [ACTION] Cancel | player=(2652,3444,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:25:12.582] [ACTION] Cancel | player=(2645,3438,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:25:13.071] [ACTION] Cancel | player=(2644,3437,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:25:13.603] [ACTION] Cancel | player=(2644,3435,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:25:13.926] [ACTION] Cancel | player=(2644,3435,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:25:17.493] [ACTION] Cancel | player=(2643,3423,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:25:21.315] [ACTION] Cancel | player=(2637,3412,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:25:22.023] [ACTION] Cancel | player=(2635,3412,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:25:23.614] [ACTION] Cancel | player=(2634,3408,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:25:24.765] [ACTION] Cancel | player=(2635,3407,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:25:26.918] [ACTION] Cancel | player=(2635,3399,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:25:28.382] [ACTION] Cancel | player=(2632,3398,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:25:28.949] [ACTION] Cancel | player=(2630,3397,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:25:30.101] [ACTION] Cancel | player=(2629,3397,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:25:30.469] [ACTION] Cancel | player=(2627,3396,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:25:33.474] [ACTION] Cancel | player=(2617,3393,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:25:35.892] [ACTION] Cancel | player=(2609,3393,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:25:38.311] [ACTION] Cancel | player=(2601,3393,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:25:40.322] [ACTION] Cancel | player=(2595,3393,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:25:41.118] [ACTION] Cancel | player=(2591,3394,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:25:43.530] [ACTION] Cancel | player=(2585,3399,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:25:53.210] [ACTION] Cancel | player=(2574,3407,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:25:53.507] [ACTION] Cancel | player=(2574,3407,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:25:56.570] [ACTION] Cancel | player=(2564,3415,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:26:02.913] [ACTION] Cancel | player=(2555,3428,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:26:06.875] [ACTION] Cancel | player=(2545,3436,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:26:11.137] [ACTION] Cancel | player=(2540,3438,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:26:11.584] [ACTION] Cancel | player=(2540,3438,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:26:18.359] [ACTION] Cancel | player=(2537,3450,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:26:18.958] [ACTION] Cancel | player=(2537,3451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:26:19.489] [ACTION] Select | player=(2537,3452,0) | target=? action=518 paramA=20905984 paramB=40 paramC=153
+[20:26:22.604] [ACTION] Cancel | player=(2542,3462,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:26:23.469] [ACTION] Cancel | player=(2544,3462,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:26:27.309] [ACTION] Cancel | player=(2551,3472,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:26:30.751] [ACTION] Cancel | player=(2547,3475,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:26:34.670] [ACTION] Cancel | player=(2541,3474,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:26:34.945] [ACTION] Cancel | player=(2541,3474,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:26:46.365] [ACTION] Cancel | player=(2532,3487,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:26:47.049] [ACTION] Cancel | player=(2532,3489,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:26:51.222] [ACTION] Cancel | player=(2529,3496,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:26:51.864] [ACTION] Cancel | player=(2529,3497,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:26:52.472] [ACTION] Select | player=(2528,3498,0) | target=? action=518 paramA=20905984 paramB=510 paramC=153
+[20:26:52.798] [ACTION] Cancel | player=(2528,3498,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:26:53.395] [ACTION] Cancel | player=(2527,3500,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:26:53.924] [ACTION] Cancel | player=(2527,3502,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:26:59.190] [ACTION] Cancel | player=(2525,3518,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:26:59.656] [ACTION] Cancel | player=(2525,3520,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:27:01.166] [ACTION] Cancel | player=(2525,3524,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:27:02.433] [ACTION] Cancel | player=(2525,3528,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:27:03.147] [ACTION] Cancel | player=(2525,3532,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:27:03.335] [ACTION] Cancel | player=(2525,3532,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:27:03.500] [ACTION] Cancel | player=(2525,3532,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:27:04.134] [ACTION] Cancel | player=(2525,3533,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:27:07.145] [ACTION] Cancel | player=(2525,3538,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:27:07.484] [ACTION] Cancel | player=(2525,3539,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:27:10.240] [ACTION] Cancel | player=(2525,3543,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:27:11.398] [ACTION] Cancel | player=(2525,3545,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:27:11.696] [ACTION] Cancel | player=(2525,3546,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:27:15.960] [ACTION] Cancel | player=(2525,3553,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:27:18.280] [ACTION] Cancel | player=(2525,3557,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:27:20.652] [ACTION] Cancel | player=(2528,3561,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:27:22.819] [ACTION] Cancel | player=(2528,3564,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:27:23.922] [ACTION] Cancel | player=(2529,3566,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:27:24.944] [ACTION] Cancel | player=(2531,3566,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:27:39.423] [ACTION] Open Gate | player=(2544,3570,0) | target=loc id=2116 name="Gate" coords=(2545,3569,0)
+[20:27:41.112] [ACTION] Continue | player=(2545,3570,0) | target=? action=575 paramA=13910016 paramB=343 paramC=4886
+[20:27:42.353] [ACTION] Ok | player=(2545,3570,0) | target=? action=352 paramA=13910016 paramB=343 paramC=2461
+[20:27:42.961] [ACTION] Continue | player=(2545,3570,0) | target=? action=575 paramA=13910016 paramB=343 paramC=972
+[20:27:43.542] [ACTION] Continue | player=(2545,3570,0) | target=? action=575 paramA=13910016 paramB=343 paramC=4899
+[20:27:45.562] [ACTION] Ok | player=(2545,3570,0) | target=? action=352 paramA=13910016 paramB=343 paramC=2462
+[20:27:46.118] [ACTION] Continue | player=(2545,3570,0) | target=? action=575 paramA=13910016 paramB=343 paramC=972
+[20:27:46.614] [ACTION] Continue | player=(2545,3570,0) | target=? action=575 paramA=13910016 paramB=343 paramC=4892
+[20:27:47.267] [ACTION] Continue | player=(2545,3570,0) | target=? action=575 paramA=13910016 paramB=343 paramC=4899
+[20:27:47.923] [ACTION] Continue | player=(2545,3570,0) | target=? action=575 paramA=13910016 paramB=343 paramC=358
+[20:27:48.618] [ACTION] Cancel | player=(2545,3570,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:27:48.826] [ACTION] Continue | player=(2545,3570,0) | target=? action=575 paramA=13910016 paramB=504 paramC=4899
+[20:27:49.736] [ACTION] Continue | player=(2545,3570,0) | target=? action=575 paramA=13910016 paramB=504 paramC=4899
+[20:27:50.777] [ACTION] Read Barcrawl card | player=(2545,3570,0) | target=? action=961 paramA=455 paramB=1 paramC=3214
+[20:27:52.618] [ACTION] Close | player=(2545,3570,0) | target=? action=639 paramA=455 paramB=1 paramC=1137
+[20:27:53.096] [ACTION] Cancel | player=(2545,3570,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:27:53.881] [ACTION] Cancel | player=(2544,3569,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:27:54.378] [ACTION] Select | player=(2544,3568,0) | target=? action=518 paramA=5963776 paramB=501 paramC=153
+[20:27:54.835] [ACTION] Cancel | player=(2544,3566,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:28:05.306] [ACTION] Examine Gunnjorn | player=(2542,3557,0) | target=npc name="Gunnjorn" coords=(2541,3546,0)
+[20:28:05.307] [CHAT] type=0 from="" msg="He maintains this agility course"
+[20:28:07.366] [ACTION] Talk-to Gunnjorn | player=(2542,3557,0) | target=npc name="Gunnjorn" coords=(2541,3546,0)
+[20:28:08.395] [ACTION] Walk here | player=(2541,3557,0) | target=? action=14 paramA=31916032 paramB=254 paramC=171
+[20:28:18.005] [ACTION] Cancel | player=(2542,3557,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:28:18.268] [ACTION] Cancel | player=(2542,3557,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:28:18.800] [ACTION] Cancel | player=(2542,3557,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:28:19.191] [ACTION] Cancel | player=(2542,3557,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:28:19.386] [ACTION] Cancel | player=(2542,3557,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:28:19.681] [ACTION] Cancel | player=(2542,3557,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:28:19.871] [ACTION] Cancel | player=(2542,3557,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:28:23.028] [ACTION] Cancel | player=(2542,3557,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:28:23.538] [ACTION] Cancel | player=(2542,3557,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:29:09.989] [ACTION] Cancel | player=(2542,3557,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:29:14.499] [ACTION] Cancel | player=(2542,3557,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:29:18.938] [ACTION] Examine Gunnjorn | player=(2542,3557,0) | target=npc name="Gunnjorn" coords=(2541,3549,0)
+[20:29:18.938] [CHAT] type=0 from="" msg="He maintains this agility course"
+[20:29:41.008] [ACTION] Cancel | player=(2542,3557,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:29:41.678] [ACTION] Cancel | player=(2541,3559,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:29:42.476] [ACTION] Cancel | player=(2540,3560,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:29:43.701] [ACTION] Cancel | player=(2536,3564,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:29:44.020] [ACTION] Cancel | player=(2536,3566,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:29:46.315] [ACTION] Cancel | player=(2534,3572,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:29:47.644] [ACTION] Cancel | player=(2532,3577,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:29:47.998] [ACTION] Cancel | player=(2532,3577,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:29:51.816] [ACTION] Jump-across Basalt rock | player=(2526,3591,0) | target=loc id=4551 name="Basalt rock" coords=(2522,3597,0)
+[20:29:53.535] [CHAT] type=0 from="" msg="I can't reach that!"
+[20:29:54.732] [ACTION] Jump-across Basalt rock | player=(2522,3595,0) | target=loc id=4551 name="Basalt rock" coords=(2522,3597,0)
+[20:29:55.345] [CHAT] type=0 from="" msg="I can't reach that!"
+[20:29:56.106] [ACTION] Jump-across Basalt rock | player=(2522,3595,0) | target=loc id=4551 name="Basalt rock" coords=(2522,3597,0)
+[20:29:56.575] [CHAT] type=0 from="" msg="I can't reach that!"
+[20:29:56.678] [ACTION] Walk here | player=(2522,3595,0) | target=? action=14 paramA=74563584 paramB=266 paramC=165
+[20:29:57.247] [ACTION] Walk here | player=(2522,3595,0) | target=? action=14 paramA=74563584 paramB=262 paramC=154
+[20:29:57.533] [ACTION] Walk here | player=(2522,3595,0) | target=? action=14 paramA=74563584 paramB=257 paramC=166
+[20:29:58.220] [ACTION] Jump-across Basalt rock | player=(2522,3595,0) | target=loc id=4550 name="Basalt rock" coords=(2522,3595,0)
+[20:29:58.428] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[20:29:59.668] [ACTION] Walk here | player=(2522,3595,0) | target=? action=14 paramA=74547200 paramB=217 paramC=185
+[20:29:59.939] [ACTION] Walk here | player=(2522,3595,0) | target=? action=14 paramA=74547200 paramB=229 paramC=181
+[20:30:00.284] [ACTION] Walk here | player=(2522,3595,0) | target=? action=14 paramA=74547200 paramB=225 paramC=170
+[20:30:00.641] [ACTION] Walk here | player=(2522,3595,0) | target=? action=14 paramA=74547200 paramB=211 paramC=175
+[20:30:00.886] [ACTION] Walk here | player=(2522,3595,0) | target=? action=14 paramA=74547200 paramB=223 paramC=179
+[20:30:01.237] [ACTION] Walk here | player=(2522,3595,0) | target=? action=14 paramA=74547200 paramB=227 paramC=186
+[20:30:02.010] [ACTION] Jump-across Basalt rock | player=(2522,3595,0) | target=loc id=4550 name="Basalt rock" coords=(2522,3595,0)
+[20:30:02.624] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[20:30:03.805] [ACTION] Jump-across Basalt rock | player=(2522,3595,0) | target=loc id=4551 name="Basalt rock" coords=(2522,3597,0)
+[20:30:04.358] [CHAT] type=0 from="" msg="I can't reach that!"
+[20:30:05.174] [ACTION] Jump-across Basalt rock | player=(2522,3595,0) | target=loc id=4552 name="Basalt rock" coords=(2522,3600,0)
+[20:30:05.586] [CHAT] type=0 from="" msg="I can't reach that!"
+[20:30:23.053] [ACTION] Cancel | player=(2522,3595,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:30:24.748] [ACTION] Jump-across Basalt rock | player=(2522,3595,0) | target=loc id=4551 name="Basalt rock" coords=(2522,3597,0)
+[20:30:25.465] [CHAT] type=0 from="" msg="I can't reach that!"
+[20:30:30.027] [ACTION] Walk here | player=(2522,3595,0) | target=? action=14 paramA=74563584 paramB=254 paramC=143
+[20:30:30.767] [ACTION] Jump-across Basalt rock | player=(2522,3595,0) | target=loc id=4551 name="Basalt rock" coords=(2522,3597,0)
+[20:30:31.407] [CHAT] type=0 from="" msg="I can't reach that!"
+[20:30:36.366] [ACTION] Cancel | player=(2522,3595,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:30:51.139] [CHAT] type=0 from="" msg="0,39,56,26,11"
+[20:30:53.870] [ACTION] Cancel | player=(2522,3595,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:31:01.246] [ACTION] Cancel | player=(2522,3595,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:32:40.449] [ACTION] Walk here | player=(2528,3616,0) | target=? action=14 paramA=554 paramB=234 paramC=43
+[20:32:40.842] [ACTION] Walk here | player=(2528,3616,0) | target=? action=14 paramA=554 paramB=237 paramC=66
+[20:32:47.139] [ACTION] Walk here | player=(2528,3616,0) | target=? action=14 paramA=554 paramB=241 paramC=46
+[20:34:40.300] [ACTION] Cancel | player=(2522,3595,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:35:25.074] [ACTION] Cancel | player=(2522,3624,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:35:25.715] [ACTION] Cancel | player=(2522,3626,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:35:30.892] [ACTION] Talk-to Larrissa | player=(2509,3635,0) | target=npc name="Larrissa" coords=(2508,3635,0)
+[20:35:31.345] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[20:35:35.506] [CHAT] type=0 from="" msg="0,39,56,12,51"
+[20:35:39.718] [CHAT] type=0 from="" msg="0,39,56,12,51"
+[20:35:57.638] [ACTION] Examine Larrissa | player=(2508,3635,0) | target=npc name="Larrissa" coords=(2507,3631,0)
+[20:35:57.639] [CHAT] type=0 from="" msg="A fremennik girl."
+[20:36:17.872] [ACTION] Walk-through Doorway | player=(2508,3635,0) | target=loc id=4577 name="Doorway" coords=(2509,3636,0)
+[20:36:18.707] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[20:36:22.726] [ACTION] Examine Doorway | player=(2509,3635,0) | target=loc id=4577 name="Doorway" coords=(2509,3636,0)
+[20:36:22.726] [CHAT] type=0 from="" msg="Lets you walk through walls!"
+[20:36:28.568] [ACTION] Walk-through Doorway | player=(2509,3635,0) | target=loc id=4577 name="Doorway" coords=(2509,3636,0)
+[20:36:29.080] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[20:36:32.444] [ACTION] Cancel | player=(2509,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:37:00.406] [ACTION] Cancel | player=(2509,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:40:03.431] [ACTION] Cancel | player=(2509,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:40:14.388] [ACTION] Cancel | player=(2509,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:40:48.889] [ACTION] Cancel | player=(2509,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:40:49.943] [HOTKEY] Tab reply to Nsx
+[20:40:50.812] [ACTION] Cancel | player=(2509,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:41:25.818] [ACTION] Cancel | player=(2509,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:41:27.436] [ACTION] Cancel | player=(2509,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:41:27.763] [ACTION] Cancel | player=(2509,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:41:28.026] [ACTION] Cancel | player=(2509,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:41:48.484] [ACTION] Cancel | player=(2509,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:41:49.487] [ACTION] Cancel | player=(2509,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:42:27.835] [ACTION] Cancel | player=(2509,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:42:33.076] [CHAT] type=0 from="" msg="test"
+[20:43:00.117] [CHAT] type=7 from="@cr2@Nsx" msg="U do global "
+[20:43:00.392] [ACTION] Cancel | player=(2509,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:43:01.460] [HOTKEY] Tab reply to Nsx
+[20:43:01.886] [CHAT] type=7 from="@cr2@Nsx" msg="?"
+[20:43:08.637] [CHAT] type=6 from="Nsx" msg="::Broadcast "
+[20:43:11.334] [HOTKEY] Tab reply to Nsx
+[20:43:23.635] [CHAT] type=6 from="Nsx" msg="Should be easy to implement yell command since thats already there "
+[20:43:24.723] [CHAT] type=0 from="" msg="corey is gay"
+[20:43:27.675] [HOTKEY] Tab reply to Nsx
+[20:43:29.163] [CHAT] type=6 from="Nsx" msg="Fuck u cunt "
+[20:43:42.141] [CHAT] type=0 from="" msg="ur mom"
+[20:43:42.453] [ACTION] Walk here | player=(2509,3635,0) | target=? action=14 paramA=563 paramB=208 paramC=126
+[20:43:43.738] [ACTION] Walk here | player=(2507,3635,0) | target=? action=14 paramA=563 paramB=300 paramC=193
+[20:43:45.293] [HOTKEY] Tab reply to Nsx
+[20:43:45.678] [CHAT] type=7 from="@cr2@Nsx" msg="Xdddddddddddd"
+[20:43:46.825] [CHAT] type=6 from="Nsx" msg="Im telling her"
+[20:43:52.356] [ACTION] Walk here | player=(2508,3634,0) | target=? action=14 paramA=74989568 paramB=251 paramC=106
+[20:43:53.193] [ACTION] Walk here | player=(2507,3635,0) | target=? action=14 paramA=74989568 paramB=291 paramC=251
+[20:43:53.472] [CHAT] type=7 from="@cr2@Nsx" msg="Please do"
+[20:43:56.443] [ACTION] Walk here | player=(2507,3631,0) | target=? action=14 paramA=74989568 paramB=313 paramC=141
+[20:43:57.142] [ACTION] Walk here | player=(2508,3631,0) | target=? action=14 paramA=74989568 paramB=334 paramC=80
+[20:44:00.670] [CHAT] type=7 from="@cr2@Nsx" msg="Nah dont"
+[20:44:01.973] [HOTKEY] Tab reply to Nsx
+[20:44:03.077] [CHAT] type=7 from="@cr2@Nsx" msg="Xd "
+[20:44:04.211] [CHAT] type=6 from="Nsx" msg="L00000000000000l"
+[20:44:05.426] [ACTION] Walk here | player=(2509,3634,0) | target=? action=14 paramA=8505 paramB=282 paramC=328
+[20:44:06.460] [ACTION] Walk here | player=(2507,3634,0) | target=? action=14 paramA=8505 paramB=290 paramC=222
+[20:44:59.733] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:45:09.176] [CHAT] type=7 from="@cr2@Nsx" msg="Yesssssssssssssssss!@!@!@!@!"
+[20:45:15.083] [CHAT] type=7 from="@cr2@Nsx" msg="Addy gloves 1 def!!!"
+[20:45:18.128] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:45:19.374] [HOTKEY] Tab reply to Nsx
+[20:45:20.794] [CHAT] type=6 from="Nsx" msg="Xddddd "
+[20:45:21.064] [CHAT] type=7 from="@cr2@Nsx" msg="W8"
+[20:45:24.747] [CHAT] type=7 from="@cr2@Nsx" msg="W8888888888"
+[20:45:34.377] [CHAT] type=7 from="@cr2@Nsx" msg="Are they coded to def requirments?"
+[20:45:36.089] [HOTKEY] Tab reply to Nsx
+[20:45:37.730] [CHAT] type=6 from="Nsx" msg="Probably not"
+[20:45:39.001] [HOTKEY] Tab reply to Nsx
+[20:45:40.607] [CHAT] type=6 from="Nsx" msg="Try barrows"
+[20:45:41.536] [CHAT] type=7 from="@cr2@Nsx" msg="Ffs! "
+[20:46:05.499] [CHAT] type=7 from="@cr2@Nsx" msg="Makes sense cuz i can wear all cw armor"
+[20:47:01.312] [CHAT] type=7 from="@cr2@Nsx" msg="Ya not coeded that needs to fixed "
+[20:48:32.851] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:48:33.475] [HOTKEY] Tab reply to Nsx
+[20:48:34.492] [CHAT] type=6 from="Nsx" msg="Kk"
+[20:50:42.925] [ACTION] Talk-to Mysterious Old Man | player=(2509,3632,0) | target=npc name="Mysterious Old Man" coords=(2509,3633,0)
+[20:50:44.370] [ACTION] Open Casket | player=(2509,3632,0) | target=? action=961 paramA=405 paramB=2 paramC=3214
+[20:50:45.353] [ACTION] Examine Coins | player=(2509,3632,0) | target=? action=1094 paramA=995 paramB=2 paramC=3214
+[20:50:45.354] [CHAT] type=0 from="" msg="Lovely money!"
+[20:50:45.911] [ACTION] Use Coins | player=(2509,3632,0) | target=? action=52 paramA=995 paramB=2 paramC=3214
+[20:50:46.335] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:50:46.745] [ACTION] Use Coins | player=(2509,3632,0) | target=? action=52 paramA=995 paramB=2 paramC=3214
+[20:50:47.130] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:50:47.541] [ACTION] Drop Coins | player=(2509,3632,0) | target=item id=995 slot=2 (inventory, no world coords)
+[20:50:49.261] [CHAT] type=7 from="@cr2@Nsx" msg="Ya u can fix the docs under the suggestion tab lol long explantion "
+[20:50:51.453] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:50:54.454] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:50:55.686] [HOTKEY] Tab reply to Nsx
+[20:50:58.874] [CHAT] type=6 from="Nsx" msg="I'll understand l0l "
+[20:51:13.873] [CHAT] type=7 from="@cr2@Nsx" msg="Xd "
+[20:51:22.205] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:51:30.663] [CHAT] type=7 from="@cr2@Nsx" msg="How hard would it be to make a coded npc not do what its supposed to do?"
+[20:51:32.462] [CHAT] type=7 from="@cr2@Nsx" msg="Do?"
+[20:51:36.672] [CHAT] type=7 from="@cr2@Nsx" msg="As in daero? "
+[20:51:39.581] [HOTKEY] Tab reply to Nsx
+[20:51:42.787] [CHAT] type=6 from="Nsx" msg="Not too hard"
+[20:53:02.879] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:53:03.415] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:53:03.865] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:53:04.214] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:53:04.416] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:53:04.604] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:53:04.949] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:53:05.131] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:53:06.266] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:53:06.496] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:53:06.761] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:53:06.981] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:53:07.206] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:53:07.441] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:53:07.633] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:53:07.864] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:53:08.114] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:53:08.438] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:53:08.643] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:53:08.807] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:53:09.236] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:53:12.028] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:53:13.106] [HOTKEY] Tab reply to Nsx
+[20:53:37.441] [CHAT] type=6 from="Nsx" msg="Can always add ::lockxp so pures can remain 1 def no matter what they do "
+[20:53:54.072] [CHAT] type=7 from="@cr2@Nsx" msg="So u completed the quest and u bypass to the awoggie rfd quest?"
+[20:53:58.468] [HOTKEY] Tab reply to Nsx
+[20:54:00.290] [CHAT] type=6 from="Nsx" msg="Ye "
+[20:54:27.157] [CHAT] type=7 from="@cr2@Nsx" msg="Thats the thing i kinda do want to give that option unless players wanted"
+[20:54:30.657] [CHAT] type=7 from="@cr2@Nsx" msg="Reason being is "
+[20:55:18.024] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:55:19.285] [CHAT] type=7 from="@cr2@Nsx" msg="Well i guess it doesnt matter to much theirs is no f keys "
+[20:55:29.521] [CHAT] type=7 from="@cr2@Nsx" msg="But players would just lock xp "
+[20:55:39.067] [CHAT] type=7 from="@cr2@Nsx" msg="And not go any further "
+[20:56:00.969] [HOTKEY] Tab reply to Nsx
+[20:56:03.644] [CHAT] type=6 from="Nsx" msg="Ur babbling "
+[20:56:07.523] [HOTKEY] Tab reply to Nsx
+[20:56:09.164] [CHAT] type=6 from="Nsx" msg="Yap yap yap "
+[20:56:09.304] [HOTKEY] Tab reply to Nsx
+[20:56:11.657] [CHAT] type=6 from="Nsx" msg="Sound like gma "
+[20:56:17.404] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:56:17.860] [HOTKEY] Tab reply to Nsx
+[20:56:22.294] [CHAT] type=6 from="Nsx" msg="Nah sound like kathy "
+[20:56:22.315] [CHAT] type=7 from="@cr2@Nsx" msg="Shut up mary! "
+[20:56:22.421] [HOTKEY] Tab reply to Nsx
+[20:56:25.606] [CHAT] type=6 from="Nsx" msg="Thts worse "
+[20:56:28.082] [HOTKEY] Tab reply to Nsx
+[20:56:29.996] [CHAT] type=6 from="Nsx" msg="L000l"
+[20:56:31.254] [CHAT] type=7 from="@cr2@Nsx" msg="Oh god that hurt "
+[20:56:32.960] [HOTKEY] Tab reply to Nsx
+[20:56:35.230] [CHAT] type=6 from="Nsx" msg="L0l0l0ll0l"
+[20:56:49.861] [CHAT] type=7 from="@cr2@Nsx" msg="Careful ill call lesli "
+[20:56:55.655] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:56:56.705] [HOTKEY] Tab reply to Nsx
+[20:57:00.897] [CHAT] type=6 from="Nsx" msg="Oh dear "
+[20:57:02.640] [HOTKEY] Tab reply to Nsx
+[20:57:07.826] [CHAT] type=6 from="Nsx" msg="Lets get the band back together again"
+[20:57:20.519] [CHAT] type=7 from="@cr2@Nsx" msg="She wouldnt answer anyways lmfao she doesnt like me"
+[20:57:27.588] [HOTKEY] Tab reply to Nsx
+[20:57:39.972] [CHAT] type=6 from="Nsx" msg="Does she like anyone"
+[20:57:40.404] [HOTKEY] Tab reply to Nsx
+[20:57:48.934] [CHAT] type=6 from="Nsx" msg="Our moms are more alike than they want to admit xd"
+[20:57:55.859] [CHAT] type=7 from="@cr2@Nsx" msg="She dont like me or my sister anymore "
+[20:57:59.931] [HOTKEY] Tab reply to Nsx
+[20:58:02.799] [CHAT] type=6 from="Nsx" msg="For what reason "
+[20:58:04.859] [CHAT] type=7 from="@cr2@Nsx" msg="Due to doug situation"
+[20:58:08.277] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:58:08.481] [HOTKEY] Tab reply to Nsx
+[20:58:10.263] [CHAT] type=6 from="Nsx" msg="Ahh right"
+[20:58:14.797] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:58:20.534] [CHAT] type=7 from="@cr2@Nsx" msg="Fucker is dead and she is going through his shit takin it"
+[20:58:29.410] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:58:32.613] [HOTKEY] Tab reply to Nsx
+[20:58:33.740] [CHAT] type=7 from="@cr2@Nsx" msg="Like tf is ur problem"
+[20:58:33.884] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:58:41.764] [CHAT] type=6 from="Nsx" msg="Were they still married"
+[20:58:51.383] [HOTKEY] Tab reply to Nsx
+[20:58:55.749] [CHAT] type=6 from="Nsx" msg="I genuinely dont recall"
+[20:59:06.704] [CHAT] type=7 from="@cr2@Nsx" msg="Her and doug? "
+[20:59:08.687] [HOTKEY] Tab reply to Nsx
+[20:59:09.338] [CHAT] type=6 from="Nsx" msg="Ya "
+[20:59:15.720] [CHAT] type=7 from="@cr2@Nsx" msg="Hell nah she married ron "
+[20:59:18.071] [HOTKEY] Tab reply to Nsx
+[20:59:26.950] [CHAT] type=6 from="Nsx" msg="I forgot everything from my childhood tbh l0l "
+[20:59:27.146] [HOTKEY] Tab reply to Nsx
+[20:59:28.854] [CHAT] type=7 from="@cr2@Nsx" msg="Then he divorced her for fuckin around"
+[20:59:36.193] [CHAT] type=7 from="@cr2@Nsx" msg="Then stayed with her"
+[20:59:39.968] [CHAT] type=6 from="Nsx" msg="Howd she get access to dougs shit"
+[20:59:40.853] [CHAT] type=7 from="@cr2@Nsx" msg="Then litterally!"
+[20:59:47.482] [CHAT] type=7 from="@cr2@Nsx" msg="3 Weeks ago got remarried "
+[20:59:56.584] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[20:59:57.773] [HOTKEY] Tab reply to Nsx
+[20:59:58.321] [CHAT] type=7 from="@cr2@Nsx" msg="Looooooooooong story"
+[21:00:00.583] [CHAT] type=6 from="Nsx" msg="What the fuuuuuck "
+[21:00:09.049] [CHAT] type=7 from="@cr2@Nsx" msg="He died i called her and my dad"
+[21:00:21.051] [CHAT] type=7 from="@cr2@Nsx" msg="Ron is my dad fyi for clarity"
+[21:00:34.877] [CHAT] type=7 from="@cr2@Nsx" msg="Told the entier situation "
+[21:00:36.157] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:00:42.667] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:00:43.247] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:00:43.505] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:00:43.760] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:00:44.152] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:00:44.427] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:00:45.634] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:00:47.735] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:00:56.015] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:00:56.584] [CHAT] type=7 from="@cr2@Nsx" msg="Her nd my dad come over alongside my sister which she hates "
+[21:01:09.656] [CHAT] type=7 from="@cr2@Nsx" msg="We go over to his apartment"
+[21:01:23.904] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:01:28.943] [CHAT] type=7 from="@cr2@Nsx" msg="And looking at everthign that needs to be kept and thrown away"
+[21:01:43.292] [CHAT] type=7 from="@cr2@Nsx" msg="She takin boxes of documents and jewlery and mail "
+[21:02:00.082] [CHAT] type=7 from="@cr2@Nsx" msg="All types of shit i threw her out cuz she was makin it about her"
+[21:02:09.697] [CHAT] type=7 from="@cr2@Nsx" msg="So ya typical kohler shit"
+[21:02:35.333] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:02:36.491] [HOTKEY] Tab reply to Nsx
+[21:02:38.910] [CHAT] type=6 from="Nsx" msg="Jesus man thats fucked "
+[21:02:53.436] [CHAT] type=7 from="@cr2@Nsx" msg="Shes fucked"
+[21:02:53.482] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:02:54.595] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:02:56.516] [HOTKEY] Tab reply to Nsx
+[21:02:57.174] [CHAT] type=6 from="Nsx" msg="True"
+[21:03:00.809] [HOTKEY] Tab reply to Nsx
+[21:03:08.902] [CHAT] type=6 from="Nsx" msg="I still cant believe the cat incident"
+[21:04:25.833] [CHAT] type=7 from="@cr2@Nsx" msg="Which part? "
+[21:04:36.278] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:04:36.668] [HOTKEY] Tab reply to Nsx
+[21:04:44.141] [CHAT] type=6 from="Nsx" msg="That i found out thru the news lol"
+[21:04:45.042] [CHAT] type=7 from="@cr2@Nsx" msg="The baiting people to help her take care of cats "
+[21:04:49.844] [CHAT] type=7 from="@cr2@Nsx" msg="Or"
+[21:04:53.065] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:05:01.304] [HOTKEY] Tab reply to Nsx
+[21:05:05.531] [CHAT] type=7 from="@cr2@Nsx" msg="When they died just tossin them in dumpsters?"
+[21:05:12.826] [CHAT] type=6 from="Nsx" msg="Didnt know about any baiting"
+[21:05:16.238] [HOTKEY] Tab reply to Nsx
+[21:05:20.308] [CHAT] type=6 from="Nsx" msg="Restarting server - i might fuck it "
+[21:05:23.435] [HOTKEY] Tab reply to Nsx
+[21:05:28.221] [CHAT] type=7 from="@cr2@Nsx" msg="Fake llc "
+[21:05:32.838] [CHAT] type=6 from="Nsx" msg="Jfc lol"
+[21:05:32.984] [HOTKEY] Tab reply to Nsx
+[21:05:35.527] [CHAT] type=7 from="@cr2@Nsx" msg="Oh god "
+[21:05:38.005] [HOTKEY] Tab reply to Nsx
+[21:05:40.048] [CHAT] type=6 from="Nsx" msg="::Restart "
+[21:05:42.253] [HOTKEY] Tab reply to Nsx
+[21:05:42.973] [CHAT] type=6 from="Nsx" msg="Log"
+[21:05:43.240] [HOTKEY] Tab reply to Nsx
+[21:05:46.233] [CHAT] type=5 from="" msg="Nsx has logged out."
+[21:05:46.908] [CHAT] type=6 from="Nsx" msg="So it doesnt fuck"
+[21:05:47.877] [ACTION] Cancel | player=(2509,3632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:05:48.307] [ACTION] Ok | player=(2509,3632,0) | target=? action=352 paramA=554 paramB=12 paramC=2458
+[21:05:48.620] [SESSION] logged out, was "corey"
+[21:06:40.447] [SESSION] logged in as "corey"
+[21:06:40.926] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[21:06:42.100] [ACTION] Close | player=(2509,3632,0) | target=? action=639 paramA=554 paramB=12 paramC=15251
+[21:06:44.535] [CHAT] type=0 from="" msg="Changed move strategy: fly"
+[21:06:45.661] [ACTION] Walk here | player=(2509,3632,0) | target=? action=14 paramA=554 paramB=299 paramC=70
+[21:06:47.535] [ACTION] Cancel | player=(2509,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:06:48.651] [ACTION] Select | player=(2509,3635,0) | target=? action=518 paramA=554 paramB=473 paramC=153
+[21:06:49.059] [ACTION] Walk here | player=(2509,3635,0) | target=? action=14 paramA=554 paramB=208 paramC=123
+[21:06:50.335] [ACTION] Walk-through Doorway | player=(2505,3635,0) | target=loc id=4577 name="Doorway" coords=(2509,3636,0)
+[21:06:51.194] [ACTION] Cancel | player=(2509,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:06:51.754] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[21:06:54.153] [CHAT] type=0 from="" msg="Changed move strategy: smart"
+[21:06:55.865] [ACTION] Walk here | player=(2509,3635,0) | target=? action=14 paramA=74989568 paramB=215 paramC=93
+[21:06:56.910] [ACTION] Walk here | player=(2508,3635,0) | target=? action=14 paramA=74989568 paramB=265 paramC=185
+[21:06:57.152] [ACTION] Walk here | player=(2508,3635,0) | target=? action=14 paramA=74989568 paramB=271 paramC=201
+[21:07:00.185] [ACTION] Walk here | player=(2508,3634,0) | target=? action=14 paramA=74989568 paramB=252 paramC=117
+[21:07:01.944] [CHAT] type=0 from="" msg="Changed move strategy: fly"
+[21:07:03.806] [CHAT] type=0 from="" msg="Naive move strategy: naive"
+[21:07:04.316] [ACTION] Walk here | player=(2507,3635,0) | target=? action=14 paramA=74989568 paramB=271 paramC=95
+[21:07:04.902] [ACTION] Walk here | player=(2507,3635,0) | target=? action=14 paramA=74989568 paramB=288 paramC=96
+[21:07:05.149] [ACTION] Walk here | player=(2507,3635,0) | target=? action=14 paramA=74989568 paramB=300 paramC=111
+[21:07:05.419] [ACTION] Walk here | player=(2507,3635,0) | target=? action=14 paramA=74989568 paramB=292 paramC=143
+[21:07:05.641] [ACTION] Walk here | player=(2507,3635,0) | target=? action=14 paramA=74989568 paramB=300 paramC=171
+[21:07:05.839] [ACTION] Walk here | player=(2507,3635,0) | target=? action=14 paramA=74989568 paramB=305 paramC=235
+[21:07:09.747] [CHAT] type=0 from="" msg="Changed move strategy: fly"
+[21:07:10.336] [ACTION] Walk here | player=(2508,3633,0) | target=? action=14 paramA=74989568 paramB=267 paramC=87
+[21:07:12.479] [ACTION] Cancel | player=(2507,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:07:12.951] [ACTION] Cancel | player=(2508,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:07:13.504] [ACTION] Cancel | player=(2508,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:07:21.395] [ACTION] Talk-to Larrissa | player=(2509,3635,0) | target=npc name="Larrissa" coords=(2504,3637,0)
+[21:07:24.789] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[21:07:25.976] [ACTION] Walk here | player=(2506,3634,0) | target=? action=14 paramA=8505 paramB=376 paramC=150
+[21:07:26.641] [ACTION] Cancel | player=(2508,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:07:27.123] [ACTION] Cancel | player=(2508,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:07:41.802] [ACTION] Walk here | player=(2509,3635,0) | target=? action=14 paramA=554 paramB=443 paramC=326
+[21:07:43.002] [ACTION] Walk here | player=(2511,3633,0) | target=? action=14 paramA=554 paramB=229 paramC=183
+[21:07:45.145] [CHAT] type=0 from="" msg="Changed move strategy: smart"
+[21:07:45.935] [ACTION] Walk here | player=(2509,3634,0) | target=? action=14 paramA=554 paramB=336 paramC=257
+[21:07:48.241] [CHAT] type=0 from="" msg="Changed move strategy: fly"
+[21:07:48.865] [ACTION] Walk here | player=(2511,3631,0) | target=? action=14 paramA=8505 paramB=99 paramC=105
+[21:07:50.674] [ACTION] Walk here | player=(2507,3634,0) | target=? action=14 paramA=74989568 paramB=225 paramC=106
+[21:08:02.071] [CHAT] type=5 from="" msg="Nsx has logged in."
+[21:08:34.844] [ACTION] Walk-through Doorway | player=(2507,3635,0) | target=loc id=4577 name="Doorway" coords=(2509,3636,0)
+[21:08:35.584] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[21:08:36.155] [ACTION] Walk here | player=(2509,3635,0) | target=? action=14 paramA=74989568 paramB=234 paramC=123
+[21:08:43.723] [ACTION] Cancel | player=(2508,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:08:43.849] [HOTKEY] Tab reply to Nsx
+[21:08:48.020] [CHAT] type=6 from="Nsx" msg="Sec gotta let dogs out and in"
+[21:12:33.830] [CHAT] type=7 from="@cr2@Nsx" msg="Command for switchin between anients and normal?"
+[21:12:49.487] [ACTION] Cancel | player=(2508,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:12:51.551] [HOTKEY] Tab reply to Nsx
+[21:12:54.848] [CHAT] type=6 from="Nsx" msg="I could make that ye"
+[21:13:00.832] [HOTKEY] Tab reply to Nsx
+[21:13:11.011] [HOTKEY] Tab reply to Nsx
+[21:13:16.882] [CHAT] type=6 from="Nsx" msg="But do we want that for normal players "
+[21:13:26.572] [CHAT] type=7 from="@cr2@Nsx" msg="Alright i wanna test out the spells"
+[21:13:43.991] [CHAT] type=7 from="@cr2@Nsx" msg="No cuz i wanna have them do the quest "
+[21:13:47.568] [CHAT] type=7 from="@cr2@Nsx" msg="Just admin control "
+[21:14:10.378] [CHAT] type=7 from="@cr2@Nsx" msg="Dt should be coded correctly correct? "
+[21:16:07.486] [ACTION] Cancel | player=(2508,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:16:12.015] [ACTION] Cancel | player=(2508,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:16:13.161] [ACTION] Cancel | player=(2508,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:16:13.763] [ACTION] Cancel | player=(2508,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:16:16.207] [ACTION] Cancel | player=(2508,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:16:17.561] [ACTION] Cancel | player=(2508,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:16:18.978] [ACTION] Cancel | player=(2508,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:16:21.257] [ACTION] Cancel | player=(2508,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:16:21.906] [ACTION] Cancel | player=(2508,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:16:22.648] [ACTION] Cancel | player=(2508,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:16:26.163] [ACTION] Desert Treasure | player=(2508,3635,0) | target=? action=352 paramA=455 paramB=1 paramC=12852
+[21:16:26.571] [CHAT] type=0 from="" msg="No trigger for [if_button,questlist:deserttreasure]"
+[21:16:27.756] [ACTION] Cancel | player=(2508,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:16:28.355] [ACTION] Cancel | player=(2508,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:16:29.636] [HOTKEY] Tab reply to Nsx
+[21:16:42.964] [CHAT] type=6 from="Nsx" msg="Dont believe it is  "
+[21:16:45.563] [ACTION] Cancel | player=(2508,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:16:56.502] [ACTION] Cancel | player=(2508,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:17:21.896] [CHAT] type=7 from="@cr2@Nsx" msg="Hmm are u wanting to code that? "
+[21:17:25.648] [ACTION] Cancel | player=(2508,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:17:26.466] [HOTKEY] Tab reply to Nsx
+[21:17:32.562] [CHAT] type=6 from="Nsx" msg="Ye i can"
+[21:17:32.729] [HOTKEY] Tab reply to Nsx
+[21:17:39.197] [CHAT] type=7 from="@cr2@Nsx" msg="I kmow tank had it coded "
+[21:17:41.011] [CHAT] type=6 from="Nsx" msg="Thats why im testing all quests  "
+[21:18:03.152] [CHAT] type=7 from="@cr2@Nsx" msg="Ight ima start on that as well "
+[21:18:05.962] [ACTION] Cancel | player=(2508,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:18:06.922] [HOTKEY] Tab reply to Nsx
+[21:18:12.627] [CHAT] type=6 from="Nsx" msg="U can skip what i've already tested"
+[21:18:13.376] [CHAT] type=7 from="@cr2@Nsx" msg="U make unlimited run energy rq?"
+[21:18:17.041] [ACTION] Cancel | player=(2508,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:18:18.209] [HOTKEY] Tab reply to Nsx
+[21:18:18.895] [CHAT] type=6 from="Nsx" msg="Sec"
+[21:18:39.492] [ACTION] Cancel | player=(2508,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:18:39.699] [HOTKEY] Tab reply to Nsx
+[21:18:43.700] [ACTION] Cancel | player=(2508,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:18:46.972] [CHAT] type=6 from="Nsx" msg="Idk why i didnt do that originally "
+[21:19:13.355] [CHAT] type=7 from="@cr2@Nsx" msg="Cuz ur a wanker "
+[21:19:17.017] [ACTION] Cancel | player=(2508,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:19:17.593] [HOTKEY] Tab reply to Nsx
+[21:19:18.424] [CHAT] type=6 from="Nsx" msg="Smd"
+[21:19:34.300] [ACTION] Cancel | player=(2508,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:19:41.053] [CHAT] type=7 from="@cr2@Nsx" msg="Jenna! He is requestin ur assistance!"
+[21:19:52.320] [HOTKEY] Tab reply to Nsx
+[21:19:55.348] [CHAT] type=6 from="Nsx" msg="L000000000000000000000000000000000000000000000000000000000000000000 "
+[21:19:59.575] [CHAT] type=7 from="@cr2@Nsx" msg="Xddddddddd "
+[21:20:18.044] [HOTKEY] Tab reply to Nsx
+[21:20:25.409] [CHAT] type=6 from="Nsx" msg="Gonna make admins+ not drain run energy"
+[21:20:50.078] [CHAT] type=7 from="@cr2@Nsx" msg="Nice "
+[21:21:51.444] [HOTKEY] Tab reply to Nsx
+[21:21:53.290] [CHAT] type=6 from="Nsx" msg="Restarting, log"
+[21:21:57.249] [CHAT] type=5 from="" msg="Nsx has logged out."
+[21:22:02.848] [ACTION] Cancel | player=(2508,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:22:03.228] [ACTION] Cancel | player=(2508,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:22:03.700] [ACTION] Ok | player=(2508,3635,0) | target=? action=352 paramA=563 paramB=8 paramC=2458
+[21:22:03.763] [SESSION] logged out, was "corey"
+[21:22:19.909] [SESSION] logged in as "corey"
+[21:22:20.674] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[21:22:21.760] [ACTION] Close | player=(2508,3635,0) | target=? action=639 paramA=563 paramB=8 paramC=15251
+[21:22:24.109] [CHAT] type=0 from="" msg="Changed move strategy: fly"
+[21:22:24.931] [ACTION] Walk here | player=(2508,3635,0) | target=? action=14 paramA=74989568 paramB=230 paramC=100
+[21:22:25.409] [ACTION] Walk-through Doorway | player=(2508,3635,0) | target=loc id=4577 name="Doorway" coords=(2509,3636,0)
+[21:22:25.855] [ACTION] Walk here | player=(2508,3635,0) | target=? action=14 paramA=74989568 paramB=253 paramC=119
+[21:22:26.528] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[21:22:26.783] [ACTION] Cancel | player=(2509,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:22:28.155] [ACTION] Walk here | player=(2507,3637,0) | target=? action=14 paramA=74989568 paramB=258 paramC=133
+[21:22:29.564] [ACTION] Walk here | player=(2508,3638,0) | target=? action=14 paramA=74989568 paramB=285 paramC=126
+[21:22:37.125] [ACTION] Walk here | player=(2509,3640,0) | target=? action=14 paramA=74989568 paramB=196 paramC=254
+[21:22:37.826] [ACTION] Cancel | player=(2508,3639,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:22:38.292] [ACTION] Select | player=(2507,3638,0) | target=? action=518 paramA=74989568 paramB=342 paramC=153
+[21:22:38.801] [ACTION] Walk here | player=(2507,3638,0) | target=? action=14 paramA=9863168 paramB=332 paramC=63
+[21:22:40.466] [ACTION] Walk here | player=(2510,3643,0) | target=? action=14 paramA=9863168 paramB=207 paramC=231
+[21:22:41.221] [ACTION] Cancel | player=(2508,3641,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:22:41.726] [ACTION] Cancel | player=(2508,3639,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:22:42.361] [ACTION] Cancel | player=(2508,3639,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:22:43.202] [ACTION] Climb-up Staircase | player=(2508,3639,0) | target=loc id=4568 name="Staircase" coords=(2506,3640,0)
+[21:22:43.920] [CHAT] type=0 from="" msg="Unhandled stairs: horror_lighthouse_spiralstairs_base at"
+[21:22:43.920] [CHAT] type=0 from="" msg="x: 2506 z: 3640 level: 0 jcoord: 0_39_56_10_56"
+[21:22:48.451] [ACTION] Cancel | player=(2507,3639,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:22:48.758] [CHAT] type=5 from="" msg="Nsx has logged in."
+[21:22:49.312] [ACTION] Cancel | player=(2507,3639,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:23:01.911] [CHAT] type=7 from="@cr2@Nsx" msg="Nice "
+[21:23:08.614] [CHAT] type=7 from="@cr2@Nsx" msg="I just thought of something"
+[21:23:12.710] [CHAT] type=7 from="@cr2@Nsx" msg="U ready for this"
+[21:23:24.354] [ACTION] Cancel | player=(2507,3639,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:23:25.196] [HOTKEY] Tab reply to Nsx
+[21:23:26.945] [CHAT] type=6 from="Nsx" msg="Hit me "
+[21:23:28.928] [ACTION] Walk here | player=(2507,3639,0) | target=? action=14 paramA=2552 paramB=352 paramC=82
+[21:23:30.567] [ACTION] Walk here | player=(2510,3643,0) | target=? action=14 paramA=2552 paramB=184 paramC=243
+[21:23:37.798] [ACTION] Walk here | player=(2507,3639,0) | target=? action=14 paramA=62275584 paramB=337 paramC=112
+[21:23:46.338] [CHAT] type=7 from="@cr2@Nsx" msg="What if i know of a client that has shit u can build on "
+[21:23:53.921] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:23:54.200] [CHAT] type=7 from="@cr2@Nsx" msg="Bult for lost city"
+[21:23:59.008] [CHAT] type=7 from="@cr2@Nsx" msg="Built"
+[21:24:37.700] [HOTKEY] Tab reply to Nsx
+[21:24:46.289] [CHAT] type=6 from="Nsx" msg="Link me "
+[21:24:49.419] [ACTION] Walk here | player=(2509,3636,0) | target=? action=14 paramA=62275584 paramB=250 paramC=36
+[21:24:51.292] [ACTION] Walk-through Doorway | player=(2509,3641,0) | target=loc id=4577 name="Doorway" coords=(2509,3636,0)
+[21:24:51.771] [ACTION] Walk here | player=(2509,3641,0) | target=? action=14 paramA=74989568 paramB=248 paramC=260
+[21:24:55.426] [CHAT] type=7 from="@cr2@Nsx" msg="1 Sec "
+[21:24:56.723] [ACTION] Walk-through Doorway | player=(2509,3638,0) | target=loc id=4577 name="Doorway" coords=(2509,3636,0)
+[21:24:57.787] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[21:25:06.761] [ACTION] Walk-through Doorway | player=(2509,3636,0) | target=loc id=4577 name="Doorway" coords=(2509,3636,0)
+[21:25:07.404] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[21:25:18.922] [ACTION] Walk-through Doorway | player=(2509,3636,0) | target=loc id=4577 name="Doorway" coords=(2509,3636,0)
+[21:25:19.376] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[21:25:19.697] [ACTION] Walk-through Doorway | player=(2509,3636,0) | target=loc id=4577 name="Doorway" coords=(2509,3636,0)
+[21:25:19.919] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[21:25:21.698] [ACTION] Examine Doorway | player=(2509,3636,0) | target=loc id=4577 name="Doorway" coords=(2509,3636,0)
+[21:25:21.698] [CHAT] type=0 from="" msg="Lets you walk through walls!"
+[21:25:36.288] [ACTION] Walk-through Doorway | player=(2509,3636,0) | target=loc id=4577 name="Doorway" coords=(2509,3636,0)
+[21:25:36.732] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[21:25:37.980] [ACTION] Walk here | player=(2509,3636,0) | target=? action=14 paramA=74989568 paramB=257 paramC=201
+[21:25:42.892] [ACTION] Walk here | player=(2509,3636,0) | target=? action=14 paramA=74989568 paramB=239 paramC=166
+[21:25:44.556] [ACTION] Walk here | player=(2509,3636,0) | target=? action=14 paramA=8505 paramB=249 paramC=212
+[21:25:44.988] [ACTION] Walk here | player=(2509,3636,0) | target=? action=14 paramA=8505 paramB=245 paramC=212
+[21:25:45.210] [ACTION] Walk here | player=(2509,3636,0) | target=? action=14 paramA=8505 paramB=251 paramC=215
+[21:25:45.458] [ACTION] Walk here | player=(2509,3636,0) | target=? action=14 paramA=8505 paramB=246 paramC=231
+[21:25:45.721] [ACTION] Walk here | player=(2509,3636,0) | target=? action=14 paramA=8505 paramB=246 paramC=246
+[21:25:45.928] [ACTION] Walk here | player=(2509,3636,0) | target=? action=14 paramA=8505 paramB=241 paramC=269
+[21:25:46.641] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:25:47.029] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:25:47.254] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:25:47.926] [ACTION] Walk here | player=(2509,3636,0) | target=? action=14 paramA=74989568 paramB=227 paramC=133
+[21:25:48.706] [ACTION] Walk here | player=(2508,3638,0) | target=? action=14 paramA=74989568 paramB=234 paramC=219
+[21:25:49.138] [ACTION] Walk here | player=(2508,3638,0) | target=? action=14 paramA=1148738101 paramB=257 paramC=284
+[21:25:49.389] [CHAT] type=7 from="@cr2@Nsx" msg="Obvy remove the irc chat "
+[21:25:51.283] [ACTION] Walk here | player=(2509,3636,0) | target=? action=14 paramA=74989568 paramB=258 paramC=296
+[21:25:51.730] [ACTION] Walk here | player=(2509,3636,0) | target=? action=14 paramA=74989568 paramB=222 paramC=275
+[21:25:52.003] [ACTION] Walk here | player=(2509,3636,0) | target=? action=14 paramA=74989568 paramB=215 paramC=256
+[21:25:53.515] [ACTION] Walk here | player=(2509,3636,0) | target=? action=14 paramA=74989568 paramB=192 paramC=199
+[21:25:54.392] [ACTION] Walk here | player=(2509,3638,0) | target=? action=14 paramA=74989568 paramB=228 paramC=188
+[21:25:58.389] [CHAT] type=7 from="@cr2@Nsx" msg="But u can use it its open source"
+[21:26:21.447] [HOTKEY] Tab reply to Nsx
+[21:26:25.485] [CHAT] type=6 from="Nsx" msg="O ya i did see that before "
+[21:26:26.998] [HOTKEY] Tab reply to Nsx
+[21:26:29.376] [CHAT] type=6 from="Nsx" msg="Should be able to use it"
+[21:26:35.859] [ACTION] Cancel | player=(2509,3637,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:26:36.392] [HOTKEY] Tab reply to Nsx
+[21:26:39.214] [CHAT] type=6 from="Nsx" msg="Look into it more tomorrow"
+[21:26:42.728] [CHAT] type=7 from="@cr2@Nsx" msg="Would that be good to use or no?"
+[21:26:43.668] [ACTION] Walk here | player=(2509,3637,0) | target=? action=14 paramA=74989568 paramB=278 paramC=265
+[21:26:45.843] [ACTION] Walk-through Doorway | player=(2509,3636,0) | target=loc id=4577 name="Doorway" coords=(2509,3636,0)
+[21:26:46.325] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[21:26:48.270] [ACTION] Walk here | player=(2509,3636,0) | target=? action=14 paramA=74989568 paramB=234 paramC=237
+[21:26:48.618] [ACTION] Walk here | player=(2509,3636,0) | target=? action=14 paramA=74989568 paramB=259 paramC=234
+[21:26:48.799] [ACTION] Walk here | player=(2509,3636,0) | target=? action=14 paramA=74989568 paramB=267 paramC=226
+[21:26:51.258] [HOTKEY] Tab reply to Nsx
+[21:26:58.920] [CHAT] type=6 from="Nsx" msg="Ye, wont have to add it all myself lol "
+[21:27:01.024] [ACTION] Walk here | player=(2509,3636,0) | target=? action=14 paramA=74989568 paramB=264 paramC=217
+[21:27:01.718] [ACTION] Walk here | player=(2509,3636,0) | target=? action=14 paramA=74989568 paramB=258 paramC=214
+[21:27:02.505] [ACTION] Walk here | player=(2509,3636,0) | target=? action=14 paramA=74989568 paramB=259 paramC=218
+[21:27:03.531] [ACTION] Walk here | player=(2509,3636,0) | target=? action=14 paramA=74989568 paramB=259 paramC=78
+[21:27:04.254] [ACTION] Walk here | player=(2509,3638,0) | target=? action=14 paramA=74989568 paramB=217 paramC=123
+[21:27:04.730] [ACTION] Walk here | player=(2508,3638,0) | target=? action=14 paramA=74989568 paramB=252 paramC=118
+[21:27:04.990] [ACTION] Walk here | player=(2509,3639,0) | target=? action=14 paramA=74989568 paramB=271 paramC=121
+[21:27:10.393] [CHAT] type=0 from="" msg="Changed move strategy: smart"
+[21:27:11.141] [ACTION] Walk here | player=(2509,3639,0) | target=? action=14 paramA=62275584 paramB=248 paramC=107
+[21:27:11.865] [ACTION] Walk here | player=(2509,3641,0) | target=? action=14 paramA=62275584 paramB=209 paramC=165
+[21:27:12.343] [ACTION] Walk here | player=(2508,3639,0) | target=? action=14 paramA=62275584 paramB=144 paramC=181
+[21:27:14.576] [CHAT] type=0 from="" msg="Changed move strategy: fly"
+[21:27:15.033] [ACTION] Walk here | player=(2505,3640,0) | target=? action=14 paramA=62275584 paramB=284 paramC=302
+[21:27:17.038] [ACTION] Talk-to Larrissa | player=(2507,3637,0) | target=npc name="Larrissa" coords=(2509,3635,0)
+[21:27:18.842] [CHAT] type=0 from="" msg="I can't reach that!"
+[21:27:20.559] [ACTION] Walk here | player=(2511,3635,0) | target=? action=14 paramA=8505 paramB=136 paramC=188
+[21:27:22.123] [ACTION] Walk here | player=(2507,3635,0) | target=? action=14 paramA=8505 paramB=259 paramC=168
+[21:27:23.597] [ACTION] Walk-through Doorway | player=(2509,3635,0) | target=loc id=4577 name="Doorway" coords=(2509,3636,0)
+[21:27:24.186] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[21:27:24.598] [ACTION] Walk here | player=(2509,3635,0) | target=? action=14 paramA=74989568 paramB=261 paramC=156
+[21:27:25.774] [ACTION] Walk here | player=(2509,3635,0) | target=? action=14 paramA=74989568 paramB=265 paramC=160
+[21:27:27.136] [CHAT] type=7 from="@cr2@Nsx" msg="Ya lol i think it has everything made "
+[21:27:31.914] [CHAT] type=0 from="" msg="0,39,56,13,51"
+[21:27:34.349] [CHAT] type=7 from="@cr2@Nsx" msg="Like guides and shit"
+[21:27:40.657] [ACTION] Climb-up Staircase | player=(2509,3635,0) | target=loc id=4568 name="Staircase" coords=(2506,3640,0)
+[21:27:41.860] [ACTION] Walk here | player=(2505,3639,0) | target=? action=14 paramA=74989568 paramB=271 paramC=164
+[21:27:46.543] [ACTION] Walk here | player=(2508,3637,0) | target=? action=14 paramA=74989568 paramB=244 paramC=133
+[21:27:49.932] [CHAT] type=0 from="" msg="0,39,56,13,52"
+[21:29:01.377] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:29:02.925] [HOTKEY] Tab reply to Nsx
+[21:29:17.310] [CHAT] type=6 from="Nsx" msg="Skill guides are all server sided"
+[21:29:19.830] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:29:26.297] [ACTION] Walk here | player=(2509,3636,0) | target=? action=14 paramA=74989568 paramB=263 paramC=60
+[21:29:31.429] [ACTION] Walk here | player=(2509,3640,0) | target=? action=14 paramA=5799936 paramB=266 paramC=82
+[21:29:33.681] [ACTION] Climb Iron ladder | player=(2509,3643,0) | target=loc id=4383 name="Iron ladder" coords=(2509,3644,0)
+[21:29:34.365] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[21:29:39.713] [CHAT] type=0 from="" msg="0,39,56,14,60"
+[21:29:49.937] [CHAT] type=7 from="@cr2@Nsx" msg="Like the quest guides and cords for clues ect"
+[21:29:56.727] [HOTKEY] Tab reply to Nsx
+[21:29:59.138] [CHAT] type=6 from="Nsx" msg="Oooo got ya "
+[21:30:15.812] [ACTION] Climb Iron ladder | player=(2510,3644,0) | target=loc id=4383 name="Iron ladder" coords=(2509,3644,0)
+[21:30:16.338] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[21:30:42.770] [CHAT] type=7 from="@cr2@Nsx" msg="Its basically old swit kit "
+[21:30:49.928] [CHAT] type=7 from="@cr2@Nsx" msg="Swift "
+[21:31:02.085] [ACTION] Walk here | player=(2510,3644,2) | target=? action=14 paramA=71811072 paramB=169 paramC=242
+[21:31:04.823] [ACTION] Walk here | player=(2508,3643,2) | target=? action=14 paramA=75153408 paramB=231 paramC=285
+[21:31:05.452] [ACTION] Walk here | player=(2506,3641,2) | target=? action=14 paramA=75153408 paramB=214 paramC=296
+[21:31:06.069] [ACTION] Walk here | player=(2506,3640,2) | target=? action=14 paramA=75153408 paramB=249 paramC=298
+[21:31:07.904] [ACTION] Walk here | player=(2506,3639,2) | target=? action=14 paramA=74874880 paramB=214 paramC=102
+[21:31:09.168] [ACTION] Climb-down Staircase | player=(2505,3641,2) | target=loc id=4570 name="Staircase" coords=(2506,3641,2)
+[21:31:09.808] [CHAT] type=0 from="" msg="Unhandled stairs: horror_lighthouse_spiralstairs_top at"
+[21:31:09.808] [CHAT] type=0 from="" msg="x: 2506 z: 3641 level: 2 jcoord: 2_39_56_10_57"
+[21:31:11.234] [ACTION] Climb-down Staircase | player=(2505,3641,2) | target=loc id=4570 name="Staircase" coords=(2506,3641,2)
+[21:31:11.520] [CHAT] type=0 from="" msg="Unhandled stairs: horror_lighthouse_spiralstairs_top at"
+[21:31:11.520] [CHAT] type=0 from="" msg="x: 2506 z: 3641 level: 2 jcoord: 2_39_56_10_57"
+[21:31:12.076] [ACTION] Climb-down Staircase | player=(2505,3641,2) | target=loc id=4570 name="Staircase" coords=(2506,3641,2)
+[21:31:12.118] [CHAT] type=0 from="" msg="Unhandled stairs: horror_lighthouse_spiralstairs_top at"
+[21:31:12.118] [CHAT] type=0 from="" msg="x: 2506 z: 3641 level: 2 jcoord: 2_39_56_10_57"
+[21:31:25.910] [CHAT] type=0 from="" msg="2,39,56,9,57"
+[21:31:58.554] [ACTION] Talk-to Jossik | player=(2505,3641,1) | target=npc name="Jossik" coords=(2506,3638,1)
+[21:31:58.912] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[21:32:00.200] [ACTION] Trade Jossik | player=(2506,3639,1) | target=npc name="Jossik" coords=(2507,3638,1)
+[21:32:01.419] [CHAT] type=0 from="" msg="I can't reach that!"
+[21:32:01.504] [ACTION] Examine Jossik | player=(2508,3637,1) | target=npc name="Jossik" coords=(2508,3637,1)
+[21:32:01.504] [CHAT] type=0 from="" msg="Apparently he keeps a lighthouse."
+[21:32:06.970] [ACTION] Walk here | player=(2508,3637,1) | target=? action=14 paramA=8506 paramB=293 paramC=71
+[21:32:07.231] [ACTION] Walk here | player=(2508,3637,1) | target=? action=14 paramA=8506 paramB=304 paramC=72
+[21:32:10.426] [CHAT] type=0 from="" msg="1,39,56,13,56"
+[21:32:23.085] [HOTKEY] Tab reply to Nsx
+[21:32:27.708] [CHAT] type=6 from="Nsx" msg="Ye i rememebr swift "
+[21:32:37.849] [ACTION] Walk here | player=(2509,3640,0) | target=? action=14 paramA=5799936 paramB=256 paramC=54
+[21:32:59.415] [ACTION] Climb Iron ladder | player=(2509,3643,0) | target=loc id=4383 name="Iron ladder" coords=(2509,3644,0)
+[21:33:00.184] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[21:33:10.906] [CHAT] type=0 from="" msg="0,39,56,14,60"
+[21:33:39.053] [ACTION] Walk here | player=(2510,3644,0) | target=? action=14 paramA=71761920 paramB=165 paramC=178
+[21:34:36.858] [ACTION] Cancel | player=(2510,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:34:38.061] [ACTION] Cancel | player=(2510,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:34:38.267] [ACTION] Cancel | player=(2510,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:34:38.459] [ACTION] Cancel | player=(2510,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:34:40.009] [ACTION] Cancel | player=(2510,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:34:40.213] [ACTION] Cancel | player=(2510,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:34:40.845] [ACTION] Cancel | player=(2510,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:34:42.498] [ACTION] Climb Iron ladder | player=(2510,3644,0) | target=loc id=4383 name="Iron ladder" coords=(2509,3644,0)
+[21:34:42.706] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[21:34:44.127] [ACTION] Walk here | player=(2510,3644,0) | target=? action=14 paramA=71761920 paramB=168 paramC=164
+[21:34:45.237] [ACTION] Cancel | player=(2507,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:34:46.280] [ACTION] Examine Iron ladder | player=(2507,3644,0) | target=loc id=4380 name="Iron ladder" coords=(2508,3644,0)
+[21:34:46.280] [CHAT] type=0 from="" msg="I could climb this if I wanted."
+[21:34:47.176] [ACTION] Walk here | player=(2507,3644,0) | target=? action=14 paramA=71761920 paramB=313 paramC=178
+[21:34:47.526] [ACTION] Walk here | player=(2507,3644,0) | target=? action=14 paramA=71761920 paramB=297 paramC=178
+[21:34:47.792] [ACTION] Climb Iron ladder | player=(2507,3644,0) | target=loc id=4383 name="Iron ladder" coords=(2509,3644,0)
+[21:34:49.034] [ACTION] Walk here | player=(2510,3644,0) | target=? action=14 paramA=71761920 paramB=276 paramC=172
+[21:34:49.353] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[21:34:50.045] [ACTION] Walk here | player=(2510,3644,0) | target=? action=14 paramA=71761920 paramB=190 paramC=174
+[21:34:50.903] [ACTION] Walk here | player=(2510,3644,0) | target=? action=14 paramA=71761920 paramB=169 paramC=178
+[21:34:51.856] [ACTION] Walk here | player=(2510,3644,0) | target=? action=14 paramA=71761920 paramB=171 paramC=147
+[21:34:52.117] [ACTION] Walk here | player=(2510,3644,0) | target=? action=14 paramA=71761920 paramB=175 paramC=184
+[21:34:52.571] [ACTION] Walk here | player=(2508,3644,0) | target=? action=14 paramA=71761920 paramB=174 paramC=179
+[21:34:54.250] [ACTION] Walk here | player=(2507,3644,0) | target=? action=14 paramA=71761920 paramB=276 paramC=181
+[21:35:22.643] [ACTION] Cancel | player=(2507,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:36:57.789] [ACTION] Walk here | player=(2507,3644,0) | target=? action=14 paramA=71761920 paramB=303 paramC=179
+[21:36:58.154] [ACTION] Walk here | player=(2507,3644,0) | target=? action=14 paramA=71761920 paramB=305 paramC=172
+[21:37:04.854] [ACTION] Walk here | player=(2507,3644,0) | target=? action=14 paramA=71761920 paramB=191 paramC=140
+[21:37:05.410] [ACTION] Walk here | player=(2506,3643,0) | target=? action=14 paramA=71761920 paramB=101 paramC=131
+[21:37:06.798] [ACTION] Walk here | player=(2505,3642,0) | target=? action=14 paramA=71761920 paramB=107 paramC=105
+[21:37:07.550] [ACTION] Walk here | player=(2505,3642,0) | target=? action=14 paramA=71761920 paramB=43 paramC=70
+[21:37:07.940] [ACTION] Walk here | player=(2505,3642,0) | target=? action=14 paramA=71761920 paramB=104 paramC=74
+[21:37:08.242] [ACTION] Walk here | player=(2505,3642,0) | target=? action=14 paramA=71761920 paramB=123 paramC=118
+[21:37:08.487] [ACTION] Walk here | player=(2505,3642,0) | target=? action=14 paramA=71761920 paramB=141 paramC=142
+[21:37:08.756] [ACTION] Walk here | player=(2505,3642,0) | target=? action=14 paramA=71761920 paramB=175 paramC=152
+[21:37:09.019] [ACTION] Walk here | player=(2505,3642,0) | target=? action=14 paramA=71761920 paramB=215 paramC=153
+[21:37:09.509] [ACTION] Walk here | player=(2505,3642,0) | target=? action=14 paramA=71761920 paramB=313 paramC=123
+[21:37:17.556] [ACTION] Cancel | player=(2507,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:37:17.816] [ACTION] Cancel | player=(2507,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:37:18.261] [ACTION] Cancel | player=(2507,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:37:18.839] [ACTION] Cancel | player=(2507,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:37:31.306] [ACTION] Cancel | player=(2507,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:37:31.570] [ACTION] Cancel | player=(2507,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:37:32.067] [ACTION] Cancel | player=(2507,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:37:32.699] [ACTION] Cancel | player=(2507,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:37:33.279] [ACTION] Cancel | player=(2507,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:37:33.617] [ACTION] Cancel | player=(2507,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:37:34.255] [ACTION] Cancel | player=(2507,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:37:34.824] [ACTION] Add name | player=(2507,3644,0) | target=? action=352 paramA=555 paramB=6 paramC=5718
+[21:37:36.345] [CHAT] type=0 from="" msg="Please remove Nsx from your friend list first"
+[21:37:38.154] [ACTION] Cancel | player=(2507,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:37:38.602] [ACTION] Cancel | player=(2507,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:37:40.505] [ACTION] Walk here | player=(2507,3644,0) | target=? action=14 paramA=71811072 paramB=336 paramC=160
+[21:37:40.911] [ACTION] Climb Iron ladder | player=(2508,3643,0) | target=loc id=4383 name="Iron ladder" coords=(2509,3644,0)
+[21:37:42.118] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[21:40:46.984] [ACTION] Climb Iron ladder | player=(2510,3644,0) | target=loc id=4383 name="Iron ladder" coords=(2509,3644,0)
+[21:40:47.544] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[21:40:48.641] [ACTION] Cancel | player=(2510,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:40:48.884] [ACTION] Cancel | player=(2510,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:40:49.155] [ACTION] Cancel | player=(2510,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:40:49.672] [ACTION] Cancel | player=(2510,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:40:53.391] [ACTION] Cancel | player=(2510,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:40:53.717] [ACTION] Cancel | player=(2510,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:40:53.921] [ACTION] Cancel | player=(2510,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:40:54.391] [ACTION] Cancel | player=(2510,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:40:54.636] [ACTION] Cancel | player=(2510,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:40:54.837] [ACTION] Cancel | player=(2510,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:40:55.126] [ACTION] Cancel | player=(2510,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:40:55.333] [ACTION] Cancel | player=(2510,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:40:56.483] [ACTION] Cancel | player=(2510,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:41:01.898] [CHAT] type=0 from="" msg="0,39,56,14,60"
+[21:41:03.572] [ACTION] Cancel | player=(2510,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:41:04.124] [ACTION] Cancel | player=(2509,3642,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:41:08.366] [ACTION] Walk here | player=(2509,3636,0) | target=? action=14 paramA=62275584 paramB=250 paramC=35
+[21:41:08.744] [ACTION] Walk here | player=(2509,3638,0) | target=? action=14 paramA=62275584 paramB=259 paramC=47
+[21:41:10.520] [ACTION] Search Crate | player=(2509,3641,0) | target=loc id=354 name="Crate" coords=(2511,3642,0)
+[21:41:11.498] [CHAT] type=0 from="" msg="You search the crate but find nothing."
+[21:41:13.517] [ACTION] Cancel | player=(2510,3642,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:41:14.749] [ACTION] Cancel | player=(2510,3642,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:41:16.061] [ACTION] Horror from the Deep | player=(2510,3642,0) | target=? action=352 paramA=3855 paramB=0 paramC=10135
+[21:41:16.323] [CHAT] type=0 from="" msg="No trigger for [if_button,questlist:horror]"
+[21:41:17.433] [ACTION] Horror from the Deep | player=(2510,3642,0) | target=? action=352 paramA=3855 paramB=0 paramC=10135
+[21:41:17.501] [CHAT] type=0 from="" msg="No trigger for [if_button,questlist:horror]"
+[21:41:18.041] [HOTKEY] Escape closed interfaces
+[21:41:18.411] [ACTION] Cancel | player=(2510,3642,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:41:18.884] [ACTION] Cancel | player=(2510,3642,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:41:19.066] [ACTION] Cancel | player=(2510,3642,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:41:19.253] [ACTION] Cancel | player=(2510,3642,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:41:19.538] [ACTION] Cancel | player=(2510,3642,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:41:19.742] [ACTION] Cancel | player=(2510,3642,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:41:19.902] [ACTION] Cancel | player=(2510,3642,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:41:20.068] [ACTION] Cancel | player=(2510,3642,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:41:20.702] [ACTION] Cancel | player=(2510,3642,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:41:21.302] [ACTION] Select | player=(2510,3642,0) | target=? action=518 paramA=3855 paramB=0 paramC=1771
+[21:41:21.643] [ACTION] Cancel | player=(2510,3642,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:41:23.144] [ACTION] Walk here | player=(2510,3642,0) | target=? action=14 paramA=5799936 paramB=260 paramC=100
+[21:41:25.511] [ACTION] Walk here | player=(2510,3644,0) | target=? action=14 paramA=71761920 paramB=210 paramC=167
+[21:41:25.803] [ACTION] Climb Iron ladder | player=(2510,3644,0) | target=loc id=4383 name="Iron ladder" coords=(2509,3644,0)
+[21:41:25.904] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[21:41:27.372] [ACTION] Cancel | player=(2510,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:41:27.572] [ACTION] Cancel | player=(2510,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:41:27.755] [ACTION] Cancel | player=(2510,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:41:28.308] [ACTION] Cancel | player=(2510,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:42:49.621] [ACTION] Cancel | player=(2510,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:42:52.240] [ACTION] Talk-to Larrissa | player=(2507,3638,0) | target=npc name="Larrissa" coords=(2506,3635,0)
+[21:42:52.305] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[21:42:52.829] [ACTION] Cancel | player=(2506,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:42:53.097] [ACTION] Cancel | player=(2508,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:42:53.427] [ACTION] Cancel | player=(2508,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:42:56.961] [ACTION] Cancel | player=(2520,3626,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:43:01.429] [ACTION] Cancel | player=(2533,3625,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:43:01.652] [ACTION] Cancel | player=(2533,3625,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:43:03.661] [ACTION] Cancel | player=(2539,3620,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:43:04.033] [ACTION] Cancel | player=(2541,3620,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:43:04.609] [ACTION] Cancel | player=(2543,3620,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:43:06.428] [ACTION] Cancel | player=(2549,3619,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:43:06.885] [ACTION] Cancel | player=(2551,3620,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:43:07.567] [ACTION] Cancel | player=(2553,3620,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:43:07.943] [ACTION] Cancel | player=(2555,3620,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:43:08.849] [ACTION] Walk here | player=(2557,3620,0) | target=? action=14 paramA=8505 paramB=488 paramC=76
+[21:43:09.379] [ACTION] Walk here | player=(2559,3620,0) | target=? action=14 paramA=8505 paramB=488 paramC=76
+[21:43:10.066] [ACTION] Walk here | player=(2561,3620,0) | target=? action=14 paramA=8505 paramB=487 paramC=78
+[21:43:11.096] [ACTION] Cancel | player=(2564,3619,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:43:11.796] [ACTION] Cancel | player=(2566,3617,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:43:16.240] [ACTION] Cancel | player=(2576,3610,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:43:20.597] [ACTION] Cancel | player=(2591,3606,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:43:21.054] [ACTION] Cancel | player=(2591,3606,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:43:21.291] [ACTION] Cancel | player=(2593,3608,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:43:22.028] [ACTION] Cross Broken bridge | player=(2595,3608,0) | target=loc id=4616 name="Broken bridge" coords=(2598,3608,0)
+[21:43:22.898] [CHAT] type=0 from="" msg="I can't reach that!"
+[21:43:23.530] [ACTION] Walk here | player=(2596,3608,0) | target=? action=14 paramA=75628544 paramB=405 paramC=170
+[21:43:25.264] [ACTION] Walk here | player=(2597,3606,0) | target=? action=14 paramA=75628544 paramB=395 paramC=118
+[21:43:25.790] [ACTION] Walk here | player=(2597,3606,0) | target=? action=14 paramA=75628544 paramB=336 paramC=118
+[21:43:28.647] [ACTION] Walk here | player=(2597,3606,0) | target=? action=14 paramA=75628544 paramB=180 paramC=150
+[21:43:29.026] [ACTION] Cross Broken bridge | player=(2597,3606,0) | target=loc id=4616 name="Broken bridge" coords=(2598,3608,0)
+[21:43:29.212] [ACTION] Cross Broken bridge | player=(2597,3606,0) | target=loc id=4616 name="Broken bridge" coords=(2598,3608,0)
+[21:43:29.751] [ACTION] Cross Broken bridge | player=(2596,3608,0) | target=loc id=4616 name="Broken bridge" coords=(2598,3608,0)
+[21:43:30.155] [CHAT] type=0 from="" msg="I can't reach that!"
+[21:43:30.237] [ACTION] Walk here | player=(2596,3608,0) | target=? action=14 paramA=75628544 paramB=221 paramC=91
+[21:43:30.506] [ACTION] Walk here | player=(2596,3608,0) | target=? action=14 paramA=75628544 paramB=257 paramC=89
+[21:43:31.061] [ACTION] Walk here | player=(2597,3606,0) | target=? action=14 paramA=75628544 paramB=265 paramC=60
+[21:43:31.548] [ACTION] Walk here | player=(2597,3606,0) | target=? action=14 paramA=75628544 paramB=192 paramC=59
+[21:43:31.749] [ACTION] Walk here | player=(2597,3606,0) | target=? action=14 paramA=75628544 paramB=155 paramC=84
+[21:43:31.937] [ACTION] Walk here | player=(2596,3608,0) | target=? action=14 paramA=75628544 paramB=134 paramC=113
+[21:43:33.325] [ACTION] Walk here | player=(2596,3608,0) | target=? action=14 paramA=75628544 paramB=149 paramC=109
+[21:43:33.725] [ACTION] Walk here | player=(2596,3608,0) | target=? action=14 paramA=75628544 paramB=160 paramC=113
+[21:43:55.316] [CHAT] type=0 from="" msg="0,40,56,36,24"
+[21:44:03.066] [ACTION] Walk here | player=(2596,3614,0) | target=? action=14 paramA=75628544 paramB=423 paramC=32
+[21:44:03.459] [ACTION] Walk here | player=(2596,3614,0) | target=? action=14 paramA=75628544 paramB=413 paramC=40
+[21:44:03.679] [ACTION] Walk here | player=(2596,3614,0) | target=? action=14 paramA=75628544 paramB=391 paramC=70
+[21:44:03.982] [ACTION] Walk here | player=(2596,3614,0) | target=? action=14 paramA=75628544 paramB=383 paramC=92
+[21:44:04.143] [ACTION] Walk here | player=(2596,3614,0) | target=? action=14 paramA=75628544 paramB=378 paramC=134
+[21:44:04.387] [ACTION] Walk here | player=(2596,3614,0) | target=? action=14 paramA=75628544 paramB=381 paramC=140
+[21:44:04.569] [ACTION] Walk here | player=(2596,3614,0) | target=? action=14 paramA=75628544 paramB=390 paramC=203
+[21:44:04.756] [ACTION] Walk here | player=(2596,3614,0) | target=? action=14 paramA=75628544 paramB=421 paramC=283
+[21:44:16.202] [ACTION] Walk here | player=(2600,3614,0) | target=? action=14 paramA=75628544 paramB=432 paramC=137
+[21:44:16.605] [ACTION] Walk here | player=(2600,3614,0) | target=? action=14 paramA=75628544 paramB=395 paramC=143
+[21:44:24.619] [ACTION] Cancel | player=(2605,3614,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:44:24.833] [ACTION] Cancel | player=(2605,3614,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:44:25.041] [ACTION] Cancel | player=(2605,3614,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:44:25.291] [ACTION] Cancel | player=(2605,3614,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:44:25.488] [ACTION] Cancel | player=(2605,3614,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:44:26.265] [ACTION] Walk here | player=(2605,3614,0) | target=? action=14 paramA=75628544 paramB=461 paramC=83
+[21:44:26.561] [ACTION] Walk here | player=(2605,3614,0) | target=? action=14 paramA=75628544 paramB=468 paramC=78
+[21:44:28.682] [ACTION] Chop down Tree | player=(2605,3614,0) | target=loc id=1276 name="Tree" coords=(2612,3623,0)
+[21:44:28.937] [CHAT] type=0 from="" msg="I can't reach that!"
+[21:44:37.977] [ACTION] Walk here | player=(2615,3614,0) | target=? action=14 paramA=20987904 paramB=396 paramC=53
+[21:44:38.797] [ACTION] Cancel | player=(2617,3616,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:44:39.281] [ACTION] Cancel | player=(2619,3618,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:44:39.598] [ACTION] Cancel | player=(2619,3618,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:44:42.228] [ACTION] Cancel | player=(2629,3627,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:44:44.236] [ACTION] Cancel | player=(2635,3633,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:44:45.054] [ACTION] Cancel | player=(2637,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:44:47.016] [ACTION] Cancel | player=(2637,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:44:48.671] [ACTION] Cancel | player=(2633,3647,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:44:50.773] [ACTION] Cancel | player=(2625,3655,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:44:52.568] [ACTION] Cancel | player=(2622,3661,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:44:53.761] [ACTION] Cancel | player=(2618,3665,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:44:55.503] [ACTION] Cancel | player=(2620,3671,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:44:56.199] [ACTION] Cancel | player=(2620,3673,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:44:57.425] [ACTION] Cancel | player=(2620,3677,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:44:57.615] [ACTION] Cancel | player=(2620,3677,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:44:58.309] [ACTION] Cancel | player=(2620,3679,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:44:59.320] [ACTION] Talk-to Jarvald | player=(2620,3683,0) | target=npc name="null" coords=(2621,3685,0)
+[21:45:00.104] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[21:45:01.301] [ACTION] Talk-to Jarvald | player=(2620,3684,0) | target=npc name="null" coords=(2620,3682,0)
+[21:45:02.524] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[21:46:08.526] [ACTION] Cancel | player=(2620,3682,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:47:55.173] [ACTION] Walk here | player=(2620,3682,0) | target=? action=14 paramA=146243584 paramB=286 paramC=71
+[21:47:55.971] [ACTION] Walk here | player=(2621,3686,0) | target=? action=14 paramA=146243584 paramB=277 paramC=182
+[21:48:05.375] [ACTION] Walk here | player=(2621,3683,0) | target=? action=14 paramA=146243584 paramB=360 paramC=282
+[21:48:06.341] [ACTION] Cancel | player=(2624,3679,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:48:06.951] [ACTION] Cancel | player=(2626,3678,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:48:07.462] [ACTION] Cancel | player=(2628,3676,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:48:07.892] [ACTION] Cancel | player=(2630,3674,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:48:08.535] [ACTION] Cancel | player=(2630,3674,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:48:09.169] [ACTION] Cancel | player=(2632,3672,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:48:11.690] [ACTION] Cancel | player=(2642,3666,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:48:12.165] [ACTION] Cancel | player=(2644,3666,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:48:17.516] [ACTION] Talk-to Manni the Reveller | player=(2657,3669,0) | target=npc name="Manni the Reveller" coords=(2660,3670,0)
+[21:48:18.719] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[21:48:19.128] [ACTION] Talk-to Brundt the Chieftain | player=(2661,3671,0) | target=npc name="Brundt the Chieftain" coords=(2657,3669,0)
+[21:48:20.575] [CHAT] type=0 from="" msg="I can't reach that!"
+[21:48:21.308] [ACTION] Talk-to Brundt the Chieftain | player=(2657,3671,0) | target=npc name="Brundt the Chieftain" coords=(2657,3671,0)
+[21:48:21.824] [CHAT] type=0 from="" msg="I can't reach that!"
+[21:48:22.715] [ACTION] Walk here | player=(2657,3671,0) | target=? action=14 paramA=8381 paramB=278 paramC=234
+[21:48:24.279] [ACTION] Talk to Thora the Barkeep | player=(2658,3669,0) | target=npc name="Thora the Barkeep" coords=(2660,3669,0)
+[21:48:24.956] [ACTION] Trade Thora the Barkeep | player=(2660,3669,0) | target=npc name="Thora the Barkeep" coords=(2660,3669,0)
+[21:48:25.384] [CHAT] type=0 from="" msg="I can't reach that!"
+[21:48:26.655] [ACTION] Trade Thora the Barkeep | player=(2660,3669,0) | target=npc name="Thora the Barkeep" coords=(2660,3670,0)
+[21:48:27.718] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[21:48:28.587] [ACTION] Walk here | player=(2660,3671,0) | target=? action=14 paramA=8381 paramB=230 paramC=278
+[21:48:29.393] [ACTION] Cancel | player=(2659,3669,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:48:38.330] [ACTION] Cancel | player=(2657,3658,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:48:38.616] [ACTION] Cancel | player=(2657,3658,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:48:38.874] [ACTION] Cancel | player=(2657,3658,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:48:39.169] [ACTION] Cancel | player=(2657,3658,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:48:39.531] [ACTION] Cancel | player=(2657,3658,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:48:39.761] [ACTION] Cancel | player=(2657,3658,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:48:40.003] [ACTION] Cancel | player=(2657,3658,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:48:40.228] [ACTION] Cancel | player=(2657,3658,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:48:40.574] [ACTION] Cancel | player=(2657,3658,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:48:40.817] [ACTION] Cancel | player=(2657,3658,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:48:41.023] [ACTION] Cancel | player=(2657,3658,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:48:59.740] [ACTION] Cancel | player=(2657,3658,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:49:01.310] [HOTKEY] Tab reply to Nsx
+[21:49:04.628] [CHAT] type=6 from="Nsx" msg="Shift drop works btw"
+[21:49:20.822] [ACTION] Wear Amulet of fury | player=(2657,3658,0) | target=? action=399 paramA=6585 paramB=3 paramC=3214
+[21:49:27.744] [CHAT] type=7 from="@cr2@Nsx" msg="Ahh i didnt see it say it nice!"
+[21:49:33.797] [ACTION] Cancel | player=(2657,3658,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:49:34.529] [ACTION] Cancel | player=(2657,3658,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:49:52.957] [ACTION] Talk-to Askeladden | player=(2657,3658,0) | target=npc name="Askeladden" coords=(2658,3658,0)
+[21:49:54.100] [CHAT] type=0 from="" msg="I can't reach that!"
+[21:49:56.522] [CHAT] type=0 from="" msg="Changed move strategy: smart"
+[21:49:57.024] [ACTION] Talk-to Askeladden | player=(2658,3658,0) | target=npc name="Askeladden" coords=(2658,3658,0)
+[21:49:57.740] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[21:49:59.273] [ACTION] Cancel | player=(2657,3658,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:49:59.459] [ACTION] Cancel | player=(2657,3658,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:49:59.647] [ACTION] Cancel | player=(2657,3658,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:49:59.791] [ACTION] Cancel | player=(2657,3658,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:50:00.079] [ACTION] Cancel | player=(2657,3658,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:50:00.319] [ACTION] Cancel | player=(2657,3658,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:50:03.471] [ACTION] Cancel | player=(2662,3648,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:50:04.162] [ACTION] Cancel | player=(2662,3646,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:50:04.373] [ACTION] Cancel | player=(2662,3646,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:50:04.616] [ACTION] Cancel | player=(2662,3644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:50:05.021] [ACTION] Cancel | player=(2663,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:50:08.504] [ACTION] Walk here | player=(2663,3643,0) | target=? action=14 paramA=555 paramB=366 paramC=191
+[21:50:09.078] [ACTION] Cancel | player=(2663,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:50:09.383] [ACTION] Cancel | player=(2665,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:50:09.567] [ACTION] Cancel | player=(2665,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:50:15.344] [ACTION] Cancel | player=(2665,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:50:16.075] [ACTION] Walk here | player=(2665,3643,0) | target=? action=14 paramA=555 paramB=332 paramC=235
+[21:50:21.341] [ACTION] Walk here | player=(2666,3642,0) | target=? action=14 paramA=554 paramB=358 paramC=239
+[21:50:21.599] [ACTION] Walk here | player=(2666,3642,0) | target=? action=14 paramA=554 paramB=405 paramC=263
+[21:50:21.785] [ACTION] Walk here | player=(2668,3640,0) | target=? action=14 paramA=554 paramB=412 paramC=270
+[21:50:22.391] [ACTION] Walk here | player=(2669,3640,0) | target=? action=14 paramA=554 paramB=408 paramC=291
+[21:50:23.025] [ACTION] Cancel | player=(2670,3638,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:50:23.269] [ACTION] Cancel | player=(2670,3638,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:50:23.454] [ACTION] Cancel | player=(2670,3638,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:52:15.003] [ACTION] Cancel | player=(2670,3638,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:52:59.920] [ACTION] Cancel | player=(2670,3638,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:54:33.899] [ACTION] Cancel | player=(2670,3638,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:54:34.228] [ACTION] Cancel | player=(2670,3638,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:54:34.697] [ACTION] Cancel | player=(2670,3638,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:54:34.926] [ACTION] Cancel | player=(2670,3638,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:54:35.130] [ACTION] Cancel | player=(2670,3638,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:54:35.379] [ACTION] Cancel | player=(2670,3638,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:54:35.853] [ACTION] Cancel | player=(2670,3638,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:54:36.115] [ACTION] Cancel | player=(2670,3638,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:54:36.466] [ACTION] Cancel | player=(2670,3638,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:54:36.788] [ACTION] Cancel | player=(2670,3638,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:54:36.969] [ACTION] Cancel | player=(2670,3638,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:54:37.157] [ACTION] Cancel | player=(2670,3638,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:54:37.522] [ACTION] Cancel | player=(2670,3638,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:54:37.729] [ACTION] Cancel | player=(2670,3638,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:54:37.909] [ACTION] Cancel | player=(2670,3638,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:54:38.110] [ACTION] Cancel | player=(2670,3638,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:54:38.351] [ACTION] Cancel | player=(2670,3638,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:54:38.628] [ACTION] Cancel | player=(2670,3638,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:54:38.924] [ACTION] Cancel | player=(2670,3638,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:54:39.192] [ACTION] Cancel | player=(2670,3638,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:54:39.544] [ACTION] Cancel | player=(2670,3638,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:55:05.930] [ACTION] Cancel | player=(2670,3638,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:58:32.150] [ACTION] Walk here | player=(2670,3638,0) | target=? action=14 paramA=455 paramB=321 paramC=230
+[21:58:33.405] [ACTION] Cancel | player=(2671,3637,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:58:33.794] [ACTION] Cancel | player=(2671,3637,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:58:34.104] [ACTION] Cancel | player=(2671,3637,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:58:34.354] [ACTION] Cancel | player=(2671,3637,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:10.444] [ACTION] Cancel | player=(2671,3637,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:12.539] [ACTION] Cancel | player=(2671,3637,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:13.091] [ACTION] Cancel | player=(2671,3637,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:14.721] [ACTION] Cancel | player=(2671,3637,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:16.499] [ACTION] Cancel | player=(2671,3637,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:16.923] [ACTION] Cancel | player=(2671,3637,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:17.310] [ACTION] Cancel | player=(2671,3637,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:17.625] [ACTION] Cancel | player=(2671,3637,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:17.833] [ACTION] Cancel | player=(2671,3637,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:18.020] [ACTION] Cancel | player=(2671,3637,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:18.241] [ACTION] Cancel | player=(2671,3637,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:18.468] [ACTION] Cancel | player=(2671,3637,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:18.674] [ACTION] Cancel | player=(2671,3637,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:19.024] [ACTION] Cancel | player=(2671,3637,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:19.230] [ACTION] Cancel | player=(2671,3637,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:19.436] [ACTION] Cancel | player=(2671,3637,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:02:36.849] [ACTION] Cancel | player=(2671,3637,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:02:39.104] [ACTION] Cancel | player=(2664,3645,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:02:40.329] [ACTION] Cancel | player=(2664,3649,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:02:41.335] [ACTION] Cancel | player=(2662,3651,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:02:42.760] [ACTION] Cancel | player=(2657,3657,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:02:46.176] [ACTION] Cancel | player=(2648,3667,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:02:48.104] [ACTION] Cancel | player=(2640,3674,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:02:48.389] [ACTION] Cancel | player=(2640,3674,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:02:48.579] [ACTION] Cancel | player=(2640,3674,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:02:48.701] [ACTION] Cancel | player=(2638,3675,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:02:50.140] [ACTION] Cancel | player=(2634,3676,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:02:54.242] [ACTION] Walk here | player=(2621,3680,0) | target=? action=14 paramA=8455 paramB=198 paramC=68
+[22:02:56.143] [ACTION] Talk-to Jarvald | player=(2621,3683,0) | target=npc name="null" coords=(2625,3682,0)
+[22:02:59.449] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[22:04:00.168] [ACTION] Cancel | player=(2625,3681,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:04:03.032] [CHAT] type=0 from="" msg="Rebuilding scripts..."
+[22:04:09.546] [ACTION] Talk-to Jarvald | player=(2625,3681,0) | target=npc name="null" coords=(2625,3684,0)
+[22:04:09.637] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[22:04:10.895] [ACTION] Walk here | player=(2625,3683,0) | target=? action=14 paramA=8332 paramB=287 paramC=165
+[22:04:11.692] [ACTION] Walk here | player=(2626,3683,0) | target=? action=14 paramA=8455 paramB=261 paramC=201
+[22:04:12.911] [ACTION] Cancel | player=(2625,3682,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:04:13.402] [ACTION] Cancel | player=(2625,3682,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:04:13.648] [ACTION] Cancel | player=(2625,3682,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:04:22.471] [ACTION] Walk here | player=(2625,3682,0) | target=? action=14 paramA=8455 paramB=313 paramC=252
+[22:05:02.045] [ACTION] Cancel | player=(2626,3679,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:05:02.740] [ACTION] Cancel | player=(2626,3679,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:05:03.314] [ACTION] Cancel | player=(2626,3679,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:05:03.580] [ACTION] Cancel | player=(2626,3679,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:05:04.054] [ACTION] Cancel | player=(2626,3679,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:05:18.087] [ACTION] Cancel | player=(2626,3679,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:05:18.340] [ACTION] Cancel | player=(2626,3679,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:05:18.515] [ACTION] Cancel | player=(2626,3679,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:05:18.740] [ACTION] Cancel | player=(2626,3679,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:05:19.272] [ACTION] Cancel | player=(2626,3679,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:05:19.470] [ACTION] Cancel | player=(2626,3679,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:05:19.810] [ACTION] Cancel | player=(2626,3679,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:05:21.790] [ACTION] Cancel | player=(2626,3679,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:05:22.176] [ACTION] Cancel | player=(2626,3679,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:05:22.526] [ACTION] Cancel | player=(2626,3679,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:05:22.705] [ACTION] Cancel | player=(2626,3679,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:05:22.950] [ACTION] Cancel | player=(2626,3679,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:05:23.149] [ACTION] Cancel | player=(2626,3679,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:05:23.360] [ACTION] Cancel | player=(2626,3679,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:05:31.519] [ACTION] Walk here | player=(2626,3679,0) | target=? action=14 paramA=555 paramB=470 paramC=269
+[22:05:32.007] [ACTION] Cancel | player=(2628,3679,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:05:32.589] [ACTION] Cancel | player=(2630,3678,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:05:33.177] [ACTION] Use Special Attack | player=(2632,3676,0) | target=? action=352 paramA=555 paramB=507 paramC=7537
+[22:05:34.283] [ACTION] Attack Market Guard (level-48) | player=(2632,3676,0) | target=npc name="Market Guard" coords=(2636,3679,0)
+[22:05:36.695] [ACTION] Use Special Attack | player=(2632,3676,0) | target=? action=352 paramA=70041600 paramB=505 paramC=7537
+[22:05:37.398] [ACTION] Walk here | player=(2632,3676,0) | target=? action=14 paramA=70041600 paramB=475 paramC=212
+[22:05:37.987] [ACTION] Cancel | player=(2634,3676,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:05:38.925] [ACTION] Talk-to Fur trader | player=(2636,3676,0) | target=npc name="Fur trader" coords=(2641,3674,0)
+[22:05:39.621] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[22:05:41.024] [ACTION] Talk-to Agnar | player=(2640,3674,0) | target=npc name="Agnar" coords=(2643,3677,0)
+[22:05:41.766] [ACTION] Attack Warrior (level-48) | player=(2642,3675,0) | target=npc name="Warrior" coords=(2645,3671,0)
+[22:05:43.689] [ACTION] Attack Market Guard (level-48) | player=(2642,3675,0) | target=npc name="Market Guard" coords=(2646,3671,0)
+[22:05:45.458] [ACTION] Steal-from Fish stall | player=(2642,3675,0) | target=loc id=4277 name="Fish stall" coords=(2647,3676,0)
+[22:05:46.826] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[22:05:48.642] [ACTION] Steal-from Fish stall | player=(2646,3676,0) | target=loc id=4277 name="Fish stall" coords=(2647,3676,0)
+[22:05:49.357] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[22:05:49.422] [ACTION] Steal-from Fish stall | player=(2646,3676,0) | target=loc id=4277 name="Fish stall" coords=(2647,3676,0)
+[22:05:49.822] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[22:05:50.212] [ACTION] Walk here | player=(2646,3676,0) | target=? action=14 paramA=70074368 paramB=270 paramC=180
+[22:06:50.411] [ACTION] Cancel | player=(2646,3676,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:06:57.287] [ACTION] Cancel | player=(2631,3684,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:07:07.728] [ACTION] Talk-to Jarvald | player=(2620,3684,0) | target=npc name="null" coords=(2621,3681,0)
+[22:07:07.812] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[22:07:11.411] [CHAT] type=0 from="" msg="0,40,57,61,34"
+[22:09:35.111] [ACTION] Cancel | player=(2621,3682,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:09:37.089] [ACTION] Cancel | player=(2621,3682,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:12:51.712] [ACTION] Cancel | player=(2621,3682,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:21.802] [ACTION] Cancel | player=(2621,3682,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:22.252] [ACTION] Cancel | player=(2621,3682,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:22.834] [ACTION] Cancel | player=(2621,3682,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:16:22.108] [ACTION] Cancel | player=(2621,3682,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:16:24.905] [HOTKEY] Tab reply to Nsx
+[22:16:29.474] [CHAT] type=6 from="Nsx" msg="Alright i gotta go to bed "
+[22:16:29.892] [HOTKEY] Tab reply to Nsx
+[22:16:32.197] [CHAT] type=6 from="Nsx" msg="Hf gn cuz "
+[22:16:39.626] [CHAT] type=7 from="@cr2@Nsx" msg="Gn bro"
+[22:16:41.363] [ACTION] Cancel | player=(2621,3682,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:16:41.821] [ACTION] Ok | player=(2621,3682,0) | target=? action=352 paramA=2552 paramB=1 paramC=2458
+[22:16:42.068] [SESSION] logged out, was "corey"
