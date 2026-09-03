@@ -6849,3 +6849,43 @@
 [15:08:04.391] [ACTION] Cancel | player=(2515,4629,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
 [15:08:04.944] [ACTION] Ok | player=(2515,4629,1) | target=? action=352 paramA=385 paramB=25 paramC=2458
 [15:08:05.464] [SESSION] logged out, was "corey"
+[15:16:14.064] [SESSION] logged in as "corey"
+[15:16:14.857] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[15:16:20.910] [ACTION] Close | player=(2515,4629,1) | target=? action=639 paramA=385 paramB=25 paramC=15251
+[15:16:24.000] [ACTION] Climb Iron ladder | player=(2515,4629,1) | target=loc id=4485 name="Iron ladder" coords=(2515,4630,1)
+[15:16:24.325] [CHAT] type=0 from="" msg="You climb up the ladder."
+[15:16:26.263] [ACTION] Climb Iron ladder | player=(2515,4629,1) | target=loc id=4485 name="Iron ladder" coords=(2515,4630,1)
+[15:16:26.757] [CHAT] type=0 from="" msg="You climb up the ladder."
+[15:16:33.176] [ACTION] Open Strange wall | player=(2515,4629,1) | target=loc id=4545 name="Strange wall" coords=(2516,4627,1)
+[15:16:35.180] [CHAT] type=0 from="" msg="The door won't budge - it looks like it's sealed shut somehow."
+[15:16:36.858] [ACTION] Open Strange wall | player=(2516,4627,1) | target=loc id=4546 name="Strange wall" coords=(2513,4627,1)
+[15:16:40.491] [CHAT] type=0 from="" msg="The door won't budge - it looks like it's sealed shut somehow."
+[15:16:53.993] [ACTION] Walk here | player=(2513,4627,1) | target=? action=14 paramA=74448896 paramB=305 paramC=194
+[15:16:54.670] [ACTION] Study Strange wall | player=(2513,4627,1) | target=loc id=4543 name="Strange wall" coords=(2514,4627,1)
+[15:16:54.875] [CHAT] type=0 from="" msg="A strange wall, engraved with symbols representing fire, air, water, earth, a sword and an arrow. There seem to be hidden recesses matching each symbol."
+[15:16:58.101] [ACTION] Cancel | player=(2513,4627,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[15:17:02.304] [ACTION] Cancel | player=(2513,4627,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[15:17:06.246] [ACTION] Cancel | player=(2513,4627,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[15:17:59.027] [ACTION] Walk here | player=(2513,4627,1) | target=? action=14 paramA=74432512 paramB=308 paramC=134
+[15:18:02.676] [CHAT] type=0 from="" msg="1,39,72,19,21"
+[15:18:08.993] [ACTION] Walk here | player=(2515,4633,0) | target=? action=14 paramA=73482240 paramB=235 paramC=224
+[15:18:09.537] [ACTION] Climb Iron ladder | player=(2515,4632,0) | target=loc id=4413 name="Iron ladder" coords=(2515,4631,0)
+[15:18:09.890] [CHAT] type=0 from="" msg="You climb up the ladder."
+[15:18:10.016] [ACTION] Walk here | player=(2515,4629,1) | target=? action=14 paramA=72302592 paramB=363 paramC=157
+[15:18:11.047] [ACTION] Climb Iron ladder | player=(2515,4629,1) | target=loc id=4485 name="Iron ladder" coords=(2515,4630,1)
+[15:18:11.074] [CHAT] type=0 from="" msg="You climb up the ladder."
+[15:18:11.801] [ACTION] Climb Iron ladder | player=(2515,4629,1) | target=loc id=4485 name="Iron ladder" coords=(2515,4630,1)
+[15:18:12.206] [ACTION] Climb Iron ladder | player=(2515,4629,1) | target=loc id=4485 name="Iron ladder" coords=(2515,4630,1)
+[15:18:12.287] [CHAT] type=0 from="" msg="You climb up the ladder."
+[15:18:12.619] [ACTION] Climb Iron ladder | player=(2515,4629,1) | target=loc id=4485 name="Iron ladder" coords=(2515,4630,1)
+[15:18:12.984] [ACTION] Climb Iron ladder | player=(2515,4629,1) | target=loc id=4485 name="Iron ladder" coords=(2515,4630,1)
+[15:18:13.008] [CHAT] type=0 from="" msg="You climb up the ladder."
+[15:18:13.270] [ACTION] Climb Iron ladder | player=(2515,4629,1) | target=loc id=4485 name="Iron ladder" coords=(2515,4630,1)
+[15:18:13.517] [ACTION] Climb Iron ladder | player=(2515,4629,1) | target=loc id=4485 name="Iron ladder" coords=(2515,4630,1)
+[15:18:13.541] [CHAT] type=0 from="" msg="You climb up the ladder."
+[15:18:14.108] [CHAT] type=0 from="" msg="You climb up the ladder."
+[15:18:20.069] [ACTION] Cancel | player=(2515,4629,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[15:18:21.663] [ACTION] Cancel | player=(2515,4629,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[15:18:23.206] [ACTION] Cancel | player=(2515,4629,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[15:18:23.861] [ACTION] Ok | player=(2515,4629,1) | target=? action=352 paramA=385 paramB=25 paramC=2458
+[15:18:24.273] [SESSION] logged out, was "corey"
