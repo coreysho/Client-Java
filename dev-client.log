@@ -5618,3 +5618,91 @@
 [22:16:41.363] [ACTION] Cancel | player=(2621,3682,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
 [22:16:41.821] [ACTION] Ok | player=(2621,3682,0) | target=? action=352 paramA=2552 paramB=1 paramC=2458
 [22:16:42.068] [SESSION] logged out, was "corey"
+
+=== dev client session started Thu Sep 03 07:55:38 EDT 2026 ===
+[07:55:38.273] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[07:55:53.228] [SESSION] logged in as "corey"
+[07:55:54.016] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[07:55:56.209] [ACTION] Close | player=(2621,3682,0) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[07:56:35.104] [ACTION] Cancel | player=(2621,3682,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[07:56:42.646] [ACTION] Enter Cave entrance | player=(2519,3738,0) | target=loc id=8929 name="Cave entrance" coords=(2519,3738,0)
+[07:56:43.066] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[07:56:46.040] [CHAT] type=0 from="" msg="Changed move strategy: fly"
+[07:56:46.395] [ACTION] Enter Cave entrance | player=(2519,3738,0) | target=loc id=8929 name="Cave entrance" coords=(2519,3738,0)
+[07:56:46.659] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[07:56:48.807] [ACTION] Enter Cave entrance | player=(2519,3738,0) | target=loc id=8929 name="Cave entrance" coords=(2519,3738,0)
+[07:56:49.112] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[07:56:50.440] [ACTION] Enter Cave entrance | player=(2519,3738,0) | target=loc id=8929 name="Cave entrance" coords=(2519,3738,0)
+[07:56:50.853] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[07:56:50.915] [ACTION] Walk here | player=(2519,3738,0) | target=? action=14 paramA=146292736 paramB=434 paramC=146
+[07:56:52.047] [ACTION] Cancel | player=(2519,3738,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[07:56:58.328] [ACTION] Attack Hobgoblin (level-28) | player=(2519,3738,0) | target=npc name="Hobgoblin" coords=(2529,3730,0)
+[07:57:00.270] [ACTION] Cancel | player=(2521,3736,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[07:57:00.971] [ACTION] Select | player=(2521,3736,0) | target=? action=518 paramA=9010 paramB=450 paramC=153
+[07:57:01.563] [ACTION] Cancel | player=(2521,3736,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[07:57:02.048] [ACTION] Cancel | player=(2521,3736,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[07:57:02.582] [ACTION] Remove Magic shortbow | player=(2521,3736,0) | target=? action=9 paramA=861 paramB=3 paramC=1688
+[07:57:03.259] [ACTION] Walk here | player=(2521,3736,0) | target=? action=14 paramA=892 paramB=387 paramC=41
+[07:57:03.710] [ACTION] Attack Hobgoblin (level-28) | player=(2521,3736,0) | target=npc name="Hobgoblin" coords=(2528,3730,0)
+[07:57:04.693] [ACTION] Cancel | player=(2525,3732,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[07:57:14.835] [ACTION] Cancel | player=(2527,3730,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[07:57:16.594] [ACTION] Enter Cave entrance | player=(2524,3734,0) | target=loc id=8929 name="Cave entrance" coords=(2519,3738,0)
+[07:57:18.512] [CHAT] type=0 from="" msg="I can't reach that!"
+[07:57:20.004] [ACTION] Walk here | player=(2524,3740,0) | target=? action=14 paramA=146292736 paramB=220 paramC=180
+[07:57:20.796] [ACTION] Enter Cave entrance | player=(2523,3740,0) | target=loc id=8929 name="Cave entrance" coords=(2519,3738,0)
+[07:57:21.447] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[07:57:24.548] [CHAT] type=0 from="" msg="0,39,58,27,28"
+[07:57:58.049] [ACTION] Wield Magic shortbow | player=(2523,3740,0) | target=? action=399 paramA=861 paramB=9 paramC=3214
+[07:57:58.944] [ACTION] Cancel | player=(2523,3740,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[07:57:59.873] [ACTION] Select | player=(2523,3740,0) | target=? action=518 paramA=3855 paramB=0 paramC=1771
+[07:58:00.927] [ACTION] Cancel | player=(2523,3740,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[07:58:33.720] [ACTION] Cancel | player=(2523,3740,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[07:58:42.720] [ACTION] Enter Cave entrance | player=(2542,3740,0) | target=loc id=8930 name="Cave entrance" coords=(2542,3740,0)
+[07:58:43.078] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[07:59:48.771] [ACTION] Walk here | player=(2542,3740,0) | target=? action=14 paramA=146309120 paramB=315 paramC=167
+[07:59:52.012] [CHAT] type=0 from="" msg="0,39,58,48,29"
+[08:49:09.928] [ACTION] Cancel | player=(2544,3741,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:49:10.364] [ACTION] Cancel | player=(2544,3741,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:49:14.684] [ACTION] Ok | player=(2544,3741,0) | target=? action=352 paramA=21790720 paramB=469 paramC=2458
+[08:49:15.188] [SESSION] logged out, was "corey"
+[08:49:38.997] [SESSION] logged in as "corey"
+[08:49:39.185] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[08:49:40.367] [ACTION] Close | player=(2544,3741,0) | target=? action=639 paramA=21790720 paramB=469 paramC=15251
+[08:49:41.158] [ACTION] Enter Cave entrance | player=(2544,3741,0) | target=loc id=8930 name="Cave entrance" coords=(2542,3740,0)
+[08:49:41.358] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[08:49:42.522] [ACTION] Cancel | player=(2544,3741,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:49:43.320] [ACTION] Cancel | player=(2544,3741,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:49:43.914] [ACTION] Cancel | player=(2544,3741,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:49:44.332] [ACTION] Cancel | player=(2544,3741,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:49:44.906] [ACTION] Cancel | player=(2544,3741,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:49:57.785] [ACTION] Walk here | player=(2544,3741,0) | target=? action=14 paramA=1704 paramB=184 paramC=209
+[08:49:58.837] [ACTION] Walk here | player=(2544,3739,0) | target=? action=14 paramA=1704 paramB=174 paramC=207
+[08:50:00.198] [ACTION] Enter Cave entrance | player=(2542,3739,0) | target=loc id=8930 name="Cave entrance" coords=(2542,3740,0)
+[08:50:02.286] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[08:50:02.674] [ACTION] Cancel | player=(2544,3740,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:50:13.000] [ACTION] Cancel | player=(2544,3740,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:50:14.631] [ACTION] Cancel | player=(2544,3740,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:50:17.125] [ACTION] Cancel | player=(2544,3740,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:50:18.424] [ACTION] Horror from the Deep | player=(2544,3740,0) | target=? action=352 paramA=555 paramB=6 paramC=10135
+[08:50:18.487] [CHAT] type=0 from="" msg="No trigger for [if_button,questlist:horror]"
+[08:50:43.641] [ACTION] Enter Cave entrance | player=(2544,3740,0) | target=loc id=8930 name="Cave entrance" coords=(2542,3740,0)
+[08:50:43.686] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[08:54:38.118] [ACTION] Cancel | player=(2544,3740,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:54:40.674] [CHAT] type=0 from="" msg="Changed move strategy: fly"
+[08:54:43.345] [ACTION] Cancel | player=(2536,3736,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:54:44.268] [ACTION] Select | player=(2536,3736,0) | target=? action=518 paramA=146309120 paramB=305 paramC=153
+[08:54:47.113] [ACTION] Walk here | player=(2536,3736,0) | target=? action=14 paramA=9011 paramB=53 paramC=91
+[08:54:47.874] [ACTION] Walk here | player=(2536,3736,0) | target=? action=14 paramA=9011 paramB=169 paramC=107
+[08:54:49.081] [ACTION] Walk here | player=(2534,3738,0) | target=? action=14 paramA=9011 paramB=187 paramC=118
+[08:54:50.617] [ACTION] Walk here | player=(2534,3740,0) | target=? action=14 paramA=9011 paramB=174 paramC=198
+[08:54:51.213] [ACTION] Walk here | player=(2534,3740,0) | target=? action=14 paramA=9011 paramB=167 paramC=198
+[08:54:55.481] [ACTION] Walk here | player=(2534,3740,0) | target=? action=14 paramA=9010 paramB=104 paramC=174
+[08:54:55.949] [ACTION] Attack Hobgoblin (level-28) | player=(2534,3740,0) | target=npc name="Hobgoblin" coords=(2524,3739,0)
+[08:54:57.104] [ACTION] Enter Cave entrance | player=(2530,3739,0) | target=loc id=8929 name="Cave entrance" coords=(2519,3738,0)
+[08:54:58.667] [ACTION] Cancel | player=(2526,3739,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:54:59.925] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[08:55:00.909] [ACTION] Enter Cave entrance | player=(2523,3739,0) | target=loc id=8929 name="Cave entrance" coords=(2519,3738,0)
+[08:55:01.156] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[08:55:01.614] [ACTION] Attack Hobgoblin (level-28) | player=(2523,3739,0) | target=npc name="Hobgoblin" coords=(2524,3739,0)
+[08:55:14.845] [ACTION] Cancel | player=(2523,3739,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[08:55:16.467] [ACTION] Cancel | player=(2523,3739,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
