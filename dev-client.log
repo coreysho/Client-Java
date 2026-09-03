@@ -5706,3 +5706,6 @@
 [08:55:01.614] [ACTION] Attack Hobgoblin (level-28) | player=(2523,3739,0) | target=npc name="Hobgoblin" coords=(2524,3739,0)
 [08:55:14.845] [ACTION] Cancel | player=(2523,3739,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
 [08:55:16.467] [ACTION] Cancel | player=(2523,3739,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:09:45.996] [ACTION] Cancel | player=(2523,3739,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:09:46.673] [ACTION] Cancel | player=(2523,3739,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:43:50.790] [SESSION] logged out, was "corey"
