@@ -6412,3 +6412,436 @@
 [13:43:28.797] [HOTKEY] Tab reply to Nsx
 [13:43:33.770] [CHAT] type=6 from="Nsx" msg="I'll just keep coding shit for now"
 [13:44:07.145] [CHAT] type=7 from="@cr2@Nsx" msg="Ya prob the best thing tanks was really good "
+[13:44:40.870] [ACTION] Cancel | player=(2523,3739,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:45:28.986] [HOTKEY] Tab reply to Nsx
+[13:45:34.842] [CHAT] type=6 from="Nsx" msg="Restart comin "
+[13:45:41.367] [ACTION] Walk here | player=(2523,3739,0) | target=? action=14 paramA=9010 paramB=267 paramC=142
+[13:45:42.202] [ACTION] Walk here | player=(2523,3740,0) | target=? action=14 paramA=9010 paramB=279 paramC=165
+[13:45:43.598] [ACTION] Cancel | player=(2524,3739,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:45:44.128] [ACTION] Cancel | player=(2524,3739,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:45:44.535] [ACTION] Cancel | player=(2524,3739,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:45:48.003] [CHAT] type=0 from="" msg="Player 'nsx' has been kicked from the game."
+[13:45:48.005] [CHAT] type=5 from="" msg="Nsx has logged out."
+[13:46:10.146] [SESSION] logged out, was "corey"
+[13:46:30.287] [SESSION] logged in as "corey"
+[13:46:30.570] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[13:46:32.632] [ACTION] Close | player=(2524,3739,0) | target=? action=639 paramA=9010 paramB=419 paramC=15251
+[13:46:33.664] [ACTION] Cancel | player=(2524,3739,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:46:34.539] [ACTION] Cancel | player=(2524,3739,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:46:37.855] [ACTION] Enter Cave entrance | player=(2524,3739,0) | target=loc id=8929 name="Cave entrance" coords=(2519,3738,0)
+[13:46:38.606] [CHAT] type=0 from="" msg="You duck into the dark, cold cave."
+[13:46:40.084] [ACTION] Walk here | player=(2442,10147,0) | target=? action=14 paramA=10498 paramB=388 paramC=160
+[13:46:41.310] [ACTION] Cancel | player=(2444,10147,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:46:42.002] [ACTION] Select | player=(2445,10147,0) | target=? action=518 paramA=10498 paramB=495 paramC=153
+[13:46:42.499] [ACTION] Cancel | player=(2447,10149,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:46:43.369] [ACTION] Cancel | player=(2447,10149,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:46:44.115] [ACTION] Attack Dagannoth (level-90) | player=(2449,10149,0) | target=npc name="Dagannoth" coords=(2447,10151,0)
+[13:46:46.734] [ACTION] Cancel | player=(2451,10149,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:46:47.857] [ACTION] Walk here | player=(2455,10149,0) | target=? action=14 paramA=10531 paramB=415 paramC=105
+[13:46:48.739] [ACTION] Cancel | player=(2457,10150,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:46:49.748] [ACTION] Cancel | player=(2461,10153,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:46:57.818] [ACTION] Cancel | player=(2471,10151,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:46:58.581] [ACTION] Cancel | player=(2473,10151,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:47:05.307] [ACTION] Cancel | player=(2483,10150,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:47:07.398] [CHAT] type=0 from="" msg="Changed move strategy: fly"
+[13:47:08.526] [ACTION] Attack Wallasalki (level-98) | player=(2490,10148,0) | target=npc name="Wallasalki" coords=(2494,10148,0)
+[13:47:09.043] [ACTION] Walk here | player=(2492,10148,0) | target=? action=14 paramA=10392 paramB=427 paramC=233
+[13:47:09.904] [ACTION] Cancel | player=(2496,10147,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:47:10.286] [ACTION] Cancel | player=(2496,10147,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:47:12.103] [ACTION] Walk here | player=(2502,10149,0) | target=? action=14 paramA=10392 paramB=143 paramC=171
+[13:47:12.552] [ACTION] Attack Wallasalki (level-98) | player=(2500,10149,0) | target=npc name="Wallasalki" coords=(2498,10149,0)
+[13:47:14.108] [ACTION] Cancel | player=(2500,10149,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:47:14.824] [ACTION] Select | player=(2500,10149,0) | target=? action=518 paramA=10406 paramB=0 paramC=1771
+[13:47:15.380] [ACTION] Cancel | player=(2500,10149,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:47:15.979] [ACTION] Cancel | player=(2500,10149,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:47:17.960] [ACTION] Cancel | player=(2506,10148,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:47:20.874] [ACTION] Cancel | player=(2516,10148,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:47:21.601] [ACTION] Cancel | player=(2518,10148,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:47:24.494] [ACTION] Wield Rune thrownaxe | player=(2528,10147,0) | target=? action=399 paramA=805 paramB=9 paramC=3214
+[13:47:25.206] [ACTION] Cancel | player=(2530,10147,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:47:25.924] [ACTION] Use Special Attack | player=(2532,10147,0) | target=? action=352 paramA=3855 paramB=0 paramC=7637
+[13:47:27.063] [ACTION] Walk here | player=(2532,10147,0) | target=? action=14 paramA=3855 paramB=434 paramC=301
+[13:47:28.409] [CHAT] type=0 from="" msg="Changed move strategy: smart"
+[13:47:29.527] [ACTION] Destroy Door-support | player=(2537,10143,0) | target=npc name="Door-support" coords=(2543,10143,0)
+[13:47:29.996] [ACTION] Walk here | player=(2539,10143,0) | target=? action=14 paramA=146915328 paramB=374 paramC=163
+[13:47:30.407] [ACTION] Walk here | player=(2541,10143,0) | target=? action=14 paramA=146915328 paramB=374 paramC=163
+[13:47:31.641] [ACTION] Cancel | player=(2542,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:47:32.161] [ACTION] Use Special Attack | player=(2542,10143,0) | target=? action=352 paramA=10482 paramB=0 paramC=7637
+[13:47:32.920] [ACTION] Destroy Door-support | player=(2542,10143,0) | target=npc name="Door-support" coords=(2545,10141,0)
+[13:47:34.367] [ACTION] Cancel | player=(2542,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:47:36.275] [ACTION] Climb Iron ladder | player=(2544,10142,0) | target=loc id=10177 name="Iron ladder" coords=(2546,10143,0)
+[13:47:38.535] [HOTKEY] Number key selected dialogue option 1
+[13:47:40.883] [ACTION] Enter Cave entrance | player=(2544,3742,0) | target=loc id=8930 name="Cave entrance" coords=(2542,3740,0)
+[13:47:41.066] [CHAT] type=0 from="" msg="You duck into the dark, cold cave."
+[13:47:42.017] [ACTION] Walk here | player=(2545,10143,0) | target=? action=14 paramA=10485 paramB=311 paramC=194
+[13:47:42.611] [ACTION] Climb Iron ladder | player=(2545,10143,0) | target=loc id=10177 name="Iron ladder" coords=(2546,10143,0)
+[13:47:43.421] [HOTKEY] Number key selected dialogue option 2
+[13:47:46.293] [ACTION] Cancel | player=(1798,4406,3) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:47:46.897] [ACTION] Cancel | player=(1798,4406,3) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:47:48.712] [ACTION] Cancel | player=(1804,4406,3) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:47:49.607] [ACTION] Walk here | player=(1807,4404,3) | target=? action=14 paramA=167034880 paramB=337 paramC=131
+[13:47:50.221] [ACTION] Walk here | player=(1807,4405,3) | target=? action=14 paramA=167034880 paramB=302 paramC=130
+[13:47:50.654] [ACTION] Walk here | player=(1807,4405,3) | target=? action=14 paramA=167034880 paramB=274 paramC=134
+[13:47:51.266] [ACTION] Climb-down Ladder | player=(1807,4405,3) | target=loc id=10195 name="Ladder" coords=(1808,4405,3)
+[13:47:51.823] [CHAT] type=0 from="" msg="You climb down the ladder."
+[13:47:52.454] [ACTION] Cancel | player=(1809,4405,2) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:47:53.122] [ACTION] Wield Magic shortbow | player=(1811,4405,2) | target=? action=399 paramA=861 paramB=9 paramC=3214
+[13:47:54.032] [ACTION] Attack Dagannoth (level-88) | player=(1813,4405,2) | target=npc name="Dagannoth" coords=(1815,4405,2)
+[13:47:55.098] [ACTION] Walk here | player=(1813,4405,2) | target=? action=14 paramA=10893 paramB=452 paramC=38
+[13:47:56.026] [ACTION] Attack Dagannoth (level-88) | player=(1817,4404,2) | target=npc name="Dagannoth" coords=(1814,4404,2)
+[13:47:56.617] [CHAT] type=0 from="" msg="I'm already under attack"
+[13:47:56.642] [ACTION] Attack Dagannoth (level-90) | player=(1817,4404,2) | target=npc name="Dagannoth" coords=(1815,4405,2)
+[13:47:57.917] [ACTION] Walk here | player=(1817,4404,2) | target=? action=14 paramA=10893 paramB=375 paramC=95
+[13:47:58.471] [ACTION] Climb-up Ladder | player=(1819,4404,2) | target=loc id=10198 name="Ladder" coords=(1823,4404,2)
+[13:48:00.224] [CHAT] type=0 from="" msg="You climb up the ladder."
+[13:48:00.959] [ACTION] Walk here | player=(1824,4404,3) | target=? action=14 paramA=167084032 paramB=293 paramC=21
+[13:48:01.376] [ACTION] Walk here | player=(1824,4404,3) | target=? action=14 paramA=167084032 paramB=288 paramC=36
+[13:48:01.768] [ACTION] Walk here | player=(1824,4404,3) | target=? action=14 paramA=167084032 paramB=229 paramC=74
+[13:48:02.114] [ACTION] Walk here | player=(1826,4404,3) | target=? action=14 paramA=10908 paramB=144 paramC=98
+[13:48:02.552] [ACTION] Walk here | player=(1826,4404,3) | target=? action=14 paramA=10908 paramB=143 paramC=111
+[13:48:03.506] [ACTION] Walk here | player=(1829,4407,3) | target=? action=14 paramA=10908 paramB=257 paramC=19
+[13:48:04.851] [ACTION] Walk here | player=(1829,4407,3) | target=? action=14 paramA=10908 paramB=330 paramC=47
+[13:48:05.205] [ACTION] Walk here | player=(1829,4407,3) | target=? action=14 paramA=10908 paramB=287 paramC=58
+[13:48:43.035] [ACTION] Cancel | player=(1834,4403,3) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:48:46.212] [ACTION] Climb-down Ladder | player=(1835,4394,3) | target=loc id=10199 name="Ladder" coords=(1834,4389,3)
+[13:48:47.627] [CHAT] type=0 from="" msg="You climb down the ladder."
+[13:48:48.004] [ACTION] Cancel | player=(1834,4388,2) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:48:48.419] [ACTION] Cancel | player=(1832,4387,2) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:48:48.729] [ACTION] Cancel | player=(1832,4387,2) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:48:51.695] [ACTION] Cancel | player=(1822,4391,2) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:48:52.929] [ACTION] Climb-down Ladder | player=(1818,4391,2) | target=loc id=10201 name="Ladder" coords=(1811,4394,2)
+[13:48:54.895] [CHAT] type=0 from="" msg="You climb down the ladder."
+[13:48:55.709] [ACTION] Walk here | player=(1810,4394,1) | target=? action=14 paramA=146653184 paramB=425 paramC=67
+[13:48:57.225] [ACTION] Attack Wallasalki (level-98) | player=(1804,4392,1) | target=npc name="Wallasalki" coords=(1803,4391,1)
+[13:48:57.868] [CHAT] type=0 from="" msg="I'm already under attack"
+[13:48:58.206] [ACTION] Walk here | player=(1804,4392,1) | target=? action=14 paramA=10865 paramB=380 paramC=85
+[13:48:58.758] [ACTION] Walk here | player=(1802,4391,1) | target=? action=14 paramA=10865 paramB=359 paramC=66
+[13:48:59.145] [ACTION] Climb-up Ladder | player=(1800,4390,1) | target=loc id=10203 name="Ladder" coords=(1799,4388,1)
+[13:49:00.303] [CHAT] type=0 from="" msg="You climb up the ladder."
+[13:49:01.410] [ACTION] Attack Wallasalki (level-98) | player=(1799,4387,2) | target=npc name="Wallasalki" coords=(1795,4381,2)
+[13:49:02.480] [ACTION] Climb-down Ladder | player=(1798,4385,2) | target=loc id=10205 name="Ladder" coords=(1797,4382,2)
+[13:49:03.467] [CHAT] type=0 from="" msg="You climb down the ladder."
+[13:49:07.982] [ACTION] Cancel | player=(1798,4382,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:49:08.628] [ACTION] Eat Shark | player=(1798,4378,1) | target=? action=961 paramA=385 paramB=10 paramC=3214
+[13:49:09.217] [CHAT] type=0 from="" msg="You eat the shark."
+[13:49:09.218] [CHAT] type=0 from="" msg="It heals some health."
+[13:49:09.684] [ACTION] Eat Shark | player=(1798,4376,1) | target=? action=961 paramA=385 paramB=11 paramC=3214
+[13:49:09.849] [ACTION] Eat Shark | player=(1799,4374,1) | target=? action=961 paramA=385 paramB=11 paramC=3214
+[13:49:09.995] [ACTION] Eat Shark | player=(1799,4374,1) | target=? action=961 paramA=385 paramB=11 paramC=3214
+[13:49:10.148] [ACTION] Eat Shark | player=(1799,4374,1) | target=? action=961 paramA=385 paramB=11 paramC=3214
+[13:49:10.286] [ACTION] Eat Shark | player=(1799,4374,1) | target=? action=961 paramA=385 paramB=11 paramC=3214
+[13:49:10.409] [ACTION] Eat Shark | player=(1799,4374,1) | target=? action=961 paramA=385 paramB=11 paramC=3214
+[13:49:10.555] [ACTION] Eat Shark | player=(1801,4372,1) | target=? action=961 paramA=385 paramB=11 paramC=3214
+[13:49:10.697] [ACTION] Eat Shark | player=(1801,4372,1) | target=? action=961 paramA=385 paramB=11 paramC=3214
+[13:49:10.817] [ACTION] Eat Shark | player=(1801,4372,1) | target=? action=961 paramA=385 paramB=11 paramC=3214
+[13:49:11.064] [CHAT] type=0 from="" msg="You eat the shark."
+[13:49:11.064] [CHAT] type=0 from="" msg="It heals some health."
+[13:49:11.589] [ACTION] Climb-up Ladder | player=(1803,4370,1) | target=loc id=10207 name="Ladder" coords=(1802,4369,1)
+[13:49:12.295] [CHAT] type=0 from="" msg="You climb up the ladder."
+[13:49:12.906] [ACTION] Cancel | player=(1801,4369,2) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:49:14.039] [ACTION] Eat Shark | player=(1804,4368,2) | target=? action=961 paramA=385 paramB=12 paramC=3214
+[13:49:14.599] [CHAT] type=0 from="" msg="You eat the shark."
+[13:49:14.600] [CHAT] type=0 from="" msg="It heals some health."
+[13:49:21.113] [ACTION] Cancel | player=(1815,4365,2) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:49:21.666] [ACTION] Cancel | player=(1817,4365,2) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:49:23.122] [ACTION] Climb-down Ladder | player=(1823,4363,2) | target=loc id=10209 name="Ladder" coords=(1826,4362,2)
+[13:49:24.257] [CHAT] type=0 from="" msg="You climb down the ladder."
+[13:49:27.457] [ACTION] Cancel | player=(1827,4362,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:49:28.148] [ACTION] Cancel | player=(1829,4361,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:49:28.425] [ACTION] Cancel | player=(1829,4361,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:49:28.625] [ACTION] Cancel | player=(1831,4361,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:49:28.791] [ACTION] Cancel | player=(1831,4361,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:49:40.455] [ACTION] Cancel | player=(1845,4359,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:49:47.123] [ACTION] Cancel | player=(1861,4357,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:49:50.557] [ACTION] Walk here | player=(1863,4367,1) | target=? action=14 paramA=167297024 paramB=44 paramC=149
+[13:49:51.244] [ACTION] Walk here | player=(1865,4369,1) | target=? action=14 paramA=167297024 paramB=119 paramC=160
+[13:49:52.258] [ACTION] Climb-up Ladder | player=(1865,4369,1) | target=loc id=10211 name="Ladder" coords=(1863,4371,1)
+[13:49:53.062] [CHAT] type=0 from="" msg="You climb up the ladder."
+[13:50:07.052] [ACTION] Cancel | player=(1863,4372,2) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:50:12.141] [ACTION] Walk here | player=(1864,4387,2) | target=? action=14 paramA=385 paramB=184 paramC=173
+[13:50:12.688] [ACTION] Walk here | player=(1864,4387,2) | target=? action=14 paramA=167329792 paramB=216 paramC=169
+[13:50:13.485] [ACTION] Walk here | player=(1864,4387,2) | target=? action=14 paramA=167329792 paramB=225 paramC=185
+[13:50:14.158] [ACTION] Climb-down Ladder | player=(1864,4387,2) | target=loc id=10213 name="Ladder" coords=(1864,4388,2)
+[13:50:14.610] [CHAT] type=0 from="" msg="You climb down the ladder."
+[13:50:15.016] [ACTION] Cancel | player=(1864,4389,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:50:15.435] [ACTION] Cancel | player=(1864,4391,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:50:16.531] [ACTION] Cancel | player=(1864,4395,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:50:17.000] [ACTION] Cancel | player=(1864,4395,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:50:17.346] [ACTION] Cancel | player=(1864,4397,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:50:17.737] [ACTION] Cancel | player=(1864,4399,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:50:18.123] [ACTION] Cancel | player=(1864,4399,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:50:19.081] [ACTION] Cancel | player=(1867,4401,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:50:20.051] [ACTION] Cancel | player=(1867,4403,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:50:25.350] [ACTION] Walk here | player=(1877,4409,1) | target=? action=14 paramA=10947 paramB=252 paramC=27
+[13:50:25.821] [ACTION] Walk here | player=(1879,4410,1) | target=? action=14 paramA=10947 paramB=252 paramC=27
+[13:50:26.004] [ACTION] Walk here | player=(1881,4410,1) | target=? action=14 paramA=10947 paramB=252 paramC=27
+[13:50:26.171] [ACTION] Walk here | player=(1881,4410,1) | target=? action=14 paramA=10947 paramB=252 paramC=27
+[13:50:27.047] [ACTION] Walk here | player=(1883,4411,1) | target=? action=14 paramA=10947 paramB=296 paramC=49
+[13:50:27.949] [ACTION] Walk here | player=(1887,4410,1) | target=? action=14 paramA=10950 paramB=328 paramC=71
+[13:50:28.625] [ACTION] Attack Dagannoth (level-90) | player=(1889,4408,1) | target=npc name="Dagannoth" coords=(1889,4407,1)
+[13:50:28.996] [CHAT] type=0 from="" msg="I'm already under attack"
+[13:50:29.249] [ACTION] Attack Dagannoth (level-90) | player=(1889,4408,1) | target=npc name="Dagannoth" coords=(1889,4407,1)
+[13:50:29.715] [CHAT] type=0 from="" msg="I'm already under attack"
+[13:50:29.756] [ACTION] Attack Dagannoth (level-90) | player=(1889,4408,1) | target=npc name="Dagannoth" coords=(1889,4407,1)
+[13:50:30.204] [CHAT] type=0 from="" msg="I'm already under attack"
+[13:50:31.023] [ACTION] Attack Dagannoth (level-90) | player=(1889,4408,1) | target=npc name="Dagannoth" coords=(1889,4407,1)
+[13:50:31.559] [ACTION] Climb-down Ladder | player=(1889,4408,1) | target=loc id=10215 name="Ladder" coords=(1890,4407,1)
+[13:50:32.605] [CHAT] type=0 from="" msg="You climb down the ladder."
+[13:50:33.315] [ACTION] Cancel | player=(1890,4408,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:50:33.662] [ACTION] Cancel | player=(1890,4408,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:50:37.028] [ACTION] Cancel | player=(1902,4408,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:50:40.175] [ACTION] Cancel | player=(1897,4400,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:50:40.416] [ACTION] Cancel | player=(1897,4400,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:50:40.617] [ACTION] Cancel | player=(1895,4398,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:50:42.382] [ACTION] Cancel | player=(1892,4392,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:50:42.973] [ACTION] Cancel | player=(1891,4390,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:50:43.543] [ACTION] Cancel | player=(1890,4388,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:50:44.446] [ACTION] Cancel | player=(1888,4386,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:50:50.283] [ACTION] Cancel | player=(1899,4373,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:50:54.717] [ACTION] Attack Wallasalki (level-98) | player=(1913,4366,0) | target=npc name="Wallasalki" coords=(1910,4367,0)
+[13:50:55.404] [ACTION] Walk here | player=(1911,4366,0) | target=? action=14 paramA=167608320 paramB=253 paramC=229
+[13:50:55.431] [CHAT] type=0 from="" msg="I'm already under attack"
+[13:50:56.015] [ACTION] Walk here | player=(1910,4366,0) | target=? action=14 paramA=167608320 paramB=234 paramC=168
+[13:50:57.568] [ACTION] Walk here | player=(1912,4367,0) | target=? action=14 paramA=167608320 paramB=239 paramC=161
+[13:50:58.281] [ACTION] Walk here | player=(1912,4367,0) | target=? action=14 paramA=10943 paramB=242 paramC=183
+[13:50:58.829] [ACTION] Climb-down Ladder | player=(1912,4367,0) | target=loc id=10230 name="Ladder" coords=(1911,4367,0)
+[13:50:59.159] [CHAT] type=0 from="" msg="You climb down into a vast, echoing chamber."
+[13:51:00.837] [ACTION] Cancel | player=(2899,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:51:01.368] [ACTION] Cancel | player=(2899,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:51:02.035] [ACTION] Select | player=(2901,4449,0) | target=? action=890 paramA=167608320 paramB=502 paramC=5623
+[13:51:02.492] [ACTION] Select | player=(2903,4449,0) | target=? action=890 paramA=167608320 paramB=502 paramC=5622
+[13:51:03.292] [ACTION] Cancel | player=(2905,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:51:04.886] [ACTION] Walk here | player=(2911,4449,0) | target=? action=14 paramA=10980 paramB=175 paramC=95
+[13:51:05.639] [ACTION] Cancel | player=(2913,4452,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:51:06.298] [ACTION] Eat Shark | player=(2911,4452,0) | target=? action=961 paramA=385 paramB=13 paramC=3214
+[13:51:06.463] [ACTION] Eat Shark | player=(2911,4452,0) | target=? action=961 paramA=385 paramB=13 paramC=3214
+[13:51:06.627] [ACTION] Eat Shark | player=(2911,4452,0) | target=? action=961 paramA=385 paramB=13 paramC=3214
+[13:51:06.791] [ACTION] Eat Shark | player=(2911,4452,0) | target=? action=961 paramA=385 paramB=13 paramC=3214
+[13:51:06.825] [CHAT] type=0 from="" msg="You eat the shark."
+[13:51:06.826] [CHAT] type=0 from="" msg="It heals some health."
+[13:51:06.883] [ACTION] Eat Shark | player=(2909,4451,0) | target=? action=961 paramA=385 paramB=13 paramC=3214
+[13:51:06.984] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:51:07.724] [ACTION] Eat Shark | player=(2907,4449,0) | target=? action=961 paramA=385 paramB=14 paramC=3214
+[13:51:07.926] [ACTION] Eat Shark | player=(2907,4449,0) | target=? action=961 paramA=385 paramB=14 paramC=3214
+[13:51:08.092] [ACTION] Eat Shark | player=(2905,4447,0) | target=? action=961 paramA=385 paramB=14 paramC=3214
+[13:51:08.258] [ACTION] Eat Shark | player=(2905,4447,0) | target=? action=961 paramA=385 paramB=14 paramC=3214
+[13:51:08.545] [ACTION] Eat Shark | player=(2905,4447,0) | target=? action=961 paramA=385 paramB=14 paramC=3214
+[13:51:08.607] [CHAT] type=0 from="" msg="You eat the shark."
+[13:51:08.608] [CHAT] type=0 from="" msg="It heals some health."
+[13:51:08.671] [ACTION] Eat Shark | player=(2904,4446,0) | target=? action=961 paramA=385 paramB=14 paramC=3214
+[13:51:10.036] [ACTION] Walk here | player=(2904,4446,0) | target=? action=14 paramA=10980 paramB=107 paramC=37
+[13:51:10.589] [ACTION] Walk here | player=(2906,4447,0) | target=? action=14 paramA=10980 paramB=145 paramC=168
+[13:51:10.977] [ACTION] Walk here | player=(2906,4447,0) | target=? action=14 paramA=10980 paramB=188 paramC=223
+[13:51:12.636] [ACTION] Walk here | player=(2903,4448,0) | target=? action=14 paramA=10980 paramB=260 paramC=276
+[13:51:13.665] [ACTION] Eat Shark | player=(2901,4448,0) | target=? action=961 paramA=385 paramB=15 paramC=3214
+[13:51:14.007] [CHAT] type=0 from="" msg="You eat the shark."
+[13:51:14.009] [CHAT] type=0 from="" msg="It heals some health."
+[13:51:15.969] [ACTION] Walk here | player=(2901,4448,0) | target=? action=14 paramA=10980 paramB=163 paramC=158
+[13:51:16.365] [ACTION] Walk here | player=(2901,4448,0) | target=? action=14 paramA=10980 paramB=163 paramC=158
+[13:51:17.055] [ACTION] Walk here | player=(2903,4449,0) | target=? action=14 paramA=10980 paramB=176 paramC=133
+[13:51:19.230] [ACTION] Attack Dagannoth Prime (level-303) | player=(2905,4450,0) | target=npc name="Dagannoth Prime" coords=(2902,4449,0)
+[13:51:20.191] [ACTION] Cancel | player=(2905,4450,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:51:20.814] [ACTION] Select | player=(2905,4450,0) | target=? action=890 paramA=3855 paramB=0 paramC=5617
+[13:51:21.761] [ACTION] Select | player=(2905,4450,0) | target=? action=890 paramA=3855 paramB=0 paramC=5621
+[13:51:23.220] [ACTION] Cancel | player=(2905,4450,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:51:24.468] [ACTION] Select | player=(2905,4450,0) | target=? action=890 paramA=3855 paramB=0 paramC=5623
+[13:51:25.115] [ACTION] Cancel | player=(2905,4450,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:51:25.833] [ACTION] Eat Shark | player=(2905,4450,0) | target=? action=961 paramA=385 paramB=17 paramC=3214
+[13:51:26.009] [CHAT] type=0 from="" msg="You eat the shark."
+[13:51:26.009] [CHAT] type=0 from="" msg="It heals some health."
+[13:51:26.325] [ACTION] Walk here | player=(2905,4450,0) | target=? action=14 paramA=10968 paramB=465 paramC=304
+[13:51:26.929] [ACTION] Climb-up Ladder | player=(2903,4450,0) | target=loc id=10229 name="Ladder" coords=(2899,4449,0)
+[13:51:28.423] [CHAT] type=0 from="" msg="You climb up out of the chamber."
+[13:51:28.929] [ACTION] Eat Shark | player=(1911,4367,0) | target=? action=961 paramA=385 paramB=16 paramC=3214
+[13:51:28.996] [CHAT] type=0 from="" msg="You eat the shark."
+[13:51:28.997] [CHAT] type=0 from="" msg="It heals some health."
+[13:51:29.087] [ACTION] Eat Shark | player=(1911,4367,0) | target=? action=961 paramA=385 paramB=16 paramC=3214
+[13:51:30.101] [ACTION] Cancel | player=(1911,4367,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:51:30.674] [ACTION] Select | player=(1911,4367,0) | target=? action=890 paramA=1704 paramB=2 paramC=5623
+[13:51:31.128] [ACTION] Cancel | player=(1911,4367,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:51:31.523] [ACTION] Select | player=(1911,4367,0) | target=? action=890 paramA=1704 paramB=2 paramC=5617
+[13:51:32.196] [ACTION] Cancel | player=(1911,4367,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:51:33.131] [ACTION] Cancel | player=(1911,4367,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:51:41.790] [ACTION] Cancel | player=(1926,4363,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:51:42.276] [ACTION] Cancel | player=(1926,4363,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:51:49.860] [ACTION] Cancel | player=(1943,4358,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:52:24.168] [ACTION] Walk here | player=(1956,4368,0) | target=? action=14 paramA=167395328 paramB=167 paramC=96
+[13:52:24.722] [ACTION] Climb-up Ladder | player=(1956,4368,0) | target=loc id=10217 name="Ladder" coords=(1957,4371,0)
+[13:52:25.523] [CHAT] type=0 from="" msg="You climb up the ladder."
+[13:52:26.584] [ACTION] Cancel | player=(1957,4372,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:52:29.519] [ACTION] Cancel | player=(1950,4376,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:52:30.057] [ACTION] Cancel | player=(1948,4376,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:52:33.700] [ACTION] Climb-up Ladder | player=(1936,4376,1) | target=loc id=10226 name="Ladder" coords=(1932,4378,1)
+[13:52:35.041] [CHAT] type=0 from="" msg="You climb up the ladder."
+[13:52:36.155] [ACTION] Cancel | player=(1932,4379,2) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:52:38.197] [ACTION] Cancel | player=(1933,4387,2) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:52:39.818] [ACTION] Cancel | player=(1937,4389,2) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:52:40.497] [ACTION] Cancel | player=(1939,4390,2) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:52:43.583] [ACTION] Cancel | player=(1947,4391,2) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:52:45.444] [ACTION] Climb-up Ladder | player=(1955,4391,2) | target=loc id=10228 name="Ladder" coords=(1961,4391,2)
+[13:52:45.852] [ACTION] Walk here | player=(1955,4391,2) | target=? action=14 paramA=167575552 paramB=331 paramC=45
+[13:52:46.477] [ACTION] Walk here | player=(1957,4391,2) | target=? action=14 paramA=167575552 paramB=296 paramC=49
+[13:52:46.894] [ACTION] Walk here | player=(1959,4391,2) | target=? action=14 paramA=167575552 paramB=296 paramC=49
+[13:52:47.257] [ACTION] Walk here | player=(1961,4392,2) | target=? action=14 paramA=167575552 paramB=269 paramC=83
+[13:52:52.198] [ACTION] Examine Ladder | player=(1961,4392,2) | target=loc id=10228 name="Ladder" coords=(1961,4391,2)
+[13:52:52.200] [CHAT] type=0 from="" msg="A sturdy iron frame, for climbing up and down."
+[13:52:57.664] [ACTION] Climb-up Ladder | player=(1961,4392,2) | target=loc id=10228 name="Ladder" coords=(1961,4391,2)
+[13:52:57.806] [CHAT] type=0 from="" msg="You climb up the ladder."
+[13:52:58.843] [ACTION] Cancel | player=(1961,4392,3) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:52:59.356] [ACTION] Cancel | player=(1963,4393,3) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:53:01.184] [ACTION] Cancel | player=(1966,4398,3) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:53:02.727] [ACTION] Climb-up Ladder | player=(1970,4401,3) | target=loc id=10194 name="Ladder" coords=(1975,4408,3)
+[13:53:05.676] [CHAT] type=0 from="" msg="You climb up and out, eventually finding your way back to the surface."
+[13:53:07.616] [ACTION] Cancel | player=(2523,3739,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:55:58.454] [ACTION] Cancel | player=(2523,3739,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:56:01.784] [ACTION] Cancel | player=(2523,3739,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:56:06.976] [ACTION] Cancel | player=(2523,3739,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:56:48.289] [CHAT] type=7 from="@cr2@Nsx" msg="These railings can fuck off!"
+[13:57:23.806] [ACTION] Cancel | player=(2523,3739,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:57:24.689] [HOTKEY] Tab reply to Nsx
+[13:57:32.265] [CHAT] type=6 from="Nsx" msg="Dwarf cannon? Xd "
+[13:57:39.363] [ACTION] Climb-down Ladder | player=(1911,4367,0) | target=loc id=10230 name="Ladder" coords=(1911,4367,0)
+[13:57:39.887] [CHAT] type=0 from="" msg="You climb down into a vast, echoing chamber."
+[13:57:41.001] [CHAT] type=0 from="" msg="Changed move strategy: fly"
+[13:57:42.205] [ACTION] Cancel | player=(2899,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:57:44.136] [ACTION] Cancel | player=(2903,4443,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:57:45.512] [ACTION] Cancel | player=(2907,4439,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:57:46.374] [ACTION] Cancel | player=(2909,4437,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:57:47.046] [ACTION] Select | player=(2911,4435,0) | target=? action=890 paramA=10943 paramB=491 paramC=5619
+[13:57:47.458] [ACTION] Select | player=(2912,4435,0) | target=? action=890 paramA=10943 paramB=491 paramC=5619
+[13:57:47.866] [ACTION] Select | player=(2912,4435,0) | target=? action=890 paramA=10943 paramB=491 paramC=5623
+[13:57:48.790] [ACTION] Cancel | player=(2912,4435,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:57:51.003] [ACTION] Walk here | player=(2918,4441,0) | target=? action=14 paramA=10979 paramB=450 paramC=136
+[13:57:52.424] [ACTION] Attack Spinolyp (level-76) | player=(2922,4439,0) | target=npc name="Spinolyp" coords=(2925,4436,0)
+[13:57:53.082] [CHAT] type=0 from="" msg="I'm already under attack"
+[13:57:53.287] [ACTION] Walk here | player=(2922,4439,0) | target=? action=14 paramA=10988 paramB=331 paramC=147
+[13:57:54.625] [ACTION] Attack Spinolyp (level-76) | player=(2926,4439,0) | target=npc name="Spinolyp" coords=(2925,4436,0)
+[13:57:54.813] [CHAT] type=0 from="" msg="I'm already under attack"
+[13:57:55.673] [ACTION] Attack Spinolyp (level-76) | player=(2926,4439,0) | target=npc name="Spinolyp" coords=(2925,4436,0)
+[13:57:55.868] [ACTION] Attack Spinolyp (level-76) | player=(2926,4439,0) | target=npc name="Spinolyp" coords=(2925,4436,0)
+[13:57:56.017] [ACTION] Attack Spinolyp (level-76) | player=(2926,4439,0) | target=npc name="Spinolyp" coords=(2925,4436,0)
+[13:57:56.199] [ACTION] Attack Spinolyp (level-76) | player=(2926,4439,0) | target=npc name="Spinolyp" coords=(2925,4436,0)
+[13:57:56.329] [ACTION] Attack Spinolyp (level-76) | player=(2926,4439,0) | target=npc name="Spinolyp" coords=(2925,4436,0)
+[13:58:15.834] [CHAT] type=7 from="@cr2@Nsx" msg="Fuckin dwarfs"
+[13:58:22.211] [ACTION] Cancel | player=(2926,4439,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:58:22.866] [ACTION] Select | player=(2927,4441,0) | target=? action=890 paramA=10988 paramB=507 paramC=5623
+[13:58:23.544] [ACTION] Cancel | player=(2927,4443,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:58:25.782] [ACTION] Cancel | player=(2927,4445,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:58:26.342] [ACTION] Cancel | player=(2927,4445,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:58:26.878] [ACTION] Cancel | player=(2927,4445,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:58:27.339] [ACTION] Cancel | player=(2927,4445,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:58:28.252] [ACTION] Cancel | player=(2927,4445,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:58:41.025] [CHAT] type=0 from="" msg="0,45,69,47,29"
+[13:59:06.206] [CHAT] type=7 from="@cr2@Nsx" msg="Ohhhhhhhhhhhh "
+[13:59:14.620] [CHAT] type=7 from="@cr2@Nsx" msg="Ofcourse i missed 1 "
+[13:59:18.224] [CHAT] type=7 from="@cr2@Nsx" msg="Fuckin shit game "
+[13:59:21.558] [HOTKEY] Tab reply to Nsx
+[13:59:23.081] [CHAT] type=6 from="Nsx" msg="L00000l"
+[13:59:33.985] [ACTION] Walk here | player=(2940,4445,0) | target=? action=14 paramA=146653184 paramB=353 paramC=207
+[13:59:34.169] [ACTION] Walk here | player=(2940,4445,0) | target=? action=14 paramA=146653184 paramB=353 paramC=207
+[13:59:34.560] [ACTION] Walk here | player=(2940,4445,0) | target=? action=14 paramA=146653184 paramB=456 paramC=188
+[13:59:35.095] [ACTION] Cancel | player=(2940,4445,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[13:59:35.503] [ACTION] Cancel | player=(2940,4445,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[14:04:31.720] [ACTION] Cancel | player=(2516,4646,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[14:04:33.180] [CHAT] type=0 from="" msg="0,39,72,20,38"
+[14:04:42.477] [ACTION] Cancel | player=(2516,4646,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[14:04:43.334] [ACTION] Talk-to Jossik | player=(2514,4644,0) | target=npc name="Jossik" coords=(2518,4633,0)
+[14:04:43.842] [ACTION] Talk-to Jossik | player=(2516,4642,0) | target=npc name="Jossik" coords=(2518,4633,0)
+[14:04:47.015] [CHAT] type=0 from="" msg="I can't reach that!"
+[14:04:50.070] [CHAT] type=0 from="" msg="0,39,72,22,25"
+[14:05:01.681] [ACTION] Climb Iron ladder | player=(2518,4633,0) | target=loc id=4413 name="Iron ladder" coords=(2515,4631,0)
+[14:05:03.294] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[14:05:11.603] [CHAT] type=0 from="" msg="0,39,72,19,24"
+[14:05:17.584] [ACTION] Walk here | player=(2515,4632,1) | target=? action=14 paramA=72302592 paramB=278 paramC=88
+[14:05:18.656] [ACTION] Open Strange wall | player=(2513,4631,1) | target=loc id=4546 name="Strange wall" coords=(2513,4627,1)
+[14:05:19.978] [ACTION] Walk here | player=(2510,4630,1) | target=? action=14 paramA=74481664 paramB=180 paramC=153
+[14:05:20.003] [CHAT] type=0 from="" msg="I can't reach that!"
+[14:05:21.287] [ACTION] Use Law rune | player=(2513,4631,1) | target=? action=52 paramA=563 paramB=8 paramC=3214
+[14:05:22.169] [ACTION] Use Law rune with Strange wall | player=(2513,4631,1) | target=loc id=4543 name="Strange wall" coords=(2514,4627,1)
+[14:05:22.392] [CHAT] type=0 from="" msg="I can't reach that!"
+[14:05:23.166] [ACTION] Study Strange wall | player=(2513,4631,1) | target=loc id=4543 name="Strange wall" coords=(2514,4627,1)
+[14:05:23.610] [CHAT] type=0 from="" msg="I can't reach that!"
+[14:05:23.740] [ACTION] Walk here | player=(2513,4631,1) | target=? action=14 paramA=74432512 paramB=214 paramC=118
+[14:05:24.287] [ACTION] Walk here | player=(2513,4631,1) | target=? action=14 paramA=74432512 paramB=217 paramC=117
+[14:05:24.727] [ACTION] Walk here | player=(2513,4631,1) | target=? action=14 paramA=74432512 paramB=234 paramC=102
+[14:05:27.869] [CHAT] type=0 from="" msg="1,39,72,17,23"
+[14:05:28.716] [ACTION] Cancel | player=(2513,4631,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[14:05:55.225] [ACTION] Walk here | player=(2513,4628,1) | target=? action=14 paramA=74432512 paramB=237 paramC=210
+[14:05:55.664] [ACTION] Open Strange wall | player=(2513,4628,1) | target=loc id=4546 name="Strange wall" coords=(2513,4627,1)
+[14:05:56.605] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[14:05:57.546] [ACTION] Walk here | player=(2513,4627,1) | target=? action=14 paramA=74432512 paramB=318 paramC=222
+[14:05:58.056] [ACTION] Walk here | player=(2513,4627,1) | target=? action=14 paramA=74432512 paramB=306 paramC=198
+[14:06:00.517] [ACTION] Walk here | player=(2513,4627,1) | target=? action=14 paramA=74465280 paramB=344 paramC=176
+[14:06:01.964] [ACTION] Open Strange wall | player=(2516,4627,1) | target=loc id=4545 name="Strange wall" coords=(2516,4627,1)
+[14:06:02.008] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[14:06:06.230] [CHAT] type=0 from="" msg="1,39,72,20,19"
+[14:06:16.547] [CHAT] type=0 from="" msg="1,39,72,20,18"
+[14:06:19.466] [CHAT] type=5 from="" msg="Nsx has logged out."
+[14:06:32.821] [ACTION] Walk here | player=(2516,4626,1) | target=? action=14 paramA=74448896 paramB=231 paramC=98
+[14:06:33.150] [ACTION] Walk here | player=(2516,4626,1) | target=? action=14 paramA=74448896 paramB=231 paramC=98
+[14:06:36.780] [CHAT] type=0 from="" msg="1,39,72,19,18"
+[14:06:44.298] [ACTION] Climb Iron ladder | player=(2515,4628,1) | target=loc id=4485 name="Iron ladder" coords=(2515,4630,1)
+[14:06:45.031] [ACTION] Walk here | player=(2515,4629,1) | target=? action=14 paramA=73482240 paramB=261 paramC=137
+[14:06:45.194] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[14:06:47.605] [CHAT] type=0 from="" msg="1,39,72,19,21"
+[14:27:42.809] [CHAT] type=0 from="" msg="You have been poisoned!"
+[14:35:03.703] [ACTION] Walk here | player=(2515,4629,1) | target=? action=14 paramA=73482240 paramB=239 paramC=187
+[14:35:04.569] [ACTION] Walk here | player=(2515,4629,1) | target=? action=14 paramA=73482240 paramB=239 paramC=187
+[14:35:06.590] [ACTION] Walk here | player=(2515,4629,1) | target=? action=14 paramA=74448896 paramB=239 paramC=187
+[14:35:07.680] [ACTION] Walk here | player=(2516,4628,1) | target=? action=14 paramA=74448896 paramB=239 paramC=187
+[14:35:07.861] [ACTION] Walk here | player=(2516,4628,1) | target=? action=14 paramA=74448896 paramB=239 paramC=187
+[14:35:09.909] [ACTION] Walk here | player=(2516,4628,1) | target=? action=14 paramA=74448896 paramB=311 paramC=149
+[14:35:12.018] [ACTION] Eat Shark | player=(2513,4627,1) | target=? action=961 paramA=385 paramB=18 paramC=3214
+[14:35:12.179] [CHAT] type=0 from="" msg="You eat the shark."
+[14:35:12.180] [CHAT] type=0 from="" msg="It heals some health."
+[14:36:59.640] [ACTION] Walk here | player=(2513,4627,1) | target=? action=14 paramA=73482240 paramB=220 paramC=253
+[14:37:00.404] [ACTION] Walk here | player=(2513,4627,1) | target=? action=14 paramA=73482240 paramB=230 paramC=253
+[14:37:01.170] [ACTION] Walk here | player=(2513,4627,1) | target=? action=14 paramA=73482240 paramB=229 paramC=253
+[14:37:01.769] [ACTION] Climb Iron ladder | player=(2513,4627,1) | target=loc id=4485 name="Iron ladder" coords=(2515,4630,1)
+[14:37:02.589] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[14:37:06.778] [CHAT] type=0 from="" msg="1,39,72,19,21"
+[14:37:13.017] [ACTION] Walk here | player=(2515,4633,0) | target=? action=14 paramA=73482240 paramB=320 paramC=278
+[14:37:15.191] [ACTION] Cancel | player=(2514,4637,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[14:37:34.595] [ACTION] Cancel | player=(2510,4644,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[14:37:39.775] [CHAT] type=0 from="" msg="0,39,72,14,36"
+[14:38:10.830] [ACTION] Walk here | player=(2510,4644,0) | target=? action=14 paramA=554 paramB=203 paramC=256
+[14:38:12.132] [ACTION] Walk here | player=(2514,4643,0) | target=? action=14 paramA=554 paramB=50 paramC=98
+[14:38:19.261] [ACTION] Walk here | player=(2515,4635,0) | target=? action=14 paramA=556 paramB=204 paramC=131
+[14:38:19.740] [ACTION] Walk here | player=(2515,4633,0) | target=? action=14 paramA=556 paramB=190 paramC=123
+[14:38:19.994] [ACTION] Climb Iron ladder | player=(2515,4633,0) | target=loc id=4413 name="Iron ladder" coords=(2515,4631,0)
+[14:38:20.581] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[14:38:35.572] [ACTION] Cancel | player=(2515,4632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[14:38:37.391] [CHAT] type=0 from="" msg="0,39,72,19,24"
+[14:38:50.644] [ACTION] Cancel | player=(2515,4632,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[14:38:56.672] [ACTION] Walk here | player=(2515,4628,1) | target=? action=14 paramA=75595776 paramB=280 paramC=198
+[14:38:57.574] [ACTION] Climb Iron ladder | player=(2515,4629,1) | target=loc id=4485 name="Iron ladder" coords=(2515,4630,1)
+[14:38:57.782] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[14:39:01.463] [CHAT] type=0 from="" msg="1,39,72,19,21"
+[14:39:15.614] [ACTION] Climb Iron ladder | player=(2515,4629,1) | target=loc id=4485 name="Iron ladder" coords=(2515,4630,1)
+[14:39:15.793] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[14:42:37.979] [CHAT] type=0 from="" msg="You have been poisoned!"
+[14:43:23.914] [ACTION] Attack Strange plant | player=(2515,4629,1) | target=npc name="Strange plant" coords=(2515,4628,1)
+[14:43:25.301] [ACTION] Cancel | player=(2515,4629,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[14:43:26.177] [ACTION] Use Special Attack | player=(2515,4629,1) | target=? action=352 paramA=2552 paramB=1 paramC=7537
+[14:43:27.471] [ACTION] Use Special Attack | player=(2515,4629,1) | target=? action=352 paramA=2552 paramB=1 paramC=7537
+[14:43:29.224] [ACTION] Cancel | player=(2515,4629,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[14:43:31.129] [ACTION] Cancel | player=(2515,4629,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[14:43:31.817] [ACTION] Cancel | player=(2515,4629,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[14:43:32.827] [ACTION] Eat Shark | player=(2515,4629,1) | target=? action=961 paramA=385 paramB=19 paramC=3214
+[14:43:33.218] [CHAT] type=0 from="" msg="You eat the shark."
+[14:43:33.218] [CHAT] type=0 from="" msg="It heals some health."
+[14:43:34.727] [ACTION] Eat Shark | player=(2515,4629,1) | target=? action=961 paramA=385 paramB=20 paramC=3214
+[14:43:35.070] [CHAT] type=0 from="" msg="You eat the shark."
+[14:43:35.072] [CHAT] type=0 from="" msg="It heals some health."
+[14:43:35.771] [ACTION] Attack Strange plant | player=(2515,4629,1) | target=npc name="Strange plant" coords=(2515,4628,1)
+[14:43:36.724] [ACTION] Cancel | player=(2515,4629,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[14:43:37.261] [ACTION] Cancel | player=(2515,4629,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[14:43:37.898] [ACTION] Select | player=(2515,4629,1) | target=? action=890 paramA=892 paramB=489 paramC=5623
+[14:47:12.800] [ACTION] Select | player=(2515,4629,1) | target=? action=890 paramA=892 paramB=489 paramC=5623
+[14:47:14.643] [ACTION] Cancel | player=(2515,4629,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[14:47:16.794] [ACTION] Cancel | player=(2515,4629,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[14:47:18.676] [ACTION] Use Special Attack | player=(2515,4629,1) | target=? action=352 paramA=11669 paramB=515 paramC=7537
+[14:47:20.376] [ACTION] Use Special Attack | player=(2515,4629,1) | target=? action=352 paramA=11669 paramB=515 paramC=7537
+[14:47:22.688] [ACTION] Cancel | player=(2515,4629,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[14:55:47.290] [ACTION] Cancel | player=(2515,4629,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[15:06:43.523] [ACTION] Cancel | player=(2515,4629,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
