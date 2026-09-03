@@ -5709,3 +5709,117 @@
 [09:09:45.996] [ACTION] Cancel | player=(2523,3739,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
 [09:09:46.673] [ACTION] Cancel | player=(2523,3739,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
 [09:43:50.790] [SESSION] logged out, was "corey"
+
+=== dev client session started Thu Sep 03 09:44:36 EDT 2026 ===
+[09:44:36.576] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[09:44:53.583] [SESSION] logged in as "corey"
+[09:44:53.833] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[09:44:56.400] [ACTION] Close | player=(2523,3739,0) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[09:44:57.629] [ACTION] Enter Cave entrance | player=(2523,3739,0) | target=loc id=8929 name="Cave entrance" coords=(2519,3738,0)
+[09:44:58.206] [CHAT] type=0 from="" msg="You duck into the dark, cold cave."
+[09:45:05.250] [ACTION] Cancel | player=(2487,10147,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:45:48.173] [ACTION] Cancel | player=(2471,10150,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:45:49.896] [ACTION] Cancel | player=(2471,10150,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:45:50.757] [ACTION] Cancel | player=(2471,10151,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:45:51.168] [ACTION] Cancel | player=(2471,10152,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:45:51.796] [ACTION] Cancel | player=(2470,10153,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:45:52.273] [ACTION] Select | player=(2469,10153,0) | target=? action=518 paramA=2552 paramB=1 paramC=153
+[09:45:52.741] [ACTION] Cancel | player=(2469,10153,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:45:55.522] [ACTION] Cancel | player=(2459,10152,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:45:56.220] [ACTION] Cancel | player=(2457,10152,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:01.708] [ACTION] Climb Steps | player=(2441,10149,0) | target=loc id=8966 name="Steps" coords=(2440,10146,0)
+[09:46:02.401] [CHAT] type=0 from="" msg="You climb the steps and back out into the cold Rellekka air."
+[09:46:06.624] [ACTION] Enter Cave entrance | player=(2521,3739,0) | target=loc id=8929 name="Cave entrance" coords=(2519,3738,0)
+[09:46:07.181] [CHAT] type=0 from="" msg="You duck into the dark, cold cave."
+[09:46:08.816] [ACTION] Walk here | player=(2487,10147,0) | target=? action=14 paramA=146784256 paramB=388 paramC=199
+[09:46:09.517] [ACTION] Open Door | player=(2489,10147,0) | target=loc id=8959 name="Door" coords=(2491,10146,0)
+[09:46:10.285] [CHAT] type=0 from="" msg="The door won't budge - it feels like it needs weight on both pressure pads beside it at once."
+[09:46:20.553] [ACTION] Cancel | player=(2490,10147,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:24.042] [ACTION] Cancel | player=(2490,10147,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:24.936] [ACTION] Cancel | player=(2490,10147,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:26.258] [ACTION] Horror from the Deep | player=(2490,10147,0) | target=? action=352 paramA=557 paramB=7 paramC=10135
+[09:46:27.644] [HOTKEY] Escape closed interfaces
+[09:46:27.883] [ACTION] Cancel | player=(2490,10147,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:28.269] [ACTION] Cancel | player=(2490,10147,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:28.889] [ACTION] Cancel | player=(2490,10147,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:31.179] [CHAT] type=0 from="" msg="Changed move strategy: fly"
+[09:46:32.264] [ACTION] Cancel | player=(2485,10152,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:34.861] [ACTION] Attack Wallasalki (level-98) | player=(2490,10147,0) | target=npc name="Wallasalki" coords=(2501,10151,0)
+[09:46:35.973] [ACTION] Cancel | player=(2492,10149,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:37.006] [ACTION] Walk here | player=(2496,10151,0) | target=? action=14 paramA=10395 paramB=499 paramC=121
+[09:46:38.051] [ACTION] Walk here | player=(2498,10151,0) | target=? action=14 paramA=10395 paramB=462 paramC=91
+[09:46:38.907] [ACTION] Cancel | player=(2500,10149,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:39.276] [ACTION] Cancel | player=(2502,10149,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:40.297] [ACTION] Cancel | player=(2506,10148,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:40.580] [ACTION] Cancel | player=(2506,10148,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:40.759] [ACTION] Cancel | player=(2506,10148,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:40.909] [ACTION] Cancel | player=(2508,10149,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:41.946] [ACTION] Cancel | player=(2510,10149,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:42.684] [ACTION] Cancel | player=(2514,10146,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:43.514] [ACTION] Cancel | player=(2516,10144,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:44.157] [ACTION] Cancel | player=(2518,10146,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:45.068] [ACTION] Cancel | player=(2522,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:46.017] [ACTION] Cancel | player=(2524,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:46.711] [ACTION] Cancel | player=(2526,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:47.141] [ACTION] Cancel | player=(2528,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:48.044] [ACTION] Cancel | player=(2532,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:52.104] [ACTION] Walk here | player=(2541,10143,0) | target=? action=14 paramA=146915328 paramB=344 paramC=106
+[09:46:54.550] [ACTION] Climb Iron ladder | player=(2542,10143,0) | target=loc id=10177 name="Iron ladder" coords=(2546,10143,0)
+[09:46:54.593] [CHAT] type=0 from="" msg="I can't reach that!"
+[09:46:55.787] [ACTION] Climb-up Iron ladder | player=(2542,10143,0) | target=loc id=10177 name="Iron ladder" coords=(2546,10143,0)
+[09:46:56.479] [CHAT] type=0 from="" msg="I can't reach that!"
+[09:46:57.198] [ACTION] Destroy Door-support | player=(2542,10143,0) | target=npc name="Door-support" coords=(2543,10144,0)
+[09:46:58.227] [CHAT] type=0 from="" msg="I can't reach that!"
+[09:46:59.725] [ACTION] Climb-up Iron ladder | player=(2543,10144,0) | target=loc id=10177 name="Iron ladder" coords=(2546,10143,0)
+[09:47:00.592] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[09:47:03.277] [ACTION] Climb Iron ladder | player=(2545,10143,0) | target=loc id=10177 name="Iron ladder" coords=(2546,10143,0)
+[09:47:03.650] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[09:47:05.923] [ACTION] Climb-down Iron ladder | player=(2545,10143,0) | target=loc id=10177 name="Iron ladder" coords=(2546,10143,0)
+[09:47:05.997] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[09:47:09.330] [ACTION] Destroy Door-support | player=(2545,10143,0) | target=npc name="Door-support" coords=(2543,10142,0)
+[09:47:14.772] [ACTION] Destroy Door-support | player=(2545,10143,0) | target=npc name="Door-support" coords=(2543,10144,0)
+[09:47:17.095] [ACTION] Destroy Door-support | player=(2545,10143,0) | target=npc name="Door-support" coords=(2544,10141,0)
+[09:47:31.019] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:32.077] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:32.690] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:33.553] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:34.718] [ACTION] Select | player=(2545,10143,0) | target=? action=518 paramA=3855 paramB=0 paramC=1771
+[09:47:35.288] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:35.806] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:36.299] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:37.987] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:38.672] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:39.403] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:43.787] [ACTION] Climb-down Iron ladder | player=(2545,10143,0) | target=loc id=10177 name="Iron ladder" coords=(2546,10143,0)
+[09:47:44.497] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[09:47:45.317] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:48:10.686] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:48:11.561] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:48:11.968] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:48:12.394] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:48:12.832] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:48:13.505] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:48:13.972] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:48:14.567] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:48:15.258] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:49:13.926] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:49:16.173] [CHAT] type=0 from="" msg="0,39,158,49,31"
+[09:49:17.682] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:49:45.156] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:49:45.817] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:49:46.291] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:49:46.757] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:50:03.526] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:50:04.191] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:50:04.696] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:50:33.972] [ACTION] Cancel | player=(2545,10143,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:50:41.128] [ACTION] Enter Cave entrance | player=(2544,3741,0) | target=loc id=8930 name="Cave entrance" coords=(2542,3740,0)
+[09:50:41.384] [CHAT] type=0 from="" msg="You duck into the dark, cold cave."
+[10:00:25.528] [SESSION] logged out, was "corey"
+[10:39:11.959] [SESSION] logged in as "corey"
+[10:39:12.339] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[10:39:13.234] [ACTION] Cancel | player=(2487,10147,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:39:13.971] [ACTION] Close | player=(2487,10147,0) | target=? action=639 paramA=557 paramB=7 paramC=15251
+[10:39:14.678] [ACTION] Cancel | player=(2487,10147,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:39:15.094] [ACTION] Cancel | player=(2487,10147,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[10:39:15.806] [ACTION] Cancel | player=(2487,10147,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
