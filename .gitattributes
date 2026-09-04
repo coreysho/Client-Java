@@ -1,2 +1,13 @@
+# Normalise line endings. Without this rule git did no EOL conversion at all here, so when the
+# working tree got rewritten to CRLF every tracked file showed as permanently modified against the
+# LF stored in the repo (~87 files of whitespace-only diffs). With text=auto git normalises to LF in
+# the repo and compares normalised content, so a CRLF working tree no longer reads as modified.
+# Matches the convention the content repo already uses.
+* text=auto
+
+# the gradle wrapper jar is binary; never touch its bytes
+*.jar           binary
+
+# these two must keep specific endings regardless of platform (last matching rule wins)
 /gradlew        text eol=lf
 *.bat           text eol=crlf
