@@ -447,6 +447,16 @@ public class Client extends GameShell {
 	// drop. No server-side changes needed at all.
 	private static final long XPDROP_FADE_MS = 1500L; // how long a single drop stays up before disappearing (tuned: 3000L -> 600L (too slow) -> 1500L (Corey: "now its a bit too fast lol"))
 	private static final int XPDROP_MAX_VISIBLE = 8; // oldest entries beyond this are dropped outright
+	// The RuneLite-style xp tracker panel (Corey, 2026-09-05: "just like runelite on osrs ... where
+	// you can see the total xp you currently have in the skill and the xp flowing up/down"): the
+	// skill of the most recent gain, that skill's new running total, and when the panel hides again.
+	// Deliberately separate state from the drop list - the panel shows one running total that
+	// survives while individual drops come and go, which is what the earlier inline "+550 (12,345)"
+	// version got wrong by welding the total onto every drop row.
+	private static final long XPTRACKER_FADE_MS = 6000L;
+	private int xpTrackerSkill = -1;
+	private int xpTrackerTotal = 0;
+	private long xpTrackerUntil = 0L;
 
 	// Root cause of Corey's "character/compass seem off-center compared to normal runescape" report:
 	// retail Jagex clients randomize macroCameraX/Z/Angle and macroMinimapAngle/Zoom on login (see
@@ -517,10 +527,46 @@ public class Client extends GameShell {
 	// regardless of what else gains xp after it - matching real OSRS's drop-per-gain behaviour
 	// instead of the accumulating-counter version this had before.
 	private void addXpDrop(int skillId, int amount, int total) {
+		this.xpTrackerSkill = skillId;
+		this.xpTrackerTotal = total;
+		this.xpTrackerUntil = System.currentTimeMillis() + XPTRACKER_FADE_MS;
 		this.xpDrops.add(0, new XpDrop(skillId, amount, total, System.currentTimeMillis()));
 		while (this.xpDrops.size() > XPDROP_MAX_VISIBLE) {
 			this.xpDrops.remove(this.xpDrops.size() - 1);
 		}
+	}
+
+	// QoL (Corey, 2026-09-05): a plain game message (type 0) can carry a rank crown via an inline
+	// "@cr1@"/"@cr2@" marker - the same markers the messageSender field already uses for public and
+	// private chat lines (see the @cr1@/@cr2@ stripping in the chatbox draw loop). Type 0 has no
+	// sender field at all, so ::yell embeds the marker in the message text instead and this draws
+	// the crown sprite at exactly the point the marker sits, rather than spelling out "Admin"/"Mod".
+	// Text with no marker takes the original single-drawString path untouched.
+	private void drawGameMessage(PixFont font, int y, String text) {
+		int crown = -1;
+		int at = text.indexOf("@cr1@");
+		if (at != -1) {
+			crown = 0;
+		} else {
+			at = text.indexOf("@cr2@");
+			if (at != -1) {
+				crown = 1;
+			}
+		}
+		if (crown == -1) {
+			font.drawString(4, 0, y, text);
+			return;
+		}
+		String before = text.substring(0, at);
+		String after = text.substring(at + 5);
+		int x = 4;
+		if (before.length() > 0) {
+			font.drawString(x, 0, y, before);
+			x += font.stringWidTag(before);
+		}
+		this.imageModIcons[crown].plotSprite(y - 12, x);
+		x += 14;
+		font.drawString(x, 0, y, after);
 	}
 
 	// Called every frame from draw3DEntityElements() - expires any entry whose own fixed
@@ -530,24 +576,73 @@ public class Client extends GameShell {
 	// below it when that's also on). Newest drop is always at index 0/top, since addXpDrop()
 	// inserts there - so as new drops flow in, older ones are pushed down until they expire.
 	private void drawXpDrops() {
-		if (this.xpDrops.isEmpty()) {
-			return;
-		}
 		long now = System.currentTimeMillis();
 		for (int i = this.xpDrops.size() - 1; i >= 0; i--) {
 			if (now - this.xpDrops.get(i).lastUpdate >= XPDROP_FADE_MS) {
 				this.xpDrops.remove(i);
 			}
 		}
+		boolean showTracker = this.xpTrackerSkill >= 0 && now < this.xpTrackerUntil;
+		if (!showTracker && this.xpDrops.isEmpty()) {
+			return;
+		}
 		int rightX = 507;
-		int baseY = displayFps ? 68 : 22;
+		int y = displayFps ? 68 : 22;
+
+		// The tracker panel: skill icon + that skill's total xp + a bar showing progress to the next
+		// level - the box RuneLite shows above its drops. Separate from the drops themselves, which
+		// stay a bare "+amount".
+		if (showTracker) {
+			int boxW = 128;
+			int boxH = 32;
+			int boxX = rightX - boxW;
+			Pix2D.fillRectTrans(0x000000, y, boxW, boxH, 165, boxX);
+			Pix2D.drawRect(y, boxH, 0x6F6A5A, boxX, boxW);
+			Pix32 panelIcon = this.xpIcon(this.xpTrackerSkill);
+			if (panelIcon != null) {
+				panelIcon.plotSprite(y + 3, boxX + 4);
+			}
+			String totalText = formatXpNumber(this.xpTrackerTotal);
+			int totalWidth = this.fontBold12.stringWid(totalText);
+			int totalX = boxX + boxW - 6 - totalWidth;
+			int totalY = y + 18;
+			this.fontBold12.method243(totalText, 0x000000, totalX + 1, totalY + 1);
+			this.fontBold12.method243(totalText, 0xFFFFFF, totalX, totalY);
+
+			// levelExperience[L-1] is the xp needed for level L+1 (see its static initialiser and the
+			// stats-tab consumer), so the current level's band runs from levelExperience[L-2] up to
+			// levelExperience[L-1]. Level 1 starts at 0, and 99 has no next level so it reads full.
+			int level = this.skillBaseLevel[this.xpTrackerSkill];
+			int barX = boxX + 4;
+			int barY = y + boxH - 8;
+			int barW = boxW - 8;
+			Pix2D.fillRect(5, barY, 0x201C15, barW, barX);
+			if (level >= 99) {
+				Pix2D.fillRect(5, barY, 0xC8641E, barW, barX);
+			} else if (level >= 1) {
+				int floor = level >= 2 ? levelExperience[level - 2] : 0;
+				int span = levelExperience[level - 1] - floor;
+				if (span > 0) {
+					int done = this.xpTrackerTotal - floor;
+					if (done < 0) {
+						done = 0;
+					}
+					if (done > span) {
+						done = span;
+					}
+					int filled = (int) ((long) barW * (long) done / (long) span);
+					if (filled > 0) {
+						Pix2D.fillRect(5, barY, 0xC8641E, filled, barX);
+					}
+				}
+			}
+			Pix2D.drawRect(barY, 5, 0x000000, barX, barW);
+			y += boxH + 4;
+		}
+
+		// The drops: icon + "+amount", newest at the top, each easing down a row as newer ones push
+		// in above it (Corey: "an actual drop, not just static placement").
 		int rowHeight = 27;
-		// Corey, 2026-09-04 ("i want it to flow downwards like runelite xp drops, an actual drop, not
-		// just static placement"): each drop eases its displayY toward its target row every frame
-		// instead of snapping straight to it, so pushing an older drop down a slot when a new one
-		// arrives at the top reads as a smooth downward flow. A new drop starts one row *above* its
-		// own target (i.e. where the row above it currently sits) so it visibly drops down into place
-		// on its very first frame too, rather than just popping in already-settled.
 		for (int i = 0; i < this.xpDrops.size(); i++) {
 			XpDrop drop = this.xpDrops.get(i);
 			float targetRow = i;
@@ -558,26 +653,45 @@ public class Client extends GameShell {
 			if (Math.abs(targetRow - drop.displayY) < 0.02f) {
 				drop.displayY = targetRow;
 			}
-			int y = baseY + Math.round(drop.displayY * rowHeight);
-			String total = formatObjCountTagged(drop.total);
-			String text = "+" + drop.amount + " (" + total + ")";
+			int rowY = y + Math.round(drop.displayY * rowHeight);
+			String text = "+" + drop.amount;
 			int textWidth = this.fontPlain12.stringWid(text);
-			Pix32 icon = drop.skillId >= 0 && drop.skillId < XPDROP_ICON_SHEET.length ? Component.getImage(XPDROP_ICON_INDEX[drop.skillId], XPDROP_ICON_SHEET[drop.skillId]) : null;
+			Pix32 icon = this.xpIcon(drop.skillId);
 			int iconWidth = icon != null ? icon.wi : 0;
-			// true right-align to rightX now that the "(total)" suffix makes the row noticeably wider
-			// than the old bare "+X" text - the original always started text AT rightX regardless of
-			// width, which was fine for a short "+550" but would push this longer text well past the
-			// viewport into the sidebar/inventory panel
 			int textX = rightX - textWidth;
-			int textY = y + 18;
+			int textY = rowY + 18;
 			// black drop-shadow, offset by one pixel, so it stays readable over any scene colour
 			this.fontPlain12.method243(text, 0x000000, textX + 1, textY + 1);
 			this.fontPlain12.method243(text, 0xFFFF00, textX, textY);
 			if (icon != null) {
-				icon.plotSprite(y, textX - iconWidth - 4);
+				icon.plotSprite(rowY, textX - iconWidth - 4);
 			}
 		}
 	}
+
+	private Pix32 xpIcon(int skillId) {
+		if (skillId < 0 || skillId >= XPDROP_ICON_SHEET.length) {
+			return null;
+		}
+		return Component.getImage(XPDROP_ICON_INDEX[skillId], XPDROP_ICON_SHEET[skillId]);
+	}
+
+	// 227731 -> "227,731", matching the grouped total RuneLite's tracker shows.
+	private static String formatXpNumber(int value) {
+		String digits = Integer.toString(value);
+		StringBuilder out = new StringBuilder(digits.length() + 4);
+		int lead = digits.length() % 3;
+		if (lead == 0) {
+			lead = 3;
+		}
+		out.append(digits, 0, lead);
+		for (int i = lead; i < digits.length(); i += 3) {
+			out.append(',');
+			out.append(digits, i, i + 3);
+		}
+		return out.toString();
+	}
+
 
 	@ObfuscatedName("client.yi")
 	public boolean redrawChatback = false;
@@ -12693,7 +12807,7 @@ public class Client extends GameShell {
 					}
 					if (var9 == 0) {
 						if (var10 > 0 && var10 < 110) {
-							var5.drawString(4, 0, var10, this.messageText[var7]);
+							this.drawGameMessage(var5, var10, this.messageText[var7]);
 						}
 						var6++;
 					}
