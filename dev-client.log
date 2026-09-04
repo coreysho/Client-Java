@@ -7408,3 +7408,90 @@
 [18:40:20.846] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
 [18:40:21.273] [ACTION] Ok | player=(2509,3636,0) | target=? action=352 paramA=74989568 paramB=467 paramC=2458
 [18:40:21.314] [SESSION] logged out, was "corey"
+
+=== dev client session started Fri Sep 04 09:22:35 EDT 2026 ===
+[09:22:35.125] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[09:22:48.726] [SESSION] logged in as "corey"
+[09:22:49.511] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[09:22:50.671] [ACTION] Close | player=(3086,3494,0) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[09:22:51.312] [ACTION] Cancel | player=(3086,3494,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:22:51.884] [ACTION] Cancel | player=(3086,3494,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:22:52.349] [ACTION] Cancel | player=(3086,3494,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:22:53.913] [ACTION] Cancel | player=(3088,3493,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:22:54.298] [ACTION] Cancel | player=(3089,3492,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:22:54.704] [ACTION] Remove Black d'hide body | player=(3089,3492,0) | target=? action=9 paramA=2503 paramB=4 paramC=1688
+[09:22:54.889] [ACTION] Remove Black d'hide chaps | player=(3090,3491,0) | target=? action=9 paramA=2497 paramB=7 paramC=1688
+[09:22:55.795] [ACTION] Cancel | player=(3091,3491,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:22:56.433] [ACTION] Select | player=(3092,3491,0) | target=? action=518 paramA=6570 paramB=1 paramC=1771
+[09:22:56.681] [ACTION] Cancel | player=(3093,3492,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:23:29.185] [ACTION] Cancel | player=(3094,3493,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:23:29.451] [ACTION] Cancel | player=(3094,3493,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:23:29.618] [ACTION] Cancel | player=(3094,3493,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:23:30.315] [ACTION] Use-quickly Bank booth | player=(3094,3493,0) | target=loc id=2213 name="Bank booth" coords=(3095,3491,0)
+[09:23:31.387] [ACTION] Walk here | player=(3094,3491,0) | target=? action=14 paramA=5141 paramB=441 paramC=245
+[09:23:31.694] [ACTION] Use Bank booth | player=(3094,3491,0) | target=loc id=2213 name="Bank booth" coords=(3095,3491,0)
+[09:23:33.449] [ACTION] Use-quickly Bank booth | player=(3094,3491,0) | target=loc id=2213 name="Bank booth" coords=(3095,3491,0)
+[09:23:34.767] [HOTKEY] Number key entered bank PIN digit 7
+[09:23:35.202] [HOTKEY] Number key entered bank PIN digit 3
+[09:23:35.743] [HOTKEY] Number key entered bank PIN digit 2
+[09:23:36.239] [HOTKEY] Number key entered bank PIN digit 5
+[09:23:38.249] [ACTION] Deposit 5 Superantipoison(4) | player=(3094,3491,0) | target=? action=225 paramA=2448 paramB=4 paramC=2006
+[09:23:38.696] [ACTION] Deposit 1 Superantipoison(2) | player=(3094,3491,0) | target=? action=9 paramA=183 paramB=1 paramC=2006
+[09:23:39.406] [ACTION] Deposit All Fire rune | player=(3094,3491,0) | target=? action=564 paramA=554 paramB=2 paramC=2006
+[09:23:40.358] [ACTION] Deposit All Blood rune | player=(3094,3491,0) | target=? action=564 paramA=565 paramB=3 paramC=2006
+[09:23:40.785] [ACTION] Deposit 10 Super restore(4) | player=(3094,3491,0) | target=? action=444 paramA=3024 paramB=7 paramC=2006
+[09:23:41.455] [ACTION] Deposit 1 Super restore(3) | player=(3094,3491,0) | target=? action=9 paramA=3026 paramB=12 paramC=2006
+[09:23:41.619] [ACTION] Deposit 1 Amulet of glory(3) | player=(3094,3491,0) | target=? action=9 paramA=1710 paramB=13 paramC=2006
+[09:23:41.802] [ACTION] Deposit 1 Black d'hide body | player=(3094,3491,0) | target=? action=9 paramA=2503 paramB=16 paramC=2006
+[09:23:41.964] [ACTION] Deposit 1 Black d'hide chaps | player=(3094,3491,0) | target=? action=9 paramA=2497 paramB=17 paramC=2006
+[09:23:42.126] [ACTION] Deposit 1 Staff of air | player=(3094,3491,0) | target=? action=9 paramA=1381 paramB=14 paramC=2006
+[09:23:42.266] [ACTION] Deposit 1 Abyssal whip | player=(3094,3491,0) | target=? action=9 paramA=4151 paramB=15 paramC=2006
+[09:23:43.227] [ACTION] Deposit 1 Dragon dagger | player=(3094,3491,0) | target=? action=9 paramA=1215 paramB=0 paramC=2006
+[09:23:43.826] [ACTION] Cancel | player=(3094,3491,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:23:46.336] [ACTION] Withdraw All Law rune | player=(3094,3491,0) | target=? action=564 paramA=563 paramB=72 paramC=5382
+[09:23:47.162] [ACTION] Withdraw All Fire rune | player=(3094,3491,0) | target=? action=564 paramA=554 paramB=70 paramC=5382
+[09:23:48.064] [ACTION] Withdraw All Air rune | player=(3094,3491,0) | target=? action=564 paramA=556 paramB=69 paramC=5382
+[09:23:48.979] [ACTION] Withdraw All Water rune | player=(3094,3491,0) | target=? action=564 paramA=555 paramB=62 paramC=5382
+[09:23:49.559] [ACTION] Withdraw All Earth rune | player=(3094,3491,0) | target=? action=564 paramA=557 paramB=63 paramC=5382
+[09:23:51.358] [ACTION] Deposit 1 Super attack(3) | player=(3094,3491,0) | target=? action=9 paramA=145 paramB=25 paramC=2006
+[09:23:51.500] [ACTION] Deposit 1 Super strength(3) | player=(3094,3491,0) | target=? action=9 paramA=157 paramB=26 paramC=2006
+[09:23:51.702] [ACTION] Deposit 1 Super defence(3) | player=(3094,3491,0) | target=? action=9 paramA=163 paramB=27 paramC=2006
+[09:23:52.248] [ACTION] Deposit All Shark | player=(3094,3491,0) | target=? action=564 paramA=385 paramB=22 paramC=2006
+[09:23:52.710] [ACTION] Cancel | player=(3094,3491,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:23:53.257] [ACTION] Close | player=(3094,3491,0) | target=? action=639 paramA=557 paramB=4 paramC=5384
+[09:24:17.061] [ACTION] Cancel | player=(3094,3491,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:36:44.533] [ACTION] Cancel | player=(2898,3423,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:36:44.961] [ACTION] Ok | player=(2898,3423,1) | target=? action=352 paramA=554 paramB=474 paramC=2458
+[09:36:45.163] [SESSION] logged out, was "corey"
+
+=== dev client session started Fri Sep 04 09:45:57 EDT 2026 ===
+[09:45:57.326] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[09:46:03.189] [SESSION] logged in as "corey"
+[09:46:03.757] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[09:46:04.702] [ACTION] Close | player=(2898,3423,1) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[09:46:07.352] [ACTION] Cancel | player=(2898,3423,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:08.397] [ACTION] Cancel | player=(2898,3423,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:08.830] [ACTION] Cancel | player=(2898,3423,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:08.992] [ACTION] Cancel | player=(2898,3423,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:46:12.165] [ACTION] Cancel | player=(2898,3423,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:37.234] [ACTION] Cancel | player=(2898,3423,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:38.096] [ACTION] Cast Varrock teleport | player=(2898,3423,1) | target=? action=352 paramA=555 paramB=495 paramC=1164
+[09:47:38.326] [ACTION] Cancel | player=(2898,3423,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:40.358] [ACTION] Cancel | player=(2898,3423,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:40.654] [ACTION] Cancel | player=(3215,3426,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:40.730] [ACTION] Cancel | player=(3215,3426,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:40.909] [ACTION] Cancel | player=(3215,3426,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:41.130] [ACTION] Cancel | player=(3216,3426,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:41.778] [ACTION] Cancel | player=(3216,3427,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:42.346] [ACTION] Select | player=(3217,3428,0) | target=? action=518 paramA=18972672 paramB=54 paramC=153
+[09:47:42.754] [ACTION] Cancel | player=(3217,3428,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:43.304] [ACTION] Cancel | player=(3217,3430,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:43.492] [ACTION] Cancel | player=(3217,3432,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:48.277] [ACTION] Cancel | player=(3212,3446,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:48.628] [ACTION] Cancel | player=(3212,3446,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:49.099] [ACTION] Cancel | player=(3212,3448,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:50.774] [ACTION] Attack Guard (level-21) | player=(3212,3454,0) | target=npc name="Guard" coords=(3211,3462,0)
+[09:47:52.258] [ACTION] Cancel | player=(3212,3456,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:52.562] [ACTION] Cancel | player=(3212,3456,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:52.787] [ACTION] Cancel | player=(3212,3456,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[09:47:53.012] [ACTION] Cancel | player=(3212,3456,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
