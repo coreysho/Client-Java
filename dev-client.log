@@ -6967,3 +6967,1669 @@
 [22:00:32.564] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
 [22:00:32.851] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
 [22:00:33.089] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:10:06.142] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:10:06.455] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:10:06.814] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:10:07.591] [ACTION] Ok | player=(2509,3643,0) | target=? action=352 paramA=385 paramB=24 paramC=2458
+[22:10:08.153] [SESSION] logged out, was "corey"
+[22:14:24.558] [SESSION] logged in as "corey"
+[22:14:24.944] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[22:14:26.154] [ACTION] Close | player=(2509,3643,0) | target=? action=639 paramA=385 paramB=24 paramC=15251
+[22:14:27.180] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:14:27.414] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:14:28.031] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:14:33.010] [ACTION] Walk here | player=(2509,3643,0) | target=? action=14 paramA=71811072 paramB=245 paramC=315
+[22:14:33.779] [ACTION] Cancel | player=(2509,3642,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:14:34.024] [ACTION] Cancel | player=(2509,3642,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:14:34.224] [ACTION] Cancel | player=(2509,3641,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:14:35.065] [ACTION] Walk here | player=(2509,3640,0) | target=? action=14 paramA=5799936 paramB=200 paramC=333
+[22:14:35.700] [ACTION] Walk-through Doorway | player=(2509,3639,0) | target=loc id=4577 name="Doorway" coords=(2509,3636,0)
+[22:14:36.591] [ACTION] Cancel | player=(2509,3637,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:14:37.084] [ACTION] Select | player=(2509,3636,0) | target=? action=518 paramA=385 paramB=27 paramC=153
+[22:14:37.513] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:14:38.662] [ACTION] Walk-through Doorway | player=(2509,3636,0) | target=loc id=4577 name="Doorway" coords=(2509,3636,0)
+[22:14:40.886] [ACTION] Walk-through Doorway | player=(2509,3634,0) | target=loc id=4577 name="Doorway" coords=(2509,3636,0)
+[22:14:44.794] [ACTION] Walk-through Doorway | player=(2509,3633,0) | target=loc id=4577 name="Doorway" coords=(2509,3636,0)
+[22:14:49.115] [ACTION] Walk here | player=(2509,3633,0) | target=? action=14 paramA=8505 paramB=258 paramC=144
+[22:14:49.841] [ACTION] Walk-through Doorway | player=(2509,3634,0) | target=loc id=4577 name="Doorway" coords=(2509,3636,0)
+[22:14:54.024] [ACTION] Talk-to Larrissa | player=(2509,3633,0) | target=npc name="Larrissa" coords=(2509,3634,0)
+[22:14:54.470] [CHAT] type=0 from="" msg="I can't reach that!"
+[22:14:55.455] [ACTION] Talk-to Larrissa | player=(2509,3633,0) | target=npc name="Larrissa" coords=(2507,3634,0)
+[22:14:56.464] [ACTION] Cancel | player=(2507,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:14:56.676] [ACTION] Continue | player=(2507,3635,0) | target=? action=575 paramA=74989568 paramB=251 paramC=972
+[22:14:57.297] [ACTION] Cancel | player=(2507,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:14:57.979] [ACTION] Continue | player=(2507,3635,0) | target=? action=575 paramA=74989568 paramB=251 paramC=4907
+[22:14:58.520] [ACTION] Continue | player=(2507,3635,0) | target=? action=575 paramA=74989568 paramB=251 paramC=978
+[22:14:59.107] [ACTION] Continue | player=(2507,3635,0) | target=? action=575 paramA=74989568 paramB=251 paramC=4892
+[22:15:00.028] [ACTION] Ok | player=(2507,3635,0) | target=? action=352 paramA=74989568 paramB=251 paramC=2461
+[22:15:00.756] [ACTION] Continue | player=(2507,3635,0) | target=? action=575 paramA=74989568 paramB=251 paramC=972
+[22:15:01.379] [ACTION] Continue | player=(2507,3635,0) | target=? action=575 paramA=74989568 paramB=251 paramC=4907
+[22:15:02.381] [ACTION] Cancel | player=(2507,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:02.976] [ACTION] Cancel | player=(2507,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:05.850] [ACTION] Cancel | player=(2507,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:06.124] [ACTION] Cancel | player=(2507,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:06.942] [ACTION] Walk here | player=(2507,3635,0) | target=? action=14 paramA=3855 paramB=332 paramC=180
+[22:15:07.697] [ACTION] Walk-through Doorway | player=(2509,3635,0) | target=loc id=4577 name="Doorway" coords=(2509,3636,0)
+[22:15:09.548] [ACTION] Cancel | player=(2509,3633,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:09.799] [ACTION] Cancel | player=(2509,3633,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:10.148] [CHAT] type=5 from="" msg="Nsx has logged in."
+[22:15:15.474] [ACTION] Cancel | player=(2509,3633,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:17.092] [ACTION] Cancel | player=(2509,3633,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:17.281] [ACTION] Cancel | player=(2509,3633,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:17.441] [ACTION] Cancel | player=(2509,3633,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:22.893] [ACTION] Cancel | player=(2509,3633,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:23.302] [ACTION] Cancel | player=(2509,3633,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:24.040] [ACTION] Cancel | player=(2509,3633,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:24.350] [ACTION] Cancel | player=(2509,3633,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:25.260] [ACTION] Cancel | player=(2509,3633,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:25.415] [ACTION] Cancel | player=(2509,3633,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:26.504] [ACTION] Cancel | player=(2509,3633,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:26.702] [ACTION] Cancel | player=(2509,3633,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:26.891] [ACTION] Cancel | player=(2509,3633,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:27.179] [ACTION] Cancel | player=(2509,3633,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:27.873] [ACTION] Cancel | player=(2509,3633,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:28.182] [ACTION] Cancel | player=(2509,3633,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:28.346] [ACTION] Cancel | player=(2509,3633,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:28.484] [ACTION] Cancel | player=(2509,3633,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:28.772] [ACTION] Cancel | player=(2509,3633,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:29.184] [ACTION] Select | player=(2509,3633,0) | target=? action=518 paramA=554 paramB=4 paramC=1771
+[22:15:29.550] [ACTION] Cancel | player=(2509,3633,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:15:33.342] [ACTION] Cancel | player=(2509,3633,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:16:03.593] [CHAT] type=2 from="@cr2@Corey" msg="Gay "
+[22:16:08.872] [CHAT] type=1 from="@cr2@Nsx" msg="Xd "
+[22:16:11.274] [CHAT] type=1 from="@cr2@Nsx" msg="Very"
+[22:16:13.110] [CHAT] type=1 from="@cr2@Nsx" msg="Very gay"
+[22:16:16.547] [ACTION] Cancel | player=(2509,3633,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:16:16.827] [ACTION] Cancel | player=(2509,3633,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:16:26.800] [CHAT] type=2 from="@cr2@Corey" msg="I fucked this door "
+[22:16:26.883] [CHAT] type=1 from="@cr2@Nsx" msg="So what do got"
+[22:16:29.882] [CHAT] type=1 from="@cr2@Nsx" msg="Lmfao "
+[22:16:30.795] [ACTION] Walk-through Doorway | player=(2509,3633,0) | target=loc id=4577 name="Doorway" coords=(2509,3636,0)
+[22:16:34.554] [ACTION] Walk here | player=(2509,3633,0) | target=? action=14 paramA=74989568 paramB=254 paramC=116
+[22:16:35.884] [CHAT] type=1 from="@cr2@Nsx" msg="It does have a hole"
+[22:16:37.685] [CHAT] type=0 from="" msg="0,39,56,13,51"
+[22:16:38.282] [CHAT] type=2 from="@cr2@Corey" msg="L0l"
+[22:16:41.891] [CHAT] type=1 from="@cr2@Nsx" msg="L0l"
+[22:16:48.048] [ACTION] Walk here | player=(2509,3636,0) | target=? action=14 paramA=74989568 paramB=319 paramC=208
+[22:16:53.695] [ACTION] Walk here | player=(2509,3637,0) | target=? action=14 paramA=74989568 paramB=330 paramC=215
+[22:16:56.291] [CHAT] type=1 from="@cr2@Nsx" msg="It regects me"
+[22:16:58.112] [CHAT] type=1 from="@cr2@Nsx" msg="Ahah"
+[22:17:00.380] [CHAT] type=2 from="@cr2@Corey" msg="Tele to me "
+[22:17:02.884] [CHAT] type=1 from="@cr2@Nsx" msg="Too handsome "
+[22:17:06.773] [CHAT] type=2 from="@cr2@Corey" msg="Queer"
+[22:17:14.888] [CHAT] type=1 from="@cr2@Nsx" msg="Slay! "
+[22:17:23.077] [CHAT] type=2 from="@cr2@Corey" msg="Ive got everything wired up for the most part "
+[22:17:26.298] [ACTION] Climb-up Staircase | player=(2509,3638,0) | target=loc id=4568 name="Staircase" coords=(2506,3640,0)
+[22:17:28.589] [ACTION] Climb-up Staircase | player=(2505,3641,1) | target=loc id=4569 name="Staircase" coords=(2506,3640,1)
+[22:17:29.359] [ACTION] Climb-down Staircase | player=(2505,3641,2) | target=loc id=4570 name="Staircase" coords=(2506,3641,2)
+[22:17:33.263] [ACTION] Climb-up Staircase | player=(2505,3641,1) | target=loc id=4569 name="Staircase" coords=(2506,3640,1)
+[22:17:34.601] [ACTION] Climb-down Staircase | player=(2505,3641,2) | target=loc id=4570 name="Staircase" coords=(2506,3641,2)
+[22:17:35.596] [ACTION] Climb-down Staircase | player=(2505,3641,1) | target=loc id=4569 name="Staircase" coords=(2506,3640,1)
+[22:17:36.415] [ACTION] Walk here | player=(2508,3640,0) | target=? action=14 paramA=2 paramB=339 paramC=153
+[22:17:37.486] [ACTION] Walk here | player=(2509,3641,0) | target=? action=14 paramA=2 paramB=301 paramC=146
+[22:17:38.671] [ACTION] Walk here | player=(2509,3642,0) | target=? action=14 paramA=2 paramB=266 paramC=209
+[22:17:39.266] [ACTION] Walk here | player=(2509,3641,0) | target=? action=14 paramA=2 paramB=303 paramC=167
+[22:17:40.225] [ACTION] Walk here | player=(2510,3642,0) | target=? action=14 paramA=2 paramB=249 paramC=182
+[22:17:41.666] [ACTION] Walk here | player=(2509,3641,0) | target=? action=14 paramA=2 paramB=247 paramC=162
+[22:17:42.426] [ACTION] Walk here | player=(2509,3642,0) | target=? action=14 paramA=2 paramB=266 paramC=193
+[22:17:43.370] [ACTION] Walk here | player=(2509,3641,0) | target=? action=14 paramA=2 paramB=266 paramC=173
+[22:17:44.270] [ACTION] Walk here | player=(2509,3642,0) | target=? action=14 paramA=2 paramB=252 paramC=195
+[22:17:45.181] [ACTION] Climb Iron ladder | player=(2509,3641,0) | target=loc id=4383 name="Iron ladder" coords=(2509,3644,0)
+[22:17:46.711] [CHAT] type=0 from="" msg="You climb down the ladder into darkness."
+[22:17:51.588] [ACTION] Walk here | player=(2515,4631,0) | target=? action=14 paramA=72302592 paramB=295 paramC=216
+[22:18:01.293] [CHAT] type=2 from="@cr2@Corey" msg="I bypassed door for now"
+[22:18:02.615] [ACTION] Walk here | player=(2515,4632,0) | target=? action=14 paramA=2 paramB=320 paramC=249
+[22:18:06.571] [CHAT] type=1 from="@cr2@Nsx" msg="Ya i seen that "
+[22:18:07.465] [ACTION] Climb Iron ladder | player=(2515,4633,0) | target=loc id=4413 name="Iron ladder" coords=(2515,4631,0)
+[22:18:08.288] [CHAT] type=0 from="" msg="You climb up the ladder."
+[22:18:09.575] [ACTION] Climb Iron ladder | player=(2515,4629,1) | target=loc id=4485 name="Iron ladder" coords=(2515,4630,1)
+[22:18:10.173] [CHAT] type=0 from="" msg="You climb up the ladder."
+[22:18:11.055] [ACTION] Climb Iron ladder | player=(2515,4629,1) | target=loc id=4485 name="Iron ladder" coords=(2515,4630,1)
+[22:18:11.278] [CHAT] type=0 from="" msg="You climb up the ladder."
+[22:18:24.986] [CHAT] type=2 from="@cr2@Corey" msg="Fk i fucked this part too "
+[22:18:29.519] [ACTION] Climb Iron ladder | player=(2515,4629,1) | target=loc id=4485 name="Iron ladder" coords=(2515,4630,1)
+[22:18:29.884] [CHAT] type=0 from="" msg="You climb up the ladder."
+[22:18:32.922] [CHAT] type=1 from="@cr2@Nsx" msg="Ll0l "
+[22:18:34.243] [CHAT] type=2 from="@cr2@Corey" msg="Cocksucker "
+[22:18:39.383] [ACTION] Cancel | player=(2515,4629,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:18:40.017] [ACTION] Cancel | player=(2515,4629,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:18:40.673] [ACTION] Cancel | player=(2515,4629,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:18:41.235] [ACTION] Cancel | player=(2515,4629,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:18:41.717] [ACTION] Cancel | player=(2515,4629,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:18:46.101] [CHAT] type=1 from="@cr2@Nsx" msg="Have ai do it"
+[22:18:48.444] [ACTION] Cancel | player=(2527,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:18:53.533] [ACTION] Cancel | player=(2527,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:18:54.815] [ACTION] Cancel | player=(2527,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:18:56.137] [ACTION] Cancel | player=(2527,3635,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:19:02.590] [ACTION] Walk here | player=(2509,3635,0) | target=? action=14 paramA=563 paramB=127 paramC=227
+[22:19:03.565] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:19:07.008] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:19:07.830] [ACTION] Message Nsx | player=(2509,3634,0) | target=? action=984 paramA=563 paramB=8 paramC=3214
+[22:19:16.318] [CHAT] type=6 from="Nsx" msg="Just switched the coords on accident"
+[22:19:33.502] [CHAT] type=1 from="@cr2@Nsx" msg="Ahh "
+[22:19:40.023] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:19:44.907] [CHAT] type=2 from="@cr2@Corey" msg="Ancients arent coded yet btw "
+[22:19:48.157] [CHAT] type=2 from="@cr2@Corey" msg="Working on that too"
+[22:19:49.910] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:20:04.141] [CHAT] type=1 from="@cr2@Nsx" msg="Damnnn "
+[22:20:10.685] [CHAT] type=1 from="@cr2@Nsx" msg="Theirs alot to do "
+[22:20:14.614] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:20:17.084] [CHAT] type=2 from="@cr2@Corey" msg="Yepppp "
+[22:20:23.883] [CHAT] type=1 from="@cr2@Nsx" msg="Ur only one dude "
+[22:20:25.304] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:20:25.561] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:20:25.835] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:20:26.200] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:20:26.485] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:20:26.673] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:20:26.891] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:20:27.079] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:20:27.403] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:20:27.605] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:20:27.773] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:20:27.974] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:20:28.221] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:20:28.405] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:20:28.592] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:20:28.875] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:20:29.305] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:20:29.690] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:20:52.132] [CHAT] type=2 from="@cr2@Corey" msg="Eh didnt expect to have it done quick anyways "
+[22:21:07.083] [CHAT] type=1 from="@cr2@Nsx" msg="Nah not saying that at all"
+[22:21:10.084] [CHAT] type=1 from="@cr2@Nsx" msg="Thats alot bro "
+[22:21:16.127] [CHAT] type=1 from="@cr2@Nsx" msg="The fuckin quest is crazy"
+[22:21:44.464] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:21:45.224] [CHAT] type=2 from="@cr2@Corey" msg="Quest aint too bad really"
+[22:21:53.154] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:22:05.340] [CHAT] type=2 from="@cr2@Corey" msg="Basically just a lot of diff places that have to be wired up "
+[22:22:12.316] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:22:15.629] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:22:15.872] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:22:16.094] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:22:16.581] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:22:16.840] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:22:17.026] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:22:17.257] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:22:17.465] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:22:17.690] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:22:17.857] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:22:32.899] [CHAT] type=1 from="@cr2@Nsx" msg="For sure "
+[22:22:41.340] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:22:45.400] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:22:55.936] [ACTION] Use Uncut onyx | player=(2509,3634,0) | target=? action=52 paramA=6571 paramB=10 paramC=3214
+[22:22:56.015] [ACTION] Use Uncut onyx with Chisel | player=(2509,3634,0) | target=? action=903 paramA=1755 paramB=11 paramC=3214
+[22:22:56.303] [CHAT] type=0 from="" msg="You cut the Onyx."
+[22:22:57.340] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:23:00.692] [CHAT] type=2 from="@cr2@Corey" msg="Can cut onyx now "
+[22:23:08.384] [CHAT] type=2 from="@cr2@Corey" msg="Havent tested making jewellry"
+[22:23:08.882] [CHAT] type=1 from="@cr2@Nsx" msg="0O0o nice"
+[22:23:12.023] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:23:13.290] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:23:13.554] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:23:13.857] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:23:16.140] [CHAT] type=1 from="@cr2@Nsx" msg="Lets see"
+[22:23:16.987] [CHAT] type=2 from="@cr2@Corey" msg="Going fally "
+[22:23:18.341] [ACTION] Cast Falador teleport | player=(2509,3634,0) | target=? action=352 paramA=455 paramB=3 paramC=1170
+[22:23:18.611] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:23:19.848] [ACTION] Cancel | player=(2509,3634,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:23:21.238] [ACTION] Cancel | player=(2964,3377,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:23:36.671] [ACTION] Walk here | player=(2973,3371,0) | target=? action=14 paramA=193544192 paramB=385 paramC=274
+[22:23:37.245] [ACTION] Use Gold bar | player=(2974,3370,0) | target=? action=52 paramA=2357 paramB=12 paramC=3214
+[22:23:37.711] [ACTION] Use Gold bar with Furnace | player=(2974,3370,0) | target=loc id=11666 name="Furnace" coords=(2976,3368,0)
+[22:23:40.498] [ACTION] Make Onyx amulet | player=(2975,3369,0) | target=? action=9 paramA=6566 paramB=6 paramC=4245
+[22:23:42.499] [CHAT] type=0 from="" msg="You make an onyx amulet."
+[22:23:50.829] [ACTION] Use Ball of wool | player=(2975,3369,0) | target=? action=52 paramA=1759 paramB=12 paramC=3214
+[22:23:51.137] [ACTION] Use Ball of wool with Onyx amulet | player=(2975,3369,0) | target=? action=903 paramA=6579 paramB=10 paramC=3214
+[22:23:51.469] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[22:23:52.448] [ACTION] Walk here | player=(2975,3369,0) | target=? action=14 paramA=805 paramB=217 paramC=154
+[22:23:52.606] [ACTION] Walk here | player=(2975,3369,0) | target=? action=14 paramA=805 paramB=198 paramC=167
+[22:23:53.712] [ACTION] Use Onyx amulet | player=(2974,3370,0) | target=? action=52 paramA=6579 paramB=10 paramC=3214
+[22:23:54.044] [ACTION] Use Onyx amulet with Ball of wool | player=(2974,3370,0) | target=? action=903 paramA=1759 paramB=12 paramC=3214
+[22:23:54.539] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[22:24:09.011] [ACTION] Use Chisel | player=(2974,3370,0) | target=? action=52 paramA=1755 paramB=11 paramC=3214
+[22:24:09.239] [ACTION] Cancel | player=(2974,3370,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:24:09.676] [ACTION] Use Uncut onyx | player=(2974,3370,0) | target=? action=52 paramA=6571 paramB=18 paramC=3214
+[22:24:09.821] [ACTION] Use Uncut onyx with Chisel | player=(2974,3370,0) | target=? action=903 paramA=1755 paramB=11 paramC=3214
+[22:24:10.091] [CHAT] type=0 from="" msg="You cut the Onyx."
+[22:24:10.547] [ACTION] Use Uncut onyx | player=(2974,3370,0) | target=? action=52 paramA=6571 paramB=18 paramC=3214
+[22:24:10.656] [ACTION] Use Uncut onyx with Chisel | player=(2974,3370,0) | target=? action=903 paramA=1755 paramB=11 paramC=3214
+[22:24:10.679] [CHAT] type=5 from="" msg="Nsx has logged out."
+[22:24:11.322] [CHAT] type=0 from="" msg="You cut the Onyx."
+[22:24:11.899] [ACTION] Use Gold bar | player=(2974,3370,0) | target=? action=52 paramA=2357 paramB=13 paramC=3214
+[22:24:12.158] [ACTION] Use Gold bar with Furnace | player=(2974,3370,0) | target=loc id=11666 name="Furnace" coords=(2976,3368,0)
+[22:24:20.057] [HOTKEY] Escape closed interfaces
+[22:24:21.128] [ACTION] Drop Amulet mould | player=(2975,3369,0) | target=item id=1595 slot=16 (inventory, no world coords)
+[22:24:33.206] [ACTION] Cancel | player=(2975,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:24:34.025] [ACTION] Cancel | player=(2975,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:24:56.383] [ACTION] Use Gold bar | player=(2975,3369,0) | target=? action=52 paramA=2357 paramB=13 paramC=3214
+[22:24:56.634] [ACTION] Use Gold bar with Furnace | player=(2975,3369,0) | target=loc id=11666 name="Furnace" coords=(2976,3368,0)
+[22:24:57.789] [ACTION] Make Onyx ring | player=(2975,3369,0) | target=? action=9 paramA=6564 paramB=6 paramC=4233
+[22:24:59.868] [CHAT] type=0 from="" msg="You make an onyx ring."
+[22:25:01.083] [CHAT] type=5 from="" msg="Nsx has logged in."
+[22:25:02.773] [ACTION] Cancel | player=(2975,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:25:06.281] [ACTION] Cancel | player=(2975,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:25:09.086] [ACTION] Cancel | player=(2975,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:25:09.514] [ACTION] Cancel | player=(2975,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:25:13.533] [ACTION] Cancel | player=(2975,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:25:14.024] [ACTION] Cancel | player=(2975,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:25:14.827] [ACTION] Cast Enchant Lvl-6 Jewelry | player=(2975,3369,0) | target=? action=70 paramA=191135744 paramB=503 paramC=6003
+[22:25:15.394] [ACTION] Cast Enchant Lvl-6 Jewelry on Onyx | player=(2975,3369,0) | target=? action=361 paramA=6573 paramB=18 paramC=3214
+[22:25:15.460] [CHAT] type=0 from="" msg="No trigger for [opheldt,magic:com_549]"
+[22:25:15.492] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[22:25:16.728] [ACTION] Cancel | player=(2975,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:25:17.318] [ACTION] Cast Enchant Lvl-6 Jewelry | player=(2975,3369,0) | target=? action=70 paramA=455 paramB=3 paramC=6003
+[22:25:17.900] [ACTION] Cast Enchant Lvl-6 Jewelry on Onyx ring | player=(2975,3369,0) | target=? action=361 paramA=6575 paramB=13 paramC=3214
+[22:25:18.469] [CHAT] type=0 from="" msg="No trigger for [opheldt,magic:com_549]"
+[22:25:18.469] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[22:25:21.314] [ACTION] Examine Onyx ring | player=(2975,3369,0) | target=? action=1094 paramA=6575 paramB=13 paramC=3214
+[22:25:21.314] [CHAT] type=0 from="" msg="A valuable ring."
+[22:25:22.731] [ACTION] Walk here | player=(2975,3369,0) | target=? action=14 paramA=191135744 paramB=225 paramC=196
+[22:25:34.275] [CHAT] type=1 from="@cr2@Nsx" msg="See if necklace works "
+[22:25:41.896] [CHAT] type=2 from="@cr2@Corey" msg="Can make the ammy but cant string"
+[22:25:52.186] [CHAT] type=2 from="@cr2@Corey" msg="Can make ring but cant enchant "
+[22:26:19.490] [ACTION] Use Gold bar | player=(2974,3369,0) | target=? action=52 paramA=2357 paramB=14 paramC=3214
+[22:26:19.698] [ACTION] Use Gold bar with Furnace | player=(2974,3369,0) | target=loc id=11666 name="Furnace" coords=(2976,3368,0)
+[22:26:22.433] [ACTION] Make Onyx necklace | player=(2975,3369,0) | target=? action=9 paramA=6565 paramB=6 paramC=4239
+[22:26:24.480] [CHAT] type=0 from="" msg="You make an onyx necklace."
+[22:26:25.798] [CHAT] type=2 from="@cr2@Corey" msg="Can make necklace "
+[22:26:26.935] [ACTION] Walk here | player=(2975,3369,0) | target=? action=14 paramA=1595 paramB=214 paramC=188
+[22:26:27.732] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:26:28.371] [ACTION] Cast Enchant Lvl-6 Jewelry | player=(2974,3369,0) | target=? action=70 paramA=3855 paramB=0 paramC=6003
+[22:26:28.823] [ACTION] Cast Enchant Lvl-6 Jewelry on Onyx necklace | player=(2974,3369,0) | target=? action=361 paramA=6577 paramB=14 paramC=3214
+[22:26:29.350] [CHAT] type=0 from="" msg="No trigger for [opheldt,magic:com_549]"
+[22:26:29.350] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[22:26:37.292] [CHAT] type=2 from="@cr2@Corey" msg="Cant enchant any "
+[22:26:49.181] [CHAT] type=2 from="@cr2@Corey" msg="I forgot bracelets werent 06 "
+[22:26:50.949] [ACTION] Drop Ring mould | player=(2974,3369,0) | target=item id=1592 slot=16 (inventory, no world coords)
+[22:26:51.203] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:26:51.475] [ACTION] Drop Necklace mould | player=(2974,3369,0) | target=item id=1597 slot=19 (inventory, no world coords)
+[22:26:51.669] [ACTION] Drop Gold bar | player=(2974,3369,0) | target=item id=2357 slot=15 (inventory, no world coords)
+[22:26:52.892] [ACTION] Use Cosmic rune | player=(2974,3369,0) | target=? action=52 paramA=564 paramB=17 paramC=3214
+[22:26:53.257] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:26:53.486] [ACTION] Drop Cosmic rune | player=(2974,3369,0) | target=item id=564 slot=17 (inventory, no world coords)
+[22:26:53.832] [ACTION] Drop Chisel | player=(2974,3369,0) | target=item id=1755 slot=11 (inventory, no world coords)
+[22:28:07.060] [CHAT] type=1 from="@cr2@Nsx" msg="Yep "
+[22:28:08.864] [CHAT] type=1 from="@cr2@Nsx" msg="Butttttt "
+[22:28:11.969] [CHAT] type=1 from="@cr2@Nsx" msg="U can add"
+[22:28:14.567] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:28:16.431] [CHAT] type=2 from="@cr2@Corey" msg="Ye "
+[22:28:24.467] [CHAT] type=1 from="@cr2@Nsx" msg="That would be a chore"
+[22:28:26.743] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:28:28.784] [CHAT] type=2 from="@cr2@Corey" msg="Not rly"
+[22:28:37.776] [CHAT] type=1 from="@cr2@Nsx" msg="I would like to use everything in game "
+[22:28:43.044] [CHAT] type=1 from="@cr2@Nsx" msg="Like jade and topaz "
+[22:28:45.458] [CHAT] type=1 from="@cr2@Nsx" msg="For something"
+[22:28:53.250] [CHAT] type=1 from="@cr2@Nsx" msg="Wildy tele"
+[22:28:53.495] [CHAT] type=2 from="@cr2@Corey" msg="I can give em uses"
+[22:28:59.254] [CHAT] type=1 from="@cr2@Nsx" msg="Ya know"
+[22:29:11.860] [CHAT] type=1 from="@cr2@Nsx" msg="Obvy emerald necks"
+[22:29:13.054] [CHAT] type=1 from="@cr2@Nsx" msg="Would be"
+[22:29:16.068] [CHAT] type=1 from="@cr2@Nsx" msg="Binding "
+[22:29:18.198] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:29:19.135] [CHAT] type=1 from="@cr2@Nsx" msg="Or whatever use "
+[22:29:19.295] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:29:27.959] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:29:29.807] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:29:35.317] [CHAT] type=1 from="@cr2@Nsx" msg="Im prolly staying home again "
+[22:29:38.868] [CHAT] type=1 from="@cr2@Nsx" msg="She is not well"
+[22:29:46.812] [CHAT] type=2 from="@cr2@Corey" msg="Oh shit whats wrong with her"
+[22:29:55.362] [ACTION] Wear Ring of stone | player=(2974,3369,0) | target=? action=399 paramA=6583 paramB=11 paramC=3214
+[22:29:56.425] [ACTION] Wear Archers ring | player=(2974,3369,0) | target=? action=399 paramA=6733 paramB=11 paramC=3214
+[22:29:57.968] [ACTION] Drop Ring of stone | player=(2974,3369,0) | target=item id=6583 slot=11 (inventory, no world coords)
+[22:29:58.048] [CHAT] type=1 from="@cr2@Nsx" msg="Listen to too much mgk "
+[22:30:00.445] [CHAT] type=1 from="@cr2@Nsx" msg="Xdddddddddddddddddddddd"
+[22:30:01.767] [CHAT] type=2 from="@cr2@Corey" msg="Fuck off "
+[22:30:02.949] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:30:04.708] [CHAT] type=1 from="@cr2@Nsx" msg="L000l"
+[22:30:07.625] [CHAT] type=0 from="" msg="Player 'nsx' has been muted for 10 minutes."
+[22:30:10.815] [CHAT] type=2 from="@cr2@Corey" msg="Cunt "
+[22:30:27.423] [CHAT] type=0 from="" msg="Player 'nsx' has been muted for 0 minutes."
+[22:30:29.287] [CHAT] type=1 from="@cr2@Nsx" msg="Delusional"
+[22:30:35.849] [CHAT] type=1 from="@cr2@Nsx" msg="Or however u spell it"
+[22:30:39.637] [CHAT] type=2 from="@cr2@Corey" msg="At least mute works"
+[22:30:44.200] [CHAT] type=2 from="@cr2@Corey" msg="I need a jail command "
+[22:30:50.272] [CHAT] type=1 from="@cr2@Nsx" msg="L0l"
+[22:30:51.296] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:30:52.940] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:30:53.238] [CHAT] type=1 from="@cr2@Nsx" msg="Mgk sucks"
+[22:30:53.300] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:30:53.893] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:30:55.049] [CHAT] type=1 from="@cr2@Nsx" msg="Mgk sucks"
+[22:30:55.461] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:30:55.749] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:30:55.930] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:30:56.077] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:30:58.041] [CHAT] type=1 from="@cr2@Nsx" msg="Mgk sucks"
+[22:30:58.167] [CHAT] type=2 from="@cr2@Corey" msg="U suck"
+[22:31:10.015] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:31:13.634] [CHAT] type=1 from="@cr2@Nsx" msg="My ol lady big ol tittes i do"
+[22:31:20.867] [CHAT] type=1 from="@cr2@Nsx" msg="Nah i like him"
+[22:31:25.709] [CHAT] type=1 from="@cr2@Nsx" msg="Just not the sappy shit "
+[22:31:29.238] [CHAT] type=1 from="@cr2@Nsx" msg="Cant do it "
+[22:31:53.262] [CHAT] type=1 from="@cr2@Nsx" msg="I just went to his concert in indaina "
+[22:32:02.120] [CHAT] type=2 from="@cr2@Corey" msg="I wanted to but couldnt :s"
+[22:32:10.423] [CHAT] type=2 from="@cr2@Corey" msg="That was a dope concert tho "
+[22:32:14.869] [CHAT] type=1 from="@cr2@Nsx" msg="It was awesome "
+[22:32:19.668] [CHAT] type=1 from="@cr2@Nsx" msg="He always put on show "
+[22:32:22.861] [CHAT] type=2 from="@cr2@Corey" msg="Ye "
+[22:32:25.864] [CHAT] type=1 from="@cr2@Nsx" msg="This would be our 4 th "
+[22:32:46.099] [CHAT] type=1 from="@cr2@Nsx" msg="Then took to that coffee shop"
+[22:32:50.550] [CHAT] type=2 from="@cr2@Corey" msg="27Club is dope "
+[22:32:50.882] [CHAT] type=1 from="@cr2@Nsx" msg="Which was sick "
+[22:33:02.667] [CHAT] type=2 from="@cr2@Corey" msg="They put me on their insta story a few years back "
+[22:33:10.616] [CHAT] type=1 from="@cr2@Nsx" msg="I was realllly hopeing he was their"
+[22:33:14.261] [CHAT] type=1 from="@cr2@Nsx" msg="Really "
+[22:33:19.021] [CHAT] type=1 from="@cr2@Nsx" msg="Thats cool "
+[22:33:33.416] [CHAT] type=1 from="@cr2@Nsx" msg="I dropped 300 their they should have gave me a meet a greet! "
+[22:33:34.970] [CHAT] type=2 from="@cr2@Corey" msg="I was too when i went lol"
+[22:33:38.726] [CHAT] type=2 from="@cr2@Corey" msg="L000l"
+[22:33:43.755] [CHAT] type=2 from="@cr2@Corey" msg="Think i spent about the same"
+[22:33:50.895] [CHAT] type=1 from="@cr2@Nsx" msg="Fuckin insane"
+[22:34:09.403] [CHAT] type=1 from="@cr2@Nsx" msg="I got 3 hoodies 3 shirts his new lemondae drinks"
+[22:34:11.294] [CHAT] type=1 from="@cr2@Nsx" msg="Which suck"
+[22:34:15.999] [CHAT] type=1 from="@cr2@Nsx" msg="Do not buy them"
+[22:34:45.398] [CHAT] type=2 from="@cr2@Corey" msg="I havent tried em lol "
+[22:35:32.293] [CHAT] type=1 from="@cr2@Nsx" msg="I still have 12 of em come get em"
+[22:35:39.726] [CHAT] type=2 from="@cr2@Corey" msg="Lmfao "
+[22:35:46.378] [CHAT] type=2 from="@cr2@Corey" msg="Ur off work drive em to my house xd"
+[22:37:44.776] [CHAT] type=1 from="@cr2@Nsx" msg="L0l"
+[22:37:48.482] [CHAT] type=1 from="@cr2@Nsx" msg="Are u off tommrow?"
+[22:38:16.129] [CHAT] type=2 from="@cr2@Corey" msg="I work from home on fridays and mondays"
+[22:38:36.387] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:39:24.279] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:39:25.181] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:39:25.686] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:39:25.949] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:39:26.401] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:39:26.729] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:39:26.993] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:11.573] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:11.717] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:11.922] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:12.874] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:13.103] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:13.306] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:13.591] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:13.781] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:13.986] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:14.151] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:14.336] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:14.643] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:14.826] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:15.010] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:15.680] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:16.026] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:16.270] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:16.531] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:16.733] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:16.896] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:17.634] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:28.635] [CHAT] type=1 from="@cr2@Nsx" msg="Wfh "
+[22:40:43.867] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:44.898] [CHAT] type=1 from="@cr2@Nsx" msg="U sound like all the engineers at ge "
+[22:40:51.854] [CHAT] type=2 from="@cr2@Corey" msg="Lmo"
+[22:40:53.316] [CHAT] type=2 from="@cr2@Corey" msg="Lmao "
+[22:40:55.609] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:56.084] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:56.235] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:58.835] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:40:59.935] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:41:00.666] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:41:00.955] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:41:01.163] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:41:01.671] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:41:01.829] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:41:02.002] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:41:02.189] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:41:02.346] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:41:02.637] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:41:02.801] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:41:02.946] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:05.638] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:21.445] [CHAT] type=2 from="@cr2@Corey" msg="Insurance industry is chill most of the time"
+[22:43:23.059] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:23.261] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:23.421] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:33.855] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:34.156] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:34.411] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:34.880] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:35.046] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:35.372] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:35.782] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:35.965] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:36.106] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:36.375] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:36.584] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:37.109] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:37.312] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:37.503] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:37.665] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:37.908] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:38.228] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:38.455] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:38.676] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:38.825] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:46.684] [CHAT] type=1 from="@cr2@Nsx" msg="I bet"
+[22:43:54.951] [CHAT] type=1 from="@cr2@Nsx" msg="Im over killin my self"
+[22:43:57.228] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:57.632] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:57.906] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:58.856] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:59.099] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:43:59.341] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:44:00.389] [CHAT] type=1 from="@cr2@Nsx" msg="While u work from hom "
+[22:44:00.411] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:44:03.353] [CHAT] type=1 from="@cr2@Nsx" msg="Drink coffee"
+[22:44:10.585] [CHAT] type=2 from="@cr2@Corey" msg="Not a coffee fan tbh "
+[22:44:13.667] [CHAT] type=2 from="@cr2@Corey" msg="But right elsewise "
+[22:44:19.655] [CHAT] type=1 from="@cr2@Nsx" msg="Nice "
+[22:44:24.362] [CHAT] type=1 from="@cr2@Nsx" msg="Make 300k a year "
+[22:44:27.801] [CHAT] type=2 from="@cr2@Corey" msg="Just give me my nicotine and and energy drink "
+[22:44:28.865] [ACTION] Talk-to Genie | player=(2974,3369,0) | target=npc name="Genie" coords=(2974,3368,0)
+[22:44:29.681] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:44:30.069] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:44:30.298] [ACTION] Continue | player=(2974,3369,0) | target=? action=575 paramA=2 paramB=0 paramC=4899
+[22:44:33.560] [CHAT] type=2 from="@cr2@Corey" msg="I wish "
+[22:44:34.810] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:44:35.245] [ACTION] Rub Lamp | player=(2974,3369,0) | target=? action=961 paramA=2528 paramB=11 paramC=3214
+[22:44:37.174] [ACTION] Advance Woodcutting | player=(2974,3369,0) | target=? action=352 paramA=1759 paramB=12 paramC=2829
+[22:44:42.593] [ACTION] Advance Attack | player=(2974,3369,0) | target=? action=352 paramA=1759 paramB=12 paramC=2812
+[22:44:43.292] [ACTION] Ok | player=(2974,3369,0) | target=? action=352 paramA=1759 paramB=12 paramC=2831
+[22:44:44.158] [CHAT] type=1 from="@cr2@Nsx" msg="Okay okay "
+[22:44:44.263] [ACTION] Walk here | player=(2974,3369,0) | target=? action=14 paramA=1759 paramB=269 paramC=182
+[22:44:45.961] [CHAT] type=1 from="@cr2@Nsx" msg="280K"
+[22:44:49.918] [CHAT] type=2 from="@cr2@Corey" msg="Still dreamin"
+[22:44:53.151] [CHAT] type=1 from="@cr2@Nsx" msg="Lmfao "
+[22:44:57.450] [CHAT] type=2 from="@cr2@Corey" msg="David maybe "
+[22:44:57.959] [CHAT] type=1 from="@cr2@Nsx" msg="Dont we all"
+[22:44:59.136] [CHAT] type=2 from="@cr2@Corey" msg="Not me "
+[22:45:10.648] [CHAT] type=1 from="@cr2@Nsx" msg="Shitttttttttt "
+[22:45:15.450] [CHAT] type=1 from="@cr2@Nsx" msg="He wouldnt live here"
+[22:45:18.418] [CHAT] type=1 from="@cr2@Nsx" msg="Nah "
+[22:45:23.833] [CHAT] type=1 from="@cr2@Nsx" msg="280K a year"
+[22:45:27.951] [CHAT] type=1 from="@cr2@Nsx" msg="Better have a cummins"
+[22:45:29.176] [CHAT] type=1 from="@cr2@Nsx" msg="A gtr"
+[22:45:30.603] [CHAT] type=2 from="@cr2@Corey" msg="Thats why they bought a 1.4M condo in florida l0l "
+[22:45:32.759] [CHAT] type=1 from="@cr2@Nsx" msg="A pool boy "
+[22:45:42.962] [CHAT] type=1 from="@cr2@Nsx" msg="Well fuck me to tears"
+[22:45:59.141] [CHAT] type=2 from="@cr2@Corey" msg="L0l"
+[22:46:12.385] [CHAT] type=1 from="@cr2@Nsx" msg="Oo"
+[22:46:15.957] [CHAT] type=1 from="@cr2@Nsx" msg="Is mole in? "
+[22:46:19.931] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:46:22.765] [CHAT] type=2 from="@cr2@Corey" msg="I think so "
+[22:46:27.446] [CHAT] type=1 from="@cr2@Nsx" msg="Let try it "
+[22:46:30.411] [CHAT] type=1 from="@cr2@Nsx" msg="Take a breal"
+[22:46:33.951] [CHAT] type=1 from="@cr2@Nsx" msg="Break "
+[22:46:40.658] [ACTION] Cancel | player=(2974,3369,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:46:45.484] [ACTION] Cancel | player=(2986,3373,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:46:45.831] [ACTION] Cancel | player=(2986,3373,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:46:46.200] [ACTION] Cancel | player=(2988,3372,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:46:48.585] [ACTION] Walk here | player=(2994,3374,0) | target=? action=14 paramA=199917568 paramB=162 paramC=46
+[22:46:48.791] [ACTION] Walk here | player=(2994,3374,0) | target=? action=14 paramA=199917568 paramB=163 paramC=60
+[22:46:50.283] [ACTION] Dig Spade | player=(2996,3377,0) | target=? action=961 paramA=952 paramB=11 paramC=3214
+[22:46:50.878] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[22:46:52.626] [ACTION] Examine Mole hill | player=(2996,3377,0) | target=loc id=12202 name="Mole hill" coords=(2996,3377,0)
+[22:46:52.626] [CHAT] type=0 from="" msg="A mole hill."
+[22:46:53.283] [ACTION] Walk here | player=(2996,3377,0) | target=? action=14 paramA=199917568 paramB=373 paramC=120
+[22:46:54.513] [ACTION] Dig Spade | player=(2999,3375,0) | target=? action=961 paramA=952 paramB=11 paramC=3214
+[22:46:55.597] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[22:46:58.641] [ACTION] Cancel | player=(2999,3375,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:47:00.182] [ACTION] Cancel | player=(2999,3375,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:47:01.444] [ACTION] Message Nsx | player=(2999,3375,0) | target=? action=984 paramA=385 paramB=24 paramC=3214
+[22:47:03.105] [CHAT] type=6 from="Nsx" msg="Maybe not"
+[22:47:12.237] [ACTION] Cancel | player=(2999,3375,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:47:18.577] [CHAT] type=2 from="@cr2@Corey" msg="Kbd is xd"
+[22:47:20.797] [CHAT] type=7 from="@cr2@Nsx" msg="Bruhhhhhhhh"
+[22:47:21.598] [HOTKEY] Tab reply to Nsx
+[22:47:23.833] [CHAT] type=6 from="Nsx" msg="Kbx is xd "
+[22:47:24.683] [HOTKEY] Tab reply to Nsx
+[22:47:25.716] [CHAT] type=6 from="Nsx" msg="Kbd "
+[22:47:26.768] [CHAT] type=7 from="@cr2@Nsx" msg="This game sucks "
+[22:47:30.191] [ACTION] Cancel | player=(2999,3375,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:47:31.056] [HOTKEY] Tab reply to Nsx
+[22:47:32.165] [CHAT] type=7 from="@cr2@Nsx" msg="0O0o"
+[22:47:34.080] [CHAT] type=6 from="Nsx" msg="Im trying bitch"
+[22:47:36.074] [ACTION] Cancel | player=(2999,3375,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:47:36.961] [CHAT] type=7 from="@cr2@Nsx" msg="Lets go"
+[22:47:37.660] [ACTION] Cancel | player=(2999,3375,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:47:39.535] [ACTION] Cancel | player=(2999,3375,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:47:40.093] [ACTION] Cancel | player=(2997,3375,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:47:40.300] [ACTION] Cancel | player=(2997,3375,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:47:40.454] [ACTION] Cancel | player=(2997,3375,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:47:40.562] [CHAT] type=7 from="@cr2@Nsx" msg="Lmfao "
+[22:47:41.724] [ACTION] Cancel | player=(2995,3372,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:47:42.173] [ACTION] Cancel | player=(2995,3370,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:47:43.013] [CHAT] type=7 from="@cr2@Nsx" msg="Jk jk "
+[22:47:44.707] [ACTION] Cancel | player=(3001,3365,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:47:45.479] [ACTION] Cancel | player=(3005,3365,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:47:45.799] [ACTION] Cancel | player=(3005,3365,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:47:46.044] [ACTION] Cancel | player=(3007,3364,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:47:46.249] [ACTION] Cancel | player=(3007,3364,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:47:46.536] [ACTION] Cancel | player=(3007,3364,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:47:46.818] [ACTION] Cancel | player=(3009,3362,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:47:46.983] [ACTION] Cancel | player=(3009,3362,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:47:47.144] [ACTION] Cancel | player=(3009,3362,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:47:49.055] [ACTION] Use Bank booth | player=(3011,3356,0) | target=loc id=11758 name="Bank booth" coords=(3012,3354,0)
+[22:47:50.171] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[22:47:51.484] [ACTION] Use-quickly Bank booth | player=(3012,3355,0) | target=loc id=11758 name="Bank booth" coords=(3012,3354,0)
+[22:47:52.694] [HOTKEY] Escape closed interfaces
+[22:47:53.058] [ACTION] Use Bank booth | player=(3012,3355,0) | target=loc id=11758 name="Bank booth" coords=(3012,3354,0)
+[22:47:53.162] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[22:47:54.082] [ACTION] Use-quickly Bank booth | player=(3012,3355,0) | target=loc id=11758 name="Bank booth" coords=(3012,3354,0)
+[22:47:55.906] [HOTKEY] Number key entered bank PIN digit 7
+[22:47:56.514] [HOTKEY] Number key entered bank PIN digit 3
+[22:47:56.998] [HOTKEY] Number key entered bank PIN digit 2
+[22:47:57.295] [HOTKEY] Number key entered bank PIN digit 5
+[22:47:57.988] [CHAT] type=0 from="" msg="That is not your current PIN."
+[22:48:00.633] [ACTION] Use-quickly Bank booth | player=(3012,3355,0) | target=loc id=11758 name="Bank booth" coords=(3012,3354,0)
+[22:48:01.534] [HOTKEY] Number key entered bank PIN digit 7
+[22:48:01.988] [HOTKEY] Number key entered bank PIN digit 3
+[22:48:02.680] [HOTKEY] Number key entered bank PIN digit 2
+[22:48:03.063] [HOTKEY] Number key entered bank PIN digit 5
+[22:48:05.932] [ACTION] Deposit 1 Games necklace(7) | player=(3012,3355,0) | target=? action=9 paramA=3855 paramB=0 paramC=2006
+[22:48:06.121] [ACTION] Deposit 1 Ring of dueling(8) | player=(3012,3355,0) | target=? action=9 paramA=2552 paramB=1 paramC=2006
+[22:48:06.298] [ACTION] Deposit 1 Amulet of glory | player=(3012,3355,0) | target=? action=9 paramA=1704 paramB=2 paramC=2006
+[22:48:06.779] [ACTION] Deposit 5 Barcrawl card | player=(3012,3355,0) | target=? action=225 paramA=455 paramB=3 paramC=2006
+[22:48:07.444] [ACTION] Deposit All Water rune | player=(3012,3355,0) | target=? action=564 paramA=555 paramB=6 paramC=2006
+[22:48:08.179] [ACTION] Deposit All Earth rune | player=(3012,3355,0) | target=? action=564 paramA=557 paramB=7 paramC=2006
+[22:48:08.526] [ACTION] Deposit 1 Onyx amulet | player=(3012,3355,0) | target=? action=9 paramA=6579 paramB=10 paramC=2006
+[22:48:08.691] [ACTION] Deposit 1 Onyx necklace | player=(3012,3355,0) | target=? action=9 paramA=6577 paramB=14 paramC=2006
+[22:48:08.864] [ACTION] Deposit 1 Spade | player=(3012,3355,0) | target=? action=9 paramA=952 paramB=11 paramC=2006
+[22:48:09.071] [ACTION] Deposit 1 Onyx ring | player=(3012,3355,0) | target=? action=9 paramA=6575 paramB=13 paramC=2006
+[22:48:09.594] [ACTION] Deposit All Rune thrownaxe | player=(3012,3355,0) | target=? action=564 paramA=805 paramB=9 paramC=2006
+[22:48:11.024] [ACTION] Deposit All Air rune | player=(3012,3355,0) | target=? action=564 paramA=556 paramB=5 paramC=2006
+[22:48:11.822] [ACTION] Deposit All Fire rune | player=(3012,3355,0) | target=? action=564 paramA=554 paramB=4 paramC=2006
+[22:48:12.245] [ACTION] Deposit 1 Ball of wool | player=(3012,3355,0) | target=? action=9 paramA=1759 paramB=12 paramC=2006
+[22:48:12.981] [ACTION] Deposit 10 Law rune | player=(3012,3355,0) | target=? action=444 paramA=563 paramB=8 paramC=2006
+[22:48:13.745] [ACTION] Deposit All Law rune | player=(3012,3355,0) | target=? action=564 paramA=563 paramB=8 paramC=2006
+[22:48:14.391] [ACTION] Deposit All Shark | player=(3012,3355,0) | target=? action=564 paramA=385 paramB=22 paramC=2006
+[22:48:14.657] [HOTKEY] Escape closed interfaces
+[22:48:15.577] [ACTION] Cancel | player=(3012,3355,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:48:16.169] [ACTION] Remove Fire cape | player=(3012,3355,0) | target=? action=9 paramA=6570 paramB=1 paramC=1688
+[22:48:16.301] [ACTION] Remove Amulet of fury | player=(3012,3355,0) | target=? action=9 paramA=6585 paramB=2 paramC=1688
+[22:48:16.501] [ACTION] Remove Magic shortbow | player=(3012,3355,0) | target=? action=9 paramA=861 paramB=3 paramC=1688
+[22:48:16.704] [ACTION] Remove Red partyhat | player=(3012,3355,0) | target=? action=9 paramA=1038 paramB=0 paramC=1688
+[22:48:17.126] [ACTION] Remove Gloves | player=(3012,3355,0) | target=? action=9 paramA=7462 paramB=9 paramC=1688
+[22:48:17.279] [ACTION] Remove Ranger boots | player=(3012,3355,0) | target=? action=9 paramA=2577 paramB=10 paramC=1688
+[22:48:17.449] [ACTION] Remove Archers ring | player=(3012,3355,0) | target=? action=9 paramA=6733 paramB=12 paramC=1688
+[22:48:17.739] [ACTION] Remove Rune arrow | player=(3012,3355,0) | target=? action=9 paramA=892 paramB=13 paramC=1688
+[22:48:18.089] [ACTION] Cancel | player=(3012,3355,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:48:18.310] [ACTION] Cancel | player=(3012,3355,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:48:19.503] [ACTION] Wear Gloves | player=(3012,3355,0) | target=? action=399 paramA=7462 paramB=4 paramC=3214
+[22:48:19.970] [ACTION] Wear Fire cape | player=(3012,3355,0) | target=? action=399 paramA=6570 paramB=0 paramC=3214
+[22:48:20.129] [ACTION] Wear Amulet of fury | player=(3012,3355,0) | target=? action=399 paramA=6585 paramB=1 paramC=3214
+[22:48:25.302] [ACTION] Use-quickly Bank booth | player=(3012,3355,0) | target=loc id=11758 name="Bank booth" coords=(3012,3354,0)
+[22:48:25.970] [ACTION] Deposit 1 Ranger boots | player=(3012,3355,0) | target=? action=9 paramA=2577 paramB=5 paramC=2006
+[22:48:26.146] [ACTION] Deposit 1 Magic shortbow | player=(3012,3355,0) | target=? action=9 paramA=861 paramB=2 paramC=2006
+[22:48:26.278] [ACTION] Deposit 1 Archers ring | player=(3012,3355,0) | target=? action=9 paramA=6733 paramB=6 paramC=2006
+[22:48:26.446] [ACTION] Deposit 1 Red partyhat | player=(3012,3355,0) | target=? action=9 paramA=1038 paramB=3 paramC=2006
+[22:48:27.235] [ACTION] Deposit All Rune arrow | player=(3012,3355,0) | target=? action=564 paramA=892 paramB=7 paramC=2006
+[22:48:53.292] [ACTION] Cancel | player=(3012,3355,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:48:54.960] [CHAT] type=1 from="@cr2@Nsx" msg="Climbers in game? "
+[22:49:02.096] [ACTION] Withdraw 1 Abyssal whip | player=(3012,3355,0) | target=? action=9 paramA=4151 paramB=6 paramC=5382
+[22:49:05.484] [ACTION] Close | player=(3012,3355,0) | target=? action=639 paramA=868 paramB=47 paramC=5384
+[22:49:06.199] [ACTION] Wear Anti-dragon shield | player=(3012,3355,0) | target=? action=399 paramA=1540 paramB=0 paramC=3214
+[22:49:06.381] [ACTION] Wield Abyssal whip | player=(3012,3355,0) | target=? action=399 paramA=4151 paramB=1 paramC=3214
+[22:49:06.603] [ACTION] Cancel | player=(3012,3355,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:49:07.481] [ACTION] Cancel | player=(3012,3355,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:49:41.178] [CHAT] type=1 from="@cr2@Nsx" msg="God damn it "
+[22:49:41.852] [CHAT] type=2 from="@cr2@Corey" msg="Death climbingboots"
+[22:49:43.747] [CHAT] type=2 from="@cr2@Corey" msg="L0l"
+[22:49:45.344] [ACTION] Wear Rune boots | player=(3012,3355,0) | target=? action=399 paramA=4131 paramB=0 paramC=3214
+[22:49:45.573] [ACTION] Cancel | player=(3012,3355,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:49:46.344] [ACTION] Cancel | player=(3012,3355,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:49:51.353] [CHAT] type=1 from="@cr2@Nsx" msg="Foot is too small apperntly"
+[22:49:54.508] [ACTION] Walk here | player=(3012,3355,0) | target=? action=14 paramA=4131 paramB=312 paramC=183
+[22:49:56.184] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:49:58.778] [CHAT] type=2 from="@cr2@Corey" msg="Quest locked l00l"
+[22:50:00.840] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:50:01.041] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:50:01.252] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:50:01.456] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:50:03.030] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:50:07.612] [CHAT] type=1 from="@cr2@Nsx" msg="Code that damn quest lol "
+[22:50:18.116] [ACTION] Wear Berserker ring | player=(3012,3356,0) | target=? action=399 paramA=6737 paramB=0 paramC=3214
+[22:50:18.476] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:50:18.765] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:50:19.302] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:51:13.993] [ACTION] Wear Dharoks platebody | player=(3012,3356,0) | target=? action=399 paramA=4720 paramB=0 paramC=3214
+[22:51:14.328] [ACTION] Wear Dharoks platelegs | player=(3012,3356,0) | target=? action=399 paramA=4722 paramB=1 paramC=3214
+[22:51:14.514] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:51:15.669] [ACTION] Remove Dharoks platebody | player=(3012,3356,0) | target=? action=9 paramA=4720 paramB=4 paramC=1688
+[22:51:17.383] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:51:18.042] [ACTION] Wear Dharoks platebody | player=(3012,3356,0) | target=? action=399 paramA=4720 paramB=0 paramC=3214
+[22:51:18.182] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:51:18.983] [ACTION] Remove Dharoks platebody | player=(3012,3356,0) | target=? action=9 paramA=4720 paramB=4 paramC=1688
+[22:51:19.369] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:51:19.719] [ACTION] Remove Dharoks platelegs | player=(3012,3356,0) | target=? action=9 paramA=4722 paramB=7 paramC=1688
+[22:51:20.205] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:51:21.193] [ACTION] Wear Dharoks platebody | player=(3012,3356,0) | target=? action=399 paramA=4720 paramB=0 paramC=3214
+[22:51:21.338] [ACTION] Wear Dharoks platelegs | player=(3012,3356,0) | target=? action=399 paramA=4722 paramB=1 paramC=3214
+[22:51:21.510] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:51:22.723] [ACTION] Remove Dharoks platebody | player=(3012,3356,0) | target=? action=9 paramA=4720 paramB=4 paramC=1688
+[22:51:22.862] [ACTION] Remove Dharoks platelegs | player=(3012,3356,0) | target=? action=9 paramA=4722 paramB=7 paramC=1688
+[22:51:23.560] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:51:29.909] [ACTION] Drop Dharoks platebody | player=(3012,3356,0) | target=item id=4720 slot=0 (inventory, no world coords)
+[22:51:30.077] [ACTION] Drop Dharoks platelegs | player=(3012,3356,0) | target=item id=4722 slot=1 (inventory, no world coords)
+[22:51:30.371] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:51:31.503] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:51:52.124] [ACTION] Wear Berserker helm | player=(3012,3356,0) | target=? action=399 paramA=3751 paramB=0 paramC=3214
+[22:51:52.440] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:51:52.540] [CHAT] type=0 from="" msg="Only Fremenniks are worthy of wearing this helm."
+[22:51:52.540] [CHAT] type=0 from="" msg="You need to complete The Fremennik Trials first."
+[22:51:54.248] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:51:55.187] [ACTION] Drop Berserker helm | player=(3012,3356,0) | target=item id=3751 slot=0 (inventory, no world coords)
+[22:51:55.517] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:51:55.963] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:51:56.346] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:51:56.530] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:51:56.893] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:51:57.100] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:51:57.367] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:51:57.901] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:51:58.106] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:52:25.640] [CHAT] type=1 from="@cr2@Nsx" msg="Hmm idk if anti fires are a thing "
+[22:52:28.765] [CHAT] type=2 from="@cr2@Corey" msg="Ye "
+[22:52:34.229] [ACTION] Wear Black d'hide body | player=(3012,3356,0) | target=? action=399 paramA=2503 paramB=0 paramC=3214
+[22:52:34.414] [ACTION] Wear Black d'hide chaps | player=(3012,3356,0) | target=? action=399 paramA=2497 paramB=1 paramC=3214
+[22:52:34.703] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:52:37.263] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:52:38.261] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:52:43.115] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:53:12.943] [CHAT] type=1 from="@cr2@Nsx" msg="Whats the name for em "
+[22:53:28.702] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:53:45.145] [CHAT] type=2 from="@cr2@Corey" msg="4Dose1antidragon l0l"
+[22:53:50.449] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:53:53.517] [CHAT] type=2 from="@cr2@Corey" msg="I hate this shit"
+[22:53:54.793] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:53:55.323] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:53:58.100] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:53:58.926] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:53:59.307] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:54:00.063] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:54:00.377] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:54:00.615] [ACTION] Select | player=(3012,3356,0) | target=? action=518 paramA=192610304 paramB=57 paramC=12298
+[22:54:00.923] [ACTION] Cancel | player=(3012,3356,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:54:05.794] [CHAT] type=1 from="@cr2@Nsx" msg="L0000000l"
+[22:54:14.307] [ACTION] Use-quickly Bank booth | player=(3012,3356,0) | target=loc id=11758 name="Bank booth" coords=(3012,3354,0)
+[22:54:16.507] [ACTION] Deposit All Antifire potion(4) | player=(3012,3355,0) | target=? action=564 paramA=2452 paramB=0 paramC=2006
+[22:54:17.139] [ACTION] Cancel | player=(3012,3355,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:54:19.086] [ACTION] Withdraw 1 Antifire potion(4) | player=(3012,3355,0) | target=? action=9 paramA=2452 paramB=79 paramC=5382
+[22:54:19.273] [ACTION] Withdraw 1 Antifire potion(4) | player=(3012,3355,0) | target=? action=9 paramA=2452 paramB=79 paramC=5382
+[22:54:19.412] [ACTION] Withdraw 1 Antifire potion(4) | player=(3012,3355,0) | target=? action=9 paramA=2452 paramB=79 paramC=5382
+[22:54:19.578] [ACTION] Withdraw 1 Antifire potion(4) | player=(3012,3355,0) | target=? action=9 paramA=2452 paramB=79 paramC=5382
+[22:54:21.811] [ACTION] Close | player=(3012,3355,0) | target=? action=639 paramA=1759 paramB=71 paramC=5384
+[22:54:37.892] [ACTION] Use-quickly Bank booth | player=(3012,3355,0) | target=loc id=11758 name="Bank booth" coords=(3012,3354,0)
+[22:54:39.027] [ACTION] Deposit All Superantipoison(4) | player=(3012,3355,0) | target=? action=564 paramA=2448 paramB=4 paramC=2006
+[22:54:39.528] [ACTION] Cancel | player=(3012,3355,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:54:40.694] [ACTION] Withdraw 1 Superantipoison(4) | player=(3012,3355,0) | target=? action=9 paramA=2448 paramB=80 paramC=5382
+[22:54:40.822] [ACTION] Withdraw 1 Superantipoison(4) | player=(3012,3355,0) | target=? action=9 paramA=2448 paramB=80 paramC=5382
+[22:54:40.955] [ACTION] Withdraw 1 Superantipoison(4) | player=(3012,3355,0) | target=? action=9 paramA=2448 paramB=80 paramC=5382
+[22:54:41.102] [ACTION] Withdraw 1 Superantipoison(4) | player=(3012,3355,0) | target=? action=9 paramA=2448 paramB=80 paramC=5382
+[22:54:42.659] [ACTION] Cancel | player=(3012,3355,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:54:49.430] [ACTION] Deposit All Shark | player=(3012,3355,0) | target=? action=564 paramA=386 paramB=8 paramC=2006
+[22:55:00.500] [ACTION] Deposit 10 Super attack(4) | player=(3012,3355,0) | target=? action=444 paramA=2436 paramB=9 paramC=2006
+[22:55:02.361] [ACTION] Deposit All Super attack(4) | player=(3012,3355,0) | target=? action=564 paramA=2436 paramB=18 paramC=2006
+[22:55:09.437] [ACTION] Deposit All Super strength(4) | player=(3012,3355,0) | target=? action=564 paramA=2440 paramB=9 paramC=2006
+[22:55:16.612] [ACTION] Deposit All Super defence(4) | player=(3012,3355,0) | target=? action=564 paramA=2442 paramB=8 paramC=2006
+[22:55:17.473] [ACTION] Withdraw 1 Super attack(4) | player=(3012,3355,0) | target=? action=9 paramA=2436 paramB=81 paramC=5382
+[22:55:17.647] [ACTION] Withdraw 1 Super strength(4) | player=(3012,3355,0) | target=? action=9 paramA=2440 paramB=82 paramC=5382
+[22:55:17.879] [ACTION] Withdraw 1 Super defence(4) | player=(3012,3355,0) | target=? action=9 paramA=2442 paramB=83 paramC=5382
+[22:55:18.656] [ACTION] Withdraw 10 Shark | player=(3012,3355,0) | target=? action=444 paramA=385 paramB=73 paramC=5382
+[22:55:19.728] [ACTION] Withdraw 10 Shark | player=(3012,3355,0) | target=? action=444 paramA=385 paramB=73 paramC=5382
+[22:55:20.127] [CHAT] type=0 from="" msg="You don't have enough inventory space to withdraw that many."
+[22:55:20.788] [HOTKEY] Escape closed interfaces
+[22:55:21.620] [ACTION] Cancel | player=(3012,3355,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:55:41.872] [ACTION] Cancel | player=(3012,3355,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:55:58.274] [CHAT] type=2 from="@cr2@Corey" msg="Gonna head there so u can tele to me "
+[22:56:00.290] [ACTION] Cancel | player=(3012,3355,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:56:00.727] [ACTION] Cancel | player=(3012,3355,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:56:01.108] [ACTION] Cancel | player=(3012,3355,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:56:01.300] [ACTION] Cancel | player=(3012,3355,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:56:01.524] [ACTION] Cancel | player=(3012,3355,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:56:01.858] [ACTION] Cancel | player=(3012,3355,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:56:02.292] [ACTION] Cancel | player=(3012,3355,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:56:02.741] [ACTION] Cancel | player=(3012,3355,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:56:04.407] [ACTION] Cancel | player=(3012,3355,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:56:04.634] [ACTION] Cancel | player=(3012,3355,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:56:04.917] [ACTION] Cancel | player=(3012,3355,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:56:08.172] [CHAT] type=1 from="@cr2@Nsx" msg="Ight gettn gear"
+[22:56:14.209] [CHAT] type=1 from="@cr2@Nsx" msg="This is painful "
+[22:57:10.288] [HOTKEY] Tab reply to Nsx
+[22:57:13.436] [CHAT] type=6 from="Nsx" msg="Price of being an admin "
+[22:57:24.939] [CHAT] type=0 from="" msg="You have been poisoned!"
+[22:57:25.342] [ACTION] Climb-up Ladder | player=(3068,10256,0) | target=loc id=1766 name="Ladder" coords=(3069,10256,0)
+[22:57:26.855] [ACTION] Drink Superantipoison(4) | player=(3016,3849,0) | target=? action=961 paramA=2448 paramB=7 paramC=3214
+[22:57:27.366] [CHAT] type=0 from="" msg="You drink some of your antipoison potion."
+[22:57:28.551] [CHAT] type=0 from="" msg="You have 3 doses of potion left."
+[22:57:30.871] [ACTION] Cancel | player=(3016,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:57:31.911] [ACTION] Cancel | player=(3016,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:57:33.008] [ACTION] Cancel | player=(3016,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:57:33.546] [ACTION] Cancel | player=(3016,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:57:33.773] [ACTION] Cancel | player=(3016,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:57:34.722] [ACTION] Eat Shark | player=(3016,3849,0) | target=? action=961 paramA=385 paramB=11 paramC=3214
+[22:57:34.864] [ACTION] Eat Shark | player=(3016,3849,0) | target=? action=961 paramA=385 paramB=11 paramC=3214
+[22:57:35.206] [CHAT] type=0 from="" msg="You eat the shark."
+[22:57:35.206] [CHAT] type=0 from="" msg="It heals some health."
+[22:57:50.713] [ACTION] Eat Shark | player=(3016,3849,0) | target=? action=961 paramA=385 paramB=12 paramC=3214
+[22:57:50.858] [ACTION] Eat Shark | player=(3016,3849,0) | target=? action=961 paramA=385 paramB=12 paramC=3214
+[22:57:51.022] [ACTION] Eat Shark | player=(3016,3849,0) | target=? action=961 paramA=385 paramB=12 paramC=3214
+[22:57:51.386] [CHAT] type=0 from="" msg="You eat the shark."
+[22:57:51.407] [ACTION] Drop Shark | player=(3016,3849,0) | target=item id=385 slot=13 (inventory, no world coords)
+[22:57:51.570] [ACTION] Drop Shark | player=(3016,3849,0) | target=item id=385 slot=14 (inventory, no world coords)
+[22:57:51.759] [ACTION] Drop Shark | player=(3016,3849,0) | target=item id=385 slot=15 (inventory, no world coords)
+[22:57:52.192] [ACTION] Drop Shark | player=(3016,3849,0) | target=item id=385 slot=16 (inventory, no world coords)
+[22:57:52.396] [ACTION] Drop Shark | player=(3016,3849,0) | target=item id=385 slot=17 (inventory, no world coords)
+[22:57:52.583] [ACTION] Drop Shark | player=(3016,3849,0) | target=item id=385 slot=18 (inventory, no world coords)
+[22:57:52.743] [ACTION] Cancel | player=(3016,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:57:52.931] [ACTION] Drop Shark | player=(3016,3849,0) | target=item id=385 slot=19 (inventory, no world coords)
+[22:57:53.361] [ACTION] Cancel | player=(3016,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:58:14.838] [ACTION] Drink Super restore(4) | player=(3016,3849,0) | target=? action=961 paramA=3024 paramB=19 paramC=3214
+[22:58:15.185] [ACTION] Drink Super restore(4) | player=(3016,3849,0) | target=? action=961 paramA=3024 paramB=19 paramC=3214
+[22:58:15.331] [CHAT] type=0 from="" msg="You drink some of your super restore potion."
+[22:58:15.373] [ACTION] Drink Super restore(4) | player=(3016,3849,0) | target=? action=961 paramA=3024 paramB=19 paramC=3214
+[22:58:15.531] [ACTION] Drink Super restore(3) | player=(3016,3849,0) | target=? action=961 paramA=3026 paramB=19 paramC=3214
+[22:58:15.880] [ACTION] Cancel | player=(3016,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:58:16.528] [ACTION] Cancel | player=(3016,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:58:16.549] [CHAT] type=0 from="" msg="You have 3 doses of potion left."
+[22:58:17.395] [ACTION] Drink Super restore(3) | player=(3016,3849,0) | target=? action=961 paramA=3026 paramB=19 paramC=3214
+[22:58:17.790] [CHAT] type=0 from="" msg="You drink some of your super restore potion."
+[22:58:17.977] [ACTION] Cancel | player=(3016,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:58:18.639] [ACTION] Cancel | player=(3016,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:58:18.928] [CHAT] type=0 from="" msg="You have 2 doses of potion left."
+[22:58:19.539] [ACTION] Drink Super restore(2) | player=(3016,3849,0) | target=? action=961 paramA=3028 paramB=19 paramC=3214
+[22:58:20.257] [CHAT] type=0 from="" msg="You drink some of your super restore potion."
+[22:58:20.398] [ACTION] Attack Lesser demon (level-82) | player=(3016,3849,0) | target=npc name="Lesser demon" coords=(3015,3847,0)
+[22:58:21.385] [CHAT] type=0 from="" msg="You have 1 dose of potion left."
+[22:58:21.954] [ACTION] Drop Super restore(1) | player=(3016,3849,0) | target=item id=3030 slot=19 (inventory, no world coords)
+[22:58:22.851] [ACTION] Attack Lesser demon (level-82) | player=(3016,3849,0) | target=npc name="Lesser demon" coords=(3015,3847,0)
+[22:58:23.718] [ACTION] Take Shark | player=(3016,3849,0) | target=? action=684 paramA=385 paramB=48 paramC=49
+[22:58:24.332] [ACTION] Attack Lesser demon (level-82) | player=(3016,3849,0) | target=npc name="Lesser demon" coords=(3015,3847,0)
+[22:58:24.921] [ACTION] Cancel | player=(3016,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:58:25.334] [ACTION] Cancel | player=(3016,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:58:25.517] [ACTION] Cancel | player=(3016,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:58:25.676] [ACTION] Cancel | player=(3016,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:58:46.482] [ACTION] Eat Shark | player=(3016,3849,0) | target=? action=961 paramA=385 paramB=16 paramC=3214
+[22:58:46.522] [CHAT] type=0 from="" msg="You eat the shark."
+[22:58:46.522] [CHAT] type=0 from="" msg="It heals some health."
+[22:58:47.523] [ACTION] Take Shark | player=(3016,3849,0) | target=? action=684 paramA=385 paramB=48 paramC=49
+[22:58:48.325] [ACTION] Attack Lesser demon (level-82) | player=(3016,3849,0) | target=npc name="Lesser demon" coords=(3016,3850,0)
+[22:58:59.208] [ACTION] Cancel | player=(3016,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:59:01.286] [ACTION] Open Gate | player=(3010,3849,0) | target=loc id=1596 name="Gate" coords=(3008,3849,0)
+[22:59:02.654] [ACTION] Walk here | player=(3008,3849,0) | target=? action=14 paramA=25559040 paramB=147 paramC=188
+[22:59:03.350] [ACTION] Close Gate | player=(3006,3849,0) | target=loc id=1560 name="Gate" coords=(3007,3849,0)
+[23:01:06.402] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:06.688] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:07.013] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:07.235] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:07.973] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:08.415] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:08.621] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:08.846] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:09.052] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:09.254] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:09.503] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:09.707] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:10.137] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:10.342] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:26.615] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:26.841] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:27.044] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:27.399] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:28.010] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:28.288] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:28.513] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:31.930] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:32.170] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:32.417] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:32.641] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:36.932] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:37.133] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:37.868] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:38.271] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:38.480] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:38.663] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:39.797] [ACTION] Eat Shark | player=(3006,3849,0) | target=? action=961 paramA=385 paramB=16 paramC=3214
+[23:01:39.896] [CHAT] type=0 from="" msg="You eat the shark."
+[23:01:50.398] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:50.607] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:50.790] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:51.837] [ACTION] Wear Red partyhat | player=(3006,3849,0) | target=? action=399 paramA=1038 paramB=16 paramC=3214
+[23:01:59.450] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:59.684] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:01:59.864] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:02:00.029] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:02:00.419] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:02:00.682] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:02:00.890] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:02:01.227] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:02:01.426] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:02:01.595] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:02:01.848] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:02:02.060] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:02:02.260] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:02:02.525] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:02:02.773] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:02:03.016] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:02:03.371] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:02:03.610] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:02:03.794] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:02:04.183] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:02:04.367] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:02:04.574] [ACTION] Cancel | player=(3006,3849,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:02:50.705] [CHAT] type=1 from="@cr2@Nsx" msg="Ight lets die"
+[23:02:58.671] [ACTION] Walk here | player=(3006,3849,0) | target=? action=14 paramA=1038 paramB=446 paramC=157
+[23:02:59.657] [ACTION] Walk here | player=(3008,3849,0) | target=? action=14 paramA=1038 paramB=478 paramC=183
+[23:03:00.801] [ACTION] Climb-down Ladder | player=(3012,3849,0) | target=loc id=1765 name="Ladder" coords=(3017,3849,0)
+[23:03:04.030] [ACTION] Attack Nsx (level-95) | player=(3069,10255,0) | target=player name="Nsx" coords=(3067,10253,0)
+[23:03:04.552] [ACTION] Attack Poison spider (level-64) | player=(3067,10255,0) | target=npc name="Poison spider" coords=(3065,10254,0)
+[23:03:04.892] [ACTION] Walk here | player=(3067,10255,0) | target=? action=14 paramA=10944512 paramB=178 paramC=230
+[23:03:05.303] [ACTION] Walk here | player=(3066,10254,0) | target=? action=14 paramA=10944512 paramB=233 paramC=229
+[23:03:05.671] [ACTION] Attack Poison spider (level-64) | player=(3066,10254,0) | target=npc name="Poison spider" coords=(3068,10253,0)
+[23:03:06.287] [CHAT] type=0 from="" msg="I'm already under attack"
+[23:03:08.307] [ACTION] Pull Lever | player=(3067,10253,0) | target=loc id=1816 name="Lever" coords=(3067,10253,0)
+[23:03:09.903] [CHAT] type=0 from="" msg="You pull the lever..."
+[23:03:12.288] [CHAT] type=0 from="" msg="...And teleport into the Dragon's Lair."
+[23:03:13.064] [ACTION] Cancel | player=(2273,4682,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:03:13.816] [ACTION] Drink Antifire potion(4) | player=(2273,4684,0) | target=? action=961 paramA=2452 paramB=3 paramC=3214
+[23:03:14.077] [CHAT] type=0 from="" msg="You drink some of your dragon potion."
+[23:03:15.370] [CHAT] type=0 from="" msg="You have 3 doses of potion left."
+[23:03:15.512] [ACTION] Walk here | player=(2273,4690,0) | target=? action=14 paramA=10272 paramB=326 paramC=38
+[23:03:16.536] [ACTION] Examine King black dragon (level-276) | player=(2276,4694,0) | target=npc name="King black dragon" coords=(2274,4692,0)
+[23:03:16.574] [CHAT] type=0 from="" msg="The biggest, meanest dragon around."
+[23:03:18.005] [ACTION] Attack King black dragon (level-276) | player=(2276,4694,0) | target=npc name="King black dragon" coords=(2274,4692,0)
+[23:03:20.830] [ACTION] Walk here | player=(2276,4695,0) | target=? action=14 paramA=10272 paramB=373 paramC=200
+[23:03:21.872] [ACTION] Attack King black dragon (level-276) | player=(2278,4695,0) | target=npc name="King black dragon" coords=(2274,4692,0)
+[23:03:22.501] [CHAT] type=0 from="" msg="Someone else is fighting that."
+[23:03:25.473] [CHAT] type=2 from="@cr2@Corey" msg="Not multi l0000l "
+[23:03:31.265] [ACTION] Attack King black dragon (level-276) | player=(2279,4694,0) | target=npc name="King black dragon" coords=(2274,4692,0)
+[23:03:31.561] [CHAT] type=0 from="" msg="Someone else is fighting that."
+[23:03:32.108] [CHAT] type=1 from="@cr2@Nsx" msg="Whatttttttttttttttttttt"
+[23:03:39.576] [ACTION] Attack King black dragon (level-276) | player=(2279,4694,0) | target=npc name="King black dragon" coords=(2274,4692,0)
+[23:03:39.881] [CHAT] type=0 from="" msg="Someone else is fighting that."
+[23:03:40.493] [CHAT] type=0 from="" msg="Someone else is fighting that."
+[23:03:46.213] [ACTION] Cancel | player=(2278,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:03:46.582] [ACTION] Cancel | player=(2278,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:04:08.580] [ACTION] Eat Shark | player=(2278,4694,0) | target=? action=961 paramA=385 paramB=16 paramC=3214
+[23:04:08.680] [CHAT] type=0 from="" msg="You eat the shark."
+[23:04:08.885] [ACTION] Cancel | player=(2278,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:04:09.150] [ACTION] Cancel | player=(2278,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:04:09.679] [ACTION] Cancel | player=(2278,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:04:14.580] [ACTION] Cancel | player=(2278,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:04:14.799] [ACTION] Cancel | player=(2278,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:04:14.983] [ACTION] Cancel | player=(2278,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:04:15.340] [ACTION] Cancel | player=(2278,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:04:19.894] [ACTION] Drink Antifire potion(3) | player=(2278,4694,0) | target=? action=961 paramA=2454 paramB=3 paramC=3214
+[23:04:20.081] [CHAT] type=0 from="" msg="You drink some of your dragon potion."
+[23:04:21.279] [CHAT] type=0 from="" msg="You have 2 doses of potion left."
+[23:04:21.936] [ACTION] Drink Superantipoison(3) | player=(2278,4694,0) | target=? action=961 paramA=181 paramB=7 paramC=3214
+[23:04:22.468] [CHAT] type=0 from="" msg="You drink some of your antipoison potion."
+[23:04:22.956] [ACTION] Cancel | player=(2278,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:04:23.280] [ACTION] Cancel | player=(2278,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:04:23.544] [ACTION] Cancel | player=(2278,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:04:23.767] [CHAT] type=0 from="" msg="You have 2 doses of potion left."
+[23:04:26.293] [ACTION] Cancel | player=(2278,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:04:26.502] [ACTION] Cancel | player=(2278,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:04:26.667] [ACTION] Cancel | player=(2278,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:04:26.831] [ACTION] Cancel | player=(2278,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:04:38.675] [CHAT] type=1 from="@cr2@Nsx" msg="Gimme the legendary d med "
+[23:04:49.950] [ACTION] Drink Super attack(4) | player=(2278,4694,0) | target=? action=961 paramA=2436 paramB=25 paramC=3214
+[23:04:50.097] [CHAT] type=0 from="" msg="You drink some of your attack potion."
+[23:04:51.326] [CHAT] type=0 from="" msg="You have 3 doses of potion left."
+[23:04:51.678] [ACTION] Drink Super strength(4) | player=(2278,4694,0) | target=? action=961 paramA=2440 paramB=26 paramC=3214
+[23:04:51.878] [CHAT] type=0 from="" msg="You drink some of your strength potion."
+[23:04:53.166] [CHAT] type=0 from="" msg="You have 3 doses of potion left."
+[23:04:53.355] [ACTION] Drink Super defence(4) | player=(2278,4694,0) | target=? action=961 paramA=2442 paramB=27 paramC=3214
+[23:04:53.671] [CHAT] type=0 from="" msg="You drink some of your defence potion."
+[23:04:53.929] [ACTION] Cancel | player=(2278,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:04:54.451] [ACTION] Walk here | player=(2278,4694,0) | target=? action=14 paramA=2452 paramB=160 paramC=143
+[23:04:54.879] [CHAT] type=0 from="" msg="You have 3 doses of potion left."
+[23:04:55.908] [ACTION] Walk here | player=(2278,4694,0) | target=? action=14 paramA=2452 paramB=198 paramC=155
+[23:04:57.234] [ACTION] Walk here | player=(2276,4695,0) | target=? action=14 paramA=2452 paramB=222 paramC=216
+[23:05:02.152] [CHAT] type=1 from="@cr2@Nsx" msg="Iron ore"
+[23:05:02.722] [CHAT] type=1 from="@cr2@Nsx" msg="Nice "
+[23:05:05.645] [CHAT] type=2 from="@cr2@Corey" msg="Niice"
+[23:05:27.730] [ACTION] Select | player=(2275,4694,0) | target=? action=890 paramA=2 paramB=279 paramC=5623
+[23:05:28.095] [ACTION] Select | player=(2275,4694,0) | target=? action=890 paramA=2 paramB=279 paramC=5623
+[23:05:28.242] [ACTION] Select | player=(2275,4694,0) | target=? action=890 paramA=2 paramB=279 paramC=5623
+[23:05:28.629] [ACTION] Select | player=(2275,4694,0) | target=? action=890 paramA=2 paramB=279 paramC=5623
+[23:05:28.791] [ACTION] Select | player=(2275,4694,0) | target=? action=890 paramA=2 paramB=279 paramC=5623
+[23:05:29.200] [ACTION] Select | player=(2275,4694,0) | target=? action=890 paramA=2 paramB=279 paramC=5623
+[23:05:29.359] [ACTION] Select | player=(2275,4694,0) | target=? action=890 paramA=2 paramB=279 paramC=5623
+[23:05:29.791] [ACTION] Select | player=(2275,4694,0) | target=? action=890 paramA=2 paramB=279 paramC=5623
+[23:05:29.953] [ACTION] Select | player=(2275,4694,0) | target=? action=890 paramA=2 paramB=279 paramC=5623
+[23:05:30.311] [ACTION] Select | player=(2275,4694,0) | target=? action=890 paramA=2 paramB=279 paramC=5623
+[23:05:30.490] [ACTION] Select | player=(2275,4694,0) | target=? action=890 paramA=2 paramB=279 paramC=5623
+[23:05:30.859] [ACTION] Select | player=(2275,4694,0) | target=? action=890 paramA=2 paramB=279 paramC=5623
+[23:05:31.021] [ACTION] Select | player=(2275,4694,0) | target=? action=890 paramA=2 paramB=279 paramC=5623
+[23:05:31.374] [ACTION] Select | player=(2275,4694,0) | target=? action=890 paramA=2 paramB=279 paramC=5623
+[23:05:32.291] [ACTION] Cancel | player=(2275,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:05:33.444] [ACTION] Cancel | player=(2275,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:05:33.722] [ACTION] Cancel | player=(2275,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:05:33.989] [ACTION] Cancel | player=(2275,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:05:34.197] [ACTION] Cancel | player=(2275,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:05:35.975] [ACTION] Cancel | player=(2275,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:05:36.606] [ACTION] Cancel | player=(2275,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:05:38.487] [ACTION] Walk here | player=(2275,4694,0) | target=? action=14 paramA=2 paramB=163 paramC=172
+[23:05:39.048] [ACTION] Walk here | player=(2275,4694,0) | target=? action=14 paramA=2 paramB=169 paramC=187
+[23:05:43.986] [CHAT] type=2 from="@cr2@Corey" msg="Well this is long "
+[23:05:50.710] [CHAT] type=1 from="@cr2@Nsx" msg="Suggestion"
+[23:05:54.873] [ACTION] Walk here | player=(2272,4694,0) | target=? action=14 paramA=2 paramB=291 paramC=168
+[23:05:56.132] [CHAT] type=1 from="@cr2@Nsx" msg="Make em not as long "
+[23:05:56.278] [ACTION] Walk here | player=(2273,4695,0) | target=? action=14 paramA=2 paramB=275 paramC=193
+[23:05:57.466] [CHAT] type=1 from="@cr2@Nsx" msg="Xd "
+[23:05:59.404] [CHAT] type=2 from="@cr2@Corey" msg="Agreed "
+[23:06:02.690] [CHAT] type=1 from="@cr2@Nsx" msg="Prolly 5 mins "
+[23:06:03.379] [CHAT] type=2 from="@cr2@Corey" msg="Already in spreadsheet"
+[23:06:11.816] [ACTION] Cancel | player=(2273,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:12.254] [ACTION] Cancel | player=(2273,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:12.436] [ACTION] Cancel | player=(2273,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:12.699] [ACTION] Cancel | player=(2273,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:12.976] [ACTION] Walk here | player=(2273,4694,0) | target=? action=14 paramA=2 paramB=242 paramC=44
+[23:06:13.519] [ACTION] Attack King black dragon (level-276) | player=(2273,4696,0) | target=npc name="King black dragon" coords=(2271,4697,0)
+[23:06:14.849] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:15.563] [ACTION] Select | player=(2273,4696,0) | target=? action=890 paramA=2452 paramB=3 paramC=5623
+[23:06:15.850] [ACTION] Select | player=(2273,4696,0) | target=? action=890 paramA=2452 paramB=3 paramC=5619
+[23:06:15.994] [ACTION] Select | player=(2273,4696,0) | target=? action=890 paramA=2452 paramB=3 paramC=5620
+[23:06:16.426] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:17.362] [ACTION] Wield Dragon dagger | player=(2273,4696,0) | target=? action=399 paramA=1215 paramB=0 paramC=3214
+[23:06:17.441] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:17.744] [CHAT] type=0 from="" msg="You have not earned the right to wear this yet."
+[23:06:17.744] [CHAT] type=0 from="" msg="You need to complete the Lost City of Zanaris Quest."
+[23:06:17.954] [ACTION] Use Special Attack | player=(2273,4696,0) | target=? action=352 paramA=1215 paramB=0 paramC=12311
+[23:06:18.604] [ACTION] Attack King black dragon (level-276) | player=(2273,4696,0) | target=npc name="King black dragon" coords=(2272,4697,0)
+[23:06:19.388] [ACTION] Use Special Attack | player=(2273,4696,0) | target=? action=352 paramA=10272 paramB=465 paramC=12311
+[23:06:20.362] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:22.980] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:23.201] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:23.410] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:23.739] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:24.978] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:25.395] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:25.591] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:25.814] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:25.994] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:26.206] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:34.855] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:35.121] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:35.302] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:41.105] [CHAT] type=1 from="@cr2@Nsx" msg="Fuck off "
+[23:06:44.704] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:45.176] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:45.399] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:45.582] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:48.417] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:49.840] [ACTION] View Slayer guide | player=(2273,4696,0) | target=? action=352 paramA=11669 paramB=0 paramC=12162
+[23:06:50.713] [ACTION] Attack King black dragon (level-276) | player=(2273,4696,0) | target=npc name="King black dragon" coords=(2272,4697,0)
+[23:06:51.508] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:52.103] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:52.431] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:52.650] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:06:52.838] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:05.208] [ACTION] Attack King black dragon (level-276) | player=(2273,4696,0) | target=npc name="King black dragon" coords=(2272,4697,0)
+[23:07:06.004] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:06.239] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:06.565] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:06.810] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:07.530] [CHAT] type=1 from="@cr2@Nsx" msg="Add torso "
+[23:07:08.679] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:08.990] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:09.189] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:09.370] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:09.551] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:09.737] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:10.040] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:10.203] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:10.383] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:12.941] [CHAT] type=1 from="@cr2@Nsx" msg="Would be huge"
+[23:07:24.135] [CHAT] type=2 from="@cr2@Corey" msg="Want defenders at that point too "
+[23:07:25.953] [ACTION] Attack King black dragon (level-276) | player=(2273,4696,0) | target=npc name="King black dragon" coords=(2272,4697,0)
+[23:07:28.507] [CHAT] type=1 from="@cr2@Nsx" msg="Ya "
+[23:07:34.712] [ACTION] Attack King black dragon (level-276) | player=(2273,4696,0) | target=npc name="King black dragon" coords=(2272,4697,0)
+[23:07:35.640] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:35.917] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:36.098] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:36.675] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:36.926] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:37.149] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:37.377] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:37.560] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:37.719] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:37.920] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:38.125] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:38.411] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:38.571] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:38.718] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:41.674] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:42.529] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:42.692] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:43.597] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:44.059] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:45.111] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:49.212] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:51.294] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:51.647] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:52.753] [ACTION] Select | player=(2273,4696,0) | target=? action=890 paramA=2 paramB=512 paramC=5623
+[23:07:52.934] [ACTION] Select | player=(2273,4696,0) | target=? action=890 paramA=2 paramB=512 paramC=5619
+[23:07:53.100] [ACTION] Select | player=(2273,4696,0) | target=? action=890 paramA=2 paramB=512 paramC=5620
+[23:07:53.566] [ACTION] Cancel | player=(2273,4696,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:07:56.747] [CHAT] type=2 from="@cr2@Corey" msg="Actually dmed"
+[23:07:57.751] [CHAT] type=2 from="@cr2@Corey" msg="L0000l"
+[23:07:59.209] [ACTION] Eat Shark | player=(2273,4696,0) | target=? action=961 paramA=385 paramB=17 paramC=3214
+[23:07:59.549] [ACTION] Take Dragon med helm | player=(2273,4696,0) | target=? action=684 paramA=1149 paramB=56 paramC=65
+[23:07:59.653] [CHAT] type=0 from="" msg="You eat the shark."
+[23:08:00.367] [CHAT] type=1 from="@cr2@Nsx" msg="Omg "
+[23:08:00.599] [ACTION] Wear Dragon med helm | player=(2272,4697,0) | target=? action=399 paramA=1149 paramB=17 paramC=3214
+[23:08:01.001] [ACTION] Walk here | player=(2272,4697,0) | target=? action=14 paramA=3024 paramB=408 paramC=230
+[23:08:05.684] [CHAT] type=1 from="@cr2@Nsx" msg="Tf man"
+[23:08:08.758] [CHAT] type=1 from="@cr2@Nsx" msg="Even on here "
+[23:08:09.278] [CHAT] type=2 from="@cr2@Corey" msg="Get fucked"
+[23:08:11.364] [ACTION] Walk here | player=(2276,4695,0) | target=? action=14 paramA=536 paramB=279 paramC=249
+[23:08:13.474] [CHAT] type=1 from="@cr2@Nsx" msg="I got fucked"
+[23:08:13.475] [ACTION] Cancel | player=(2276,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:08:15.772] [ACTION] Ok | player=(2276,4694,0) | target=? action=352 paramA=163 paramB=27 paramC=166
+[23:08:17.218] [ACTION] Cancel | player=(2276,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:08:27.953] [ACTION] Cancel | player=(2276,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:08:28.871] [ACTION] Ok | player=(2276,4694,0) | target=? action=352 paramA=157 paramB=26 paramC=13364
+[23:08:29.762] [ACTION] Cancel | player=(2276,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:08:31.665] [ACTION] Ok | player=(2276,4694,0) | target=? action=352 paramA=157 paramB=26 paramC=18686
+[23:08:33.098] [ACTION] Continue | player=(2276,4694,0) | target=? action=575 paramA=157 paramB=26 paramC=358
+[23:08:35.285] [ACTION] Ok | player=(2276,4694,0) | target=? action=352 paramA=157 paramB=26 paramC=11100
+[23:08:37.048] [ACTION] Cancel | player=(2276,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:08:40.510] [ACTION] Cancel | player=(2276,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:08:44.151] [ACTION] Cancel | player=(2276,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:08:45.863] [CHAT] type=1 from="@cr2@Nsx" msg="Well "
+[23:08:49.304] [ACTION] Cancel | player=(2276,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:08:49.502] [ACTION] Cancel | player=(2276,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:08:49.708] [ACTION] Cancel | player=(2276,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:08:49.893] [ACTION] Cancel | player=(2276,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:08:50.741] [CHAT] type=1 from="@cr2@Nsx" msg="Dks work? "
+[23:08:52.208] [ACTION] Cancel | player=(2276,4694,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:08:57.970] [CHAT] type=2 from="@cr2@Corey" msg="Just rex atm "
+[23:09:02.098] [CHAT] type=1 from="@cr2@Nsx" msg="Nice "
+[23:09:03.644] [CHAT] type=2 from="@cr2@Corey" msg="Can kill others "
+[23:09:06.927] [CHAT] type=2 from="@cr2@Corey" msg="They dont attack "
+[23:09:10.498] [CHAT] type=1 from="@cr2@Nsx" msg="L00l"
+[23:09:18.193] [CHAT] type=2 from="@cr2@Corey" msg="Their animations are coded lmao"
+[23:09:23.342] [CHAT] type=2 from="@cr2@Corey" msg="Lemme find the coords "
+[23:09:27.862] [CHAT] type=0 from="" msg="Someone else is fighting that."
+[23:10:58.497] [CHAT] type=1 from="@cr2@Nsx" msg="Ayeeeeeeee "
+[23:11:00.251] [CHAT] type=1 from="@cr2@Nsx" msg="Rune axe "
+[23:11:51.556] [CHAT] type=2 from="@cr2@Corey" msg="Noice"
+[23:12:21.841] [CHAT] type=1 from="@cr2@Nsx" msg="We got alot to do "
+[23:12:25.461] [CHAT] type=1 from="@cr2@Nsx" msg="I wish i could help more"
+[23:12:29.643] [CHAT] type=1 from="@cr2@Nsx" msg="A yo "
+[23:14:15.094] [HOTKEY] Tab reply to Nsx
+[23:14:17.168] [CHAT] type=6 from="Nsx" msg="Tele to mme "
+[23:14:20.418] [ACTION] Wear Red partyhat | player=(2899,4449,0) | target=? action=399 paramA=1038 paramB=17 paramC=3214
+[23:14:22.458] [ACTION] Eat Shark | player=(2899,4449,0) | target=? action=961 paramA=385 paramB=18 paramC=3214
+[23:14:23.041] [CHAT] type=0 from="" msg="You eat the shark."
+[23:14:23.041] [CHAT] type=0 from="" msg="It heals some health."
+[23:14:23.948] [ACTION] Walk here | player=(2899,4449,0) | target=? action=14 paramA=167591936 paramB=218 paramC=224
+[23:14:26.625] [ACTION] Eat Shark | player=(2899,4450,0) | target=? action=961 paramA=385 paramB=19 paramC=3214
+[23:14:27.242] [CHAT] type=0 from="" msg="You eat the shark."
+[23:14:27.242] [CHAT] type=0 from="" msg="It heals some health."
+[23:14:39.299] [CHAT] type=1 from="@cr2@Nsx" msg="Oh shit "
+[23:14:41.053] [CHAT] type=1 from="@cr2@Nsx" msg="Shitttttt "
+[23:14:44.284] [ACTION] Wield Rune arrow | player=(2899,4450,0) | target=? action=399 paramA=892 paramB=19 paramC=3214
+[23:14:46.264] [ACTION] Drop Dragon med helm | player=(2899,4450,0) | target=item id=1149 slot=17 (inventory, no world coords)
+[23:14:46.840] [ACTION] Cancel | player=(2899,4450,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:14:47.825] [ACTION] Wield Magic shortbow | player=(2903,4450,0) | target=? action=399 paramA=861 paramB=18 paramC=3214
+[23:14:48.294] [ACTION] Cancel | player=(2903,4450,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:14:48.825] [ACTION] Select | player=(2905,4450,0) | target=? action=890 paramA=2452 paramB=3 paramC=5623
+[23:14:51.024] [ACTION] Attack Dagannoth Prime (level-303) | player=(2909,4453,0) | target=npc name="Dagannoth Prime" coords=(2909,4447,0)
+[23:14:51.953] [ACTION] Cancel | player=(2909,4453,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:14:58.670] [CHAT] type=2 from="@cr2@Corey" msg="Oh they do attack"
+[23:15:02.688] [ACTION] Cancel | player=(2909,4453,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:15:06.351] [CHAT] type=2 from="@cr2@Corey" msg="Maybe not"
+[23:15:08.563] [ACTION] Select | player=(2909,4453,0) | target=? action=890 paramA=2452 paramB=3 paramC=5623
+[23:15:09.422] [ACTION] Cancel | player=(2909,4453,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:15:10.342] [ACTION] Select | player=(2909,4453,0) | target=? action=518 paramA=2452 paramB=3 paramC=1771
+[23:15:11.575] [ACTION] Cancel | player=(2909,4453,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:15:12.657] [ACTION] Attack Dagannoth Prime (level-303) | player=(2909,4453,0) | target=npc name="Dagannoth Prime" coords=(2909,4450,0)
+[23:15:19.865] [ACTION] Cancel | player=(2909,4453,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:15:20.359] [ACTION] Use Special Attack | player=(2909,4453,0) | target=? action=352 paramA=10982 paramB=0 paramC=7537
+[23:15:22.334] [ACTION] Use Special Attack | player=(2909,4453,0) | target=? action=352 paramA=10982 paramB=0 paramC=7537
+[23:15:25.269] [ACTION] Cancel | player=(2909,4453,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:15:26.780] [ACTION] Cancel | player=(2909,4453,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:15:29.952] [ACTION] Cancel | player=(2909,4453,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:15:30.274] [ACTION] Cancel | player=(2909,4453,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:15:30.481] [ACTION] Cancel | player=(2909,4453,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:15:30.709] [ACTION] Cancel | player=(2909,4453,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:15:33.806] [ACTION] Cancel | player=(2909,4453,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:15:34.131] [ACTION] Cancel | player=(2909,4453,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:15:34.422] [ACTION] Cancel | player=(2909,4453,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:16:02.539] [CHAT] type=2 from="@cr2@Corey" msg="Actualy drops?"
+[23:16:09.857] [CHAT] type=1 from="@cr2@Nsx" msg="Half key and bones"
+[23:16:18.908] [CHAT] type=2 from="@cr2@Corey" msg="So i guess "
+[23:16:21.541] [ACTION] Cancel | player=(2909,4453,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:16:22.628] [ACTION] Use Special Attack | player=(2909,4453,0) | target=? action=352 paramA=10982 paramB=0 paramC=7537
+[23:16:24.959] [ACTION] Cancel | player=(2909,4453,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:16:25.854] [ACTION] Cancel | player=(2909,4453,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:16:26.350] [ACTION] Select | player=(2909,4453,0) | target=? action=890 paramA=10982 paramB=0 paramC=5623
+[23:16:26.753] [ACTION] Cancel | player=(2909,4453,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:16:35.797] [CHAT] type=2 from="@cr2@Corey" msg="Thats not supposed to damage him "
+[23:16:37.645] [ACTION] Eat Shark | player=(2909,4453,0) | target=? action=961 paramA=385 paramB=20 paramC=3214
+[23:16:37.809] [ACTION] Eat Shark | player=(2909,4453,0) | target=? action=961 paramA=385 paramB=20 paramC=3214
+[23:16:37.935] [ACTION] Eat Shark | player=(2909,4453,0) | target=? action=961 paramA=385 paramB=20 paramC=3214
+[23:16:38.054] [CHAT] type=0 from="" msg="You eat the shark."
+[23:16:38.054] [CHAT] type=0 from="" msg="It heals some health."
+[23:16:38.838] [ACTION] Attack Dagannoth Rex (level-303) | player=(2909,4453,0) | target=npc name="Dagannoth Rex" coords=(2909,4450,0)
+[23:16:53.154] [ACTION] Drop Antifire potion(2) | player=(2909,4453,0) | target=item id=2456 slot=6 (inventory, no world coords)
+[23:16:53.363] [ACTION] Drop Antifire potion(4) | player=(2909,4453,0) | target=item id=2452 slot=2 (inventory, no world coords)
+[23:16:53.591] [ACTION] Drop Antifire potion(4) | player=(2909,4453,0) | target=item id=2452 slot=3 (inventory, no world coords)
+[23:16:53.793] [ACTION] Drop Antifire potion(4) | player=(2909,4453,0) | target=item id=2452 slot=7 (inventory, no world coords)
+[23:16:57.767] [ACTION] Cancel | player=(2909,4453,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:16:58.172] [ACTION] Cancel | player=(2909,4453,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:17:04.847] [CHAT] type=2 from="@cr2@Corey" msg="Thats bugged too lol "
+[23:17:14.744] [CHAT] type=1 from="@cr2@Nsx" msg="L00l"
+[23:17:17.538] [ACTION] Wield Staff of air | player=(2909,4453,0) | target=? action=399 paramA=1381 paramB=19 paramC=3214
+[23:17:17.944] [ACTION] Cancel | player=(2909,4453,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:17:18.688] [ACTION] Cancel | player=(2909,4453,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:17:19.376] [ACTION] Select | player=(2909,4453,0) | target=? action=518 paramA=3024 paramB=11 paramC=349
+[23:17:19.441] [CHAT] type=0 from="" msg="You need to choose a spell first."
+[23:17:20.767] [ACTION] Select | player=(2909,4453,0) | target=? action=518 paramA=3024 paramB=11 paramC=349
+[23:17:21.297] [CHAT] type=0 from="" msg="You need to choose a spell first."
+[23:17:21.461] [ACTION] Ok | player=(2909,4453,0) | target=? action=352 paramA=3024 paramB=11 paramC=353
+[23:17:22.674] [ACTION] Ok | player=(2909,4453,0) | target=? action=352 paramA=3024 paramB=11 paramC=1845
+[23:17:24.123] [ACTION] Attack Dagannoth Rex (level-303) | player=(2909,4453,0) | target=npc name="Dagannoth Rex" coords=(2909,4450,0)
+[23:17:27.385] [ACTION] Ok | player=(2909,4453,0) | target=? action=352 paramA=10982 paramB=491 paramC=353
+[23:17:28.341] [ACTION] Ok | player=(2909,4453,0) | target=? action=352 paramA=10982 paramB=491 paramC=1845
+[23:17:29.655] [CHAT] type=0 from="" msg="You have run out of prayer points, you must recharge at an altar."
+[23:17:29.766] [ACTION] Attack Dagannoth Rex (level-303) | player=(2909,4453,0) | target=npc name="Dagannoth Rex" coords=(2909,4450,0)
+[23:17:32.316] [ACTION] Select | player=(2909,4453,0) | target=? action=518 paramA=10982 paramB=0 paramC=349
+[23:17:33.620] [ACTION] Select | player=(2909,4453,0) | target=? action=518 paramA=10982 paramB=0 paramC=349
+[23:17:35.500] [ACTION] Cancel | player=(2909,4453,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:17:35.663] [CHAT] type=0 from="" msg="Oh dear you are dead!"
+[23:17:37.097] [HOTKEY] Tab reply to Nsx
+[23:17:37.986] [CHAT] type=6 from="Nsx" msg="L000l"
+[23:17:41.245] [ACTION] Cancel | player=(2905,4452,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:17:41.797] [ACTION] Select | player=(2905,4452,0) | target=? action=890 paramA=10982 paramB=0 paramC=5623
+[23:17:42.293] [ACTION] Cancel | player=(2905,4452,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:17:42.626] [ACTION] Walk here | player=(2905,4452,0) | target=? action=14 paramA=10982 paramB=415 paramC=194
+[23:17:44.867] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:17:45.806] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:17:46.503] [ACTION] Cast Fire wave | player=(2907,4449,0) | target=? action=70 paramA=3024 paramB=471 paramC=1189
+[23:17:46.854] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:17:48.259] [ACTION] Cast Fire wave | player=(2907,4449,0) | target=? action=70 paramA=892 paramB=458 paramC=1189
+[23:17:48.702] [ACTION] Cast Fire wave on Dagannoth Rex (level-303) | player=(2907,4449,0) | target=npc name="Dagannoth Rex" coords=(2908,4451,0)
+[23:17:49.714] [ACTION] Cast Fire wave | player=(2907,4449,0) | target=? action=70 paramA=892 paramB=478 paramC=1189
+[23:17:50.900] [ACTION] Cast Fire wave on Dagannoth Rex (level-303) | player=(2907,4449,0) | target=npc name="Dagannoth Rex" coords=(2906,4451,0)
+[23:17:51.726] [ACTION] Cast Fire wave | player=(2907,4449,0) | target=? action=70 paramA=10982 paramB=479 paramC=1189
+[23:17:53.171] [ACTION] Cast Fire wave on Dagannoth Rex (level-303) | player=(2907,4449,0) | target=npc name="Dagannoth Rex" coords=(2906,4451,0)
+[23:17:53.987] [ACTION] Cast Fire wave | player=(2907,4449,0) | target=? action=70 paramA=10980 paramB=476 paramC=1189
+[23:17:55.650] [ACTION] Cast Fire wave on Dagannoth Rex (level-303) | player=(2907,4449,0) | target=npc name="Dagannoth Rex" coords=(2906,4451,0)
+[23:17:57.031] [CHAT] type=2 from="@cr2@Corey" msg="He hurts"
+[23:17:58.560] [ACTION] Cast Fire wave | player=(2907,4449,0) | target=? action=70 paramA=10980 paramB=507 paramC=1189
+[23:17:59.182] [ACTION] Cast Fire wave on Dagannoth Rex (level-303) | player=(2907,4449,0) | target=npc name="Dagannoth Rex" coords=(2906,4451,0)
+[23:18:00.113] [ACTION] Cast Fire wave | player=(2907,4449,0) | target=? action=70 paramA=10980 paramB=504 paramC=1189
+[23:18:01.607] [ACTION] Cast Fire wave on Dagannoth Rex (level-303) | player=(2907,4449,0) | target=npc name="Dagannoth Rex" coords=(2906,4451,0)
+[23:18:02.306] [ACTION] Cast Fire wave | player=(2907,4449,0) | target=? action=70 paramA=892 paramB=511 paramC=1189
+[23:18:04.317] [ACTION] Cast Fire wave on Dagannoth Rex (level-303) | player=(2907,4449,0) | target=npc name="Dagannoth Rex" coords=(2906,4451,0)
+[23:18:04.865] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:18:05.133] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:18:08.279] [ACTION] Ok | player=(2907,4449,0) | target=? action=352 paramA=10980 paramB=418 paramC=353
+[23:18:09.462] [ACTION] Ok | player=(2907,4449,0) | target=? action=352 paramA=10980 paramB=418 paramC=1845
+[23:18:10.817] [ACTION] Select | player=(2907,4449,0) | target=? action=518 paramA=10980 paramB=418 paramC=349
+[23:18:12.645] [ACTION] Attack Dagannoth Rex (level-303) | player=(2907,4449,0) | target=npc name="Dagannoth Rex" coords=(2906,4451,0)
+[23:18:13.842] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:18:14.049] [CHAT] type=1 from="@cr2@Nsx" msg="Dude"
+[23:18:15.276] [CHAT] type=1 from="@cr2@Nsx" msg="Ow "
+[23:18:19.366] [CHAT] type=2 from="@cr2@Corey" msg="Autocast works nice "
+[23:18:24.255] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:18:25.300] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:18:25.523] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:18:38.038] [HOTKEY] Tab reply to Nsx
+[23:18:39.357] [CHAT] type=6 from="Nsx" msg="Get fucked"
+[23:18:42.190] [ACTION] Wield Magic shortbow | player=(2907,4449,0) | target=? action=399 paramA=861 paramB=6 paramC=3214
+[23:18:43.891] [ACTION] Attack Dagannoth Prime (level-303) | player=(2907,4449,0) | target=npc name="Dagannoth Prime" coords=(2909,4449,0)
+[23:18:46.301] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:18:47.259] [ACTION] Use Special Attack | player=(2907,4449,0) | target=? action=352 paramA=6729 paramB=501 paramC=7537
+[23:18:48.523] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:19:03.285] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:19:03.574] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:19:04.094] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:19:04.316] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:19:08.042] [CHAT] type=1 from="@cr2@Nsx" msg="I was watchin tv"
+[23:19:09.269] [CHAT] type=1 from="@cr2@Nsx" msg="Lool"
+[23:19:49.442] [CHAT] type=1 from="@cr2@Nsx" msg="Yo yo yo "
+[23:19:51.514] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:19:51.741] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:19:52.415] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:19:55.383] [ACTION] Wield Staff of air | player=(2907,4449,0) | target=? action=399 paramA=1381 paramB=6 paramC=3214
+[23:19:56.449] [ACTION] Attack Dagannoth Rex (level-303) | player=(2907,4449,0) | target=npc name="Dagannoth Rex" coords=(2907,4446,0)
+[23:19:57.509] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:19:58.160] [ACTION] Ok | player=(2907,4449,0) | target=? action=352 paramA=10982 paramB=511 paramC=353
+[23:19:58.912] [ACTION] Ok | player=(2907,4449,0) | target=? action=352 paramA=10982 paramB=511 paramC=1845
+[23:19:59.571] [ACTION] Select | player=(2907,4449,0) | target=? action=518 paramA=10982 paramB=511 paramC=349
+[23:20:00.862] [ACTION] Attack Dagannoth Rex (level-303) | player=(2907,4449,0) | target=npc name="Dagannoth Rex" coords=(2907,4446,0)
+[23:20:01.435] [CHAT] type=1 from="@cr2@Nsx" msg="Pathing is wrong for sure"
+[23:20:03.371] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:20:10.811] [CHAT] type=2 from="@cr2@Corey" msg="Ye i just kinda threw em in qucikly"
+[23:20:11.569] [CHAT] type=2 from="@cr2@Corey" msg="Lol "
+[23:20:47.429] [ACTION] Drink Super restore(4) | player=(2907,4449,0) | target=? action=961 paramA=3024 paramB=16 paramC=3214
+[23:20:47.649] [CHAT] type=0 from="" msg="You drink some of your super restore potion."
+[23:20:48.176] [ACTION] Attack Dagannoth Rex (level-303) | player=(2907,4449,0) | target=npc name="Dagannoth Rex" coords=(2907,4446,0)
+[23:20:48.832] [CHAT] type=0 from="" msg="You have 3 doses of potion left."
+[23:20:49.147] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:20:49.710] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:20:50.089] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:20:50.949] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:20:51.740] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:21:00.935] [ACTION] Wield Magic shortbow | player=(2907,4449,0) | target=? action=399 paramA=861 paramB=6 paramC=3214
+[23:21:01.785] [ACTION] Attack Dagannoth Prime (level-303) | player=(2907,4449,0) | target=npc name="Dagannoth Prime" coords=(2907,4450,0)
+[23:21:05.414] [ACTION] Eat Shark | player=(2907,4449,0) | target=? action=961 paramA=385 paramB=21 paramC=3214
+[23:21:05.592] [ACTION] Eat Shark | player=(2907,4449,0) | target=? action=961 paramA=385 paramB=21 paramC=3214
+[23:21:05.613] [CHAT] type=0 from="" msg="You eat the shark."
+[23:21:05.613] [CHAT] type=0 from="" msg="It heals some health."
+[23:21:06.515] [ACTION] Attack Dagannoth Prime (level-303) | player=(2907,4449,0) | target=npc name="Dagannoth Prime" coords=(2907,4450,0)
+[23:21:09.820] [CHAT] type=2 from="@cr2@Corey" msg="Tf just hit me "
+[23:21:18.254] [CHAT] type=1 from="@cr2@Nsx" msg="The range"
+[23:21:23.677] [CHAT] type=1 from="@cr2@Nsx" msg="He does it once"
+[23:21:23.984] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:21:25.669] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:21:26.761] [ACTION] Use Special Attack | player=(2907,4449,0) | target=? action=352 paramA=6729 paramB=503 paramC=7537
+[23:21:40.791] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:22:30.922] [ACTION] Wield Staff of air | player=(2907,4449,0) | target=? action=399 paramA=1381 paramB=6 paramC=3214
+[23:22:31.140] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:22:31.855] [ACTION] Ok | player=(2907,4449,0) | target=? action=352 paramA=183 paramB=1 paramC=353
+[23:22:32.565] [ACTION] Ok | player=(2907,4449,0) | target=? action=352 paramA=183 paramB=1 paramC=1845
+[23:22:33.428] [ACTION] Ok | player=(2907,4449,0) | target=? action=352 paramA=183 paramB=1 paramC=353
+[23:22:34.308] [ACTION] Ok | player=(2907,4449,0) | target=? action=352 paramA=183 paramB=1 paramC=1845
+[23:22:34.856] [ACTION] Select | player=(2907,4449,0) | target=? action=518 paramA=183 paramB=1 paramC=349
+[23:22:35.842] [ACTION] Attack Dagannoth Rex (level-303) | player=(2907,4449,0) | target=npc name="Dagannoth Rex" coords=(2907,4446,0)
+[23:23:40.506] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:23:43.133] [ACTION] Wield Magic shortbow | player=(2907,4449,0) | target=? action=399 paramA=861 paramB=6 paramC=3214
+[23:23:44.033] [ACTION] Attack Dagannoth Prime (level-303) | player=(2907,4449,0) | target=npc name="Dagannoth Prime" coords=(2907,4450,0)
+[23:23:44.531] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:23:45.241] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:23:46.122] [ACTION] Drink Super restore(3) | player=(2907,4449,0) | target=? action=961 paramA=3026 paramB=16 paramC=3214
+[23:23:46.442] [CHAT] type=0 from="" msg="You drink some of your super restore potion."
+[23:23:46.838] [ACTION] Attack Dagannoth Prime (level-303) | player=(2907,4449,0) | target=npc name="Dagannoth Prime" coords=(2907,4450,0)
+[23:23:47.659] [CHAT] type=0 from="" msg="You have 2 doses of potion left."
+[23:23:50.360] [ACTION] Attack Dagannoth Prime (level-303) | player=(2907,4449,0) | target=npc name="Dagannoth Prime" coords=(2907,4450,0)
+[23:23:50.950] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:23:51.528] [ACTION] Use Special Attack | player=(2907,4449,0) | target=? action=352 paramA=987 paramB=496 paramC=7537
+[23:23:52.429] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:24:30.824] [ACTION] Eat Shark | player=(2907,4449,0) | target=? action=961 paramA=385 paramB=22 paramC=3214
+[23:24:30.967] [ACTION] Eat Shark | player=(2907,4449,0) | target=? action=961 paramA=385 paramB=22 paramC=3214
+[23:24:31.137] [ACTION] Eat Shark | player=(2907,4449,0) | target=? action=961 paramA=385 paramB=22 paramC=3214
+[23:24:31.424] [CHAT] type=0 from="" msg="You eat the shark."
+[23:24:31.424] [CHAT] type=0 from="" msg="It heals some health."
+[23:24:32.424] [ACTION] Eat Shark | player=(2907,4449,0) | target=? action=961 paramA=385 paramB=23 paramC=3214
+[23:24:32.573] [ACTION] Eat Shark | player=(2907,4449,0) | target=? action=961 paramA=385 paramB=23 paramC=3214
+[23:24:32.736] [ACTION] Eat Shark | player=(2907,4449,0) | target=? action=961 paramA=385 paramB=23 paramC=3214
+[23:24:32.922] [ACTION] Eat Shark | player=(2907,4449,0) | target=? action=961 paramA=385 paramB=23 paramC=3214
+[23:24:33.081] [ACTION] Eat Shark | player=(2907,4449,0) | target=? action=961 paramA=385 paramB=23 paramC=3214
+[23:24:33.204] [ACTION] Eat Shark | player=(2907,4449,0) | target=? action=961 paramA=385 paramB=23 paramC=3214
+[23:24:33.224] [CHAT] type=0 from="" msg="You eat the shark."
+[23:24:33.224] [CHAT] type=0 from="" msg="It heals some health."
+[23:24:35.428] [ACTION] Attack Dagannoth Prime (level-303) | player=(2907,4449,0) | target=npc name="Dagannoth Prime" coords=(2907,4450,0)
+[23:24:54.049] [ACTION] Attack Dagannoth Prime (level-303) | player=(2907,4449,0) | target=npc name="Dagannoth Prime" coords=(2907,4450,0)
+[23:24:55.209] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:24:55.791] [ACTION] Use Special Attack | player=(2907,4449,0) | target=? action=352 paramA=1215 paramB=0 paramC=7537
+[23:24:56.455] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:26:05.374] [ACTION] Wield Staff of air | player=(2907,4449,0) | target=? action=399 paramA=1381 paramB=6 paramC=3214
+[23:26:07.297] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:26:08.200] [ACTION] Select | player=(2907,4449,0) | target=? action=518 paramA=6729 paramB=512 paramC=349
+[23:26:08.621] [CHAT] type=0 from="" msg="You need to choose a spell first."
+[23:26:09.289] [ACTION] Ok | player=(2907,4449,0) | target=? action=352 paramA=6729 paramB=512 paramC=353
+[23:26:10.311] [ACTION] Ok | player=(2907,4449,0) | target=? action=352 paramA=6729 paramB=512 paramC=1845
+[23:26:11.027] [ACTION] Select | player=(2907,4449,0) | target=? action=518 paramA=6729 paramB=512 paramC=349
+[23:26:12.136] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:26:15.505] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:26:17.546] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:26:19.146] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:26:19.719] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:26:20.156] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:26:20.610] [ACTION] Eat Shark | player=(2907,4449,0) | target=? action=961 paramA=385 paramB=24 paramC=3214
+[23:26:21.220] [CHAT] type=0 from="" msg="You eat the shark."
+[23:26:21.220] [CHAT] type=0 from="" msg="It heals some health."
+[23:26:23.626] [CHAT] type=2 from="@cr2@Corey" msg=":Give shark 99"
+[23:26:27.513] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:26:28.064] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:26:28.583] [ACTION] Eat Shark | player=(2907,4449,0) | target=? action=961 paramA=385 paramB=7 paramC=3214
+[23:26:29.021] [CHAT] type=0 from="" msg="You eat the shark."
+[23:26:29.021] [CHAT] type=0 from="" msg="It heals some health."
+[23:26:35.282] [ACTION] Wield Magic shortbow | player=(2907,4449,0) | target=? action=399 paramA=861 paramB=16 paramC=3214
+[23:26:36.145] [ACTION] Attack Dagannoth Prime (level-303) | player=(2907,4449,0) | target=npc name="Dagannoth Prime" coords=(2908,4449,0)
+[23:26:36.976] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:26:37.673] [ACTION] Use Special Attack | player=(2907,4449,0) | target=? action=352 paramA=10980 paramB=497 paramC=7537
+[23:26:38.084] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:27:18.402] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:27:18.915] [ACTION] Use Special Attack | player=(2907,4449,0) | target=? action=352 paramA=1381 paramB=513 paramC=7537
+[23:27:20.583] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:27:20.810] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:27:21.032] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:27:22.377] [ACTION] Cancel | player=(2907,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:27:23.426] [ACTION] Drink Super restore(2) | player=(2907,4449,0) | target=? action=961 paramA=3028 paramB=15 paramC=3214
+[23:27:23.609] [CHAT] type=0 from="" msg="You drink some of your super restore potion."
+[23:27:23.609] [ACTION] Drink Super restore(2) | player=(2907,4449,0) | target=? action=961 paramA=3028 paramB=15 paramC=3214
+[23:27:23.814] [ACTION] Drink Super restore(1) | player=(2907,4449,0) | target=? action=961 paramA=3030 paramB=15 paramC=3214
+[23:27:23.976] [ACTION] Drink Super restore(1) | player=(2907,4449,0) | target=? action=961 paramA=3030 paramB=15 paramC=3214
+[23:27:24.137] [ACTION] Drink Super restore(1) | player=(2907,4449,0) | target=? action=961 paramA=3030 paramB=15 paramC=3214
+[23:27:24.300] [ACTION] Drink Super restore(1) | player=(2907,4449,0) | target=? action=961 paramA=3030 paramB=15 paramC=3214
+[23:27:24.464] [ACTION] Drink Super restore(1) | player=(2907,4449,0) | target=? action=961 paramA=3030 paramB=15 paramC=3214
+[23:27:24.626] [ACTION] Drink Super restore(1) | player=(2907,4449,0) | target=? action=961 paramA=3030 paramB=15 paramC=3214
+[23:27:24.788] [ACTION] Drink Super restore(1) | player=(2907,4449,0) | target=? action=961 paramA=3030 paramB=15 paramC=3214
+[23:27:24.829] [CHAT] type=0 from="" msg="You have 1 dose of potion left."
+[23:27:24.969] [ACTION] Drink Super restore(1) | player=(2907,4449,0) | target=? action=961 paramA=3030 paramB=15 paramC=3214
+[23:27:25.095] [ACTION] Drink Super restore(1) | player=(2907,4449,0) | target=? action=961 paramA=3030 paramB=15 paramC=3214
+[23:27:25.254] [ACTION] Drink Super restore(1) | player=(2907,4449,0) | target=? action=961 paramA=3030 paramB=15 paramC=3214
+[23:27:25.472] [CHAT] type=0 from="" msg="You drink some of your super restore potion."
+[23:27:26.696] [CHAT] type=0 from="" msg="You have finished your potion."
+[23:27:26.757] [ACTION] Drop Vial | player=(2907,4449,0) | target=item id=229 slot=15 (inventory, no world coords)
+[23:27:27.674] [ACTION] Attack Dagannoth Prime (level-303) | player=(2907,4449,0) | target=npc name="Dagannoth Prime" coords=(2908,4449,0)
+[23:27:28.738] [ACTION] Cancel | player=(2907,4450,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:27:29.248] [ACTION] Cancel | player=(2906,4450,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:27:30.256] [ACTION] Attack Dagannoth Prime (level-303) | player=(2907,4451,0) | target=npc name="Dagannoth Prime" coords=(2905,4450,0)
+[23:27:57.873] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:27:58.219] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:27:58.488] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:27:58.692] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:27:59.285] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:27:59.694] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:00.145] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:00.616] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:01.206] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:01.417] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:01.881] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:02.387] [ACTION] Drink Super restore(4) | player=(2908,4451,0) | target=? action=961 paramA=3024 paramB=13 paramC=3214
+[23:28:02.653] [CHAT] type=0 from="" msg="You drink some of your super restore potion."
+[23:28:03.188] [ACTION] Attack Dagannoth Prime (level-303) | player=(2908,4451,0) | target=npc name="Dagannoth Prime" coords=(2905,4451,0)
+[23:28:03.834] [CHAT] type=0 from="" msg="You have 3 doses of potion left."
+[23:28:05.539] [ACTION] Attack Dagannoth Prime (level-303) | player=(2908,4451,0) | target=npc name="Dagannoth Prime" coords=(2905,4451,0)
+[23:28:07.776] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:07.950] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:08.236] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:19.166] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:19.392] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:19.789] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:20.077] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:22.402] [ACTION] Wield Staff of air | player=(2908,4451,0) | target=? action=399 paramA=1381 paramB=16 paramC=3214
+[23:28:22.728] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:23.261] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:24.253] [ACTION] Ok | player=(2908,4451,0) | target=? action=352 paramA=1215 paramB=0 paramC=353
+[23:28:25.491] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:26.906] [ACTION] Ok | player=(2908,4451,0) | target=? action=352 paramA=1215 paramB=0 paramC=1845
+[23:28:27.929] [ACTION] Select | player=(2908,4451,0) | target=? action=518 paramA=1215 paramB=0 paramC=349
+[23:28:29.535] [ACTION] Attack Dagannoth Rex (level-303) | player=(2908,4451,0) | target=npc name="Dagannoth Rex" coords=(2908,4448,0)
+[23:28:31.953] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:32.406] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:32.673] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:33.330] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:33.906] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:34.518] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:34.849] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:35.313] [ACTION] Remove Black d'hide body | player=(2908,4451,0) | target=? action=9 paramA=2503 paramB=4 paramC=1688
+[23:28:35.465] [ACTION] Remove Black d'hide chaps | player=(2908,4451,0) | target=? action=9 paramA=2497 paramB=7 paramC=1688
+[23:28:36.689] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:38.551] [ACTION] Wear Black d'hide body | player=(2908,4451,0) | target=? action=399 paramA=2503 paramB=15 paramC=3214
+[23:28:38.981] [ACTION] Wear Black d'hide chaps | player=(2908,4451,0) | target=? action=399 paramA=2497 paramB=16 paramC=3214
+[23:28:39.814] [ACTION] Drop Anti-dragon shield | player=(2908,4451,0) | target=item id=1540 slot=18 (inventory, no world coords)
+[23:28:40.546] [ACTION] Attack Dagannoth Rex (level-303) | player=(2908,4451,0) | target=npc name="Dagannoth Rex" coords=(2908,4448,0)
+[23:28:45.086] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:45.346] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:48.027] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:48.278] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:48.644] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:48.837] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:54.699] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:55.068] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:56.253] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:56.562] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:57.007] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:57.233] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:57.502] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:57.840] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:28:58.963] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:29:06.851] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:29:07.034] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:29:07.263] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:29:07.441] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:29:12.355] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:29:12.843] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:29:13.047] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:29:16.118] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:29:16.364] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:29:16.649] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:29:16.833] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:29:16.980] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:29:22.786] [ACTION] Wield Magic shortbow | player=(2908,4451,0) | target=? action=399 paramA=861 paramB=14 paramC=3214
+[23:29:23.707] [ACTION] Attack Dagannoth Prime (level-303) | player=(2908,4451,0) | target=npc name="Dagannoth Prime" coords=(2910,4451,0)
+[23:29:26.381] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:29:27.248] [ACTION] Use Special Attack | player=(2908,4451,0) | target=? action=352 paramA=892 paramB=500 paramC=7537
+[23:29:28.007] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:29:31.508] [CHAT] type=2 from="@cr2@Corey" msg="Classic no drop"
+[23:29:49.424] [CHAT] type=1 from="@cr2@Nsx" msg="Ha"
+[23:29:52.420] [CHAT] type=1 from="@cr2@Nsx" msg="Half key "
+[23:29:53.623] [CHAT] type=1 from="@cr2@Nsx" msg="Suck it "
+[23:30:06.344] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:30:07.727] [CHAT] type=2 from="@cr2@Corey" msg="Nty"
+[23:30:11.172] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:30:11.397] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:30:11.597] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:30:11.783] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:30:20.766] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:30:20.994] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:30:21.279] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:30:21.627] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:30:25.338] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:30:25.811] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:30:26.464] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:30:27.057] [ACTION] Use Special Attack | player=(2908,4451,0) | target=? action=352 paramA=1215 paramB=0 paramC=7537
+[23:30:27.795] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:30:29.107] [ACTION] Wield Staff of air | player=(2908,4451,0) | target=? action=399 paramA=1381 paramB=14 paramC=3214
+[23:30:29.411] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:30:29.693] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:30:30.270] [ACTION] Ok | player=(2908,4451,0) | target=? action=352 paramA=1215 paramB=0 paramC=353
+[23:30:31.714] [ACTION] Ok | player=(2908,4451,0) | target=? action=352 paramA=1215 paramB=0 paramC=1845
+[23:30:32.454] [ACTION] Select | player=(2908,4451,0) | target=? action=518 paramA=1215 paramB=0 paramC=349
+[23:30:33.226] [ACTION] Attack Dagannoth Rex (level-303) | player=(2908,4451,0) | target=npc name="Dagannoth Rex" coords=(2912,4444,0)
+[23:30:37.273] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:30:39.643] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:30:40.060] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:30:40.497] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:30:40.696] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:31:04.048] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:31:04.280] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:31:04.481] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:31:04.670] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:31:05.569] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:31:08.882] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:31:09.454] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:31:11.175] [ACTION] Drink Super restore(3) | player=(2908,4451,0) | target=? action=961 paramA=3026 paramB=13 paramC=3214
+[23:31:11.602] [CHAT] type=0 from="" msg="You drink some of your super restore potion."
+[23:31:12.180] [ACTION] Attack Dagannoth Rex (level-303) | player=(2908,4451,0) | target=npc name="Dagannoth Rex" coords=(2908,4448,0)
+[23:31:12.891] [CHAT] type=0 from="" msg="You have 2 doses of potion left."
+[23:32:22.217] [ACTION] Wield Magic shortbow | player=(2908,4451,0) | target=? action=399 paramA=861 paramB=14 paramC=3214
+[23:32:23.491] [ACTION] Attack Dagannoth Prime (level-303) | player=(2908,4451,0) | target=npc name="Dagannoth Prime" coords=(2909,4452,0)
+[23:32:40.881] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:32:41.708] [ACTION] Use Special Attack | player=(2908,4451,0) | target=? action=352 paramA=10980 paramB=506 paramC=7537
+[23:32:47.809] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:32:48.339] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:32:49.117] [ACTION] Drink Super restore(2) | player=(2908,4451,0) | target=? action=961 paramA=3028 paramB=13 paramC=3214
+[23:32:49.395] [CHAT] type=0 from="" msg="You drink some of your super restore potion."
+[23:32:49.893] [ACTION] Attack Dagannoth Prime (level-303) | player=(2908,4451,0) | target=npc name="Dagannoth Prime" coords=(2908,4452,0)
+[23:32:50.605] [CHAT] type=0 from="" msg="You have 1 dose of potion left."
+[23:33:03.771] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:04.175] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:04.497] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:05.345] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:05.724] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:05.926] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:06.133] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:09.980] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:10.223] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:11.944] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:12.554] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:16.904] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:17.167] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:17.494] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:17.700] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:18.148] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:18.334] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:18.516] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:18.704] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:18.888] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:19.053] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:31.290] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:31.757] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:31.965] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:32.168] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:49.936] [ACTION] Attack Dagannoth Prime (level-303) | player=(2908,4451,0) | target=npc name="Dagannoth Prime" coords=(2909,4452,0)
+[23:33:57.161] [ACTION] Wield Staff of air | player=(2908,4451,0) | target=? action=399 paramA=1381 paramB=14 paramC=3214
+[23:33:57.647] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:33:58.423] [ACTION] Ok | player=(2908,4451,0) | target=? action=352 paramA=1215 paramB=0 paramC=353
+[23:33:59.694] [ACTION] Ok | player=(2908,4451,0) | target=? action=352 paramA=1215 paramB=0 paramC=1845
+[23:34:00.698] [ACTION] Select | player=(2908,4451,0) | target=? action=518 paramA=1215 paramB=0 paramC=349
+[23:34:01.642] [ACTION] Attack Dagannoth Rex (level-303) | player=(2908,4451,0) | target=npc name="Dagannoth Rex" coords=(2910,4442,0)
+[23:34:03.426] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:34:19.107] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:34:19.552] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:34:19.963] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:34:25.877] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:34:26.621] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:34:27.538] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:35:04.395] [CHAT] type=1 from="@cr2@Nsx" msg="I think teeth is only coded"
+[23:35:23.062] [ACTION] Wield Magic shortbow | player=(2908,4451,0) | target=? action=399 paramA=861 paramB=14 paramC=3214
+[23:35:23.925] [ACTION] Attack Dagannoth Prime (level-303) | player=(2908,4451,0) | target=npc name="Dagannoth Prime" coords=(2913,4450,0)
+[23:35:25.007] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:35:25.675] [ACTION] Use Special Attack | player=(2908,4451,0) | target=? action=352 paramA=6729 paramB=503 paramC=7537
+[23:35:26.592] [ACTION] Cancel | player=(2908,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:35:38.323] [CHAT] type=2 from="@cr2@Corey" msg="Prob just unlucky "
+[23:35:46.349] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:35:46.896] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:35:46.976] [CHAT] type=1 from="@cr2@Nsx" msg="4 In a row?"
+[23:35:47.140] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:35:47.345] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:35:52.122] [CHAT] type=2 from="@cr2@Corey" msg="Rngggggggggggggg"
+[23:35:58.463] [ACTION] Wield Staff of air | player=(2909,4451,0) | target=? action=399 paramA=1381 paramB=14 paramC=3214
+[23:35:59.015] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:36:00.104] [ACTION] Ok | player=(2909,4451,0) | target=? action=352 paramA=1215 paramB=0 paramC=353
+[23:36:00.796] [ACTION] Ok | player=(2909,4451,0) | target=? action=352 paramA=1215 paramB=0 paramC=1845
+[23:36:01.720] [ACTION] Select | player=(2909,4451,0) | target=? action=518 paramA=1215 paramB=0 paramC=349
+[23:36:02.474] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:36:15.008] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:36:15.234] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:36:15.457] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:36:15.643] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:36:15.826] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:36:19.987] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:36:20.433] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:36:28.813] [ACTION] Attack Dagannoth Rex (level-303) | player=(2909,4451,0) | target=npc name="Dagannoth Rex" coords=(2909,4445,0)
+[23:36:30.788] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:36:31.119] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:36:31.553] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:36:32.387] [ACTION] Drink Super restore(1) | player=(2909,4451,0) | target=? action=961 paramA=3030 paramB=13 paramC=3214
+[23:36:32.603] [CHAT] type=0 from="" msg="You drink some of your super restore potion."
+[23:36:33.089] [ACTION] Attack Dagannoth Rex (level-303) | player=(2909,4451,0) | target=npc name="Dagannoth Rex" coords=(2909,4445,0)
+[23:36:33.832] [CHAT] type=0 from="" msg="You have finished your potion."
+[23:36:35.904] [ACTION] Drink Super restore(4) | player=(2909,4451,0) | target=? action=961 paramA=3024 paramB=12 paramC=3214
+[23:36:36.238] [CHAT] type=0 from="" msg="You drink some of your super restore potion."
+[23:36:36.646] [ACTION] Attack Dagannoth Rex (level-303) | player=(2909,4451,0) | target=npc name="Dagannoth Rex" coords=(2909,4445,0)
+[23:36:37.371] [CHAT] type=0 from="" msg="You have 3 doses of potion left."
+[23:36:38.430] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:36:39.063] [ACTION] Attack Dagannoth Rex (level-303) | player=(2909,4451,0) | target=npc name="Dagannoth Rex" coords=(2909,4445,0)
+[23:36:43.662] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:09.959] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:10.160] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:10.350] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:10.550] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:10.877] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:11.583] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:11.906] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:12.165] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:12.485] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:12.708] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:12.932] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:24.178] [CHAT] type=1 from="@cr2@Nsx" msg="5!"
+[23:37:28.738] [CHAT] type=2 from="@cr2@Corey" msg="L0l\"
+[23:37:30.899] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:31.083] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:31.246] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:31.389] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:41.797] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:42.139] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:42.555] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:42.890] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:43.989] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:44.481] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:44.758] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:45.164] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:45.444] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:45.666] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:45.872] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:46.074] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:47.222] [ACTION] Wield Magic shortbow | player=(2909,4451,0) | target=? action=399 paramA=861 paramB=14 paramC=3214
+[23:37:48.683] [ACTION] Attack Dagannoth Prime (level-303) | player=(2909,4451,0) | target=npc name="Dagannoth Prime" coords=(2910,4450,0)
+[23:37:49.398] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:49.784] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:37:50.298] [ACTION] Use Special Attack | player=(2909,4451,0) | target=? action=352 paramA=6729 paramB=483 paramC=7537
+[23:37:52.084] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:38:15.404] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:38:16.195] [ACTION] Use Special Attack | player=(2909,4451,0) | target=? action=352 paramA=6729 paramB=507 paramC=7537
+[23:38:16.790] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:38:18.435] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:38:19.830] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:38:20.213] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:38:20.395] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:38:20.663] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:38:20.904] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:38:21.069] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:38:21.253] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:38:22.683] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:38:35.545] [CHAT] type=2 from="@cr2@Corey" msg="Bout to head to bed "
+[23:38:46.980] [CHAT] type=1 from="@cr2@Nsx" msg="Ight "
+[23:38:57.146] [ACTION] Drop Vial | player=(2909,4451,0) | target=item id=229 slot=13 (inventory, no world coords)
+[23:38:57.791] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:38:58.042] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:38:58.274] [ACTION] Cancel | player=(2909,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:39:09.153] [CHAT] type=2 from="@cr2@Corey" msg="Ight i'll be on tomorrow most of the day"
+[23:39:10.948] [ACTION] Walk here | player=(2909,4451,0) | target=? action=14 paramA=1215 paramB=379 paramC=274
+[23:39:11.915] [ACTION] Cancel | player=(2907,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:39:12.138] [ACTION] Cancel | player=(2907,4451,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:39:12.482] [ACTION] Cancel | player=(2905,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:39:12.829] [ACTION] Cancel | player=(2905,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:39:13.072] [ACTION] Cancel | player=(2905,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:39:13.461] [ACTION] Cancel | player=(2905,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:39:13.643] [ACTION] Cancel | player=(2905,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:39:24.195] [CHAT] type=1 from="@cr2@Nsx" msg="Same "
+[23:39:28.408] [CHAT] type=2 from="@cr2@Corey" msg="Sounds good"
+[23:39:29.580] [CHAT] type=1 from="@cr2@Nsx" msg="Gotta get her situated"
+[23:39:34.642] [CHAT] type=2 from="@cr2@Corey" msg="Gotcha"
+[23:39:37.375] [CHAT] type=1 from="@cr2@Nsx" msg="And the the kids to school"
+[23:39:41.989] [CHAT] type=2 from="@cr2@Corey" msg="Yuck "
+[23:39:44.683] [ACTION] Cancel | player=(2905,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:39:49.808] [CHAT] type=2 from="@cr2@Corey" msg="Ight catch u tomororw"
+[23:39:51.836] [CHAT] type=1 from="@cr2@Nsx" msg="Any u want me to do?"
+[23:39:54.853] [CHAT] type=1 from="@cr2@Nsx" msg="Anything"
+[23:39:55.604] [CHAT] type=2 from="@cr2@Corey" msg="Nah ur good"
+[23:39:59.996] [ACTION] Cancel | player=(2905,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:40:00.216] [ACTION] Cancel | player=(2905,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:40:00.380] [ACTION] Cancel | player=(2905,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:40:00.544] [ACTION] Cancel | player=(2905,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:40:09.873] [CHAT] type=2 from="@cr2@Corey" msg="Pceee "
+[23:40:11.890] [ACTION] Rub Amulet of glory(4) | player=(2905,4449,0) | target=? action=227 paramA=1712 paramB=13 paramC=3214
+[23:40:12.271] [CHAT] type=0 from="" msg="You rub the amulet..."
+[23:40:12.770] [ACTION] Ok | player=(2905,4449,0) | target=? action=352 paramA=1712 paramB=13 paramC=2494
+[23:40:13.389] [CHAT] type=0 from="" msg="Your amulet has three charges left."
+[23:40:13.389] [CHAT] type=1 from="@cr2@Nsx" msg="Cya bro"
+[23:40:14.701] [ACTION] Cancel | player=(2905,4449,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:40:16.160] [ACTION] Cancel | player=(3085,3498,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:40:16.682] [ACTION] Select | player=(3083,3500,0) | target=? action=890 paramA=554 paramB=2 paramC=5623
+[23:40:17.111] [ACTION] Cancel | player=(3082,3502,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:40:17.412] [ACTION] Walk here | player=(3082,3502,0) | target=? action=14 paramA=554 paramB=380 paramC=234
+[23:40:17.641] [ACTION] Walk here | player=(3082,3502,0) | target=? action=14 paramA=554 paramB=375 paramC=303
+[23:40:18.508] [ACTION] Cancel | player=(3084,3498,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:40:18.932] [ACTION] Walk here | player=(3085,3496,0) | target=? action=14 paramA=145 paramB=373 paramC=314
+[23:40:19.266] [ACTION] Walk here | player=(3085,3496,0) | target=? action=14 paramA=145 paramB=376 paramC=300
+[23:40:20.192] [ACTION] Ok | player=(3086,3494,0) | target=? action=352 paramA=145 paramB=497 paramC=2458
+[23:40:20.765] [CHAT] type=0 from="" msg="You can't log out until 10 seconds after the end of combat."
+[23:40:21.336] [ACTION] Ok | player=(3086,3494,0) | target=? action=352 paramA=145 paramB=497 paramC=2458
+[23:40:22.652] [ACTION] Ok | player=(3086,3494,0) | target=? action=352 paramA=145 paramB=497 paramC=2458
+[23:40:23.508] [ACTION] Cancel | player=(3086,3494,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[23:40:23.720] [ACTION] Ok | player=(3086,3494,0) | target=? action=352 paramA=145 paramB=497 paramC=2458
+[23:40:24.312] [ACTION] Ok | player=(3086,3494,0) | target=? action=352 paramA=145 paramB=497 paramC=2458
+[23:40:24.848] [SESSION] logged out, was "corey"
