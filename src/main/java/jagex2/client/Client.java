@@ -497,11 +497,14 @@ public class Client extends GameShell {
 	private static final class XpDrop {
 		final int skillId;
 		int amount;
+		final int total; // the skill's new running total xp when this drop was created (Corey, 2026-09-04: "just like runelite does ... including showing total xp")
 		long lastUpdate;
+		float displayY = -1f; // eased screen-row offset in rowHeight units; -1 = "not yet placed", set to its spawn row the first time it's drawn so it flows down into position instead of snapping
 
-		XpDrop(int skillId, int amount, long lastUpdate) {
+		XpDrop(int skillId, int amount, int total, long lastUpdate) {
 			this.skillId = skillId;
 			this.amount = amount;
+			this.total = total;
 			this.lastUpdate = lastUpdate;
 		}
 	}
@@ -513,8 +516,8 @@ public class Client extends GameShell {
 	// timer is set once here and never touched again, so it disappears on its own fixed schedule
 	// regardless of what else gains xp after it - matching real OSRS's drop-per-gain behaviour
 	// instead of the accumulating-counter version this had before.
-	private void addXpDrop(int skillId, int amount) {
-		this.xpDrops.add(0, new XpDrop(skillId, amount, System.currentTimeMillis()));
+	private void addXpDrop(int skillId, int amount, int total) {
+		this.xpDrops.add(0, new XpDrop(skillId, amount, total, System.currentTimeMillis()));
 		while (this.xpDrops.size() > XPDROP_MAX_VISIBLE) {
 			this.xpDrops.remove(this.xpDrops.size() - 1);
 		}
@@ -537,23 +540,42 @@ public class Client extends GameShell {
 			}
 		}
 		int rightX = 507;
-		int y = displayFps ? 68 : 22;
+		int baseY = displayFps ? 68 : 22;
 		int rowHeight = 27;
+		// Corey, 2026-09-04 ("i want it to flow downwards like runelite xp drops, an actual drop, not
+		// just static placement"): each drop eases its displayY toward its target row every frame
+		// instead of snapping straight to it, so pushing an older drop down a slot when a new one
+		// arrives at the top reads as a smooth downward flow. A new drop starts one row *above* its
+		// own target (i.e. where the row above it currently sits) so it visibly drops down into place
+		// on its very first frame too, rather than just popping in already-settled.
 		for (int i = 0; i < this.xpDrops.size(); i++) {
 			XpDrop drop = this.xpDrops.get(i);
-			String text = "+" + drop.amount;
+			float targetRow = i;
+			if (drop.displayY < 0f) {
+				drop.displayY = Math.max(0f, targetRow - 1f);
+			}
+			drop.displayY += (targetRow - drop.displayY) * 0.25f;
+			if (Math.abs(targetRow - drop.displayY) < 0.02f) {
+				drop.displayY = targetRow;
+			}
+			int y = baseY + Math.round(drop.displayY * rowHeight);
+			String total = formatObjCountTagged(drop.total);
+			String text = "+" + drop.amount + " (" + total + ")";
 			int textWidth = this.fontPlain12.stringWid(text);
 			Pix32 icon = drop.skillId >= 0 && drop.skillId < XPDROP_ICON_SHEET.length ? Component.getImage(XPDROP_ICON_INDEX[drop.skillId], XPDROP_ICON_SHEET[drop.skillId]) : null;
 			int iconWidth = icon != null ? icon.wi : 0;
-			int textX = rightX;
+			// true right-align to rightX now that the "(total)" suffix makes the row noticeably wider
+			// than the old bare "+X" text - the original always started text AT rightX regardless of
+			// width, which was fine for a short "+550" but would push this longer text well past the
+			// viewport into the sidebar/inventory panel
+			int textX = rightX - textWidth;
 			int textY = y + 18;
 			// black drop-shadow, offset by one pixel, so it stays readable over any scene colour
 			this.fontPlain12.method243(text, 0x000000, textX + 1, textY + 1);
 			this.fontPlain12.method243(text, 0xFFFF00, textX, textY);
 			if (icon != null) {
-				icon.plotSprite(y, rightX - textWidth - iconWidth - 4);
+				icon.plotSprite(y, textX - iconWidth - 4);
 			}
-			y += rowHeight;
 		}
 	}
 
@@ -5019,10 +5041,14 @@ public class Client extends GameShell {
 
 			// QoL: scroll wheel camera zoom. Accumulate into cameraZoomOffset here (once per game
 			// tick); drawScene() folds it into the camera distance every frame. Only zoom when no
-			// interface is open (same fields closeInterfaces() checks) - otherwise the scroll wheel
-			// is reserved for scrolling that interface (see handleInterfaceInput()/the chat-history
-			// block below), even if the specific spot under the mouse isn't itself scrollable.
-			if (super.mouseScrollDelta != 0 && this.sidebarInterfaceId == -1 && this.chatInterfaceId == -1 && this.fullscreenInterfaceId0 == -1 && this.fullscreenInterfaceId1 == -1 && this.viewportInterfaceId == -1) {
+			// interface is open (same fields closeInterfaces() checks) AND the mouse is actually
+			// over the 3D game viewport (Corey, 2026-09-04) - otherwise scrolling over the
+			// inventory/spellbook/tabs or the chatbox zoomed the camera too, on top of (or instead
+			// of) whatever that panel's own scroll handling did with the same wheel delta. The
+			// viewport rect below is the same one handleInput() uses to route hover input to the
+			// viewport (see the identical check at ~line 4066) - this client is fixed 765x503, not
+			// resizable, so these bounds are safe to hardcode here too.
+			if (super.mouseScrollDelta != 0 && this.sidebarInterfaceId == -1 && this.chatInterfaceId == -1 && this.fullscreenInterfaceId0 == -1 && this.fullscreenInterfaceId1 == -1 && this.viewportInterfaceId == -1 && super.mouseX > 4 && super.mouseY > 4 && super.mouseX < 516 && super.mouseY < 338) {
 				this.cameraZoomOffset -= super.mouseScrollDelta * 40;
 				super.mouseScrollDelta = 0;
 				if (this.cameraZoomOffset < -600) {
@@ -6228,8 +6254,11 @@ public class Client extends GameShell {
 			if (var5 > this.chatScrollHeight - 77) {
 				var5 = this.chatScrollHeight - 77;
 			}
-			// QoL: mouse wheel scrolls the chat history when hovering over it
-			if (super.mouseScrollDelta != 0 && super.mouseX > 448 && super.mouseX < 560 && super.mouseY > 332) {
+			// QoL: mouse wheel scrolls the chat history when hovering over it (Corey, 2026-09-04:
+			// widened from the narrow scrollbar-column rect to the full chatbox rect - same bounds
+			// handleInput() uses to route hover input to the chatbox, see ~line 4098 - so scrolling
+			// works anywhere over the chat text, not just right over the scrollbar)
+			if (super.mouseScrollDelta != 0 && super.mouseX > 17 && super.mouseX < 496 && super.mouseY > 357 && super.mouseY < 453) {
 				var5 -= super.mouseScrollDelta * 16;
 				if (var5 < 0) {
 					var5 = 0;
@@ -8526,7 +8555,7 @@ public class Client extends GameShell {
 				// QoL: XP drop counter - see addXpDrop() above. Skipped on each skill's first ever
 				// update this session so login's initial xp sync doesn't look like a giant gain.
 				if (this.xpDropStatSeen[var103] && var105 > this.skillExperience[var103]) {
-					this.addXpDrop(var103, var105 - this.skillExperience[var103]);
+					this.addXpDrop(var103, var105 - this.skillExperience[var103], var105);
 				}
 				this.xpDropStatSeen[var103] = true;
 				this.skillExperience[var103] = var105;
