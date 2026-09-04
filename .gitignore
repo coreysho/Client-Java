@@ -9,3 +9,4 @@ hs_err_pid*.log
 .DS_Store
 dev-client.log
 dev-client.log
+*.log
