@@ -622,10 +622,14 @@ public class Client extends GameShell {
 				int iconY = y + Math.max(1, (boxH - 8 - panelIcon.hi) / 2);
 				panelIcon.plotSprite(iconY, boxX + 5);
 			}
-			int totalX = boxX + boxW - 5 - totalWidth;
+			// NB: method243() is itself a right-aligned draw - it does drawString(x - stringWid(text)),
+			// so x is the RIGHT edge of the text, not the left. Subtracting the width here as well
+			// (which this and the original drop code both did) shifted the text a full text-width
+			// further left, which is what pushed the total outside the panel entirely.
+			int totalRight = boxX + boxW - 5;
 			int totalY = y + 18;
-			this.fontBold12.method243(totalText, 0x000000, totalX + 1, totalY + 1);
-			this.fontBold12.method243(totalText, 0xFFFFFF, totalX, totalY);
+			this.fontBold12.method243(totalText, 0x000000, totalRight + 1, totalY + 1);
+			this.fontBold12.method243(totalText, 0xFFFFFF, totalRight, totalY);
 
 			// levelExperience[L-1] is the xp needed for level L+1 (see its static initialiser and the
 			// stats-tab consumer), so the current level's band runs from levelExperience[L-2] up to
@@ -676,13 +680,13 @@ public class Client extends GameShell {
 			int textWidth = this.fontPlain12.stringWid(text);
 			Pix32 icon = this.xpIcon(drop.skillId);
 			int iconWidth = icon != null ? icon.wi : 0;
-			int textX = rightX - textWidth;
 			int textY = rowY + 18;
+			// right edge, not left - see the method243() note in the panel block above
 			// black drop-shadow, offset by one pixel, so it stays readable over any scene colour
-			this.fontPlain12.method243(text, 0x000000, textX + 1, textY + 1);
-			this.fontPlain12.method243(text, 0xFFFF00, textX, textY);
+			this.fontPlain12.method243(text, 0x000000, rightX + 1, textY + 1);
+			this.fontPlain12.method243(text, 0xFFFF00, rightX, textY);
 			if (icon != null) {
-				icon.plotSprite(rowY, textX - iconWidth - 4);
+				icon.plotSprite(rowY, rightX - textWidth - iconWidth - 4);
 			}
 		}
 	}
