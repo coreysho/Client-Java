@@ -6889,3 +6889,81 @@
 [15:18:23.206] [ACTION] Cancel | player=(2515,4629,1) | target=? action=1016 paramA=0 paramB=0 paramC=0
 [15:18:23.861] [ACTION] Ok | player=(2515,4629,1) | target=? action=352 paramA=385 paramB=25 paramC=2458
 [15:18:24.273] [SESSION] logged out, was "corey"
+
+=== dev client session started Thu Sep 03 21:55:24 EDT 2026 ===
+[21:55:24.791] [SESSION] === DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log
+[21:55:33.303] [SESSION] logged in as "corey"
+[21:55:33.675] [CHAT] type=0 from="" msg="Welcome to RuneScape."
+[21:55:35.224] [ACTION] Close | player=(2509,3636,0) | target=? action=639 paramA=0 paramB=0 paramC=15251
+[21:55:36.136] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:55:36.584] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:55:37.069] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:55:37.859] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:55:44.296] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:55:44.928] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:55:45.412] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:55:45.931] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:55:55.103] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:55:56.027] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:55:57.051] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:55:57.615] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:56:46.629] [ACTION] Examine Doorway | player=(2509,3636,0) | target=loc id=4577 name="Doorway" coords=(2509,3636,0)
+[21:56:46.630] [CHAT] type=0 from="" msg="Lets you walk through walls!"
+[21:56:56.715] [ACTION] Walk-through Doorway | player=(2509,3636,0) | target=loc id=4577 name="Doorway" coords=(2509,3636,0)
+[21:56:57.303] [CHAT] type=0 from="" msg="Nothing interesting happens."
+[21:58:31.755] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:58:32.855] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:58:33.194] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:58:34.145] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:58:34.415] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:58:34.875] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:58:35.623] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:58:35.968] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:58:36.174] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:58:36.521] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:58:36.738] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:58:37.171] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:58:37.872] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:58:38.222] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:58:38.494] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:58:38.801] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:58:40.298] [ACTION] Select | player=(2509,3636,0) | target=? action=518 paramA=74989568 paramB=498 paramC=1771
+[21:58:41.782] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:58:42.271] [ACTION] Cancel | player=(2509,3636,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:58:44.247] [ACTION] Walk here | player=(2509,3636,0) | target=? action=14 paramA=74842112 paramB=248 paramC=21
+[21:58:44.744] [ACTION] Walk here | player=(2509,3636,0) | target=? action=14 paramA=74842112 paramB=272 paramC=22
+[21:58:44.992] [ACTION] Walk here | player=(2509,3636,0) | target=? action=14 paramA=74842112 paramB=271 paramC=11
+[21:58:45.781] [ACTION] Cancel | player=(2509,3637,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[21:58:46.301] [ACTION] Cancel | player=(2509,3638,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:16.749] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:17.154] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:17.741] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:17.966] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:18.444] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:18.777] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:19.090] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:19.647] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:19.853] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:20.297] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:20.504] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:20.995] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:21.302] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:21.606] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:21.889] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:22.261] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:22.721] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:23.315] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:23.630] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:24.273] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:27.812] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:28.658] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:30.558] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:30.780] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:31.048] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:31.495] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:31.776] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:32.006] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:32.249] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:32.564] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:32.851] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
+[22:00:33.089] [ACTION] Cancel | player=(2509,3643,0) | target=? action=1016 paramA=0 paramB=0 paramC=0
