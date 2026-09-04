@@ -5,10 +5,9 @@ build/
 *.class
 *.*~
 
-hs_err_pid*.log
 .DS_Store
-dev-client.log
-dev-client.log
-*.log
-*.log
+
+# Runtime logs (dev-client.log, hs_err_pid*.log). NOTE: .gitignore has no effect on a file that is
+# already tracked - dev-client.log was listed here (twice, plus *.log three times) and still showed
+# up in every commit until it was actually untracked with: git rm --cached dev-client.log
 *.log
