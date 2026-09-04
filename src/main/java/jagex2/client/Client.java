@@ -478,6 +478,15 @@ public class Client extends GameShell {
 	// flipping this back to true - but zeroes its effect so the camera always tracks the player
 	// exactly and the compass always agrees with the minimap.
 	private static final boolean MACRO_ANTIBOT_CAMERA_JITTER = false;
+
+	// QoL (Corey, 2026-09-05: "middle mouse button click and drag to rotate camera is inverted, also
+	// its a bit too fast"). Both axes are flipped from the original (yaw was +2, pitch was -2) and the
+	// speed drops from 2.0 to 1.5 units per pixel dragged. Kept as numerator/denominator constants so
+	// either axis can be flipped back by negating its numerator, and the speed retuned by changing
+	// the pair, without touching the maths at the call site in the camera block below.
+	private static final int CAMERA_DRAG_YAW_NUM = -3;
+	private static final int CAMERA_DRAG_PITCH_NUM = 3;
+	private static final int CAMERA_DRAG_DIV = 2;
 	private final java.util.ArrayList<XpDrop> xpDrops = new java.util.ArrayList<>();
 	// Guards against a spurious "gained thousands of xp!" drop for every skill at login, when the
 	// server sends each skill's real current xp for the first time against a freshly-zeroed
@@ -593,18 +602,27 @@ public class Client extends GameShell {
 		// level - the box RuneLite shows above its drops. Separate from the drops themselves, which
 		// stay a bare "+amount".
 		if (showTracker) {
-			int boxW = 128;
+			// The panel is sized to its contents. A fixed width overflowed as soon as the total got
+			// long - Corey's 13,050,939 spilled out past the left edge and collided with the skill
+			// icon, because the total is right-aligned inside the box.
+			Pix32 panelIcon = this.xpIcon(this.xpTrackerSkill);
+			int panelIconW = panelIcon == null ? 0 : panelIcon.wi;
+			String totalText = formatXpNumber(this.xpTrackerTotal);
+			int totalWidth = this.fontBold12.stringWid(totalText);
 			int boxH = 32;
+			int boxW = 10 + panelIconW + 8 + totalWidth;
+			if (boxW < 96) {
+				boxW = 96;
+			}
 			int boxX = rightX - boxW;
 			Pix2D.fillRectTrans(0x000000, y, boxW, boxH, 165, boxX);
 			Pix2D.drawRect(y, boxH, 0x6F6A5A, boxX, boxW);
-			Pix32 panelIcon = this.xpIcon(this.xpTrackerSkill);
 			if (panelIcon != null) {
-				panelIcon.plotSprite(y + 3, boxX + 4);
+				// vertically centred in the space above the progress bar, whatever the icon's height
+				int iconY = y + Math.max(1, (boxH - 8 - panelIcon.hi) / 2);
+				panelIcon.plotSprite(iconY, boxX + 5);
 			}
-			String totalText = formatXpNumber(this.xpTrackerTotal);
-			int totalWidth = this.fontBold12.stringWid(totalText);
-			int totalX = boxX + boxW - 6 - totalWidth;
+			int totalX = boxX + boxW - 5 - totalWidth;
 			int totalY = y + 18;
 			this.fontBold12.method243(totalText, 0x000000, totalX + 1, totalY + 1);
 			this.fontBold12.method243(totalText, 0xFFFFFF, totalX, totalY);
@@ -5140,8 +5158,8 @@ public class Client extends GameShell {
 
 			// QoL: middle-mouse-drag camera rotation, on top of the arrow-key rotation above.
 			if (super.cameraDragDeltaX != 0 || super.cameraDragDeltaY != 0) {
-				this.orbitCameraYaw = this.orbitCameraYaw + super.cameraDragDeltaX * 2 & 0x7FF;
-				this.orbitCameraPitch -= super.cameraDragDeltaY * 2;
+				this.orbitCameraYaw = this.orbitCameraYaw + super.cameraDragDeltaX * CAMERA_DRAG_YAW_NUM / CAMERA_DRAG_DIV & 0x7FF;
+				this.orbitCameraPitch += super.cameraDragDeltaY * CAMERA_DRAG_PITCH_NUM / CAMERA_DRAG_DIV;
 				super.cameraDragDeltaX = 0;
 				super.cameraDragDeltaY = 0;
 			}
