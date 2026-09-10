@@ -1094,6 +1094,23 @@ public class Model extends ModelSource {
 		}
 	}
 
+	// Every .anim set carries its own copy of its skeleton, so two sets on the same skeleton have
+	// different AnimBase objects - compare contents, not references.
+	private static boolean sameSkeleton(AnimBase a, AnimBase b) {
+		if (a == b) {
+			return true;
+		}
+		if (a == null || b == null || !java.util.Arrays.equals(a.types, b.types) || a.labels.length != b.labels.length) {
+			return false;
+		}
+		for (int i = 0; i < a.labels.length; i++) {
+			if (!java.util.Arrays.equals(a.labels[i], b.labels[i])) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 	@ObfuscatedName("LZYQDKJV.a(III[I)V")
 	public void method368(int arg0, int arg2, int[] arg3) {
 		if (arg2 == -1) {
@@ -1109,6 +1126,14 @@ public class Model extends ModelSource {
 		}
 		AnimFrame var6 = AnimFrame.get(arg0);
 		if (var6 == null) {
+			this.applyTransform(arg2);
+			return;
+		}
+		// Lost City: only walk-merge two frames built on the same skeleton. OSRS-imported
+		// animations (base_osrs_*) use the OSRS player skeleton, whose transform groups do not
+		// line up with the 377 one - merging across them twists the model or throws
+		// ArrayIndexOutOfBounds. Play the primary animation on its own instead.
+		if (!sameSkeleton(var5.base, var6.base)) {
 			this.applyTransform(arg2);
 			return;
 		}
