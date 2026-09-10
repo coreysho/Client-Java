@@ -326,6 +326,36 @@ public class Client extends GameShell {
 	@ObfuscatedName("client.Sf")
 	public String chatTyped = "";
 
+	// QoL: recall previously sent chat lines with Page Up / Page Down.
+	//
+	// Page Up/Down rather than the arrow keys because arrows never reach here: GameShell.keyPressed
+	// maps them to ch 1-4 and the key queue is gated on `ch > 4`, so they only ever set actionKey[]
+	// for camera rotation (left/right yaw, up/down pitch). Page Up and Page Down are already mapped
+	// to 1002/1003, already queued, and referenced nowhere else in the client.
+	//
+	// history[0] is the newest. browsePos is -1 when not browsing; the line that was half-typed when
+	// browsing started is parked in browseDraft so Page Down can put it back.
+	// QoL settings panel. F9 opens it; see QolSettings for what the toggles do and how they persist.
+	//
+	// Drawn into areaViewport rather than over the whole screen, because drawGame() has no single
+	// fullscreen buffer - it composes the frame out of separate bound surfaces (viewport, sidebar,
+	// chatback, backbase) and blits each one. The viewport is 512x334 at screen offset (4,4), which
+	// is where the XP drops already draw, so the panel is laid out in viewport-local coordinates and
+	// QOL_PANEL_ORIGIN is added back when hit-testing against the screen-space mouse position.
+	private static final int QOL_PANEL_KEY = 1016; // F9
+	private static final int QOL_PANEL_ORIGIN = 4;
+	private static final int QOL_PANEL_W = 320;
+	private static final int QOL_PANEL_ROW_H = 15;
+	private static final int QOL_PANEL_HEADER_H = 24;
+	private static final int QOL_PANEL_FOOTER_H = 22;
+	private boolean qolPanelOpen;
+
+	private static final int CHAT_HISTORY_MAX = 10;
+	private final String[] chatHistory = new String[CHAT_HISTORY_MAX];
+	private int chatHistoryCount;
+	private int chatHistoryBrowsePos = -1;
+	private String chatHistoryBrowseDraft = "";
+
 	@ObfuscatedName("client.Tf")
 	public int[] cameraModifierJitter = new int[5];
 
@@ -505,12 +535,14 @@ public class Client extends GameShell {
 		"staticons", "staticons", "staticons", "staticons", "staticons", "staticons", "staticons", // cooking, woodcutting, fletching, fishing, firemaking, crafting, smithing
 		"staticons", "staticons", "staticons", "staticons", // mining, herblore, agility, thieving
 		"staticons2", "staticons2", "staticons2", // slayer, farming, runecraft
+		"staticons2", // construction (stat 21, 2026-09-10) - index 5 of staticons2, same cell stats.if uses
 	};
 	private static final int[] XPDROP_ICON_INDEX = {
 		0, 2, 1, 6, 3, 4, 5, // attack, defence, strength, hitpoints, ranged, prayer, magic
 		15, 17, 11, 14, 16, 10, 13, // cooking, woodcutting, fletching, fishing, firemaking, crafting, smithing
 		12, 8, 7, 9, // mining, herblore, agility, thieving
 		1, 2, 0, // slayer, farming, runecraft
+		5, // construction
 	};
 
 	private static final class XpDrop {
@@ -584,6 +616,80 @@ public class Client extends GameShell {
 	// near the top-right of the viewport (same anchor the ::fpson debug counter uses, offset
 	// below it when that's also on). Newest drop is always at index 0/top, since addXpDrop()
 	// inserts there - so as new drops flow in, older ones are pushed down until they expire.
+	private int qolPanelHeight() {
+		return QOL_PANEL_HEADER_H + QolSettings.COUNT * QOL_PANEL_ROW_H + QOL_PANEL_FOOTER_H;
+	}
+
+	private int qolPanelX() {
+		return (512 - QOL_PANEL_W) / 2;
+	}
+
+	private int qolPanelY() {
+		return (334 - this.qolPanelHeight()) / 2;
+	}
+
+	/** Called with areaViewport bound, so coordinates here are viewport-local. */
+	private void drawQolPanel() {
+		int x = this.qolPanelX();
+		int y = this.qolPanelY();
+		int h = this.qolPanelHeight();
+
+		Pix2D.fillRectTrans(0x000000, y, QOL_PANEL_W, h, 200, x);
+		Pix2D.drawRect(y, h, 0x8B7B5A, x, QOL_PANEL_W);
+
+		this.fontBold12.drawString(x + 10, 0xFFB000, y + 17, "Client settings");
+		String close = "F9 / Esc to close";
+		this.fontPlain12.drawString(x + QOL_PANEL_W - 10 - this.fontPlain12.stringWid(close), 0x9F9F9F, y + 17, close);
+
+		int mouseX = super.mouseX - QOL_PANEL_ORIGIN;
+		int mouseY = super.mouseY - QOL_PANEL_ORIGIN;
+		for (int i = 0; i < QolSettings.COUNT; i++) {
+			int rowY = y + QOL_PANEL_HEADER_H + i * QOL_PANEL_ROW_H;
+			boolean hovered = mouseX >= x + 1 && mouseX < x + QOL_PANEL_W - 1 && mouseY >= rowY && mouseY < rowY + QOL_PANEL_ROW_H;
+			if (hovered) {
+				Pix2D.fillRectTrans(0xFFFFFF, rowY, QOL_PANEL_W - 2, QOL_PANEL_ROW_H, 30, x + 1);
+			}
+			boolean on = QolSettings.on(i);
+			int baseline = rowY + QOL_PANEL_ROW_H - 4;
+			this.fontPlain12.drawString(x + 10, on ? 0x00C000 : 0x707070, baseline, on ? "[X]" : "[  ]");
+			this.fontPlain12.drawString(x + 36, on ? 0xFFFFFF : 0x909090, baseline, QolSettings.label(i));
+		}
+
+		String hint = "Click a row to toggle. Saved to the client cache folder.";
+		this.fontPlain12.drawString(x + 10, 0x9F9F9F, y + h - 8, hint);
+	}
+
+	/**
+	 * Consumes a click while the panel is open. Returns with the click eaten either way, so a click
+	 * meant for a toggle can never also walk the player or open a menu behind the panel.
+	 */
+	private void handleQolPanelInput() {
+		// The server can push an interface at any time (a dialogue, a trade request). If one appears
+		// it would draw over the panel, so stand down rather than keep swallowing input underneath it.
+		if (this.viewportInterfaceId != -1 || this.fullscreenInterfaceId0 != -1 || this.chatInterfaceId != -1) {
+			this.qolPanelOpen = false;
+			return;
+		}
+		if (super.mouseClickButton == 0) {
+			return;
+		}
+		int x = this.qolPanelX() + QOL_PANEL_ORIGIN;
+		int y = this.qolPanelY() + QOL_PANEL_ORIGIN;
+		int clickX = super.mouseClickX;
+		int clickY = super.mouseClickY;
+		super.mouseClickButton = 0;
+
+		if (clickX < x || clickX >= x + QOL_PANEL_W) {
+			return;
+		}
+		int row = (clickY - (y + QOL_PANEL_HEADER_H)) / QOL_PANEL_ROW_H;
+		if (clickY < y + QOL_PANEL_HEADER_H || row < 0 || row >= QolSettings.COUNT) {
+			return;
+		}
+		QolSettings.toggle(row);
+		DevLog.log("QOL", QolSettings.label(row) + " -> " + (QolSettings.on(row) ? "on" : "off"));
+	}
+
 	private void drawXpDrops() {
 		long now = System.currentTimeMillis();
 		for (int i = this.xpDrops.size() - 1; i >= 0; i--) {
@@ -1738,7 +1844,7 @@ public class Client extends GameShell {
 
 	public static void main(String[] args) {
 		try {
-			System.out.println("RS2 user client - release #" + signlink.clientversion);
+			System.out.println("Project Client");
 			DevLog.log("SESSION", "=== DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log");
 
 			if (args.length == 5) {
@@ -4206,6 +4312,12 @@ public class Client extends GameShell {
 		this.menuOption[0] = "Cancel";
 		this.menuAction[0] = 1016;
 		this.menuSize = 1;
+		// The settings panel swallows input while it is open - after the menu reset above, so the
+		// game is left with a clean "Cancel"-only menu rather than a stale one from last frame.
+		if (this.qolPanelOpen) {
+			this.handleQolPanelInput();
+			return;
+		}
 		if (this.fullscreenInterfaceId0 != -1) {
 			this.lastHoveredInterfaceId = 0;
 			this.field611 = 0;
@@ -4620,7 +4732,7 @@ public class Client extends GameShell {
 		if (!this.menuVisible) {
 			// QoL: shift-click an inventory item to drop it instantly, bypassing whatever its
 			// normal default left-click action (and the drag-to-reorder handling below) would be.
-			if (var2 == 1 && super.actionKey[GameShell.KEY_SHIFT] == 1 && this.menuSize > 0) {
+			if (QolSettings.on(QolSettings.SHIFT_DROP) && var2 == 1 && super.actionKey[GameShell.KEY_SHIFT] == 1 && this.menuSize > 0) {
 				int dropIndex = -1;
 				for (int i = 0; i < this.menuSize; i++) {
 					if (this.menuAction[i] == 891) {
@@ -4739,7 +4851,7 @@ public class Client extends GameShell {
 		// it should work regardless of minimap display mode, and uses the same hole-in-the-mask data
 		// (compassMaskLineOffsets/Lengths, built at startup from imageMapback) that's already used to
 		// draw the compass itself, so the click region always matches its actual on-screen shape.
-		if (super.mouseClickButton == 1) {
+		if (super.mouseClickButton == 1 && QolSettings.on(QolSettings.COMPASS_NORTH)) {
 			int compassLocalX = super.mouseClickX - 550;
 			int compassLocalY = super.mouseClickY - 4;
 			if (compassLocalY >= 0 && compassLocalY < 33 && compassLocalX >= this.compassMaskLineOffsets[compassLocalY] && compassLocalX < this.compassMaskLineOffsets[compassLocalY] + this.compassMaskLineLengths[compassLocalY]) {
@@ -5162,8 +5274,12 @@ public class Client extends GameShell {
 
 			// QoL: middle-mouse-drag camera rotation, on top of the arrow-key rotation above.
 			if (super.cameraDragDeltaX != 0 || super.cameraDragDeltaY != 0) {
-				this.orbitCameraYaw = this.orbitCameraYaw + super.cameraDragDeltaX * CAMERA_DRAG_YAW_NUM / CAMERA_DRAG_DIV & 0x7FF;
-				this.orbitCameraPitch += super.cameraDragDeltaY * CAMERA_DRAG_PITCH_NUM / CAMERA_DRAG_DIV;
+				if (QolSettings.on(QolSettings.MMB_CAMERA)) {
+					this.orbitCameraYaw = this.orbitCameraYaw + super.cameraDragDeltaX * CAMERA_DRAG_YAW_NUM / CAMERA_DRAG_DIV & 0x7FF;
+					this.orbitCameraPitch += super.cameraDragDeltaY * CAMERA_DRAG_PITCH_NUM / CAMERA_DRAG_DIV;
+				}
+				// Cleared whether or not the feature is on, so a drag made while it is off cannot bank up
+				// and snap the camera the moment it is switched back on.
 				super.cameraDragDeltaX = 0;
 				super.cameraDragDeltaY = 0;
 			}
@@ -5185,7 +5301,11 @@ public class Client extends GameShell {
 			// viewport (see the identical check at ~line 4066) - this client is fixed 765x503, not
 			// resizable, so these bounds are safe to hardcode here too.
 			if (super.mouseScrollDelta != 0 && this.sidebarInterfaceId == -1 && this.chatInterfaceId == -1 && this.fullscreenInterfaceId0 == -1 && this.fullscreenInterfaceId1 == -1 && this.viewportInterfaceId == -1 && super.mouseX > 4 && super.mouseY > 4 && super.mouseX < 516 && super.mouseY < 338) {
-				this.cameraZoomOffset -= super.mouseScrollDelta * 40;
+				if (QolSettings.on(QolSettings.WHEEL_ZOOM)) {
+					this.cameraZoomOffset -= super.mouseScrollDelta * 40;
+				}
+				// Consumed either way - see the middle-mouse note above. It also stops a wheel turn over
+				// the viewport falling through to another handler when zoom is off.
 				super.mouseScrollDelta = 0;
 				if (this.cameraZoomOffset < -600) {
 					this.cameraZoomOffset = -600;
@@ -5336,8 +5456,29 @@ public class Client extends GameShell {
 						return;
 					}
 
+					// QoL settings panel. Handled at the very top of the key loop so it works from
+					// any interface state, and so its keys are swallowed rather than reaching chat.
+					if (key == QOL_PANEL_KEY && this.ingame) {
+						this.qolPanelOpen = !this.qolPanelOpen;
+						if (this.qolPanelOpen) {
+							// Opening closes whatever interface is up. The panel draws inside
+							// areaViewport, so an interface drawn over the viewport would bury it
+							// while it was still swallowing input - a dead client with nothing on
+							// screen to explain why. Closing first guarantees it is visible whenever
+							// it is modal.
+							this.closeInterfaces();
+						}
+						continue;
+					}
+					if (this.qolPanelOpen) {
+						if (key == GameShell.KEY_ESCAPE) {
+							this.qolPanelOpen = false;
+						}
+						continue;
+					}
+
 					// QoL: Escape closes whatever interface is currently open, regardless of state.
-					if (key == GameShell.KEY_ESCAPE) {
+					if (key == GameShell.KEY_ESCAPE && QolSettings.on(QolSettings.ESC_CLOSE)) {
 						DevLog.log("HOTKEY", "Escape closed interfaces");
 						this.closeInterfaces();
 					}
@@ -5470,7 +5611,7 @@ public class Client extends GameShell {
 							this.chatbackInput = this.chatbackInput.substring(0, this.chatbackInput.length() - 1);
 							this.redrawChatback = true;
 						}
-					} else if (key == 9 && this.hasLastPmFrom) {
+					} else if (key == 9 && this.hasLastPmFrom && QolSettings.on(QolSettings.TAB_REPLY)) {
 						// QoL: Tab replies to whoever last sent you a PM
 						DevLog.log("HOTKEY", "Tab reply to " + JString.formatDisplayName(JString.fromBase37(this.lastPmFrom37)));
 						this.redrawChatback = true;
@@ -5480,7 +5621,7 @@ public class Client extends GameShell {
 						this.socialInputType = 3;
 						this.socialName37 = this.lastPmFrom37;
 						this.socialMessage = "Enter message to send to " + JString.formatDisplayName(JString.fromBase37(this.lastPmFrom37));
-					} else if (this.chatInterfaceId != -1 && key == 32) {
+					} else if (this.chatInterfaceId != -1 && key == 32 && QolSettings.on(QolSettings.SPACE_CONTINUE)) {
 						// QoL: space bar advances "click here to continue" dialogues
 						if (!this.pressedContinueOption) {
 							int continueComponentId = this.findContinueComponentId(Component.get(this.chatInterfaceId));
@@ -5492,7 +5633,7 @@ public class Client extends GameShell {
 								this.pressedContinueOption = true;
 							}
 						}
-					} else if (this.chatInterfaceId != -1 && key >= 49 && key <= 53) {
+					} else if (this.chatInterfaceId != -1 && key >= 49 && key <= 53 && QolSettings.on(QolSettings.DIALOGUE_KEYS)) {
 						// QoL: number keys 1-5 pick the matching "Select an Option" dialogue choice.
 						// See dialogueOptionCount() above for why this is scoped to just multi2-5.
 						// Corrected 2026-09-02: a buttonType 1 ("normal") click - which is what every
@@ -5512,7 +5653,7 @@ public class Client extends GameShell {
 							this.out.p2(optionComponentId);
 							this.pressedContinueOption = true;
 						}
-					} else if (this.viewportInterfaceId == BANKPIN_MAIN_INTERFACE_ID && key >= 48 && key <= 57) {
+					} else if (this.viewportInterfaceId == BANKPIN_MAIN_INTERFACE_ID && key >= 48 && key <= 57 && QolSettings.on(QolSettings.BANKPIN_KEYS)) {
 						// QoL: typing a digit clicks whichever shuffled bank PIN keypad button
 						// currently displays it. Time-debounced rather than using
 						// pressedContinueOption, since this interface stays open across all 4
@@ -5550,7 +5691,35 @@ public class Client extends GameShell {
 							this.redrawChatback = true;
 						}
 
+						// QoL: Page Up walks back through sent lines, Page Down walks forward again.
+						if (key == 1002 && this.chatHistoryCount > 0 && QolSettings.on(QolSettings.CHAT_HISTORY)) {
+							if (this.chatHistoryBrowsePos == -1) {
+								this.chatHistoryBrowseDraft = this.chatTyped;
+								this.chatHistoryBrowsePos = 0;
+							} else if (this.chatHistoryBrowsePos < this.chatHistoryCount - 1) {
+								this.chatHistoryBrowsePos++;
+							}
+							this.chatTyped = this.chatHistory[this.chatHistoryBrowsePos];
+							this.redrawChatback = true;
+						}
+
+						if (key == 1003 && this.chatHistoryBrowsePos != -1 && QolSettings.on(QolSettings.CHAT_HISTORY)) {
+							if (this.chatHistoryBrowsePos > 0) {
+								this.chatHistoryBrowsePos--;
+								this.chatTyped = this.chatHistory[this.chatHistoryBrowsePos];
+							} else {
+								// Past the newest entry - hand back whatever was being typed before browsing.
+								this.chatHistoryBrowsePos = -1;
+								this.chatTyped = this.chatHistoryBrowseDraft;
+							}
+							this.redrawChatback = true;
+						}
+
 						if ((key == 13 || key == 10) && this.chatTyped.length() > 0) {
+							// Captured here, before the colour and effect prefixes below start substring-ing
+							// chatTyped apart - the history should hold what was actually typed, so recalling
+							// "red:hello" or a "::command" gives it back whole.
+							this.pushChatHistory(this.chatTyped);
 							if (this.staffmodlevel == 2) {
 								if (this.chatTyped.equals("::clientdrop")) {
 									this.tryReconnect();
@@ -6394,7 +6563,7 @@ public class Client extends GameShell {
 			// widened from the narrow scrollbar-column rect to the full chatbox rect - same bounds
 			// handleInput() uses to route hover input to the chatbox, see ~line 4098 - so scrolling
 			// works anywhere over the chat text, not just right over the scrollbar)
-			if (super.mouseScrollDelta != 0 && super.mouseX > 17 && super.mouseX < 496 && super.mouseY > 357 && super.mouseY < 453) {
+			if (QolSettings.on(QolSettings.WHEEL_CHAT) && super.mouseScrollDelta != 0 && super.mouseX > 17 && super.mouseX < 496 && super.mouseY > 357 && super.mouseY < 453) {
 				var5 -= super.mouseScrollDelta * 16;
 				if (var5 < 0) {
 					var5 = 0;
@@ -7313,7 +7482,13 @@ public class Client extends GameShell {
 			var13 += 15;
 		}
 		// QoL: XP drop counter, see drawXpDrops() above.
-		this.drawXpDrops();
+		if (QolSettings.on(QolSettings.XP_DROPS)) {
+			this.drawXpDrops();
+		}
+		// Drawn last of the viewport overlays so the settings panel sits on top of everything else.
+		if (this.qolPanelOpen) {
+			this.drawQolPanel();
+		}
 		if (this.systemUpdateTimer != 0) {
 			int var10 = this.systemUpdateTimer / 50;
 			int var11 = var10 / 60;
@@ -11990,7 +12165,7 @@ public class Client extends GameShell {
 				if (var13.scroll > var13.height) {
 					this.handleScrollInput(var13.scroll, var15, var13, arg7, arg2, arg5, var13.height, var13.width + var14);
 					// QoL: mouse wheel scrolls any scrollable interface panel (e.g. bank) when hovering over it
-					if (super.mouseScrollDelta != 0 && arg5 >= var14 && arg7 >= var15 && arg5 < var13.width + var14 && arg7 < var13.height + var15) {
+					if (QolSettings.on(QolSettings.WHEEL_INTERFACE) && super.mouseScrollDelta != 0 && arg5 >= var14 && arg7 >= var15 && arg5 < var13.width + var14 && arg7 < var13.height + var15) {
 						var13.field713 += super.mouseScrollDelta * 16;
 						if (var13.field713 < 0) {
 							var13.field713 = 0;
@@ -13072,6 +13247,28 @@ public class Client extends GameShell {
 			arg2.drawMasked(this.imageMapback, 83 - var12 - arg2.ohi / 2 - 4, var11 + 94 - arg2.owi / 2 + 4);
 		} else {
 			arg2.plotSprite(83 - var12 - arg2.ohi / 2 - 4, var11 + 94 - arg2.owi / 2 + 4);
+		}
+	}
+
+	// QoL: record a sent line for Page Up / Page Down recall. Newest first, capped at
+	// CHAT_HISTORY_MAX, and consecutive duplicates collapse so repeating one line does not fill the
+	// buffer with copies of itself. Also ends any in-progress browse, so the next Page Up starts
+	// from the top rather than resuming halfway down.
+	private void pushChatHistory(String line) {
+		if (line == null || line.length() == 0) {
+			return;
+		}
+		this.chatHistoryBrowsePos = -1;
+		this.chatHistoryBrowseDraft = "";
+		if (this.chatHistoryCount > 0 && line.equals(this.chatHistory[0])) {
+			return;
+		}
+		for (int i = Math.min(this.chatHistoryCount, CHAT_HISTORY_MAX - 1); i > 0; i--) {
+			this.chatHistory[i] = this.chatHistory[i - 1];
+		}
+		this.chatHistory[0] = line;
+		if (this.chatHistoryCount < CHAT_HISTORY_MAX) {
+			this.chatHistoryCount++;
 		}
 	}
 
