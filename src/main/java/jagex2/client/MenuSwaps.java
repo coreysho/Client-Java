@@ -19,10 +19,11 @@ import java.io.PrintWriter;
  * is a (kind, target, verb) triple. Target "*" means any target of that kind, which is how you say
  * "always prefer Bury" rather than "prefer Bury on these particular bones".
  *
- * HOW A SWAP IS MADE. Not by typing names into a file - by arming capture in the panel and then
- * picking the option you want off a normal right-click menu. The client already knows the verb, the
- * kind and the target at that moment; asking the player to spell them is asking them to do the
- * client's job.
+ * HOW A SWAP IS MADE. Hold Shift and right-click, the way RuneLite does it: the menu that opens
+ * lists the same options, each offering to become the left-click. The client already knows the
+ * verb, the kind and the target at that moment, so the player never types a name - and because
+ * the thing being configured is the thing under the cursor, there is no mode to arm and no target
+ * to go and find afterwards.
  *
  * FILE FORMAT. "kind|target|verb" lines in the client's cache directory, one per swap, with a
  * version line - same reasoning as QolSettings: text so the file survives the feature changing
@@ -44,6 +45,15 @@ public final class MenuSwaps {
 
 	/** Target value meaning "any target of this kind". */
 	public static final String ANY = "*";
+
+	/**
+	 * The verb that means "do not interact with this at all - just walk". Stored against a target
+	 * like any other verb, but it promotes the menu's "Walk here" entry rather than an entry named
+	 * after it, because that entry carries no target tag of its own. Matching the client's own
+	 * wording exactly is deliberate: when a player IS standing on the tile the client produces a
+	 * real "Walk here @whi@<name>" option, and the two must be the same rule, not two that disagree.
+	 */
+	public static final String WALK = "Walk here";
 
 	// Colour tags RS2 puts in front of a menu target, which is also the only thing in the string
 	// that says what kind of thing it is. Ground objs and inventory items share @lre@ - deliberately
@@ -162,6 +172,39 @@ public final class MenuSwaps {
 			}
 		}
 		return wild;
+	}
+
+	/** Index of the swap stored for exactly this kind+target (not a wildcard), or -1. */
+	public static int exact(String k, String t) {
+		ensure();
+		if (k == null || t == null) {
+			return -1;
+		}
+		for (int i = 0; i < count; i++) {
+			if (kind[i].equals(k) && !ANY.equals(target[i]) && target[i].equalsIgnoreCase(t)) {
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	/**
+	 * Drop the swap for exactly this kind+target. A wildcard covering it is left alone: it was set
+	 * deliberately and somewhere else, so silently removing it here would be a surprise.
+	 */
+	public static boolean remove(String k, String t) {
+		int i = exact(k, t);
+		if (i < 0) {
+			return false;
+		}
+		for (int j = i; j < count - 1; j++) {
+			kind[j] = kind[j + 1];
+			target[j] = target[j + 1];
+			verb[j] = verb[j + 1];
+		}
+		count--;
+		save();
+		return true;
 	}
 
 	/**

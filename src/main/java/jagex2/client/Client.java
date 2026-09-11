@@ -363,18 +363,32 @@ public class Client extends GameShell {
 	// It runs at the very end of handleInput(), after the client's own >1000 priority sort, so a
 	// deliberate swap is not undone by it. That also means it does not run for fullscreen
 	// interfaces, which return early - no loss, there is nothing there worth swapping.
-	private static final int SWAP_PANEL_KEY = 1017; // F10
+	//
+	// HOW A SWAP IS MADE: hold Shift and right-click, the way RuneLite does it. The menu that opens
+	// lists the same options, each one offering to become the left-click. That works because the
+	// thing you are configuring is the thing under the cursor - you never have to arm a mode, go
+	// find a target, and remember what you were doing when you get there.
+	private static final int SWAP_PANEL_KEY = 1017; // F10, the list of what you have set
 	private static final int SWAP_PANEL_W = 340;
 	private static final int SWAP_PANEL_ROW_H = 15;
 	private static final int SWAP_PANEL_HEADER_H = 24;
 	private static final int SWAP_PANEL_FOOTER_H = 22;
-	private static final int SWAP_PANEL_ACTIONS = 2; // "set a swap" and "clear all", above the list
+	private static final int SWAP_PANEL_ACTIONS = 1; // "clear all", above the list
+	// handleViewportOptions() gives the "Walk here" entry this action. Swapping to it is how a
+	// player says "left-clicking this must not interact with it" - the reason walk-here is offered
+	// at all, and why it has to be promoted by action rather than by name: the entry carries no
+	// target tag unless another player happens to be standing on the tile.
+	private static final int WALK_HERE_ACTION = 14;
 	private boolean swapPanelOpen;
-	// Armed by the panel: the next menu row picked is recorded as a swap instead of being performed.
-	// One capture only - an input mode you can forget you are in is a trap, so it disarms itself.
-	private boolean swapArming;
-	private String swapNotice = "";
-	private int swapNoticeUntil;
+	// True while the open right-click menu is a swap menu rather than a real one. Set only inside
+	// showContextMenu(), so the every-frame menu that the left click, the tooltip and shift-drop all
+	// read is never rewritten - only the copy the player is looking at.
+	private boolean menuSwapMode;
+	// What each row of that swap menu would store. Parallel to menuOption while menuSwapMode is set;
+	// a null verb marks the row as "reset this target" rather than "set this verb".
+	private final String[] swapRowKind = new String[500];
+	private final String[] swapRowTarget = new String[500];
+	private final String[] swapRowVerb = new String[500];
 
 	// QoL: ground item names. Labels every obj lying on the ground within GROUND_ITEM_RADIUS tiles
 	// of the player, tinted by what the pile is worth.
@@ -762,6 +776,13 @@ public class Client extends GameShell {
 	 * Moves the player's preferred entry into the left-click slot. Called at the end of
 	 * handleInput(), with the menu fully built and already priority-sorted.
 	 */
+	/** Rule a beats rule b: an exact target first, then whichever was set earlier. */
+	private static boolean better(int a, int b) {
+		boolean ea = !MenuSwaps.isAny(a);
+		boolean eb = !MenuSwaps.isAny(b);
+		return ea != eb ? ea : a < b;
+	}
+
 	private void applyMenuSwap() {
 		if (this.menuSize < 3 || MenuSwaps.count() == 0) {
 			return;                                  // Cancel plus one option: nothing to choose between
@@ -769,15 +790,41 @@ public class Client extends GameShell {
 		int best = -1;
 		int bestRule = Integer.MAX_VALUE;
 		boolean bestExact = false;
-		// Index 0 is always "Cancel" and has no target, so the scan can skip it.
-		for (int i = 1; i < this.menuSize - 1; i++) {
+		// Where "Walk here" sits, for a walk-here rule to promote. It is not a tagged option (unless
+		// a player happens to be standing on the tile), so it cannot be found by the name scan below.
+		int walkAt = -1;
+		for (int i = 1; i < this.menuSize; i++) {
+			if (this.menuAction[i] == WALK_HERE_ACTION) {
+				walkAt = i;
+				break;
+			}
+		}
+		// Index 0 is always "Cancel" and has no target, so the scan can skip it. The TOP entry is
+		// scanned though, even though it is already the left-click: a walk-here rule has to be able
+		// to demote it. "Make the Guard un-clickable" is exactly the case where Attack is already
+		// the default, so a scan that stopped short of it would do nothing in the common case. A
+		// normal rule that names the current default is a no-op, caught by the best == top guard.
+		for (int i = 1; i < this.menuSize; i++) {
 			String option = this.menuOption[i];
 			int at = MenuSwaps.tagAt(option);
 			if (at < 0) {
 				continue;
 			}
-			int rule = MenuSwaps.match(MenuSwaps.parseKind(option, at), MenuSwaps.parseTarget(option, at),
-				MenuSwaps.parseVerb(option, at));
+			String kind = MenuSwaps.parseKind(option, at);
+			String target = MenuSwaps.parseTarget(option, at);
+			int rule = MenuSwaps.match(kind, target, MenuSwaps.parseVerb(option, at));
+			int promote = i;
+			// A walk-here rule is stored against the target, but promotes the "Walk here" entry -
+			// that is the whole point of it: left-clicking this thing should not touch it at all.
+			// Checked here, inside the same scan, so it competes on the same exact-beats-wildcard
+			// terms as every other rule rather than overriding them or being overridden.
+			if (walkAt >= 0) {
+				int walkRule = MenuSwaps.match(kind, target, MenuSwaps.WALK);
+				if (walkRule >= 0 && (rule < 0 || better(walkRule, rule))) {
+					rule = walkRule;
+					promote = walkAt;
+				}
+			}
 			if (rule < 0) {
 				continue;
 			}
@@ -785,12 +832,12 @@ public class Client extends GameShell {
 			// An exact-target rule wins over a wildcard; between two of the same kind the one added
 			// first wins, so the order in the panel is the order they are applied.
 			if ((exact && !bestExact) || ((exact == bestExact) && rule < bestRule)) {
-				best = i;
+				best = promote;
 				bestRule = rule;
 				bestExact = exact;
 			}
 		}
-		if (best < 0) {
+		if (best < 0 || best == this.menuSize - 1) {
 			return;
 		}
 		int top = this.menuSize - 1;
@@ -812,37 +859,149 @@ public class Client extends GameShell {
 	}
 
 	/**
-	 * Turns the menu row the player just picked into a stored swap. Returns a message for the
-	 * notice line either way - a capture that quietly does nothing looks like a broken feature.
+	 * Rewrites the menu that is about to open into a list of swaps to set. Called from
+	 * showContextMenu() when Shift is held, i.e. at the exact moment the player right-clicks - not
+	 * during the every-frame build. That matters: the menu built each frame is what the left click,
+	 * the tooltip and shift-drop all read, and rewriting it would break all three. Only the copy on
+	 * screen is touched, and the next frame rebuilds a normal one.
+	 *
+	 * Returns false and changes nothing when there is nothing swappable under the cursor, so
+	 * shift-right-clicking bare ground behaves exactly as it always did.
 	 */
-	private String recordMenuSwap(int row) {
-		if (row < 0 || row >= this.menuSize) {
-			return "Nothing picked.";
-		}
+	private boolean buildSwapMenu() {
 		if (this.objSelected == 1 || this.spellSelected == 1) {
 			// The verb here is "Use <item> with" or a spell name - a one-off, not a preference.
-			return "Not while using an item or spell.";
+			return false;
 		}
-		String option = this.menuOption[row];
-		int at = MenuSwaps.tagAt(option);
-		if (at < 0) {
-			return "That option has no target to swap on.";
+		String[] kinds = new String[this.menuSize];
+		String[] targets = new String[this.menuSize];
+		String[] verbs = new String[this.menuSize];
+		int n = 0;
+		boolean hasWalk = false;
+		for (int i = 1; i < this.menuSize; i++) {          // index 0 is always Cancel
+			String option = this.menuOption[i];
+			if (this.menuAction[i] == WALK_HERE_ACTION) {
+				hasWalk = true;
+			}
+			int at = MenuSwaps.tagAt(option);
+			if (at < 0) {
+				continue;                                   // Walk here, interface buttons: no target
+			}
+			String verb = MenuSwaps.parseVerb(option, at);
+			String target = MenuSwaps.parseTarget(option, at);
+			if (verb.length() == 0 || target.length() == 0) {
+				continue;
+			}
+			boolean seen = false;
+			for (int j = 0; j < n; j++) {
+				if (verbs[j].equalsIgnoreCase(verb) && targets[j].equalsIgnoreCase(target)
+					&& kinds[j].equals(MenuSwaps.parseKind(option, at))) {
+					seen = true;
+					break;
+				}
+			}
+			if (!seen) {
+				kinds[n] = MenuSwaps.parseKind(option, at);
+				targets[n] = target;
+				verbs[n] = verb;
+				n++;
+			}
 		}
-		String verb = MenuSwaps.parseVerb(option, at);
-		String target = MenuSwaps.parseTarget(option, at);
-		if (verb.length() == 0 || target.length() == 0) {
-			return "That option has no target to swap on.";
+		if (n == 0) {
+			return false;
 		}
-		if (!MenuSwaps.add(MenuSwaps.parseKind(option, at), target, verb)) {
-			return "Swap list is full (" + MenuSwaps.MAX + "). Remove one first.";
+		this.menuOption[0] = "Cancel";
+		this.menuAction[0] = 1016;
+		this.swapRowVerb[0] = null;
+		this.swapRowKind[0] = null;
+		this.swapRowTarget[0] = null;
+		int size = 1;
+		// Walk-here rows go in first, so they draw at the BOTTOM of the menu (the array is stored
+		// bottom-to-top). That is where "do nothing to this" belongs: nearest Cancel, furthest from
+		// the rows that make something happen. One per distinct target, because "walk past the Guard"
+		// and "walk past the bones on his tile" are different instructions.
+		if (hasWalk) {
+			for (int i = 0; i < n; i++) {
+				boolean dup = false;
+				for (int j = 0; j < i; j++) {
+					if (kinds[j].equals(kinds[i]) && targets[j].equalsIgnoreCase(targets[i])) {
+						dup = true;
+						break;
+					}
+				}
+				// A player standing on the tile already produced a real "Walk here @whi@Name" option,
+				// so that target has a row from the loop below; a second one would say the same thing.
+				if (dup || verbs[i].equalsIgnoreCase(MenuSwaps.WALK)) {
+					continue;
+				}
+				this.menuOption[size] = "Left-click " + MenuSwaps.WALK + " @" + kinds[i] + "@" + targets[i];
+				this.menuAction[size] = 1016;
+				this.swapRowKind[size] = kinds[i];
+				this.swapRowTarget[size] = targets[i];
+				this.swapRowVerb[size] = MenuSwaps.WALK;
+				size++;
+			}
 		}
-		DevLog.log("SWAP", verb + " -> " + target);
-		return verb + " is now the left-click on " + target + ".";
+		// Rows keep the order they had in the real menu, so the swap menu reads the same way round.
+		for (int i = 0; i < n; i++) {
+			this.menuOption[size] = "Left-click " + verbs[i] + " @" + kinds[i] + "@" + targets[i];
+			this.menuAction[size] = 1016;                  // never dispatched; applySwapChoice reads the row
+			this.swapRowKind[size] = kinds[i];
+			this.swapRowTarget[size] = targets[i];
+			this.swapRowVerb[size] = verbs[i];
+			size++;
+		}
+		// A reset row, only for targets that actually have a swap - offering to undo nothing is noise.
+		// Deduped on the TARGET, not the option: several options share one target ("Attack Guard" and
+		// "Talk-to Guard"), and one reset per option would put the same row in the menu twice.
+		int resetFrom = size;
+		for (int i = 0; i < n; i++) {
+			if (MenuSwaps.exact(kinds[i], targets[i]) < 0) {
+				continue;
+			}
+			boolean already = false;
+			for (int j = resetFrom; j < size; j++) {
+				if (this.swapRowKind[j].equals(kinds[i]) && this.swapRowTarget[j].equalsIgnoreCase(targets[i])) {
+					already = true;
+					break;
+				}
+			}
+			if (already) {
+				continue;
+			}
+			this.menuOption[size] = "Reset left-click @" + kinds[i] + "@" + targets[i];
+			this.menuAction[size] = 1016;
+			this.swapRowKind[size] = kinds[i];
+			this.swapRowTarget[size] = targets[i];
+			this.swapRowVerb[size] = null;                 // null verb = remove rather than set
+			size++;
+		}
+		this.menuSize = size;
+		this.menuSwapMode = true;
+		return true;
 	}
 
-	private void setSwapNotice(String text) {
-		this.swapNotice = text;
-		this.swapNoticeUntil = loopCycle + 250;      // ~5s at 50 ticks/s
+	/** Acts on a row of the swap menu. Nothing here ever performs a game action. */
+	private void applySwapChoice(int row) {
+		if (row <= 0 || row >= this.menuSize || this.swapRowKind[row] == null) {
+			return;                                         // Cancel, or a click that missed
+		}
+		String kind = this.swapRowKind[row];
+		String target = this.swapRowTarget[row];
+		String verb = this.swapRowVerb[row];
+		if (verb == null) {
+			MenuSwaps.remove(kind, target);
+			DevLog.log("SWAP", "reset " + target);
+			this.addMessage("", "Left-click on " + target + " is back to normal.", 0);
+			return;
+		}
+		if (MenuSwaps.add(kind, target, verb)) {
+			DevLog.log("SWAP", verb + " -> " + target);
+			this.addMessage("", verb + " is now the left-click on " + target + ".", 0);
+		} else {
+			this.addMessage("", "You can only have " + MenuSwaps.MAX
+				+ " left-click swaps. Remove one with F10 first.", 0);
+		}
 	}
 
 	private int swapPanelHeight() {
@@ -881,12 +1040,6 @@ public class Client extends GameShell {
 			}
 			int baseline = rowY + SWAP_PANEL_ROW_H - 4;
 			if (i == 0) {
-				boolean can = !MenuSwaps.full();
-				this.fontPlain12.drawString(x + 10, can ? 0x00C000 : 0x707070, baseline, "[+]");
-				this.fontPlain12.drawString(x + 36, can ? 0xFFFFFF : 0x909090, baseline,
-					can ? "Set a swap: pick an option off a right-click menu"
-						: "Swap list full - remove one below first");
-			} else if (i == 1) {
 				boolean can = MenuSwaps.count() > 0;
 				this.fontPlain12.drawString(x + 10, can ? 0xC00000 : 0x707070, baseline, "[x]");
 				this.fontPlain12.drawString(x + 36, can ? 0xFFFFFF : 0x909090, baseline, "Clear all swaps");
@@ -899,7 +1052,7 @@ public class Client extends GameShell {
 			}
 		}
 		String hint = MenuSwaps.count() == 0
-			? "No swaps yet. " + MenuSwaps.MAX + " can be stored."
+			? "Shift + right-click something to set one. " + MenuSwaps.MAX + " can be stored."
 			: "Click a swap: this target -> any of its kind -> removed.";
 		this.fontPlain12.drawString(x + 10, 0x9F9F9F, y + h - 8, hint);
 	}
@@ -927,37 +1080,10 @@ public class Client extends GameShell {
 			return;
 		}
 		if (row == 0) {
-			if (MenuSwaps.full()) {
-				this.setSwapNotice("Swap list is full (" + MenuSwaps.MAX + "). Remove one first.");
-				return;
-			}
-			this.swapArming = true;
-			this.swapPanelOpen = false;
-			this.setSwapNotice("Right-click something, then pick the option you want as the left-click.");
-		} else if (row == 1) {
 			MenuSwaps.clear();
-			this.setSwapNotice("All swaps cleared.");
 		} else {
 			MenuSwaps.cycle(row - SWAP_PANEL_ACTIONS);
 		}
-	}
-
-	/** The arming prompt and the result line, drawn across the top of the viewport. */
-	private void drawSwapNotice() {
-		String text = null;
-		if (this.swapArming) {
-			text = "@yel@Pick an option to make it the left-click. Esc to cancel.";
-		} else if (this.swapNotice.length() > 0 && loopCycle < this.swapNoticeUntil) {
-			text = "@whi@" + this.swapNotice;
-		}
-		if (text == null) {
-			return;
-		}
-		int w = this.fontBold12.stringWidTag(text) + 12;
-		int x = (512 - w) / 2;
-		Pix2D.fillRectTrans(0x000000, 6, w, 18, 190, x);
-		Pix2D.drawRect(6, 18, 0x8B7B5A, x, w);
-		this.fontBold12.centreStringTag(true, 256, 19, 0xFFFFFF, text);
 	}
 
 	private void drawGroundItems() {
@@ -5213,11 +5339,11 @@ public class Client extends GameShell {
 					var10 = var11;
 				}
 			}
-			// QoL: while capture is armed the pick is recorded, never performed. It disarms either
-			// way, including on a click that missed every row, so the mode cannot be got stuck in.
-			if (this.swapArming) {
-				this.swapArming = false;
-				this.setSwapNotice(this.recordMenuSwap(var10));
+			// QoL: a swap menu's rows configure, they never act. Cleared here rather than where it
+			// was set, so the mode cannot outlive the menu it belongs to.
+			if (this.menuSwapMode) {
+				this.menuSwapMode = false;
+				this.applySwapChoice(var10);
 			} else if (var10 != -1) {
 				this.useMenuOption(var10);
 			}
@@ -5866,7 +5992,6 @@ public class Client extends GameShell {
 					// QoL: the left-click swaps panel, on the same terms as the settings panel above.
 					if (key == SWAP_PANEL_KEY && this.ingame && QolSettings.on(QolSettings.MENU_SWAPPER)) {
 						this.swapPanelOpen = !this.swapPanelOpen;
-						this.swapArming = false;
 						if (this.swapPanelOpen) {
 							this.closeInterfaces();
 						}
@@ -5876,11 +6001,6 @@ public class Client extends GameShell {
 						if (key == GameShell.KEY_ESCAPE) {
 							this.swapPanelOpen = false;
 						}
-						continue;
-					}
-					if (this.swapArming && key == GameShell.KEY_ESCAPE) {
-						this.swapArming = false;
-						this.setSwapNotice("Cancelled.");
 						continue;
 					}
 
@@ -7897,8 +8017,6 @@ public class Client extends GameShell {
 		if (QolSettings.on(QolSettings.XP_DROPS)) {
 			this.drawXpDrops();
 		}
-		// QoL: the swap prompt / result line, under the panels but over everything else.
-		this.drawSwapNotice();
 		// Drawn last of the viewport overlays so the settings panels sit on top of everything else.
 		if (this.qolPanelOpen) {
 			this.drawQolPanel();
@@ -10815,6 +10933,13 @@ public class Client extends GameShell {
 
 	@ObfuscatedName("client.B(I)V")
 	public void showContextMenu() {
+		// QoL: Shift + right-click opens a menu of swaps to set instead of actions to take. Done
+		// here, at the moment of the right-click, so the every-frame menu is left alone - see
+		// buildSwapMenu(). menuSwapMode stays false if there was nothing swappable under the cursor.
+		this.menuSwapMode = false;
+		if (QolSettings.on(QolSettings.MENU_SWAPPER) && super.actionKey[GameShell.KEY_SHIFT] == 1) {
+			this.buildSwapMenu();
+		}
 		int var2 = this.fontBold12.stringWidTag("Choose Option");
 		for (int var3 = 0; var3 < this.menuSize; var3++) {
 			int var11 = this.fontBold12.stringWidTag(this.menuOption[var3]);
