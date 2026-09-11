@@ -120,6 +120,11 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 	// hotkeys). See Client.java for where these get consumed.
 	public static final int KEY_SHIFT = 6;
 	public static final int KEY_ESCAPE = 7;
+	// QoL: Alt is tracked as a held key for the ground item overlay. 11 because every lower value is
+	// taken - 1-4 are the arrow keys, 5 is Ctrl (already sent to the server as the run flag), 6 and 7
+	// are above, and 8/9/10 are backspace/tab/enter. Alt reports CHAR_UNDEFINED as its key char, so
+	// like Shift and Escape it only gets a value at all because the code is mapped below.
+	public static final int KEY_ALT = 11;
 	public boolean middleMouseDown;
 	private int middleMouseLastX;
 	private int middleMouseLastY;
@@ -483,6 +488,9 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 		} else if (code == 27) {
 			// QoL: Escape closes the current interface
 			ch = KEY_ESCAPE;
+		} else if (code == 18) {
+			// QoL: Alt held shows the ground item controls; double-tapped it toggles reveal
+			ch = KEY_ALT;
 		}
 
 		if (ch > 0 && ch < 128) {
@@ -527,6 +535,8 @@ public class GameShell extends Applet implements Runnable, MouseListener, MouseM
 			ch = KEY_SHIFT;
 		} else if (code == 27) {
 			ch = KEY_ESCAPE;
+		} else if (code == 18) {
+			ch = KEY_ALT;
 		}
 
 		if (ch > 0 && ch < 128) {

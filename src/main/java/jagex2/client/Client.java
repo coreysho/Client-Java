@@ -379,13 +379,30 @@ public class Client extends GameShell {
 	// at all, and why it has to be promoted by action rather than by name: the entry carries no
 	// target tag unless another player happens to be standing on the tile.
 	private static final int WALK_HERE_ACTION = 14;
+
+	// QoL: the ground item settings panel. F11 opens it, F12 peeks at what is hidden. Same shape as
+	// the swaps panel - GroundItemPrefs holds the values and the list, this holds the drawing.
+	private static final int GI_PANEL_KEY = 1018;   // F11
+	private static final int GI_PANEL_W = 340;
+	private static final int GI_PANEL_ROW_H = 15;
+	private static final int GI_PANEL_HEADER_H = 24;
+	private static final int GI_PANEL_FOOTER_H = 22;
+	private static final int GI_PANEL_ACTIONS = 3;  // radius, value floor, reveal - above the list
+	private boolean giPanelOpen;
 	private boolean swapPanelOpen;
 	// True while the open right-click menu is a swap menu rather than a real one. Set only inside
 	// showContextMenu(), so the every-frame menu that the left click, the tooltip and shift-drop all
 	// read is never rewritten - only the copy the player is looking at.
 	private boolean menuSwapMode;
-	// What each row of that swap menu would store. Parallel to menuOption while menuSwapMode is set;
-	// a null verb marks the row as "reset this target" rather than "set this verb".
+	// What each row of that swap menu does. Parallel to menuOption while menuSwapMode is set.
+	// swapRowOp says WHICH of the four things a row is - an explicit op rather than inferring it
+	// from a null verb, because the menu now configures two different features and "null means
+	// reset" stops being readable the moment there is a third meaning.
+	private static final int SWAP_ROW_SET = 0;
+	private static final int SWAP_ROW_RESET = 1;
+	private static final int SWAP_ROW_HIDE = 2;
+	private static final int SWAP_ROW_HIGHLIGHT = 3;
+	private final int[] swapRowOp = new int[500];
 	private final String[] swapRowKind = new String[500];
 	private final String[] swapRowTarget = new String[500];
 	private final String[] swapRowVerb = new String[500];
@@ -402,7 +419,9 @@ public class Client extends GameShell {
 	// player names, hitsplats and headicons, and all of those draw in draw2DEntityElements().
 	// Calling this immediately before that one puts the labels above the world and below the entity
 	// overlays, which is the order you want when someone is standing on top of a drop pile.
-	private static final int GROUND_ITEM_RADIUS = 12;
+	// Radius and the value floor now come from GroundItemPrefs (the player cycles them in the F11
+	// panel); what is left here is the geometry and the ceilings, which are about what the client
+	// can draw rather than about taste.
 	private static final int GROUND_ITEM_ROW_H = 12;
 	// Raises the label off the floor, in the same 1/128-of-a-tile units projectFromGround() takes.
 	// Roughly the height of a dropped item's model, so the text clears it instead of sitting in it.
@@ -418,10 +437,39 @@ public class Client extends GameShell {
 	private static final int[] GROUND_ITEM_TIERS = { 1000000, 100000, 10000, 1000 };
 	private static final int[] GROUND_ITEM_TIER_COLOURS = { 0xFF9040, 0x40C0FF, 0x40FF40, 0xFFFF80 };
 	private static final int GROUND_ITEM_COLOUR = 0xFFFFFF;
+	// Highlighted items ignore the tiers entirely - the point of highlighting a rune scimitar is that
+	// you spot it, not that you are reminded what it is worth. Magenta because none of the five tier
+	// colours is anywhere near it.
+	private static final int GROUND_ITEM_HIGHLIGHT = 0xFF40FF;
+	// What a hidden item looks like while the reveal toggle is on: visible, obviously suppressed.
+	private static final int GROUND_ITEM_HIDDEN = 0x707070;
+	// Hit box for one Alt control. Wider than the glyph on purpose - "-" is four pixels of ink and
+	// the labels are small, so a tight box would be a target you miss.
+	private static final int GI_CONTROL_W = 10;
+	private static final int GI_MINUS_COLOUR = 0xFF6060;
+	private static final int GI_PLUS_COLOUR = 0x60FF60;
 	// Scratch for merging duplicate stacks on a tile, reused for every tile of every frame so the
 	// overlay allocates nothing at all while it runs.
 	private final int[] groundItemIds = new int[GROUND_ITEM_MAX_PER_TILE];
 	private final int[] groundItemCounts = new int[GROUND_ITEM_MAX_PER_TILE];
+	// Hold Alt and every ground item label grows a [-] and a [+] you can click, and hidden items are
+	// shown so you can put them back. Double-tap Alt to leave them shown. Alt rather than an F-key
+	// because this is a modifier over the world, not a screen to open: the thing you want to hide is
+	// already under the cursor, and a hold means you never have to remember to turn it off again.
+	private static final int ALT_DOUBLE_TAP_MS = 400;
+	private boolean altDown;
+	private long altLastPress;
+	// Click targets for the labels drawn under Alt, in viewport-local coordinates. Rebuilt every
+	// frame by drawGroundItems(), read by handleMouseInput() - the click can only ever be tested
+	// against what was actually on screen when it happened.
+	private int giZoneCount;
+	private final String[] giZoneName = new String[GROUND_ITEM_MAX_LABELS];
+	private final int[] giZoneTop = new int[GROUND_ITEM_MAX_LABELS];
+	private final int[] giZoneBottom = new int[GROUND_ITEM_MAX_LABELS];
+	private final int[] giZoneMinusX = new int[GROUND_ITEM_MAX_LABELS];
+	private final int[] giZonePlusX = new int[GROUND_ITEM_MAX_LABELS];
+	private final int[] giZoneNameX = new int[GROUND_ITEM_MAX_LABELS];
+	private final int[] giZoneNameEndX = new int[GROUND_ITEM_MAX_LABELS];
 
 	private static final int CHAT_HISTORY_MAX = 10;
 	private final String[] chatHistory = new String[CHAT_HISTORY_MAX];
@@ -915,6 +963,7 @@ public class Client extends GameShell {
 		this.swapRowVerb[0] = null;
 		this.swapRowKind[0] = null;
 		this.swapRowTarget[0] = null;
+		this.swapRowOp[0] = SWAP_ROW_SET;
 		int size = 1;
 		// Walk-here rows go in first, so they draw at the BOTTOM of the menu (the array is stored
 		// bottom-to-top). That is where "do nothing to this" belongs: nearest Cancel, furthest from
@@ -939,6 +988,7 @@ public class Client extends GameShell {
 				this.swapRowKind[size] = kinds[i];
 				this.swapRowTarget[size] = targets[i];
 				this.swapRowVerb[size] = MenuSwaps.WALK;
+				this.swapRowOp[size] = SWAP_ROW_SET;
 				size++;
 			}
 		}
@@ -949,6 +999,7 @@ public class Client extends GameShell {
 			this.swapRowKind[size] = kinds[i];
 			this.swapRowTarget[size] = targets[i];
 			this.swapRowVerb[size] = verbs[i];
+			this.swapRowOp[size] = SWAP_ROW_SET;
 			size++;
 		}
 		// A reset row, only for targets that actually have a swap - offering to undo nothing is noise.
@@ -973,8 +1024,46 @@ public class Client extends GameShell {
 			this.menuAction[size] = 1016;
 			this.swapRowKind[size] = kinds[i];
 			this.swapRowTarget[size] = targets[i];
-			this.swapRowVerb[size] = null;                 // null verb = remove rather than set
+			this.swapRowVerb[size] = null;
+			this.swapRowOp[size] = SWAP_ROW_RESET;
 			size++;
+		}
+		// Ground item rules last, so they draw at the TOP of the menu: they are grouped, visible, and
+		// harmless if mis-clicked (nothing here performs a game action). Only for a world menu - the
+		// "hasWalk" test is what tells a viewport right-click from an inventory one, which matters
+		// because ground objs and inventory items share the @lre@ tag and cannot be told apart by it.
+		if (hasWalk && QolSettings.on(QolSettings.GROUND_ITEMS)) {
+			for (int i = 0; i < n; i++) {
+				if (!"lre".equals(kinds[i])) {
+					continue;
+				}
+				boolean dup = false;
+				for (int j = 0; j < i; j++) {
+					if ("lre".equals(kinds[j]) && targets[j].equalsIgnoreCase(targets[i])) {
+						dup = true;
+						break;
+					}
+				}
+				if (dup) {
+					continue;
+				}
+				boolean hidden = GroundItemPrefs.isHidden(targets[i]);
+				boolean lit = GroundItemPrefs.isHighlighted(targets[i]);
+				this.menuOption[size] = (hidden ? "Stop hiding @lre@" : "Hide @lre@") + targets[i];
+				this.swapRowKind[size] = kinds[i];
+				this.swapRowTarget[size] = targets[i];
+				this.swapRowVerb[size] = null;
+				this.swapRowOp[size] = SWAP_ROW_HIDE;
+				this.menuAction[size] = 1016;
+				size++;
+				this.menuOption[size] = (lit ? "Stop highlighting @lre@" : "Highlight @lre@") + targets[i];
+				this.swapRowKind[size] = kinds[i];
+				this.swapRowTarget[size] = targets[i];
+				this.swapRowVerb[size] = null;
+				this.swapRowOp[size] = SWAP_ROW_HIGHLIGHT;
+				this.menuAction[size] = 1016;
+				size++;
+			}
 		}
 		this.menuSize = size;
 		this.menuSwapMode = true;
@@ -989,7 +1078,23 @@ public class Client extends GameShell {
 		String kind = this.swapRowKind[row];
 		String target = this.swapRowTarget[row];
 		String verb = this.swapRowVerb[row];
-		if (verb == null) {
+		int op = this.swapRowOp[row];
+		if (op == SWAP_ROW_HIDE || op == SWAP_ROW_HIGHLIGHT) {
+			boolean hide = op == SWAP_ROW_HIDE;
+			int mode = hide ? GroundItemPrefs.HIDE : GroundItemPrefs.HIGHLIGHT;
+			boolean was = hide ? GroundItemPrefs.isHidden(target) : GroundItemPrefs.isHighlighted(target);
+			if (!GroundItemPrefs.toggle(target, mode)) {
+				this.addMessage("", "You can only have " + GroundItemPrefs.MAX
+					+ " ground item rules. Remove one with F11 first.", 0);
+				return;
+			}
+			DevLog.log("GROUND", (was ? "un" : "") + (hide ? "hide " : "highlight ") + target);
+			this.addMessage("", was
+				? (hide ? target + " is no longer hidden." : target + " is no longer highlighted.")
+				: (hide ? target + " will be hidden on the ground." : target + " will be highlighted on the ground."), 0);
+			return;
+		}
+		if (op == SWAP_ROW_RESET || verb == null) {
 			MenuSwaps.remove(kind, target);
 			DevLog.log("SWAP", "reset " + target);
 			this.addMessage("", "Left-click on " + target + " is back to normal.", 0);
@@ -1086,7 +1191,180 @@ public class Client extends GameShell {
 		}
 	}
 
+	private int giPanelHeight() {
+		return GI_PANEL_HEADER_H + (GI_PANEL_ACTIONS + GroundItemPrefs.count()) * GI_PANEL_ROW_H + GI_PANEL_FOOTER_H;
+	}
+
+	private int giPanelX() {
+		return (512 - GI_PANEL_W) / 2;
+	}
+
+	private int giPanelY() {
+		return (334 - this.giPanelHeight()) / 2;
+	}
+
+	/** Money the way a player reads it, for the value-floor row. */
+	private static String giGp(int v) {
+		if (v == 0) {
+			return "any value";
+		}
+		if (v >= 1000000) {
+			return (v / 1000000) + "m gp+";
+		}
+		if (v >= 1000) {
+			return (v / 1000) + "k gp+";
+		}
+		return v + " gp+";
+	}
+
+	/** Called with areaViewport bound, so coordinates here are viewport-local. */
+	private void drawGiPanel() {
+		int x = this.giPanelX();
+		int y = this.giPanelY();
+		int h = this.giPanelHeight();
+		int rows = GI_PANEL_ACTIONS + GroundItemPrefs.count();
+
+		Pix2D.fillRectTrans(0x000000, y, GI_PANEL_W, h, 200, x);
+		Pix2D.drawRect(y, h, 0x8B7B5A, x, GI_PANEL_W);
+
+		this.fontBold12.drawString(x + 10, 0xFFB000, y + 17, "Ground items");
+		String close = "F11 / Esc to close";
+		this.fontPlain12.drawString(x + GI_PANEL_W - 10 - this.fontPlain12.stringWid(close), 0x9F9F9F, y + 17, close);
+
+		int mouseX = super.mouseX - QOL_PANEL_ORIGIN;
+		int mouseY = super.mouseY - QOL_PANEL_ORIGIN;
+		for (int i = 0; i < rows; i++) {
+			int rowY = y + GI_PANEL_HEADER_H + i * GI_PANEL_ROW_H;
+			boolean hovered = mouseX >= x + 1 && mouseX < x + GI_PANEL_W - 1 && mouseY >= rowY && mouseY < rowY + GI_PANEL_ROW_H;
+			if (hovered) {
+				Pix2D.fillRectTrans(0xFFFFFF, rowY, GI_PANEL_W - 2, GI_PANEL_ROW_H, 30, x + 1);
+			}
+			int baseline = rowY + GI_PANEL_ROW_H - 4;
+			if (i == 0) {
+				this.fontPlain12.drawString(x + 10, 0x9F9F9F, baseline, "<>");
+				this.fontPlain12.drawString(x + 36, 0xFFFFFF, baseline, "Show items within");
+				this.fontPlain12.drawString(x + 200, 0xFFB000, baseline, GroundItemPrefs.radius() + " tiles");
+			} else if (i == 1) {
+				this.fontPlain12.drawString(x + 10, 0x9F9F9F, baseline, "<>");
+				this.fontPlain12.drawString(x + 36, 0xFFFFFF, baseline, "Only label piles worth");
+				this.fontPlain12.drawString(x + 200, 0xFFB000, baseline, giGp(GroundItemPrefs.minValue()));
+			} else if (i == 2) {
+				boolean on = GroundItemPrefs.showHidden();
+				this.fontPlain12.drawString(x + 10, on ? 0x00C000 : 0x707070, baseline, on ? "[X]" : "[  ]");
+				this.fontPlain12.drawString(x + 36, on ? 0xFFFFFF : 0x909090, baseline, "Reveal hidden items (double-tap Alt)");
+			} else {
+				int k = i - GI_PANEL_ACTIONS;
+				boolean hide = GroundItemPrefs.mode(k) == GroundItemPrefs.HIDE;
+				this.fontPlain12.drawString(x + 10, hide ? 0x707070 : 0xFF40FF, baseline, hide ? "hide" : "show");
+				this.fontPlain12.drawString(x + 60, hide ? 0x909090 : 0xFFFFFF, baseline, GroundItemPrefs.name(k));
+			}
+		}
+		String hint = GroundItemPrefs.count() == 0
+			? "Hold Alt and click the [-] or [+] on an item on the ground."
+			: "Click an item: hidden -> highlighted -> removed.";
+		this.fontPlain12.drawString(x + 10, 0x9F9F9F, y + h - 8, hint);
+	}
+
+	/** Consumes a click while the ground item panel is open, on the same terms as the other two. */
+	private void handleGiPanelInput() {
+		if (this.viewportInterfaceId != -1 || this.fullscreenInterfaceId0 != -1 || this.chatInterfaceId != -1) {
+			this.giPanelOpen = false;
+			return;
+		}
+		if (super.mouseClickButton == 0) {
+			return;
+		}
+		int x = this.giPanelX() + QOL_PANEL_ORIGIN;
+		int y = this.giPanelY() + QOL_PANEL_ORIGIN;
+		int clickX = super.mouseClickX;
+		int clickY = super.mouseClickY;
+		super.mouseClickButton = 0;
+
+		if (clickX < x || clickX >= x + GI_PANEL_W) {
+			return;
+		}
+		int row = (clickY - (y + GI_PANEL_HEADER_H)) / GI_PANEL_ROW_H;
+		if (clickY < y + GI_PANEL_HEADER_H || row < 0 || row >= GI_PANEL_ACTIONS + GroundItemPrefs.count()) {
+			return;
+		}
+		if (row == 0) {
+			GroundItemPrefs.cycleRadius();
+		} else if (row == 1) {
+			GroundItemPrefs.cycleMinValue();
+		} else if (row == 2) {
+			GroundItemPrefs.toggleShowHidden();
+		} else {
+			GroundItemPrefs.cycle(row - GI_PANEL_ACTIONS);
+		}
+	}
+
+	/**
+	 * Tracks Alt from the held-key state rather than the key queue, because a held key auto-repeats:
+	 * the queue sees a stream of presses and could not tell a genuine double-tap from someone
+	 * leaning on the key. actionKey stays 1 for the whole hold, so a rising edge is a real press.
+	 */
+	private void updateAltState() {
+		boolean down = super.actionKey[GameShell.KEY_ALT] == 1;
+		if (down && !this.altDown) {
+			long now = System.currentTimeMillis();
+			if (now - this.altLastPress < ALT_DOUBLE_TAP_MS) {
+				GroundItemPrefs.toggleShowHidden();
+				this.addMessage("", GroundItemPrefs.showHidden()
+					? "Showing hidden ground items." : "Hidden ground items are hidden again.", 0);
+				this.altLastPress = 0;          // a third tap starts a new pair, not another toggle
+			} else {
+				this.altLastPress = now;
+			}
+		}
+		this.altDown = down;
+	}
+
+	/**
+	 * A click on one of the Alt controls. Returns true when it hit something, in which case the
+	 * click is spent and must not also walk the player.
+	 */
+	private boolean handleGroundItemClick() {
+		int x = super.mouseClickX - QOL_PANEL_ORIGIN;
+		int y = super.mouseClickY - QOL_PANEL_ORIGIN;
+		for (int i = 0; i < this.giZoneCount; i++) {
+			if (y < this.giZoneTop[i] || y > this.giZoneBottom[i]) {
+				continue;
+			}
+			String name = this.giZoneName[i];
+			if (x >= this.giZoneMinusX[i] && x < this.giZoneMinusX[i] + GI_CONTROL_W) {
+				if (GroundItemPrefs.set(name, GroundItemPrefs.HIDE)) {
+					this.addMessage("", name + " will be hidden on the ground.", 0);
+				} else {
+					this.addMessage("", "You can only have " + GroundItemPrefs.MAX
+						+ " ground item rules. Remove one with F11 first.", 0);
+				}
+				return true;
+			}
+			if (x >= this.giZonePlusX[i] && x < this.giZonePlusX[i] + GI_CONTROL_W) {
+				this.addMessage("", GroundItemPrefs.removeName(name)
+					? name + " is back to normal." : name + " was already normal.", 0);
+				return true;
+			}
+			if (x >= this.giZoneNameX[i] && x < this.giZoneNameEndX[i]) {
+				boolean was = GroundItemPrefs.isHighlighted(name);
+				if (was) {
+					GroundItemPrefs.removeName(name);
+					this.addMessage("", name + " is no longer highlighted.", 0);
+				} else if (GroundItemPrefs.set(name, GroundItemPrefs.HIGHLIGHT)) {
+					this.addMessage("", name + " will be highlighted on the ground.", 0);
+				} else {
+					this.addMessage("", "You can only have " + GroundItemPrefs.MAX
+						+ " ground item rules. Remove one with F11 first.", 0);
+				}
+				return true;
+			}
+		}
+		return false;
+	}
+
 	private void drawGroundItems() {
+		this.updateAltState();
+		this.giZoneCount = 0;
 		ClientPlayer self = localPlayer;
 		if (self == null) {
 			return;
@@ -1094,19 +1372,25 @@ public class Client extends GameShell {
 		int level = this.currentLevel;
 		int centreX = self.field1157 >> 7;
 		int centreZ = self.field1158 >> 7;
-		int minX = centreX - GROUND_ITEM_RADIUS;
+		int radius = GroundItemPrefs.radius();
+		// Holding Alt reveals hidden items as well as offering the controls - otherwise a hidden
+		// item would have no [+] to click and could only be recovered from the F11 panel.
+		boolean alt = this.altDown;
+		boolean reveal = GroundItemPrefs.showHidden() || alt;
+		long floor = GroundItemPrefs.minValue();
+		int minX = centreX - radius;
 		if (minX < 0) {
 			minX = 0;
 		}
-		int minZ = centreZ - GROUND_ITEM_RADIUS;
+		int minZ = centreZ - radius;
 		if (minZ < 0) {
 			minZ = 0;
 		}
-		int maxX = centreX + GROUND_ITEM_RADIUS;
+		int maxX = centreX + radius;
 		if (maxX > 103) {
 			maxX = 103;
 		}
-		int maxZ = centreZ + GROUND_ITEM_RADIUS;
+		int maxZ = centreZ + radius;
 		if (maxZ > 103) {
 			maxZ = 103;
 		}
@@ -1169,15 +1453,55 @@ public class Client extends GameShell {
 						if (type.field853) {
 							value = (long) count * value;
 						}
-						int colour = GROUND_ITEM_COLOUR;
-						for (int tier = 0; tier < GROUND_ITEM_TIERS.length; tier++) {
-							if (value >= (long) GROUND_ITEM_TIERS[tier]) {
-								colour = GROUND_ITEM_TIER_COLOURS[tier];
-								break;
+						// The player's list is consulted on the BARE name, not the "x 500" label: a
+						// rule set on one coin has to keep applying to a pile of them.
+						int colour;
+						if (GroundItemPrefs.isHighlighted(type.field811)) {
+							colour = GROUND_ITEM_HIGHLIGHT;          // always shown, floor ignored
+						} else if (GroundItemPrefs.isHidden(type.field811)) {
+							if (!reveal) {
+								rowY += GROUND_ITEM_ROW_H;           // keep the slot, skip the label
+								continue;
+							}
+							colour = GROUND_ITEM_HIDDEN;
+						} else if (value < floor) {
+							rowY += GROUND_ITEM_ROW_H;
+							continue;
+						} else {
+							colour = GROUND_ITEM_COLOUR;
+							for (int tier = 0; tier < GROUND_ITEM_TIERS.length; tier++) {
+								if (value >= (long) GROUND_ITEM_TIERS[tier]) {
+									colour = GROUND_ITEM_TIER_COLOURS[tier];
+									break;
+								}
 							}
 						}
-						this.fontPlain11.centreString(this.projectX + 1, rowY + 1, 0x000000, label);
-						this.fontPlain11.centreString(this.projectX, rowY, colour, label);
+						if (alt && this.giZoneCount < GROUND_ITEM_MAX_LABELS) {
+							// [-] [+] Name, laid out from the left edge of what centreString would
+							// have drawn, so the row stays centred on the tile as it grows.
+							int nameW = this.fontPlain11.stringWid(label);
+							int totalW = GI_CONTROL_W * 2 + nameW;
+							int left = this.projectX - totalW / 2;
+							int plusX = left + GI_CONTROL_W;
+							int nameX = plusX + GI_CONTROL_W;
+							this.fontPlain11.drawString(left + 1, 0x000000, rowY + 1, "-");
+							this.fontPlain11.drawString(left, GI_MINUS_COLOUR, rowY, "-");
+							this.fontPlain11.drawString(plusX + 1, 0x000000, rowY + 1, "+");
+							this.fontPlain11.drawString(plusX, GI_PLUS_COLOUR, rowY, "+");
+							this.fontPlain11.drawString(nameX + 1, 0x000000, rowY + 1, label);
+							this.fontPlain11.drawString(nameX, colour, rowY, label);
+							int z = this.giZoneCount++;
+							this.giZoneName[z] = type.field811;
+							this.giZoneTop[z] = rowY - this.fontPlain11.height;
+							this.giZoneBottom[z] = rowY + 2;
+							this.giZoneMinusX[z] = left;
+							this.giZonePlusX[z] = plusX;
+							this.giZoneNameX[z] = nameX;
+							this.giZoneNameEndX[z] = nameX + nameW;
+						} else {
+							this.fontPlain11.centreString(this.projectX + 1, rowY + 1, 0x000000, label);
+							this.fontPlain11.centreString(this.projectX, rowY, colour, label);
+						}
 						drawn++;
 					}
 					rowY += GROUND_ITEM_ROW_H;
@@ -4821,6 +5145,10 @@ public class Client extends GameShell {
 			this.handleSwapPanelInput();
 			return;
 		}
+		if (this.giPanelOpen) {
+			this.handleGiPanelInput();
+			return;
+		}
 		if (this.fullscreenInterfaceId0 != -1) {
 			this.lastHoveredInterfaceId = 0;
 			this.field611 = 0;
@@ -5238,6 +5566,13 @@ public class Client extends GameShell {
 			var2 = 0;
 		}
 		if (!this.menuVisible) {
+			// QoL: a click on one of the Alt ground item controls configures and does nothing else.
+			// Checked before everything below so it cannot also walk the player; a click that misses
+			// every control falls through and behaves normally.
+			if (var2 == 1 && this.altDown && QolSettings.on(QolSettings.GROUND_ITEMS)
+				&& this.handleGroundItemClick()) {
+				return;
+			}
 			// QoL: shift-click an inventory item to drop it instantly, bypassing whatever its
 			// normal default left-click action (and the drag-to-reorder handling below) would be.
 			if (QolSettings.on(QolSettings.SHIFT_DROP) && var2 == 1 && super.actionKey[GameShell.KEY_SHIFT] == 1 && this.menuSize > 0) {
@@ -6001,6 +6336,27 @@ public class Client extends GameShell {
 						if (key == GameShell.KEY_ESCAPE) {
 							this.swapPanelOpen = false;
 						}
+						continue;
+					}
+					// QoL: the ground item panel, and the peek at what is hidden. Both gated on the
+					// feature's own QolSettings switch, so turning ground items off turns off the
+					// keys that only make sense with it on.
+					if (key == GI_PANEL_KEY && this.ingame && QolSettings.on(QolSettings.GROUND_ITEMS)) {
+						this.giPanelOpen = !this.giPanelOpen;
+						if (this.giPanelOpen) {
+							this.closeInterfaces();
+						}
+						continue;
+					}
+					if (this.giPanelOpen) {
+						if (key == GameShell.KEY_ESCAPE) {
+							this.giPanelOpen = false;
+						}
+						continue;
+					}
+					// Alt is read as a held key (updateAltState), never from the queue - swallow it here
+					// so an auto-repeating hold cannot fall through into chat or anything else.
+					if (key == GameShell.KEY_ALT) {
 						continue;
 					}
 
@@ -8023,6 +8379,9 @@ public class Client extends GameShell {
 		}
 		if (this.swapPanelOpen) {
 			this.drawSwapPanel();
+		}
+		if (this.giPanelOpen) {
+			this.drawGiPanel();
 		}
 		if (this.systemUpdateTimer != 0) {
 			int var10 = this.systemUpdateTimer / 50;
