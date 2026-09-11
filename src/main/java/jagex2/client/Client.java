@@ -350,6 +350,65 @@ public class Client extends GameShell {
 	private static final int QOL_PANEL_FOOTER_H = 22;
 	private boolean qolPanelOpen;
 
+	// QoL: player-configured left-click swaps. F10 opens the list; see MenuSwaps for what a swap is
+	// and how it is stored.
+	//
+	// WHY IT HOOKS MENU CONSTRUCTION AND NOT THE CLICK. The left-click action is menuOption[
+	// menuSize - 1] - the last entry appended, which drawMenu() renders as the TOP row (the array
+	// is stored bottom-to-top). drawTooltip() reads that same slot. So moving the chosen entry into
+	// it makes the hover text, the left click and the right-click menu order all agree at once,
+	// with no second place to keep in step. Redirecting the click instead would leave the tooltip
+	// still naming the old default.
+	//
+	// It runs at the very end of handleInput(), after the client's own >1000 priority sort, so a
+	// deliberate swap is not undone by it. That also means it does not run for fullscreen
+	// interfaces, which return early - no loss, there is nothing there worth swapping.
+	private static final int SWAP_PANEL_KEY = 1017; // F10
+	private static final int SWAP_PANEL_W = 340;
+	private static final int SWAP_PANEL_ROW_H = 15;
+	private static final int SWAP_PANEL_HEADER_H = 24;
+	private static final int SWAP_PANEL_FOOTER_H = 22;
+	private static final int SWAP_PANEL_ACTIONS = 2; // "set a swap" and "clear all", above the list
+	private boolean swapPanelOpen;
+	// Armed by the panel: the next menu row picked is recorded as a swap instead of being performed.
+	// One capture only - an input mode you can forget you are in is a trap, so it disarms itself.
+	private boolean swapArming;
+	private String swapNotice = "";
+	private int swapNoticeUntil;
+
+	// QoL: ground item names. Labels every obj lying on the ground within GROUND_ITEM_RADIUS tiles
+	// of the player, tinted by what the pile is worth.
+	//
+	// WHY A RADIUS AND NOT THE WHOLE SCENE. objStacks is [4][104][104]; walking all of it every
+	// frame is 10,816 null checks to find the handful of tiles that ever hold anything. A box
+	// around the player covers everything close enough to read - past about a dozen tiles the text
+	// is unreadably small and the item models themselves are nearly gone.
+	//
+	// WHY IT DRAWS FROM drawScene() AND NOT draw3DEntityElements(). Ground labels belong *under*
+	// player names, hitsplats and headicons, and all of those draw in draw2DEntityElements().
+	// Calling this immediately before that one puts the labels above the world and below the entity
+	// overlays, which is the order you want when someone is standing on top of a drop pile.
+	private static final int GROUND_ITEM_RADIUS = 12;
+	private static final int GROUND_ITEM_ROW_H = 12;
+	// Raises the label off the floor, in the same 1/128-of-a-tile units projectFromGround() takes.
+	// Roughly the height of a dropped item's model, so the text clears it instead of sitting in it.
+	private static final int GROUND_ITEM_HEIGHT = 24;
+	// Distinct obj ids labelled on one tile. A tile can legally hold more; beyond this the extra
+	// ids are dropped rather than drawn, because a column of 9+ labels is unreadable anyway.
+	private static final int GROUND_ITEM_MAX_PER_TILE = 8;
+	// Whole-frame ceiling, so a deliberately built pile of junk cannot turn the viewport into a
+	// wall of text (or make ObjType.get() the most expensive thing in the frame).
+	private static final int GROUND_ITEM_MAX_LABELS = 48;
+	// Value tiers, richest first, paired with the colour each one draws in. Two lined-up arrays
+	// rather than a chain of ifs so a threshold and its colour cannot drift apart.
+	private static final int[] GROUND_ITEM_TIERS = { 1000000, 100000, 10000, 1000 };
+	private static final int[] GROUND_ITEM_TIER_COLOURS = { 0xFF9040, 0x40C0FF, 0x40FF40, 0xFFFF80 };
+	private static final int GROUND_ITEM_COLOUR = 0xFFFFFF;
+	// Scratch for merging duplicate stacks on a tile, reused for every tile of every frame so the
+	// overlay allocates nothing at all while it runs.
+	private final int[] groundItemIds = new int[GROUND_ITEM_MAX_PER_TILE];
+	private final int[] groundItemCounts = new int[GROUND_ITEM_MAX_PER_TILE];
+
 	private static final int CHAT_HISTORY_MAX = 10;
 	private final String[] chatHistory = new String[CHAT_HISTORY_MAX];
 	private int chatHistoryCount;
@@ -688,6 +747,317 @@ public class Client extends GameShell {
 		}
 		QolSettings.toggle(row);
 		DevLog.log("QOL", QolSettings.label(row) + " -> " + (QolSettings.on(row) ? "on" : "off"));
+	}
+
+	/**
+	 * QoL: draws a name (and stack size) over every ground item near the player. Called from
+	 * drawScene() with areaViewport bound, so every coordinate here is viewport-local - the same
+	 * space projectFromGround() writes projectX/projectY in.
+	 *
+	 * Stacks of the same obj id on one tile are merged into a single "name x count" row. The server
+	 * pushes one ClientObj per drop, so three separate sets of bones on a tile arrive as three
+	 * entries; showing them as three identical lines would be noise.
+	 */
+	/**
+	 * Moves the player's preferred entry into the left-click slot. Called at the end of
+	 * handleInput(), with the menu fully built and already priority-sorted.
+	 */
+	private void applyMenuSwap() {
+		if (this.menuSize < 3 || MenuSwaps.count() == 0) {
+			return;                                  // Cancel plus one option: nothing to choose between
+		}
+		int best = -1;
+		int bestRule = Integer.MAX_VALUE;
+		boolean bestExact = false;
+		// Index 0 is always "Cancel" and has no target, so the scan can skip it.
+		for (int i = 1; i < this.menuSize - 1; i++) {
+			String option = this.menuOption[i];
+			int at = MenuSwaps.tagAt(option);
+			if (at < 0) {
+				continue;
+			}
+			int rule = MenuSwaps.match(MenuSwaps.parseKind(option, at), MenuSwaps.parseTarget(option, at),
+				MenuSwaps.parseVerb(option, at));
+			if (rule < 0) {
+				continue;
+			}
+			boolean exact = !MenuSwaps.isAny(rule);
+			// An exact-target rule wins over a wildcard; between two of the same kind the one added
+			// first wins, so the order in the panel is the order they are applied.
+			if ((exact && !bestExact) || ((exact == bestExact) && rule < bestRule)) {
+				best = i;
+				bestRule = rule;
+				bestExact = exact;
+			}
+		}
+		if (best < 0) {
+			return;
+		}
+		int top = this.menuSize - 1;
+		String o = this.menuOption[best];
+		this.menuOption[best] = this.menuOption[top];
+		this.menuOption[top] = o;
+		int v = this.menuAction[best];
+		this.menuAction[best] = this.menuAction[top];
+		this.menuAction[top] = v;
+		v = this.menuParamA[best];
+		this.menuParamA[best] = this.menuParamA[top];
+		this.menuParamA[top] = v;
+		v = this.menuParamB[best];
+		this.menuParamB[best] = this.menuParamB[top];
+		this.menuParamB[top] = v;
+		v = this.menuParamC[best];
+		this.menuParamC[best] = this.menuParamC[top];
+		this.menuParamC[top] = v;
+	}
+
+	/**
+	 * Turns the menu row the player just picked into a stored swap. Returns a message for the
+	 * notice line either way - a capture that quietly does nothing looks like a broken feature.
+	 */
+	private String recordMenuSwap(int row) {
+		if (row < 0 || row >= this.menuSize) {
+			return "Nothing picked.";
+		}
+		if (this.objSelected == 1 || this.spellSelected == 1) {
+			// The verb here is "Use <item> with" or a spell name - a one-off, not a preference.
+			return "Not while using an item or spell.";
+		}
+		String option = this.menuOption[row];
+		int at = MenuSwaps.tagAt(option);
+		if (at < 0) {
+			return "That option has no target to swap on.";
+		}
+		String verb = MenuSwaps.parseVerb(option, at);
+		String target = MenuSwaps.parseTarget(option, at);
+		if (verb.length() == 0 || target.length() == 0) {
+			return "That option has no target to swap on.";
+		}
+		if (!MenuSwaps.add(MenuSwaps.parseKind(option, at), target, verb)) {
+			return "Swap list is full (" + MenuSwaps.MAX + "). Remove one first.";
+		}
+		DevLog.log("SWAP", verb + " -> " + target);
+		return verb + " is now the left-click on " + target + ".";
+	}
+
+	private void setSwapNotice(String text) {
+		this.swapNotice = text;
+		this.swapNoticeUntil = loopCycle + 250;      // ~5s at 50 ticks/s
+	}
+
+	private int swapPanelHeight() {
+		return SWAP_PANEL_HEADER_H + (SWAP_PANEL_ACTIONS + MenuSwaps.count()) * SWAP_PANEL_ROW_H + SWAP_PANEL_FOOTER_H;
+	}
+
+	private int swapPanelX() {
+		return (512 - SWAP_PANEL_W) / 2;
+	}
+
+	private int swapPanelY() {
+		return (334 - this.swapPanelHeight()) / 2;
+	}
+
+	/** Called with areaViewport bound, so coordinates here are viewport-local. */
+	private void drawSwapPanel() {
+		int x = this.swapPanelX();
+		int y = this.swapPanelY();
+		int h = this.swapPanelHeight();
+		int rows = SWAP_PANEL_ACTIONS + MenuSwaps.count();
+
+		Pix2D.fillRectTrans(0x000000, y, SWAP_PANEL_W, h, 200, x);
+		Pix2D.drawRect(y, h, 0x8B7B5A, x, SWAP_PANEL_W);
+
+		this.fontBold12.drawString(x + 10, 0xFFB000, y + 17, "Left-click swaps");
+		String close = "F10 / Esc to close";
+		this.fontPlain12.drawString(x + SWAP_PANEL_W - 10 - this.fontPlain12.stringWid(close), 0x9F9F9F, y + 17, close);
+
+		int mouseX = super.mouseX - QOL_PANEL_ORIGIN;
+		int mouseY = super.mouseY - QOL_PANEL_ORIGIN;
+		for (int i = 0; i < rows; i++) {
+			int rowY = y + SWAP_PANEL_HEADER_H + i * SWAP_PANEL_ROW_H;
+			boolean hovered = mouseX >= x + 1 && mouseX < x + SWAP_PANEL_W - 1 && mouseY >= rowY && mouseY < rowY + SWAP_PANEL_ROW_H;
+			if (hovered) {
+				Pix2D.fillRectTrans(0xFFFFFF, rowY, SWAP_PANEL_W - 2, SWAP_PANEL_ROW_H, 30, x + 1);
+			}
+			int baseline = rowY + SWAP_PANEL_ROW_H - 4;
+			if (i == 0) {
+				boolean can = !MenuSwaps.full();
+				this.fontPlain12.drawString(x + 10, can ? 0x00C000 : 0x707070, baseline, "[+]");
+				this.fontPlain12.drawString(x + 36, can ? 0xFFFFFF : 0x909090, baseline,
+					can ? "Set a swap: pick an option off a right-click menu"
+						: "Swap list full - remove one below first");
+			} else if (i == 1) {
+				boolean can = MenuSwaps.count() > 0;
+				this.fontPlain12.drawString(x + 10, can ? 0xC00000 : 0x707070, baseline, "[x]");
+				this.fontPlain12.drawString(x + 36, can ? 0xFFFFFF : 0x909090, baseline, "Clear all swaps");
+			} else {
+				int k = i - SWAP_PANEL_ACTIONS;
+				this.fontPlain12.drawString(x + 10, 0x9F9F9F, baseline, ">");
+				this.fontPlain12.drawString(x + 36, 0xFFFFFF, baseline, MenuSwaps.verb(k));
+				String on = MenuSwaps.isAny(k) ? "any " + MenuSwaps.kindLabel(k) : MenuSwaps.target(k);
+				this.fontPlain12.drawString(x + 170, MenuSwaps.isAny(k) ? 0xFFB000 : 0xC8C8C8, baseline, "on " + on);
+			}
+		}
+		String hint = MenuSwaps.count() == 0
+			? "No swaps yet. " + MenuSwaps.MAX + " can be stored."
+			: "Click a swap: this target -> any of its kind -> removed.";
+		this.fontPlain12.drawString(x + 10, 0x9F9F9F, y + h - 8, hint);
+	}
+
+	/** Consumes a click while the swaps panel is open, on the same terms as the settings panel. */
+	private void handleSwapPanelInput() {
+		if (this.viewportInterfaceId != -1 || this.fullscreenInterfaceId0 != -1 || this.chatInterfaceId != -1) {
+			this.swapPanelOpen = false;
+			return;
+		}
+		if (super.mouseClickButton == 0) {
+			return;
+		}
+		int x = this.swapPanelX() + QOL_PANEL_ORIGIN;
+		int y = this.swapPanelY() + QOL_PANEL_ORIGIN;
+		int clickX = super.mouseClickX;
+		int clickY = super.mouseClickY;
+		super.mouseClickButton = 0;
+
+		if (clickX < x || clickX >= x + SWAP_PANEL_W) {
+			return;
+		}
+		int row = (clickY - (y + SWAP_PANEL_HEADER_H)) / SWAP_PANEL_ROW_H;
+		if (clickY < y + SWAP_PANEL_HEADER_H || row < 0 || row >= SWAP_PANEL_ACTIONS + MenuSwaps.count()) {
+			return;
+		}
+		if (row == 0) {
+			if (MenuSwaps.full()) {
+				this.setSwapNotice("Swap list is full (" + MenuSwaps.MAX + "). Remove one first.");
+				return;
+			}
+			this.swapArming = true;
+			this.swapPanelOpen = false;
+			this.setSwapNotice("Right-click something, then pick the option you want as the left-click.");
+		} else if (row == 1) {
+			MenuSwaps.clear();
+			this.setSwapNotice("All swaps cleared.");
+		} else {
+			MenuSwaps.cycle(row - SWAP_PANEL_ACTIONS);
+		}
+	}
+
+	/** The arming prompt and the result line, drawn across the top of the viewport. */
+	private void drawSwapNotice() {
+		String text = null;
+		if (this.swapArming) {
+			text = "@yel@Pick an option to make it the left-click. Esc to cancel.";
+		} else if (this.swapNotice.length() > 0 && loopCycle < this.swapNoticeUntil) {
+			text = "@whi@" + this.swapNotice;
+		}
+		if (text == null) {
+			return;
+		}
+		int w = this.fontBold12.stringWidTag(text) + 12;
+		int x = (512 - w) / 2;
+		Pix2D.fillRectTrans(0x000000, 6, w, 18, 190, x);
+		Pix2D.drawRect(6, 18, 0x8B7B5A, x, w);
+		this.fontBold12.centreStringTag(true, 256, 19, 0xFFFFFF, text);
+	}
+
+	private void drawGroundItems() {
+		ClientPlayer self = localPlayer;
+		if (self == null) {
+			return;
+		}
+		int level = this.currentLevel;
+		int centreX = self.field1157 >> 7;
+		int centreZ = self.field1158 >> 7;
+		int minX = centreX - GROUND_ITEM_RADIUS;
+		if (minX < 0) {
+			minX = 0;
+		}
+		int minZ = centreZ - GROUND_ITEM_RADIUS;
+		if (minZ < 0) {
+			minZ = 0;
+		}
+		int maxX = centreX + GROUND_ITEM_RADIUS;
+		if (maxX > 103) {
+			maxX = 103;
+		}
+		int maxZ = centreZ + GROUND_ITEM_RADIUS;
+		if (maxZ > 103) {
+			maxZ = 103;
+		}
+		int drawn = 0;
+		for (int tileX = minX; tileX <= maxX; tileX++) {
+			for (int tileZ = minZ; tileZ <= maxZ; tileZ++) {
+				if (drawn >= GROUND_ITEM_MAX_LABELS) {
+					return;
+				}
+				LinkList stack = this.objStacks[level][tileX][tileZ];
+				if (stack == null) {
+					continue;
+				}
+				// tail()/prev() rather than head()/next() to match every other walk of objStacks in
+				// this class, so the rows come out in the same order the right-click menu lists them.
+				int distinct = 0;
+				for (ClientObj obj = (ClientObj) stack.tail(); obj != null; obj = (ClientObj) stack.prev()) {
+					int at = -1;
+					for (int i = 0; i < distinct; i++) {
+						if (this.groundItemIds[i] == obj.field873) {
+							at = i;
+							break;
+						}
+					}
+					if (at >= 0) {
+						this.groundItemCounts[at] += obj.field875;
+					} else if (distinct < GROUND_ITEM_MAX_PER_TILE) {
+						this.groundItemIds[distinct] = obj.field873;
+						this.groundItemCounts[distinct] = obj.field875;
+						distinct++;
+					}
+				}
+				if (distinct == 0) {
+					continue;
+				}
+				this.projectFromGround((tileX << 7) + 64, GROUND_ITEM_HEIGHT, (tileZ << 7) + 64);
+				// -1 means behind the camera. The generous box around the 512x334 viewport is not
+				// for correctness - plotLetter() clips - but so a tile off to the side costs one
+				// comparison instead of an ObjType decode and a string build per row.
+				if (this.projectX <= -1 || this.projectX > 640 || this.projectY < -64 || this.projectY > 400) {
+					continue;
+				}
+				// Grow the column upwards: the last row lands on the tile, earlier ones stack above
+				// it, so the pile never covers the item models below it.
+				int rowY = this.projectY - (distinct - 1) * GROUND_ITEM_ROW_H;
+				for (int i = 0; i < distinct; i++) {
+					int count = this.groundItemCounts[i];
+					ObjType type = ObjType.get(this.groundItemIds[i]);
+					String label = type.field811;
+					if (label != null) {
+						if (count > 1) {
+							label = label + " x " + formatObjCount(count);
+						}
+						// field827 is the price of one. Deliberately count * price and NOT the
+						// (count + 1) * price sortObjStacks() uses: that +1 is a tie-break to make a
+						// stack of one outrank a non-stackable at the same price, and showing it to
+						// the player would just read as arithmetic the client got wrong. long because
+						// a merged stack times a high price overflows an int.
+						long value = type.field827;
+						if (type.field853) {
+							value = (long) count * value;
+						}
+						int colour = GROUND_ITEM_COLOUR;
+						for (int tier = 0; tier < GROUND_ITEM_TIERS.length; tier++) {
+							if (value >= (long) GROUND_ITEM_TIERS[tier]) {
+								colour = GROUND_ITEM_TIER_COLOURS[tier];
+								break;
+							}
+						}
+						this.fontPlain11.centreString(this.projectX + 1, rowY + 1, 0x000000, label);
+						this.fontPlain11.centreString(this.projectX, rowY, colour, label);
+						drawn++;
+					}
+					rowY += GROUND_ITEM_ROW_H;
+				}
+			}
+		}
 	}
 
 	private void drawXpDrops() {
@@ -3125,7 +3495,10 @@ public class Client extends GameShell {
 				}
 				this.login.p1(this.out.pos + 36 + 1 + 1 + 2);
 				this.login.p1(255);
-				this.login.p2(377);
+				// Build handshake, not the RS protocol revision - must match
+				// Environment.ENGINE_REVISION on the server, or login is refused with
+				// "your client is out of date". 378 = the walk-merge skeleton guard.
+				this.login.p2(378);
 				this.login.p1(lowMem ? 1 : 0);
 				for (int var11 = 0; var11 < 9; var11++) {
 					this.login.p4(this.jagChecksum[var11]);
@@ -4318,6 +4691,10 @@ public class Client extends GameShell {
 			this.handleQolPanelInput();
 			return;
 		}
+		if (this.swapPanelOpen) {
+			this.handleSwapPanelInput();
+			return;
+		}
 		if (this.fullscreenInterfaceId0 != -1) {
 			this.lastHoveredInterfaceId = 0;
 			this.field611 = 0;
@@ -4405,6 +4782,11 @@ public class Client extends GameShell {
 					var2 = false;
 				}
 			}
+		}
+		// QoL: player-configured left-click swaps, see applyMenuSwap(). Last thing in the method, so
+		// the client's own priority sort above cannot undo a swap the player asked for.
+		if (QolSettings.on(QolSettings.MENU_SWAPPER)) {
+			this.applyMenuSwap();
 		}
 	}
 
@@ -4831,7 +5213,12 @@ public class Client extends GameShell {
 					var10 = var11;
 				}
 			}
-			if (var10 != -1) {
+			// QoL: while capture is armed the pick is recorded, never performed. It disarms either
+			// way, including on a click that missed every row, so the mode cannot be got stuck in.
+			if (this.swapArming) {
+				this.swapArming = false;
+				this.setSwapNotice(this.recordMenuSwap(var10));
+			} else if (var10 != -1) {
 				this.useMenuOption(var10);
 			}
 			this.menuVisible = false;
@@ -5474,6 +5861,26 @@ public class Client extends GameShell {
 						if (key == GameShell.KEY_ESCAPE) {
 							this.qolPanelOpen = false;
 						}
+						continue;
+					}
+					// QoL: the left-click swaps panel, on the same terms as the settings panel above.
+					if (key == SWAP_PANEL_KEY && this.ingame && QolSettings.on(QolSettings.MENU_SWAPPER)) {
+						this.swapPanelOpen = !this.swapPanelOpen;
+						this.swapArming = false;
+						if (this.swapPanelOpen) {
+							this.closeInterfaces();
+						}
+						continue;
+					}
+					if (this.swapPanelOpen) {
+						if (key == GameShell.KEY_ESCAPE) {
+							this.swapPanelOpen = false;
+						}
+						continue;
+					}
+					if (this.swapArming && key == GameShell.KEY_ESCAPE) {
+						this.swapArming = false;
+						this.setSwapNotice("Cancelled.");
 						continue;
 					}
 
@@ -6852,6 +7259,11 @@ public class Client extends GameShell {
 		Pix2D.cls();
 		this.scene.draw(this.cameraX, var4, this.cameraY, this.cameraZ, this.cameraYaw, this.cameraPitch);
 		this.scene.clearLocChanges();
+		// QoL: ground item names, see drawGroundItems(). Here and not in draw3DEntityElements() so
+		// the labels sit under player names, hitsplats and headicons rather than over them.
+		if (QolSettings.on(QolSettings.GROUND_ITEMS)) {
+			this.drawGroundItems();
+		}
 		this.draw2DEntityElements();
 		this.drawTileHint();
 		this.updateTextures(var11);
@@ -7485,9 +7897,14 @@ public class Client extends GameShell {
 		if (QolSettings.on(QolSettings.XP_DROPS)) {
 			this.drawXpDrops();
 		}
-		// Drawn last of the viewport overlays so the settings panel sits on top of everything else.
+		// QoL: the swap prompt / result line, under the panels but over everything else.
+		this.drawSwapNotice();
+		// Drawn last of the viewport overlays so the settings panels sit on top of everything else.
 		if (this.qolPanelOpen) {
 			this.drawQolPanel();
+		}
+		if (this.swapPanelOpen) {
+			this.drawSwapPanel();
 		}
 		if (this.systemUpdateTimer != 0) {
 			int var10 = this.systemUpdateTimer / 50;

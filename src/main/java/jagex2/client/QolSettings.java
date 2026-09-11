@@ -49,12 +49,14 @@ public final class QolSettings {
 	public static final int WHEEL_CHAT = 10;
 	public static final int WHEEL_INTERFACE = 11;
 	public static final int XP_DROPS = 12;
+	public static final int GROUND_ITEMS = 13;
+	public static final int MENU_SWAPPER = 14;
 
 	/** Stable keys written to disk. NEVER rename one of these - it silently resets that setting. */
 	private static final String[] KEYS = {
 		"chat_history", "compass_north", "shift_drop", "space_continue", "dialogue_keys",
 		"bankpin_keys", "tab_reply", "esc_close", "mmb_camera", "wheel_zoom", "wheel_chat",
-		"wheel_interface", "xp_drops"
+		"wheel_interface", "xp_drops", "ground_items", "menu_swapper"
 	};
 
 	private static final String[] LABELS = {
@@ -62,13 +64,15 @@ public final class QolSettings {
 		"Space advances dialogue", "Number keys pick dialogue option", "Number keys for bank PIN",
 		"Tab replies to last PM", "Escape closes interfaces", "Middle-mouse camera drag",
 		"Scroll wheel zooms camera", "Scroll wheel scrolls chat", "Scroll wheel scrolls interfaces",
-		"XP drops"
+		"XP drops", "Ground item names", "Left-click swaps (F10)"
 	};
 
-	// Every default is ON, so a player who never opens the panel sees exactly the behaviour this
-	// client had before the panel existed. Introducing a switchboard should change nothing on its own.
+	// Every default is ON. For the twelve that predate this class that was the point - introducing a
+	// switchboard should not change what anyone sees. Features added since default ON too, on the
+	// grounds that a QoL feature nobody discovers is a QoL feature nobody has; the panel is one
+	// keypress away for anyone who wants it off.
 	private static final boolean[] DEFAULTS = {
-		true, true, true, true, true, true, true, true, true, true, true, true, true
+		true, true, true, true, true, true, true, true, true, true, true, true, true, true, true
 	};
 
 	public static final int COUNT = KEYS.length;
