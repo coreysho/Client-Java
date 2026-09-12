@@ -92,11 +92,51 @@ public class Component {
 	// Derived here rather than in the draw loop because the draw loop sees cells, not breaks.
 	public boolean[] invCellBreak;
 
+	// cell -> the slot a DROP on that cell should target, or -1. Differs from invCellSlot only on
+	// the blank cells that pad a tab out to the end of its row: those draw nothing, but dropping
+	// on them plainly means "put it in this tab", so they aim at that tab's last item. Without
+	// this, a drop on the empty space after a tab hit no slot, the client sent no packet at all,
+	// and the drag looked like it had simply been ignored.
+	public int[] invCellDrop;
+
+	// Bank search: when set (already lower-cased), the cell map shows only the slots whose obj name
+	// contains it, in slot order, across every tab - the window and the breaks are ignored while a
+	// search is active. Cells still map to REAL slots, so withdrawing from a search result works
+	// through the same packets as everything else.
+	public String invSearch;
+
 	public void rebuildCellMap() {
 		if (this.type != 2 && this.type != 7) {
 			return;
 		}
 		int cells = this.width * this.height;
+		if (this.invSearch != null && this.invSearch.length() > 0 && this.invSlotObjId != null) {
+			int[] map = new int[cells];
+			boolean[] rule = new boolean[cells];
+			int[] drop = new int[cells];
+			for (int i = 0; i < cells; i++) {
+				map[i] = -1;
+				drop[i] = -1;
+			}
+			int cell = 0;
+			for (int slot = 0; slot < this.invSlotObjId.length && cell < cells; slot++) {
+				int id = this.invSlotObjId[slot];
+				if (id <= 0) {
+					continue;
+				}
+				ObjType obj = ObjType.get(id - 1);
+				if (obj == null || obj.field811 == null || obj.field811.toLowerCase().indexOf(this.invSearch) == -1) {
+					continue;
+				}
+				map[cell] = slot;
+				drop[cell] = slot;
+				cell++;
+			}
+			this.invCellSlot = map;
+			this.invCellBreak = rule;
+			this.invCellDrop = drop;
+			return;
+		}
 		boolean windowed = this.invWindowCount >= 0;
 		boolean broken = false;
 		if (this.invBreaks != null) {
@@ -109,10 +149,15 @@ public class Component {
 		if (!windowed && !broken) {
 			this.invCellSlot = null;
 			this.invCellBreak = null;
+			this.invCellDrop = null;
 			return;
 		}
 		int[] map = new int[cells];
 		boolean[] rule = new boolean[cells];
+		int[] drop = new int[cells];
+		for (int i = 0; i < cells; i++) {
+			drop[i] = -1;
+		}
 		for (int i = 0; i < cells; i++) {
 			map[i] = -1;
 		}
@@ -126,7 +171,12 @@ public class Component {
 					// ones no-ops rather than inserting a blank row each
 					if (this.invBreaks[i] == slot && slot > first) {
 						if (cell % this.width != 0) {
-							cell += this.width - cell % this.width;
+							// the cells we are stepping over are this block's padding: aim them at its last item
+							int pad = cell + this.width - cell % this.width;
+							while (cell < pad && cell < cells) {
+								drop[cell] = slot - 1;
+								cell++;
+							}
 						}
 						if (cell < cells) {
 							rule[cell] = true;
@@ -137,10 +187,12 @@ public class Component {
 			if (cell >= cells) {
 				break;
 			}
+			drop[cell] = slot;
 			map[cell++] = slot;
 		}
 		this.invCellSlot = map;
 		this.invCellBreak = rule;
+		this.invCellDrop = drop;
 	}
 
 	@ObfuscatedName("EWIXBTLV.H")

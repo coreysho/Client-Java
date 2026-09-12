@@ -2050,6 +2050,12 @@ public class Client extends GameShell {
 	// without this having arrived first.
 	public int bankGridCom = -1;
 
+	// Bank search: the text typed into the search box, "" when no search is running. The box is
+	// chatbackInputOpen == 4, and unlike the amount and name prompts it stays open while the
+	// player clicks items, so a search can be withdrawn from. Purely client side - the server is
+	// never told, the grid just shows a different subset of the slots it already has.
+	public String bankSearchText = "";
+
 	@ObfuscatedName("client.hf")
 	public int membersAccount;
 
@@ -5179,12 +5185,79 @@ public class Client extends GameShell {
 		}
 	}
 
+	// Bank search: open the box if it is closed, close it (and drop the filter) if it is open.
+	public void toggleBankSearch() {
+		if (this.chatbackInputOpen == 4) {
+			this.chatbackInputOpen = 0;
+			this.bankSearchText = "";
+			this.applyBankSearch();
+		} else {
+			this.showSocialInput = false;
+			this.chatbackInputOpen = 4;
+			this.chatbackInput = "";
+			this.bankSearchText = "";
+			this.applyBankSearch();
+		}
+		this.redrawChatback = true;
+	}
+
+	// Bank search: push the current search text into the bank grid's cell map and re-fit the
+	// scroll layer to whatever is now showing. Same re-fit the IF_SETINVWINDOW / IF_SETINVBREAKS
+	// handlers do, because a search result is usually much shorter than the tab it replaced.
+	public void applyBankSearch() {
+		if (this.bankGridCom == -1) {
+			return;
+		}
+		Component grid = Component.get(this.bankGridCom);
+		if (grid == null) {
+			return;
+		}
+		grid.invSearch = this.bankSearchText.length() == 0 ? null : this.bankSearchText.toLowerCase();
+		grid.rebuildCellMap();
+		Component parent = Component.get(grid.layer);
+		if (parent != null && parent.type == 0) {
+			int rows;
+			if (grid.invCellSlot != null) {
+				int last = -1;
+				for (int i = 0; i < grid.invCellSlot.length; i++) {
+					if (grid.invCellSlot[i] >= 0) {
+						last = i;
+					}
+				}
+				rows = last / grid.width + 1;
+			} else {
+				rows = grid.height;
+			}
+			parent.scroll = grid.field741 + rows * (grid.marginY + 32);
+			if (parent.scroll < parent.height) {
+				parent.scroll = parent.height;
+			}
+			if (grid.invSearch != null) {
+				parent.field713 = 0;
+			}
+			if (parent.field713 > parent.scroll - parent.height) {
+				parent.field713 = parent.scroll - parent.height;
+			}
+		}
+		this.redrawSidebar = true;
+	}
+
 	@ObfuscatedName("client.w(I)V")
 	public void handleInput() {
 		if (this.objDragArea != 0) {
 			return;
 		}
 		this.bankTabHovered = -1;
+		// Bank search: whatever closed the box - the bank closing, an amount prompt replacing it,
+		// a packet resetting the chatback - the filter goes with it.
+		if (this.bankSearchText.length() > 0 && (this.chatbackInputOpen != 4 || this.viewportInterfaceId == -1)) {
+			this.bankSearchText = "";
+			this.applyBankSearch();
+		}
+		if (this.chatbackInputOpen == 4 && this.viewportInterfaceId == -1) {
+			this.chatbackInputOpen = 0;
+			this.redrawChatback = true;
+		}
 		this.menuOption[0] = "Cancel";
 		this.menuAction[0] = 1016;
 		this.menuSize = 1;
@@ -5655,6 +5728,12 @@ public class Client extends GameShell {
 					int var14 = this.menuParamB[this.menuSize - 1];
 					int var15 = this.menuParamC[this.menuSize - 1];
 					Component var16 = Component.get(var15);
+					if (var16.clientCode == 206 && this.bankSearchText.length() > 0) {
+						// Bank search: the visible cells are slots from every tab at once, so a drag
+						// between two of them would reorder the real list underneath the tab counts.
+						// OSRS locks rearranging while a search is up too.
+						return;
+					}
 					if (var16.draggable || var16.swappable) {
 						this.objGrabThreshold = false;
 						this.objDragCycles = 0;
@@ -6544,6 +6623,25 @@ public class Client extends GameShell {
 
 							this.chatbackInputOpen = 0;
 							this.redrawChatback = true;
+						}
+					} else if (this.chatbackInputOpen == 4) {
+						// Bank search box: filters as you type, Enter or Escape closes it
+						if (key >= 32 && key <= 122 && this.chatbackInput.length() < 20) {
+							this.chatbackInput = this.chatbackInput + (char) key;
+							this.bankSearchText = this.chatbackInput;
+							this.applyBankSearch();
+							this.redrawChatback = true;
+						}
+
+						if (key == 8 && this.chatbackInput.length() > 0) {
+							this.chatbackInput = this.chatbackInput.substring(0, this.chatbackInput.length() - 1);
+							this.bankSearchText = this.chatbackInput;
+							this.applyBankSearch();
+							this.redrawChatback = true;
+						}
+
+						if (key == 13 || key == 10 || key == 27) {
+							this.toggleBankSearch();
 						}
 					} else if (this.chatbackInputOpen == 3) {
 						if (key >= 32 && key <= 122 && this.chatbackInput.length() < 40) {
@@ -9571,6 +9669,9 @@ public class Client extends GameShell {
 						var72.invSlotObjCount[var73] = var75;
 					}
 				}
+				if (var71 == this.bankGridCom && this.bankSearchText.length() > 0) {
+					this.applyBankSearch();
+				}
 				this.ptype = -1;
 				return true;
 			}
@@ -9853,6 +9954,9 @@ public class Client extends GameShell {
 				for (int var112 = var109; var112 < var108.invSlotObjId.length; var112++) {
 					var108.invSlotObjId[var112] = 0;
 					var108.invSlotObjCount[var112] = 0;
+				}
+				if (var107 == this.bankGridCom && this.bankSearchText.length() > 0) {
+					this.applyBankSearch();
 				}
 				this.ptype = -1;
 				return true;
@@ -10319,6 +10423,21 @@ public class Client extends GameShell {
 				int var10001 = this.tabInterfaceId[this.selectedTab];
 				if (Component.get(var183).layer == var10001) {
 					this.redrawSidebar = true;
+				}
+				this.ptype = -1;
+				return true;
+			}
+
+			if (this.ptype == 8) {
+				// IF_SETINVOP - replace one of an inv component's five right-click option strings.
+				// The bank uses it to put the selected default quantity on the left click. Not an
+				// official 377 opcode; 8 was free.
+				int opCom = this.in.g2();
+				int opIndex = this.in.g1();
+				String opText = this.in.gjstr();
+				Component opTarget = Component.get(opCom);
+				if (opTarget != null && opTarget.iop != null && opIndex >= 1 && opIndex <= opTarget.iop.length) {
+					opTarget.iop[opIndex - 1] = opText.length() == 0 ? null : opText;
 				}
 				this.ptype = -1;
 				return true;
@@ -11528,7 +11647,9 @@ public class Client extends GameShell {
 		DevLog.log("ACTION", DevLog.stripTags(this.menuOption[arg0])
 			+ " | player=(" + (localPlayer.routeTileX[0] + this.sceneBaseTileX) + "," + (localPlayer.routeTileZ[0] + this.sceneBaseTileZ) + "," + this.currentLevel + ")"
 			+ " | " + this.describeMenuTarget(var5, var6, var3, var4));
-		if (this.chatbackInputOpen != 0 && var5 != 1016) {
+		// Bank search (chatbackInputOpen == 4) survives clicks: withdrawing from the results is the
+		// whole point of it. The amount and name prompts still close on any action as they did.
+		if (this.chatbackInputOpen != 0 && this.chatbackInputOpen != 4 && var5 != 1016) {
 			this.chatbackInputOpen = 0;
 			this.redrawChatback = true;
 		}
@@ -12285,9 +12406,15 @@ public class Client extends GameShell {
 		}
 		if (var5 == 518) {
 			// IF_BUTTON
+			Component var66 = Component.get(var4);
+			if (var66 != null && var66.clientCode >= 207 && var66.clientCode <= 215 && this.bankSearchText.length() > 0) {
+				// A bank tab was picked while a search was running. The search shows every tab at
+				// once and its cell map overrides the window the server is about to send, so the
+				// tab would appear to do nothing - close the search and let the tab win.
+				this.toggleBankSearch();
+			}
 			this.out.p1isaac(79);
 			this.out.p2(var4);
-			Component var66 = Component.get(var4);
 			if (var66.scripts != null && var66.scripts[0][0] == 5) {
 				int var67 = var66.scripts[0][1];
 				if (this.varps[var67] != var66.scriptOperand[0]) {
@@ -13305,6 +13432,7 @@ public class Client extends GameShell {
 					// it is what gets sent back as the drag target and as last_slot.
 					int var18 = 0;
 					int[] cellMap = var13.invCellSlot;
+					int[] dropMap = var13.invCellDrop;
 					for (int var19 = 0; var19 < var13.height; var19++) {
 						for (int var20 = 0; var20 < var13.width; var20++) {
 							int var21 = (var13.marginX + 32) * var20 + var14;
@@ -13314,21 +13442,25 @@ public class Client extends GameShell {
 								var22 += var13.invSlotOffsetY[var18];
 							}
 							if (arg5 >= var21 && arg7 >= var22 && arg5 < var21 + 32 && arg7 < var22 + 32) {
-									int hitSlot = cellMap == null ? var18 : (var18 < cellMap.length ? cellMap[var18] : -1);
+									// The drop map, not the draw map: a blank padding cell draws nothing but is still a
+									// legitimate place to drop something ("put it in this tab"). realSlot below stays the
+									// draw map, so the right-click menu is only ever built from a cell that holds an item.
+									int hitSlot = dropMap == null ? var18 : (var18 < dropMap.length ? dropMap[var18] : -1);
+									int realSlot = cellMap == null ? var18 : (var18 < cellMap.length ? cellMap[var18] : -1);
 									if (hitSlot < 0) {
 										var18++;
 										continue;
 									}
 									this.hoveredSlot = hitSlot;
 								this.hoveredSlotInterfaceId = var13.id;
-								if (var13.invSlotObjId[this.hoveredSlot] > 0) {
-									ObjType var23 = ObjType.get(var13.invSlotObjId[this.hoveredSlot] - 1);
+								if (realSlot >= 0 && var13.invSlotObjId[realSlot] > 0) {
+									ObjType var23 = ObjType.get(var13.invSlotObjId[realSlot] - 1);
 									if (this.objSelected == 1 && var13.interactable) {
-										if (this.objSelectedInterface != var13.id || this.objSelectedSlot != this.hoveredSlot) {
+										if (this.objSelectedInterface != var13.id || this.objSelectedSlot != realSlot) {
 											this.menuOption[this.menuSize] = "Use " + this.objSelectedName + " with @lre@" + var23.field811;
 											this.menuAction[this.menuSize] = 903;
 											this.menuParamA[this.menuSize] = var23.field845;
-											this.menuParamB[this.menuSize] = this.hoveredSlot;
+											this.menuParamB[this.menuSize] = realSlot;
 											this.menuParamC[this.menuSize] = var13.id;
 											this.menuSize++;
 										}
@@ -13344,14 +13476,14 @@ public class Client extends GameShell {
 														this.menuAction[this.menuSize] = 891;
 													}
 													this.menuParamA[this.menuSize] = var23.field845;
-													this.menuParamB[this.menuSize] = this.hoveredSlot;
+													this.menuParamB[this.menuSize] = realSlot;
 													this.menuParamC[this.menuSize] = var13.id;
 													this.menuSize++;
 												} else if (var24 == 4) {
 													this.menuOption[this.menuSize] = "Drop @lre@" + var23.field811;
 													this.menuAction[this.menuSize] = 891;
 													this.menuParamA[this.menuSize] = var23.field845;
-													this.menuParamB[this.menuSize] = this.hoveredSlot;
+													this.menuParamB[this.menuSize] = realSlot;
 													this.menuParamC[this.menuSize] = var13.id;
 													this.menuSize++;
 												}
@@ -13361,7 +13493,7 @@ public class Client extends GameShell {
 											this.menuOption[this.menuSize] = "Use @lre@" + var23.field811;
 											this.menuAction[this.menuSize] = 52;
 											this.menuParamA[this.menuSize] = var23.field845;
-											this.menuParamB[this.menuSize] = this.hoveredSlot;
+											this.menuParamB[this.menuSize] = realSlot;
 											this.menuParamC[this.menuSize] = var13.id;
 											this.menuSize++;
 										}
@@ -13379,7 +13511,7 @@ public class Client extends GameShell {
 														this.menuAction[this.menuSize] = 324;
 													}
 													this.menuParamA[this.menuSize] = var23.field845;
-													this.menuParamB[this.menuSize] = this.hoveredSlot;
+													this.menuParamB[this.menuSize] = realSlot;
 													this.menuParamC[this.menuSize] = var13.id;
 													this.menuSize++;
 												}
@@ -13405,7 +13537,7 @@ public class Client extends GameShell {
 														this.menuAction[this.menuSize] = 894;
 													}
 													this.menuParamA[this.menuSize] = var23.field845;
-													this.menuParamB[this.menuSize] = this.hoveredSlot;
+													this.menuParamB[this.menuSize] = realSlot;
 													this.menuParamC[this.menuSize] = var13.id;
 													this.menuSize++;
 												}
@@ -13414,14 +13546,14 @@ public class Client extends GameShell {
 										this.menuOption[this.menuSize] = "Examine @lre@" + var23.field811;
 										this.menuAction[this.menuSize] = 1094;
 										this.menuParamA[this.menuSize] = var23.field845;
-										this.menuParamB[this.menuSize] = this.hoveredSlot;
+										this.menuParamB[this.menuSize] = realSlot;
 										this.menuParamC[this.menuSize] = var13.id;
 										this.menuSize++;
 									} else if ((this.activeSpellFlags & 0x10) == 16) {
 										this.menuOption[this.menuSize] = this.spellCaption + " @lre@" + var23.field811;
 										this.menuAction[this.menuSize] = 361;
 										this.menuParamA[this.menuSize] = var23.field845;
-										this.menuParamB[this.menuSize] = this.hoveredSlot;
+										this.menuParamB[this.menuSize] = realSlot;
 										this.menuParamC[this.menuSize] = var13.id;
 										this.menuSize++;
 									}
@@ -13865,6 +13997,13 @@ public class Client extends GameShell {
 	@ObfuscatedName("client.a(ILEWIXBTLV;)Z")
 	public boolean handleInterfaceAction(Component arg1) {
 		int var3 = arg1.clientCode;
+		if (var3 == 221) {
+			// Bank search button. Returning false keeps the click off the wire entirely - the
+			// filter is a client-side view of an inv the client already has, so the server has
+			// nothing to do and no script to run.
+			this.toggleBankSearch();
+			return false;
+		}
 		if (this.friendlistStatus == 2) {
 			if (var3 == 201) {
 				this.redrawChatback = true;
@@ -14029,6 +14168,9 @@ public class Client extends GameShell {
 			this.fontBold12.centreString(239, 60, 128, this.chatbackInput + "*");
 		} else if (this.chatbackInputOpen == 2) {
 			this.fontBold12.centreString(239, 40, 0, "Enter name:");
+			this.fontBold12.centreString(239, 60, 128, this.chatbackInput + "*");
+		} else if (this.chatbackInputOpen == 4) {
+			this.fontBold12.centreString(239, 40, 0, "Show items whose names contain the following text:");
 			this.fontBold12.centreString(239, 60, 128, this.chatbackInput + "*");
 		} else if (this.chatbackInputOpen == 3) {
 			if (this.chatbackInput != this.field157) {
