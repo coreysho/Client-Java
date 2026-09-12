@@ -12641,7 +12641,12 @@ public class Client extends GameShell {
 												var23 = 0;
 											}
 											var26.transPlotSprite(var20 + var22, var21 + var23, 128);
-											if (var21 + var23 < Pix2D.top && arg2.field713 > 0) {
+											// Bank tabs: the bank grid does NOT auto-scroll while an item is being dragged. Carrying an
+											// item up to the tab row from the bottom of a long bank used to drag the whole list to the
+											// top with it, and the player had to scroll all the way back down after every filing.
+											// Every other scrollable inv keeps the behaviour - it is only unhelpful here because the
+											// drop target (the tab row) lives outside the scrolling layer.
+											if (var14.clientCode != 206 && var21 + var23 < Pix2D.top && arg2.field713 > 0) {
 												int var27 = (Pix2D.top - var21 - var23) * this.sceneDelta / 3;
 												if (var27 > this.sceneDelta * 10) {
 													var27 = this.sceneDelta * 10;
@@ -12652,7 +12657,7 @@ public class Client extends GameShell {
 												arg2.field713 -= var27;
 												this.objGrabY += var27;
 											}
-											if (var21 + var23 + 32 > Pix2D.bottom && arg2.field713 < arg2.scroll - arg2.height) {
+											if (var14.clientCode != 206 && var21 + var23 + 32 > Pix2D.bottom && arg2.field713 < arg2.scroll - arg2.height) {
 												int var28 = (var21 + var23 + 32 - Pix2D.bottom) * this.sceneDelta / 3;
 												if (var28 > this.sceneDelta * 10) {
 													var28 = this.sceneDelta * 10;
