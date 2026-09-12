@@ -10281,6 +10281,41 @@ public class Client extends GameShell {
 				return true;
 			}
 
+			if (this.ptype == 7) {
+				// IF_SETINVBREAKS - eight slot numbers at which the grid starts a fresh row, so the
+				// bank's "all items" view breaks between tabs instead of running them together.
+				int brkCom = this.in.g2();
+				int[] brk = new int[8];
+				for (int i = 0; i < 8; i++) {
+					brk[i] = this.in.g2();
+				}
+				Component brkTarget = Component.get(brkCom);
+				if (brkTarget != null) {
+					brkTarget.invBreaks = brk;
+					brkTarget.rebuildCellMap();
+					Component brkParent = Component.get(brkTarget.layer);
+					if (brkParent != null && brkParent.type == 0 && brkTarget.invCellSlot != null) {
+						// the breaks push items further down, so the scroll extent has to grow with them
+						int last = -1;
+						for (int i = 0; i < brkTarget.invCellSlot.length; i++) {
+							if (brkTarget.invCellSlot[i] >= 0) {
+								last = i;
+							}
+						}
+						int rows = last / brkTarget.width + 1;
+						brkParent.scroll = brkTarget.field741 + rows * (brkTarget.marginY + 32);
+						if (brkParent.scroll < brkParent.height) {
+							brkParent.scroll = brkParent.height;
+						}
+						if (brkParent.field713 > brkParent.scroll - brkParent.height) {
+							brkParent.field713 = brkParent.scroll - brkParent.height;
+						}
+					}
+				}
+				this.ptype = -1;
+				return true;
+			}
+
 			if (this.ptype == 4) {
 				// IF_SETINVWINDOW - show only part of a transmitted inv on a component.
 				// count < 0 restores the whole inv. The parent layer's scroll extent is resized to
@@ -10292,6 +10327,7 @@ public class Client extends GameShell {
 				if (winTarget != null) {
 					winTarget.invWindowFirst = winFirst;
 					winTarget.invWindowCount = winCount >= 0 && winCount < winTarget.width * winTarget.height ? winCount : -1;
+					winTarget.rebuildCellMap();
 					Component winParent = Component.get(winTarget.layer);
 					if (winParent != null && winParent.type == 0) {
 						int shown = winTarget.invWindowCount < 0 ? winTarget.width * winTarget.height : winTarget.invWindowCount;
@@ -12519,18 +12555,17 @@ public class Client extends GameShell {
 					// same thing for every component that has not been given a window, which is all of
 					// them except the bank grid - invWindowCount < 0 means "show the whole inv".
 					int var17 = 0;
-					int winFirst = var14.invWindowCount < 0 ? 0 : var14.invWindowFirst;
-					int winCount = var14.invWindowCount < 0 ? var14.width * var14.height : var14.invWindowCount;
+					int[] cellMap = var14.invCellSlot;
 					for (int var18 = 0; var18 < var14.height; var18++) {
 						for (int var19 = 0; var19 < var14.width; var19++) {
-							int invSlot = winFirst + var17;
+							int invSlot = cellMap == null ? var17 : (var17 < cellMap.length ? cellMap[var17] : -1);
 							int var20 = (var14.marginX + 32) * var19 + var15;
 							int var21 = (var14.marginY + 32) * var18 + var16;
 							if (var17 < 20) {
 								var20 += var14.invSlotOffsetX[var17];
 								var21 += var14.invSlotOffsetY[var17];
 							}
-							if (var17 < winCount && invSlot < var14.invSlotObjId.length && var14.invSlotObjId[invSlot] > 0) {
+							if (invSlot >= 0 && invSlot < var14.invSlotObjId.length && var14.invSlotObjId[invSlot] > 0) {
 								int var22 = 0;
 								int var23 = 0;
 								int var24 = var14.invSlotObjId[invSlot] - 1;
@@ -12589,7 +12624,7 @@ public class Client extends GameShell {
 										}
 									}
 								}
-							} else if (var14.invSlotGraphic != null && var17 < winCount && var17 < 20) {
+							} else if (var14.invSlotGraphic != null && invSlot >= 0 && var17 < 20) {
 								Pix32 var30 = var14.invSlotGraphic[var17];
 								if (var30 != null) {
 									var30.plotSprite(var21, var20);
@@ -13195,8 +13230,7 @@ public class Client extends GameShell {
 					// Bank tabs: the cell/slot split again. hoveredSlot must be the REAL slot, because
 					// it is what gets sent back as the drag target and as last_slot.
 					int var18 = 0;
-					int winFirst = var13.invWindowCount < 0 ? 0 : var13.invWindowFirst;
-					int winCount = var13.invWindowCount < 0 ? var13.width * var13.height : var13.invWindowCount;
+					int[] cellMap = var13.invCellSlot;
 					for (int var19 = 0; var19 < var13.height; var19++) {
 						for (int var20 = 0; var20 < var13.width; var20++) {
 							int var21 = (var13.marginX + 32) * var20 + var14;
@@ -13206,11 +13240,12 @@ public class Client extends GameShell {
 								var22 += var13.invSlotOffsetY[var18];
 							}
 							if (arg5 >= var21 && arg7 >= var22 && arg5 < var21 + 32 && arg7 < var22 + 32) {
-									if (var18 >= winCount) {
+									int hitSlot = cellMap == null ? var18 : (var18 < cellMap.length ? cellMap[var18] : -1);
+									if (hitSlot < 0) {
 										var18++;
 										continue;
 									}
-									this.hoveredSlot = winFirst + var18;
+									this.hoveredSlot = hitSlot;
 								this.hoveredSlotInterfaceId = var13.id;
 								if (var13.invSlotObjId[this.hoveredSlot] > 0) {
 									ObjType var23 = ObjType.get(var13.invSlotObjId[this.hoveredSlot] - 1);

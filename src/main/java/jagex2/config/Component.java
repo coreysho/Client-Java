@@ -77,6 +77,60 @@ public class Component {
 	public int invWindowFirst;
 	public int invWindowCount = -1;
 
+	// Slot numbers at which the grid should start a fresh row. Bank tabs use this so the
+	// "all items" view breaks between tabs the way OSRS does instead of running them together.
+	// Zeros mean no break, and a break at slot 0 is a no-op.
+	public int[] invBreaks;
+
+	// cell -> inventory slot, or -1 for a cell that draws nothing. Rebuilt whenever the window
+	// or the breaks change, and read by BOTH the draw loop and the hit test, so the two can never
+	// disagree about which item is where. null means the identity mapping, which is every
+	// component except the bank grid.
+	public int[] invCellSlot;
+
+	public void rebuildCellMap() {
+		if (this.type != 2 && this.type != 7) {
+			return;
+		}
+		int cells = this.width * this.height;
+		boolean windowed = this.invWindowCount >= 0;
+		boolean broken = false;
+		if (this.invBreaks != null) {
+			for (int i = 0; i < this.invBreaks.length; i++) {
+				if (this.invBreaks[i] > 0) {
+					broken = true;
+				}
+			}
+		}
+		if (!windowed && !broken) {
+			this.invCellSlot = null;
+			return;
+		}
+		int[] map = new int[cells];
+		for (int i = 0; i < cells; i++) {
+			map[i] = -1;
+		}
+		int first = windowed ? this.invWindowFirst : 0;
+		int count = windowed ? this.invWindowCount : cells;
+		int cell = 0;
+		for (int slot = first; slot < first + count && cell < cells; slot++) {
+			if (broken) {
+				for (int i = 0; i < this.invBreaks.length; i++) {
+					// several empty tabs can share a boundary; the column test makes the extra
+					// ones no-ops rather than inserting a blank row each
+					if (this.invBreaks[i] == slot && cell % this.width != 0) {
+						cell += this.width - cell % this.width;
+					}
+				}
+			}
+			if (cell >= cells) {
+				break;
+			}
+			map[cell++] = slot;
+		}
+		this.invCellSlot = map;
+	}
+
 	@ObfuscatedName("EWIXBTLV.H")
 	public static int contrast;
 
