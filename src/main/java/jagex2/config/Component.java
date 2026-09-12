@@ -88,6 +88,10 @@ public class Component {
 	// component except the bank grid.
 	public int[] invCellSlot;
 
+	// true for the first cell of each tab past the first, so the grid can rule a line above it.
+	// Derived here rather than in the draw loop because the draw loop sees cells, not breaks.
+	public boolean[] invCellBreak;
+
 	public void rebuildCellMap() {
 		if (this.type != 2 && this.type != 7) {
 			return;
@@ -104,9 +108,11 @@ public class Component {
 		}
 		if (!windowed && !broken) {
 			this.invCellSlot = null;
+			this.invCellBreak = null;
 			return;
 		}
 		int[] map = new int[cells];
+		boolean[] rule = new boolean[cells];
 		for (int i = 0; i < cells; i++) {
 			map[i] = -1;
 		}
@@ -118,8 +124,13 @@ public class Component {
 				for (int i = 0; i < this.invBreaks.length; i++) {
 					// several empty tabs can share a boundary; the column test makes the extra
 					// ones no-ops rather than inserting a blank row each
-					if (this.invBreaks[i] == slot && cell % this.width != 0) {
-						cell += this.width - cell % this.width;
+					if (this.invBreaks[i] == slot && slot > first) {
+						if (cell % this.width != 0) {
+							cell += this.width - cell % this.width;
+						}
+						if (cell < cells) {
+							rule[cell] = true;
+						}
 					}
 				}
 			}
@@ -129,6 +140,7 @@ public class Component {
 			map[cell++] = slot;
 		}
 		this.invCellSlot = map;
+		this.invCellBreak = rule;
 	}
 
 	@ObfuscatedName("EWIXBTLV.H")

@@ -2038,6 +2038,18 @@ public class Client extends GameShell {
 	// is indistinguishable from one dropped on empty chrome and is silently thrown away.
 	public int bankTabHovered = -1;
 
+	// Which bank tab a drag STARTED on, or -1. The existing drag machinery only ever begins on an
+	// inventory slot (objDragArea), so dragging a tab button needed its own fields rather than a
+	// reuse - a tab is not an inv slot and has no slot number to carry.
+	public int bankTabDragFrom = -1;
+	public int bankTabGrabX;
+	public int bankTabGrabY;
+
+	// The bank grid's component id, learned from the first IF_SETINVWINDOW the server sends for it.
+	// A tab-swap packet has to name a component the server will accept, and the bank cannot be open
+	// without this having arrived first.
+	public int bankGridCom = -1;
+
 	@ObfuscatedName("client.hf")
 	public int membersAccount;
 
@@ -4447,6 +4459,28 @@ public class Client extends GameShell {
 				}
 			}
 
+			// Bank tabs: a tab dragged onto another tab swaps the two. This is its own little drag
+			// loop because objDragArea only ever starts on an inventory slot, and it sits before that
+			// block so a tab drag is settled whether or not an item drag is also in flight.
+			//
+			// It rides INV_BUTTOND like the drop-on-a-tab gesture does, in a distinct mode range:
+			// 150 + (from - 1) * 8 + (to - 1), which for 1..8 x 1..8 is 150..213 and fits the byte.
+			// slot and targetSlot are both 0, which is a real occupied slot whenever any tab exists
+			// at all - the bank list is kept gapless - so the engine accepts the packet.
+			if (this.bankTabDragFrom >= 1 && super.mouseButton == 0) {
+				int tabFrom = this.bankTabDragFrom;
+				int tabTo = this.bankTabHovered;
+				this.bankTabDragFrom = -1;
+				boolean moved = super.mouseX > this.bankTabGrabX + 5 || super.mouseX < this.bankTabGrabX - 5 ||
+					super.mouseY > this.bankTabGrabY + 5 || super.mouseY < this.bankTabGrabY - 5;
+				if (moved && tabTo >= 1 && tabTo != tabFrom && this.bankGridCom != -1) {
+					this.out.p1isaac(123);
+					this.out.p2_alt3(0);
+					this.out.p1_alt1(150 + (tabFrom - 1) * 8 + tabTo - 1);
+					this.out.p2_alt2(this.bankGridCom);
+					this.out.p2_alt1(0);
+				}
+			}
 			if (this.objDragArea != 0) {
 				this.objDragCycles++;
 
@@ -5150,6 +5184,7 @@ public class Client extends GameShell {
 		if (this.objDragArea != 0) {
 			return;
 		}
+		this.bankTabHovered = -1;
 		this.menuOption[0] = "Cancel";
 		this.menuAction[0] = 1016;
 		this.menuSize = 1;
@@ -5605,6 +5640,14 @@ public class Client extends GameShell {
 					this.useMenuOption(dropIndex);
 					return;
 				}
+			}
+			// Bank tabs: a press on a numbered tab may be the start of a drag onto another tab. Record it
+			// and fall through - the click still selects the tab, and the release below decides whether the
+			// gesture was actually a drag.
+			if (var2 == 1 && this.bankTabHovered >= 1) {
+				this.bankTabDragFrom = this.bankTabHovered;
+				this.bankTabGrabX = super.mouseClickX;
+				this.bankTabGrabY = super.mouseClickY;
 			}
 			if (var2 == 1 && this.menuSize > 0) {
 				int var13 = this.menuAction[this.menuSize - 1];
@@ -10325,6 +10368,7 @@ public class Client extends GameShell {
 				int winCount = this.in.g2();
 				Component winTarget = Component.get(winCom);
 				if (winTarget != null) {
+					this.bankGridCom = winCom;
 					winTarget.invWindowFirst = winFirst;
 					winTarget.invWindowCount = winCount >= 0 && winCount < winTarget.width * winTarget.height ? winCount : -1;
 					winTarget.rebuildCellMap();
@@ -12565,6 +12609,13 @@ public class Client extends GameShell {
 								var20 += var14.invSlotOffsetX[var17];
 								var21 += var14.invSlotOffsetY[var17];
 							}
+							// Bank tabs: rule a line above the first row of each tab in the all-items view, so the
+							// break reads as a divider rather than as a gap somebody forgot to fill.
+							if (var14.invCellBreak != null && var17 < var14.invCellBreak.length && var14.invCellBreak[var17]) {
+								int ruleW = var14.width * (var14.marginX + 32) - var14.marginX;
+								Pix2D.hline(var15, 0x5a4f3d, var21 - 4, ruleW);
+								Pix2D.hline(var15, 0x2b2419, var21 - 3, ruleW);
+							}
 							if (invSlot >= 0 && invSlot < var14.invSlotObjId.length && var14.invSlotObjId[invSlot] > 0) {
 								int var22 = 0;
 								int var23 = 0;
@@ -12789,7 +12840,25 @@ public class Client extends GameShell {
 							var52 = var14.getModel(var53.field777[var14.field717], var53.field778[var14.field717], var50);
 						}
 						if (var52 != null) {
-							var52.method380(0, var14.yan, 0, var14.xan, 0, var48, var49);
+							// Bank tabs: centre obj icons on their own geometry.
+							//
+							// A model is built with its origin at the item's base and y running negative upwards, so
+							// drawing it at the component centre hangs the whole thing ABOVE the middle - and by a
+							// different amount for every item, which is why a row of tab icons looked scattered.
+							// field1709 is max(-y), the height above the origin, so lifting by half of it puts the
+							// model's middle on the component's middle. This is exactly what ObjType.method230 does
+							// for inventory icons (field1709 / 2 in the same argument); interface obj icons simply
+							// never got it.
+							//
+							// Gated on modelType 4 (set by IF_SETOBJECT), so plain model components - which are
+							// positioned by hand and already look right - are untouched. Other obj icons DO shift:
+							// the jewellery, cooking and leather windows will each sit a few pixels lower and
+							// centred, which is the same correction.
+							if (var14.modelType == 4) {
+								var52.method380(0, var14.yan, 0, var14.xan, 0, var52.field1709 / 2 + var48, var49);
+							} else {
+								var52.method380(0, var14.yan, 0, var14.xan, 0, var48, var49);
+							}
 						}
 						Pix3D.centerX = var46;
 						Pix3D.centerY = var47;
