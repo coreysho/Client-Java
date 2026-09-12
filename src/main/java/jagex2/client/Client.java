@@ -2033,6 +2033,11 @@ public class Client extends GameShell {
 	@ObfuscatedName("client.df")
 	public int hoveredSlotInterfaceId;
 
+	// Bank tabs: which bank tab the cursor is over, or -1. Set in handleInterfaceInput off the
+	// component clientCode, and read on drag release. Without it a drag dropped on a tab button
+	// is indistinguishable from one dropped on empty chrome and is silently thrown away.
+	public int bankTabHovered = -1;
+
 	@ObfuscatedName("client.hf")
 	public int membersAccount;
 
@@ -4462,9 +4467,22 @@ public class Client extends GameShell {
 
 					if (this.objGrabThreshold && this.objDragCycles >= 5) {
 						this.hoveredSlotInterfaceId = -1;
+						this.bankTabHovered = -1;
 						this.handleInput();
 
-						if (this.objDragInterfaceId == this.hoveredSlotInterfaceId && this.objDragSlot != this.hoveredSlot) {
+						// Bank tabs: dropped on a tab button rather than on another slot. The packet below
+						// carries ONE component and both slots are validated against that same inv server
+						// side, so a tab button can never be the target - the tab rides the mode byte, which
+						// the server used to decode and discard. Sending slot == targetSlot keeps the packet
+						// valid; the script reads last_dragmode and ignores the target.
+						if (this.bankTabHovered >= 0 && this.objDragInterfaceId != -1 && Component.get(this.objDragInterfaceId).clientCode == 206) {
+							this.out.p1isaac(123);
+							this.out.p2_alt3(this.objDragSlot);
+							this.out.p1_alt1(100 + this.bankTabHovered);
+							this.out.p2_alt2(this.objDragInterfaceId);
+							this.out.p2_alt1(this.objDragSlot);
+							this.bankTabHovered = -1;
+						} else if (this.objDragInterfaceId == this.hoveredSlotInterfaceId && this.objDragSlot != this.hoveredSlot) {
 							Component com = Component.get(this.objDragInterfaceId);
 
 							byte mode = 0;
@@ -10263,6 +10281,34 @@ public class Client extends GameShell {
 				return true;
 			}
 
+			if (this.ptype == 4) {
+				// IF_SETINVWINDOW - show only part of a transmitted inv on a component.
+				// count < 0 restores the whole inv. The parent layer's scroll extent is resized to
+				// fit, or a three-item bank tab would still scroll through forty empty rows.
+				int winCom = this.in.g2();
+				int winFirst = this.in.g2();
+				int winCount = this.in.g2();
+				Component winTarget = Component.get(winCom);
+				if (winTarget != null) {
+					winTarget.invWindowFirst = winFirst;
+					winTarget.invWindowCount = winCount >= 0 && winCount < winTarget.width * winTarget.height ? winCount : -1;
+					Component winParent = Component.get(winTarget.layer);
+					if (winParent != null && winParent.type == 0) {
+						int shown = winTarget.invWindowCount < 0 ? winTarget.width * winTarget.height : winTarget.invWindowCount;
+						int rows = (shown + winTarget.width - 1) / winTarget.width;
+						winParent.scroll = winTarget.field741 + rows * (winTarget.marginY + 32);
+						if (winParent.scroll < winParent.height) {
+							winParent.scroll = winParent.height;
+						}
+						if (winParent.field713 > winParent.scroll - winParent.height) {
+							winParent.field713 = winParent.scroll - winParent.height;
+						}
+					}
+				}
+				this.ptype = -1;
+				return true;
+			}
+
 			if (this.ptype == 200) {
 				// IF_SETSCROLLPOS
 				int var185 = this.in.g2();
@@ -12469,27 +12515,33 @@ public class Client extends GameShell {
 				}
 			} else if (var14.type != 1) {
 				if (var14.type == 2) {
+					// Bank tabs: var17 is the grid CELL, invSlot is the real inventory slot. They are the
+					// same thing for every component that has not been given a window, which is all of
+					// them except the bank grid - invWindowCount < 0 means "show the whole inv".
 					int var17 = 0;
+					int winFirst = var14.invWindowCount < 0 ? 0 : var14.invWindowFirst;
+					int winCount = var14.invWindowCount < 0 ? var14.width * var14.height : var14.invWindowCount;
 					for (int var18 = 0; var18 < var14.height; var18++) {
 						for (int var19 = 0; var19 < var14.width; var19++) {
+							int invSlot = winFirst + var17;
 							int var20 = (var14.marginX + 32) * var19 + var15;
 							int var21 = (var14.marginY + 32) * var18 + var16;
 							if (var17 < 20) {
 								var20 += var14.invSlotOffsetX[var17];
 								var21 += var14.invSlotOffsetY[var17];
 							}
-							if (var14.invSlotObjId[var17] > 0) {
+							if (var17 < winCount && invSlot < var14.invSlotObjId.length && var14.invSlotObjId[invSlot] > 0) {
 								int var22 = 0;
 								int var23 = 0;
-								int var24 = var14.invSlotObjId[var17] - 1;
-								if (var20 > Pix2D.left - 32 && var20 < Pix2D.right && var21 > Pix2D.top - 32 && var21 < Pix2D.bottom || this.objDragArea != 0 && this.objDragSlot == var17) {
+								int var24 = var14.invSlotObjId[invSlot] - 1;
+								if (var20 > Pix2D.left - 32 && var20 < Pix2D.right && var21 > Pix2D.top - 32 && var21 < Pix2D.bottom || this.objDragArea != 0 && this.objDragSlot == invSlot) {
 									int var25 = 0;
-									if (this.objSelected == 1 && this.objSelectedSlot == var17 && this.objSelectedInterface == var14.id) {
+									if (this.objSelected == 1 && this.objSelectedSlot == invSlot && this.objSelectedInterface == var14.id) {
 										var25 = 16777215;
 									}
-									Pix32 var26 = ObjType.method230(var25, var14.invSlotObjCount[var17], var24);
+									Pix32 var26 = ObjType.method230(var25, var14.invSlotObjCount[invSlot], var24);
 									if (var26 != null) {
-										if (this.objDragArea != 0 && this.objDragSlot == var17 && this.objDragInterfaceId == var14.id) {
+										if (this.objDragArea != 0 && this.objDragSlot == invSlot && this.objDragInterfaceId == var14.id) {
 											var22 = super.mouseX - this.objGrabX;
 											var23 = super.mouseY - this.objGrabY;
 											if (var22 < 5 && var22 > -5) {
@@ -12525,19 +12577,19 @@ public class Client extends GameShell {
 												arg2.field713 += var28;
 												this.objGrabY -= var28;
 											}
-										} else if (this.selectedArea != 0 && this.selectedItem == var17 && this.selectedInterface == var14.id) {
+										} else if (this.selectedArea != 0 && this.selectedItem == invSlot && this.selectedInterface == var14.id) {
 											var26.transPlotSprite(var20, var21, 128);
 										} else {
 											var26.plotSprite(var21, var20);
 										}
-										if (var26.owi == 33 || var14.invSlotObjCount[var17] != 1) {
-											int var29 = var14.invSlotObjCount[var17];
+										if (var26.owi == 33 || var14.invSlotObjCount[invSlot] != 1) {
+											int var29 = var14.invSlotObjCount[invSlot];
 											this.fontPlain11.drawString(var20 + 1 + var22, 0, var21 + 10 + var23, formatObjCount(var29));
 											this.fontPlain11.drawString(var20 + var22, 16776960, var21 + 9 + var23, formatObjCount(var29));
 										}
 									}
 								}
-							} else if (var14.invSlotGraphic != null && var17 < 20) {
+							} else if (var14.invSlotGraphic != null && var17 < winCount && var17 < 20) {
 								Pix32 var30 = var14.invSlotGraphic[var17];
 								if (var30 != null) {
 									var30.plotSprite(var21, var20);
@@ -13058,6 +13110,11 @@ public class Client extends GameShell {
 					this.lastHoveredInterfaceId = var13.id;
 				}
 			}
+			// Bank tabs: remember the tab under the cursor. 207..215 are the nine tab buttons;
+			// 206 is the bank grid itself, which the client already special-cases below.
+			if (var13.clientCode >= 207 && var13.clientCode <= 215 && arg5 >= var14 && arg7 >= var15 && arg5 < var13.width + var14 && arg7 < var13.height + var15) {
+				this.bankTabHovered = var13.clientCode - 207;
+			}
 			if (var13.type == 8 && arg5 >= var14 && arg7 >= var15 && arg5 < var13.width + var14 && arg7 < var13.height + var15) {
 				this.field611 = var13.id;
 			}
@@ -13135,7 +13192,11 @@ public class Client extends GameShell {
 					this.menuSize++;
 				}
 				if (var13.type == 2) {
+					// Bank tabs: the cell/slot split again. hoveredSlot must be the REAL slot, because
+					// it is what gets sent back as the drag target and as last_slot.
 					int var18 = 0;
+					int winFirst = var13.invWindowCount < 0 ? 0 : var13.invWindowFirst;
+					int winCount = var13.invWindowCount < 0 ? var13.width * var13.height : var13.invWindowCount;
 					for (int var19 = 0; var19 < var13.height; var19++) {
 						for (int var20 = 0; var20 < var13.width; var20++) {
 							int var21 = (var13.marginX + 32) * var20 + var14;
@@ -13145,16 +13206,20 @@ public class Client extends GameShell {
 								var22 += var13.invSlotOffsetY[var18];
 							}
 							if (arg5 >= var21 && arg7 >= var22 && arg5 < var21 + 32 && arg7 < var22 + 32) {
-								this.hoveredSlot = var18;
+									if (var18 >= winCount) {
+										var18++;
+										continue;
+									}
+									this.hoveredSlot = winFirst + var18;
 								this.hoveredSlotInterfaceId = var13.id;
-								if (var13.invSlotObjId[var18] > 0) {
-									ObjType var23 = ObjType.get(var13.invSlotObjId[var18] - 1);
+								if (var13.invSlotObjId[this.hoveredSlot] > 0) {
+									ObjType var23 = ObjType.get(var13.invSlotObjId[this.hoveredSlot] - 1);
 									if (this.objSelected == 1 && var13.interactable) {
-										if (this.objSelectedInterface != var13.id || this.objSelectedSlot != var18) {
+										if (this.objSelectedInterface != var13.id || this.objSelectedSlot != this.hoveredSlot) {
 											this.menuOption[this.menuSize] = "Use " + this.objSelectedName + " with @lre@" + var23.field811;
 											this.menuAction[this.menuSize] = 903;
 											this.menuParamA[this.menuSize] = var23.field845;
-											this.menuParamB[this.menuSize] = var18;
+											this.menuParamB[this.menuSize] = this.hoveredSlot;
 											this.menuParamC[this.menuSize] = var13.id;
 											this.menuSize++;
 										}
@@ -13170,14 +13235,14 @@ public class Client extends GameShell {
 														this.menuAction[this.menuSize] = 891;
 													}
 													this.menuParamA[this.menuSize] = var23.field845;
-													this.menuParamB[this.menuSize] = var18;
+													this.menuParamB[this.menuSize] = this.hoveredSlot;
 													this.menuParamC[this.menuSize] = var13.id;
 													this.menuSize++;
 												} else if (var24 == 4) {
 													this.menuOption[this.menuSize] = "Drop @lre@" + var23.field811;
 													this.menuAction[this.menuSize] = 891;
 													this.menuParamA[this.menuSize] = var23.field845;
-													this.menuParamB[this.menuSize] = var18;
+													this.menuParamB[this.menuSize] = this.hoveredSlot;
 													this.menuParamC[this.menuSize] = var13.id;
 													this.menuSize++;
 												}
@@ -13187,7 +13252,7 @@ public class Client extends GameShell {
 											this.menuOption[this.menuSize] = "Use @lre@" + var23.field811;
 											this.menuAction[this.menuSize] = 52;
 											this.menuParamA[this.menuSize] = var23.field845;
-											this.menuParamB[this.menuSize] = var18;
+											this.menuParamB[this.menuSize] = this.hoveredSlot;
 											this.menuParamC[this.menuSize] = var13.id;
 											this.menuSize++;
 										}
@@ -13205,7 +13270,7 @@ public class Client extends GameShell {
 														this.menuAction[this.menuSize] = 324;
 													}
 													this.menuParamA[this.menuSize] = var23.field845;
-													this.menuParamB[this.menuSize] = var18;
+													this.menuParamB[this.menuSize] = this.hoveredSlot;
 													this.menuParamC[this.menuSize] = var13.id;
 													this.menuSize++;
 												}
@@ -13231,7 +13296,7 @@ public class Client extends GameShell {
 														this.menuAction[this.menuSize] = 894;
 													}
 													this.menuParamA[this.menuSize] = var23.field845;
-													this.menuParamB[this.menuSize] = var18;
+													this.menuParamB[this.menuSize] = this.hoveredSlot;
 													this.menuParamC[this.menuSize] = var13.id;
 													this.menuSize++;
 												}
@@ -13240,14 +13305,14 @@ public class Client extends GameShell {
 										this.menuOption[this.menuSize] = "Examine @lre@" + var23.field811;
 										this.menuAction[this.menuSize] = 1094;
 										this.menuParamA[this.menuSize] = var23.field845;
-										this.menuParamB[this.menuSize] = var18;
+										this.menuParamB[this.menuSize] = this.hoveredSlot;
 										this.menuParamC[this.menuSize] = var13.id;
 										this.menuSize++;
 									} else if ((this.activeSpellFlags & 0x10) == 16) {
 										this.menuOption[this.menuSize] = this.spellCaption + " @lre@" + var23.field811;
 										this.menuAction[this.menuSize] = 361;
 										this.menuParamA[this.menuSize] = var23.field845;
-										this.menuParamB[this.menuSize] = var18;
+										this.menuParamB[this.menuSize] = this.hoveredSlot;
 										this.menuParamC[this.menuSize] = var13.id;
 										this.menuSize++;
 									}

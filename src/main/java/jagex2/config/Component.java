@@ -70,6 +70,13 @@ public class Component {
 	@ObfuscatedName("EWIXBTLV.G")
 	public int clientCode;
 
+	// Bank tabs: an inv component can be told to show only part of its inventory.
+	// invWindowCount < 0 means "the whole thing", which is the state every component
+	// starts in and every component except the bank grid stays in, so nothing else
+	// changes behaviour. Set by the IF_SETINVWINDOW packet; see Client.java.
+	public int invWindowFirst;
+	public int invWindowCount = -1;
+
 	@ObfuscatedName("EWIXBTLV.H")
 	public static int contrast;
 
