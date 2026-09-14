@@ -2056,6 +2056,12 @@ public class Client extends GameShell {
 	// never told, the grid just shows a different subset of the slots it already has.
 	public String bankSearchText = "";
 
+	// Bank tabs: true when the cell under the cursor is PADDING - one of the blanks between the end
+	// of a tab's items and the start of the next tab's row. It is still a drop target, but it means
+	// "put this on the end of that tab", not "insert it at that slot", and the two are not the same
+	// place: inserting at the tab's last item lands the dragged obj one short of the end.
+	public boolean hoveredSlotPad = false;
+
 	@ObfuscatedName("client.hf")
 	public int membersAccount;
 
@@ -4508,6 +4514,7 @@ public class Client extends GameShell {
 					if (this.objGrabThreshold && this.objDragCycles >= 5) {
 						this.hoveredSlotInterfaceId = -1;
 						this.bankTabHovered = -1;
+						this.hoveredSlotPad = false;
 						this.handleInput();
 
 						// Bank tabs: dropped on a tab button rather than on another slot. The packet below
@@ -4525,15 +4532,27 @@ public class Client extends GameShell {
 						} else if (this.objDragInterfaceId == this.hoveredSlotInterfaceId && this.objDragSlot != this.hoveredSlot) {
 							Component com = Component.get(this.objDragInterfaceId);
 
-							byte mode = 0;
+							int mode = 0;
 							if (this.bankArrangeMode == 1 && com.clientCode == 206) {
 								mode = 1;
 							}
 							if (com.invSlotObjId[this.hoveredSlot] <= 0) {
 								mode = 0;
 							}
+							boolean append = com.clientCode == 206 && this.hoveredSlotPad;
+							if (append) {
+								// Dropped on the blank space after a tab's items: append to that tab.
+								// The target slot is that tab's LAST item, which is all the server
+								// needs to work out which tab was meant.
+								mode = 220;
+							}
 
-							if (com.swappable) {
+							if (append) {
+								// Deliberately no optimistic update. The server moves a whole run and
+								// resends the inv; guessing here is what made a drag across a break
+								// flicker a different item into the next tab until the bank was
+								// closed and reopened.
+							} else if (com.swappable) {
 								int src = this.objDragSlot;
 								int dst = this.hoveredSlot;
 								com.invSlotObjId[dst] = com.invSlotObjId[src];
@@ -12752,7 +12771,14 @@ public class Client extends GameShell {
 									if (this.objSelected == 1 && this.objSelectedSlot == invSlot && this.objSelectedInterface == var14.id) {
 										var25 = 16777215;
 									}
-									Pix32 var26 = ObjType.method230(var25, var14.invSlotObjCount[invSlot], var24);
+									// Bank placeholders: a slot holding the obj with a count of ZERO. The engine's
+									// Inventory has no other way to say "this slot is spoken for but empty", so it
+									// arrives here as an ordinary item that happens to have none of itself. Build
+									// the icon as if there were one of it - a count of 0 would pick the wrong
+									// stack-size variant for anything that has them - then draw it faded, and
+									// suppress the number underneath, which would otherwise read "0".
+									boolean placeholder = var14.invSlotObjCount[invSlot] == 0;
+									Pix32 var26 = ObjType.method230(var25, placeholder ? 1 : var14.invSlotObjCount[invSlot], var24);
 									if (var26 != null) {
 										if (this.objDragArea != 0 && this.objDragSlot == invSlot && this.objDragInterfaceId == var14.id) {
 											var22 = super.mouseX - this.objGrabX;
@@ -12768,15 +12794,19 @@ public class Client extends GameShell {
 												var23 = 0;
 											}
 											var26.transPlotSprite(var20 + var22, var21 + var23, 128);
-											// Bank tabs: the bank grid does NOT auto-scroll while an item is being dragged. Carrying an
-											// item up to the tab row from the bottom of a long bank used to drag the whole list to the
-											// top with it, and the player had to scroll all the way back down after every filing.
-											// Every other scrollable inv keeps the behaviour - it is only unhelpful here because the
-											// drop target (the tab row) lives outside the scrolling layer.
-											if (var14.clientCode != 206 && var21 + var23 < Pix2D.top && arg2.field713 > 0) {
-												int var27 = (Pix2D.top - var21 - var23) * this.sceneDelta / 3;
-												if (var27 > this.sceneDelta * 10) {
-													var27 = this.sceneDelta * 10;
+											// Bank tabs: the bank grid auto-scrolls while an item is being dragged, but SLOWLY.
+											// At the normal rate, carrying an item up to the tab row from the bottom of a 51-row
+											// bank dragged the whole list to the top with it before the cursor got there, and the
+											// player had to scroll all the way back down after every filing - so it was switched
+											// off entirely for a while, which cost the ability to file into a tab you could not
+											// see. A quarter of the ramp and a fifth of the ceiling is the compromise: it still
+											// creeps to whatever is off screen, slowly enough to let go first.
+											int dragRate = var14.clientCode == 206 ? 12 : 3;
+											int dragCap = var14.clientCode == 206 ? this.sceneDelta * 2 : this.sceneDelta * 10;
+											if (var21 + var23 < Pix2D.top && arg2.field713 > 0) {
+												int var27 = (Pix2D.top - var21 - var23) * this.sceneDelta / dragRate;
+												if (var27 > dragCap) {
+													var27 = dragCap;
 												}
 												if (var27 > arg2.field713) {
 													var27 = arg2.field713;
@@ -12784,10 +12814,10 @@ public class Client extends GameShell {
 												arg2.field713 -= var27;
 												this.objGrabY += var27;
 											}
-											if (var14.clientCode != 206 && var21 + var23 + 32 > Pix2D.bottom && arg2.field713 < arg2.scroll - arg2.height) {
-												int var28 = (var21 + var23 + 32 - Pix2D.bottom) * this.sceneDelta / 3;
-												if (var28 > this.sceneDelta * 10) {
-													var28 = this.sceneDelta * 10;
+											if (var21 + var23 + 32 > Pix2D.bottom && arg2.field713 < arg2.scroll - arg2.height) {
+												int var28 = (var21 + var23 + 32 - Pix2D.bottom) * this.sceneDelta / dragRate;
+												if (var28 > dragCap) {
+													var28 = dragCap;
 												}
 												if (var28 > arg2.scroll - arg2.height - arg2.field713) {
 													var28 = arg2.scroll - arg2.height - arg2.field713;
@@ -12797,10 +12827,12 @@ public class Client extends GameShell {
 											}
 										} else if (this.selectedArea != 0 && this.selectedItem == invSlot && this.selectedInterface == var14.id) {
 											var26.transPlotSprite(var20, var21, 128);
+										} else if (placeholder) {
+											var26.transPlotSprite(var20, var21, 70);
 										} else {
 											var26.plotSprite(var21, var20);
 										}
-										if (var26.owi == 33 || var14.invSlotObjCount[invSlot] != 1) {
+										if (!placeholder && (var26.owi == 33 || var14.invSlotObjCount[invSlot] != 1)) {
 											int var29 = var14.invSlotObjCount[invSlot];
 											this.fontPlain11.drawString(var20 + 1 + var22, 0, var21 + 10 + var23, formatObjCount(var29));
 											this.fontPlain11.drawString(var20 + var22, 16776960, var21 + 9 + var23, formatObjCount(var29));
@@ -13452,6 +13484,7 @@ public class Client extends GameShell {
 										continue;
 									}
 									this.hoveredSlot = hitSlot;
+									this.hoveredSlotPad = realSlot < 0;
 								this.hoveredSlotInterfaceId = var13.id;
 								if (realSlot >= 0 && var13.invSlotObjId[realSlot] > 0) {
 									ObjType var23 = ObjType.get(var13.invSlotObjId[realSlot] - 1);
@@ -13517,7 +13550,18 @@ public class Client extends GameShell {
 												}
 											}
 										}
-										if (var13.iop != null) {
+										if (var13.iop != null && var13.invSlotObjCount[realSlot] == 0) {
+											// Bank placeholders: the stub is not a stack you can take any of, so the
+											// five Withdraw entries are replaced by the one thing you can do to it.
+											// It rides op 1, so [inv_button1] is where the script picks it up - and
+											// the script has to test for a placeholder BEFORE it withdraws.
+											this.menuOption[this.menuSize] = "Release @lre@" + var23.field811;
+											this.menuAction[this.menuSize] = 9;
+											this.menuParamA[this.menuSize] = var23.field845;
+											this.menuParamB[this.menuSize] = realSlot;
+											this.menuParamC[this.menuSize] = var13.id;
+											this.menuSize++;
+										} else if (var13.iop != null) {
 											for (int var26 = 4; var26 >= 0; var26--) {
 												if (var13.iop[var26] != null) {
 													this.menuOption[this.menuSize] = var13.iop[var26] + " @lre@" + var23.field811;
