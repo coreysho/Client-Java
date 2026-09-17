@@ -1,0 +1,347 @@
+// Shell for tools/clienttests/run_menutest.py. The declarations and the six methods under test are
+// spliced in from jagex2/client/Client.java at run time - everything below them is the harness.
+import jagex2.client.QolSettings;
+import jagex2.client.GameShell;
+import jagex2.graphics.Pix2D;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/** What the extracted methods reach for with super. */
+class MenuShellBase {
+	public int[] actionKey = new int[128];
+	public int mouseX;
+	public int mouseY;
+	public int mouseClickX;
+	public int mouseClickY;
+	public int mouseScrollDelta;
+}
+
+/** One drawn row, as the font saw it. */
+class MenuRow {
+	final int x;
+	final int y;
+	final int colour;
+	final String text;
+
+	MenuRow(int x, int y, int colour, String text) {
+		this.x = x;
+		this.y = y;
+		this.colour = colour;
+		this.text = text;
+	}
+
+	public String toString() {
+		return text + "@" + y;
+	}
+}
+
+/** The one stub: PixFont needs a Jagfile, and recording the draws IS the measurement. */
+class MenuFontStub {
+	public int height = 12;
+	final List<MenuRow> rows = new ArrayList<MenuRow>();
+	final List<String> plain = new ArrayList<String>();
+
+	public int stringWidTag(String s) {
+		return s.length() * 6;
+	}
+
+	public void drawString(int x, int colour, int y, String s) {
+		plain.add(s);
+	}
+
+	public void drawStringTag(int colour, int x, int y, boolean shadow, String s) {
+		rows.add(new MenuRow(x, y, colour, s));
+	}
+}
+
+public class MenuTest extends MenuShellBase {
+
+	// @@DECLS@@
+
+	// @@METHODS@@
+
+	// ------------------------------------------------------------------ the collaborators
+	MenuFontStub fontBold12 = new MenuFontStub();
+	boolean redrawSidebar;
+	boolean redrawChatback;
+
+	/**
+	 * Shift + right-click builds a menu of swaps instead of actions. A no-op here: this harness is
+	 * about the menu's geometry, and every test leaves Shift up so the real one would not be called
+	 * either.
+	 */
+	void buildSwapMenu() {
+	}
+
+	static int[] buf = new int[520 * 340];
+
+	// ------------------------------------------------------------------ the fixture
+	/** A menu of n rows: "Cancel" at index 0 and "Take n" upward, which is how the client fills it. */
+	MenuTest menu(int n) {
+		this.menuOption = new String[500];
+		this.menuOption[0] = "Cancel";
+		for (int i = 1; i < n; i++) {
+			this.menuOption[i] = "Take item " + i;
+		}
+		this.menuSize = n;
+		return this;
+	}
+
+	/** Right-click at a point inside one of the three areas. */
+	void openAt(int x, int y) {
+		this.mouseClickX = x;
+		this.mouseClickY = y;
+		this.showContextMenu();
+	}
+
+	List<MenuRow> redraw() {
+		this.fontBold12.rows.clear();
+		java.util.Arrays.fill(buf, 0);
+		Pix2D.bind(520, 340, buf);
+		this.drawMenu();
+		return this.fontBold12.rows;
+	}
+
+	static int pass;
+	static int fail;
+
+	static void check(boolean ok, String what) {
+		if (ok) {
+			pass++;
+			System.out.println("  ok   " + what);
+		} else {
+			fail++;
+			System.out.println("FAIL   " + what);
+		}
+	}
+
+	/**
+	 * Pixels of one exact colour. Not "any pixel", which is what the ground-item harness can ask:
+	 * there the font is the only painter, and here drawMenu() paints its own box and border first.
+	 */
+	static int painted(int colour) {
+		int n = 0;
+		for (int i = 0; i < buf.length; i++) {
+			if (buf[i] == colour) {
+				n++;
+			}
+		}
+		return n;
+	}
+
+	static int bar() {
+		return painted(GI_BAR_TRACK) + painted(GI_BAR_THUMB);
+	}
+
+	static int thumbTop() {
+		for (int y = 0; y < 340; y++) {
+			for (int x = 0; x < 520; x++) {
+				if (buf[y * 520 + x] == GI_BAR_THUMB) {
+					return y;
+				}
+			}
+		}
+		return -1;
+	}
+
+	/** The x of the right-most bar pixel, or -1. */
+	static int paintedRight() {
+		for (int x = 519; x >= 0; x--) {
+			for (int y = 0; y < 340; y++) {
+				int px = buf[y * 520 + x];
+				if (px == GI_BAR_TRACK || px == GI_BAR_THUMB) {
+					return x;
+				}
+			}
+		}
+		return -1;
+	}
+
+	public static void main(String[] args) {
+		System.out.println("1. a menu taller than its area is capped, not drawn off the edge");
+		capTests();
+		System.out.println("2. a short menu is exactly what it was");
+		shortTests();
+		System.out.println("3. the wheel moves the window");
+		wheelTests();
+		System.out.println("4. every row can be reached");
+		reachTests();
+		System.out.println("5. the scroll bar");
+		barTests();
+		System.out.println();
+		System.out.println(fail == 0 ? (pass + " CHECKS, ALL PASS")
+			: (fail + " FAILED of " + (pass + fail)));
+		System.exit(fail == 0 ? 0 : 1);
+	}
+
+	// ---------------------------------------------------------------- 1
+	static void capTests() {
+		MenuTest c = new MenuTest().menu(30);
+		c.openAt(200, 100);
+		check(c.menuVisible && c.menuArea == 0, "a right-click in the viewport opens a menu there");
+		check(c.menuRowsShown == 20,
+			"thirty rows in the 334px viewport show 20 (" + c.menuRowsShown + ")");
+		check(c.menuY >= 0 && c.menuY + c.menuHeight <= 334,
+			"...and the whole menu is inside the area: y " + c.menuY + " + h " + c.menuHeight);
+		List<MenuRow> r = c.redraw();
+		check(r.size() == 20, "twenty rows are drawn, not thirty (" + r.size() + ")");
+		check(!r.isEmpty() && r.get(0).text.equals(c.menuOption[29]),
+			"...the top row is the last entry appended, which is the left-click action");
+		boolean cancel = false;
+		for (MenuRow row : r) {
+			if (row.text.equals("Cancel")) {
+				cancel = true;
+			}
+		}
+		check(!cancel, "...and Cancel, which is the BOTTOM of the array, is off the end of the "
+			+ "window - clicking away from the menu is what cancels");
+		// The reset has to be tested on a client that has already scrolled something: menuScroll is
+		// a field of the client, not of the menu, so "it happens to be zero on a fresh object"
+		// proves nothing - and the first version of this check proved exactly that.
+		c.mouseScrollDelta = 4;
+		c.handleMenuScroll();
+		check(c.menuScroll == 4, "scrolling a menu moves it");
+		c.menu(30);
+		c.openAt(200, 100);
+		check(c.menuScroll == 0,
+			"...and opening the NEXT menu starts it at the top rather than inheriting the last "
+				+ "one's scroll (" + c.menuScroll + ")");
+
+		// the other two areas cap at their own heights
+		MenuTest s = new MenuTest().menu(30);
+		s.openAt(600, 300);
+		check(s.menuArea == 1 && s.menuRowsShown == 15,
+			"the sidebar's 261px shows 15 (" + s.menuRowsShown + ")");
+		check(s.menuY >= 0 && s.menuY + s.menuHeight <= 261,
+			"...and fits: y " + s.menuY + " + h " + s.menuHeight);
+		MenuTest b = new MenuTest().menu(30);
+		b.openAt(200, 400);
+		check(b.menuArea == 2 && b.menuRowsShown == 4,
+			"the chatbox's 96px shows 4 (" + b.menuRowsShown + ")");
+		check(b.menuY >= 0 && b.menuY + b.menuHeight <= 96,
+			"...and fits: y " + b.menuY + " + h " + b.menuHeight);
+	}
+
+	// ---------------------------------------------------------------- 2
+	static void shortTests() {
+		MenuTest c = new MenuTest().menu(5);
+		c.openAt(200, 100);
+		check(c.menuRowsShown == 5 && c.menuHeight == 5 * MENU_ROW_H + MENU_CHROME_H,
+			"five rows show five, at the height the menu always was (" + c.menuHeight + ")");
+		List<MenuRow> r = c.redraw();
+		check(r.size() == 5, "all five drawn");
+		check(r.size() == 5 && r.get(4).text.equals("Cancel"),
+			"...with Cancel on the bottom, where it has always been");
+		check(r.size() == 5 && r.get(1).y - r.get(0).y == MENU_ROW_H
+			&& r.get(0).y == c.menuY + 31,
+			"...one row height apart, the first at menuY + 31, exactly as before");
+		check(bar() == 0, "and no scroll bar, because nothing is hidden (" + bar() + " bar pixels)");
+		MenuTest one = new MenuTest().menu(1);
+		one.openAt(200, 100);
+		check(one.menuRowsShown == 1, "a one-row menu shows its one row");
+	}
+
+	// ---------------------------------------------------------------- 3
+	static void wheelTests() {
+		MenuTest c = new MenuTest().menu(30);
+		c.openAt(200, 100);
+		check(c.menuRowIndex(0) == 29 && c.menuRowIndex(19) == 10,
+			"at the top, the window is indices 29 down to 10");
+		c.mouseScrollDelta = 3;
+		boolean took = c.handleMenuScroll();
+		check(took && c.mouseScrollDelta == 0 && c.menuScroll == 3,
+			"a wheel turn is consumed and moves the window three rows");
+		check(c.menuRowIndex(0) == 26, "...so the top row is now index 26 (" + c.menuRowIndex(0) + ")");
+		List<MenuRow> r = c.redraw();
+		check(!r.isEmpty() && r.get(0).text.equals(c.menuOption[26]),
+			"...and that is what gets drawn there");
+		c.mouseScrollDelta = 99;
+		c.handleMenuScroll();
+		check(c.menuScroll == 30 - 20,
+			"scrolling past the end stops with the last row in view (" + c.menuScroll + ")");
+		c.mouseScrollDelta = -99;
+		c.handleMenuScroll();
+		check(c.menuScroll == 0, "and past the top stops at the top (" + c.menuScroll + ")");
+
+		// consumed even with nothing to scroll: the world behind a menu must not move
+		MenuTest s = new MenuTest().menu(5);
+		s.openAt(200, 100);
+		s.mouseScrollDelta = 1;
+		check(s.handleMenuScroll() && s.mouseScrollDelta == 0 && s.menuScroll == 0,
+			"a wheel turn with a short menu open is still consumed, so the camera stays put behind "
+				+ "it, and the menu does not move");
+
+		// no menu, no claim on the wheel
+		MenuTest n = new MenuTest().menu(30);
+		n.menuVisible = false;
+		n.mouseScrollDelta = 1;
+		check(!n.handleMenuScroll() && n.mouseScrollDelta == 1,
+			"with no menu open the wheel is left for the pile and the camera");
+
+		// the sidebar and chatbox get their redraw flags, or the scroll would not appear
+		MenuTest sb = new MenuTest().menu(30);
+		sb.openAt(600, 300);
+		sb.mouseScrollDelta = 1;
+		sb.handleMenuScroll();
+		check(sb.redrawSidebar, "scrolling a sidebar menu marks the sidebar for redraw");
+		MenuTest cb = new MenuTest().menu(30);
+		cb.openAt(200, 400);
+		cb.mouseScrollDelta = 1;
+		cb.handleMenuScroll();
+		check(cb.redrawChatback, "...and a chatbox menu the chatbox");
+	}
+
+	// ---------------------------------------------------------------- 4
+	static void reachTests() {
+		MenuTest c = new MenuTest().menu(30);
+		c.openAt(200, 100);
+		boolean[] seen = new boolean[30];
+		for (int scroll = 0; scroll <= 30 - c.menuRowsShown; scroll++) {
+			c.menuScroll = scroll;
+			for (MenuRow row : c.redraw()) {
+				for (int i = 0; i < 30; i++) {
+					if (row.text.equals(c.menuOption[i])) {
+						seen[i] = true;
+					}
+				}
+			}
+		}
+		int missed = 0;
+		for (int i = 0; i < 30; i++) {
+			if (!seen[i]) {
+				missed++;
+			}
+		}
+		check(missed == 0, "scrolling from end to end reaches every one of the 30 entries, which is "
+			+ "the whole point: " + missed + " unreachable");
+		c.menuScroll = 30 - c.menuRowsShown;
+		List<MenuRow> last = c.redraw();
+		check(!last.isEmpty() && last.get(last.size() - 1).text.equals("Cancel"),
+			"...and the last window ends on Cancel");
+		check(c.menuRowIndex(c.menuRowsShown - 1) == 0,
+			"...which is index 0, so nothing is off the bottom of the array");
+	}
+
+	// ---------------------------------------------------------------- 5
+	static void barTests() {
+		MenuTest c = new MenuTest().menu(30);
+		c.openAt(200, 100);
+		c.redraw();
+		check(bar() > 0, "a capped menu draws a scroll bar (" + bar() + " bar pixels)");
+		check(paintedRight() < c.menuX + c.menuWidth,
+			"...inside the menu's own width (bar right " + paintedRight() + ", menu right "
+				+ (c.menuX + c.menuWidth) + ")");
+		int top = thumbTop();
+		c.mouseScrollDelta = 5;
+		c.handleMenuScroll();
+		c.redraw();
+		check(thumbTop() > top,
+			"and the thumb moves down as the window does (" + top + " -> " + thumbTop() + ")");
+		c.menuScroll = 30 - c.menuRowsShown;
+		c.redraw();
+		int end = thumbTop();
+		check(end + 3 <= c.menuY + 19 + c.menuRowsShown * MENU_ROW_H,
+			"...and never past the end of its track (" + end + ")");
+	}
+}

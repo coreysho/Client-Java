@@ -51,12 +51,13 @@ public final class QolSettings {
 	public static final int XP_DROPS = 12;
 	public static final int GROUND_ITEMS = 13;
 	public static final int MENU_SWAPPER = 14;
+	public static final int ROOFS_OFF = 15;
 
 	/** Stable keys written to disk. NEVER rename one of these - it silently resets that setting. */
 	private static final String[] KEYS = {
 		"chat_history", "compass_north", "shift_drop", "space_continue", "dialogue_keys",
 		"bankpin_keys", "tab_reply", "esc_close", "mmb_camera", "wheel_zoom", "wheel_chat",
-		"wheel_interface", "xp_drops", "ground_items", "menu_swapper"
+		"wheel_interface", "xp_drops", "ground_items", "menu_swapper", "roofs_off"
 	};
 
 	private static final String[] LABELS = {
@@ -64,15 +65,20 @@ public final class QolSettings {
 		"Space advances dialogue", "Number keys pick dialogue option", "Number keys for bank PIN",
 		"Tab replies to last PM", "Escape closes interfaces", "Middle-mouse camera drag",
 		"Scroll wheel zooms camera", "Scroll wheel scrolls chat", "Scroll wheel scrolls interfaces",
-		"XP drops", "Ground item names", "Left-click swaps (F10)"
+		"XP drops", "Ground item names", "Left-click swaps (F10)", "Hide roofs"
 	};
 
-	// Every default is ON. For the twelve that predate this class that was the point - introducing a
-	// switchboard should not change what anyone sees. Features added since default ON too, on the
-	// grounds that a QoL feature nobody discovers is a QoL feature nobody has; the panel is one
-	// keypress away for anyone who wants it off.
+	// Every default is ON, with ONE exception. For the twelve that predate this class that was the
+	// point - introducing a switchboard should not change what anyone sees. Features added since
+	// default ON too, on the grounds that a QoL feature nobody discovers is a QoL feature nobody
+	// has; the panel is one keypress away for anyone who wants it off.
+	//
+	// "Hide roofs" defaults OFF, and the streak breaking is deliberate: every other setting adds a
+	// convenience and leaves the world alone, and this one changes what the world looks like. Old
+	// School ships its own Roofs toggle off as well, so on is the surprising answer in both places.
 	private static final boolean[] DEFAULTS = {
-		true, true, true, true, true, true, true, true, true, true, true, true, true, true, true
+		true, true, true, true, true, true, true, true, true, true, true, true, true, true, true,
+		false
 	};
 
 	public static final int COUNT = KEYS.length;

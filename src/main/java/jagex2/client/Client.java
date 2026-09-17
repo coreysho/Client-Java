@@ -501,6 +501,25 @@ public class Client extends GameShell {
 	private int giScrollTileX = -1;
 	private int giScrollTileZ = -1;
 	private int giScrollOffset;
+	// QoL: the right-click menu scrolls when it is taller than the area it opens in.
+	//
+	// A pile of thirty drops builds a thirty-row "Choose Option", and the placement code clamps its
+	// y to zero and lets the rest run off the bottom edge - where the entries are both invisible and
+	// unclickable, because the area's raster clips them. That is Corey's screenshot: a menu whose
+	// last dozen Takes cannot be reached at all.
+	//
+	// So the menu shows a WINDOW of its rows and the wheel moves it. menuScroll counts rows hidden
+	// off the TOP, because the array is drawn upside down - index menuSize-1 is the top row (it is
+	// the left-click action) and index 0, Cancel, is the bottom one. Cancel can therefore scroll out
+	// of sight on a long menu, which costs nothing: clicking anywhere off the menu already cancels,
+	// and on a menu this long Cancel was off the bottom of the screen anyway.
+	private static final int MENU_ROW_H = 15;
+	private static final int MENU_CHROME_H = 22;
+	private int menuScroll;
+	private int menuRowsShown;
+	// The bar, in the ground-item overlay's colours - same control, same look.
+	private static final int MENU_BAR_W = 3;
+
 	// The scroll bar, drawn only on a pile that has more rows than it shows.
 	private static final int GI_BAR_W = 2;
 	private static final int GI_BAR_GAP = 3;
@@ -1396,6 +1415,62 @@ public class Client extends GameShell {
 			}
 		}
 		return false;
+	}
+
+	/**
+	 * Rows a menu can show in an area this tall: never fewer than one, never more than it has.
+	 */
+	private int menuRowsFor(int areaHeight) {
+		int rows = (areaHeight - MENU_CHROME_H) / MENU_ROW_H;
+		if (rows < 1) {
+			rows = 1;
+		}
+		if (rows > this.menuSize) {
+			rows = this.menuSize;
+		}
+		return rows;
+	}
+
+	/**
+	 * The menuOption index drawn at visual position p, counting p from the TOP row. The array is
+	 * drawn upside down, so scrolling down the menu walks DOWN the indices.
+	 */
+	private int menuRowIndex(int p) {
+		return this.menuSize - 1 - p - this.menuScroll;
+	}
+
+	/** The baseline y of visual position p, in the menu's own area coordinates. */
+	private int menuRowY(int p) {
+		return this.menuY + 31 + p * MENU_ROW_H;
+	}
+
+	/**
+	 * QoL: the wheel scrolls an open menu that is taller than its area. Consumed either way while a
+	 * menu is up - a wheel turn with a menu open is aimed at the menu, and zooming the camera behind
+	 * it would move the world the menu's entries refer to.
+	 */
+	private boolean handleMenuScroll() {
+		if (super.mouseScrollDelta == 0 || !this.menuVisible) {
+			return false;
+		}
+		int max = this.menuSize - this.menuRowsShown;
+		if (max > 0) {
+			this.menuScroll += super.mouseScrollDelta;
+			if (this.menuScroll > max) {
+				this.menuScroll = max;
+			}
+			if (this.menuScroll < 0) {
+				this.menuScroll = 0;
+			}
+			if (this.menuArea == 1) {
+				this.redrawSidebar = true;
+			}
+			if (this.menuArea == 2) {
+				this.redrawChatback = true;
+			}
+		}
+		super.mouseScrollDelta = 0;
+		return true;
 	}
 
 	private void drawGroundItems() {
@@ -6007,10 +6082,10 @@ public class Client extends GameShell {
 				var9 -= 357;
 			}
 			int var10 = -1;
-			for (int var11 = 0; var11 < this.menuSize; var11++) {
-				int var12 = (this.menuSize - 1 - var11) * 15 + var6 + 31;
+			for (int p = 0; p < this.menuRowsShown; p++) {
+				int var12 = this.menuRowY(p);
 				if (var8 > var5 && var8 < var5 + var7 && var9 > var12 - 13 && var9 < var12 + 3) {
-					var10 = var11;
+					var10 = this.menuRowIndex(p);
 				}
 			}
 			// QoL: a swap menu's rows configure, they never act. Cleared here rather than where it
@@ -6487,8 +6562,11 @@ public class Client extends GameShell {
 			// viewport rect below is the same one handleInput() uses to route hover input to the
 			// viewport (see the identical check at ~line 4066) - this client is fixed 765x503, not
 			// resizable, so these bounds are safe to hardcode here too.
-			// QoL: a wheel turn over a tall ground-item pile scrolls the pile, and is consumed, so
-			// it never reaches the zoom below. Tested first for that reason.
+			// QoL: an open menu owns the wheel, then a tall ground-item pile under the cursor, then
+			// the camera. Each consumes the delta when it takes it, so exactly one of the three acts
+			// on a turn - the order is the specificity: a menu is in front of everything, a pile is
+			// a thing you are pointing at, the camera is what is left.
+			this.handleMenuScroll();
 			this.handleGroundItemScroll();
 			if (super.mouseScrollDelta != 0 && this.sidebarInterfaceId == -1 && this.chatInterfaceId == -1 && this.fullscreenInterfaceId0 == -1 && this.fullscreenInterfaceId1 == -1 && this.viewportInterfaceId == -1 && super.mouseX > 4 && super.mouseY > 4 && super.mouseX < 516 && super.mouseY < 338) {
 				if (QolSettings.on(QolSettings.WHEEL_ZOOM)) {
@@ -8340,7 +8418,15 @@ public class Client extends GameShell {
 						}
 					}
 				}
-			} else {
+			// var10 != 0 is a GUARD, not a condition: reaching here means var9 <= var10, so var10
+			// being zero means both are, the camera is on the player's own tile, there is no line
+			// between them to walk - and the division below would be by zero. The vanilla client
+			// divides anyway and throws out of drawScene. It has never fired because the orbit
+			// camera keeps its distance, but the wheel-zoom QoL feature can pull that distance to
+			// 200 units and a steep pitch makes 200 units less than one tile. Found by a test that
+			// put the camera and the player on the same tile because that was the simplest fixture
+			// to write.
+			} else if (var10 != 0) {
 				int var13 = var9 * 65536 / var10;
 				int var14 = 32768;
 				while (var6 != var8) {
@@ -8369,6 +8455,20 @@ public class Client extends GameShell {
 		}
 		if ((this.levelTileFlags[this.currentLevel][localPlayer.field1157 >> 7][localPlayer.field1158 >> 7] & 0x4) != 0) {
 			var2 = this.currentLevel;
+		}
+		// QoL: hide roofs. Everything above the player's own level IS the roof, and the tile tests
+		// in this method decide case by case whether to draw it - hidden when the player stands
+		// under one, or when the line from the camera to the player passes under one, and drawn
+		// otherwise. With the setting on the answer is always "hide", which is what Old School's
+		// Roofs toggle does.
+		//
+		// DONE AT THE ONE RETURN rather than as an early exit, for two reasons. The ANTICHEAT_
+		// CYCLELOGIC1 block above sends a packet on its own schedule and must keep running at that
+		// rate whatever the player has chosen to look at; and the pitch test the method opens with
+		// leaves var2 at 3 when the camera is looking steeply down, so an early exit inside it
+		// would draw roofs again the moment you tilted the camera - the bug this is not.
+		if (QolSettings.on(QolSettings.ROOFS_OFF)) {
+			return this.currentLevel;
 		}
 		return var2;
 	}
@@ -8890,13 +8990,35 @@ public class Client extends GameShell {
 			var7 -= 17;
 			var8 -= 357;
 		}
-		for (int var9 = 0; var9 < this.menuSize; var9++) {
-			int var10 = (this.menuSize - 1 - var9) * 15 + var3 + 31;
+		// Visual positions, not array indices: p counts from the top row and menuRowIndex() turns it
+		// into the index, so the draw and the click in handleMouseInput() cannot disagree about
+		// which row is where. They used to share a copy of the same arithmetic.
+		for (int p = 0; p < this.menuRowsShown; p++) {
+			int var10 = this.menuRowY(p);
 			int var11 = 16777215;
 			if (var7 > var2 && var7 < var2 + var4 && var8 > var10 - 13 && var8 < var10 + 3) {
 				var11 = 16776960;
 			}
-			this.fontBold12.drawStringTag(var11, var2 + 3, var10, true, this.menuOption[var9]);
+			this.fontBold12.drawStringTag(var11, var2 + 3, var10, true,
+				this.menuOption[this.menuRowIndex(p)]);
+		}
+		// A menu with rows it is not showing says so, in the ground-item overlay's own colours. A
+		// menu that runs off the bottom of the screen with no mark is what this round is fixing;
+		// one that silently shows two thirds of itself would be the same bug in a smaller box.
+		if (this.menuSize > this.menuRowsShown) {
+			int barX = var2 + var4 - MENU_BAR_W - 1;
+			int trackY = var3 + 19;
+			int track = this.menuRowsShown * MENU_ROW_H;
+			Pix2D.fillRect(track, trackY, GI_BAR_TRACK, MENU_BAR_W, barX);
+			int thumb = track * this.menuRowsShown / this.menuSize;
+			if (thumb < 3) {
+				thumb = 3;
+			}
+			int thumbY = trackY + track * this.menuScroll / this.menuSize;
+			if (thumbY + thumb > trackY + track) {
+				thumbY = trackY + track - thumb;
+			}
+			Pix2D.fillRect(thumb, thumbY, GI_BAR_THUMB, MENU_BAR_W, barX);
 		}
 	}
 
@@ -11755,8 +11877,18 @@ public class Client extends GameShell {
 			}
 		}
 		var2 += 8;
-		int var4 = this.menuSize * 15 + 21;
+		// THE HEIGHT IS NOW PER AREA, because it is capped to what the area can show. The number the
+		// placement clamps against is MENU_CHROME_H now rather than 21: the original placed with
+		// menuSize * 15 + 21 and drew with + 22, so a menu pushed against the bottom of its area
+		// always drew one pixel past it. Harmless while the height was unbounded and the row was
+		// clipped anyway; wrong now that the height is a deliberate fit. It used to be
+		// menuSize * 15 + 21 everywhere, and a menu taller than its area had its y clamped to zero
+		// and the rest of it drawn off the bottom, where the raster clips it: invisible rows that
+		// cannot be clicked. Each area caps at its own height - 20 rows in the viewport, 15 in the
+		// sidebar, 4 in the chatbox - and menuScroll moves the window.
 		if (super.mouseClickX > 4 && super.mouseClickY > 4 && super.mouseClickX < 516 && super.mouseClickY < 338) {
+			int rows0 = this.menuRowsFor(334);
+			int var4 = rows0 * MENU_ROW_H + MENU_CHROME_H;
 			int var5 = super.mouseClickX - 4 - var2 / 2;
 			if (var2 + var5 > 512) {
 				var5 = 512 - var2;
@@ -11776,9 +11908,13 @@ public class Client extends GameShell {
 			this.menuX = var5;
 			this.menuY = var6;
 			this.menuWidth = var2;
-			this.menuHeight = this.menuSize * 15 + 22;
+			this.menuRowsShown = rows0;
+			this.menuScroll = 0;
+			this.menuHeight = rows0 * MENU_ROW_H + MENU_CHROME_H;
 		}
 		if (super.mouseClickX > 553 && super.mouseClickY > 205 && super.mouseClickX < 743 && super.mouseClickY < 466) {
+			int rows1 = this.menuRowsFor(261);
+			int var4 = rows1 * MENU_ROW_H + MENU_CHROME_H;
 			int var7 = super.mouseClickX - 553 - var2 / 2;
 			if (var7 < 0) {
 				var7 = 0;
@@ -11796,9 +11932,13 @@ public class Client extends GameShell {
 			this.menuX = var7;
 			this.menuY = var8;
 			this.menuWidth = var2;
-			this.menuHeight = this.menuSize * 15 + 22;
+			this.menuRowsShown = rows1;
+			this.menuScroll = 0;
+			this.menuHeight = rows1 * MENU_ROW_H + MENU_CHROME_H;
 		}
 		if (super.mouseClickX > 17 && super.mouseClickY > 357 && super.mouseClickX < 496 && super.mouseClickY < 453) {
+			int rows2 = this.menuRowsFor(96);
+			int var4 = rows2 * MENU_ROW_H + MENU_CHROME_H;
 			int var9 = super.mouseClickX - 17 - var2 / 2;
 			if (var9 < 0) {
 				var9 = 0;
@@ -11816,7 +11956,9 @@ public class Client extends GameShell {
 			this.menuX = var9;
 			this.menuY = var10;
 			this.menuWidth = var2;
-			this.menuHeight = this.menuSize * 15 + 22;
+			this.menuRowsShown = rows2;
+			this.menuScroll = 0;
+			this.menuHeight = rows2 * MENU_ROW_H + MENU_CHROME_H;
 		}
 	}
 
