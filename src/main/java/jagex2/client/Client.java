@@ -426,9 +426,14 @@ public class Client extends GameShell {
 	// Raises the label off the floor, in the same 1/128-of-a-tile units projectFromGround() takes.
 	// Roughly the height of a dropped item's model, so the text clears it instead of sitting in it.
 	private static final int GROUND_ITEM_HEIGHT = 24;
-	// Distinct obj ids labelled on one tile. A tile can legally hold more; beyond this the extra
-	// ids are dropped rather than drawn, because a column of 9+ labels is unreadable anyway.
-	private static final int GROUND_ITEM_MAX_PER_TILE = 8;
+	// Distinct obj ids TRACKED on one tile, and how many of them are drawn at once. These were one
+	// number at 8: a tile can legally hold more ids than that and the extras were simply dropped, so
+	// a big pile had rows nobody could ever see. Tracking more than is drawn is what gives the wheel
+	// something to scroll to (see handleGroundItemScroll), and only the drawn window pays for a
+	// string build - the tracking pass reads the name, the price and the stackable flag and builds
+	// nothing.
+	private static final int GROUND_ITEM_MAX_PER_TILE = 24;
+	private static final int GI_ROWS_SHOWN = 8;
 	// Whole-frame ceiling, so a deliberately built pile of junk cannot turn the viewport into a
 	// wall of text (or make ObjType.get() the most expensive thing in the frame).
 	private static final int GROUND_ITEM_MAX_LABELS = 48;
@@ -470,6 +475,37 @@ public class Client extends GameShell {
 	private final int[] giZonePlusX = new int[GROUND_ITEM_MAX_LABELS];
 	private final int[] giZoneNameX = new int[GROUND_ITEM_MAX_LABELS];
 	private final int[] giZoneNameEndX = new int[GROUND_ITEM_MAX_LABELS];
+	// Per-row visibility, decided in one pass before the column is laid out. A row the player has
+	// hidden, or one under the value floor, or one whose obj type has no name, is GI_ROW_SKIP - and
+	// the column is then laid out over the rows that remain, so a hidden item does NOT leave a hole
+	// where it used to be. (It did until Corey sent a screenshot of the hole: the column used to be
+	// positioned from the tracked count and each skipped row still advanced the cursor.)
+	private static final int GI_ROW_SKIP = -1;
+	private final int[] giRowColour = new int[GROUND_ITEM_MAX_PER_TILE];
+	// A PILE is one tile's column. Recorded every frame, in viewport-local coordinates, for the same
+	// reason the Alt click zones are: a wheel turn can only ever be tested against what was on the
+	// screen when it happened.
+	private static final int GI_MAX_PILES = 48;
+	private int giPileCount;
+	private final int[] giPileTileX = new int[GI_MAX_PILES];
+	private final int[] giPileTileZ = new int[GI_MAX_PILES];
+	private final int[] giPileLeft = new int[GI_MAX_PILES];
+	private final int[] giPileRight = new int[GI_MAX_PILES];
+	private final int[] giPileTop = new int[GI_MAX_PILES];
+	private final int[] giPileBottom = new int[GI_MAX_PILES];
+	private final int[] giPileRows = new int[GI_MAX_PILES];
+	// ONE scrolled pile, not a scroll position per tile. You scroll the pile under the cursor, and
+	// scrolling a different one starts that one from the top; nothing is remembered once you walk
+	// away. Same call as the reveal toggle not being persisted - this is a peek, not a preference.
+	private int giScrollLevel = -1;
+	private int giScrollTileX = -1;
+	private int giScrollTileZ = -1;
+	private int giScrollOffset;
+	// The scroll bar, drawn only on a pile that has more rows than it shows.
+	private static final int GI_BAR_W = 2;
+	private static final int GI_BAR_GAP = 3;
+	private static final int GI_BAR_TRACK = 0x282828;
+	private static final int GI_BAR_THUMB = 0xC8C8C8;
 
 	private static final int CHAT_HISTORY_MAX = 10;
 	private final String[] chatHistory = new String[CHAT_HISTORY_MAX];
@@ -1365,6 +1401,7 @@ public class Client extends GameShell {
 	private void drawGroundItems() {
 		this.updateAltState();
 		this.giZoneCount = 0;
+		this.giPileCount = 0;
 		ClientPlayer self = localPlayer;
 		if (self == null) {
 			return;
@@ -1433,81 +1470,215 @@ public class Client extends GameShell {
 				if (this.projectX <= -1 || this.projectX > 640 || this.projectY < -64 || this.projectY > 400) {
 					continue;
 				}
-				// Grow the column upwards: the last row lands on the tile, earlier ones stack above
-				// it, so the pile never covers the item models below it.
-				int rowY = this.projectY - (distinct - 1) * GROUND_ITEM_ROW_H;
+				// PASS ONE: what each tracked row would look like, and how many rows there are to
+				// draw. This pass exists so the column can be laid out over the rows that will
+				// actually appear - a hidden row is not a row. It reads the name, the price and the
+				// stackable flag and allocates nothing; the label string is built in pass two, for
+				// the drawn window only.
+				int visible = 0;
 				for (int i = 0; i < distinct; i++) {
+					ObjType type = ObjType.get(this.groundItemIds[i]);
+					if (type.field811 == null) {
+						this.giRowColour[i] = GI_ROW_SKIP;
+						continue;
+					}
+					// field827 is the price of one. Deliberately count * price and NOT the
+					// (count + 1) * price sortObjStacks() uses: that +1 is a tie-break to make a
+					// stack of one outrank a non-stackable at the same price, and showing it to
+					// the player would just read as arithmetic the client got wrong. long because
+					// a merged stack times a high price overflows an int.
+					long value = type.field827;
+					if (type.field853) {
+						value = (long) this.groundItemCounts[i] * value;
+					}
+					// The player's list is consulted on the BARE name, not the "x 500" label: a
+					// rule set on one coin has to keep applying to a pile of them.
+					int colour;
+					if (GroundItemPrefs.isHighlighted(type.field811)) {
+						colour = GROUND_ITEM_HIGHLIGHT;              // always shown, floor ignored
+					} else if (GroundItemPrefs.isHidden(type.field811)) {
+						if (!reveal) {
+							this.giRowColour[i] = GI_ROW_SKIP;
+							continue;
+						}
+						colour = GROUND_ITEM_HIDDEN;
+					} else if (value < floor) {
+						this.giRowColour[i] = GI_ROW_SKIP;
+						continue;
+					} else {
+						colour = GROUND_ITEM_COLOUR;
+						for (int tier = 0; tier < GROUND_ITEM_TIERS.length; tier++) {
+							if (value >= (long) GROUND_ITEM_TIERS[tier]) {
+								colour = GROUND_ITEM_TIER_COLOURS[tier];
+								break;
+							}
+						}
+					}
+					this.giRowColour[i] = colour;
+					visible++;
+				}
+				if (visible == 0) {
+					continue;
+				}
+				// The window into those rows. A pile taller than GI_ROWS_SHOWN shows a slice of
+				// itself and the wheel moves the slice; every other pile shows all of itself and
+				// ignores the offset entirely.
+				int shown = visible < GI_ROWS_SHOWN ? visible : GI_ROWS_SHOWN;
+				int offset = 0;
+				if (this.giScrollLevel == level && this.giScrollTileX == tileX
+					&& this.giScrollTileZ == tileZ) {
+					offset = this.giScrollOffset;
+					// Re-clamped here as well as on the wheel, because the pile can shrink between
+					// frames - somebody taking the bottom four items must not leave the column
+					// scrolled past its own end.
+					if (offset > visible - shown) {
+						offset = visible - shown;
+					}
+					if (offset < 0) {
+						offset = 0;
+					}
+				}
+				// PASS TWO. Grow the column upwards: the last row lands on the tile, earlier ones
+				// stack above it, so the pile never covers the item models below it.
+				int rowY = this.projectY - (shown - 1) * GROUND_ITEM_ROW_H;
+				int firstY = rowY;
+				int lastY = rowY;
+				int minLeft = this.projectX;
+				int maxRight = this.projectX;
+				int visIndex = 0;
+				for (int i = 0; i < distinct; i++) {
+					int colour = this.giRowColour[i];
+					if (colour == GI_ROW_SKIP) {
+						continue;
+					}
+					int at = visIndex++;
+					if (at < offset || at >= offset + shown) {
+						continue;
+					}
 					int count = this.groundItemCounts[i];
 					ObjType type = ObjType.get(this.groundItemIds[i]);
 					String label = type.field811;
-					if (label != null) {
-						if (count > 1) {
-							label = label + " x " + formatObjCount(count);
-						}
-						// field827 is the price of one. Deliberately count * price and NOT the
-						// (count + 1) * price sortObjStacks() uses: that +1 is a tie-break to make a
-						// stack of one outrank a non-stackable at the same price, and showing it to
-						// the player would just read as arithmetic the client got wrong. long because
-						// a merged stack times a high price overflows an int.
-						long value = type.field827;
-						if (type.field853) {
-							value = (long) count * value;
-						}
-						// The player's list is consulted on the BARE name, not the "x 500" label: a
-						// rule set on one coin has to keep applying to a pile of them.
-						int colour;
-						if (GroundItemPrefs.isHighlighted(type.field811)) {
-							colour = GROUND_ITEM_HIGHLIGHT;          // always shown, floor ignored
-						} else if (GroundItemPrefs.isHidden(type.field811)) {
-							if (!reveal) {
-								rowY += GROUND_ITEM_ROW_H;           // keep the slot, skip the label
-								continue;
-							}
-							colour = GROUND_ITEM_HIDDEN;
-						} else if (value < floor) {
-							rowY += GROUND_ITEM_ROW_H;
-							continue;
-						} else {
-							colour = GROUND_ITEM_COLOUR;
-							for (int tier = 0; tier < GROUND_ITEM_TIERS.length; tier++) {
-								if (value >= (long) GROUND_ITEM_TIERS[tier]) {
-									colour = GROUND_ITEM_TIER_COLOURS[tier];
-									break;
-								}
-							}
-						}
-						if (alt && this.giZoneCount < GROUND_ITEM_MAX_LABELS) {
-							// [-] [+] Name, laid out from the left edge of what centreString would
-							// have drawn, so the row stays centred on the tile as it grows.
-							int nameW = this.fontPlain11.stringWid(label);
-							int totalW = GI_CONTROL_W * 2 + nameW;
-							int left = this.projectX - totalW / 2;
-							int plusX = left + GI_CONTROL_W;
-							int nameX = plusX + GI_CONTROL_W;
-							this.fontPlain11.drawString(left + 1, 0x000000, rowY + 1, "-");
-							this.fontPlain11.drawString(left, GI_MINUS_COLOUR, rowY, "-");
-							this.fontPlain11.drawString(plusX + 1, 0x000000, rowY + 1, "+");
-							this.fontPlain11.drawString(plusX, GI_PLUS_COLOUR, rowY, "+");
-							this.fontPlain11.drawString(nameX + 1, 0x000000, rowY + 1, label);
-							this.fontPlain11.drawString(nameX, colour, rowY, label);
-							int z = this.giZoneCount++;
-							this.giZoneName[z] = type.field811;
-							this.giZoneTop[z] = rowY - this.fontPlain11.height;
-							this.giZoneBottom[z] = rowY + 2;
-							this.giZoneMinusX[z] = left;
-							this.giZonePlusX[z] = plusX;
-							this.giZoneNameX[z] = nameX;
-							this.giZoneNameEndX[z] = nameX + nameW;
-						} else {
-							this.fontPlain11.centreString(this.projectX + 1, rowY + 1, 0x000000, label);
-							this.fontPlain11.centreString(this.projectX, rowY, colour, label);
-						}
-						drawn++;
+					if (count > 1) {
+						label = label + " x " + formatObjCount(count);
 					}
+					if (alt && this.giZoneCount < GROUND_ITEM_MAX_LABELS) {
+						// [-] [+] Name, laid out from the left edge of what centreString would
+						// have drawn, so the row stays centred on the tile as it grows.
+						int nameW = this.fontPlain11.stringWid(label);
+						int totalW = GI_CONTROL_W * 2 + nameW;
+						int left = this.projectX - totalW / 2;
+						int plusX = left + GI_CONTROL_W;
+						int nameX = plusX + GI_CONTROL_W;
+						this.fontPlain11.drawString(left + 1, 0x000000, rowY + 1, "-");
+						this.fontPlain11.drawString(left, GI_MINUS_COLOUR, rowY, "-");
+						this.fontPlain11.drawString(plusX + 1, 0x000000, rowY + 1, "+");
+						this.fontPlain11.drawString(plusX, GI_PLUS_COLOUR, rowY, "+");
+						this.fontPlain11.drawString(nameX + 1, 0x000000, rowY + 1, label);
+						this.fontPlain11.drawString(nameX, colour, rowY, label);
+						int z = this.giZoneCount++;
+						this.giZoneName[z] = type.field811;
+						this.giZoneTop[z] = rowY - this.fontPlain11.height;
+						this.giZoneBottom[z] = rowY + 2;
+						this.giZoneMinusX[z] = left;
+						this.giZonePlusX[z] = plusX;
+						this.giZoneNameX[z] = nameX;
+						this.giZoneNameEndX[z] = nameX + nameW;
+						if (left < minLeft) {
+							minLeft = left;
+						}
+						if (nameX + nameW > maxRight) {
+							maxRight = nameX + nameW;
+						}
+					} else {
+						this.fontPlain11.centreString(this.projectX + 1, rowY + 1, 0x000000, label);
+						this.fontPlain11.centreString(this.projectX, rowY, colour, label);
+						int half = this.fontPlain11.stringWid(label) / 2;
+						if (this.projectX - half < minLeft) {
+							minLeft = this.projectX - half;
+						}
+						if (this.projectX + half > maxRight) {
+							maxRight = this.projectX + half;
+						}
+					}
+					lastY = rowY;
+					drawn++;
 					rowY += GROUND_ITEM_ROW_H;
+				}
+				int top = firstY - this.fontPlain11.height;
+				int bottom = lastY + 2;
+				// THE SCROLL BAR, only on a pile that has more rows than it shows - otherwise it
+				// would be a control with nothing to control. Drawn after the rows, because its x
+				// comes from how wide the widest drawn row turned out to be.
+				if (visible > shown) {
+					int barX = minLeft - GI_BAR_GAP - GI_BAR_W;
+					int track = bottom - top;
+					Pix2D.fillRect(track, top, GI_BAR_TRACK, GI_BAR_W, barX);
+					int thumb = track * shown / visible;
+					if (thumb < 2) {
+						thumb = 2;
+					}
+					int thumbY = top + track * offset / visible;
+					if (thumbY + thumb > top + track) {
+						thumbY = top + track - thumb;
+					}
+					Pix2D.fillRect(thumb, thumbY, GI_BAR_THUMB, GI_BAR_W, barX);
+					minLeft = barX;
+				}
+				if (this.giPileCount < GI_MAX_PILES) {
+					int pz = this.giPileCount++;
+					this.giPileTileX[pz] = tileX;
+					this.giPileTileZ[pz] = tileZ;
+					this.giPileLeft[pz] = minLeft;
+					this.giPileRight[pz] = maxRight;
+					this.giPileTop[pz] = top;
+					this.giPileBottom[pz] = bottom;
+					this.giPileRows[pz] = visible;
 				}
 			}
 		}
+	}
+
+	// QoL: the wheel scrolls the pile under the cursor rather than zooming the camera - the same
+	// shape wheel_chat and wheel_interface already have, and for the same reason: the wheel belongs
+	// to whatever you are pointing at. Called from updateOrbitCamera() just before the zoom branch,
+	// so a turn over a tall pile is consumed before the camera ever sees it.
+	//
+	// Gated on GROUND_ITEMS rather than on a wheel setting of its own: it only does anything at all
+	// on a pile the overlay is drawing, and a pile with nothing to scroll is skipped, so there is no
+	// case where a player would want the overlay on and this off.
+	private boolean handleGroundItemScroll() {
+		if (super.mouseScrollDelta == 0 || !QolSettings.on(QolSettings.GROUND_ITEMS)) {
+			return false;
+		}
+		int x = super.mouseX - QOL_PANEL_ORIGIN;
+		int y = super.mouseY - QOL_PANEL_ORIGIN;
+		for (int i = 0; i < this.giPileCount; i++) {
+			if (this.giPileRows[i] <= GI_ROWS_SHOWN) {
+				continue;                                    // nothing to scroll: leave it to zoom
+			}
+			if (x < this.giPileLeft[i] || x > this.giPileRight[i]
+				|| y < this.giPileTop[i] || y > this.giPileBottom[i]) {
+				continue;
+			}
+			if (this.giScrollLevel != this.currentLevel || this.giScrollTileX != this.giPileTileX[i]
+				|| this.giScrollTileZ != this.giPileTileZ[i]) {
+				this.giScrollLevel = this.currentLevel;
+				this.giScrollTileX = this.giPileTileX[i];
+				this.giScrollTileZ = this.giPileTileZ[i];
+				this.giScrollOffset = 0;
+			}
+			this.giScrollOffset += super.mouseScrollDelta;
+			int max = this.giPileRows[i] - GI_ROWS_SHOWN;
+			if (this.giScrollOffset > max) {
+				this.giScrollOffset = max;
+			}
+			if (this.giScrollOffset < 0) {
+				this.giScrollOffset = 0;
+			}
+			super.mouseScrollDelta = 0;
+			return true;
+		}
+		return false;
 	}
 
 	private void drawXpDrops() {
@@ -6316,6 +6487,9 @@ public class Client extends GameShell {
 			// viewport rect below is the same one handleInput() uses to route hover input to the
 			// viewport (see the identical check at ~line 4066) - this client is fixed 765x503, not
 			// resizable, so these bounds are safe to hardcode here too.
+			// QoL: a wheel turn over a tall ground-item pile scrolls the pile, and is consumed, so
+			// it never reaches the zoom below. Tested first for that reason.
+			this.handleGroundItemScroll();
 			if (super.mouseScrollDelta != 0 && this.sidebarInterfaceId == -1 && this.chatInterfaceId == -1 && this.fullscreenInterfaceId0 == -1 && this.fullscreenInterfaceId1 == -1 && this.viewportInterfaceId == -1 && super.mouseX > 4 && super.mouseY > 4 && super.mouseX < 516 && super.mouseY < 338) {
 				if (QolSettings.on(QolSettings.WHEEL_ZOOM)) {
 					this.cameraZoomOffset -= super.mouseScrollDelta * 40;
