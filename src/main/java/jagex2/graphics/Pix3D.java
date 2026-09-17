@@ -24,6 +24,17 @@ public class Pix3D extends Pix2D {
 	public static int[] cosTable = new int[2048];
 
 	@ObfuscatedName("YIBHWZVJ.M")
+	/**
+	 * How many texture slots the client has. Jagex shipped 50 and the number was written out
+	 * seven times; this fork imports art from a modern OSRS cache, whose models name textures
+	 * by id in their colour field, so 50 slots is a hard ceiling on what can be imported -
+	 * the Infernal cape's 30 crust faces want OSRS texture 59 and there was no id to give it.
+	 *
+	 * Raising it costs one pointer and one int per slot: the actual texel buffers are limited
+	 * by initPool(), not by this.
+	 */
+	public static final int TEXTURE_COUNT = 128;
+
 	public static Pix8[] textures;
 
 	@ObfuscatedName("YIBHWZVJ.N")
@@ -37,6 +48,9 @@ public class Pix3D extends Pix2D {
 
 	@ObfuscatedName("YIBHWZVJ.S")
 	public static int[] textureCycle;
+
+	/** Filled with nothing, handed out for a texture id the cache has no image for. */
+	public static int[] missingTexels;
 
 	@ObfuscatedName("YIBHWZVJ.U")
 	public static int[] colourTable;
@@ -117,7 +131,7 @@ public class Pix3D extends Pix2D {
 	public static void clearTexels() {
 		texelPool = null;
 
-		for (int i = 0; i < 50; i++) {
+		for (int i = 0; i < TEXTURE_COUNT; i++) {
 			activeTexels[i] = null;
 		}
 	}
@@ -136,7 +150,7 @@ public class Pix3D extends Pix2D {
 			texelPool = new int[poolSize][65536];
 		}
 
-		for (int i = 0; i < 50; i++) {
+		for (int i = 0; i < TEXTURE_COUNT; i++) {
 			activeTexels[i] = null;
 		}
 	}
@@ -145,7 +159,7 @@ public class Pix3D extends Pix2D {
 	public static void unpackTextures(Jagfile jag) {
 		loadedTextures = 0;
 
-		for (int i = 0; i < 50; i++) {
+		for (int i = 0; i < TEXTURE_COUNT; i++) {
 			try {
 				textures[i] = new Pix8(jag, String.valueOf(i), 0);
 
@@ -194,6 +208,16 @@ public class Pix3D extends Pix2D {
 
 	@ObfuscatedName("YIBHWZVJ.c(I)[I")
 	public static int[] getTexels(int arg0) {
+		if (arg0 < 0 || arg0 >= TEXTURE_COUNT || textures[arg0] == null) {
+			// A model naming a texture this cache does not carry - an old cache in a new client, or
+			// a model imported before its texture was. Draw it flat instead of throwing: this runs
+			// inside the scene raster, where an exception is a black screen rather than a stack
+			// trace anyone sees.
+			if (missingTexels == null) {
+				missingTexels = new int[65536];
+			}
+			return missingTexels;
+		}
 		textureCycle[arg0] = cycle++;
 		if (activeTexels[arg0] != null) {
 			return activeTexels[arg0];
@@ -322,7 +346,7 @@ public class Pix3D extends Pix2D {
 				colourTable[var5++] = var39;
 			}
 		}
-		for (int var7 = 0; var7 < 50; var7++) {
+		for (int var7 = 0; var7 < TEXTURE_COUNT; var7++) {
 			if (textures[var7] != null) {
 				int[] var10 = textures[var7].bpal;
 				texturePalette[var7] = new int[var10.length];
@@ -335,7 +359,7 @@ public class Pix3D extends Pix2D {
 			}
 		}
 		boolean var8 = false;
-		for (int var9 = 0; var9 < 50; var9++) {
+		for (int var9 = 0; var9 < TEXTURE_COUNT; var9++) {
 			pushTexture(var9);
 		}
 	}
@@ -2433,12 +2457,12 @@ public class Pix3D extends Pix2D {
 			sinTable[var2] = (int) (Math.sin((double) var2 * 0.0030679615D) * 65536.0D);
 			cosTable[var2] = (int) (Math.cos((double) var2 * 0.0030679615D) * 65536.0D);
 		}
-		textures = new Pix8[50];
-		textureTranslucent = new boolean[50];
-		averageTextureRgb = new int[50];
-		activeTexels = new int[50][];
-		textureCycle = new int[50];
+		textures = new Pix8[TEXTURE_COUNT];
+		textureTranslucent = new boolean[TEXTURE_COUNT];
+		averageTextureRgb = new int[TEXTURE_COUNT];
+		activeTexels = new int[TEXTURE_COUNT][];
+		textureCycle = new int[TEXTURE_COUNT];
 		colourTable = new int[65536];
-		texturePalette = new int[50][];
+		texturePalette = new int[TEXTURE_COUNT][];
 	}
 }

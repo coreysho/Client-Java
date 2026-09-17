@@ -1720,7 +1720,16 @@ public class Client extends GameShell {
 	public Pix32[] imageHeadiconsPk = new Pix32[32];
 
 	@ObfuscatedName("client.wj")
-	public int[] ANIMATED_TEXTURES = new int[] { 17, 24, 34, 40 };
+	/**
+	 * The textures that scroll, and how fast, as {id, speed} pairs.
+	 *
+	 * The four Jagex shipped are not an arbitrary list: the OSRS cache still marks textures 17, 24,
+	 * 34 and 40 as animated in direction 1 at speed 2, which is exactly this set and exactly the
+	 * rate the loop below used to hardcode. Texture 50 is this fork's - OSRS texture 59, the
+	 * Infernal cape's molten crust - and the cache gives it the same direction at speed 1, so the
+	 * speed had to stop being a literal.
+	 */
+	public int[][] ANIMATED_TEXTURES = new int[][] { { 17, 2 }, { 24, 2 }, { 34, 2 }, { 40, 2 }, { 50, 1 } };
 
 	@ObfuscatedName("client.Bj")
 	public int[] entityRemovalIds = new int[1000];
@@ -8479,11 +8488,12 @@ public class Client extends GameShell {
 			return;
 		}
 		for (int var3 = 0; var3 < this.ANIMATED_TEXTURES.length; var3++) {
-			int var4 = this.ANIMATED_TEXTURES[var3];
-			if (Pix3D.textureCycle[var4] >= arg0) {
+			int var4 = this.ANIMATED_TEXTURES[var3][0];
+			int speed = this.ANIMATED_TEXTURES[var3][1];
+			if (var4 < Pix3D.TEXTURE_COUNT && Pix3D.textures[var4] != null && Pix3D.textureCycle[var4] >= arg0) {
 				Pix8 var5 = Pix3D.textures[var4];
 				int var6 = var5.hi * var5.wi - 1;
-				int var7 = this.sceneDelta * var5.wi * 2;
+				int var7 = this.sceneDelta * var5.wi * speed;
 				byte[] var8 = var5.pixels;
 				byte[] var9 = this.textureBuffer;
 				for (int var10 = 0; var10 <= var6; var10++) {
