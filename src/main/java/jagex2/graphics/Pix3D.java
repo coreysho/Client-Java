@@ -240,11 +240,17 @@ public class Pix3D extends Pix2D {
 		}
 		activeTexels[arg0] = var1;
 		Pix8 var5 = textures[arg0];
+		// Pix8.pixels is a byte[] of PALETTE INDICES, so every one of the three reads below has to
+		// be masked. Without the mask a texture with more than 128 colours indexes the palette
+		// with a negative number and throws inside the scene raster: the Infernal cape's crust
+		// (204 colours) took out the rest of the model it was drawn on and the head of whoever
+		// wore it, because Model.method380 catches and discards. Every stock texture has 128
+		// colours or fewer, which is why the unmasked read survived 20 years.
 		int[] var6 = texturePalette[arg0];
 		if (lowMem) {
 			textureTranslucent[arg0] = false;
 			for (int var7 = 0; var7 < 4096; var7++) {
-				int var8 = var1[var7] = var6[var5.pixels[var7]] & 0xF8F8FF;
+				int var8 = var1[var7] = var6[var5.pixels[var7] & 0xFF] & 0xF8F8FF;
 				if (var8 == 0) {
 					textureTranslucent[arg0] = true;
 				}
@@ -256,12 +262,12 @@ public class Pix3D extends Pix2D {
 			if (var5.wi == 64) {
 				for (int var9 = 0; var9 < 128; var9++) {
 					for (int var10 = 0; var10 < 128; var10++) {
-						var1[(var9 << 7) + var10] = var6[var5.pixels[(var9 >> 1 << 6) + (var10 >> 1)]];
+						var1[(var9 << 7) + var10] = var6[var5.pixels[(var9 >> 1 << 6) + (var10 >> 1)] & 0xFF];
 					}
 				}
 			} else {
 				for (int var11 = 0; var11 < 16384; var11++) {
-					var1[var11] = var6[var5.pixels[var11]];
+					var1[var11] = var6[var5.pixels[var11] & 0xFF];
 				}
 			}
 			textureTranslucent[arg0] = false;
