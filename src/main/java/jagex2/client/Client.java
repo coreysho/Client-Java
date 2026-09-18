@@ -602,7 +602,12 @@ public class Client extends GameShell {
 	public String[] menuOption = new String[500];
 
 	@ObfuscatedName("client.yh")
-	public Packet in = Packet.alloc(1);
+	// alloc(2) is 30000 bytes, not alloc(1)'s 5000. A variable-length server packet is read whole
+	// into this buffer - "this.stream.read(this.in.data, 0, this.psize)" - so the largest packet
+	// the server can send has to fit in it or the read walks off the end of the array. An inv
+	// update costs up to 7 bytes a slot, so 5000 bytes capped a transmitted inv at 713 slots;
+	// the bank is 1410. The server's outgoing buffer (ClientSocket.out) was raised to match.
+	public Packet in = Packet.alloc(2);
 
 	@ObfuscatedName("client.zh")
 	public int[][] bfsCost = new int[104][104];
