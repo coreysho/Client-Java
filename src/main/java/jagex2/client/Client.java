@@ -763,7 +763,12 @@ public class Client extends GameShell {
 	// private chat lines (see the @cr1@/@cr2@ stripping in the chatbox draw loop). Type 0 has no
 	// sender field at all, so ::yell embeds the marker in the message text instead and this draws
 	// the crown sprite at exactly the point the marker sits, rather than spelling out "Admin"/"Mod".
-	// Text with no marker takes the original single-drawString path untouched.
+	// Text with no marker takes the original single-draw path untouched.
+	//
+	// COLOUR (2026-09-21): drawn with drawStringTag rather than drawString, so a game message can carry
+	// the same @col@ tags an interface text can - @dre@, @dbl@, @red@, @gre@ and the rest of
+	// PixFont.evaluateTag - and the server can colour part of a line. Black stays the default. The
+	// width was already measured with stringWidTag, which skips tags, so the crown lands where it did.
 	private void drawGameMessage(PixFont font, int y, String text) {
 		int crown = -1;
 		int at = text.indexOf("@cr1@");
@@ -776,19 +781,19 @@ public class Client extends GameShell {
 			}
 		}
 		if (crown == -1) {
-			font.drawString(4, 0, y, text);
+			font.drawStringTag(0, 4, y, false, text);
 			return;
 		}
 		String before = text.substring(0, at);
 		String after = text.substring(at + 5);
 		int x = 4;
 		if (before.length() > 0) {
-			font.drawString(x, 0, y, before);
+			font.drawStringTag(0, x, y, false, before);
 			x += font.stringWidTag(before);
 		}
 		this.imageModIcons[crown].plotSprite(y - 12, x);
 		x += 14;
-		font.drawString(x, 0, y, after);
+		font.drawStringTag(0, x, y, false, after);
 	}
 
 	// Called every frame from draw3DEntityElements() - expires any entry whose own fixed
