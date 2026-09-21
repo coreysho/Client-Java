@@ -1999,6 +1999,12 @@ public class Client extends GameShell {
 	@ObfuscatedName("client.Ej")
 	public String[] messageText = new String[100];
 
+	// P_DIALOGPROMPT (custom, 2026-09-21): the question the server wants the next count or name dialog
+	// to ask, instead of "Enter amount:" / "Enter name:". It arrives just before the dialog opens, is
+	// taken by that dialog, and so lasts exactly one - a later plain p_countdialog asks the usual way.
+	private String pendingDialogPrompt = null;
+	private String dialogPrompt = null;
+
 	// a wrapped message's second and later lines (see wrapChat), and where their text starts
 	public boolean[] messageCont = new boolean[100];
 	public int[] messageIndent = new int[100];
@@ -4245,8 +4251,9 @@ public class Client extends GameShell {
 				this.login.p1(255);
 				// Build handshake, not the RS protocol revision - must match
 				// Environment.ENGINE_REVISION on the server, or login is refused with
-				// "your client is out of date". 378 = the walk-merge skeleton guard.
-				this.login.p2(378);
+				// "your client is out of date". 378 = the walk-merge skeleton guard. 379 = P_DIALOGPROMPT,
+				// server prot 9, which an older client has no length for.
+				this.login.p2(379);
 				this.login.p1(lowMem ? 1 : 0);
 				for (int var11 = 0; var11 < 9; var11++) {
 					this.login.p4(this.jagChecksum[var11]);
@@ -9689,6 +9696,8 @@ public class Client extends GameShell {
 
 			if (this.ptype == 6) {
 				// P_NAMEDIALOG
+				this.dialogPrompt = this.pendingDialogPrompt;
+				this.pendingDialogPrompt = null;
 				this.showSocialInput = false;
 				this.chatbackInputOpen = 2;
 				this.chatbackInput = "";
@@ -10077,8 +10086,17 @@ public class Client extends GameShell {
 				return true;
 			}
 
+			if (this.ptype == 9) {
+				// P_DIALOGPROMPT (custom)
+				this.pendingDialogPrompt = this.in.gjstr();
+				this.ptype = -1;
+				return true;
+			}
+
 			if (this.ptype == 58) {
 				// P_COUNTDIALOG
+				this.dialogPrompt = this.pendingDialogPrompt;
+				this.pendingDialogPrompt = null;
 				this.showSocialInput = false;
 				this.chatbackInputOpen = 1;
 				this.chatbackInput = "";
@@ -14573,10 +14591,10 @@ public class Client extends GameShell {
 			this.fontBold12.centreString(239, 40, 0, this.socialMessage);
 			this.fontBold12.centreString(239, 60, 128, this.socialInput + "*");
 		} else if (this.chatbackInputOpen == 1) {
-			this.fontBold12.centreString(239, 40, 0, "Enter amount:");
+			this.fontBold12.centreString(239, 40, 0, this.dialogPrompt != null ? this.dialogPrompt : "Enter amount:");
 			this.fontBold12.centreString(239, 60, 128, this.chatbackInput + "*");
 		} else if (this.chatbackInputOpen == 2) {
-			this.fontBold12.centreString(239, 40, 0, "Enter name:");
+			this.fontBold12.centreString(239, 40, 0, this.dialogPrompt != null ? this.dialogPrompt : "Enter name:");
 			this.fontBold12.centreString(239, 60, 128, this.chatbackInput + "*");
 		} else if (this.chatbackInputOpen == 4) {
 			this.fontBold12.centreString(239, 40, 0, "Show items whose names contain the following text:");
