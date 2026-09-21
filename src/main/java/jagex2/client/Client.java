@@ -1999,6 +1999,10 @@ public class Client extends GameShell {
 	@ObfuscatedName("client.Ej")
 	public String[] messageText = new String[100];
 
+	// a wrapped message's second and later lines (see wrapChat), and where their text starts
+	public boolean[] messageCont = new boolean[100];
+	public int[] messageIndent = new int[100];
+
 	@ObfuscatedName("client.Hj")
 	public boolean waveEnabled = true;
 
@@ -8899,6 +8903,15 @@ public class Client extends GameShell {
 				}
 				if ((var5 == 3 || var5 == 7) && (var5 == 7 || this.chatPrivateMode == 0 || this.chatPrivateMode == 1 && this.isFriend(var6))) {
 					int var8 = 329 - var3 * 13;
+					if (this.messageCont[var4]) {
+						var2.drawString(4 + this.messageIndent[var4], 0, var8, this.messageText[var4]);
+						var2.drawString(4 + this.messageIndent[var4], 65535, var8 - 1, this.messageText[var4]);
+						var3++;
+						if (var3 >= 5) {
+							return;
+						}
+						continue;
+					}
 					byte var9 = 4;
 					var2.drawString(var9, 0, var8, "From");
 					var2.drawString(var9, 65535, var8 - 1, "From");
@@ -8929,8 +8942,10 @@ public class Client extends GameShell {
 				}
 				if (var5 == 6 && this.chatPrivateMode < 2) {
 					int var12 = 329 - var3 * 13;
-					var2.drawString(4, 0, var12, "To " + var6 + ": " + this.messageText[var4]);
-					var2.drawString(4, 65535, var12 - 1, "To " + var6 + ": " + this.messageText[var4]);
+					String toLine = this.messageCont[var4] ? this.messageText[var4] : "To " + var6 + ": " + this.messageText[var4];
+					int toX = this.messageCont[var4] ? 4 + this.messageIndent[var4] : 4;
+					var2.drawString(toX, 0, var12, toLine);
+					var2.drawString(toX, 65535, var12 - 1, toLine);
 					var3++;
 					if (var3 >= 5) {
 						return;
@@ -14620,7 +14635,9 @@ public class Client extends GameShell {
 						var6++;
 					}
 					if ((var9 == 1 || var9 == 2) && (var9 == 1 || this.chatPublicMode == 0 || this.chatPublicMode == 1 && this.isFriend(var11))) {
-						if (var10 > 0 && var10 < 110) {
+						if (var10 > 0 && var10 < 110 && this.messageCont[var7]) {
+							var5.drawString(4 + this.messageIndent[var7], 255, var10, this.messageText[var7]);
+						} else if (var10 > 0 && var10 < 110) {
 							int var13 = 4;
 							if (var12 == 1) {
 								this.imageModIcons[0].plotSprite(var10 - 12, var13);
@@ -14637,7 +14654,9 @@ public class Client extends GameShell {
 						var6++;
 					}
 					if ((var9 == 3 || var9 == 7) && this.splitPrivateChat == 0 && (var9 == 7 || this.chatPrivateMode == 0 || this.chatPrivateMode == 1 && this.isFriend(var11))) {
-						if (var10 > 0 && var10 < 110) {
+						if (var10 > 0 && var10 < 110 && this.messageCont[var7]) {
+							var5.drawString(4 + this.messageIndent[var7], 8388608, var10, this.messageText[var7]);
+						} else if (var10 > 0 && var10 < 110) {
 							byte var15 = 4;
 							var5.drawString(var15, 0, var10, "From");
 							int var16 = var15 + var5.stringWidTag("From ");
@@ -14657,7 +14676,7 @@ public class Client extends GameShell {
 					}
 					if (var9 == 4 && (this.chatTradeMode == 0 || this.chatTradeMode == 1 && this.isFriend(var11))) {
 						if (var10 > 0 && var10 < 110) {
-							var5.drawString(4, 8388736, var10, var11 + " " + this.messageText[var7]);
+							var5.drawString(4, 8388736, var10, this.messageCont[var7] ? this.messageText[var7] : var11 + " " + this.messageText[var7]);
 						}
 						var6++;
 					}
@@ -14668,7 +14687,9 @@ public class Client extends GameShell {
 						var6++;
 					}
 					if (var9 == 6 && this.splitPrivateChat == 0 && this.chatPrivateMode < 2) {
-						if (var10 > 0 && var10 < 110) {
+						if (var10 > 0 && var10 < 110 && this.messageCont[var7]) {
+							var5.drawString(4 + this.messageIndent[var7], 8388608, var10, this.messageText[var7]);
+						} else if (var10 > 0 && var10 < 110) {
 							var5.drawString(4, 0, var10, "To " + var11 + ":");
 							var5.drawString(var5.stringWidTag("To " + var11) + 12, 8388608, var10, this.messageText[var7]);
 						}
@@ -14676,7 +14697,7 @@ public class Client extends GameShell {
 					}
 					if (var9 == 8 && (this.chatTradeMode == 0 || this.chatTradeMode == 1 && this.isFriend(var11))) {
 						if (var10 > 0 && var10 < 110) {
-							var5.drawString(4, 8270336, var10, var11 + " " + this.messageText[var7]);
+							var5.drawString(4, 8270336, var10, this.messageCont[var7] ? this.messageText[var7] : var11 + " " + this.messageText[var7]);
 						}
 						var6++;
 					}
@@ -14895,14 +14916,122 @@ public class Client extends GameShell {
 		if (this.chatInterfaceId == -1) {
 			this.redrawChatback = true;
 		}
+		// QoL (2026-09-21): a line wider than the chatbox continues on the next line instead of
+		// running off the edge - whatever sent it, game message or chat. See wrapChat.
+		java.util.List<String> lines = this.wrapChat(arg0, arg2, arg3);
+		int indent = lines.size() > 1 ? this.chatPrefixWidth(arg0, arg2, arg3) : 0;
+		for (int i = 0; i < lines.size(); i++) {
+			this.pushMessage(arg0, lines.get(i), arg3, i > 0, arg3 == 0 || arg3 == 4 || arg3 == 5 || arg3 == 8 ? 0 : indent);
+		}
+	}
+
+	// Width the chatbox gives text: its clip is 463 and every line starts at x=4. The server wraps
+	// its own game messages at 456 (Player.wrappedMessageGame), so nothing it wrapped is split again.
+	private static final int CHAT_WIDTH = 458;
+
+	// What each message type draws before its text, in the chatbox draw loop below: "Name:" and a
+	// crown for public chat, "From [crown]Name:" for private, "To Name:", or the name for trade/duel.
+	private int chatPrefixWidth(String sender, String text, int type) {
+		PixFont font = this.fontPlain12;
+		String name = sender == null ? "" : sender;
+		int crown = 0;
+		if (name.startsWith("@cr1@") || name.startsWith("@cr2@")) {
+			name = name.substring(5);
+			crown = 14;
+		}
+		switch (type) {
+			case 0:
+				return text.contains("@cr1@") || text.contains("@cr2@") ? 14 : 0;
+			case 1:
+			case 2:
+				return crown + font.stringWidTag(name) + 8;
+			case 3:
+			case 7:
+				return font.stringWidTag("From ") + crown + font.stringWidTag(name) + 8;
+			case 6:
+				return font.stringWidTag("To " + name) + 8;
+			case 4:
+			case 8:
+				return font.stringWidTag(name + " ");
+			default:
+				return 0;
+		}
+	}
+
+	// Split on spaces to fit. The first line fits beside its prefix; the rest are indented to sit
+	// under it (chat) or start at the margin (game, trade and "To" lines, whose prefix is the line).
+	// A word too long for a line on its own is cut. A colour tag carries onto the next line.
+	private java.util.List<String> wrapChat(String sender, String text, int type) {
+		java.util.List<String> out = new java.util.ArrayList<>();
+		PixFont font = this.fontPlain12;
+		if (font == null || text == null) {
+			out.add(text);
+			return out;
+		}
+		int prefix = this.chatPrefixWidth(sender, text, type);
+		boolean indented = !(type == 0 || type == 4 || type == 5 || type == 8);
+		int first = CHAT_WIDTH - prefix;
+		int rest = indented ? first : CHAT_WIDTH;
+		if (font.stringWidTag(text) <= first || first < 60) {
+			out.add(text);
+			return out;
+		}
+		String colour = "";
+		String remaining = text;
+		int width = first;
+		while (remaining.length() > 0) {
+			if (font.stringWidTag(remaining) <= width) {
+				out.add(remaining);
+				break;
+			}
+			int cut = -1;
+			for (int i = 1; i < remaining.length(); i++) {
+				if (remaining.charAt(i) == ' ') {
+					if (font.stringWidTag(remaining.substring(0, i)) > width) {
+						break;
+					}
+					cut = i;
+				}
+			}
+			if (cut <= 0) {
+				cut = 1;
+				while (cut < remaining.length() && font.stringWidTag(remaining.substring(0, cut + 1)) <= width) {
+					cut++;
+				}
+			}
+			String line = remaining.substring(0, cut);
+			out.add(line);
+			for (int i = 0; i + 4 < line.length(); i++) {
+				if (line.charAt(i) == '@' && line.charAt(i + 4) == '@') {
+					String tag = line.substring(i + 1, i + 4);
+					if (!tag.startsWith("cr")) {
+						colour = tag.equals("bla") ? "" : line.substring(i, i + 5);
+					}
+					i += 4;
+				}
+			}
+			remaining = remaining.substring(cut).trim();
+			if (remaining.length() > 0 && colour.length() > 0) {
+				remaining = colour + remaining;
+			}
+			width = rest;
+		}
+		return out;
+	}
+
+	private void pushMessage(String sender, String text, int type, boolean cont, int indent) {
 		for (int var5 = 99; var5 > 0; var5--) {
 			this.messageType[var5] = this.messageType[var5 - 1];
 			this.messageSender[var5] = this.messageSender[var5 - 1];
 			this.messageText[var5] = this.messageText[var5 - 1];
+			this.messageCont[var5] = this.messageCont[var5 - 1];
+			this.messageIndent[var5] = this.messageIndent[var5 - 1];
 		}
-		this.messageType[0] = arg3;
-		this.messageSender[0] = arg0;
-		this.messageText[0] = arg2;
+		this.messageType[0] = type;
+		this.messageSender[0] = sender;
+		this.messageText[0] = text;
+		this.messageCont[0] = cont;
+		this.messageIndent[0] = indent;
 	}
 
 	@ObfuscatedName("client.a(ILjava/lang/String;)Z")
