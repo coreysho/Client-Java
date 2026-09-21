@@ -13881,11 +13881,25 @@ public class Client extends GameShell {
 												}
 											}
 										}
-										if (var13.iop != null && var13.invSlotObjCount[realSlot] == 0) {
+										if (var13.iop != null && var13.invSlotObjCount[realSlot] == 0
+												&& var13.iop[0] != null && var13.iop[0].startsWith("Withdraw")) {
 											// Bank placeholders: the stub is not a stack you can take any of, so the
 											// five Withdraw entries are replaced by the one thing you can do to it.
 											// It rides op 1, so [inv_button1] is where the script picks it up - and
 											// the script has to test for a placeholder BEFORE it withdraws.
+											//
+											// AND ONLY IN THE BANK. A zero count is not unique to a placeholder: a
+											// shop line stocked at 0 looks exactly the same on the wire, and 35 shop
+											// invs in the content carry 272 of them between them. Without the option
+											// test every one of those items offered "Release" - reported from play
+											// 2026-09-21 against the Shantay Pass shop, whose bucket, bowl and jug
+											// are all stocked at 0.
+											//
+											// The gate is the component's own first option rather than its id,
+											// because an id hardcoded here is a number nobody maintaining the
+											// content would ever think to look at. The contract is that the bank
+											// grid's options are the Withdraw ones, and banktab_sim.py checks that
+											// from the content side - a client-only check could never go red there.
 											this.menuOption[this.menuSize] = "Release @lre@" + var23.field811;
 											this.menuAction[this.menuSize] = 9;
 											this.menuParamA[this.menuSize] = var23.field845;
