@@ -9038,7 +9038,7 @@ public class Client extends GameShell {
 				var11 = 16776960;
 			}
 			this.fontBold12.drawStringTag(var11, var2 + 3, var10, true,
-				this.menuOption[this.menuRowIndex(p)]);
+				this.fitMenuText(this.menuOption[this.menuRowIndex(p)], var4 - 6));
 		}
 		// A menu with rows it is not showing says so, in the ground-item overlay's own colours. A
 		// menu that runs off the bottom of the screen with no mark is what this round is fixing;
@@ -9058,6 +9058,31 @@ public class Client extends GameShell {
 			}
 			Pix2D.fillRect(thumb, thumbY, GI_BAR_THUMB, MENU_BAR_W, barX);
 		}
+	}
+
+	// A menu row cut down to $max pixels with "..." on the end, never inside an @col@ tag: every '@'
+	// in a menu option opens or closes one, so an odd count means the cut landed inside a tag.
+	private String fitMenuText(String text, int max) {
+		if (text == null || this.fontBold12.stringWidTag(text) <= max) {
+			return text;
+		}
+		int dots = this.fontBold12.stringWidTag("...");
+		for (int n = text.length() - 1; n > 0; n--) {
+			String cut = text.substring(0, n);
+			int ats = 0;
+			for (int i = 0; i < cut.length(); i++) {
+				if (cut.charAt(i) == '@') {
+					ats++;
+				}
+			}
+			if ((ats & 1) == 1) {
+				continue;
+			}
+			if (this.fontBold12.stringWidTag(cut) + dots <= max) {
+				return cut + "...";
+			}
+		}
+		return "...";
 	}
 
 	@ObfuscatedName("client.a(IIIIII)V")
@@ -11936,6 +11961,10 @@ public class Client extends GameShell {
 		// cannot be clicked. Each area caps at its own height - 20 rows in the viewport, 15 in the
 		// sidebar, 4 in the chatbox - and menuScroll moves the window.
 		if (super.mouseClickX > 4 && super.mouseClickY > 4 && super.mouseClickX < 516 && super.mouseClickY < 338) {
+			// A menu wider than its area used to be pushed off the left edge and clipped - "Uncharge
+			// Trident of the Seas" in the 190-wide sidebar lost its first letters. The width is capped
+			// to the area now, and drawMenu() shortens any row that does not fit with "...".
+			var2 = Math.min(var2, 512);
 			int rows0 = this.menuRowsFor(334);
 			int var4 = rows0 * MENU_ROW_H + MENU_CHROME_H;
 			int var5 = super.mouseClickX - 4 - var2 / 2;
@@ -11962,6 +11991,7 @@ public class Client extends GameShell {
 			this.menuHeight = rows0 * MENU_ROW_H + MENU_CHROME_H;
 		}
 		if (super.mouseClickX > 553 && super.mouseClickY > 205 && super.mouseClickX < 743 && super.mouseClickY < 466) {
+			var2 = Math.min(var2, 190);
 			int rows1 = this.menuRowsFor(261);
 			int var4 = rows1 * MENU_ROW_H + MENU_CHROME_H;
 			int var7 = super.mouseClickX - 553 - var2 / 2;
@@ -11986,6 +12016,7 @@ public class Client extends GameShell {
 			this.menuHeight = rows1 * MENU_ROW_H + MENU_CHROME_H;
 		}
 		if (super.mouseClickX > 17 && super.mouseClickY > 357 && super.mouseClickX < 496 && super.mouseClickY < 453) {
+			var2 = Math.min(var2, 479);
 			int rows2 = this.menuRowsFor(96);
 			int var4 = rows2 * MENU_ROW_H + MENU_CHROME_H;
 			int var9 = super.mouseClickX - 17 - var2 / 2;
