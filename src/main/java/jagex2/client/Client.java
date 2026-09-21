@@ -4400,6 +4400,9 @@ public class Client extends GameShell {
 			} else if (var8 == 6) {
 				this.loginMessage0 = "RuneScape has been updated!";
 				this.loginMessage1 = "Please reload this page.";
+				if (this.relaunchForUpdate()) {
+					this.loginMessage1 = "Updating - restarting in a moment...";
+				}
 			} else if (var8 == 7) {
 				this.loginMessage0 = "This world is full.";
 				this.loginMessage1 = "Please use a different world.";
@@ -14923,6 +14926,60 @@ public class Client extends GameShell {
 	}
 
 	@ObfuscatedName("client.a(Ljava/lang/String;BLjava/lang/String;I)V")
+	// AUTO-UPDATE (2026-09-21). The server refuses an out-of-date client at login with response 6,
+	// "RuneScape has been updated!". A client the launcher installed - one running from
+	// ~/.lostcity/client.jar - no longer has to be closed and reopened by hand: it starts the
+	// launcher (compiled into this jar too, lostcity.Launcher) with the same Java and the same
+	// -Dlostcity.* settings, which downloads the new client and opens it, and then this one exits.
+	// Any other jar - a dev build run from build/libs, say - is left alone, so a developer's own
+	// client is never swapped for the release. Returns whether a restart is on its way.
+	private boolean relaunchForUpdate() {
+		try {
+			java.io.File jar = new java.io.File(Client.class.getProtectionDomain().getCodeSource().getLocation().toURI());
+			java.io.File home = new java.io.File(System.getProperty("user.home"), ".lostcity");
+			if (!jar.isFile() || !home.getCanonicalFile().equals(jar.getCanonicalFile().getParentFile())) {
+				return false;
+			}
+			String bin = System.getProperty("java.home") + java.io.File.separator + "bin" + java.io.File.separator;
+			boolean windows = System.getProperty("os.name").toLowerCase().contains("win");
+			String javaBin = bin + (windows ? "javaw.exe" : "java");
+			if (!new java.io.File(javaBin).isFile()) {
+				javaBin = bin + (windows ? "java.exe" : "java");
+			}
+			final java.util.List<String> cmd = new java.util.ArrayList<>();
+			cmd.add(javaBin);
+			for (String key : System.getProperties().stringPropertyNames()) {
+				if (key.startsWith("lostcity.")) {
+					cmd.add("-D" + key + "=" + System.getProperty(key));
+				}
+			}
+			// From a COPY of this jar: on Windows a running jar is locked, and the launcher has to
+			// replace client.jar - so it must not be running out of it.
+			java.io.File copy = new java.io.File(home, "launcher-run.jar");
+			java.nio.file.Files.copy(jar.toPath(), copy.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+			cmd.add("-cp");
+			cmd.add(copy.getAbsolutePath());
+			cmd.add("lostcity.Launcher");
+			final java.io.File dir = home;
+			Thread t = new Thread(() -> {
+				try {
+					Thread.sleep(2000); // long enough to read the message
+					new ProcessBuilder(cmd).directory(dir).start();
+				} catch (Exception e) {
+					e.printStackTrace();
+					return;
+				}
+				System.exit(0);
+			}, "update-relaunch");
+			t.setDaemon(false);
+			t.start();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
 	public void addMessage(String arg0, String arg2, int arg3) {
 		// DEV: single choke point for essentially all chat/message text - public chat sent and
 		// received, private messages sent and received, NPC chat, game/system messages, etc.

@@ -130,7 +130,24 @@ public final class Launcher {
             tmp.delete();
             throw new IOException("the download was damaged - try again");
         }
-        Files.move(tmp.toPath(), jar.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        // A client restarting itself for this update may still be closing, and on Windows its jar
+        // is locked until it has - so the swap is retried for a while rather than failed at once.
+        for (int attempt = 0; ; attempt++) {
+            try {
+                Files.move(tmp.toPath(), jar.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                break;
+            } catch (IOException e) {
+                if (attempt >= 30) {
+                    throw e;
+                }
+                status("Waiting for the old client to close...");
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException ie) {
+                    throw e;
+                }
+            }
+        }
         Files.write(version.toPath(), tag.getBytes(StandardCharsets.UTF_8));
         log("updated to " + tag);
     }

@@ -21,6 +21,17 @@ application {
     mainClass = "jagex2.client.Client"
 }
 
+// The launcher is compiled into the client jar as well as into its own launcher.jar, so a client
+// that is told "RuneScape has been updated!" can run it to fetch the new client and restart -
+// see Client.relaunchForUpdate. (release.yml still builds launcher.jar on its own for new players.)
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java', 'launcher/src']
+        }
+    }
+}
+
 jar {
     manifest {
         attributes(
