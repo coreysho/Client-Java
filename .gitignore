@@ -11,3 +11,6 @@ build/
 # already tracked - dev-client.log was listed here (twice, plus *.log three times) and still showed
 # up in every commit until it was actually untracked with: git rm --cached dev-client.log
 *.log
+
+# the launcher build output (the release workflow builds it)
+launcher/out/

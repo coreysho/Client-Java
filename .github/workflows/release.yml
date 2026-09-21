@@ -1,0 +1,57 @@
+# EVERY PUSH TO dev-logging IS A CLIENT RELEASE. The client is built here and published as the
+# latest GitHub Release, as client.jar; players' launchers (launcher/, attached to every release as
+# launcher.jar) fetch it the next time they start the game. So shipping a client change is: push.
+#
+# Tags are client-<run number>, which only ever go up. The launcher compares tags for equality, not
+# order, so it always takes whatever GitHub calls latest - including after a revert.
+name: release
+
+on:
+  push:
+    branches: [dev-logging]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: 8
+
+    - uses: gradle/actions/setup-gradle@v4
+      with:
+        gradle-version: '8.14'
+
+    # The same jar gradlew.bat build makes locally - not the proguard one.
+    - name: Build client
+      run: |
+        gradle build
+        cp build/libs/rs2client-dev.jar client.jar
+
+    - name: Build launcher
+      run: |
+        mkdir -p launcher/out
+        javac -source 8 -target 8 -encoding UTF-8 -d launcher/out $(find launcher/src -name '*.java')
+        jar cfe launcher.jar lostcity.Launcher -C launcher/out .
+
+    - name: Publish
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        TAG="client-${{ github.run_number }}"
+        gh release create "$TAG" client.jar launcher.jar \
+          --target "${{ github.sha }}" \
+          --title "Client $TAG" \
+          --notes "$(git log -1 --format=%s)" \
+          --latest
