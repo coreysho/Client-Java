@@ -1132,9 +1132,20 @@ public class Model extends ModelSource {
 		// Lost City: only walk-merge two frames built on the same skeleton. OSRS-imported
 		// animations (base_osrs_*) use the OSRS player skeleton, whose transform groups do not
 		// line up with the 377 one - merging across them twists the model or throws
-		// ArrayIndexOutOfBounds. Play the primary animation on its own instead.
+		// ArrayIndexOutOfBounds.
+		//
+		// WHICH ONE TO FALL BACK TO. This used to play the primary animation alone (arg2), and that
+		// is what "eating while walking scoots" was: the merge is only ever attempted while the
+		// player is MOVING, so dropping the movement frame left them gliding across the ground with
+		// their legs still and a spoon at their mouth. The movement frame (arg0) is the one to keep:
+		// a player who walks normally and simply does not visibly raise the food is far less wrong
+		// than one who slides. Anything that plays while standing still is unaffected - ClientPlayer
+		// only passes a base frame here when the base animation differs from the ready animation.
+		//
+		// The real fix is an OSRS-skeleton counterpart for the 377 gesture animations (human_eat and
+		// the rest), at which point this branch stops being reached for them at all.
 		if (!sameSkeleton(var5.base, var6.base)) {
-			this.applyTransform(arg2);
+			this.applyTransform(arg0);
 			return;
 		}
 		AnimBase var7 = var5.base;
