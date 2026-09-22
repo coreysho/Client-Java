@@ -13241,7 +13241,7 @@ public class Client extends GameShell {
 										if (!placeholder && (var26.owi == 33 || var14.invSlotObjCount[invSlot] != 1)) {
 											int var29 = var14.invSlotObjCount[invSlot];
 											this.fontPlain11.drawString(var20 + 1 + var22, 0, var21 + 10 + var23, formatObjCount(var29));
-											this.fontPlain11.drawString(var20 + var22, 16776960, var21 + 9 + var23, formatObjCount(var29));
+											this.fontPlain11.drawString(var20 + var22, objCountColour(var29), var21 + 9 + var23, formatObjCount(var29));
 										}
 									}
 								}
@@ -13544,6 +13544,18 @@ public class Client extends GameShell {
 			return arg0 / 1000 + "K";
 		} else {
 			return arg0 / 1000000 + "M";
+		}
+	}
+
+	// The stack number's colour, as OSRS draws it: yellow under 100K, white in K, green in M.
+	// Matches the cut-offs in formatObjCount, so the colour always agrees with the suffix.
+	public static int objCountColour(int count) {
+		if (count < 100000) {
+			return 0xffff00;
+		} else if (count < 10000000) {
+			return 0xffffff;
+		} else {
+			return 0x00ff80;
 		}
 	}
 
