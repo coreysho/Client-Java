@@ -77,13 +77,6 @@ public class Client extends GameShell {
 	@ObfuscatedName("client.P")
 	public int[] CHAT_COLOURS = new int[] { 16776960, 16711680, 65280, 65535, 16711935, 16777215 };
 
-	/** Stack-count colours, by the thresholds in formatObjCount: under 100K, under 10M, and above. */
-	public static final int OBJ_COUNT_YELLOW = 0xFFFF00;
-
-	public static final int OBJ_COUNT_WHITE = 0xFFFFFF;
-
-	public static final int OBJ_COUNT_GREEN = 0x00FF80;
-
 	@ObfuscatedName("client.Q")
 	public int[] skillExperience = new int[Stats.field1503];
 
@@ -13233,7 +13226,7 @@ public class Client extends GameShell {
 										if (!placeholder && (var26.owi == 33 || var14.invSlotObjCount[invSlot] != 1)) {
 											int var29 = var14.invSlotObjCount[invSlot];
 											this.fontPlain11.drawString(var20 + 1 + var22, 0, var21 + 10 + var23, formatObjCount(var29));
-											this.fontPlain11.drawString(var20 + var22, objCountColour(var29), var21 + 9 + var23, formatObjCount(var29));
+											this.fontPlain11.drawString(var20 + var22, 16776960, var21 + 9 + var23, formatObjCount(var29));
 										}
 									}
 								}
@@ -13526,25 +13519,6 @@ public class Client extends GameShell {
 		Pix2D.vline(arg2 + 14, this.SCROLLBAR_GRIP_LOWLIGHT, var7 - 1, arg5 + 17 + var8);
 		Pix2D.hline(arg2, this.SCROLLBAR_GRIP_LOWLIGHT, arg5 + 15 + var8 + var7, 16);
 		Pix2D.hline(arg2 + 1, this.SCROLLBAR_GRIP_LOWLIGHT, arg5 + 14 + var8 + var7, 15);
-	}
-
-	/**
-	 * The colour a stack count is drawn in, which is a function of the SAME two thresholds
-	 * formatObjCount already switches on: yellow while the count is written out in full, white once
-	 * it is abbreviated to K, green once it is abbreviated to M. 377 drew every count yellow.
-	 *
-	 * <p>So a big cash stack is green because ten million of anything is green, not because coins
-	 * are special-cased - which is how OSRS does it, and it means the colour and the "10M" it is
-	 * colouring can never disagree.
-	 */
-	public static int objCountColour(int arg0) {
-		if (arg0 < 100000) {
-			return OBJ_COUNT_YELLOW;
-		} else if (arg0 < 10000000) {
-			return OBJ_COUNT_WHITE;
-		} else {
-			return OBJ_COUNT_GREEN;
-		}
 	}
 
 	@ObfuscatedName("client.a(II)Ljava/lang/String;")
