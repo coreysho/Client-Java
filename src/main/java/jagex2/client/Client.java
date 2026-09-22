@@ -717,6 +717,7 @@ public class Client extends GameShell {
 		"staticons", "staticons", "staticons", "staticons", // mining, herblore, agility, thieving
 		"staticons2", "staticons2", "staticons2", // slayer, farming, runecraft
 		"staticons2", // construction (stat 21, 2026-09-10) - index 5 of staticons2, same cell stats.if uses
+		"staticons2", // hunter (stat 22, 2026-09-22) - index 4, same cell stats.if uses
 	};
 	private static final int[] XPDROP_ICON_INDEX = {
 		0, 2, 1, 6, 3, 4, 5, // attack, defence, strength, hitpoints, ranged, prayer, magic
@@ -724,6 +725,10 @@ public class Client extends GameShell {
 		12, 8, 7, 9, // mining, herblore, agility, thieving
 		1, 2, 0, // slayer, farming, runecraft
 		5, // construction
+		// staticons2 ships six drawn icons and 377 only ever referenced four of them. Index 4 is a
+		// brown long-tailed creature - Jagex's own Hunter icon, sitting unused in the 377 cache - so
+		// Hunter needs no new art. Index 3 (a spade) is still spare.
+		4, // hunter
 	};
 
 	private static final class XpDrop {
