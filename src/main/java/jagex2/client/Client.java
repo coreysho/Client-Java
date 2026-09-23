@@ -213,7 +213,7 @@ public class Client extends GameShell {
 	public Packet[] playerAppearanceBuffer = new Packet[this.MAX_PLAYER_COUNT];
 
 	@ObfuscatedName("client.td")
-	public Pix8[] imageSideicons = new Pix8[13];
+	public Pix8[] imageSideicons = new Pix8[15];
 
 	@ObfuscatedName("client.wd")
 	public int[] menuParamB = new int[500];
@@ -515,6 +515,41 @@ public class Client extends GameShell {
 	// and on a menu this long Cancel was off the bottom of the screen anyway.
 	private static final int MENU_ROW_H = 15;
 	private static final int MENU_CHROME_H = 22;
+
+	// The 2008 frame (the one with All / Game / Public / Private / Clan / Trade under the chatbox and
+	// a door on the logout tab). It is OSRS's fixed layout - interface 548 for the frame and 162 for
+	// the chatbox - and tools/models/genframe2008.py pulls its art out of an OSRS cache, with the
+	// same coordinates written down there. Against the 377 frame it moves three things:
+	//
+	//  - the chatbox is a 519x142 parchment at (0,338) instead of 479x96 stone-framed at (17,357).
+	//    CHAT_* is the area INSIDE the parchment's border that chat is drawn into; everything that
+	//    used to say 479, 96, 77 (the message area above the input line) or 463 (the scrollbar's x)
+	//    says it in terms of these now. 377's chat dialogues are 479x96 and are centred in it.
+	//  - the side panel is at x 547, not 553, and the minimap at x 545, not 550.
+	//  - under the chatbox is a 519x23 row of buttons, not a 496x50 bar of text.
+	private static final int CHAT_X = 7;
+	private static final int CHAT_Y = 345;
+	private static final int CHAT_W = 505;
+	private static final int CHAT_H = 129;
+	private static final int CHAT_LOG_H = CHAT_H - 19;
+	private static final int CHAT_IF_X = (CHAT_W - 479) / 2;
+	private static final int CHAT_IF_Y = (CHAT_H - 96) / 2;
+	private static final int SIDE_X = 547;
+	private static final int MAP_X = 545;
+	// The button row. Six filter/mode buttons on a 66px pitch, then Report filling the rest.
+	private static final int BAR_Y = 480;
+	private static final int BAR_BUTTON_W = 56;
+	private static final int BAR_PITCH = 66;
+	private static final int BAR_REPORT_X = 5 + BAR_PITCH * 6;
+	private static final int BAR_REPORT_W = 113;
+	private static final String[] BAR_LABELS = { "All", "Game", "Public", "Private", "Clan", "Trade" };
+	// Left edge of each tab's icon in the top row (548's own numbers). The bottom row is the same
+	// seven tabs 3px further left, because its area starts at x 519 and the top row's at 516.
+	private static final int[] TAB_ICON_X = { 10, 44, 77, 110, 143, 176, 210 };
+	// What the chatbox lists: 0 everything, 1 game messages only (type 0). Client-side, not sent.
+	private int chatFilter = 0;
+	// The bar button under the mouse, 0-5 then 6 for Report, or -1; the bar redraws when it changes.
+	private int chatBarHover = -1;
 	private int menuScroll;
 	private int menuRowsShown;
 	// The bar, in the ground-item overlay's colours - same control, same look.
@@ -2690,8 +2725,9 @@ public class Client extends GameShell {
 	@ObfuscatedName("client.bc")
 	public PixMap areaBackleft1;
 
-	@ObfuscatedName("client.cc")
-	public PixMap areaBackleft2;
+	// The parchment chatbox's border, drawn once with the rest of the frame. Chat itself goes in
+	// areaChatback, which is the inside of it.
+	public PixMap areaChatframe;
 
 	@ObfuscatedName("client.dc")
 	public PixMap areaBackright1;
@@ -2710,9 +2746,6 @@ public class Client extends GameShell {
 
 	@ObfuscatedName("client.ic")
 	public PixMap areaBackvmid3;
-
-	@ObfuscatedName("client.jc")
-	public PixMap areaBackhmid2;
 
 	@ObfuscatedName("client.Wf")
 	public PixMap areaBackbase1;
@@ -2780,20 +2813,13 @@ public class Client extends GameShell {
 	@ObfuscatedName("client.Ub")
 	public Isaac randomIn;
 
-	@ObfuscatedName("client.Bb")
-	public Pix8 imageRedstone1;
+	// Selected-tab stones: 0 top-left, 1 top-right, 2 bottom-left, 3 bottom-right, 4 middle.
+	public Pix8[] imageTabstones = new Pix8[5];
 
-	@ObfuscatedName("client.Cb")
-	public Pix8 imageRedstone2;
+	// Chat bar buttons: 0 normal, 1 hover, 2 selected, 3 selected+hover. Report: 0 normal, 1 hover.
+	public Pix8[] imageChatbuttons = new Pix8[4];
 
-	@ObfuscatedName("client.Db")
-	public Pix8 imageRedstone3;
-
-	@ObfuscatedName("client.Eb")
-	public Pix8 imageRedstone1h;
-
-	@ObfuscatedName("client.Fb")
-	public Pix8 imageRedstone2h;
+	public Pix8[] imageReportbutton = new Pix8[2];
 
 	@ObfuscatedName("client.id")
 	public Pix8 imageBackbase1;
@@ -2803,21 +2829,6 @@ public class Client extends GameShell {
 
 	@ObfuscatedName("client.kd")
 	public Pix8 imageBackhmid1;
-
-	@ObfuscatedName("client.Ad")
-	public Pix8 imageRedstone1v;
-
-	@ObfuscatedName("client.Bd")
-	public Pix8 imageRedstone2v;
-
-	@ObfuscatedName("client.Cd")
-	public Pix8 imageRedstone3v;
-
-	@ObfuscatedName("client.Dd")
-	public Pix8 imageRedstone1hv;
-
-	@ObfuscatedName("client.Ed")
-	public Pix8 imageRedstone2hv;
 
 	@ObfuscatedName("client.Jf")
 	public Pix8 imageScrollbar0;
@@ -3424,7 +3435,7 @@ public class Client extends GameShell {
 			this.imageBackbase2 = new Pix8(jagMedia, "backbase2", 0);
 			this.imageBackhmid1 = new Pix8(jagMedia, "backhmid1", 0);
 
-			for (int i = 0; i < 13; i++) {
+			for (int i = 0; i < this.imageSideicons.length; i++) {
 				this.imageSideicons[i] = new Pix8(jagMedia, "sideicons", i);
 			}
 
@@ -3475,32 +3486,15 @@ public class Client extends GameShell {
 			this.imageScrollbar0 = new Pix8(jagMedia, "scrollbar", 0);
 			this.imageScrollbar1 = new Pix8(jagMedia, "scrollbar", 1);
 
-			this.imageRedstone1 = new Pix8(jagMedia, "redstone1", 0);
-			this.imageRedstone2 = new Pix8(jagMedia, "redstone2", 0);
-			this.imageRedstone3 = new Pix8(jagMedia, "redstone3", 0);
-
-			this.imageRedstone1h = new Pix8(jagMedia, "redstone1", 0);
-			this.imageRedstone1h.hflip();
-
-			this.imageRedstone2h = new Pix8(jagMedia, "redstone2", 0);
-			this.imageRedstone2h.hflip();
-
-			this.imageRedstone1v = new Pix8(jagMedia, "redstone1", 0);
-			this.imageRedstone1v.vflip();
-
-			this.imageRedstone2v = new Pix8(jagMedia, "redstone2", 0);
-			this.imageRedstone2v.vflip();
-
-			this.imageRedstone3v = new Pix8(jagMedia, "redstone3", 0);
-			this.imageRedstone3v.vflip();
-
-			this.imageRedstone1hv = new Pix8(jagMedia, "redstone1", 0);
-			this.imageRedstone1hv.hflip();
-			this.imageRedstone1hv.vflip();
-
-			this.imageRedstone2hv = new Pix8(jagMedia, "redstone2", 0);
-			this.imageRedstone2hv.hflip();
-			this.imageRedstone2hv.vflip();
+			for (int i = 0; i < this.imageTabstones.length; i++) {
+				this.imageTabstones[i] = new Pix8(jagMedia, "tabstones", i);
+			}
+			for (int i = 0; i < this.imageChatbuttons.length; i++) {
+				this.imageChatbuttons[i] = new Pix8(jagMedia, "chatbuttons", i);
+			}
+			for (int i = 0; i < this.imageReportbutton.length; i++) {
+				this.imageReportbutton[i] = new Pix8(jagMedia, "reportbutton", i);
+			}
 
 			for (int i = 0; i < 2; i++) {
 				this.imageModIcons[i] = new Pix8(jagMedia, "mod_icons", i);
@@ -3519,9 +3513,9 @@ public class Client extends GameShell {
 			this.areaBackleft1 = new PixMap(backleft1.hi, this.getBaseComponent(), backleft1.wi);
 			backleft1.quickPlotSprite(0, 0);
 
-			Pix32 backleft2 = new Pix32(jagMedia, "backleft2", 0);
-			this.areaBackleft2 = new PixMap(backleft2.hi, this.getBaseComponent(), backleft2.wi);
-			backleft2.quickPlotSprite(0, 0);
+			Pix32 chatframe = new Pix32(jagMedia, "chatback", 0);
+			this.areaChatframe = new PixMap(chatframe.hi, this.getBaseComponent(), chatframe.wi);
+			chatframe.quickPlotSprite(0, 0);
 
 			Pix32 backright1 = new Pix32(jagMedia, "backright1", 0);
 			this.areaBackright1 = new PixMap(backright1.hi, this.getBaseComponent(), backright1.wi);
@@ -3546,10 +3540,6 @@ public class Client extends GameShell {
 			Pix32 backvmid3 = new Pix32(jagMedia, "backvmid3", 0);
 			this.areaBackvmid3 = new PixMap(backvmid3.hi, this.getBaseComponent(), backvmid3.wi);
 			backvmid3.quickPlotSprite(0, 0);
-
-			Pix32 backhmid2 = new Pix32(jagMedia, "backhmid2", 0);
-			this.areaBackhmid2 = new PixMap(backhmid2.hi, this.getBaseComponent(), backhmid2.wi);
-			backhmid2.quickPlotSprite(0, 0);
 
 			int randR = (int) (Math.random() * 21.0D) - 10;
 			int randG = (int) (Math.random() * 21.0D) - 10;
@@ -3641,7 +3631,7 @@ public class Client extends GameShell {
 			Pix3D.init3D(503, 765);
 			this.areaFullscreenOffset = Pix3D.lineOffset;
 
-			Pix3D.init3D(96, 479);
+			Pix3D.init3D(CHAT_H, CHAT_W);
 			this.areaChatbackOffset = Pix3D.lineOffset;
 
 			Pix3D.init3D(261, 190);
@@ -3716,19 +3706,9 @@ public class Client extends GameShell {
 		this.playerAppearanceBuffer = null;
 		this.entityRemovalIds = null;
 		this.areaBackleft1 = null;
-		this.areaBackleft2 = null;
+		this.areaChatframe = null;
 		this.areaBackright1 = null;
 		this.areaBackright2 = null;
-		this.imageRedstone1 = null;
-		this.imageRedstone2 = null;
-		this.imageRedstone3 = null;
-		this.imageRedstone1h = null;
-		this.imageRedstone2h = null;
-		this.imageRedstone1v = null;
-		this.imageRedstone2v = null;
-		this.imageRedstone3v = null;
-		this.imageRedstone1hv = null;
-		this.imageRedstone2hv = null;
 		this.friendName = null;
 		this.friendName37 = null;
 		this.friendWorld = null;
@@ -3765,7 +3745,9 @@ public class Client extends GameShell {
 		this.areaBackvmid1 = null;
 		this.areaBackvmid2 = null;
 		this.areaBackvmid3 = null;
-		this.areaBackhmid2 = null;
+		this.imageTabstones = null;
+		this.imageChatbuttons = null;
+		this.imageReportbutton = null;
 		this.levelHeightmap = null;
 		this.levelTileFlags = null;
 		this.scene = null;
@@ -4553,15 +4535,15 @@ public class Client extends GameShell {
 		this.imageTitle6 = null;
 		this.imageTitle7 = null;
 		this.imageTitle8 = null;
-		this.areaChatback = new PixMap(96, this.getBaseComponent(), 479);
+		this.areaChatback = new PixMap(CHAT_H, this.getBaseComponent(), CHAT_W);
 		this.areaMapback = new PixMap(156, this.getBaseComponent(), 172);
 		Pix2D.cls();
 		this.imageMapback.plotSprite(0, 0);
 		this.areaSidebar = new PixMap(261, this.getBaseComponent(), 190);
 		this.areaViewport = new PixMap(334, this.getBaseComponent(), 512);
 		Pix2D.cls();
-		this.areaBackbase1 = new PixMap(50, this.getBaseComponent(), 496);
-		this.areaBackbase2 = new PixMap(37, this.getBaseComponent(), 269);
+		this.areaBackbase1 = new PixMap(23, this.getBaseComponent(), 519);
+		this.areaBackbase2 = new PixMap(37, this.getBaseComponent(), 246);
 		this.areaBackmid1 = new PixMap(45, this.getBaseComponent(), 249);
 		this.redrawFrame = true;
 		this.areaViewport.bind();
@@ -5601,11 +5583,11 @@ public class Client extends GameShell {
 		}
 		this.lastHoveredInterfaceId = 0;
 		this.field611 = 0;
-		if (super.mouseX > 553 && super.mouseY > 205 && super.mouseX < 743 && super.mouseY < 466) {
+		if (super.mouseX > SIDE_X && super.mouseY > 205 && super.mouseX < SIDE_X + 190 && super.mouseY < 466) {
 			if (this.sidebarInterfaceId != -1) {
-				this.handleInterfaceInput(205, Component.get(this.sidebarInterfaceId), 1, 0, 553, super.mouseX, super.mouseY);
+				this.handleInterfaceInput(205, Component.get(this.sidebarInterfaceId), 1, 0, SIDE_X, super.mouseX, super.mouseY);
 			} else if (this.tabInterfaceId[this.selectedTab] != -1) {
-				this.handleInterfaceInput(205, Component.get(this.tabInterfaceId[this.selectedTab]), 1, 0, 553, super.mouseX, super.mouseY);
+				this.handleInterfaceInput(205, Component.get(this.tabInterfaceId[this.selectedTab]), 1, 0, SIDE_X, super.mouseX, super.mouseY);
 			}
 		}
 		if (this.sidebarHoveredInterfaceIndex != this.lastHoveredInterfaceId) {
@@ -5618,13 +5600,13 @@ public class Client extends GameShell {
 		}
 		this.lastHoveredInterfaceId = 0;
 		this.field611 = 0;
-		if (super.mouseX > 17 && super.mouseY > 357 && super.mouseX < 496 && super.mouseY < 453) {
+		if (super.mouseX > CHAT_X && super.mouseY > CHAT_Y && super.mouseX < CHAT_X + CHAT_W && super.mouseY < CHAT_Y + CHAT_H) {
 			if (this.chatInterfaceId != -1) {
-				this.handleInterfaceInput(357, Component.get(this.chatInterfaceId), 2, 0, 17, super.mouseX, super.mouseY);
+				this.handleInterfaceInput(CHAT_Y + CHAT_IF_Y, Component.get(this.chatInterfaceId), 2, 0, CHAT_X + CHAT_IF_X, super.mouseX, super.mouseY);
 			} else if (this.stickyChatInterfaceId != -1) {
-				this.handleInterfaceInput(357, Component.get(this.stickyChatInterfaceId), 3, 0, 17, super.mouseX, super.mouseY);
-			} else if (super.mouseY < 434 && super.mouseX < 426 && this.chatbackInputOpen == 0) {
-				this.handleChatMouseInput(super.mouseX - 17, super.mouseY - 357);
+				this.handleInterfaceInput(CHAT_Y + CHAT_IF_Y, Component.get(this.stickyChatInterfaceId), 3, 0, CHAT_X + CHAT_IF_X, super.mouseX, super.mouseY);
+			} else if (super.mouseY < CHAT_Y + CHAT_LOG_H && super.mouseX < CHAT_X + CHAT_W - 70 && this.chatbackInputOpen == 0) {
+				this.handleChatMouseInput(super.mouseX - CHAT_X, super.mouseY - CHAT_Y);
 			}
 		}
 		if ((this.chatInterfaceId != -1 || this.stickyChatInterfaceId != -1) && this.chatHoveredInterfaceIndex != this.lastHoveredInterfaceId) {
@@ -5721,7 +5703,10 @@ public class Client extends GameShell {
 		for (int var6 = 0; var6 < 100; var6++) {
 			if (this.messageText[var6] != null) {
 				int var7 = this.messageType[var6];
-				int var8 = 70 - var4 * 14 + this.chatScrollOffset + 4;
+				if (this.chatFilter == 1 && var7 != 0) {
+					continue;
+				}
+				int var8 = CHAT_LOG_H - 7 - var4 * 14 + this.chatScrollOffset + 4;
 				if (var8 < -20) {
 					break;
 				}
@@ -6045,12 +6030,12 @@ public class Client extends GameShell {
 				var4 -= 4;
 			}
 			if (this.menuArea == 1) {
-				var3 -= 553;
+				var3 -= SIDE_X;
 				var4 -= 205;
 			}
 			if (this.menuArea == 2) {
-				var3 -= 17;
-				var4 -= 357;
+				var3 -= CHAT_X;
+				var4 -= CHAT_Y;
 			}
 			if (var3 < this.menuX - 10 || var3 > this.menuWidth + this.menuX + 10 || var4 < this.menuY - 10 || var4 > this.menuHeight + this.menuY + 10) {
 				this.menuVisible = false;
@@ -6073,12 +6058,12 @@ public class Client extends GameShell {
 				var9 -= 4;
 			}
 			if (this.menuArea == 1) {
-				var8 -= 553;
+				var8 -= SIDE_X;
 				var9 -= 205;
 			}
 			if (this.menuArea == 2) {
-				var8 -= 17;
-				var9 -= 357;
+				var8 -= CHAT_X;
+				var9 -= CHAT_Y;
 			}
 			int var10 = -1;
 			for (int p = 0; p < this.menuRowsShown; p++) {
@@ -6105,6 +6090,19 @@ public class Client extends GameShell {
 		}
 	}
 
+	// The stone behind a selected tab. col is 0-6 along its row; the end tabs get the rounded corner
+	// stones (corner 0 for the top row, 2 for the bottom) and the five between them share one.
+	private void plotTabStone(int col, int y, int corner) {
+		int shift = corner == 0 ? 0 : 3;
+		if (col == 0) {
+			this.imageTabstones[corner].plotSprite(y, 6 - shift);
+		} else if (col == 6) {
+			this.imageTabstones[corner + 1].plotSprite(y, 209 - shift);
+		} else {
+			this.imageTabstones[4].plotSprite(y, 44 + (col - 1) * 33 - shift);
+		}
+	}
+
 	@ObfuscatedName("client.m(B)V")
 	public void handleMinimapInput() {
 		// QoL: click the compass (top-left corner of the minimap) to smoothly turn the camera to
@@ -6113,7 +6111,7 @@ public class Client extends GameShell {
 		// (compassMaskLineOffsets/Lengths, built at startup from imageMapback) that's already used to
 		// draw the compass itself, so the click region always matches its actual on-screen shape.
 		if (super.mouseClickButton == 1 && QolSettings.on(QolSettings.COMPASS_NORTH)) {
-			int compassLocalX = super.mouseClickX - 550;
+			int compassLocalX = super.mouseClickX - MAP_X;
 			int compassLocalY = super.mouseClickY - 4;
 			if (compassLocalY >= 0 && compassLocalY < 33 && compassLocalX >= this.compassMaskLineOffsets[compassLocalY] && compassLocalX < this.compassMaskLineOffsets[compassLocalY] + this.compassMaskLineLengths[compassLocalY]) {
 				this.compassResetting = true;
@@ -6125,7 +6123,7 @@ public class Client extends GameShell {
 		if (this.minimapType != 0 || super.mouseClickButton != 1) {
 			return;
 		}
-		int var2 = super.mouseClickX - 25 - 550;
+		int var2 = super.mouseClickX - 25 - MAP_X;
 		int var3 = super.mouseClickY - 5 - 4;
 		if (var2 < 0 || var3 < 0 || var2 >= 146 || var3 >= 151) {
 			return;
@@ -6160,75 +6158,24 @@ public class Client extends GameShell {
 	@ObfuscatedName("client.c(Z)V")
 	public void handleTabInput() {
 		if (super.mouseClickButton == 1) {
-			if (super.mouseClickX >= 539 && super.mouseClickX <= 573 && super.mouseClickY >= 169 && super.mouseClickY < 205 && this.tabInterfaceId[0] != -1) {
-				this.redrawSidebar = true;
-				this.selectedTab = 0;
-				this.redrawSideicons = true;
-			}
-			if (super.mouseClickX >= 569 && super.mouseClickX <= 599 && super.mouseClickY >= 168 && super.mouseClickY < 205 && this.tabInterfaceId[1] != -1) {
-				this.redrawSidebar = true;
-				this.selectedTab = 1;
-				this.redrawSideicons = true;
-			}
-			if (super.mouseClickX >= 597 && super.mouseClickX <= 627 && super.mouseClickY >= 168 && super.mouseClickY < 205 && this.tabInterfaceId[2] != -1) {
-				this.redrawSidebar = true;
-				this.selectedTab = 2;
-				this.redrawSideicons = true;
-			}
-			if (super.mouseClickX >= 625 && super.mouseClickX <= 669 && super.mouseClickY >= 168 && super.mouseClickY < 203 && this.tabInterfaceId[3] != -1) {
-				this.redrawSidebar = true;
-				this.selectedTab = 3;
-				this.redrawSideicons = true;
-			}
-			if (super.mouseClickX >= 666 && super.mouseClickX <= 696 && super.mouseClickY >= 168 && super.mouseClickY < 205 && this.tabInterfaceId[4] != -1) {
-				this.redrawSidebar = true;
-				this.selectedTab = 4;
-				this.redrawSideicons = true;
-			}
-			if (super.mouseClickX >= 694 && super.mouseClickX <= 724 && super.mouseClickY >= 168 && super.mouseClickY < 205 && this.tabInterfaceId[5] != -1) {
-				this.redrawSidebar = true;
-				this.selectedTab = 5;
-				this.redrawSideicons = true;
-			}
-			if (super.mouseClickX >= 722 && super.mouseClickX <= 756 && super.mouseClickY >= 169 && super.mouseClickY < 205 && this.tabInterfaceId[6] != -1) {
-				this.redrawSidebar = true;
-				this.selectedTab = 6;
-				this.redrawSideicons = true;
-			}
-			if (super.mouseClickX >= 540 && super.mouseClickX <= 574 && super.mouseClickY >= 466 && super.mouseClickY < 502 && this.tabInterfaceId[7] != -1) {
-				this.redrawSidebar = true;
-				this.selectedTab = 7;
-				this.redrawSideicons = true;
-			}
-			if (super.mouseClickX >= 572 && super.mouseClickX <= 602 && super.mouseClickY >= 466 && super.mouseClickY < 503 && this.tabInterfaceId[8] != -1) {
-				this.redrawSidebar = true;
-				this.selectedTab = 8;
-				this.redrawSideicons = true;
-			}
-			if (super.mouseClickX >= 599 && super.mouseClickX <= 629 && super.mouseClickY >= 466 && super.mouseClickY < 503 && this.tabInterfaceId[9] != -1) {
-				this.redrawSidebar = true;
-				this.selectedTab = 9;
-				this.redrawSideicons = true;
-			}
-			if (super.mouseClickX >= 627 && super.mouseClickX <= 671 && super.mouseClickY >= 467 && super.mouseClickY < 502 && this.tabInterfaceId[10] != -1) {
-				this.redrawSidebar = true;
-				this.selectedTab = 10;
-				this.redrawSideicons = true;
-			}
-			if (super.mouseClickX >= 669 && super.mouseClickX <= 699 && super.mouseClickY >= 466 && super.mouseClickY < 503 && this.tabInterfaceId[11] != -1) {
-				this.redrawSidebar = true;
-				this.selectedTab = 11;
-				this.redrawSideicons = true;
-			}
-			if (super.mouseClickX >= 696 && super.mouseClickX <= 726 && super.mouseClickY >= 466 && super.mouseClickY < 503 && this.tabInterfaceId[12] != -1) {
-				this.redrawSidebar = true;
-				this.selectedTab = 12;
-				this.redrawSideicons = true;
-			}
-			if (super.mouseClickX >= 724 && super.mouseClickX <= 758 && super.mouseClickY >= 466 && super.mouseClickY < 502 && this.tabInterfaceId[13] != -1) {
-				this.redrawSidebar = true;
-				this.selectedTab = 13;
-				this.redrawSideicons = true;
+			// Tab edges from interface 548: the end tabs are 38 wide, the five between them 33.
+			for (int col = 0; col < 7; col++) {
+				int left = col == 0 ? 522 : 560 + (col - 1) * 33;
+				int right = col == 6 ? 763 : 560 + col * 33;
+				if (super.mouseClickX < left || super.mouseClickX >= right) {
+					continue;
+				}
+				int tab = -1;
+				if (super.mouseClickY >= 168 && super.mouseClickY < 204) {
+					tab = col;
+				} else if (super.mouseClickY >= 466 && super.mouseClickY < 502) {
+					tab = col + 7;
+				}
+				if (tab != -1 && this.tabInterfaceId[tab] != -1) {
+					this.redrawSidebar = true;
+					this.selectedTab = tab;
+					this.redrawSideicons = true;
+				}
 			}
 		}
 	}
@@ -6238,8 +6185,23 @@ public class Client extends GameShell {
 		if (super.mouseClickButton != 1) {
 			return;
 		}
-		if (super.mouseClickX >= 6 && super.mouseClickX <= 106 && super.mouseClickY >= 467 && super.mouseClickY <= 499) {
-			this.chatPublicMode = (this.chatPublicMode + 1) % 4;
+		int button = this.chatBarButtonAt(super.mouseClickX, super.mouseClickY);
+		if (button == 0 || button == 1) {
+			// All / Game: what the chatbox lists. Nothing to tell the server - it is a view.
+			if (this.chatFilter != button) {
+				this.chatFilter = button;
+				this.chatScrollOffset = 0;
+			}
+			this.redrawPrivacySettings = true;
+			this.redrawChatback = true;
+		} else if (button == 2 || button == 3 || button == 5) {
+			if (button == 2) {
+				this.chatPublicMode = (this.chatPublicMode + 1) % 4;
+			} else if (button == 3) {
+				this.chatPrivateMode = (this.chatPrivateMode + 1) % 3;
+			} else {
+				this.chatTradeMode = (this.chatTradeMode + 1) % 3;
+			}
 			this.redrawPrivacySettings = true;
 			this.redrawChatback = true;
 			// CHAT_SETMODE
@@ -6247,28 +6209,9 @@ public class Client extends GameShell {
 			this.out.p1(this.chatPublicMode);
 			this.out.p1(this.chatPrivateMode);
 			this.out.p1(this.chatTradeMode);
-		}
-		if (super.mouseClickX >= 135 && super.mouseClickX <= 235 && super.mouseClickY >= 467 && super.mouseClickY <= 499) {
-			this.chatPrivateMode = (this.chatPrivateMode + 1) % 3;
-			this.redrawPrivacySettings = true;
-			this.redrawChatback = true;
-			// CHAT_SETMODE
-			this.out.p1isaac(176);
-			this.out.p1(this.chatPublicMode);
-			this.out.p1(this.chatPrivateMode);
-			this.out.p1(this.chatTradeMode);
-		}
-		if (super.mouseClickX >= 273 && super.mouseClickX <= 373 && super.mouseClickY >= 467 && super.mouseClickY <= 499) {
-			this.chatTradeMode = (this.chatTradeMode + 1) % 3;
-			this.redrawPrivacySettings = true;
-			this.redrawChatback = true;
-			// CHAT_SETMODE
-			this.out.p1isaac(176);
-			this.out.p1(this.chatPublicMode);
-			this.out.p1(this.chatPrivateMode);
-			this.out.p1(this.chatTradeMode);
-		}
-		if (super.mouseClickX >= 412 && super.mouseClickX <= 512 && super.mouseClickY >= 467 && super.mouseClickY <= 499) {
+		} else if (button == 4) {
+			this.addMessage("", "Clan chat is not available yet.", 0);
+		} else if (button == 6) {
 			if (this.viewportInterfaceId == -1) {
 				this.closeInterfaces();
 				this.reportAbuseInput = "";
@@ -6285,6 +6228,39 @@ public class Client extends GameShell {
 			this.out.p1isaac(22);
 			this.out.p2(38304);
 		}
+	}
+
+	// Which chat bar button (x,y) is on: 0-5 All/Game/Public/Private/Clan/Trade, 6 Report, or -1.
+	private int chatBarButtonAt(int x, int y) {
+		if (y < BAR_Y + 1 || y >= BAR_Y + 23) {
+			return -1;
+		}
+		if (x >= BAR_REPORT_X && x < BAR_REPORT_X + BAR_REPORT_W) {
+			return 6;
+		}
+		int col = (x - 5) / BAR_PITCH;
+		if (x < 5 || col > 5 || x - 5 - col * BAR_PITCH >= BAR_BUTTON_W) {
+			return -1;
+		}
+		return col;
+	}
+
+	private void drawChatBarLabel(int x, int w, String label, String mode, int modeColour) {
+		int cx = x + w / 2;
+		if (mode == null) {
+			this.fontPlain11.centreStringTag(true, 0xFFFFFF, 16, cx, label);
+		} else {
+			this.fontPlain11.centreStringTag(true, 0xFFFFFF, 11, cx, label);
+			this.fontPlain11.centreStringTag(true, modeColour, 21, cx, mode);
+		}
+	}
+
+	private static String chatModeName(int mode) {
+		return mode == 0 ? "On" : mode == 1 ? "Friends" : mode == 2 ? "Off" : "Hide";
+	}
+
+	private static int chatModeColour(int mode) {
+		return mode == 0 ? 0x00FF00 : mode == 1 ? 0xFFFF00 : mode == 2 ? 0xFF0000 : 0x00FFFF;
 	}
 
 	@ObfuscatedName("client.b(Z)V")
@@ -7825,14 +7801,13 @@ public class Client extends GameShell {
 			this.prepareGame();
 			this.redrawFrame = false;
 			this.areaBackleft1.draw(4, 0, super.graphics);
-			this.areaBackleft2.draw(357, 0, super.graphics);
-			this.areaBackright1.draw(4, 722, super.graphics);
-			this.areaBackright2.draw(205, 743, super.graphics);
+			this.areaChatframe.draw(338, 0, super.graphics);
+			this.areaBackright1.draw(4, 717, super.graphics);
+			this.areaBackright2.draw(205, 737, super.graphics);
 			this.areaBacktop1.draw(0, 0, super.graphics);
 			this.areaBackvmid1.draw(4, 516, super.graphics);
 			this.areaBackvmid2.draw(205, 516, super.graphics);
-			this.areaBackvmid3.draw(357, 496, super.graphics);
-			this.areaBackhmid2.draw(338, 0, super.graphics);
+			this.areaBackvmid3.draw(338, 519, super.graphics);
 			this.redrawSidebar = true;
 			this.redrawChatback = true;
 			this.redrawSideicons = true;
@@ -7840,7 +7815,7 @@ public class Client extends GameShell {
 
 			if (this.sceneState != 2) {
 				this.areaViewport.draw(4, 4, super.graphics);
-				this.areaMapback.draw(4, 550, super.graphics);
+				this.areaMapback.draw(4, MAP_X, super.graphics);
 			}
 
 			field533++;
@@ -7875,11 +7850,11 @@ public class Client extends GameShell {
 			this.redrawSidebar = false;
 		}
 		if (this.chatInterfaceId == -1 && this.chatbackInputOpen == 0) {
-			this.chatInterface.field713 = this.chatScrollHeight - this.chatScrollOffset - 77;
-			if (super.mouseX > 448 && super.mouseX < 560 && super.mouseY > 332) {
-				this.handleScrollInput(this.chatScrollHeight, 0, this.chatInterface, super.mouseY - 357, -1, super.mouseX - 17, 77, 463);
+			this.chatInterface.field713 = this.chatScrollHeight - this.chatScrollOffset - CHAT_LOG_H;
+			if (super.mouseX > CHAT_X + CHAT_W - 48 && super.mouseX < CHAT_X + CHAT_W + 64 && super.mouseY > CHAT_Y - 25) {
+				this.handleScrollInput(this.chatScrollHeight, 0, this.chatInterface, super.mouseY - CHAT_Y, -1, super.mouseX - CHAT_X, CHAT_LOG_H, CHAT_W - 16);
 			}
-			int var5 = this.chatScrollHeight - 77 - this.chatInterface.field713;
+			int var5 = this.chatScrollHeight - CHAT_LOG_H - this.chatInterface.field713;
 			if (var5 < 0) {
 				var5 = 0;
 			}
@@ -7890,7 +7865,7 @@ public class Client extends GameShell {
 			// widened from the narrow scrollbar-column rect to the full chatbox rect - same bounds
 			// handleInput() uses to route hover input to the chatbox, see ~line 4098 - so scrolling
 			// works anywhere over the chat text, not just right over the scrollbar)
-			if (QolSettings.on(QolSettings.WHEEL_CHAT) && super.mouseScrollDelta != 0 && super.mouseX > 17 && super.mouseX < 496 && super.mouseY > 357 && super.mouseY < 453) {
+			if (QolSettings.on(QolSettings.WHEEL_CHAT) && super.mouseScrollDelta != 0 && super.mouseX > CHAT_X && super.mouseX < CHAT_X + CHAT_W && super.mouseY > CHAT_Y && super.mouseY < CHAT_Y + CHAT_H) {
 				var5 -= super.mouseScrollDelta * 16;
 				if (var5 < 0) {
 					var5 = 0;
@@ -7908,15 +7883,15 @@ public class Client extends GameShell {
 		if (this.chatInterfaceId == -1 && this.chatbackInputOpen == 3) {
 			int var6 = this.field158 * 14 + 7;
 			this.chatInterface.field713 = this.field161;
-			if (super.mouseX > 448 && super.mouseX < 560 && super.mouseY > 332) {
-				this.handleScrollInput(var6, 0, this.chatInterface, super.mouseY - 357, -1, super.mouseX - 17, 77, 463);
+			if (super.mouseX > CHAT_X + CHAT_W - 48 && super.mouseX < CHAT_X + CHAT_W + 64 && super.mouseY > CHAT_Y - 25) {
+				this.handleScrollInput(var6, 0, this.chatInterface, super.mouseY - CHAT_Y, -1, super.mouseX - CHAT_X, CHAT_LOG_H, CHAT_W - 16);
 			}
 			int var7 = this.chatInterface.field713;
 			if (var7 < 0) {
 				var7 = 0;
 			}
-			if (var7 > var6 - 77) {
-				var7 = var6 - 77;
+			if (var7 > var6 - CHAT_LOG_H) {
+				var7 = var6 - CHAT_LOG_H;
 			}
 			if (this.field161 != var7) {
 				this.field161 = var7;
@@ -7947,7 +7922,7 @@ public class Client extends GameShell {
 		}
 		if (this.sceneState == 2) {
 			this.drawMinimap();
-			this.areaMapback.draw(4, 550, super.graphics);
+			this.areaMapback.draw(4, MAP_X, super.graphics);
 		}
 		if (this.flashingTab != -1) {
 			this.redrawSideicons = true;
@@ -7960,143 +7935,71 @@ public class Client extends GameShell {
 				this.out.p1(this.selectedTab);
 			}
 			this.redrawSideicons = false;
+			// Both tab rows are drawn the way interface 548 lays them out: a stone for the selected tab
+			// (the end tabs have their own corner stones), then the fourteen icons over the top. The
+			// top row's area starts 8px above its tabs because backhmid1 carries the strip under the
+			// minimap as well.
 			this.areaBackmid1.bind();
 			this.imageBackhmid1.plotSprite(0, 0);
 			if (this.sidebarInterfaceId == -1) {
-				if (this.tabInterfaceId[this.selectedTab] != -1) {
-					if (this.selectedTab == 0) {
-						this.imageRedstone1.plotSprite(10, 22);
-					}
-					if (this.selectedTab == 1) {
-						this.imageRedstone2.plotSprite(8, 54);
-					}
-					if (this.selectedTab == 2) {
-						this.imageRedstone2.plotSprite(8, 82);
-					}
-					if (this.selectedTab == 3) {
-						this.imageRedstone3.plotSprite(8, 110);
-					}
-					if (this.selectedTab == 4) {
-						this.imageRedstone2h.plotSprite(8, 153);
-					}
-					if (this.selectedTab == 5) {
-						this.imageRedstone2h.plotSprite(8, 181);
-					}
-					if (this.selectedTab == 6) {
-						this.imageRedstone1h.plotSprite(9, 209);
-					}
+				if (this.selectedTab < 7 && this.tabInterfaceId[this.selectedTab] != -1) {
+					this.plotTabStone(this.selectedTab, 8, 0);
 				}
-				if (this.tabInterfaceId[0] != -1 && (this.flashingTab != 0 || loopCycle % 20 < 10)) {
-					this.imageSideicons[0].plotSprite(13, 29);
-				}
-				if (this.tabInterfaceId[1] != -1 && (this.flashingTab != 1 || loopCycle % 20 < 10)) {
-					this.imageSideicons[1].plotSprite(11, 53);
-				}
-				if (this.tabInterfaceId[2] != -1 && (this.flashingTab != 2 || loopCycle % 20 < 10)) {
-					this.imageSideicons[2].plotSprite(11, 82);
-				}
-				if (this.tabInterfaceId[3] != -1 && (this.flashingTab != 3 || loopCycle % 20 < 10)) {
-					this.imageSideicons[3].plotSprite(12, 115);
-				}
-				if (this.tabInterfaceId[4] != -1 && (this.flashingTab != 4 || loopCycle % 20 < 10)) {
-					this.imageSideicons[4].plotSprite(13, 153);
-				}
-				if (this.tabInterfaceId[5] != -1 && (this.flashingTab != 5 || loopCycle % 20 < 10)) {
-					this.imageSideicons[5].plotSprite(11, 180);
-				}
-				if (this.tabInterfaceId[6] != -1 && (this.flashingTab != 6 || loopCycle % 20 < 10)) {
-					this.imageSideicons[6].plotSprite(13, 208);
+				for (int tab = 0; tab < 7; tab++) {
+					if (this.tabInterfaceId[tab] != -1 && (this.flashingTab != tab || loopCycle % 20 < 10)) {
+						this.imageSideicons[tab].plotSprite(8, TAB_ICON_X[tab]);
+					}
 				}
 			}
 			this.areaBackmid1.draw(160, 516, super.graphics);
 			this.areaBackbase2.bind();
 			this.imageBackbase2.plotSprite(0, 0);
 			if (this.sidebarInterfaceId == -1) {
-				if (this.tabInterfaceId[this.selectedTab] != -1) {
-					if (this.selectedTab == 7) {
-						this.imageRedstone1v.plotSprite(0, 42);
-					}
-					if (this.selectedTab == 8) {
-						this.imageRedstone2v.plotSprite(0, 74);
-					}
-					if (this.selectedTab == 9) {
-						this.imageRedstone2v.plotSprite(0, 102);
-					}
-					if (this.selectedTab == 10) {
-						this.imageRedstone3v.plotSprite(1, 130);
-					}
-					if (this.selectedTab == 11) {
-						this.imageRedstone2hv.plotSprite(0, 173);
-					}
-					if (this.selectedTab == 12) {
-						this.imageRedstone2hv.plotSprite(0, 201);
-					}
-					if (this.selectedTab == 13) {
-						this.imageRedstone1hv.plotSprite(0, 229);
-					}
+				if (this.selectedTab >= 7 && this.tabInterfaceId[this.selectedTab] != -1) {
+					this.plotTabStone(this.selectedTab - 7, 0, 2);
 				}
-				if (this.tabInterfaceId[8] != -1 && (this.flashingTab != 8 || loopCycle % 20 < 10)) {
-					this.imageSideicons[7].plotSprite(2, 74);
-				}
-				if (this.tabInterfaceId[9] != -1 && (this.flashingTab != 9 || loopCycle % 20 < 10)) {
-					this.imageSideicons[8].plotSprite(3, 102);
-				}
-				if (this.tabInterfaceId[10] != -1 && (this.flashingTab != 10 || loopCycle % 20 < 10)) {
-					this.imageSideicons[9].plotSprite(4, 137);
-				}
-				if (this.tabInterfaceId[11] != -1 && (this.flashingTab != 11 || loopCycle % 20 < 10)) {
-					this.imageSideicons[10].plotSprite(2, 174);
-				}
-				if (this.tabInterfaceId[12] != -1 && (this.flashingTab != 12 || loopCycle % 20 < 10)) {
-					this.imageSideicons[11].plotSprite(2, 201);
-				}
-				if (this.tabInterfaceId[13] != -1 && (this.flashingTab != 13 || loopCycle % 20 < 10)) {
-					this.imageSideicons[12].plotSprite(2, 226);
+				for (int tab = 7; tab < 14; tab++) {
+					if (this.tabInterfaceId[tab] != -1 && (this.flashingTab != tab || loopCycle % 20 < 10)) {
+						this.imageSideicons[tab].plotSprite(0, TAB_ICON_X[tab - 7] - 3);
+					} else if (tab == 7) {
+						// Clan chat: the server has none yet, so its tab shows, greyed, with nothing behind it.
+						this.imageSideicons[14].plotSprite(0, TAB_ICON_X[0] - 3);
+					}
 				}
 			}
-			this.areaBackbase2.draw(466, 496, super.graphics);
+			this.areaBackbase2.draw(466, 519, super.graphics);
 			this.areaViewport.bind();
 			Pix3D.lineOffset = this.areaViewportOffset;
 		}
 
+		int barHover = this.chatBarButtonAt(super.mouseX, super.mouseY);
+		if (barHover != this.chatBarHover) {
+			this.chatBarHover = barHover;
+			this.redrawPrivacySettings = true;
+		}
 		if (this.redrawPrivacySettings) {
 			this.redrawPrivacySettings = false;
 
 			this.areaBackbase1.bind();
 			this.imageBackbase1.plotSprite(0, 0);
 
-			this.fontPlain12.centreStringTag(true, 16777215, 28, 55, "Public chat");
-			if (this.chatPublicMode == 0) {
-				this.fontPlain12.centreStringTag(true, 65280, 41, 55, "On");
-			} else if (this.chatPublicMode == 1) {
-				this.fontPlain12.centreStringTag(true, 16776960, 41, 55, "Friends");
-			} else if (this.chatPublicMode == 2) {
-				this.fontPlain12.centreStringTag(true, 16711680, 41, 55, "Off");
-			} else if (this.chatPublicMode == 3) {
-				this.fontPlain12.centreStringTag(true, 65535, 41, 55, "Hide");
+			int[] modes = { -1, -1, this.chatPublicMode, this.chatPrivateMode, -1, this.chatTradeMode };
+			for (int i = 0; i < 6; i++) {
+				int x = 5 + i * BAR_PITCH;
+				boolean clan = i == 4;
+				int state = (i == this.chatFilter ? 2 : 0) + (i == this.chatBarHover && !clan ? 1 : 0);
+				this.imageChatbuttons[state].plotSprite(1, x);
+				if (clan) {
+					// No clan chat on the server yet: the button is there, as in the screenshot, but grey.
+					this.fontPlain11.centreStringTag(true, 0x808080, 16, x + BAR_BUTTON_W / 2, BAR_LABELS[i]);
+				} else {
+					this.drawChatBarLabel(x, BAR_BUTTON_W, BAR_LABELS[i], modes[i] == -1 ? null : chatModeName(modes[i]), modes[i] == -1 ? 0 : chatModeColour(modes[i]));
+				}
 			}
+			this.imageReportbutton[this.chatBarHover == 6 ? 1 : 0].plotSprite(1, BAR_REPORT_X);
+			this.drawChatBarLabel(BAR_REPORT_X, BAR_REPORT_W, "Report abuse", null, 0);
 
-			this.fontPlain12.centreStringTag(true, 16777215, 28, 184, "Private chat");
-			if (this.chatPrivateMode == 0) {
-				this.fontPlain12.centreStringTag(true, 65280, 41, 184, "On");
-			} else if (this.chatPrivateMode == 1) {
-				this.fontPlain12.centreStringTag(true, 16776960, 41, 184, "Friends");
-			} else if (this.chatPrivateMode == 2) {
-				this.fontPlain12.centreStringTag(true, 16711680, 41, 184, "Off");
-			}
-
-			this.fontPlain12.centreStringTag(true, 16777215, 28, 324, "Trade/compete");
-			if (this.chatTradeMode == 0) {
-				this.fontPlain12.centreStringTag(true, 65280, 41, 324, "On");
-			} else if (this.chatTradeMode == 1) {
-				this.fontPlain12.centreStringTag(true, 16776960, 41, 324, "Friends");
-			} else if (this.chatTradeMode == 2) {
-				this.fontPlain12.centreStringTag(true, 16711680, 41, 324, "Off");
-			}
-
-			this.fontPlain12.centreStringTag(true, 16777215, 33, 458, "Report abuse");
-
-			this.areaBackbase1.draw(453, 0, super.graphics);
+			this.areaBackbase1.draw(BAR_Y, 0, super.graphics);
 
 			this.areaViewport.bind();
 			Pix3D.lineOffset = this.areaViewportOffset;
@@ -8991,12 +8894,12 @@ public class Client extends GameShell {
 			var8 -= 4;
 		}
 		if (this.menuArea == 1) {
-			var7 -= 553;
+			var7 -= SIDE_X;
 			var8 -= 205;
 		}
 		if (this.menuArea == 2) {
-			var7 -= 17;
-			var8 -= 357;
+			var7 -= CHAT_X;
+			var8 -= CHAT_Y;
 		}
 		// Visual positions, not array indices: p counts from the top row and menuRowIndex() turns it
 		// into the index, so the draw and the click in handleMouseInput() cannot disagree about
@@ -11968,11 +11871,11 @@ public class Client extends GameShell {
 			this.menuScroll = 0;
 			this.menuHeight = rows0 * MENU_ROW_H + MENU_CHROME_H;
 		}
-		if (super.mouseClickX > 553 && super.mouseClickY > 205 && super.mouseClickX < 743 && super.mouseClickY < 466) {
+		if (super.mouseClickX > SIDE_X && super.mouseClickY > 205 && super.mouseClickX < SIDE_X + 190 && super.mouseClickY < 466) {
 			var2 = Math.min(var2, 190);
 			int rows1 = this.menuRowsFor(261);
 			int var4 = rows1 * MENU_ROW_H + MENU_CHROME_H;
-			int var7 = super.mouseClickX - 553 - var2 / 2;
+			int var7 = super.mouseClickX - SIDE_X - var2 / 2;
 			if (var7 < 0) {
 				var7 = 0;
 			} else if (var2 + var7 > 190) {
@@ -11993,21 +11896,21 @@ public class Client extends GameShell {
 			this.menuScroll = 0;
 			this.menuHeight = rows1 * MENU_ROW_H + MENU_CHROME_H;
 		}
-		if (super.mouseClickX > 17 && super.mouseClickY > 357 && super.mouseClickX < 496 && super.mouseClickY < 453) {
-			var2 = Math.min(var2, 479);
-			int rows2 = this.menuRowsFor(96);
+		if (super.mouseClickX > CHAT_X && super.mouseClickY > CHAT_Y && super.mouseClickX < CHAT_X + CHAT_W && super.mouseClickY < CHAT_Y + CHAT_H) {
+			var2 = Math.min(var2, CHAT_W);
+			int rows2 = this.menuRowsFor(CHAT_H);
 			int var4 = rows2 * MENU_ROW_H + MENU_CHROME_H;
-			int var9 = super.mouseClickX - 17 - var2 / 2;
+			int var9 = super.mouseClickX - CHAT_X - var2 / 2;
 			if (var9 < 0) {
 				var9 = 0;
-			} else if (var2 + var9 > 479) {
-				var9 = 479 - var2;
+			} else if (var2 + var9 > CHAT_W) {
+				var9 = CHAT_W - var2;
 			}
-			int var10 = super.mouseClickY - 357;
+			int var10 = super.mouseClickY - CHAT_Y;
 			if (var10 < 0) {
 				var10 = 0;
-			} else if (var4 + var10 > 96) {
-				var10 = 96 - var4;
+			} else if (var4 + var10 > CHAT_H) {
+				var10 = CHAT_H - var4;
 			}
 			this.menuVisible = true;
 			this.menuArea = 2;
@@ -13286,7 +13189,7 @@ public class Client extends GameShell {
 						var34 = "Please wait...";
 						var36 = var14.colour;
 					}
-					if (Pix2D.width2d == 479) {
+					if (Pix2D.width2d == CHAT_W) {
 						if (var36 == 16776960) {
 							var36 = 255;
 						}
@@ -14604,7 +14507,7 @@ public class Client extends GameShell {
 		if (this.menuVisible && this.menuArea == 1) {
 			this.drawMenu();
 		}
-		this.areaSidebar.draw(205, 553, super.graphics);
+		this.areaSidebar.draw(205, SIDE_X, super.graphics);
 		this.areaViewport.bind();
 		Pix3D.lineOffset = this.areaViewportOffset;
 	}
@@ -14613,56 +14516,59 @@ public class Client extends GameShell {
 	public void drawChat() {
 		this.areaChatback.bind();
 		Pix3D.lineOffset = this.areaChatbackOffset;
-		this.imageChatback.plotSprite(0, 0);
+		this.imageChatback.plotSprite(338 - CHAT_Y, -CHAT_X);
 		if (this.showSocialInput) {
-			this.fontBold12.centreString(239, 40, 0, this.socialMessage);
-			this.fontBold12.centreString(239, 60, 128, this.socialInput + "*");
+			this.fontBold12.centreString(CHAT_W / 2, CHAT_IF_Y + 40, 0, this.socialMessage);
+			this.fontBold12.centreString(CHAT_W / 2, CHAT_IF_Y + 60, 128, this.socialInput + "*");
 		} else if (this.chatbackInputOpen == 1) {
-			this.fontBold12.centreString(239, 40, 0, this.dialogPrompt != null ? this.dialogPrompt : "Enter amount:");
-			this.fontBold12.centreString(239, 60, 128, this.chatbackInput + "*");
+			this.fontBold12.centreString(CHAT_W / 2, CHAT_IF_Y + 40, 0, this.dialogPrompt != null ? this.dialogPrompt : "Enter amount:");
+			this.fontBold12.centreString(CHAT_W / 2, CHAT_IF_Y + 60, 128, this.chatbackInput + "*");
 		} else if (this.chatbackInputOpen == 2) {
-			this.fontBold12.centreString(239, 40, 0, this.dialogPrompt != null ? this.dialogPrompt : "Enter name:");
-			this.fontBold12.centreString(239, 60, 128, this.chatbackInput + "*");
+			this.fontBold12.centreString(CHAT_W / 2, CHAT_IF_Y + 40, 0, this.dialogPrompt != null ? this.dialogPrompt : "Enter name:");
+			this.fontBold12.centreString(CHAT_W / 2, CHAT_IF_Y + 60, 128, this.chatbackInput + "*");
 		} else if (this.chatbackInputOpen == 4) {
-			this.fontBold12.centreString(239, 40, 0, "Show items whose names contain the following text:");
-			this.fontBold12.centreString(239, 60, 128, this.chatbackInput + "*");
+			this.fontBold12.centreString(CHAT_W / 2, CHAT_IF_Y + 40, 0, "Show items whose names contain the following text:");
+			this.fontBold12.centreString(CHAT_W / 2, CHAT_IF_Y + 60, 128, this.chatbackInput + "*");
 		} else if (this.chatbackInputOpen == 3) {
 			if (this.chatbackInput != this.field157) {
 				this.searchObjNames(this.chatbackInput);
 				this.field157 = this.chatbackInput;
 			}
 			PixFont var2 = this.fontPlain12;
-			Pix2D.setClipping(0, 0, 77, 463);
+			Pix2D.setClipping(0, 0, CHAT_LOG_H, CHAT_W - 16);
 			for (int var3 = 0; var3 < this.field158; var3++) {
 				int var4 = var3 * 14 + 18 - this.field161;
-				if (var4 > 0 && var4 < 110) {
-					var2.centreString(239, var4, 0, this.field159[var3]);
+				if (var4 > 0 && var4 < CHAT_LOG_H + 33) {
+					var2.centreString(CHAT_W / 2, var4, 0, this.field159[var3]);
 				}
 			}
 			Pix2D.resetClipping();
-			if (this.field158 > 5) {
-				this.drawScrollbar(this.field161, 463, 77, this.field158 * 14 + 7, 0);
+			if (this.field158 * 14 + 7 > CHAT_LOG_H) {
+				this.drawScrollbar(this.field161, CHAT_W - 16, CHAT_LOG_H, this.field158 * 14 + 7, 0);
 			}
 			if (this.chatbackInput.length() == 0) {
-				this.fontBold12.centreString(239, 40, 255, "Enter object name");
+				this.fontBold12.centreString(CHAT_W / 2, CHAT_IF_Y + 40, 255, "Enter object name");
 			} else if (this.field158 == 0) {
-				this.fontBold12.centreString(239, 40, 0, "No matching objects found, please shorten search");
+				this.fontBold12.centreString(CHAT_W / 2, CHAT_IF_Y + 40, 0, "No matching objects found, please shorten search");
 			}
-			var2.centreString(239, 90, 0, this.chatbackInput + "*");
-			Pix2D.hline(0, 0, 77, 479);
+			var2.centreString(CHAT_W / 2, CHAT_H - 6, 0, this.chatbackInput + "*");
+			Pix2D.hline(0, 0, CHAT_LOG_H, CHAT_W);
 		} else if (this.modalMessage != null) {
-			this.fontBold12.centreString(239, 40, 0, this.modalMessage);
-			this.fontBold12.centreString(239, 60, 128, "Click to continue");
+			this.fontBold12.centreString(CHAT_W / 2, CHAT_IF_Y + 40, 0, this.modalMessage);
+			this.fontBold12.centreString(CHAT_W / 2, CHAT_IF_Y + 60, 128, "Click to continue");
 		} else if (this.chatInterfaceId != -1) {
-			this.drawInterface(0, 0, Component.get(this.chatInterfaceId), 0);
+			this.drawInterface(CHAT_IF_Y, CHAT_IF_X, Component.get(this.chatInterfaceId), 0);
 		} else if (this.stickyChatInterfaceId == -1) {
 			PixFont var5 = this.fontPlain12;
 			int var6 = 0;
-			Pix2D.setClipping(0, 0, 77, 463);
+			Pix2D.setClipping(0, 0, CHAT_LOG_H, CHAT_W - 16);
 			for (int var7 = 0; var7 < 100; var7++) {
 				if (this.messageText[var7] != null) {
 					int var9 = this.messageType[var7];
-					int var10 = 70 - var6 * 14 + this.chatScrollOffset;
+					if (this.chatFilter == 1 && var9 != 0) {
+						continue;
+					}
+					int var10 = CHAT_LOG_H - 7 - var6 * 14 + this.chatScrollOffset;
 					String var11 = this.messageSender[var7];
 					// the sender's rank icon, as an imageModIcons index, or -1 (ChatIcons)
 					int var12 = var11 == null ? -1 : ChatIcons.iconAt(var11, 0);
@@ -14670,15 +14576,15 @@ public class Client extends GameShell {
 						var11 = var11.substring(5);
 					}
 					if (var9 == 0) {
-						if (var10 > 0 && var10 < 110) {
+						if (var10 > 0 && var10 < CHAT_LOG_H + 33) {
 							this.drawGameMessage(var5, var10, this.messageText[var7]);
 						}
 						var6++;
 					}
 					if ((var9 == 1 || var9 == 2) && (var9 == 1 || this.chatPublicMode == 0 || this.chatPublicMode == 1 && this.isFriend(var11))) {
-						if (var10 > 0 && var10 < 110 && this.messageCont[var7]) {
+						if (var10 > 0 && var10 < CHAT_LOG_H + 33 && this.messageCont[var7]) {
 							var5.drawString(4 + this.messageIndent[var7], 255, var10, this.messageText[var7]);
-						} else if (var10 > 0 && var10 < 110) {
+						} else if (var10 > 0 && var10 < CHAT_LOG_H + 33) {
 							int var13 = 4;
 							if (var12 != -1 && this.imageModIcons[var12] != null) {
 								this.imageModIcons[var12].plotSprite(var10 - 12, var13);
@@ -14691,9 +14597,9 @@ public class Client extends GameShell {
 						var6++;
 					}
 					if ((var9 == 3 || var9 == 7) && this.splitPrivateChat == 0 && (var9 == 7 || this.chatPrivateMode == 0 || this.chatPrivateMode == 1 && this.isFriend(var11))) {
-						if (var10 > 0 && var10 < 110 && this.messageCont[var7]) {
+						if (var10 > 0 && var10 < CHAT_LOG_H + 33 && this.messageCont[var7]) {
 							var5.drawString(4 + this.messageIndent[var7], 8388608, var10, this.messageText[var7]);
-						} else if (var10 > 0 && var10 < 110) {
+						} else if (var10 > 0 && var10 < CHAT_LOG_H + 33) {
 							byte var15 = 4;
 							var5.drawString(var15, 0, var10, "From");
 							int var16 = var15 + var5.stringWidTag("From ");
@@ -14708,28 +14614,28 @@ public class Client extends GameShell {
 						var6++;
 					}
 					if (var9 == 4 && (this.chatTradeMode == 0 || this.chatTradeMode == 1 && this.isFriend(var11))) {
-						if (var10 > 0 && var10 < 110) {
+						if (var10 > 0 && var10 < CHAT_LOG_H + 33) {
 							var5.drawString(4, 8388736, var10, this.messageCont[var7] ? this.messageText[var7] : var11 + " " + this.messageText[var7]);
 						}
 						var6++;
 					}
 					if (var9 == 5 && this.splitPrivateChat == 0 && this.chatPrivateMode < 2) {
-						if (var10 > 0 && var10 < 110) {
+						if (var10 > 0 && var10 < CHAT_LOG_H + 33) {
 							var5.drawString(4, 8388608, var10, this.messageText[var7]);
 						}
 						var6++;
 					}
 					if (var9 == 6 && this.splitPrivateChat == 0 && this.chatPrivateMode < 2) {
-						if (var10 > 0 && var10 < 110 && this.messageCont[var7]) {
+						if (var10 > 0 && var10 < CHAT_LOG_H + 33 && this.messageCont[var7]) {
 							var5.drawString(4 + this.messageIndent[var7], 8388608, var10, this.messageText[var7]);
-						} else if (var10 > 0 && var10 < 110) {
+						} else if (var10 > 0 && var10 < CHAT_LOG_H + 33) {
 							var5.drawString(4, 0, var10, "To " + var11 + ":");
 							var5.drawString(var5.stringWidTag("To " + var11) + 12, 8388608, var10, this.messageText[var7]);
 						}
 						var6++;
 					}
 					if (var9 == 8 && (this.chatTradeMode == 0 || this.chatTradeMode == 1 && this.isFriend(var11))) {
-						if (var10 > 0 && var10 < 110) {
+						if (var10 > 0 && var10 < CHAT_LOG_H + 33) {
 							var5.drawString(4, 8270336, var10, this.messageCont[var7] ? this.messageText[var7] : var11 + " " + this.messageText[var7]);
 						}
 						var6++;
@@ -14738,26 +14644,26 @@ public class Client extends GameShell {
 			}
 			Pix2D.resetClipping();
 			this.chatScrollHeight = var6 * 14 + 7;
-			if (this.chatScrollHeight < 78) {
-				this.chatScrollHeight = 78;
+			if (this.chatScrollHeight < CHAT_LOG_H + 1) {
+				this.chatScrollHeight = CHAT_LOG_H + 1;
 			}
-			this.drawScrollbar(this.chatScrollHeight - this.chatScrollOffset - 77, 463, 77, this.chatScrollHeight, 0);
+			this.drawScrollbar(this.chatScrollHeight - this.chatScrollOffset - CHAT_LOG_H, CHAT_W - 16, CHAT_LOG_H, this.chatScrollHeight, 0);
 			String var8;
 			if (localPlayer == null || localPlayer.name == null) {
 				var8 = JString.formatDisplayName(this.username);
 			} else {
 				var8 = localPlayer.name;
 			}
-			var5.drawString(4, 0, 90, var8 + ":");
-			var5.drawString(var5.stringWidTag(var8 + ": ") + 6, 255, 90, this.chatTyped + "*");
-			Pix2D.hline(0, 0, 77, 479);
+			var5.drawString(4, 0, CHAT_H - 6, var8 + ":");
+			var5.drawString(var5.stringWidTag(var8 + ": ") + 6, 255, CHAT_H - 6, this.chatTyped + "*");
+			Pix2D.hline(0, 0, CHAT_LOG_H, CHAT_W);
 		} else {
-			this.drawInterface(0, 0, Component.get(this.stickyChatInterfaceId), 0);
+			this.drawInterface(CHAT_IF_Y, CHAT_IF_X, Component.get(this.stickyChatInterfaceId), 0);
 		}
 		if (this.menuVisible && this.menuArea == 2) {
 			this.drawMenu();
 		}
-		this.areaChatback.draw(357, 17, super.graphics);
+		this.areaChatback.draw(CHAT_Y, CHAT_X, super.graphics);
 		this.areaViewport.bind();
 		Pix3D.lineOffset = this.areaViewportOffset;
 	}
@@ -15012,9 +14918,10 @@ public class Client extends GameShell {
 		}
 	}
 
-	// Width the chatbox gives text: its clip is 463 and every line starts at x=4. The server wraps
-	// its own game messages at 456 (Player.wrappedMessageGame), so nothing it wrapped is split again.
-	private static final int CHAT_WIDTH = 458;
+	// Width the chatbox gives text: its clip stops at the scrollbar and every line starts at x=4. The
+	// server wraps its own game messages at 456 (Player.wrappedMessageGame), narrower than this, so
+	// nothing it wrapped is split again.
+	private static final int CHAT_WIDTH = CHAT_W - 16 - 5;
 
 	// What each message type draws before its text, in the chatbox draw loop below: "Name:" and a
 	// crown for public chat, "From [crown]Name:" for private, "To Name:", or the name for trade/duel.
