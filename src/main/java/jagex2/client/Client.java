@@ -14254,6 +14254,14 @@ public class Client extends GameShell {
 				if (arg1.scroll <= arg1.height) {
 					arg1.scroll = arg1.height + 1;
 				}
+			} else if (var4 == 329) {
+				// the skill tab's Total level hover: every skill's experience, summed as a long because
+				// 23 skills at 200M overflow the int a component script adds in, with thousands commas
+				long total = 0L;
+				for (int i = 0; i < this.skillExperience.length; i++) {
+					total += this.skillExperience[i];
+				}
+				arg1.text = "Total XP: " + String.format("%,d", total);
 			} else if (var4 == 328) {
 				// 474's Equipment Stats: you, standing in what you wear, idling
 				if (localPlayer != null) {
