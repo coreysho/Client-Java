@@ -214,7 +214,7 @@ public class Client extends GameShell {
 	public Packet[] playerAppearanceBuffer = new Packet[this.MAX_PLAYER_COUNT];
 
 	@ObfuscatedName("client.td")
-	public Pix8[] imageSideicons = new Pix8[15];
+	public Pix8[] imageSideicons = new Pix8[17];
 
 	@ObfuscatedName("client.wd")
 	public int[] menuParamB = new int[500];
@@ -2061,6 +2061,10 @@ public class Client extends GameShell {
 	public AreaSounds areaSounds = new AreaSounds();
 	public int areaSoundVolume = 127;
 
+	// The spellbook the server says you are on (%spellbook, varp clientcode 11): 0 normal, 1 Ancient
+	// Magicks, 2 Lunar. The magic tab draws sideicons 15 or 16 for the last two.
+	public int spellbookIcon = 0;
+
 	@ObfuscatedName("client.Uj")
 	public volatile boolean flameActive0 = false;
 
@@ -3461,7 +3465,14 @@ public class Client extends GameShell {
 			this.imageBackhmid1 = new Pix8(jagMedia, "backhmid1", 0);
 
 			for (int i = 0; i < this.imageSideicons.length; i++) {
-				this.imageSideicons[i] = new Pix8(jagMedia, "sideicons", i);
+				try {
+					this.imageSideicons[i] = new Pix8(jagMedia, "sideicons", i);
+				} catch (Exception e) {
+					// 15 and 16, the Ancient and Lunar magic icons, are newer than some servers' media
+					if (i < 15) {
+						throw e;
+					}
+				}
 			}
 
 			this.imageCompass = new Pix32(jagMedia, "compass", 0);
@@ -6883,7 +6894,8 @@ public class Client extends GameShell {
 							}
 						}
 					} else if (this.chatbackInputOpen == 1) {
-						if (key >= 48 && key <= 57 && this.chatbackInput.length() < 10) {
+						// "Enter amount": digits, plus one k/m/b suffix (and one '.', for "1.5m")
+						if (acceptAmountKey(this.chatbackInput, key)) {
 							this.chatbackInput = this.chatbackInput + (char) key;
 							this.redrawChatback = true;
 						}
@@ -6895,11 +6907,7 @@ public class Client extends GameShell {
 
 						if (key == 13 || key == 10) {
 							if (this.chatbackInput.length() > 0) {
-								int value = 0;
-								try {
-									value = Integer.parseInt(this.chatbackInput);
-								} catch (Exception ignore) {
-								}
+								int value = parseAmount(this.chatbackInput);
 
 								// RESUME_P_COUNTDIALOG
 								this.out.p1isaac(75);
@@ -7997,7 +8005,11 @@ public class Client extends GameShell {
 				}
 				for (int tab = 0; tab < 7; tab++) {
 					if (this.tabInterfaceId[tab] != -1 && (this.flashingTab != tab || loopCycle % 20 < 10)) {
-						this.imageSideicons[tab].plotSprite(8, TAB_ICON_X[tab]);
+						Pix8 icon = this.imageSideicons[tab];
+						if (tab == 6 && this.spellbookIcon >= 1 && this.spellbookIcon <= 2 && this.imageSideicons[14 + this.spellbookIcon] != null) {
+							icon = this.imageSideicons[14 + this.spellbookIcon];
+						}
+						icon.plotSprite(8, TAB_ICON_X[tab]);
 					}
 				}
 			}
@@ -13285,6 +13297,7 @@ public class Client extends GameShell {
 						}
 					}
 					int var37 = var33.height + var16;
+					boolean runeCount = isRuneCountText(var34, var14);
 					while (var34.length() > 0) {
 						if (var34.indexOf("%") != -1) {
 							label393: while (true) {
@@ -13316,7 +13329,8 @@ public class Client extends GameShell {
 										var34 = var34.substring(0, var39) + this.getIntString(this.executeClientScript(1, var14)) + var34.substring(var39 + 2);
 									}
 								}
-								var34 = var34.substring(0, var38) + this.getIntString(this.executeClientScript(0, var14)) + var34.substring(var38 + 2);
+								int var38v = this.executeClientScript(0, var14);
+								var34 = var34.substring(0, var38) + (runeCount ? getRuneCountString(var38v) : this.getIntString(var38v)) + var34.substring(var38 + 2);
 							}
 						}
 						int var43 = var34.indexOf("\\n");
@@ -13342,8 +13356,20 @@ public class Client extends GameShell {
 					} else {
 						var45 = var14.graphic;
 					}
+					// The selected spell, lit the way OSRS lights it until it is cast or cancelled: a
+					// translucent white square behind the icon and a brighter 1px edge around it.
+					// activeSpellId is the id of the buttontype=target component that was clicked (the
+					// spell icon itself), so only that icon lights; the autocast chooser's buttons are
+					// buttontype=normal and never set spellSelected.
+					boolean spellHighlight = this.spellSelected == 1 && var14.id == this.activeSpellId && var14.buttonType == 2;
+					if (spellHighlight) {
+						Pix2D.fillRectTrans(0xFFFFFF, var16, var14.width, var14.height, 56, var15);
+					}
 					if (var45 != null) {
 						var45.plotSprite(var16, var15);
+					}
+					if (spellHighlight) {
+						Pix2D.drawRectTrans(var15, var14.width, 0xFFFFFF, var14.height, var16, 150);
 					}
 				} else if (var14.type == 6) {
 					// QoL fix: unlike text (type 4, via PixFont) and sprites (type 5, via Pix32.plotSprite),
@@ -13586,6 +13612,99 @@ public class Client extends GameShell {
 	@ObfuscatedName("client.e(II)Ljava/lang/String;")
 	public String getIntString(int arg0) {
 		return arg0 < 999999999 ? String.valueOf(arg0) : "*";
+	}
+
+	// A spell's rune label: "%1/<required>" whose %1 is an inventory count (the first op of its
+	// first script is inv_count, opcode 4). Every such text in content - the three spellbooks, the
+	// autocast and enchant-bolts panels, inter_233/267, a quest scroll's spell copy - is a rune
+	// count (573 of them, all with inv_count first), and nothing else has that shape:
+	// the prayer tab's "%1/%2" and every "%1" stat or XP label fail it, so they keep getIntString.
+	public static boolean isRuneCountText(String text, Component com) {
+		if (text == null || text.length() < 4 || !text.startsWith("%1/")) {
+			return false;
+		}
+		for (int i = 3; i < text.length(); i++) {
+			char c = text.charAt(i);
+			if (c < '0' || c > '9') {
+				return false;
+			}
+		}
+		return com.scripts != null && com.scripts.length > 0 && com.scripts[0] != null && com.scripts[0].length > 0 && com.scripts[0][0] == 4;
+	}
+
+	// OSRS stack formatting for a rune count: 99999, 100K, 9999K, 10M. A staff makes the count
+	// 999999999 and stays "*"; a negative count here can only be int overflow from a staff (or two
+	// huge stacks) on top of runes, so it is "*" too.
+	public static String getRuneCountString(int count) {
+		if (count < 0 || count >= 999999999) {
+			return "*";
+		} else if (count < 100000) {
+			return String.valueOf(count);
+		} else if (count < 10000000) {
+			return count / 1000 + "K";
+		} else {
+			return count / 1000000 + "M";
+		}
+	}
+
+	// The "Enter amount" prompt (chatbackInputOpen 1): digits, then optionally one '.' (only before
+	// a suffix, and only with a digit before it), then at most one k/m/b suffix, which ends the input.
+	public static boolean acceptAmountKey(String input, int key) {
+		if (input.length() >= 12) {
+			return false;
+		}
+		char last = input.length() > 0 ? Character.toLowerCase(input.charAt(input.length() - 1)) : 0;
+		if (last == 'k' || last == 'm' || last == 'b') {
+			return false;
+		}
+		if (key >= '0' && key <= '9') {
+			return true;
+		}
+		boolean hasDigit = false;
+		for (int i = 0; i < input.length(); i++) {
+			char c = input.charAt(i);
+			if (c >= '0' && c <= '9') {
+				hasDigit = true;
+			}
+		}
+		if (key == '.') {
+			return hasDigit && input.indexOf('.') == -1;
+		}
+		char lower = Character.toLowerCase((char) key);
+		return hasDigit && (lower == 'k' || lower == 'm' || lower == 'b');
+	}
+
+	// "10k" = 10000, "1.5m" = 1500000, "2b" = Integer.MAX_VALUE (clamped); fractions below one unit
+	// are dropped ("1.2345k" = 1234). Anything unparseable is 0, as Integer.parseInt's catch was.
+	public static int parseAmount(String input) {
+		String s = input.trim().toLowerCase();
+		if (s.length() == 0) {
+			return 0;
+		}
+		long multiplier = 1L;
+		char last = s.charAt(s.length() - 1);
+		if (last == 'k') {
+			multiplier = 1000L;
+		} else if (last == 'm') {
+			multiplier = 1000000L;
+		} else if (last == 'b') {
+			multiplier = 1000000000L;
+		}
+		if (multiplier != 1L) {
+			s = s.substring(0, s.length() - 1);
+		}
+		try {
+			java.math.BigDecimal value = new java.math.BigDecimal(s).multiply(java.math.BigDecimal.valueOf(multiplier));
+			if (value.signum() <= 0) {
+				return 0;
+			}
+			if (value.compareTo(java.math.BigDecimal.valueOf(Integer.MAX_VALUE)) >= 0) {
+				return Integer.MAX_VALUE;
+			}
+			return value.intValue();
+		} catch (Exception ignore) {
+			return 0;
+		}
 	}
 
 	@ObfuscatedName("client.b(LEWIXBTLV;I)Z")
@@ -14192,6 +14311,10 @@ public class Client extends GameShell {
 		if (var3 == 10) {
 			// area sounds: 0 loudest to 4 off, as the sound effects slider
 			this.areaSoundVolume = var4 == 0 ? 127 : var4 == 1 ? 96 : var4 == 2 ? 64 : var4 == 3 ? 32 : 0;
+		}
+		if (var3 == 11) {
+			this.spellbookIcon = var4;
+			this.redrawSideicons = true;
 		}
 	}
 
