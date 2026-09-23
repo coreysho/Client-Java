@@ -550,6 +550,22 @@ public class Client extends GameShell {
 	private int chatFilter = 0;
 	// The bar button under the mouse, 0-5 then 6 for Report, or -1; the bar redraws when it changes.
 	private int chatBarHover = -1;
+
+	// CLAN CHAT (engine/clan/ClanChat.ts). The channel this player is in, as the server last sent it
+	// (UPDATE_CLANCHANNEL): owner 0 means none. Ranks are 2008's: -1 anyone, 0 friend, 7 owner, 127 staff.
+	private long clanOwner37 = 0L;
+	private long clanName37 = 0L;
+	private int clanKickRank = 7;
+	private int clanCount = 0;
+	private final long[] clanMemberName37 = new long[100];
+	private final int[] clanMemberWorld = new int[100];
+	private final int[] clanMemberRank = new int[100];
+	// Which clan lines the chatbox shows, like the other three modes but client-side only: 0 On,
+	// 1 Friends, 2 Off. Cycled by the Clan button.
+	private int chatClanMode = 0;
+	// The channel name each chatbox line was said in (message type 11), beside messageSender.
+	private final String[] messageChannel = new String[100];
+	private String nextMessageChannel = null;
 	private int menuScroll;
 	private int menuRowsShown;
 	// The bar, in the ground-item overlay's colours - same control, same look.
@@ -5752,6 +5768,12 @@ public class Client extends GameShell {
 				if ((var7 == 5 || var7 == 6) && this.splitPrivateChat == 0 && this.chatPrivateMode < 2) {
 					var4++;
 				}
+				if (var7 == 11 && this.showClanLine(var9)) {
+					if (arg2 > var8 - 14 && arg2 <= var8 && !var9.equals(localPlayer.name)) {
+						this.addSocialMenuOptions(var9, 0);
+					}
+					var4++;
+				}
 				if (var7 == 8 && (this.chatTradeMode == 0 || this.chatTradeMode == 1 && this.isFriend(var9))) {
 					if (arg2 > var8 - 14 && arg2 <= var8) {
 						this.menuOption[this.menuSize] = "Accept challenge @whi@" + var9;
@@ -6210,7 +6232,10 @@ public class Client extends GameShell {
 			this.out.p1(this.chatPrivateMode);
 			this.out.p1(this.chatTradeMode);
 		} else if (button == 4) {
-			this.addMessage("", "Clan chat is not available yet.", 0);
+			// Clan: which clan lines show. The server sends every line; this is a view.
+			this.chatClanMode = (this.chatClanMode + 1) % 3;
+			this.redrawPrivacySettings = true;
+			this.redrawChatback = true;
 		} else if (button == 6) {
 			if (this.viewportInterfaceId == -1) {
 				this.closeInterfaces();
@@ -6830,6 +6855,12 @@ public class Client extends GameShell {
 								long username = JString.toBase37(this.socialInput);
 								this.removeIgnore(username);
 							}
+
+							if (this.socialInputType == 6 && this.socialInput.length() > 0) {
+								// CLAN_JOINCHAT (custom)
+								this.out.p1isaac(7);
+								this.out.p8(JString.toBase37(this.socialInput));
+							}
 						}
 					} else if (this.chatbackInputOpen == 1) {
 						if (key >= 48 && key <= 57 && this.chatbackInput.length() < 10) {
@@ -7048,6 +7079,14 @@ public class Client extends GameShell {
 								this.out.p1isaac(56);
 								this.out.p1(this.chatTyped.length() - 1);
 								this.out.pjstr(this.chatTyped.substring(2));
+							} else if (this.chatTyped.startsWith("/") && this.chatTyped.length() > 1) {
+								// CLAN_MESSAGE (custom): the server sends the line back to everybody in the
+								// channel, this player included, so there is no local echo
+								this.out.p1isaac(9);
+								this.out.p1(0);
+								int start = this.out.pos;
+								WordPack.pack(WordPack.toSentenceCase(this.chatTyped.substring(1)), this.out);
+								this.out.psize1(this.out.pos - start);
 							} else {
 								String lower = this.chatTyped.toLowerCase();
 
@@ -7974,18 +8013,12 @@ public class Client extends GameShell {
 			this.areaBackbase1.bind();
 			this.imageBackbase1.plotSprite(0, 0);
 
-			int[] modes = { -1, -1, this.chatPublicMode, this.chatPrivateMode, -1, this.chatTradeMode };
+			int[] modes = { -1, -1, this.chatPublicMode, this.chatPrivateMode, this.chatClanMode, this.chatTradeMode };
 			for (int i = 0; i < 6; i++) {
 				int x = 5 + i * BAR_PITCH;
-				boolean clan = i == 4;
-				int state = (i == this.chatFilter ? 2 : 0) + (i == this.chatBarHover && !clan ? 1 : 0);
+				int state = (i == this.chatFilter ? 2 : 0) + (i == this.chatBarHover ? 1 : 0);
 				this.imageChatbuttons[state].plotSprite(1, x);
-				if (clan) {
-					// No clan chat on the server yet: the button is there, as in the screenshot, but grey.
-					this.fontPlain11.centreStringTag(true, 0x808080, 16, x + BAR_BUTTON_W / 2, BAR_LABELS[i]);
-				} else {
-					this.drawChatBarLabel(x, BAR_BUTTON_W, BAR_LABELS[i], modes[i] == -1 ? null : chatModeName(modes[i]), modes[i] == -1 ? 0 : chatModeColour(modes[i]));
-				}
+				this.drawChatBarLabel(x, BAR_BUTTON_W, BAR_LABELS[i], modes[i] == -1 ? null : chatModeName(modes[i]), modes[i] == -1 ? 0 : chatModeColour(modes[i]));
 			}
 			this.imageReportbutton[this.chatBarHover == 6 ? 1 : 0].plotSprite(1, BAR_REPORT_X);
 			this.drawChatBarLabel(BAR_REPORT_X, BAR_REPORT_W, "Report abuse", null, 0);
@@ -10045,6 +10078,56 @@ public class Client extends GameShell {
 				} else {
 					Component.get(var90).model = (int) (localPlayer.field1679.field1431 + 305419896L);
 				}
+				this.ptype = -1;
+				return true;
+			}
+
+			if (this.ptype == 11) {
+				// MESSAGE_CLAN (custom): from, channel name, message id, the sender's icons, then the words
+				long from = this.in.g8();
+				long channel = this.in.g8();
+				this.in.g4();
+				int icons = this.in.g1();
+				boolean ignored = false;
+				if ((icons & 0xF) <= 1) {
+					for (int i = 0; i < this.ignoreCount; i++) {
+						if (this.ignoreName37[i] == from) {
+							ignored = true;
+							break;
+						}
+					}
+				}
+				if (!ignored && this.overrideChat == 0) {
+					String text = WordPack.method453(this.in, this.psize - 21);
+					this.addClanMessage(JString.formatDisplayName(JString.fromBase37(channel)), ChatIcons.forPlayer(icons) + JString.formatDisplayName(JString.fromBase37(from)), text);
+				}
+				this.ptype = -1;
+				return true;
+			}
+
+			if (this.ptype == 12) {
+				// UPDATE_CLANCHANNEL (custom): the whole channel, or owner 0 for none
+				this.clanOwner37 = this.in.g8();
+				this.clanCount = 0;
+				if (this.clanOwner37 != 0L) {
+					this.clanName37 = this.in.g8();
+					this.clanKickRank = this.in.g1b();
+					int count = this.in.g1();
+					for (int i = 0; i < count; i++) {
+						long name = this.in.g8();
+						int world = this.in.g2();
+						int rank = this.in.g1b();
+						if (this.clanCount < this.clanMemberName37.length) {
+							this.clanMemberName37[this.clanCount] = name;
+							this.clanMemberWorld[this.clanCount] = world;
+							this.clanMemberRank[this.clanCount] = rank;
+							this.clanCount++;
+						}
+					}
+				} else {
+					this.clanName37 = 0L;
+				}
+				this.redrawSidebar = true;
 				this.ptype = -1;
 				return true;
 			}
@@ -14097,6 +14180,10 @@ public class Client extends GameShell {
 	@ObfuscatedName("client.a(BLEWIXBTLV;)V")
 	public void updateInterfaceContent(Component arg1) {
 		int var4 = arg1.clientCode;
+		if (var4 >= 1001 && var4 <= 1300) {
+			this.updateClanContent(arg1, var4);
+			return;
+		}
 		if ((var4 < 1 || var4 > 100) && (var4 < 701 || var4 > 800)) {
 			if (var4 >= 101 && var4 <= 200 || !(var4 < 801 || var4 > 900)) {
 				int var6 = this.friendCount;
@@ -14341,6 +14428,57 @@ public class Client extends GameShell {
 		}
 	}
 
+	// The clan tab (content interface clanchat) is drawn from UPDATE_CLANCHANNEL by client code, the
+	// way the friends list is: 1001 "Talking in", 1002 "Owner", 1003 Join/Leave Chat, 1005 the list's
+	// scroll layer, 1101-1200 member names (Kick when this player outranks them), 1201-1300 worlds.
+	private void updateClanContent(Component com, int code) {
+		boolean in = this.clanOwner37 != 0L;
+		if (code == 1001) {
+			com.text = in ? "Talking in: @whi@" + JString.formatDisplayName(JString.fromBase37(this.clanName37)) : "Talking in: Not in chat";
+		} else if (code == 1002) {
+			com.text = in ? "Owner: @whi@" + JString.formatDisplayName(JString.fromBase37(this.clanOwner37)) : "Owner: None";
+		} else if (code == 1003) {
+			// on the button and on its label alike
+			com.option = in ? "Leave Chat" : "Join Chat";
+			if (com.type == 4) {
+				com.text = com.option;
+			}
+		} else if (code == 1005) {
+			com.scroll = this.clanCount * 15 + 20;
+			if (com.scroll <= com.height) {
+				com.scroll = com.height + 1;
+			}
+		} else if (code >= 1101 && code <= 1200) {
+			int i = code - 1101;
+			if (!in || i >= this.clanCount) {
+				com.text = "";
+				com.buttonType = 0;
+				return;
+			}
+			com.text = JString.formatDisplayName(JString.fromBase37(this.clanMemberName37[i]));
+			int mine = this.clanRankOfSelf();
+			com.buttonType = mine >= this.clanKickRank && mine > this.clanMemberRank[i] ? 1 : 0;
+		} else if (code >= 1201 && code <= 1300) {
+			int i = code - 1201;
+			if (!in || i >= this.clanCount) {
+				com.text = "";
+				return;
+			}
+			int world = this.clanMemberWorld[i];
+			com.text = (world == nodeId ? "@gre@World" : "@yel@World") + (world - 9);
+		}
+	}
+
+	private int clanRankOfSelf() {
+		long me = localPlayer == null ? 0L : JString.toBase37(localPlayer.name);
+		for (int i = 0; i < this.clanCount; i++) {
+			if (this.clanMemberName37[i] == me) {
+				return this.clanMemberRank[i];
+			}
+		}
+		return -1;
+	}
+
 	@ObfuscatedName("client.a(ILEWIXBTLV;)Z")
 	public boolean handleInterfaceAction(Component arg1) {
 		int var3 = arg1.clientCode;
@@ -14372,6 +14510,32 @@ public class Client extends GameShell {
 		if (var3 == 205) {
 			this.idleTimeout = 250;
 			return true;
+		}
+		if (var3 == 1003) {
+			// the clan tab's Join Chat / Leave Chat
+			if (this.clanOwner37 != 0L) {
+				// CLAN_JOINCHAT (custom): 0 leaves
+				this.out.p1isaac(7);
+				this.out.p8(0L);
+			} else {
+				this.redrawChatback = true;
+				this.chatbackInputOpen = 0;
+				this.showSocialInput = true;
+				this.socialInput = "";
+				this.socialInputType = 6;
+				this.socialMessage = "Enter the player name whose channel you wish to join:";
+			}
+			return false;
+		}
+		if (var3 >= 1101 && var3 <= 1200) {
+			// a name in the clan list: Kick
+			int member = var3 - 1101;
+			if (member < this.clanCount) {
+				// CLAN_KICK (custom)
+				this.out.p1isaac(11);
+				this.out.p8(this.clanMemberName37[member]);
+			}
+			return false;
 		}
 		if (var3 == 501) {
 			this.redrawChatback = true;
@@ -14621,6 +14785,23 @@ public class Client extends GameShell {
 						} else if (var10 > 0 && var10 < CHAT_LOG_H + 33) {
 							var5.drawString(4, 0, var10, "To " + var11 + ":");
 							var5.drawString(var5.stringWidTag("To " + var11) + 12, 8388608, var10, this.messageText[var7]);
+						}
+						var6++;
+					}
+					if (var9 == 11 && this.showClanLine(var11)) {
+						if (var10 > 0 && var10 < CHAT_LOG_H + 33 && this.messageCont[var7]) {
+							var5.drawString(4 + this.messageIndent[var7], 0x7F0000, var10, this.messageText[var7]);
+						} else if (var10 > 0 && var10 < CHAT_LOG_H + 33) {
+							int x = 4;
+							String chan = "[" + this.messageChannel[var7] + "] ";
+							var5.drawString(x, 255, var10, chan);
+							x += var5.stringWidTag(chan);
+							if (var12.length() > 0) {
+								ChatIcons.draw(var5, this.imageModIcons, x, var10, 0, var12);
+								x += ChatIcons.width(var5, var12);
+							}
+							var5.drawString(x, 0, var10, var11 + ":");
+							var5.drawString(x + var5.stringWidTag(var11) + 8, 0x7F0000, var10, this.messageText[var7]);
 						}
 						var6++;
 					}
@@ -14934,6 +15115,8 @@ public class Client extends GameShell {
 				return font.stringWidTag("From ") + crown + font.stringWidTag(name) + 8;
 			case 6:
 				return font.stringWidTag("To " + name) + 8;
+			case 11:
+				return font.stringWidTag("[" + this.nextMessageChannel + "] ") + crown + font.stringWidTag(name) + 8;
 			case 4:
 			case 8:
 				return font.stringWidTag(name + " ");
@@ -15016,12 +15199,26 @@ public class Client extends GameShell {
 			this.messageText[var5] = this.messageText[var5 - 1];
 			this.messageCont[var5] = this.messageCont[var5 - 1];
 			this.messageIndent[var5] = this.messageIndent[var5 - 1];
+			this.messageChannel[var5] = this.messageChannel[var5 - 1];
 		}
 		this.messageType[0] = type;
 		this.messageSender[0] = sender;
 		this.messageText[0] = text;
 		this.messageCont[0] = cont;
 		this.messageIndent[0] = indent;
+		this.messageChannel[0] = type == 11 ? this.nextMessageChannel : null;
+	}
+
+	// A clan line: "[channel] name: text". The channel rides beside the sender (messageChannel).
+	private void addClanMessage(String channel, String sender, String text) {
+		this.nextMessageChannel = channel;
+		this.addMessage(sender, text, 11);
+		this.nextMessageChannel = null;
+	}
+
+	// Whether a clan line from this sender shows, by the Clan button's mode.
+	private boolean showClanLine(String sender) {
+		return this.chatClanMode == 0 || this.chatClanMode == 1 && this.isFriend(sender);
 	}
 
 	@ObfuscatedName("client.a(ILjava/lang/String;)Z")
