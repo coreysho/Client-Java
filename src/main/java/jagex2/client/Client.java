@@ -567,8 +567,8 @@ public class Client extends GameShell {
 
 	@ObfuscatedName("client.Eg")
 	// 0-1 the moderator and administrator crowns; 2-4 the Realism, 5x and 10x badges; 5 the developer
-	// crown. See ChatIcons.
-	public Pix8[] imageModIcons = new Pix8[6];
+	// crown; 6 the owner's. See ChatIcons.
+	public Pix8[] imageModIcons = new Pix8[7];
 
 	@ObfuscatedName("client.Gg")
 	public boolean designGender = true;
@@ -7153,7 +7153,9 @@ public class Client extends GameShell {
 								localPlayer.chatEffect = effect;
 								localPlayer.chatTimer = 150;
 
-								if (this.staffmodlevel >= 4) {
+								if (this.staffmodlevel >= 5) {
+									this.addMessage("@cr7@" + localPlayer.name, localPlayer.chatMessage, 2);
+								} else if (this.staffmodlevel == 4) {
 									this.addMessage("@cr6@" + localPlayer.name, localPlayer.chatMessage, 2);
 								} else if (this.staffmodlevel == 2) {
 									this.addMessage("@cr2@" + localPlayer.name, localPlayer.chatMessage, 2);
@@ -10179,7 +10181,9 @@ public class Client extends GameShell {
 						//if (var94 != 3) {
 						//	var98 = WordFilter.filter(var98);
 						//}
-						if (var94 >= 4) {
+						if (var94 >= 5) {
+							this.addMessage("@cr7@" + JString.formatDisplayName(JString.fromBase37(var91)), var98, 7);
+						} else if (var94 == 4) {
 							this.addMessage("@cr6@" + JString.formatDisplayName(JString.fromBase37(var91)), var98, 7);
 						} else if (var94 == 2 || var94 == 3) {
 							this.addMessage("@cr2@" + JString.formatDisplayName(JString.fromBase37(var91)), var98, 7);
@@ -11663,7 +11667,9 @@ public class Client extends GameShell {
 						arg2.chatColour = var16 >> 8;
 						arg2.chatEffect = var16 & 0xFF;
 						arg2.chatTimer = 150;
-						if (var17 >= 4) {
+						if (var17 >= 5) {
+							this.addMessage("@cr7@" + arg2.name, var25, 1);
+						} else if (var17 == 4) {
 							this.addMessage("@cr6@" + arg2.name, var25, 1);
 						} else if (var17 == 2 || var17 == 3) {
 							this.addMessage("@cr2@" + arg2.name, var25, 1);
