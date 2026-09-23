@@ -32,8 +32,8 @@ import jagex2.graphics.PixFont;
  */
 public final class ChatIcons {
 
-	/** A 13-pixel sprite and one pixel of space after it. */
-	public static final int ICON_WIDTH = 14;
+	/** A 13-pixel sprite and three pixels of space after it - one looked cramped beside the next icon or the name. */
+	public static final int ICON_WIDTH = 16;
 
 	private ChatIcons() {
 	}
