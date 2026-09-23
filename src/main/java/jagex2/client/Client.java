@@ -618,8 +618,8 @@ public class Client extends GameShell {
 
 	@ObfuscatedName("client.Eg")
 	// 0-1 the moderator and administrator crowns; 2-4 the Realism, 5x and 10x badges; 5 the developer
-	// crown; 6 the owner's. See ChatIcons.
-	public Pix8[] imageModIcons = new Pix8[7];
+	// crown; 6 the owner's; 7 the second owner's. See ChatIcons.
+	public Pix8[] imageModIcons = new Pix8[8];
 
 	@ObfuscatedName("client.Gg")
 	public boolean designGender = true;
@@ -10164,7 +10164,9 @@ public class Client extends GameShell {
 						//if (var94 != 3) {
 						//	var98 = WordFilter.filter(var98);
 						//}
-						if (var94 >= 5) {
+						if (var94 >= 6) {
+							this.addMessage("@cr8@" + JString.formatDisplayName(JString.fromBase37(var91)), var98, 7);
+						} else if (var94 == 5) {
 							this.addMessage("@cr7@" + JString.formatDisplayName(JString.fromBase37(var91)), var98, 7);
 						} else if (var94 == 4) {
 							this.addMessage("@cr6@" + JString.formatDisplayName(JString.fromBase37(var91)), var98, 7);
