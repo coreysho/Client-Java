@@ -5711,12 +5711,7 @@ public class Client extends GameShell {
 								this.menuAction[this.menuSize] = 2507;
 								this.menuSize++;
 							}
-							this.menuOption[this.menuSize] = "Add ignore @whi@" + var6;
-							this.menuAction[this.menuSize] = 2574;
-							this.menuSize++;
-							this.menuOption[this.menuSize] = "Add friend @whi@" + var6;
-							this.menuAction[this.menuSize] = 2762;
-							this.menuSize++;
+							this.addSocialMenuOptions(var6, 2000);
 						}
 					}
 					var3++;
@@ -5764,12 +5759,7 @@ public class Client extends GameShell {
 							this.menuAction[this.menuSize] = 507;
 							this.menuSize++;
 						}
-						this.menuOption[this.menuSize] = "Add ignore @whi@" + var9;
-						this.menuAction[this.menuSize] = 574;
-						this.menuSize++;
-						this.menuOption[this.menuSize] = "Add friend @whi@" + var9;
-						this.menuAction[this.menuSize] = 762;
-						this.menuSize++;
+						this.addSocialMenuOptions(var9, 0);
 					}
 					var4++;
 				}
@@ -5780,12 +5770,7 @@ public class Client extends GameShell {
 							this.menuAction[this.menuSize] = 507;
 							this.menuSize++;
 						}
-						this.menuOption[this.menuSize] = "Add ignore @whi@" + var9;
-						this.menuAction[this.menuSize] = 574;
-						this.menuSize++;
-						this.menuOption[this.menuSize] = "Add friend @whi@" + var9;
-						this.menuAction[this.menuSize] = 762;
-						this.menuSize++;
+						this.addSocialMenuOptions(var9, 0);
 					}
 					var4++;
 				}
@@ -15171,6 +15156,77 @@ public class Client extends GameShell {
 			}
 		}
 		return arg1.equalsIgnoreCase(localPlayer.name);
+	}
+
+	/**
+	 * Whether this name is actually ON the friend list.
+	 * <p>
+	 * Deliberately NOT {@link #isFriend(String)}: that one answers "may this person's chat reach
+	 * me", so it returns true for your own name as well, which would put "Remove friend" on your
+	 * own messages. This one is only about list membership, which is what the chat right-click
+	 * menu needs to decide between Add and Remove.
+	 */
+	public boolean isOnFriendList(String arg1) {
+		if (arg1 == null) {
+			return false;
+		}
+		for (int var3 = 0; var3 < this.friendCount; var3++) {
+			if (arg1.equalsIgnoreCase(this.friendName[var3])) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Whether this name is on the ignore list. The ignore list only keeps base37 names, so the
+	 * comparison goes through {@link JString#toBase37(String)} rather than string equality.
+	 */
+	public boolean isOnIgnoreList(String arg1) {
+		if (arg1 == null) {
+			return false;
+		}
+		long var3 = JString.toBase37(arg1);
+		if (var3 == 0L) {
+			return false;
+		}
+		for (int var5 = 0; var5 < this.ignoreCount; var5++) {
+			if (this.ignoreName37[var5] == var3) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Adds the friend/ignore pair of options to the right-click menu for a name in the chatbox.
+	 * <p>
+	 * The menu used to offer "Add friend" and "Add ignore" unconditionally, so right-clicking
+	 * someone already on your list offered to add them again - and clicking it only got you
+	 * "&lt;name&gt; is already on your friend list". It now offers Remove for a name that is
+	 * already listed, which is what the later clients do.
+	 * <p>
+	 * The action ids are the ones {@link #useMenuOption(int)} already handles: 762/574 add,
+	 * 775/859 remove. {@code offset} is 0 for the chatbox menu and 2000 for the split-private-chat
+	 * overlay, which useMenuOption subtracts back off.
+	 */
+	public void addSocialMenuOptions(String name, int offset) {
+		if (this.isOnIgnoreList(name)) {
+			this.menuOption[this.menuSize] = "Remove ignore @whi@" + name;
+			this.menuAction[this.menuSize] = offset + 859;
+		} else {
+			this.menuOption[this.menuSize] = "Add ignore @whi@" + name;
+			this.menuAction[this.menuSize] = offset + 574;
+		}
+		this.menuSize++;
+		if (this.isOnFriendList(name)) {
+			this.menuOption[this.menuSize] = "Remove friend @whi@" + name;
+			this.menuAction[this.menuSize] = offset + 775;
+		} else {
+			this.menuOption[this.menuSize] = "Add friend @whi@" + name;
+			this.menuAction[this.menuSize] = offset + 762;
+		}
+		this.menuSize++;
 	}
 
 	@ObfuscatedName("client.b(JI)V")
