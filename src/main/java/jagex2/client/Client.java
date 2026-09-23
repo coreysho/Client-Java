@@ -566,7 +566,9 @@ public class Client extends GameShell {
 	public boolean ingame = false;
 
 	@ObfuscatedName("client.Eg")
-	public Pix8[] imageModIcons = new Pix8[2];
+	// 0-1 the moderator and administrator crowns; 2-4 the Realism, 5x and 10x badges; 5 the developer
+	// crown. See ChatIcons.
+	public Pix8[] imageModIcons = new Pix8[6];
 
 	@ObfuscatedName("client.Gg")
 	public boolean designGender = true;
@@ -768,38 +770,17 @@ public class Client extends GameShell {
 	// private chat lines (see the @cr1@/@cr2@ stripping in the chatbox draw loop). Type 0 has no
 	// sender field at all, so ::yell embeds the marker in the message text instead and this draws
 	// the crown sprite at exactly the point the marker sits, rather than spelling out "Admin"/"Mod".
-	// Text with no marker takes the original single-draw path untouched.
+	// (2026-09-23) Any number of markers now, anywhere in the line, and the XP-mode badges beside the
+	// crowns - the drawing lives in ChatIcons, which also handles the @sh1@/@sh0@ shadow tags.
 	//
 	// COLOUR (2026-09-21): drawn with drawStringTag rather than drawString, so a game message can carry
 	// the same @col@ tags an interface text can - @dre@, @dbl@, @red@, @gre@ and the rest of
 	// PixFont.evaluateTag - and the server can colour part of a line. Black stays the default. The
 	// width was already measured with stringWidTag, which skips tags, so the crown lands where it did.
 	private void drawGameMessage(PixFont font, int y, String text) {
-		int crown = -1;
-		int at = text.indexOf("@cr1@");
-		if (at != -1) {
-			crown = 0;
-		} else {
-			at = text.indexOf("@cr2@");
-			if (at != -1) {
-				crown = 1;
-			}
-		}
-		if (crown == -1) {
-			font.drawStringTag(0, 4, y, false, text);
-			return;
-		}
-		String before = text.substring(0, at);
-		String after = text.substring(at + 5);
-		int x = 4;
-		if (before.length() > 0) {
-			font.drawStringTag(0, x, y, false, before);
-			x += font.stringWidTag(before);
-		}
-		this.imageModIcons[crown].plotSprite(y - 12, x);
-		x += 14;
-		font.drawStringTag(0, x, y, false, after);
+		ChatIcons.draw(font, this.imageModIcons, 4, y, 0, text);
 	}
+
 
 	// Called every frame from draw3DEntityElements() - expires any entry whose own fixed
 	// XPDROP_FADE_MS lifetime (set once when it was created in addXpDrop(), never refreshed)
@@ -3524,6 +3505,15 @@ public class Client extends GameShell {
 			for (int i = 0; i < 2; i++) {
 				this.imageModIcons[i] = new Pix8(jagMedia, "mod_icons", i);
 			}
+			// The badges are optional: a cache from before they existed has only the two crowns, and
+			// ChatIcons draws a missing sprite as nothing rather than failing the whole load.
+			for (int i = 2; i < this.imageModIcons.length; i++) {
+				try {
+					this.imageModIcons[i] = new Pix8(jagMedia, "mod_icons", i);
+				} catch (Exception ignored) {
+					this.imageModIcons[i] = null;
+				}
+			}
 
 			Pix32 backleft1 = new Pix32(jagMedia, "backleft1", 0);
 			this.areaBackleft1 = new PixMap(backleft1.hi, this.getBaseComponent(), backleft1.wi);
@@ -5690,13 +5680,9 @@ public class Client extends GameShell {
 				int var5 = this.messageType[var4];
 				String var6 = this.messageSender[var4];
 				boolean var7 = false;
-				if (var6 != null && var6.startsWith("@cr1@")) {
+				// any rank icon in front of the name (ChatIcons), not only the two crowns
+				if (var6 != null && ChatIcons.iconAt(var6, 0) != -1) {
 					var6 = var6.substring(5);
-					boolean var8 = true;
-				}
-				if (var6 != null && var6.startsWith("@cr2@")) {
-					var6 = var6.substring(5);
-					boolean var9 = true;
 				}
 				if ((var5 == 3 || var5 == 7) && (var5 == 7 || this.chatPrivateMode == 0 || this.chatPrivateMode == 1 && this.isFriend(var6))) {
 					int var10 = 329 - var3 * 13;
@@ -5741,13 +5727,9 @@ public class Client extends GameShell {
 				}
 				String var9 = this.messageSender[var6];
 				boolean var10 = false;
-				if (var9 != null && var9.startsWith("@cr1@")) {
+				// any rank icon in front of the name (ChatIcons), not only the two crowns
+				if (var9 != null && ChatIcons.iconAt(var9, 0) != -1) {
 					var9 = var9.substring(5);
-					boolean var11 = true;
-				}
-				if (var9 != null && var9.startsWith("@cr2@")) {
-					var9 = var9.substring(5);
-					boolean var12 = true;
 				}
 				if (var7 == 0) {
 					var4++;
@@ -7059,7 +7041,9 @@ public class Client extends GameShell {
 							// chatTyped apart - the history should hold what was actually typed, so recalling
 							// "red:hello" or a "::command" gives it back whole.
 							this.pushChatHistory(this.chatTyped);
-							if (this.staffmodlevel == 2) {
+							// >= 2, not == 2: the login rank is 4 for a developer since the purple crown, and
+							// these are the commands developers are the ones to use.
+							if (this.staffmodlevel >= 2) {
 								if (this.chatTyped.equals("::clientdrop")) {
 									this.tryReconnect();
 								} else if (this.chatTyped.equals("::lag")) {
@@ -7169,7 +7153,9 @@ public class Client extends GameShell {
 								localPlayer.chatEffect = effect;
 								localPlayer.chatTimer = 150;
 
-								if (this.staffmodlevel == 2) {
+								if (this.staffmodlevel >= 4) {
+									this.addMessage("@cr6@" + localPlayer.name, localPlayer.chatMessage, 2);
+								} else if (this.staffmodlevel == 2) {
 									this.addMessage("@cr2@" + localPlayer.name, localPlayer.chatMessage, 2);
 								} else if (this.staffmodlevel == 1) {
 									this.addMessage("@cr1@" + localPlayer.name, localPlayer.chatMessage, 2);
@@ -8895,14 +8881,10 @@ public class Client extends GameShell {
 			if (this.messageText[var4] != null) {
 				int var5 = this.messageType[var4];
 				String var6 = this.messageSender[var4];
-				byte var7 = 0;
-				if (var6 != null && var6.startsWith("@cr1@")) {
+				// the sender's rank icon, as an imageModIcons index, or -1 (ChatIcons)
+				int var7 = var6 == null ? -1 : ChatIcons.iconAt(var6, 0);
+				if (var7 != -1) {
 					var6 = var6.substring(5);
-					var7 = 1;
-				}
-				if (var6 != null && var6.startsWith("@cr2@")) {
-					var6 = var6.substring(5);
-					var7 = 2;
 				}
 				if ((var5 == 3 || var5 == 7) && (var5 == 7 || this.chatPrivateMode == 0 || this.chatPrivateMode == 1 && this.isFriend(var6))) {
 					int var8 = 329 - var3 * 13;
@@ -8919,13 +8901,9 @@ public class Client extends GameShell {
 					var2.drawString(var9, 0, var8, "From");
 					var2.drawString(var9, 65535, var8 - 1, "From");
 					int var10 = var9 + var2.stringWidTag("From ");
-					if (var7 == 1) {
-						this.imageModIcons[0].plotSprite(var8 - 12, var10);
-						var10 += 14;
-					}
-					if (var7 == 2) {
-						this.imageModIcons[1].plotSprite(var8 - 12, var10);
-						var10 += 14;
+					if (var7 != -1 && this.imageModIcons[var7] != null) {
+						this.imageModIcons[var7].plotSprite(var8 - 12, var10);
+						var10 += ChatIcons.ICON_WIDTH;
 					}
 					var2.drawString(var10, 0, var8, var6 + ": " + this.messageText[var4]);
 					var2.drawString(var10, 65535, var8 - 1, var6 + ": " + this.messageText[var4]);
@@ -10201,7 +10179,9 @@ public class Client extends GameShell {
 						//if (var94 != 3) {
 						//	var98 = WordFilter.filter(var98);
 						//}
-						if (var94 == 2 || var94 == 3) {
+						if (var94 >= 4) {
+							this.addMessage("@cr6@" + JString.formatDisplayName(JString.fromBase37(var91)), var98, 7);
+						} else if (var94 == 2 || var94 == 3) {
 							this.addMessage("@cr2@" + JString.formatDisplayName(JString.fromBase37(var91)), var98, 7);
 						} else if (var94 == 1) {
 							this.addMessage("@cr1@" + JString.formatDisplayName(JString.fromBase37(var91)), var98, 7);
@@ -11683,7 +11663,9 @@ public class Client extends GameShell {
 						arg2.chatColour = var16 >> 8;
 						arg2.chatEffect = var16 & 0xFF;
 						arg2.chatTimer = 150;
-						if (var17 == 2 || var17 == 3) {
+						if (var17 >= 4) {
+							this.addMessage("@cr6@" + arg2.name, var25, 1);
+						} else if (var17 == 2 || var17 == 3) {
 							this.addMessage("@cr2@" + arg2.name, var25, 1);
 						} else if (var17 == 1) {
 							this.addMessage("@cr1@" + arg2.name, var25, 1);
@@ -14676,14 +14658,10 @@ public class Client extends GameShell {
 					int var9 = this.messageType[var7];
 					int var10 = 70 - var6 * 14 + this.chatScrollOffset;
 					String var11 = this.messageSender[var7];
-					byte var12 = 0;
-					if (var11 != null && var11.startsWith("@cr1@")) {
+					// the sender's rank icon, as an imageModIcons index, or -1 (ChatIcons)
+					int var12 = var11 == null ? -1 : ChatIcons.iconAt(var11, 0);
+					if (var12 != -1) {
 						var11 = var11.substring(5);
-						var12 = 1;
-					}
-					if (var11 != null && var11.startsWith("@cr2@")) {
-						var11 = var11.substring(5);
-						var12 = 2;
 					}
 					if (var9 == 0) {
 						if (var10 > 0 && var10 < 110) {
@@ -14696,13 +14674,9 @@ public class Client extends GameShell {
 							var5.drawString(4 + this.messageIndent[var7], 255, var10, this.messageText[var7]);
 						} else if (var10 > 0 && var10 < 110) {
 							int var13 = 4;
-							if (var12 == 1) {
-								this.imageModIcons[0].plotSprite(var10 - 12, var13);
-								var13 += 14;
-							}
-							if (var12 == 2) {
-								this.imageModIcons[1].plotSprite(var10 - 12, var13);
-								var13 += 14;
+							if (var12 != -1 && this.imageModIcons[var12] != null) {
+								this.imageModIcons[var12].plotSprite(var10 - 12, var13);
+								var13 += ChatIcons.ICON_WIDTH;
 							}
 							var5.drawString(var13, 0, var10, var11 + ":");
 							int var14 = var13 + var5.stringWidTag(var11) + 8;
@@ -14717,13 +14691,9 @@ public class Client extends GameShell {
 							byte var15 = 4;
 							var5.drawString(var15, 0, var10, "From");
 							int var16 = var15 + var5.stringWidTag("From ");
-							if (var12 == 1) {
-								this.imageModIcons[0].plotSprite(var10 - 12, var16);
-								var16 += 14;
-							}
-							if (var12 == 2) {
-								this.imageModIcons[1].plotSprite(var10 - 12, var16);
-								var16 += 14;
+							if (var12 != -1 && this.imageModIcons[var12] != null) {
+								this.imageModIcons[var12].plotSprite(var10 - 12, var16);
+								var16 += ChatIcons.ICON_WIDTH;
 							}
 							var5.drawString(var16, 0, var10, var11 + ":");
 							int var17 = var16 + var5.stringWidTag(var11) + 8;
@@ -15046,13 +15016,15 @@ public class Client extends GameShell {
 		PixFont font = this.fontPlain12;
 		String name = sender == null ? "" : sender;
 		int crown = 0;
-		if (name.startsWith("@cr1@") || name.startsWith("@cr2@")) {
+		if (ChatIcons.iconAt(name, 0) != -1) {
 			name = name.substring(5);
-			crown = 14;
+			crown = ChatIcons.ICON_WIDTH;
 		}
 		switch (type) {
 			case 0:
-				return text.contains("@cr1@") || text.contains("@cr2@") ? 14 : 0;
+				// A game message has no prefix of its own; its icons are measured where they sit, by
+				// wrapChat's ChatIcons.width, rather than reserved at the front of the first line.
+				return 0;
 			case 1:
 			case 2:
 				return crown + font.stringWidTag(name) + 8;
@@ -15083,22 +15055,23 @@ public class Client extends GameShell {
 		boolean indented = !(type == 0 || type == 4 || type == 5 || type == 8);
 		int first = CHAT_WIDTH - prefix;
 		int rest = indented ? first : CHAT_WIDTH;
-		if (font.stringWidTag(text) <= first || first < 60) {
+		if (ChatIcons.width(font, text) <= first || first < 60) {
 			out.add(text);
 			return out;
 		}
 		String colour = "";
+		boolean shadow = false;
 		String remaining = text;
 		int width = first;
 		while (remaining.length() > 0) {
-			if (font.stringWidTag(remaining) <= width) {
+			if (ChatIcons.width(font, remaining) <= width) {
 				out.add(remaining);
 				break;
 			}
 			int cut = -1;
 			for (int i = 1; i < remaining.length(); i++) {
 				if (remaining.charAt(i) == ' ') {
-					if (font.stringWidTag(remaining.substring(0, i)) > width) {
+					if (ChatIcons.width(font, remaining.substring(0, i)) > width) {
 						break;
 					}
 					cut = i;
@@ -15106,7 +15079,7 @@ public class Client extends GameShell {
 			}
 			if (cut <= 0) {
 				cut = 1;
-				while (cut < remaining.length() && font.stringWidTag(remaining.substring(0, cut + 1)) <= width) {
+				while (cut < remaining.length() && ChatIcons.width(font, remaining.substring(0, cut + 1)) <= width) {
 					cut++;
 				}
 			}
@@ -15115,7 +15088,9 @@ public class Client extends GameShell {
 			for (int i = 0; i + 4 < line.length(); i++) {
 				if (line.charAt(i) == '@' && line.charAt(i + 4) == '@') {
 					String tag = line.substring(i + 1, i + 4);
-					if (!tag.startsWith("cr")) {
+					if (tag.equals("sh1") || tag.equals("sh0")) {
+						shadow = tag.equals("sh1");
+					} else if (!tag.startsWith("cr")) {
 						colour = tag.equals("bla") ? "" : line.substring(i, i + 5);
 					}
 					i += 4;
@@ -15124,6 +15099,9 @@ public class Client extends GameShell {
 			remaining = remaining.substring(cut).trim();
 			if (remaining.length() > 0 && colour.length() > 0) {
 				remaining = colour + remaining;
+			}
+			if (remaining.length() > 0 && shadow) {
+				remaining = "@sh1@" + remaining;
 			}
 			width = rest;
 		}
