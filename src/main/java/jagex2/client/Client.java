@@ -14184,6 +14184,11 @@ public class Client extends GameShell {
 			this.updateClanContent(arg1, var4);
 			return;
 		}
+		if (var4 == 204) {
+			// 474's Friends tab title, which says which world you are on
+			arg1.text = "Friends List - World " + (nodeId - 9);
+			return;
+		}
 		if ((var4 < 1 || var4 > 100) && (var4 < 701 || var4 > 800)) {
 			if (var4 >= 101 && var4 <= 200 || !(var4 < 801 || var4 > 900)) {
 				int var6 = this.friendCount;
