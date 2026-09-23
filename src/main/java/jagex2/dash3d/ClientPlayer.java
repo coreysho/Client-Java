@@ -1,6 +1,7 @@
 package jagex2.dash3d;
 
 import deob.ObfuscatedName;
+import jagex2.client.ChatIcons;
 import jagex2.client.Client;
 import jagex2.config.IdkType;
 import jagex2.config.NpcType;
@@ -90,6 +91,10 @@ public class ClientPlayer extends ClientEntity {
 
 	@ObfuscatedName("ZGNGQRPJ.yb")
 	public String name;
+
+	// The icons others see beside this player's name - crown and XP-mode badge - as ChatIcons
+	// markers, from the byte the engine appends to the appearance block. "" from a server without it.
+	public String icons = "";
 
 	@ObfuscatedName("ZGNGQRPJ.a(Z)LLZYQDKJV;")
 	public Model getHeadModel() {
@@ -393,6 +398,7 @@ public class ClientPlayer extends ClientEntity {
 		this.name = JString.formatDisplayName(JString.fromBase37(arg0.g8()));
 		this.field1675 = arg0.g1();
 		this.field1681 = arg0.g2();
+		this.icons = arg0.pos < arg0.data.length ? ChatIcons.forPlayer(arg0.g1()) : "";
 		this.field1680 = true;
 		this.field1676 = 0L;
 		int var7 = this.field1674[5];

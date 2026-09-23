@@ -5663,8 +5663,8 @@ public class Client extends GameShell {
 				String var6 = this.messageSender[var4];
 				boolean var7 = false;
 				// any rank icon in front of the name (ChatIcons), not only the two crowns
-				if (var6 != null && ChatIcons.iconAt(var6, 0) != -1) {
-					var6 = var6.substring(5);
+				if (var6 != null) {
+					var6 = var6.substring(ChatIcons.leading(var6).length());
 				}
 				if ((var5 == 3 || var5 == 7) && (var5 == 7 || this.chatPrivateMode == 0 || this.chatPrivateMode == 1 && this.isFriend(var6))) {
 					int var10 = 329 - var3 * 13;
@@ -5713,8 +5713,8 @@ public class Client extends GameShell {
 				String var9 = this.messageSender[var6];
 				boolean var10 = false;
 				// any rank icon in front of the name (ChatIcons), not only the two crowns
-				if (var9 != null && ChatIcons.iconAt(var9, 0) != -1) {
-					var9 = var9.substring(5);
+				if (var9 != null) {
+					var9 = var9.substring(ChatIcons.leading(var9).length());
 				}
 				if (var7 == 0) {
 					var4++;
@@ -7129,17 +7129,8 @@ public class Client extends GameShell {
 								localPlayer.chatEffect = effect;
 								localPlayer.chatTimer = 150;
 
-								if (this.staffmodlevel >= 5) {
-									this.addMessage("@cr7@" + localPlayer.name, localPlayer.chatMessage, 2);
-								} else if (this.staffmodlevel == 4) {
-									this.addMessage("@cr6@" + localPlayer.name, localPlayer.chatMessage, 2);
-								} else if (this.staffmodlevel == 2) {
-									this.addMessage("@cr2@" + localPlayer.name, localPlayer.chatMessage, 2);
-								} else if (this.staffmodlevel == 1) {
-									this.addMessage("@cr1@" + localPlayer.name, localPlayer.chatMessage, 2);
-								} else {
-									this.addMessage(localPlayer.name, localPlayer.chatMessage, 2);
-								}
+								String icons = localPlayer.icons.length() > 0 ? localPlayer.icons : ChatIcons.forPlayer(this.staffmodlevel == 3 ? 2 : this.staffmodlevel);
+								this.addMessage(icons + localPlayer.name, localPlayer.chatMessage, 2);
 
 								if (this.chatPublicMode == 2) {
 									this.chatPublicMode = 3;
@@ -8786,10 +8777,10 @@ public class Client extends GameShell {
 			if (this.messageText[var4] != null) {
 				int var5 = this.messageType[var4];
 				String var6 = this.messageSender[var4];
-				// the sender's rank icon, as an imageModIcons index, or -1 (ChatIcons)
-				int var7 = var6 == null ? -1 : ChatIcons.iconAt(var6, 0);
-				if (var7 != -1) {
-					var6 = var6.substring(5);
+				// the sender's icons (ChatIcons markers), taken off the front of the name
+				String var7 = ChatIcons.leading(var6);
+				if (var6 != null) {
+					var6 = var6.substring(var7.length());
 				}
 				if ((var5 == 3 || var5 == 7) && (var5 == 7 || this.chatPrivateMode == 0 || this.chatPrivateMode == 1 && this.isFriend(var6))) {
 					int var8 = 329 - var3 * 13;
@@ -8806,9 +8797,9 @@ public class Client extends GameShell {
 					var2.drawString(var9, 0, var8, "From");
 					var2.drawString(var9, 65535, var8 - 1, "From");
 					int var10 = var9 + var2.stringWidTag("From ");
-					if (var7 != -1 && this.imageModIcons[var7] != null) {
-						this.imageModIcons[var7].plotSprite(var8 - 12, var10);
-						var10 += ChatIcons.ICON_WIDTH;
+					if (var7.length() > 0) {
+						ChatIcons.draw(var2, this.imageModIcons, var10, var8, 0, var7);
+						var10 += ChatIcons.width(var2, var7);
 					}
 					var2.drawString(var10, 0, var8, var6 + ": " + this.messageText[var4]);
 					var2.drawString(var10, 65535, var8 - 1, var6 + ": " + this.messageText[var4]);
@@ -8873,7 +8864,11 @@ public class Client extends GameShell {
 		if (this.menuSize > 2) {
 			var2 = var2 + "@whi@ / " + (this.menuSize - 2) + " more options";
 		}
-		this.fontBold12.drawStringAntiMacro(true, loopCycle / 1000, 4, 16777215, 15, var2);
+		if (ChatIcons.iconCount(var2) > 0) {
+			ChatIcons.draw(this.fontBold12, this.imageModIcons, 4, 15, 16777215, "@sh1@" + var2);
+		} else {
+			this.fontBold12.drawStringAntiMacro(true, loopCycle / 1000, 4, 16777215, 15, var2);
+		}
 	}
 
 	@ObfuscatedName("client.p(Z)V")
@@ -8910,8 +8905,10 @@ public class Client extends GameShell {
 			if (var7 > var2 && var7 < var2 + var4 && var8 > var10 - 13 && var8 < var10 + 3) {
 				var11 = 16776960;
 			}
-			this.fontBold12.drawStringTag(var11, var2 + 3, var10, true,
-				this.fitMenuText(this.menuOption[this.menuRowIndex(p)], var4 - 6));
+			// ChatIcons draws a player's crown and badge where the markers sit; a row without any is
+			// the same drawStringTag call it always was.
+			ChatIcons.draw(this.fontBold12, this.imageModIcons, var2 + 3, var10, var11,
+				"@sh1@" + this.fitMenuText(this.menuOption[this.menuRowIndex(p)], var4 - 6));
 		}
 		// A menu with rows it is not showing says so, in the ground-item overlay's own colours. A
 		// menu that runs off the bottom of the screen with no mark is what this round is fixing;
@@ -8936,7 +8933,7 @@ public class Client extends GameShell {
 	// A menu row cut down to $max pixels with "..." on the end, never inside an @col@ tag: every '@'
 	// in a menu option opens or closes one, so an odd count means the cut landed inside a tag.
 	private String fitMenuText(String text, int max) {
-		if (text == null || this.fontBold12.stringWidTag(text) <= max) {
+		if (text == null || ChatIcons.width(this.fontBold12, text) <= max) {
 			return text;
 		}
 		int dots = this.fontBold12.stringWidTag("...");
@@ -8951,7 +8948,7 @@ public class Client extends GameShell {
 			if ((ats & 1) == 1) {
 				continue;
 			}
-			if (this.fontBold12.stringWidTag(cut) + dots <= max) {
+			if (ChatIcons.width(this.fontBold12, cut) + dots <= max) {
 				return cut + "...";
 			}
 		}
@@ -11570,17 +11567,10 @@ public class Client extends GameShell {
 						arg2.chatColour = var16 >> 8;
 						arg2.chatEffect = var16 & 0xFF;
 						arg2.chatTimer = 150;
-						if (var17 >= 5) {
-							this.addMessage("@cr7@" + arg2.name, var25, 1);
-						} else if (var17 == 4) {
-							this.addMessage("@cr6@" + arg2.name, var25, 1);
-						} else if (var17 == 2 || var17 == 3) {
-							this.addMessage("@cr2@" + arg2.name, var25, 1);
-						} else if (var17 == 1) {
-							this.addMessage("@cr1@" + arg2.name, var25, 1);
-						} else {
-							this.addMessage(arg2.name, var25, 2);
-						}
+						// The icons come from the appearance (crown and XP-mode badge). A server that does
+						// not send them leaves only the chat mask's crown, which is what this drew before.
+						String icons = arg2.icons.length() > 0 ? arg2.icons : ChatIcons.forPlayer(var17 == 3 ? 2 : var17);
+						this.addMessage(icons + arg2.name, var25, var17 > 0 ? 1 : 2);
 					} catch (Exception var29) {
 						signlink.reporterror("cde2");
 					}
@@ -11826,7 +11816,7 @@ public class Client extends GameShell {
 		}
 		int var2 = this.fontBold12.stringWidTag("Choose Option");
 		for (int var3 = 0; var3 < this.menuSize; var3++) {
-			int var11 = this.fontBold12.stringWidTag(this.menuOption[var3]);
+			int var11 = ChatIcons.width(this.fontBold12, this.menuOption[var3]);
 			if (var11 > var2) {
 				var2 = var11;
 			}
@@ -12904,9 +12894,9 @@ public class Client extends GameShell {
 		}
 		String var6;
 		if (arg3.field1681 == 0) {
-			var6 = arg3.name + getCombatLevelTag(arg3.field1675, localPlayer.field1675) + " (level-" + arg3.field1675 + ")";
+			var6 = arg3.icons + arg3.name + getCombatLevelTag(arg3.field1675, localPlayer.field1675) + " (level-" + arg3.field1675 + ")";
 		} else {
-			var6 = arg3.name + " (skill-" + arg3.field1681 + ")";
+			var6 = arg3.icons + arg3.name + " (skill-" + arg3.field1681 + ")";
 		}
 		if (this.objSelected == 1) {
 			this.menuOption[this.menuSize] = "Use " + this.objSelectedName + " with @whi@" + var6;
@@ -14570,10 +14560,10 @@ public class Client extends GameShell {
 					}
 					int var10 = CHAT_LOG_H - 7 - var6 * 14 + this.chatScrollOffset;
 					String var11 = this.messageSender[var7];
-					// the sender's rank icon, as an imageModIcons index, or -1 (ChatIcons)
-					int var12 = var11 == null ? -1 : ChatIcons.iconAt(var11, 0);
-					if (var12 != -1) {
-						var11 = var11.substring(5);
+					// the sender's icons (ChatIcons markers), taken off the front of the name
+					String var12 = ChatIcons.leading(var11);
+					if (var11 != null) {
+						var11 = var11.substring(var12.length());
 					}
 					if (var9 == 0) {
 						if (var10 > 0 && var10 < CHAT_LOG_H + 33) {
@@ -14586,9 +14576,9 @@ public class Client extends GameShell {
 							var5.drawString(4 + this.messageIndent[var7], 255, var10, this.messageText[var7]);
 						} else if (var10 > 0 && var10 < CHAT_LOG_H + 33) {
 							int var13 = 4;
-							if (var12 != -1 && this.imageModIcons[var12] != null) {
-								this.imageModIcons[var12].plotSprite(var10 - 12, var13);
-								var13 += ChatIcons.ICON_WIDTH;
+							if (var12.length() > 0) {
+								ChatIcons.draw(var5, this.imageModIcons, var13, var10, 0, var12);
+								var13 += ChatIcons.width(var5, var12);
 							}
 							var5.drawString(var13, 0, var10, var11 + ":");
 							int var14 = var13 + var5.stringWidTag(var11) + 8;
@@ -14603,9 +14593,9 @@ public class Client extends GameShell {
 							byte var15 = 4;
 							var5.drawString(var15, 0, var10, "From");
 							int var16 = var15 + var5.stringWidTag("From ");
-							if (var12 != -1 && this.imageModIcons[var12] != null) {
-								this.imageModIcons[var12].plotSprite(var10 - 12, var16);
-								var16 += ChatIcons.ICON_WIDTH;
+							if (var12.length() > 0) {
+								ChatIcons.draw(var5, this.imageModIcons, var16, var10, 0, var12);
+								var16 += ChatIcons.width(var5, var12);
 							}
 							var5.drawString(var16, 0, var10, var11 + ":");
 							int var17 = var16 + var5.stringWidTag(var11) + 8;
@@ -14928,11 +14918,9 @@ public class Client extends GameShell {
 	private int chatPrefixWidth(String sender, String text, int type) {
 		PixFont font = this.fontPlain12;
 		String name = sender == null ? "" : sender;
-		int crown = 0;
-		if (ChatIcons.iconAt(name, 0) != -1) {
-			name = name.substring(5);
-			crown = ChatIcons.ICON_WIDTH;
-		}
+		String lead = ChatIcons.leading(name);
+		int crown = ChatIcons.iconCount(lead) * ChatIcons.ICON_WIDTH;
+		name = name.substring(lead.length());
 		switch (type) {
 			case 0:
 				// A game message has no prefix of its own; its icons are measured where they sit, by

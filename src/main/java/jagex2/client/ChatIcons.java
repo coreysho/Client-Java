@@ -55,6 +55,33 @@ public final class ChatIcons {
 		return n == '1' ? 1 : n == '0' ? 0 : -1;
 	}
 
+	/** The icon markers at the very front of a sender's name - a crown, a badge, both or neither. */
+	public static String leading(String text) {
+		if (text == null) {
+			return "";
+		}
+		int i = 0;
+		while (iconAt(text, i) != -1) {
+			i += 5;
+		}
+		return text.substring(0, i);
+	}
+
+	/**
+	 * The markers for the icons byte at the end of a player's appearance (engine Player.chatIcons):
+	 * the crown in the low nibble - 1 silver, 2 gold, 4 developer, 5 owner - and the XP-mode badge in
+	 * the high one - 1 Realism, 2 5x, 3 10x. Crown first, the order ~broadcast_name uses.
+	 */
+	public static String forPlayer(int icons) {
+		int crown = icons & 0xF;
+		int badge = icons >> 4 & 0xF;
+		String s = crown >= 5 ? "@cr7@" : crown == 4 ? "@cr6@" : crown >= 2 ? "@cr2@" : crown == 1 ? "@cr1@" : "";
+		if (badge >= 1 && badge <= 3) {
+			s += "@cr" + (badge + 2) + "@";
+		}
+		return s;
+	}
+
 	/** How many icon markers the text holds. */
 	public static int iconCount(String text) {
 		int n = 0;
