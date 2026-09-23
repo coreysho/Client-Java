@@ -14260,6 +14260,8 @@ public class Client extends GameShell {
 					arg1.modelType = 6;
 					arg1.model = (int) (localPlayer.field1676 ^ localPlayer.field1676 >>> 32) & 0x7FFF;
 					arg1.anim = localPlayer.field1181;
+					// and turning, as OSRS's Equipment Stats model does: a full turn about every 14s
+					arg1.yan = loopCycle * 3 & 0x7FF;
 				}
 			} else if (var4 == 327) {
 				arg1.xan = 150;
@@ -14477,7 +14479,7 @@ public class Client extends GameShell {
 				return;
 			}
 			int world = this.clanMemberWorld[i];
-			com.text = (world == nodeId ? "@gre@World" : "@yel@World") + (world - 9);
+			com.text = (world == nodeId ? "@gre@World " : "@yel@World ") + (world - 9);
 		}
 	}
 
