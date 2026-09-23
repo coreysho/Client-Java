@@ -7,11 +7,12 @@ import jagex2.graphics.PixFont;
  * Icons and shadowed text inside a chatbox line: the rank crowns, and the XP-mode badges that the
  * rare-drop broadcasts and ::yell put beside a player's name.
  *
- * AN ICON IS A FIVE-CHARACTER MARKER in the text, "@cr1@" to "@cr7@", naming imageModIcons[0..6]:
+ * AN ICON IS A FIVE-CHARACTER MARKER in the text, "@cr1@" to "@cr8@", naming imageModIcons[0..7]:
  *   @cr1@ silver crown (moderator)    @cr3@ Realism badge (1x)
  *   @cr2@ gold crown (administrator)  @cr4@ 5x badge
  *   @cr6@ purple crown (developer)    @cr5@ 10x badge
  *   @cr7@ red crown (owner)
+ *   @cr8@ blue and gold crown (a second owner)
  * The first two were already the markers public and private chat put in front of a sender's name,
  * so the numbering carries on from them rather than starting a second scheme. Every marker is the
  * shape of a colour tag - "@" + three characters + "@" - which is what makes this degrade well: an
@@ -32,8 +33,8 @@ import jagex2.graphics.PixFont;
  */
 public final class ChatIcons {
 
-	/** A 13-pixel sprite and one pixel of space after it. */
-	public static final int ICON_WIDTH = 14;
+	/** A 13-pixel sprite and three pixels of space after it - one looked cramped beside the next icon or the name. */
+	public static final int ICON_WIDTH = 16;
 
 	private ChatIcons() {
 	}
@@ -53,6 +54,33 @@ public final class ChatIcons {
 		}
 		char n = text.charAt(i + 3);
 		return n == '1' ? 1 : n == '0' ? 0 : -1;
+	}
+
+	/** The icon markers at the very front of a sender's name - a crown, a badge, both or neither. */
+	public static String leading(String text) {
+		if (text == null) {
+			return "";
+		}
+		int i = 0;
+		while (iconAt(text, i) != -1) {
+			i += 5;
+		}
+		return text.substring(0, i);
+	}
+
+	/**
+	 * The markers for the icons byte at the end of a player's appearance (engine Player.chatIcons):
+	 * the crown in the low nibble - 1 silver, 2 gold, 4 developer, 5 owner, 6 second owner - and the XP-mode badge in
+	 * the high one - 1 Realism, 2 5x, 3 10x. Crown first, the order ~broadcast_name uses.
+	 */
+	public static String forPlayer(int icons) {
+		int crown = icons & 0xF;
+		int badge = icons >> 4 & 0xF;
+		String s = crown >= 6 ? "@cr8@" : crown == 5 ? "@cr7@" : crown == 4 ? "@cr6@" : crown >= 2 ? "@cr2@" : crown == 1 ? "@cr1@" : "";
+		if (badge >= 1 && badge <= 3) {
+			s += "@cr" + (badge + 2) + "@";
+		}
+		return s;
 	}
 
 	/** How many icon markers the text holds. */

@@ -1,6 +1,7 @@
 package jagex2.dash3d;
 
 import deob.ObfuscatedName;
+import jagex2.client.ChatIcons;
 import jagex2.client.Client;
 import jagex2.config.IdkType;
 import jagex2.config.NpcType;
@@ -90,6 +91,10 @@ public class ClientPlayer extends ClientEntity {
 
 	@ObfuscatedName("ZGNGQRPJ.yb")
 	public String name;
+
+	// The icons others see beside this player's name - crown and XP-mode badge - as ChatIcons
+	// markers, from the byte the engine appends to the appearance block. "" from a server without it.
+	public String icons = "";
 
 	@ObfuscatedName("ZGNGQRPJ.a(Z)LLZYQDKJV;")
 	public Model getHeadModel() {
@@ -255,6 +260,54 @@ public class ClientPlayer extends ClientEntity {
 		return var22;
 	}
 
+	/**
+	 * The whole player as they are dressed, unlit and unanimated, for an interface to light and pose
+	 * itself - 474's Equipment Stats screen shows you standing in what you wear (Client client code 328,
+	 * Component model type 6). The same parts method573 builds the scene model from, or null while any
+	 * of them has not loaded yet.
+	 */
+	public Model getBodyModel() {
+		if (!this.field1680 || this.field1679 != null) {
+			return null;
+		}
+		for (int i = 0; i < 12; i++) {
+			int part = this.field1674[i];
+			if (part >= 256 && part < 512 && !IdkType.field1699[part - 256].method577()) {
+				return null;
+			}
+			if (part >= 512 && !ObjType.get(part - 512).method225(this.field1677)) {
+				return null;
+			}
+		}
+		Model[] parts = new Model[12];
+		int count = 0;
+		for (int i = 0; i < 12; i++) {
+			int part = this.field1674[i];
+			if (part >= 256 && part < 512) {
+				Model m = IdkType.field1699[part - 256].method578();
+				if (m != null) {
+					parts[count++] = m;
+				}
+			}
+			if (part >= 512) {
+				Model m = ObjType.get(part - 512).method222(this.field1677);
+				if (m != null) {
+					parts[count++] = m;
+				}
+			}
+		}
+		Model body = new Model(count, parts, (byte) -89);
+		for (int i = 0; i < 5; i++) {
+			if (this.field1682[i] != 0) {
+				body.method373(Client.DESIGN_BODY_COLOUR[i][0], Client.DESIGN_BODY_COLOUR[i][this.field1682[i]]);
+				if (i == 1) {
+					body.method373(Client.DESIGN_HAIR_COLOUR[0], Client.DESIGN_HAIR_COLOUR[this.field1682[i]]);
+				}
+			}
+		}
+		return body;
+	}
+
 	@ObfuscatedName("ZGNGQRPJ.b(I)Z")
 	public boolean method351() {
 		return this.field1680;
@@ -393,6 +446,7 @@ public class ClientPlayer extends ClientEntity {
 		this.name = JString.formatDisplayName(JString.fromBase37(arg0.g8()));
 		this.field1675 = arg0.g1();
 		this.field1681 = arg0.g2();
+		this.icons = arg0.pos < arg0.data.length ? ChatIcons.forPlayer(arg0.g1()) : "";
 		this.field1680 = true;
 		this.field1676 = 0L;
 		int var7 = this.field1674[5];
