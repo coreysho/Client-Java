@@ -14254,6 +14254,13 @@ public class Client extends GameShell {
 				if (arg1.scroll <= arg1.height) {
 					arg1.scroll = arg1.height + 1;
 				}
+			} else if (var4 == 328) {
+				// 474's Equipment Stats: you, standing in what you wear, idling
+				if (localPlayer != null) {
+					arg1.modelType = 6;
+					arg1.model = (int) (localPlayer.field1676 ^ localPlayer.field1676 >>> 32) & 0x7FFF;
+					arg1.anim = localPlayer.field1181;
+				}
 			} else if (var4 == 327) {
 				arg1.xan = 150;
 				arg1.yan = (int) (Math.sin((double) loopCycle / 40.0D) * 256.0D) & 0x7FF;

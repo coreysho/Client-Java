@@ -425,6 +425,10 @@ public class Component {
 			model = obj.getInvModel(50);
 		} else if (type == 5) {
 			model = null;
+		} else if (type == 6) {
+			// the local player's whole body, dressed (ClientPlayer.getBodyModel); id is a hash of what
+			// they are wearing, so a change of clothes is a new cache entry rather than a stale one
+			model = Client.localPlayer.getBodyModel();
 		}
 
 		if (model != null) {
