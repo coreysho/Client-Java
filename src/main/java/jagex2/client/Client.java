@@ -621,6 +621,9 @@ public class Client extends GameShell {
 	// crown; 6 the owner's. See ChatIcons.
 	public Pix8[] imageModIcons = new Pix8[7];
 
+	// the clan list's rank icons: friend, Recruit .. General, owner, staff (content sprites/clanrank)
+	public Pix32[] imageClanRanks = new Pix32[9];
+
 	@ObfuscatedName("client.Gg")
 	public boolean designGender = true;
 
@@ -3514,6 +3517,14 @@ public class Client extends GameShell {
 
 			for (int i = 0; i < 2; i++) {
 				this.imageModIcons[i] = new Pix8(jagMedia, "mod_icons", i);
+			}
+			// Clan rank icons - optional like the badges: a cache without them draws the list without icons.
+			for (int i = 0; i < this.imageClanRanks.length; i++) {
+				try {
+					this.imageClanRanks[i] = new Pix32(jagMedia, "clanrank", i);
+				} catch (Exception ignored) {
+					this.imageClanRanks[i] = null;
+				}
 			}
 			// The badges are optional: a cache from before they existed has only the two crowns, and
 			// ChatIcons draws a missing sprite as nothing rather than failing the whole load.
@@ -14180,7 +14191,7 @@ public class Client extends GameShell {
 	@ObfuscatedName("client.a(BLEWIXBTLV;)V")
 	public void updateInterfaceContent(Component arg1) {
 		int var4 = arg1.clientCode;
-		if (var4 >= 1001 && var4 <= 1300) {
+		if (var4 >= 1001 && var4 <= 1400) {
 			this.updateClanContent(arg1, var4);
 			return;
 		}
@@ -14486,9 +14497,19 @@ public class Client extends GameShell {
 				com.text = "";
 				return;
 			}
-			int world = this.clanMemberWorld[i];
-			com.text = (world == nodeId ? "@gre@World " : "@yel@World ") + (world - 9);
+			// in the row's own colour, 474's pale yellow, as its script 197 wrote it
+			com.text = "World " + (this.clanMemberWorld[i] - 9);
+		} else if (code >= 1301 && code <= 1400) {
+			// the rank icon in front of the name (474's sprites 1004-1012, the clanrank sheet)
+			int i = code - 1301;
+			com.graphic = in && i < this.clanCount ? this.clanRankIcon(this.clanMemberRank[i]) : null;
 		}
+	}
+
+	/** clanrank frame for a rank: 0 friend, 1-6 Recruit to General, 7 owner, 127 staff; -1 has none. */
+	private Pix32 clanRankIcon(int rank) {
+		int frame = rank >= 0 && rank <= 7 ? rank : rank == 127 ? 8 : -1;
+		return frame == -1 ? null : this.imageClanRanks[frame];
 	}
 
 	private int clanRankOfSelf() {
