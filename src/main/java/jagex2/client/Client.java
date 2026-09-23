@@ -14847,8 +14847,16 @@ public class Client extends GameShell {
 			} else {
 				var8 = localPlayer.name;
 			}
-			var5.drawString(4, 0, CHAT_H - 6, var8 + ":");
-			var5.drawString(var5.stringWidTag(var8 + ": ") + 6, 255, CHAT_H - 6, this.chatTyped + "*");
+			// your own crown and XP-mode badge in front of your name, as OSRS's input line shows them -
+			// the same icons a line you send is given
+			String ownIcons = localPlayer != null && localPlayer.icons.length() > 0 ? localPlayer.icons : ChatIcons.forPlayer(this.staffmodlevel == 3 ? 2 : this.staffmodlevel);
+			int inputX = 4;
+			if (ownIcons.length() > 0) {
+				ChatIcons.draw(var5, this.imageModIcons, inputX, CHAT_H - 6, 0, ownIcons);
+				inputX += ChatIcons.width(var5, ownIcons);
+			}
+			var5.drawString(inputX, 0, CHAT_H - 6, var8 + ":");
+			var5.drawString(inputX + var5.stringWidTag(var8 + ": ") + 2, 255, CHAT_H - 6, this.chatTyped + "*");
 			Pix2D.hline(0, 0, CHAT_LOG_H, CHAT_W);
 		} else {
 			this.drawInterface(CHAT_IF_Y, CHAT_IF_X, Component.get(this.stickyChatInterfaceId), 0);
