@@ -45,6 +45,7 @@ import jagex2.io.OnDemandRequest;
 import jagex2.io.Packet;
 import jagex2.io.Protocol;
 import jagex2.jstring.JString;
+import jagex2.sound.AreaSounds;
 import jagex2.sound.Wave;
 import jagex2.wordenc.WordFilter;
 import jagex2.wordenc.WordPack;
@@ -2055,6 +2056,11 @@ public class Client extends GameShell {
 	@ObfuscatedName("client.Hj")
 	public boolean waveEnabled = true;
 
+	// 474's area sounds (jagex2/sound/AreaSounds.java) and their volume, 0 to 127, from the Options
+	// tab's fourth slider (a varp with clientcode 10)
+	public AreaSounds areaSounds = new AreaSounds();
+	public int areaSoundVolume = 127;
+
 	@ObfuscatedName("client.Uj")
 	public volatile boolean flameActive0 = false;
 
@@ -3595,6 +3601,7 @@ public class Client extends GameShell {
 			LocType.unpack(jagConfig);
 			FloType.unpack(jagConfig);
 			ObjType.unpack(jagConfig);
+			AreaSounds.unpack(jagConfig);
 			NpcType.unpack(jagConfig);
 			IdkType.unpack(jagConfig);
 			SpotAnimType.unpack(jagConfig);
@@ -4520,6 +4527,7 @@ public class Client extends GameShell {
 		}
 		this.stream = null;
 		this.ingame = false;
+		this.areaSounds.stopAll();
 		this.titleScreenState = 0;
 		this.username = "";
 		this.password = "";
@@ -5432,6 +5440,7 @@ public class Client extends GameShell {
 
 	@ObfuscatedName("client.M(I)V")
 	public void updateAudio() {
+		this.areaSounds.update(this.scene, this.currentLevel, localPlayer == null ? 0 : localPlayer.field1157, localPlayer == null ? 0 : localPlayer.field1158, lowMem ? 0 : this.areaSoundVolume, this.ingame && this.sceneState == 2 && localPlayer != null);
 		for (int var2 = 0; var2 < this.waveCount; var2++) {
 			if (this.waveDelay[var2] <= 0) {
 				boolean var3 = false;
@@ -14187,6 +14196,10 @@ public class Client extends GameShell {
 		}
 		if (var3 == 9) {
 			this.bankArrangeMode = var4;
+		}
+		if (var3 == 10) {
+			// area sounds: 0 loudest to 4 off, as the sound effects slider
+			this.areaSoundVolume = var4 == 0 ? 127 : var4 == 1 ? 96 : var4 == 2 ? 64 : var4 == 3 ? 32 : 0;
 		}
 	}
 
