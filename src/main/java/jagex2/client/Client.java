@@ -12689,21 +12689,13 @@ public class Client extends GameShell {
 			this.out.p2_alt1(var6);
 		}
 		if (var5 == 1668) {
+			// EXAMINE_NPC (2026-09-23): examine is answered by the server now, which prints the same
+			// description this used to and then anything else worth knowing - the elemental weakness.
+			// It is not an interaction: nothing walks, faces or stops.
 			ClientNpc var53 = this.npcs[var6];
 			if (var53 != null) {
-				NpcType var54 = var53.field1370;
-				if (var54.field1425 != null) {
-					var54 = var54.method476();
-				}
-				if (var54 != null) {
-					String var55;
-					if (var54.field1463 == null) {
-						var55 = "It's a " + var54.field1455 + ".";
-					} else {
-						var55 = new String(var54.field1463);
-					}
-					this.addMessage("", var55, 0);
-				}
+				this.out.p1isaac(150);
+				this.out.p2(var6);
 			}
 		}
 		if (var5 == 26) {
