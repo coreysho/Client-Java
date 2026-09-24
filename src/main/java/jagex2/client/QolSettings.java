@@ -68,7 +68,7 @@ public final class QolSettings {
 		"Tab replies to last PM", "Escape closes interfaces", "Middle-mouse camera drag",
 		"Scroll wheel zooms camera", "Scroll wheel scrolls chat", "Scroll wheel scrolls interfaces",
 		"XP drops", "Ground item names", "Left-click swaps (F10)", "Hide roofs",
-		"Barrows doors that open glow green", "Anti-drag (items drag after 0.6s)"
+		"Barrows doors that open glow green", "Anti-drag (items drag after 0.2s)"
 	};
 
 	// Every default is ON, with ONE exception. For the twelve that predate this class that was the
