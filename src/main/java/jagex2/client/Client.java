@@ -6064,13 +6064,14 @@ public class Client extends GameShell {
 					int var14 = this.menuParamB[this.menuSize - 1];
 					int var15 = this.menuParamC[this.menuSize - 1];
 					Component var16 = Component.get(var15);
-					if (var16.clientCode == 206 && this.bankSearchText.length() > 0) {
-						// Bank search: the visible cells are slots from every tab at once, so a drag
-						// between two of them would reorder the real list underneath the tab counts.
-						// OSRS locks rearranging while a search is up too.
-						return;
-					}
-					if (var16.draggable || var16.swappable) {
+					// Bank search: the visible cells are slots from every tab at once, so a drag
+					// between two of them would reorder the real list underneath the tab counts.
+					// OSRS locks rearranging while a search is up too. Only the drag is locked: the
+					// press falls through to the plain left-click below, so a result withdraws on a
+					// left click as any bank item does. (A draggable item's click is normally made on
+					// release, by the drag code - returning here used to swallow it altogether.)
+					boolean searching = var16.clientCode == 206 && this.bankSearchText.length() > 0;
+					if (!searching && (var16.draggable || var16.swappable)) {
 						this.objGrabThreshold = false;
 						this.objDragCycles = 0;
 						this.objDragInterfaceId = var15;
