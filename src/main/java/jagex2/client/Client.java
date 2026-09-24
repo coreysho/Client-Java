@@ -370,6 +370,12 @@ public class Client extends GameShell {
 	// thing you are configuring is the thing under the cursor - you never have to arm a mode, go
 	// find a target, and remember what you were doing when you get there.
 	private static final int SWAP_PANEL_KEY = 1017; // F10, the list of what you have set
+
+	// Worn options: an item's own options in the Worn Equipment tab, after Remove (ObjType.wearop).
+	// Menu actions WEAROP_ACTION..+7 are worn options 1-8; below 1000 so they stay above Examine.
+	// WEAROP_TAB is the sidebar slot the equipment tab sits in (content's ^tab_wornitems).
+	private static final int WEAROP_ACTION = 600;
+	private static final int WEAROP_TAB = 4;
 	private static final int SWAP_PANEL_W = 340;
 	private static final int SWAP_PANEL_ROW_H = 15;
 	private static final int SWAP_PANEL_HEADER_H = 24;
@@ -6484,6 +6490,17 @@ public class Client extends GameShell {
 				String name = loc != null ? loc.field1630 : "?";
 				return "target=loc id=" + locId + " name=\"" + name + "\" coords=(" + (paramB + this.sceneBaseTileX) + "," + (paramC + this.sceneBaseTileZ) + "," + this.currentLevel + ")";
 			}
+			case WEAROP_ACTION:
+			case WEAROP_ACTION + 1:
+			case WEAROP_ACTION + 2:
+			case WEAROP_ACTION + 3:
+			case WEAROP_ACTION + 4:
+			case WEAROP_ACTION + 5:
+			case WEAROP_ACTION + 6:
+			case WEAROP_ACTION + 7: {
+				// Worn options: paramA = obj id, paramB = worn slot
+				return "target=item id=" + paramA + " slot=" + paramB + " (worn, option " + (action - WEAROP_ACTION + 1) + ")";
+			}
 			case 891:
 			case 894: {
 				// Inventory item actions (OPHELD5/INV_BUTTON5, incl. shift-click drop): paramA = obj
@@ -12193,6 +12210,18 @@ public class Client extends GameShell {
 				this.selectedArea = 3;
 			}
 		}
+		if (var5 >= WEAROP_ACTION && var5 < WEAROP_ACTION + ObjType.WEAROP_COUNT) {
+			// WEAROP (custom): worn option 1-8 of the item in the Worn Equipment tab
+			this.out.p1isaac(153);
+			this.out.p1(var5 - WEAROP_ACTION + 1);
+			this.out.p2(var6);
+			this.out.p2(var3);
+			this.out.p2(var4);
+			this.selectedCycle = 0;
+			this.selectedInterface = var4;
+			this.selectedItem = var3;
+			this.selectedArea = 2;
+		}
 		if (var5 == 553) {
 			ClientNpc var10 = this.npcs[var6];
 			if (var10 != null) {
@@ -14061,6 +14090,29 @@ public class Client extends GameShell {
 													if (var25 == 2) {
 														this.menuAction[this.menuSize] = 324;
 													}
+													this.menuParamA[this.menuSize] = var23.field845;
+													this.menuParamB[this.menuSize] = realSlot;
+													this.menuParamC[this.menuSize] = var13.id;
+													this.menuSize++;
+												}
+											}
+										}
+										if (var23.wearop != null && var13.layer == this.tabInterfaceId[WEAROP_TAB]) {
+											// OSRS's worn options: in the Worn Equipment tab an item offers its own
+											// options under Remove - a glory's four teleports, a slayer helmet's
+											// Check. The menu is stored bottom-to-top, so they go in last-first and
+											// BEFORE the component's own options below, which leaves Remove on top as
+											// the left click and the item's options under it in their own order.
+											//
+											// The tab is recognised by the sidebar slot it is shown in, not by a
+											// component id, for the reason the placeholder note below gives: an id
+											// hardcoded here is a number nobody maintaining the content would look
+											// for. The server checks the rest (WearOpHandler): that the component
+											// shows the player's own worn items and the item has that option.
+											for (int w = ObjType.WEAROP_COUNT - 1; w >= 0; w--) {
+												if (var23.wearop[w] != null) {
+													this.menuOption[this.menuSize] = var23.wearop[w] + " @lre@" + var23.field811;
+													this.menuAction[this.menuSize] = WEAROP_ACTION + w;
 													this.menuParamA[this.menuSize] = var23.field845;
 													this.menuParamB[this.menuSize] = realSlot;
 													this.menuParamC[this.menuSize] = var13.id;

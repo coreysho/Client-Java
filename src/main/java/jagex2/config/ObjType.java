@@ -155,6 +155,12 @@ public class ObjType {
 	@ObfuscatedName("GSCQQEUA.w")
 	public String[] field830;
 
+	// Worn options (custom, obj opcodes 120-127): what the item offers in the Worn Equipment tab
+	// after Remove - a glory's teleports, a slayer helmet's Check. OSRS keeps these in obj params
+	// 451-458, which 377 has no room for. Selecting one sends WEAROP; see Client.useMenuOption.
+	public static final int WEAROP_COUNT = 8;
+	public String[] wearop;
+
 	@ObfuscatedName("GSCQQEUA.a(II)Z")
 	public boolean method220(int arg0) {
 		int var3 = this.field816;
@@ -197,6 +203,7 @@ public class ObjType {
 			var2.field810 = "Login to a members' server to use this object.".getBytes();
 			var2.field820 = null;
 			var2.field830 = null;
+			var2.wearop = null;
 			var2.field814 = 0;
 		}
 		return var2;
@@ -440,6 +447,11 @@ public class ObjType {
 				this.contrast = arg1.g1b() * 5;
 			} else if (var3 == 115) {
 				this.field814 = arg1.g1();
+			} else if (var3 >= 120 && var3 < 120 + WEAROP_COUNT) {
+				if (this.wearop == null) {
+					this.wearop = new String[WEAROP_COUNT];
+				}
+				this.wearop[var3 - 120] = arg1.gjstr();
 			}
 		}
 	}
@@ -662,6 +674,7 @@ public class ObjType {
 		this.field859 = false;
 		this.field820 = null;
 		this.field830 = null;
+		this.wearop = null;
 		this.field835 = -1;
 		this.field813 = -1;
 		this.field860 = 0;
