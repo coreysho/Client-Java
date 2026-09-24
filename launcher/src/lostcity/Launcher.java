@@ -26,13 +26,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JProgressBar;
 import javax.swing.SwingUtilities;
 
-// THE LOST CITY LAUNCHER. Players run this instead of the client. Every start it asks GitHub for
+// THE DEATH PLATEAU LAUNCHER. Players run this instead of the client. Every start it asks GitHub for
 // the latest client release (.github/workflows/release.yml publishes one on every push), downloads
 // it if it is newer than the one it has, and runs it. So a client change reaches everybody the next
 // time they start the game, and nobody is sent a jar again.
 //
-// Everything lives in ~/.lostcity: client.jar, and client.version holding the release tag it came
-// from. If GitHub cannot be reached the launcher runs whatever client it already has, and only a
+// Everything lives in ~/.deathplateau: client.jar, and client.version holding the release tag it
+// came from. (It was ~/.lostcity until the server was named; see migrate.) If GitHub cannot be reached the launcher runs whatever client it already has, and only a
 // first start with no client at all is an error.
 //
 //   java -jar launcher.jar           update if needed, then play
@@ -48,7 +48,9 @@ public final class Launcher {
     private static final Pattern TAG = Pattern.compile("\"tag_name\"\\s*:\\s*\"([^\"]+)\"");
     private static final Pattern URL_ = Pattern.compile("\"browser_download_url\"\\s*:\\s*\"([^\"]*/" + Pattern.quote(ASSET) + ")\"");
 
-    private final File dir = new File(System.getProperty("user.home"), ".lostcity");
+    private final File dir = new File(System.getProperty("user.home"), ".deathplateau");
+    // where launchers before the rename kept the client - moved out of by migrate()
+    private final File oldDir = new File(System.getProperty("user.home"), ".lostcity");
     private final File jar = new File(dir, ASSET);
     private final File version = new File(dir, "client.version");
 
@@ -69,6 +71,7 @@ public final class Launcher {
             fail("Could not create " + dir);
             return;
         }
+        migrate();
 
         try {
             status("Checking for updates...");
@@ -105,6 +108,35 @@ public final class Launcher {
             return;
         }
         System.exit(0);
+    }
+
+    // ~/.lostcity is where the client lived before the server was named Death Plateau. Its client
+    // and version come across the first time (so nobody downloads the game again for the rename), and
+    // then the old folder's own files are deleted, and the folder with them if that empties it. A
+    // client still closing in there keeps its jar locked on Windows for a moment, so whatever cannot
+    // be deleted now is left for the next start.
+    private void migrate() {
+        if (!oldDir.isDirectory()) {
+            return;
+        }
+        File oldJar = new File(oldDir, ASSET), oldVersion = new File(oldDir, "client.version");
+        try {
+            if (!jar.isFile() && oldJar.isFile() && oldVersion.isFile()) {
+                Files.copy(oldJar.toPath(), jar.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                Files.copy(oldVersion.toPath(), version.toPath(), StandardCopyOption.REPLACE_EXISTING);
+                log("moved the client over from " + oldDir);
+            }
+        } catch (IOException e) {
+            log("could not copy the old client: " + e.getMessage());
+            jar.delete();
+            version.delete();
+        }
+        for (String name : new String[] { ASSET, "client.version", ASSET + ".part", "launcher-run.jar" }) {
+            new File(oldDir, name).delete();
+        }
+        if (oldDir.delete()) {
+            log("removed " + oldDir);
+        }
     }
 
     // Into a temp file, checked to be a real jar, then moved over the old one - so a download cut off

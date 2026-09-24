@@ -15204,8 +15204,9 @@ public class Client extends GameShell {
 
 	@ObfuscatedName("client.a(Ljava/lang/String;BLjava/lang/String;I)V")
 	// AUTO-UPDATE (2026-09-21). The server refuses an out-of-date client at login with response 6,
-	// "RuneScape has been updated!". A client the launcher installed - one running from
-	// ~/.lostcity/client.jar - no longer has to be closed and reopened by hand: it starts the
+	// "Death Plateau has been updated!". A client the launcher installed - one running from
+	// ~/.deathplateau/client.jar, or ~/.lostcity/client.jar where launchers from before the server was
+	// named put it - no longer has to be closed and reopened by hand: it starts the
 	// launcher (compiled into this jar too, lostcity.Launcher) with the same Java and the same
 	// -Dlostcity.* settings, which downloads the new client and opens it, and then this one exits.
 	// Any other jar - a dev build run from build/libs, say - is left alone, so a developer's own
@@ -15213,10 +15214,14 @@ public class Client extends GameShell {
 	private boolean relaunchForUpdate() {
 		try {
 			java.io.File jar = new java.io.File(Client.class.getProtectionDomain().getCodeSource().getLocation().toURI());
-			java.io.File home = new java.io.File(System.getProperty("user.home"), ".lostcity");
-			if (!jar.isFile() || !home.getCanonicalFile().equals(jar.getCanonicalFile().getParentFile())) {
+			java.io.File userHome = new java.io.File(System.getProperty("user.home"));
+			java.io.File home = new java.io.File(userHome, ".deathplateau");
+			java.io.File parent = jar.isFile() ? jar.getCanonicalFile().getParentFile() : null;
+			if (parent == null || !(parent.equals(home.getCanonicalFile()) || parent.equals(new java.io.File(userHome, ".lostcity").getCanonicalFile()))) {
 				return false;
 			}
+			// this launcher is the new one, which moves an old install into ~/.deathplateau
+			home.mkdirs();
 			String bin = System.getProperty("java.home") + java.io.File.separator + "bin" + java.io.File.separator;
 			boolean windows = System.getProperty("os.name").toLowerCase().contains("win");
 			String javaBin = bin + (windows ? "javaw.exe" : "java");
