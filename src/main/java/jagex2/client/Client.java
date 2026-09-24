@@ -3490,8 +3490,15 @@ public class Client extends GameShell {
 				this.imageMapscene[i] = new Pix8(jagMedia, "mapscene", i);
 			}
 
-			for (int i = 0; i < 70; i++) {
-				this.imageMapfunction[i] = new Pix32(jagMedia, "mapfunction", i);
+			// 70 is the trading post's (Old School's Grand Exchange icon), newer than some servers' media
+			for (int i = 0; i < 71; i++) {
+				try {
+					this.imageMapfunction[i] = new Pix32(jagMedia, "mapfunction", i);
+				} catch (Exception e) {
+					if (i < 70) {
+						throw e;
+					}
+				}
 			}
 
 			for (int i = 0; i < 5; i++) {
