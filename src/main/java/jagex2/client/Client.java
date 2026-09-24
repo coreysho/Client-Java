@@ -12926,7 +12926,9 @@ public class Client extends GameShell {
 			return;
 		}
 		String var6 = arg0.field1455;
-		if (arg0.field1442 != 0) {
+		// A combat level only on what you can fight, as Old School shows it: a banker, a shopkeeper or
+		// a fishing spot with a level in its config no longer reads "(level-2)".
+		if (arg0.field1442 != 0 && hasAttackOp(arg0)) {
 			var6 = var6 + getCombatLevelTag(arg0.field1442, localPlayer.field1675) + " (level-" + arg0.field1442 + ")";
 		}
 		if (this.objSelected == 1) {
@@ -13620,6 +13622,19 @@ public class Client extends GameShell {
 			}
 			this.scrollGrabbed = true;
 		}
+	}
+
+	// Whether an npc has an Attack option - the one thing that makes it a fight rather than a talk.
+	private static boolean hasAttackOp(jagex2.config.NpcType npc) {
+		if (npc.field1449 == null) {
+			return false;
+		}
+		for (String op : npc.field1449) {
+			if (op != null && op.equalsIgnoreCase("Attack")) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	@ObfuscatedName("client.e(II)Ljava/lang/String;")
