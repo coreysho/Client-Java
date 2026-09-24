@@ -4822,7 +4822,11 @@ public class Client extends GameShell {
 
 					this.objDragArea = 0;
 
-					if (this.objGrabThreshold && this.objDragCycles >= 5) {
+					// A click that moves a few pixels while held is a drag after 5 client cycles (100ms) -
+					// Old School's own default - or, with Anti-drag on, after 30 (600ms), RuneLite's Anti
+					// Drag default, which is what Old School PvP is played with: a fast switch whose mouse
+					// is still moving as the button comes up stays a click on the item, not a lost drag.
+					if (this.objGrabThreshold && this.objDragCycles >= (QolSettings.on(QolSettings.ANTI_DRAG) ? 30 : 5)) {
 						this.hoveredSlotInterfaceId = -1;
 						this.bankTabHovered = -1;
 						this.hoveredSlotPad = false;

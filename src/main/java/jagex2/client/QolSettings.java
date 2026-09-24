@@ -53,12 +53,13 @@ public final class QolSettings {
 	public static final int MENU_SWAPPER = 14;
 	public static final int ROOFS_OFF = 15;
 	public static final int BARROWS_DOORS = 16;
+	public static final int ANTI_DRAG = 17;
 
 	/** Stable keys written to disk. NEVER rename one of these - it silently resets that setting. */
 	private static final String[] KEYS = {
 		"chat_history", "compass_north", "shift_drop", "space_continue", "dialogue_keys",
 		"bankpin_keys", "tab_reply", "esc_close", "mmb_camera", "wheel_zoom", "wheel_chat",
-		"wheel_interface", "xp_drops", "ground_items", "menu_swapper", "roofs_off", "barrows_doors"
+		"wheel_interface", "xp_drops", "ground_items", "menu_swapper", "roofs_off", "barrows_doors", "anti_drag"
 	};
 
 	private static final String[] LABELS = {
@@ -67,7 +68,7 @@ public final class QolSettings {
 		"Tab replies to last PM", "Escape closes interfaces", "Middle-mouse camera drag",
 		"Scroll wheel zooms camera", "Scroll wheel scrolls chat", "Scroll wheel scrolls interfaces",
 		"XP drops", "Ground item names", "Left-click swaps (F10)", "Hide roofs",
-		"Barrows doors that open glow green"
+		"Barrows doors that open glow green", "Anti-drag (items drag after 0.6s)"
 	};
 
 	// Every default is ON, with ONE exception. For the twelve that predate this class that was the
@@ -80,7 +81,7 @@ public final class QolSettings {
 	// School ships its own Roofs toggle off as well, so on is the surprising answer in both places.
 	private static final boolean[] DEFAULTS = {
 		true, true, true, true, true, true, true, true, true, true, true, true, true, true, true,
-		false, true
+		false, true, true
 	};
 
 	public static final int COUNT = KEYS.length;
