@@ -1,6 +1,6 @@
 # EVERY PUSH TO dev-logging IS A CLIENT RELEASE. The client is built here and published as the
 # latest GitHub Release, as client.jar; players' launchers (launcher/, attached to every release as
-# launcher.jar) fetch it the next time they start the game. So shipping a client change is: push.
+# Death-Plateau-Launcher.jar) fetch it the next time they start the game. So shipping a client change is: push.
 #
 # Tags are client-<run number>, which only ever go up. The launcher compares tags for equality, not
 # order, so it always takes whatever GitHub calls latest - including after a revert.
@@ -43,14 +43,16 @@ jobs:
       run: |
         mkdir -p launcher/out
         javac -source 8 -target 8 -encoding UTF-8 -d launcher/out $(find launcher/src -name '*.java')
-        jar cfe launcher.jar lostcity.Launcher -C launcher/out .
+        jar cfe Death-Plateau-Launcher.jar lostcity.Launcher -C launcher/out .
 
     - name: Publish
       env:
         GH_TOKEN: ${{ github.token }}
       run: |
         TAG="client-${{ github.run_number }}"
-        gh release create "$TAG" client.jar launcher.jar \
+        # GitHub turns spaces in an asset's file name into dots, so the name players see on the
+        # release page is the label after the #
+        gh release create "$TAG" client.jar "Death-Plateau-Launcher.jar#Death Plateau Launcher" \
           --target "${{ github.sha }}" \
           --title "Client $TAG" \
           --notes "$(git log -1 --format=%s)" \

@@ -35,8 +35,8 @@ import javax.swing.SwingUtilities;
 // came from. (It was ~/.lostcity until the server was named; see migrate.) If GitHub cannot be reached the launcher runs whatever client it already has, and only a
 // first start with no client at all is an error.
 //
-//   java -jar launcher.jar           update if needed, then play
-//   java -jar launcher.jar --check   update if needed, then exit (for testing)
+//   java -jar Death-Plateau-Launcher.jar           update if needed, then play
+//   java -jar Death-Plateau-Launcher.jar --check   update if needed, then exit (for testing)
 //
 // Any -Dlostcity.* property given to the launcher (lostcity.host, lostcity.webport) is passed on to
 // the client. Java 8, no dependencies: the one thing a player needs is the Java they already have.
@@ -232,7 +232,7 @@ public final class Launcher {
 
     private void window() {
         run(() -> {
-            frame = new JFrame("Death Plateau");
+            frame = new JFrame("Death Plateau Launcher");
             label = new JLabel("Starting...");
             bar = new JProgressBar(0, 1000);
             bar.setIndeterminate(true);
