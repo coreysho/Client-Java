@@ -200,7 +200,7 @@ public final class Launcher {
 
     private void window() {
         run(() -> {
-            frame = new JFrame("Lost City");
+            frame = new JFrame("Death Plateau");
             label = new JLabel("Starting...");
             bar = new JProgressBar(0, 1000);
             bar.setIndeterminate(true);
@@ -242,7 +242,7 @@ public final class Launcher {
     private void fail(String text) {
         log("error: " + text);
         if (frame != null) {
-            run(() -> JOptionPane.showMessageDialog(frame, text, "Lost City", JOptionPane.ERROR_MESSAGE));
+            run(() -> JOptionPane.showMessageDialog(frame, text, "Death Plateau", JOptionPane.ERROR_MESSAGE));
         }
         System.exit(1);
     }

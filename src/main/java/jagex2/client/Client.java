@@ -2093,6 +2093,12 @@ public class Client extends GameShell {
 	// -Dlostcity.host=... / -Dlostcity.webport=... (or LOSTCITY_HOST / LOSTCITY_WEBPORT
 	// env vars) so friends outside the LAN can point at your public DuckDNS domain
 	// instead of the LXC's internal IP, without touching source.
+	// The server's name and slogan, wherever the client says them: the window, the login screen and
+	// the loading and error messages. (The logo is an image, content/title/logo.png.)
+	public static final String SERVER_NAME = "Death Plateau";
+	public static final String SLOGAN = "The true golden era.";
+	public static final int SLOGAN_COLOUR = 0xE8C35A;
+
 	public static String SERVER_HOST = System.getProperty("lostcity.host", System.getenv().getOrDefault("LOSTCITY_HOST", "rsps-project-lost-city.duckdns.org"));
 	public static int WEB_PORT = Integer.parseInt(System.getProperty("lostcity.webport", System.getenv().getOrDefault("LOSTCITY_WEBPORT", "8888")));
 
@@ -2997,7 +3003,7 @@ public class Client extends GameShell {
 
 	public static void main(String[] args) {
 		try {
-			System.out.println("Project Client");
+			System.out.println(SERVER_NAME);
 			DevLog.log("SESSION", "=== DEV CLIENT === logging every menu action, chat message, and login/logout to console + dev-client.log");
 
 			if (args.length == 5) {
@@ -3891,7 +3897,7 @@ public class Client extends GameShell {
 		short var4 = 360;
 		short var5 = 200;
 		byte var6 = 20;
-		this.fontBold12.centreString(var4 / 2, var5 / 2 - 26 - var6, 16777215, "RuneScape is loading - please wait...");
+		this.fontBold12.centreString(var4 / 2, var5 / 2 - 26 - var6, 16777215, SERVER_NAME + " is loading - please wait...");
 		int var7 = var5 / 2 - 18 - var6;
 		Pix2D.drawRect(var7, 34, 9179409, var4 / 2 - 152, 304);
 		Pix2D.drawRect(var7 + 1, 32, 0, var4 / 2 - 151, 302);
@@ -3925,7 +3931,7 @@ public class Client extends GameShell {
 			var2.setFont(new Font("Helvetica", 1, 16));
 			var2.setColor(Color.yellow);
 			byte var4 = 35;
-			var2.drawString("Sorry, an error has occured whilst loading RuneScape", 30, var4);
+			var2.drawString("Sorry, an error has occured whilst loading " + SERVER_NAME, 30, var4);
 			int var6 = var4 + 50;
 			var2.setColor(Color.white);
 			var2.drawString("To fix this try the following (in order):", 30, var6);
@@ -3947,14 +3953,14 @@ public class Client extends GameShell {
 			var2.setFont(new Font("Helvetica", 1, 20));
 			var2.setColor(Color.white);
 			var2.drawString("Error - unable to load game!", 50, 50);
-			var2.drawString("To play RuneScape make sure you play from", 50, 100);
-			var2.drawString("http://www.runescape.com", 50, 150);
+			var2.drawString("To play " + SERVER_NAME + " make sure you play from", 50, 100);
+			var2.drawString("the official " + SERVER_NAME + " launcher", 50, 150);
 		}
 		if (this.errorStarted) {
 			this.flameActive = false;
 			var2.setColor(Color.yellow);
 			byte var5 = 35;
-			var2.drawString("Error a copy of RuneScape already appears to be loaded", 30, var5);
+			var2.drawString("Error a copy of " + SERVER_NAME + " already appears to be loaded", 30, var5);
 			int var10 = var5 + 50;
 			var2.setColor(Color.white);
 			var2.drawString("To fix this try the following (in order):", 30, var10);
@@ -4423,7 +4429,7 @@ public class Client extends GameShell {
 				this.loginMessage0 = "Your account is already logged in.";
 				this.loginMessage1 = "Try again in 60 secs...";
 			} else if (var8 == 6) {
-				this.loginMessage0 = "RuneScape has been updated!";
+				this.loginMessage0 = SERVER_NAME + " has been updated!";
 				this.loginMessage1 = "Please reload this page.";
 				if (this.relaunchForUpdate()) {
 					this.loginMessage1 = "Updating - restarting in a moment...";
@@ -7755,8 +7761,9 @@ public class Client extends GameShell {
 		if (this.titleScreenState == 0) {
 			int var6 = var4 / 2 + 80;
 			this.fontPlain11.centreStringTag(true, 7711145, var6, var3 / 2, this.onDemand.message);
-			int var7 = var4 / 2 - 20;
-			this.fontBold12.centreStringTag(true, 16776960, var7, var3 / 2, "Welcome to RuneScape");
+			int var7 = var4 / 2 - 28;
+			this.fontBold12.centreStringTag(true, 16776960, var7, var3 / 2, "Welcome to " + SERVER_NAME);
+			this.fontPlain12.centreStringTag(true, SLOGAN_COLOUR, var7 + 16, var3 / 2, SLOGAN);
 			int var18 = var7 + 30;
 			int var8 = var3 / 2 - 80;
 			int var9 = var4 / 2 + 20;
@@ -7793,7 +7800,7 @@ public class Client extends GameShell {
 			int var15 = var4 / 2 - 35;
 			this.fontBold12.centreStringTag(true, 16777215, var15, var3 / 2, "To create a new account you need to");
 			int var19 = var15 + 15;
-			this.fontBold12.centreStringTag(true, 16777215, var19, var3 / 2, "go back to the main RuneScape webpage");
+			this.fontBold12.centreStringTag(true, 16777215, var19, var3 / 2, "go back to the main " + SERVER_NAME + " webpage");
 			int var20 = var19 + 15;
 			this.fontBold12.centreStringTag(true, 16777215, var20, var3 / 2, "and choose the 'create account'");
 			int var21 = var20 + 15;

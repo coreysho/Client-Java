@@ -18,7 +18,7 @@ public class ViewBox extends JFrame {
 
 	public ViewBox(int height, GameShell shell, int width) {
 		this.shell = shell;
-		this.setTitle("Project Client");
+		this.setTitle(Client.SERVER_NAME);
 		this.setResizable(false);
 
 		BorderLayout manager = new BorderLayout();
