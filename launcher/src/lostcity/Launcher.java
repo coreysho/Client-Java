@@ -41,7 +41,7 @@ import javax.swing.SwingUtilities;
 // Any -Dlostcity.* property given to the launcher (lostcity.host, lostcity.webport) is passed on to
 // the client. Java 8, no dependencies: the one thing a player needs is the Java they already have.
 public final class Launcher {
-    private static final String REPO = "coreysho/Client-Java";
+    private static final String REPO = "coreysho/DeathPlateau-Client";
     private static final String ASSET = "client.jar";
     private static final String API = "https://api.github.com/repos/" + REPO + "/releases/latest";
 
