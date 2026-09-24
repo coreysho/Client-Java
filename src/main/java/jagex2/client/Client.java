@@ -14493,6 +14493,9 @@ public class Client extends GameShell {
 						arg1.text = "Moderator option: Mute player for 48 hours: <OFF>";
 					}
 				}
+				// The welcome screen's other panels - recovery questions (661), the message centre (662),
+				// member credit (665) and their help texts (667, 668) - were Jagex's website's, filled in here
+				// with text this server has no truth for. Their words are now inter_313.if's and the server's.
 				if (var4 == 660) {
 					int var17 = this.currentDay - this.previousLoginDay;
 					String var18;
@@ -14503,69 +14506,14 @@ public class Client extends GameShell {
 					} else {
 						var18 = var17 + " days ago";
 					}
-					arg1.text = "You last logged in @red@" + var18 + "@bla@ from: @red@" + signlink.dns;
-				}
-				if (var4 == 661) {
-					if (this.recoveriesLastChangedDay == 0) {
-						arg1.text = "\\nYou have not yet set any recovery questions.\\nIt is @lre@strongly@yel@ recommended that you do so.\\n\\nIf you don't you will be @lre@unable to recover your\\n@lre@password@yel@ if you forget it, or it is stolen.";
-					} else if (this.recoveriesLastChangedDay <= this.currentDay) {
-						arg1.text = "\\n\\nRecovery Questions Last Set:\\n@gre@" + this.getDateString(this.recoveriesLastChangedDay);
-					} else {
-						int var19 = this.currentDay + 14 - this.recoveriesLastChangedDay;
-						String var20;
-						if (var19 <= 0) {
-							var20 = "Earlier today";
-						} else if (var19 == 1) {
-							var20 = "Yesterday";
-						} else {
-							var20 = var19 + " days ago";
-						}
-						arg1.text = var20 + " you requested@lre@ new recovery\\n@lre@questions.@yel@ The requested change will occur\\non: @lre@" + this.getDateString(this.recoveriesLastChangedDay) + "\\n\\nIf you do not remember making this request\\ncancel it immediately, and change your password.";
-					}
-				}
-				if (var4 == 662) {
-					String var21;
-					if (this.unreadMessageCount == 0) {
-						var21 = "@yel@0 unread messages";
-					} else if (this.unreadMessageCount == 1) {
-						var21 = "@gre@1 unread message";
-					} else {
-						var21 = "@gre@" + this.unreadMessageCount + " unread messages";
-					}
-					arg1.text = "You have " + var21 + "\\nin your message centre.";
+					// the server sends no address when it has none to give (lastAddress 0), rather than 127.0.0.1
+					arg1.text = "You last logged in @red@" + var18 + (this.lastAddress == 0 ? "" : "@bla@ from: @red@" + signlink.dns);
 				}
 				if (var4 == 663) {
 					if (this.daysSincePasswordChanged > 0 && this.daysSincePasswordChanged <= this.currentDay + 10) {
 						arg1.text = "Last password change:\\n@gre@" + this.getDateString(this.daysSincePasswordChanged);
 					} else {
 						arg1.text = "Last password change:\\n@gre@Never changed";
-					}
-				}
-				if (var4 == 665) {
-					if (this.daysOfMembersRemaining > 2 && !membersWorld) {
-						arg1.text = "This is a non-members\\nworld. To enjoy your\\nmembers benefits we\\nrecommend you play on a\\nmembers world instead.";
-					} else if (this.daysOfMembersRemaining > 2) {
-						arg1.text = "\\n\\nYou have @gre@" + this.daysOfMembersRemaining + "@yel@ days of\\nmember credit remaining.";
-					} else if (this.daysOfMembersRemaining > 0) {
-						arg1.text = "You have @gre@" + this.daysOfMembersRemaining + "@yel@ days of\\nmember credit remaining.\\n\\n@lre@Credit low! Renew now\\n@lre@to avoid losing members.";
-					} else {
-						arg1.text = "You are not a member.\\n\\nChoose to subscribe and\\nyou'll get loads of extra\\nbenefits and features.";
-					}
-				}
-				if (var4 == 667) {
-					if (this.daysOfMembersRemaining > 2 && !membersWorld) {
-						arg1.text = "To switch to a members-only world:\\n1) Logout and return to the world selection page.\\n2) Choose one of the members world with a gold star next to it's name.\\n\\nIf you prefer you can continue to use this world,\\nbut members only features will be unavailable here.";
-					} else if (this.daysOfMembersRemaining > 0) {
-						arg1.text = "To extend or cancel a subscription:\\n1) Logout and return to the frontpage of this website.\\n2)Choose the relevant option from the 'membership' section.\\n\\nNote: If you are a credit card subscriber a top-up payment will\\nautomatically be taken when 3 days credit remain.\\n(unless you cancel your subscription, which can be done at any time.)";
-					} else {
-						arg1.text = "To start a subscripton:\\n1) Logout and return to the frontpage of this website.\\n2) Choose 'Start a new subscription'";
-					}
-				}
-				if (var4 == 668) {
-					if (this.recoveriesLastChangedDay > this.currentDay) {
-						arg1.text = "To cancel this request:\\n1) Logout and return to the frontpage of this website.\\n2) Choose 'Cancel recovery questions'.";
-					} else {
-						arg1.text = "To change your recovery questions:\\n1) Logout and return to the frontpage of this website.\\n2) Choose 'Set new recovery questions'.";
 					}
 				}
 			}
