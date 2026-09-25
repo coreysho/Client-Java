@@ -5415,7 +5415,11 @@ public class Client extends GameShell {
 					if (var14 >= 0) {
 						int var15 = var10;
 						int var16 = var11;
-						if (var14 != 22 && var14 != 29 && var14 != 34 && var14 != 36 && var14 != 46 && var14 != 47 && var14 != 48) {
+						// The client scatters most map icons up to three tiles off their loc, a random walk
+						// redone on every scene rebuild; these few stay put. 70 is Death Plateau's trading post
+						// (the Grand Exchange icon): it marks one building, so it sits on it rather than
+						// wandering down the street.
+						if (var14 != 22 && var14 != 29 && var14 != 34 && var14 != 36 && var14 != 46 && var14 != 47 && var14 != 48 && var14 != 70) {
 							byte var17 = 104;
 							byte var18 = 104;
 							int[][] var19 = this.levelCollisionMap[this.currentLevel].field1585;
